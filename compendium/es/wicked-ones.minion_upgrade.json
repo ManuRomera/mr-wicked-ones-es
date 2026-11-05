@@ -1,0 +1,130 @@
+{
+  "label": "Mejoras de los esbirros",
+  "mapping": {
+    "description": "system.description",
+    "checkbox1": "system.upgrade_checkbox_text",
+    "checkbox2": "system.upgrade_checkbox_2_text",
+    "checbox2": "system.upgrade_checkbox_2_text"
+  },
+  "entries": {
+    "Oozing": {
+      "name": "Supurantes",
+      "description": "Los esbirros tienen un espacio de secreción que pueden utilizar para producir una sustancia de su tipo o para acceder a tu suministro.",
+      "checkbox1": "Utilizada",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Ravenous": {
+      "name": "Famélicos",
+      "description": "Si los esbirros consiguen matar a un enemigo vivo, pueden recuperarse.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Equipped": {
+      "name": "Equipados",
+      "description": "Los esbirros obtienen una defensa a tu elección gracias a su equipo. (Elige entre: errores de los esbirros, la detección, la magia, que te pillen mintiendo, las heridas, el movimiento del enemigo o una captura)",
+      "checkbox1": "Utilizada",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Hunting Pet": {
+      "name": "Mascota de caza",
+      "description": "Tienes una mascota o jauría de caza en lugar de tus esbirros. Tiene la mejora compañero y conoce dos de los siguientes trucos: ataque sorpresa, causar confusión, localizar presas, pastorear a la presa, traer. Tu mascota gana +1d al hacer trucos que conoce.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Twisted": {
+      "name": "Deforme",
+      "description": "Una vez por ciclo, los esbirros se transforman y cambian sus dados de acción. Estos cambios permanecen hasta que muten otra vez.",
+      "checkbox1": "Utilizada",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Bonded Spirit": {
+      "name": "Espíritu vinculado",
+      "description": "Tienes un espíritu o panda vinculada mágicamente a ti en lugar de esbirros. Tiene la mejora compañero y dos de los poderes siguientes: manifestarse físicamente, poseer a los débiles de mente, revelar información sobre el pasado y volverse invisible. Puede usarlos una vez cada uno por ciclo.",
+      "checkbox1": "Primer poder utilizado",
+      "checbox2": "Segundo poder utilizado",
+      "checkbox2": "Segundo poder utilizado"
+    },
+    "Trained": {
+      "name": "Adiestrados",
+      "description": "Los esbirros tiran +1d a un tipo específico de proyecto de la fase de descanso: construir, contactar, crear, elaborar, preparar, reclutar, torturar.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Invocation Path": {
+      "name": "Senda de Invocar",
+      "description": "Si les dais la acción Invocar, también debéis elegir la senda mágica de sus conjuros (y solo podrán lanzar conjuros de nivel 0 y 1 de esa misma senda).",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Mindset": {
+      "name": "Mentalidad",
+      "description": "Los esbirros tienen una ventaja mental que puede servir como ajuste de circunstancias a la situación y el efecto: valiente, leal, fanático (podéis inventaros otras).",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Versatile": {
+      "name": "Versátiles",
+      "description": "Los esbirros tienen otra acción primaria (2d) y otras dos acciones secundarias (1d).",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Companion": {
+      "name": "Compañero",
+      "description": "Una mejora especial que solo pueden tener los grupos de esbirros que se hayan conseguido mediante capacidades vocacionales. Al elegir esta capacidad por primera vez, su reclutamiento es automático: siempre se unirán a una incursión sin pedir oro y podréis decidir qué ocurre con ellos cuando los derrotan. Puede que simplemente los hayan noqueado, que hayan huido o que los hayan matado de verdad. Es un permiso narrativo para seguir vivos cuando otros esbirros no podrían. Aun así hay que reclutarlos de nuevo, lo cual incluye el pago de cualquier mejora que hayáis comprado previamente. El oro o la acción de descanso sirven para curar sus heridas o para salir a buscarlos.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Strapped": {
+      "name": "Pertrechados",
+      "description": "Los esbirros tienen un espacio más de suministro que se puede utilizar para acceder a cualquier cosa de la que tengas suministro.",
+      "checkbox1": "Utilizado",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Expendable": {
+      "name": "Prescindibles",
+      "description": "No hace falta volver a reclutar a los esbirros con oro o una acción de descanso cuando los eliminan. Siempre hay más alrededor, vuelves a tenerlos durante la fase de recuperación y conservan esta mejora cuando vuelven. No pueden tener ninguna otra mejora aparte de las otorgadas por una sala o habilidad.",
+      "checkbox1": "Eliminados",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Dormant": {
+      "name": "Durmiente",
+      "description": "De primeras, los esbirros tienen un aspecto pasivo con el que aparentan ser humanos o que les permite que no les detecten a simple vista.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Thrall": {
+      "name": "Servidumbre",
+      "description": "Este aventurero ha sido sometido para convertirse en tu siervo. Tiene las mejoras compañero y mentalidad (leal). También tiene una acción adicional con un valor igual a su nivel y una capacidad de vocación que representa algo que pueda hacer. Si la habilidad necesita que sufra estrés, seras tú quien lo sufra en su lugar.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Fluent": {
+      "name": "Don de lenguas",
+      "description": "Los esbirros saben hablar la lengua de la luz, aunque con un acento muy marcado.",
+      "checkbox1": "",
+      "checbox2": "",
+      "checkbox2": ""
+    },
+    "Adept": {
+      "name": "Adeptos",
+      "description": "Una vez por ciclo de juego, el grupo de esbirros puede lanzar un conjuro de nivel 2. Tiran con -1d, como es normal, pero no sufren estrés.",
+      "checkbox1": "Utilizado",
+      "checbox2": "",
+      "checkbox2": ""
+    }
+  }
+}

@@ -1,0 +1,62 @@
+/**
+ * Paleta de Modo Oscuro y Alto Contraste derivada con color-mix(in oklab, ...)
+ * para las hojas de Wicked Ones (Personaje, Esbirros, Mazmorra, Grupo, Facción y DJ).
+ * REGLA ESTRICTA: Nunca tocar font-family, font o all en button, i, .window-header ni *.
+ */
+
+body.mr-wo-oscuro {
+  --mr-wo-bg-1: #16141b;
+  --mr-wo-bg-2: color-mix(in oklab, var(--mr-wo-bg-1) 86%, #352b42);
+  --mr-wo-bg-3: color-mix(in oklab, var(--mr-wo-bg-1) 74%, #c49a45);
+  --mr-wo-fg-1: #f0e9dc;
+  --mr-wo-fg-2: color-mix(in oklab, var(--mr-wo-fg-1) 78%, #9b8e78);
+  --mr-wo-borde-osc: color-mix(in oklab, #c49a45 45%, #2a2433);
+}
+
+body.mr-wo-oscuro.mr-wo-contraste {
+  --mr-wo-bg-1: #0d0b10;
+  --mr-wo-fg-1: #ffffff;
+  --mr-wo-borde-osc: #f0c465;
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet .window-content {
+  background: var(--mr-wo-bg-1);
+  color: var(--mr-wo-fg-1);
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet input[type="text"],
+body.mr-wo-oscuro .wicked-ones.sheet input[type="number"],
+body.mr-wo-oscuro .wicked-ones.sheet select,
+body.mr-wo-oscuro .wicked-ones.sheet textarea {
+  background: var(--mr-wo-bg-2);
+  color: var(--mr-wo-fg-1);
+  border: 1px solid var(--mr-wo-borde-osc);
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet .label-stripe {
+  background: color-mix(in oklab, #281f30 82%, #c49a45);
+  color: #f7e3b0;
+  border-bottom: 1px solid var(--mr-wo-borde-osc);
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet table tr:nth-child(even) {
+  background: color-mix(in oklab, var(--mr-wo-bg-1) 92%, #ffffff);
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet nav.tabs a.item {
+  background: var(--mr-wo-bg-2);
+  color: var(--mr-wo-fg-2);
+  border: 1px solid var(--mr-wo-borde-osc);
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet nav.tabs a.item.active {
+  background: color-mix(in oklab, #a83228 65%, var(--mr-wo-bg-2));
+  color: #fff8eb;
+  border-color: #e0b458;
+}
+
+body.mr-wo-oscuro .wicked-ones.sheet .item-description,
+body.mr-wo-oscuro .wicked-ones.sheet .item-name,
+body.mr-wo-oscuro .wicked-ones.sheet label {
+  color: var(--mr-wo-fg-1);
+}

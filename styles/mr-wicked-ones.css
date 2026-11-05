@@ -1,0 +1,212 @@
+/**
+ * Estilos base, generador interactivo, tarjetas de chat y modo compacto (mr-resumida)
+ * para MR- Wicked Ones (The Hills Press).
+ * REGLA ESTRICTA: Nunca tocar font-family, font o all en button, i, .window-header ni *.
+ */
+
+:root {
+  --mr-wo-acento: #c49a45;
+  --mr-wo-sangre: #a83228;
+  --mr-wo-fondo: #f4efe6;
+  --mr-wo-superficie: color-mix(in oklab, var(--mr-wo-fondo) 88%, #000000);
+  --mr-wo-borde: color-mix(in oklab, var(--mr-wo-acento) 55%, #2b241d);
+  --mr-wo-texto: #1e1a17;
+  --mr-wo-escala: 1;
+}
+
+/* Container queries y modo compacto (mr-resumida) */
+.wicked-ones.sheet.actor .window-content {
+  container-type: inline-size;
+  font-size: calc(1rem * var(--mr-wo-escala, 1));
+}
+
+.wicked-ones.sheet.actor.mr-resumida {
+  max-height: 620px;
+}
+
+.wicked-ones.sheet.actor.mr-resumida .top-decoration,
+.wicked-ones.sheet.actor.mr-resumida .conquest-hints,
+.wicked-ones.sheet.actor.mr-resumida .downtime-hints {
+  display: none;
+}
+
+@container (max-width: 640px) {
+  .wicked-ones.sheet.actor .base-info img.profile-big {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+  }
+}
+
+/* Tipografía de alta legibilidad acotada sin tocar iconos ni botones */
+body.mr-wo-legible .wicked-ones.sheet p,
+body.mr-wo-legible .wicked-ones.sheet td,
+body.mr-wo-legible .wicked-ones.sheet textarea,
+body.mr-wo-legible .wicked-ones.sheet input[type="text"] {
+  line-height: 1.45;
+  letter-spacing: 0.012em;
+}
+
+/* Ventana del Asistente y Generador MR */
+.mr-wo-generador-app .window-content {
+  padding: 0;
+  background: color-mix(in oklab, #1b1821 92%, var(--mr-wo-acento));
+  color: #efe8d8;
+}
+
+.mr-wo-gen-contenedor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+  gap: 10px;
+}
+
+.mr-wo-gen-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.mr-wo-gen-contenedor button.mr-wo-tab-btn:not([class*="fa-"]) {
+  padding: 8px 6px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in oklab, var(--mr-wo-acento) 45%, transparent);
+  background: color-mix(in oklab, #141118 85%, var(--mr-wo-acento));
+  color: #e6dec8;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.mr-wo-gen-contenedor button.mr-wo-tab-btn.activa:not([class*="fa-"]),
+.mr-wo-gen-contenedor button.mr-wo-tab-btn:hover:not([class*="fa-"]) {
+  background: color-mix(in oklab, var(--mr-wo-acento) 32%, #1d1724);
+  border-color: var(--mr-wo-acento);
+  color: #fff6df;
+}
+
+.mr-wo-gen-cuerpo {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background: color-mix(in oklab, #121016 90%, #2b2333);
+  border: 1px solid color-mix(in oklab, var(--mr-wo-acento) 30%, transparent);
+}
+
+.mr-wo-panel h3 {
+  margin: 0 0 6px 0;
+  color: #f3d792;
+  border-bottom: 1px solid color-mix(in oklab, var(--mr-wo-acento) 40%, transparent);
+  padding-bottom: 4px;
+}
+
+.mr-wo-ayuda {
+  margin: 0 0 10px 0;
+  font-size: 0.9em;
+  color: #cfc6b8;
+}
+
+.mr-wo-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mr-wo-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.mr-wo-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9em;
+  color: #e6dec8;
+}
+
+.mr-wo-panel input,
+.mr-wo-panel select {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid color-mix(in oklab, var(--mr-wo-acento) 45%, #333);
+  background: #1c1822;
+  color: #f6efe2;
+}
+
+.mr-wo-fila-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.mr-wo-gen-contenedor button.mr-wo-btn-primario:not([class*="fa-"]) {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--mr-wo-acento);
+  background: color-mix(in oklab, var(--mr-wo-sangre) 68%, #221418);
+  color: #fff8ea;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mr-wo-gen-contenedor button.mr-wo-btn-secundario:not([class*="fa-"]) {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in oklab, var(--mr-wo-acento) 50%, #3a3242);
+  background: color-mix(in oklab, #25202d 85%, var(--mr-wo-acento));
+  color: #f0e6d2;
+  cursor: pointer;
+}
+
+/* Acciones en tarjetas de chat */
+.mr-wo-chat-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid color-mix(in oklab, var(--mr-wo-acento) 35%, transparent);
+}
+
+.mr-wo-chat-acciones button.mr-wo-btn-chat:not([class*="fa-"]) {
+  flex: 1 1 auto;
+  padding: 4px 8px;
+  font-size: 0.82em;
+  line-height: 1.3;
+  border-radius: 4px;
+  border: 1px solid color-mix(in oklab, var(--mr-wo-acento) 60%, #222);
+  background: color-mix(in oklab, #1e1a24 88%, var(--mr-wo-acento));
+  color: #f4ebd9;
+  cursor: pointer;
+}
+
+.mr-wo-chat-acciones button.mr-wo-btn-chat:hover:not([class*="fa-"]) {
+  background: color-mix(in oklab, var(--mr-wo-sangre) 65%, #1e1a24);
+  border-color: var(--mr-wo-acento);
+}
+
+.mr-wo-resumen-pildoras {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.mr-wo-pildora {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #1a161f;
+  border: 1px solid var(--mr-wo-acento);
+  color: #f5dfb0;
+  font-size: 0.85em;
+  font-weight: 600;
+}

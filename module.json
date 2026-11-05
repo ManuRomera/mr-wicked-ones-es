@@ -1,0 +1,150 @@
+{
+  "id": "mr-wicked-ones-es",
+  "title": "MR- Wicked Ones: Contenido Completo y Campaña",
+  "description": "Expansión completa en español (edición de The Hills Press) y campaña lista para jugar para el sistema Wicked Ones y su traducción wicked-ones-esp. Corrige mapeos de Babele y textos sin traducir de las hojas; añade el Manual completo en diarios, los 4 entornos oficiales con sus 24 facciones y mapas, todas las salas de nivel 1 y 2, trampas, trucos, portones, criaturas de guarida, equipo, armas, suministros, mejunjes, artilugios, pociones y objetos mágicos, los 30 aventureros con sus 6 movimientos ofensivos y defensivos, las tablas de incursión, invasión y modo solitario («El Gran Malo Malvado», «Los Errantes» y «Los Valientes»), generador interactivo, automatización de tiradas en el chat, modo oscuro y accesibilidad, además de la campaña «El Valle Silencioso: Un lugar al que llamar hogar» integrada con MR- Dirección.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Manu Romera",
+      "url": "https://github.com/ManuRomera"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "wicked-ones",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.9.0"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "babele",
+        "type": "module",
+        "compatibility": {},
+        "reason": "Aplica y amplía las traducciones de compendios del sistema."
+      },
+      {
+        "id": "wicked-ones-esp",
+        "type": "module",
+        "compatibility": {},
+        "reason": "Traducción base al español sobre la que este módulo añade todo el contenido que falta y corrige mapeos."
+      }
+    ],
+    "recommends": [
+      {
+        "id": "mr-direccion",
+        "type": "module",
+        "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json",
+        "reason": "Barra del Director de Juego: escenas, música, motivos, efectos, hitos y relojes."
+      }
+    ]
+  },
+  "esmodules": [
+    "js/main.mjs"
+  ],
+  "styles": [
+    "styles/mr-wicked-ones.css",
+    "styles/oscuro.css"
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "aventura-es",
+      "label": "MR- Campaña: El Valle Silencioso y Entornos",
+      "path": "packs/aventura-es",
+      "type": "Adventure",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "manual-es",
+      "label": "MR- Manual y Reglas (The Hills Press)",
+      "path": "packs/manual-es",
+      "type": "JournalEntry",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "labores-es",
+      "label": "MR- Salas N1-N2, Trampas, Trucos, Portones y Criaturas",
+      "path": "packs/labores-es",
+      "type": "Item",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "equipo-es",
+      "label": "MR- Equipo, Armas, Mejunjes, Artilugios, Pociones y Reliquias",
+      "path": "packs/equipo-es",
+      "type": "Item",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "aventureros-es",
+      "label": "MR- Aventureros (con Movimientos) y Ayudantes",
+      "path": "packs/aventureros-es",
+      "type": "Item",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "facciones-es",
+      "label": "MR- Facciones (4 Entornos), Mazmorras y Grupos",
+      "path": "packs/facciones-es",
+      "type": "Actor",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "tablas-es",
+      "label": "MR- Tablas de Incursión, Invasión, Criaturas y Solitario",
+      "path": "packs/tablas-es",
+      "type": "RollTable",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "socket": true,
+  "url": "https://github.com/ManuRomera/mr-wicked-ones-es",
+  "manifest": "https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.json",
+  "download": "https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.zip",
+  "bugs": "https://github.com/ManuRomera/mr-wicked-ones-es/issues",
+  "license": "MIT",
+  "readme": "https://github.com/ManuRomera/mr-wicked-ones-es#readme",
+  "changelog": "https://github.com/ManuRomera/mr-wicked-ones-es/blob/main/CHANGELOG.md"
+}

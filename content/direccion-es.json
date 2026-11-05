@@ -1,0 +1,144 @@
+{
+  "id": "mr-wicked-ones-es",
+  "title": "Wicked Ones · El Valle Silencioso",
+  "scenes": [
+    {
+      "id": "portada",
+      "name": "Portada",
+      "sceneName": "00 · Portada: El Valle Silencioso",
+      "icon": "fa-solid fa-dungeon"
+    },
+    {
+      "id": "mapa_valle",
+      "name": "Mapa del Valle",
+      "sceneName": "01 · Entorno: El Valle Silencioso (Mesa)",
+      "icon": "fa-solid fa-map"
+    },
+    {
+      "id": "incursion_cueva",
+      "name": "R1 · Cueva Mercaderes",
+      "sceneName": "02 · Hito R1: Un lugar al que llamar hogar (Escena)",
+      "icon": "fa-solid fa-campground"
+    },
+    {
+      "id": "plano_cueva",
+      "name": "Plano Cueva",
+      "sceneName": "02b · Plano Táctico: Cuevas del Paso del Mercader (Mesa)",
+      "icon": "fa-solid fa-chess-board"
+    },
+    {
+      "id": "guarida",
+      "name": "R2 · Nuestra Guarida",
+      "sceneName": "03 · Hito R2: Nuestra Guarida (Plano Base I)",
+      "icon": "fa-solid fa-fort-awesome"
+    },
+    {
+      "id": "incursion_abadia",
+      "name": "R3 · Biblioteca Abadía",
+      "sceneName": "04 · Hito R3: Una biblioteca necesita libros (Abadía)",
+      "icon": "fa-solid fa-book-skull"
+    },
+    {
+      "id": "incursion_lobo",
+      "name": "R4 · Ritual del Lobo",
+      "sceneName": "05 · Hito R4: Piel de lobo para un ritual (Bosque)",
+      "icon": "fa-solid fa-moon"
+    },
+    {
+      "id": "invasion",
+      "name": "R5 · ¡Intrusos!",
+      "sceneName": "06 · Hito R5: ¡Matad a los intrusos! (Invasión)",
+      "icon": "fa-solid fa-shield-halved"
+    },
+    {
+      "id": "climax",
+      "name": "R6 · Última Luna Llena",
+      "sceneName": "08 · Hito R6: La última luna llena (Clímax)",
+      "icon": "fa-solid fa-fire-flame-curved"
+    }
+  ],
+  "motifs": [
+    {
+      "id": "acecho",
+      "name": "Acecho en la Guarida",
+      "icon": "fa-solid fa-hammer",
+      "color": "#8a6d3b"
+    },
+    {
+      "id": "incursion",
+      "name": "Incursión Nocturna",
+      "icon": "fa-solid fa-skull",
+      "color": "#b83a2e"
+    },
+    {
+      "id": "ritual",
+      "name": "Artes Oscuras y Ritual",
+      "icon": "fa-solid fa-eye",
+      "color": "#7b4397"
+    },
+    {
+      "id": "invasion",
+      "name": "¡Invasión de Héroes!",
+      "icon": "fa-solid fa-swords",
+      "color": "#d49a35"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "R1",
+      "label": "R1 · Reclamar las Cuevas del Paso del Mercader",
+      "done": false
+    },
+    {
+      "id": "R2",
+      "label": "R2 · Despertar el Corazón y excavar la Guarida",
+      "done": false
+    },
+    {
+      "id": "R3",
+      "label": "R3 · Saquear los grimorios de la Abadía de Piedra Blanca",
+      "done": false
+    },
+    {
+      "id": "R4",
+      "label": "R4 · Cazar al Gran Hombre Lobo del Bosque Susurrante",
+      "done": false
+    },
+    {
+      "id": "R5",
+      "label": "R5 · Aniquilar a la Expedición Invasora en la Mazmorra",
+      "done": false
+    },
+    {
+      "id": "R6",
+      "label": "R6 · Completar el Eclipse y asaltar Ciudad Floresta",
+      "done": false
+    }
+  ],
+  "clocks": [
+    {
+      "id": "alarma_gremio",
+      "name": "Alarma en las Colinas de Piedra Blanca",
+      "value": 0,
+      "max": 4
+    },
+    {
+      "id": "sospecha_abadia",
+      "name": "Sospecha de la Abadía de Piedra Blanca",
+      "value": 0,
+      "max": 6
+    },
+    {
+      "id": "cruzada_floresta",
+      "name": "Cruzada de Ciudad Floresta",
+      "value": 0,
+      "max": 8
+    },
+    {
+      "id": "ritual_eclipse",
+      "name": "Plan Maestro: El Eclipse de la Última Luna",
+      "value": 0,
+      "max": 8
+    }
+  ]
+}

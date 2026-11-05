@@ -1,0 +1,2212 @@
+[
+  {
+    "_id": "FyXmZV51bonUqHkP",
+    "name": "Sala N1 · Almacenes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Cámara excavada con estanterías, barriles y cajas para conservar provisiones, herramientas y materiales de saqueo protegidos de la humedad."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "swWnRRkncW63lg28",
+    "name": "Sala N1 · Cámara de tortura",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Sala insonorizada con potros, cadenas, braseros y herramientas de interrogatorio para quebrar la voluntad de los prisioneros capturados."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "G8lU9ViIcdcRSQz7",
+    "name": "Sala N1 · Celdas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Hilera de calabozos con barrotes de hierro y grilletes anclados a la roca viva para retener cautivos para rescates o sacrificios."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "tbqOKW840shC459b",
+    "name": "Sala N1 · Criadero de engendros",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Foso húmedo y cálido lleno de lodo nutritivo o huevos donde se incuban alimañas y pequeños monstruos de la mazmorra."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "hHUB9UG1qhQHwz6k",
+    "name": "Sala N1 · Cripta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Galería de nichos funerarios y sarcófagos de piedra donde reposan huesos antiguos y espíritus inquietos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "2vvsXLbMzNHwzj8h",
+    "name": "Sala N1 · Cuartel de guardias",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Estancia fortificada junto a las arterias principales de la mazmorra con armeros, mesas de dados y literas para las patrullas de esbirros."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "V4xX5MW7ofYe5Bgz",
+    "name": "Sala N1 · Dormitorios",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Caverna comunitaria con jergones de paja, pieles, hamacas o nichos donde descansan los malvados y sus manadas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "jrS7oL4z578z9mBP",
+    "name": "Sala N1 · Establo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Recinto cercado con comederos de piedra y postes de amarre para monturas monstruosas, huargos o bestias de tiro."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "o5OGvgVPrCZc1tRM",
+    "name": "Sala N1 · Forja",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Fragua alimentada por carbón o fisuras térmicas con yunques, fuelles y pilas de templado para reparar armas y blindajes."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "M0XObir2k7r6OvNZ",
+    "name": "Sala N1 · Foso de entrenamiento",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Patio interior con muñecos de paja acuchillados, dianas y empalizadas donde los esbirros afilan su puntería y brutalidad."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "8FG6ML5pXPTPslYJ",
+    "name": "Sala N1 · Foso de lucha",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Arena circular hundida rodeada de antorchas donde los monstruos resuelven disputas a golpes y celebran combates sangrientos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "4dQcL3ITM9vNcjqk",
+    "name": "Sala N1 · Guarida",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Cubículo cavernoso cubierto de trofeos, huesos roídos y pieles que sirve de aposento privado o nido de una criatura."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "bAUPazPRURD0w26t",
+    "name": "Sala N1 · Laboratorio",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Mesa de piedra cubierta de alambiques, frascos burbujeantes y especímenes disecados para experimentos alquímicos o arcanos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "DJyrB5P6pWwITZIk",
+    "name": "Sala N1 · Perreras",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Jaulas de hierro y corrales de piedra donde se mantiene hambrientos a sabuesos, huargos o reptiles rastreadores."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "jyZlfbPgN5bfx1Jc",
+    "name": "Sala N1 · Sala de banquetes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Amplia estancia con largas mesas de madera robada, espetones de asado y barriles de cerveza negra para los festines de la horda."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "q3s4Ief6xWJVm8TJ",
+    "name": "Sala N1 · Sala de trofeos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Galería decorada con estandartes capturados, escudos abollados y cabezas disecadas de héroes derrotados."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "55i1p2f7uscbWzGA",
+    "name": "Sala N1 · Santuario",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Altar tallado en la roca con velas de sebo negro, ofrendas e ídolos dedicados a los Dioses Oscuros o poderes primigenios."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "1GX1wkpx3hPjVz8q",
+    "name": "Sala N1 · Taller",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Bancos de trabajo repletos de engranajes, poleas, sierras, cuerdas y piezas de repuesto para construir trampas y artilugios."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n1"
+      }
+    }
+  },
+  {
+    "_id": "nJUQ5x5SbOMPOS8G",
+    "name": "Sala N2 · Altar de sacrificios",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Plataforma escalonada con canales de drenaje para la sangre y cadenas rituales donde se canaliza poder oscuro mediante víctimas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "BDtP7odErIVHPR0V",
+    "name": "Sala N2 · Arena de gladiadores",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Coliseo subterráneo con gradas, rastrillos elevables y fosos laterales para espectáculos letales que enardecen a toda la mazmorra."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "C8ku2mweODHTRwLe",
+    "name": "Sala N2 · Armería",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Depósito acorazado repleto de armas afiladas, escudos, munición y pertrechos de guerra listos para equipar a toda la horda."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "b04QUHzOUDeYmemA",
+    "name": "Sala N2 · Biblioteca",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Salón silencioso de estanterías hasta el techo con grimorios encuadernados en piel, mapas robados y pergaminos prohibidos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "BqYiLhGZNy2BtnfJ",
+    "name": "Sala N2 · Bóveda del tesoro",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Cámara blindada tras gruesos muros donde se apilan los cofres de oro, joyas y reliquias arrebatadas al mundo de la superficie."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "nK2yoJQPYx7IMDbS",
+    "name": "Sala N2 · Cámara de invocación",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Círculo hermético grabado con runas de contención e incensarios para atraer demonios, elementales o espíritus del más allá."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "BNrKnk2l1FFhpmkE",
+    "name": "Sala N2 · Cámara del consejo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Sala de mando con un gran mapa en relieve de la región donde los malvados trazan su Plan Maestro y coordinan incursiones."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "AIHKXOBuh8AFfFUN",
+    "name": "Sala N2 · Criadero de bestias",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Complejo de cavernas adaptadas para criar y domesticar depredadores mayores de nivel 2 y 3 para la defensa de la guarida."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "NYdDwRbswm6V1rzM",
+    "name": "Sala N2 · Destilería",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Alambiques gigantes de cobre y cubas de fermentación donde se destilan licores ardientes, elixires y hongos alucinógenos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "vHg7xrHic6ZvofUs",
+    "name": "Sala N2 · Gran salón",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Imponente caverna sostenida por columnas ciclópeas que sirve de corazón social y muestra de poderío de la mazmorra."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "IILaDFj9yjE8EmAv",
+    "name": "Sala N2 · Invernadero subterráneo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Jardín bioluminiscente irrigado por filtraciones donde crecen setas venenosas, raíces carnívoras y hierbas raras."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "uOPoPofGxRCGwMwV",
+    "name": "Sala N2 · Laboratorio alquímico",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Instalación avanzada con hornos de alta presión, destiladores al vacío y reactivos volátiles para fabricar mejunjes y pociones."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "pzHHqcre4FK7V9ci",
+    "name": "Sala N2 · Museo de horrores",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Exposición macabra de aberraciones conservadas en frascos, armaduras encantadas y reliquias malditas que hielan la sangre."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "O5WRMPgFnphaSvGB",
+    "name": "Sala N2 · Observatorio",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Cúpula oculta en la cima del risco o pozo de espejos encantados que permite espiar los astros y las rutas de la región."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "FtKXzW3NfNP0EF4T",
+    "name": "Sala N2 · Pozo de esclavos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Excavación profunda con poleas, capataces y galerías de trabajo forzado donde los cautivos extraen piedra y mineral sin descanso."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "SNpDGSWk6BIOibCw",
+    "name": "Sala N2 · Sala de guerra",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Centro táctico con maquetas de fortalezas enemigas, estandartes de mando y palomas o cuervos mensajeros."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "VZ6U3b2qJsgiRVh5",
+    "name": "Sala N2 · Sala del trono",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Estancia majestuosa presidida por un sitial intimidante desde el que se recibe a emisarios y se juzga a los intrusos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "IokSziI4V0f2WpMW",
+    "name": "Sala N2 · Taller de asedio",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Room",
+      "type_custom": "Sala",
+      "description": "Nave de techos altos con grúas y fraguas pesadas donde se ensamblan arietes, balistas, catapultas y bombas de brea."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "sala_n2"
+      }
+    }
+  },
+  {
+    "_id": "yFlvmctF2CtdJXej",
+    "name": "Trampa N1 · Foso de estacas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Suelo falso de tablas podridas que cede al pisarlo, precipitando a la víctima sobre estacas de madera endurecida al fuego o hierro oxidado."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "8wrf4q7grw0aPqb0",
+    "name": "Trampa N1 · Dardos envenenados",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Placa de presión conectada a tubos ocultos en los muros que disparan una salva de agujas impregnadas en toxina paralizante."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "XRyG6uYUVw3vCBhX",
+    "name": "Trampa N1 · Cuchillas pendulares",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Hachas enormes ocultas en ranuras del techo que oscilan de lado a lado del pasillo al cortar un cable tensor."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "X5iPna57rM0SGjHe",
+    "name": "Trampa N1 · Losa aplastante",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Bloque macizo de granito suspendido por cadenas que se desploma con violencia sobre quienes fuerzan un cofre o puerta."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "QboAeNmTvwPa35RE",
+    "name": "Trampa N1 · Trampa de fuego líquido",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Gárgola o conducto en el dintel que rocía aceite inflamable y una chispa de pedernal sobre el grupo invasor."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "BAhULA8OHwQ6ntW0",
+    "name": "Trampa N1 · Red con contrapeso",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Malla de alambre con garfios que atrapa y suspende del techo a los intrusos, dejándolos expuestos a los guardias."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "biaKL3Lt3DvwX9DH",
+    "name": "Trampa N1 · Ballesta tensada en la puerta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Arbalesta pesada apuntando a la altura del pecho, conectada mediante un cordel al pomo interior de una puerta."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "ejEqDGZxaLRIboNe",
+    "name": "Trampa N1 · Cable de desprendimiento",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Alambre casi invisible a ras de suelo que libera una avalancha de rocas y escombros desde una red en el techo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "dar08LIZ0vuobKwA",
+    "name": "Trampa N1 · Trampa de oso dentada",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Cepos de acero ocultos bajo ceniza o follaje que se cierran de golpe destrozando tobillos e inmovilizando al objetivo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "r42LtbkX62z0fX1g",
+    "name": "Trampa N1 · Gas soporífero",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Vejigas de esporas ocultas bajo las baldosas que estallan al pisarlas, llenando la estancia de una niebla adormecedora."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "NFnD95E0Esr3YBdC",
+    "name": "Trampa N2 · Suelo basculante sobre ácido",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Plataforma equilibrada sobre un eje central que se inclina bruscamente al cruzar la mitad, arrojando a los intrusos a una cuba corrosiva."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "jyoLgRqFdzyD1FS0",
+    "name": "Trampa N2 · Runa explosiva",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Glifo arcano inscrito en el suelo o en un pedestal que detona con una onda expansiva abrasadora cuando alguien se acerca sin la contraseña."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "lthOa1zUD1lFxjFM",
+    "name": "Trampa N2 · Roca rodante",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Esfera colosal de piedra liberada en lo alto de un corredor inclinado que aplasta todo a su paso y bloquea la salida."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "k6ZxtkV2QX8cZmD9",
+    "name": "Trampa N2 · Suelo electrificado",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Baldosas de cobre conectadas a condensadores alquímicos que descargan un arco voltaico devastador cuando se pisa sin calzado aislante."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "yvOAx0uoiFKOfS7K",
+    "name": "Trampa N2 · Techo de pinchos descendente",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Los cerrojos de la sala caen de golpe mientras el techo erizado de lanzas desciende lentamente mediante engranajes pesados."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "7WEPd6aEyTblI6Va",
+    "name": "Trampa N2 · Foso de brea ardiente",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Trampilla doble que deja caer a los aventureros en alquitrán pegajoso mientras teas automáticas prenden la superficie."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "jQFYIYEbOQQFLHu4",
+    "name": "Trampa N2 · Estatua escupefuego",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Ídolo giratorio con depósito interno de nafta que barre toda la cámara con un chorro continuo de llamas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "P9BnIcLl7k1LFMJX",
+    "name": "Trampa N2 · Espejo aturdidor",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Superficie azogada encantada que refleja un destello hipnótico y psíquico capaz de dejar catatónicos a los exploradores."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "0DwX5iMHsPoTanJ1",
+    "name": "Trampa N2 · Agujas de muerte en la cerradura",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Mecanismo de precisión que inyecta veneno de wyvern directamente en los dedos del ladrón que intenta forzar el cerrojo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "PGsTYLtcLgdevHox",
+    "name": "Trampa N2 · Trampa de congelación",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Trap",
+      "type_custom": "Trampa",
+      "description": "Válvulas rúnicas que inundan la sala cerrada con escarcha alquímica instantánea, entumeciendo músculos y quebrando el acero."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "trampa"
+      }
+    }
+  },
+  {
+    "_id": "MheG7cbGCPY9TZrA",
+    "name": "Truco · Puerta falsa sin salida",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Puerta reforzada con múltiples cerrojos complejos que da únicamente a una pared de roca sólida, haciendo perder tiempo y recursos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "JeCJ5wvRhgyPKbj0",
+    "name": "Truco · Pasillo giratorio desorientador",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Sección circular del corredor que rota suavemente sobre rodamientos engrasados para que los intrusos regresen por donde vinieron sin notarlo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "D4cfU79XXBmp7hBJ",
+    "name": "Truco · Ilusión de tesoro brillante",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Montón de piedras y chatarra cubierto por un espejismo de oro y joyas colocado justo sobre una zona de emboscada o trampa."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "RjiwBSra13TofpIB",
+    "name": "Truco · Tobogán engrasado al nivel inferior",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Escaleras cuyos peldaños se abaten convirtiéndose en una rampa cubierta de grasa que envía a los aventureros a una celda o foso."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "rlP9A6CPSpD8dvdG",
+    "name": "Truco · Voces fantasmales intimidantes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Tubos acústicos en las paredes que amplifican gruñidos, lamentos y amenazas para hacer creer que hay un ejército o un dragón cerca."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "gUul46m7VZZ5AfPz",
+    "name": "Truco · Espejos distorsionadores",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Galería de espejos angulados que multiplican el reflejo de unos pocos esbirros para aparentar una horda innumerable."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "2JGHwMdYFRAnPew4",
+    "name": "Truco · Puente ilusorio sobre foso",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Proyección visual de un puente de piedra intacto sobre una grieta profunda, junto a un verdadero puente invisible a un lado."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "h2r84Vj6j2HNABhR",
+    "name": "Truco · Rampa resbaladiza",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Pendiente cubierta de liquen negro o aceite que impide cargar cuerpo a cuerpo y hace caer de bruces a los guerreros con armadura."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "GhRD6NwMkDAgDct7",
+    "name": "Truco · Niebla alucinógena",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Vapor dulzón de hongos que distorsiona las sombras, haciendo que los aventureros confundan a sus propios aliados con monstruos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "d1rggNHny8qZjmab",
+    "name": "Truco · Señuelos de maniquíes armados",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Armaduras vacías y siluetas articuladas tras troneras que absorben los primeros disparos y hechizos de los invasores."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "eNthop8TFX7E9605",
+    "name": "Truco · Laberinto de ecos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Disposición geométrica de pilares que impide saber de qué dirección provienen los pasos, gritos o disparos de los defensores."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "TIJesQWylXw6yaoZ",
+    "name": "Truco · Corriente de aire apaga-antorchas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Conducto de tiro forzado que succiona el aire de golpe al abrir una puerta, apagando antorchas y faroles no mágicos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "feY41LM74MGn8eD0",
+    "name": "Truco · Suelo chillón de alerta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Lajas huecas sobre cámaras de resonancia o grava de cristal que delatan inmediatamente el paso de exploradores sigilosos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "rfDmI4sMqmKzhhJX",
+    "name": "Truco · Escalera que se pliega",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Trick",
+      "type_custom": "Truco",
+      "description": "Tramo de escalones de madera que se suelta desde arriba cuando los intrusos están a mitad de camino, dejándolos aislados en el fondo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "truco"
+      }
+    }
+  },
+  {
+    "_id": "LyxIOQulltlkII4L",
+    "name": "Portón N1 · Portón de roble reforzado con hierro",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Doble hoja de madera gruesa claveteada con bandas de hierro forjado y tranca interior."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "gWAcCuHXeYdky7fV",
+    "name": "Portón N1 · Rastrillo de acero pesado",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Reja vertical de barrotes macizos que se alza mediante un cabrestante con trinquete desde el cuerpo de guardia."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "e1hNIkNd1GAXX6C7",
+    "name": "Portón N1 · Barricada de escombros y espinas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Parapeto improvisado pero denso de rocas, carros volcados y zarzas espinosas con aspilleras para disparar."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "fOoBIXJql2F1kyYa",
+    "name": "Portón N1 · Puente levadizo sobre grieta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Pasarela de tablones pesados suspendida por cadenas sobre una sima natural de la caverna."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "VsQZ8qPcQtv9IgNi",
+    "name": "Portón N1 · Muro ilusorio camuflado",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Entrada oculta tras una lámina de piedra falsa y magia menor que parece parte ininterrumpida de la pared."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "4CvbP7nRjnfZwKqp",
+    "name": "Portón N1 · Cerradura de triple pestillo maestro",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Puerta estrecha de hierro con un mecanismo de tres vueltas que exige tiempo o llaves específicas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "PpKnBcZRHitxtSXX",
+    "name": "Portón N2 · Puerta de piedra con contrapeso",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Losa monolítica de varias toneladas que solo se desliza accionando una palanca oculta o con fuerza sobrehumana."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "lUalfXi2QBIBleii",
+    "name": "Portón N2 · Cerradura de combinación enana",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Bóveda circular con discos concéntricos de bronce que bloquea los pestillos si se introduce una secuencia errónea."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "E3N3kZpniFeCAH6u",
+    "name": "Portón N2 · Sello rúnico de sangre",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Compuerta grabada con glifos arcanos que rechaza el metal y solo se abre ante la sangre de un miembro de la mazmorra."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "wlYN8GrdVDbqLXTe",
+    "name": "Portón N2 · Puerta acorazada de bronce",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Portón fundido de una sola pieza resistente al fuego, al ácido y a los golpes de ariete."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "LasSo0lXRuK53d6M",
+    "name": "Portón N2 · Compuerta hidráulica inundable",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Esclusa estanca respaldada por la presión de un depósito subterráneo que amenaza con inundar el pasillo si se revienta."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "CfAfUOO1dMUMLsR6",
+    "name": "Portón N2 · Portón viviente de raíces y huesos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Lock",
+      "type_custom": "Cerradura",
+      "description": "Maraña regenerativa de raíces espinosas y esqueletos fusionados que sujeta y muerde a quien intenta abrirse paso."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "porton"
+      }
+    }
+  },
+  {
+    "_id": "N4rrXvOSTWkQEpbG",
+    "name": "Criatura N1 · Ciempiés gigante de caverna",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Miriápodo acorazado de tres metros que trepa por los techos y paraliza a sus presas con mandíbulas venenosas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "B5oCwZZAzg1lq7ST",
+    "name": "Criatura N1 · Arañas tejedoras de sombras",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Colonia de arácnidos negros que tapizan los corredores con telarañas pegajosas casi invisibles en la penumbra."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "DM1VXF8GiMSWMaqM",
+    "name": "Criatura N1 · Cubo gelatinoso",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Masa transparente de cieno ácido que recorre en silencio los pasillos del ancho exacto de la galería, digiriendo carne y metal."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "U4rUIhiRAkfxZcp3",
+    "name": "Criatura N1 · Hongos chillones y esporas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Cúmulo de setas violáceas que emiten un alarido ensordecedor ante la luz o el movimiento y sueltan nubes asfixiantes."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "olZMJaP70DcJCZco",
+    "name": "Criatura N1 · Bandada de estriges",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Criaturas aladas del tamaño de cuervos con probóscides punzantes que se aferran a los intrusos para drenar su sangre."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "03vYaTzUhdC8VnNL",
+    "name": "Criatura N1 · Babosa ácida de caverna",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Molusco pálido que deja un rastro corrosivo capaz de deshacer botas, cuerdas y escudos de madera."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "DtTL1AXEV04z48O4",
+    "name": "Criatura N1 · Lobos huargos hambrientos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Manada de depredadores corpulentos de ojos amarillos que acorralan a los rezagados y derriban a sus presas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "6vc0a9DAgyu7KNfG",
+    "name": "Criatura N1 · Enjambre de ratas de cripta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Marea chirriante de roedores famélicos portadores de fiebre inmunda que se cuelan por las rendijas de las armaduras."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "fZgkj4HJCUktRJoE",
+    "name": "Criatura N1 · Serpiente constrictora albina",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Ofidio silencioso oculto en las vigas o estanques que se deja caer sobre el cuello del primer explorador."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "TR9Fg5TD54TUgZSa",
+    "name": "Criatura N1 · Escorpión de coraza pétrea",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Arácnido blindado con pinzas trituradoras y un aguijón caudal cargado de neurotoxina ardiente."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "Dr2uiDAN087staQR",
+    "name": "Criatura N1 · Murciélagos vampiro gigantes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Quirópteros de un metro de envergadura que atacan desde las bóvedas altas apagando antorchas con el batir de sus alas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "FpRbmL1ayt0crAT2",
+    "name": "Criatura N1 · Esqueletos reanimados",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Guardias de hueso incansables armados con espadas oxidadas que no conocen el miedo ni el dolor."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "KextcgvWrmUS72GN",
+    "name": "Criatura N2 · Oso lechuza enfurecido",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Bestia feroz con cuerpo de oso y pico desgarrador de rapaz nocturna que defiende su territorio con furia ciega."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "9rlkggwGVOHX2D7V",
+    "name": "Criatura N2 · Troll de las cavernas regenerador",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Bruto larguirucho de piel verdosa y garras largas cuyas heridas vuelven a cerrarse salvo que reciban fuego o ácido."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "VwWS2GCV0QIUHU5P",
+    "name": "Criatura N2 · Basilisco de mirada pétrea",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Reptil de ocho patas cuya mirada pesada comienza a calcificar y petrificar los miembros de quienes cruzan sus ojos con él."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "G7T3VJLNpsXuTrvG",
+    "name": "Criatura N2 · Mímico devorador de cofres",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Depredador amorfo que adopta la forma exacta de un arcón o puerta antes de desplegar fauces llenas de colmillos y pseudópodos adhesivos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "rMUVPYShG3NCdcDV",
+    "name": "Criatura N2 · Mantícora de cola espinosa",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Monstruo leonino con alas de cuero y cola erizada capaz de lanzar descargas de púas óseas como si fueran jabalinas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "T8LgpMRrqc3CfsSl",
+    "name": "Criatura N2 · Gólem de carne cosida",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Coloso ensamblado con restos de cadáveres e impulsado por descargas alquímicas que ignora el dolor y derriba muros."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "ESBjyS6VCpj31h3Z",
+    "name": "Criatura N2 · Sombra devoradora de calor",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Entidad incorpórea de oscuridad pura que se desliza bajo las puertas y drena la fuerza vital y el calor de los vivos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "XdCPUuobP459hjBb",
+    "name": "Criatura N2 · Gusano carroñero paralizante",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Larva cavernícola gigante con corona de tentáculos sensibles que paralizan al contacto antes de engullir a la víctima."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "hca8o0Z2WFaw3upU",
+    "name": "Criatura N2 · Arpía de los riscos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Cazadora alada cuyo canto hipnótico atrae a los incautos hacia precipicios, fosos y trampas mortales."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "NWB33DfTgORnUnb5",
+    "name": "Criatura N2 · Elemental de barro hirviente",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Masa animada de lodo geotérmico que envuelve, quema y asfixia a los guerreros pesados."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "6X6NQQMNKlwSPJF2",
+    "name": "Criatura N2 · Sabueso infernal escupefuego",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Mastín de piel carbonizada y fauces incandescentes que rastrea por el olor del miedo y exhala bocanadas de llamas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "WXOKKFLsdeCZperC",
+    "name": "Criatura N2 · Engendro fúngico esporal",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Coloso vegetal ambulante queanima cadáveres mediante micelio parásito y libera nubes alucinógenas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "yUZ8YYytdqsTOFdX",
+    "name": "Criatura N3 · Hidra de foso de cinco cabezas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Reptil colosal de pantano subterráneo al que le brotan dos cabezas nuevas y voraces por cada cuello cercenado sin cauterizar."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "YrXJh98h16XqnQmI",
+    "name": "Criatura N3 · Gólem de hierro rúnico",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Autómata indestructible de acero negro forjado con runas arcanas que aplasta formaciones enteras y exhala gas venenoso."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "g0NS1wktsLIvcjs8",
+    "name": "Criatura N3 · Dragón wyrm joven de caverna",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Sierpe alada de escamas sombrías, astuta y codiciosa, cuyo aliento letal barre galerías enteras."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "B4uvhhajbPPNeWmU",
+    "name": "Criatura N3 · Gusano púrpura perforador",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Titán anélido capaz de tragar entero a un caballero con armadura y abrir nuevos túneles a través de la roca madre."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "sVxky54uybxKEoXe",
+    "name": "Criatura N3 · Demonio abisal encadenado",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Señor de la matanza invocado del Abismo, envuelto en llamas negras y armado con un látigo y un espadón dentado."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "3z4JISt0lSSu3mj1",
+    "name": "Criatura N3 · Behir relampagueante",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Depredador serpentino de doce patas que repta por paredes y techos descargando relámpagos azules por sus fauces."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "puuLrUzpVM6jg5DN",
+    "name": "Criatura N3 · Quimera de tres fauces",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Aberración alada con cabezas de león, carnero negro y dragón que combina embestidas brutales y aliento ígneo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "TTRfDC22vfaJGYO4",
+    "name": "Criatura N3 · Vampiro anciano en letargo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Noble no muerto de velocidad sobrenatural, capaz de dominar mentes débiles y disolverse en niebla o murciélagos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "iqJCuLML7yRJLeJY",
+    "name": "Criatura N3 · Horror tentacular del abismo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Masa flotante de ojos y tentáculos recubiertos de baba psíquica que quiebra la cordura de los invasores."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "57NPjU6iYxA35gLu",
+    "name": "Criatura N3 · Caballero de la muerte espectral",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Campeón caído en armadura de placas negras que comanda a los muertos y blande una hoja de frío sepulcral."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "NdccX3BfylBtIH37",
+    "name": "Criatura N3 · Gigante de piedra ciego",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Coloso ancestral adaptado a la oscuridad absoluta que se guía por las vibraciones del suelo y lanza peñascos letales."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "ymCGraEwuNGg4NxN",
+    "name": "Criatura N3 · Pesadilla de fuego fatuo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+      "tier": 3,
+      "type": "FITD.DUTY_TYPE.Creature",
+      "type_custom": "Criatura",
+      "description": "Corcel demoníaco de crines llameantes y cascos de hierro ardiente que cabalga entre el plano material y el etéreo."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "criatura"
+      }
+    }
+  },
+  {
+    "_id": "EoGCh8OZYbhJ3peZ",
+    "name": "Hallazgo · Veta de oro y gemas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Filón natural de mineral precioso incrustado en la roca que proporciona riqueza constante si se explota con mineros o esclavos."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "Ti5fKdKK1GmsHuoa",
+    "name": "Hallazgo · Fuente subterránea mágica",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Manantial de aguas cristalinas o luminiscentes con propiedades curativas, alquímicas o adivinatorias."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "2RYj4YFFPdFZNOZr",
+    "name": "Hallazgo · Cripta olvidada intacta",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Tumba sellada de una civilización anterior repleta de sarcófagos, armas antiguas y secretos enterrados."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "qd4ihBpd1r3wSCUJ",
+    "name": "Hallazgo · Caverna de hongos luminiscentes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Bosque subterráneo de setas gigantes que ilumina de forma natural y ofrece ingredientes para mejunjes y raciones."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "5zfukkE8KXrBCniB",
+    "name": "Hallazgo · Nido de bestias salvajes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Cubículo natural habitado por criaturas autóctonas que pueden ser domadas e incorporadas a las defensas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "u8MnBpnuX1eTDdmu",
+    "name": "Hallazgo · Ruinas de un templo antiguo",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Santuario subterráneo con estatuas ciclópeas y un altar aún cargado de resonancia divina o profana."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "S2Jm5ZEmHh4nDU4b",
+    "name": "Hallazgo · Río subterráneo navegable",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Corriente profunda que atraviesa la montaña y ofrece agua fresca, pesca ciega y una ruta secreta hacia el exterior."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "VQRghIT7sE4yTSLu",
+    "name": "Hallazgo · Grieta de vapores volcánicos",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Fisura geotérmica que emana calor constante para forjas y gases tóxicos canalizables hacia las trampas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "Ytli2MzfExGORaMT",
+    "name": "Hallazgo · Depósito de reliquias oxidadas",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 1,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Antiguo campo de batalla subterráneo o armería abandonada con abundante metal y equipo recuperable."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "i5zBZWAyP6nyxV7v",
+    "name": "Hallazgo · Falla con cristales resonantes",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Geoda monumental cuyos cristales amplifican la canalización, la hechicería y las disciplinas psiónicas."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "gGDg2MPw7DMF0kyQ",
+    "name": "Hallazgo · Túnel hacia las profundidades",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Conducto natural que desciende hacia el mundo inferior, abriendo comercio o peligros con razas de las profundidades."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  },
+  {
+    "_id": "XIqitZ5yf46miHxI",
+    "name": "Hallazgo · Prisionero encadenado de otra era",
+    "type": "duty",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
+    "system": {
+      "tier": 2,
+      "type": "FITD.DUTY_TYPE.Discovery",
+      "type_custom": "Descubrimiento",
+      "description": "Entidad poderosa o sabio inmortal sellado en estasis secular dispuesto a pactar a cambio de su liberación."
+    },
+    "flags": {
+      "mr-wicked-ones-es": {
+        "subtipo": "hallazgo"
+      }
+    }
+  }
+]

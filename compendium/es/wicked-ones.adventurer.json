@@ -1,0 +1,313 @@
+{
+  "label": "Aventureros",
+  "mapping": {
+    "passive": "system.passive",
+    "adventurer_class_custom": "system.adventurer_class_custom",
+    "trait_pos_1_custom": "system.trait_pos_1_custom",
+    "trait_neg_1_custom": "system.trait_neg_1_custom",
+    "motivation_1_custom": "system.motivation_1_custom",
+    "description": "system.description"
+  },
+  "entries": {
+    "Academic": {
+      "id": "Académico",
+      "name": "Académico",
+      "adventurer_class_custom": "Académico",
+      "trait_pos_1_custom": "Astuto",
+      "trait_neg_1_custom": "Codicioso",
+      "motivation_1_custom": "Exploración",
+      "passive": "Identifica la magia rápidamente. (Ofensivos: Deduce el punto débil de una estructura o criatura, Usa un pergamino arcano inesperado, Revela un pasadizo o secreto oculto · Defensivos: Advierte a sus aliados justo antes del impacto, Recita un contraconjuro estudiado, Se cubre tras su ayudante o compañero)",
+      "description": "Pasiva: Identifica la magia rápidamente.\nMovimientos ofensivos: Deduce el punto débil de una estructura o criatura, Usa un pergamino arcano inesperado, Revela un pasadizo o secreto oculto\nMovimientos defensivos: Advierte a sus aliados justo antes del impacto, Recita un contraconjuro estudiado, Se cubre tras su ayudante o compañero"
+    },
+    "Alchemist": {
+      "id": "Alquimista",
+      "name": "Alquimista",
+      "adventurer_class_custom": "Alquimista",
+      "trait_pos_1_custom": "Astuto",
+      "trait_neg_1_custom": "Impaciente",
+      "motivation_1_custom": "Emociones",
+      "passive": "Su equipo cuenta con varias pociones. (Ofensivos: Lanza un vial de fuego alquímico o ácido, Bebe un mutágeno de furia y fuerza, Inunda la sala con humo tóxico · Defensivos: Arroja una bomba cegadora a sus pies, Neutraliza el veneno o ácido con un reactivo, Bebe un elixir curativo de emergencia)",
+      "description": "Pasiva: Su equipo cuenta con varias pociones.\nMovimientos ofensivos: Lanza un vial de fuego alquímico o ácido, Bebe un mutágeno de furia y fuerza, Inunda la sala con humo tóxico\nMovimientos defensivos: Arroja una bomba cegadora a sus pies, Neutraliza el veneno o ácido con un reactivo, Bebe un elixir curativo de emergencia"
+    },
+    "Amazon": {
+      "id": "Amazona",
+      "name": "Amazona",
+      "adventurer_class_custom": "Amazona",
+      "trait_pos_1_custom": "Honesto",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Desafío",
+      "passive": "Extremadamente ágil. (Ofensivos: Salta sobre los obstáculos con lanza en ristre, Lanza una jabalina con precisión letal, Derriba a su presa de un barrido acrobático · Defensivos: Rueda y salta fuera del alcance del peligro, Desvía el golpe con su escudo ligero, Trepa por el muro para ganar altura)",
+      "description": "Pasiva: Extremadamente ágil.\nMovimientos ofensivos: Salta sobre los obstáculos con lanza en ristre, Lanza una jabalina con precisión letal, Derriba a su presa de un barrido acrobático\nMovimientos defensivos: Rueda y salta fuera del alcance del peligro, Desvía el golpe con su escudo ligero, Trepa por el muro para ganar altura"
+    },
+    "Aristocrat": {
+      "id": "Aristócrata",
+      "name": "Aristócrata",
+      "adventurer_class_custom": "Aristócrata",
+      "trait_pos_1_custom": "Confiado",
+      "trait_neg_1_custom": "Impetuoso",
+      "motivation_1_custom": "Respeto",
+      "passive": "Comienza con un ayudante adicional. (Ofensivos: Ordena un ataque coordinado a sus guardaespaldas, Estocada precisa con estoque de duelo, Intenta sobornar a los esbirros con oro · Defensivos: Empuja a un ayudante para que reciba el golpe, Desvía el ataque con su capa bordada, Exige rendición con arrogancia desconcertante)",
+      "description": "Pasiva: Comienza con un ayudante adicional.\nMovimientos ofensivos: Ordena un ataque coordinado a sus guardaespaldas, Estocada precisa con estoque de duelo, Intenta sobornar a los esbirros con oro\nMovimientos defensivos: Empuja a un ayudante para que reciba el golpe, Desvía el ataque con su capa bordada, Exige rendición con arrogancia desconcertante"
+    },
+    "Assassin": {
+      "id": "Asesino",
+      "name": "Asesino",
+      "adventurer_class_custom": "Asesino",
+      "trait_pos_1_custom": "Persistente",
+      "trait_neg_1_custom": "Deshonesto",
+      "motivation_1_custom": "Riquezas",
+      "passive": "Difícil de seguirle la pista en combate. (Ofensivos: Apuñala desde las sombras donde más duele, Lanza dagas envenenadas en movimiento, Corta las correas de la armadura o suministros · Defensivos: Se desvanece en una esquina oscura, Deja un señuelo y rueda a la espalda del atacante, Desvía la hoja con sus dagas gemelas)",
+      "description": "Pasiva: Difícil de seguirle la pista en combate.\nMovimientos ofensivos: Apuñala desde las sombras donde más duele, Lanza dagas envenenadas en movimiento, Corta las correas de la armadura o suministros\nMovimientos defensivos: Se desvanece en una esquina oscura, Deja un señuelo y rueda a la espalda del atacante, Desvía la hoja con sus dagas gemelas"
+    },
+    "Barbarian": {
+      "id": "Bárbaro",
+      "name": "Bárbaro",
+      "adventurer_class_custom": "Bárbaro",
+      "trait_pos_1_custom": "Confiado",
+      "trait_neg_1_custom": "Estúpido",
+      "motivation_1_custom": "Justicia",
+      "passive": "Tiene un corazón más. (Ofensivos: Carga salvaje destrozando barricadas y escudos, Tajo circular con hacha a dos manos, Agarra a un enemigo y lo estampa contra otro · Defensivos: Ignora el dolor rugiendo con furia, Detiene el arma enemiga con sus propias manos, Rompe la trampa a golpes brutos)",
+      "description": "Pasiva: Tiene un corazón más.\nMovimientos ofensivos: Carga salvaje destrozando barricadas y escudos, Tajo circular con hacha a dos manos, Agarra a un enemigo y lo estampa contra otro\nMovimientos defensivos: Ignora el dolor rugiendo con furia, Detiene el arma enemiga con sus propias manos, Rompe la trampa a golpes brutos"
+    },
+    "Bard": {
+      "id": "Bardo",
+      "name": "Bardo",
+      "adventurer_class_custom": "Bardo",
+      "trait_pos_1_custom": "Servicial",
+      "trait_neg_1_custom": "Codicioso",
+      "motivation_1_custom": "Riquezas",
+      "passive": "Inspira a sus aliados en combate. (Ofensivos: Entona un himno que enardece a todo el grupo, Burla mordaz que desconcentra y enfurece, Disparo rápido de ballesta de mano · Defensivos: Acorde disonante que desvía la puntería, Finge caer herido con actuación dramática, Un aliado inspirado interviene para protegerlo)",
+      "description": "Pasiva: Inspira a sus aliados en combate.\nMovimientos ofensivos: Entona un himno que enardece a todo el grupo, Burla mordaz que desconcentra y enfurece, Disparo rápido de ballesta de mano\nMovimientos defensivos: Acorde disonante que desvía la puntería, Finge caer herido con actuación dramática, Un aliado inspirado interviene para protegerlo"
+    },
+    "Buccaneer": {
+      "id": "Bucanero",
+      "name": "Bucanero",
+      "adventurer_class_custom": "Bucanero",
+      "trait_pos_1_custom": "Generoso",
+      "trait_neg_1_custom": "Engreído",
+      "motivation_1_custom": "Riquezas",
+      "passive": "Lleva pistolas de pólvora negra. (Ofensivos: Disparo a bocajarro con pistola de chispa, Se columpia en una cuerda o lámpara al atacar, Golpe sucio con el pomo del sable y patada · Defensivos: Dispara a la trampa o cuerda antes de que caiga, Cubre su retirada con el humo de la pólvora, Bloquea con sable y daga de vela)",
+      "description": "Pasiva: Lleva pistolas de pólvora negra.\nMovimientos ofensivos: Disparo a bocajarro con pistola de chispa, Se columpia en una cuerda o lámpara al atacar, Golpe sucio con el pomo del sable y patada\nMovimientos defensivos: Dispara a la trampa o cuerda antes de que caiga, Cubre su retirada con el humo de la pólvora, Bloquea con sable y daga de vela"
+    },
+    "Centurion": {
+      "id": "Centurión",
+      "name": "Centurión",
+      "adventurer_class_custom": "Centurión",
+      "trait_pos_1_custom": "Firme",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Respeto",
+      "passive": "Otorga un movimiento defensivo adicional al grupo. (Ofensivos: Avanza en formación cerrada de escudos, Empuja con el escudo y ensarta con la espada corta, Ordena una maniobra táctica disciplinada · Defensivos: Alza un muro de escudos impenetrable, Protege al compañero herido bajo su pavés, Mantiene la posición sin retroceder un palmo)",
+      "description": "Pasiva: Otorga un movimiento defensivo adicional al grupo.\nMovimientos ofensivos: Avanza en formación cerrada de escudos, Empuja con el escudo y ensarta con la espada corta, Ordena una maniobra táctica disciplinada\nMovimientos defensivos: Alza un muro de escudos impenetrable, Protege al compañero herido bajo su pavés, Mantiene la posición sin retroceder un palmo"
+    },
+    "Chaos Mage": {
+      "id": "Mago del Caos",
+      "name": "Mago del Caos",
+      "adventurer_class_custom": "Mago del Caos",
+      "trait_pos_1_custom": "Optimista",
+      "trait_neg_1_custom": "Indeciso",
+      "motivation_1_custom": "Exploración",
+      "passive": "Magia poderosa y salvajemente impredecible. (Ofensivos: Desata un vórtice de relámpagos y fuego prismático, Altera la gravedad de la sala de repente, Teletransporta a los combatientes de lugar · Defensivos: Estalla en una onda de fuerza caótica, Su cuerpo parpadea entre planos al ser golpeado, Convierte el proyectil en mariposas o humo)",
+      "description": "Pasiva: Magia poderosa y salvajemente impredecible.\nMovimientos ofensivos: Desata un vórtice de relámpagos y fuego prismático, Altera la gravedad de la sala de repente, Teletransporta a los combatientes de lugar\nMovimientos defensivos: Estalla en una onda de fuerza caótica, Su cuerpo parpadea entre planos al ser golpeado, Convierte el proyectil en mariposas o humo"
+    },
+    "Cleric": {
+      "id": "Clérigo",
+      "name": "Clérigo",
+      "adventurer_class_custom": "Clérigo",
+      "trait_pos_1_custom": "Generoso",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Justicia",
+      "passive": "Restaura el corazón de un aliado como movimiento. (Ofensivos: Luz sagrada abrasadora contra criaturas oscuras, Golpe contundente con maza bendecida, Consagra el suelo impidiendo la magia oscura · Defensivos: Plegaria de escudo radiante, Sana las heridas de un compañero en el acto, Su símbolo sagrado repele el ataque)",
+      "description": "Pasiva: Restaura el corazón de un aliado como movimiento.\nMovimientos ofensivos: Luz sagrada abrasadora contra criaturas oscuras, Golpe contundente con maza bendecida, Consagra el suelo impidiendo la magia oscura\nMovimientos defensivos: Plegaria de escudo radiante, Sana las heridas de un compañero en el acto, Su símbolo sagrado repele el ataque"
+    },
+    "Death Knight": {
+      "id": "Caballero de la Muerte",
+      "name": "Caballero de la Muerte",
+      "adventurer_class_custom": "Caballero de la Muerte",
+      "trait_pos_1_custom": "Persistente",
+      "trait_neg_1_custom": "Engreído",
+      "motivation_1_custom": "Venganza",
+      "passive": "Aterra a los esbirros cercanos. (Ofensivos: Tajo helado que drena el calor y el valor, Alza a un esbirro caído como siervo esquelético, Mirada sepulcral que paraliza de terror · Defensivos: Su armadura negra absorbe el impacto sin inmutarse, Envuelve su cuerpo en niebla necrótica, Desvía el golpe con su espadón rúnico)",
+      "description": "Pasiva: Aterra a los esbirros cercanos.\nMovimientos ofensivos: Tajo helado que drena el calor y el valor, Alza a un esbirro caído como siervo esquelético, Mirada sepulcral que paraliza de terror\nMovimientos defensivos: Su armadura negra absorbe el impacto sin inmutarse, Envuelve su cuerpo en niebla necrótica, Desvía el golpe con su espadón rúnico"
+    },
+    "Defender": {
+      "id": "Defensor",
+      "name": "Defensor",
+      "adventurer_class_custom": "Defensor",
+      "trait_pos_1_custom": "Firme",
+      "trait_neg_1_custom": "Indeciso",
+      "motivation_1_custom": "Desafío",
+      "passive": "Siempre protege primero a sus compañeros. (Ofensivos: Embestida acorazada que derriba a la primera línea, Golpe de martillo que aturde al atacante, Bloquea el pasillo entero con su coraza y escudo · Defensivos: Se interpone recibiendo el golpe sin ceder, Clava su escudo torre en el suelo, Desvía la trampa con su armadura pesada)",
+      "description": "Pasiva: Siempre protege primero a sus compañeros.\nMovimientos ofensivos: Embestida acorazada que derriba a la primera línea, Golpe de martillo que aturde al atacante, Bloquea el pasillo entero con su coraza y escudo\nMovimientos defensivos: Se interpone recibiendo el golpe sin ceder, Clava su escudo torre en el suelo, Desvía la trampa con su armadura pesada"
+    },
+    "Druid": {
+      "id": "Druida",
+      "name": "Druida",
+      "adventurer_class_custom": "Druida",
+      "trait_pos_1_custom": "Honesto",
+      "trait_neg_1_custom": "Impaciente",
+      "motivation_1_custom": "Venganza",
+      "passive": "Puede transformarse en bestia salvaje. (Ofensivos: Se transforma en oso o pantera y desgarra, Hace brotar raíces espinosas que atrapan a todos, Comanda a las bestias de la guarida contra sus amos · Defensivos: Adopta forma de serpiente o pájaro para escapar, Piel de corteza que detiene las cuchillas, Se funde con la roca y el barro natural)",
+      "description": "Pasiva: Puede transformarse en bestia salvaje.\nMovimientos ofensivos: Se transforma en oso o pantera y desgarra, Hace brotar raíces espinosas que atrapan a todos, Comanda a las bestias de la guarida contra sus amos\nMovimientos defensivos: Adopta forma de serpiente o pájaro para escapar, Piel de corteza que detiene las cuchillas, Se funde con la roca y el barro natural"
+    },
+    "Eldritch Warrior": {
+      "id": "Guerrero Sobrenatural",
+      "name": "Guerrero Sobrenatural",
+      "adventurer_class_custom": "Guerrero Sobrenatural",
+      "trait_pos_1_custom": "Optimista",
+      "trait_neg_1_custom": "Engreído",
+      "motivation_1_custom": "Desafío",
+      "passive": "Combina esgrima letal y magia de combate. (Ofensivos: Envuelve su espada en llamas o relámpagos al atacar, Se teletransporta junto al objetivo y golpea, Onda cortante de energía arcana a distancia · Defensivos: Barrera rúnica instantánea en su mano libre, Parpadeo arcano fuera del área de efecto, Absorbe la energía del golpe en su hoja)",
+      "description": "Pasiva: Combina esgrima letal y magia de combate.\nMovimientos ofensivos: Envuelve su espada en llamas o relámpagos al atacar, Se teletransporta junto al objetivo y golpea, Onda cortante de energía arcana a distancia\nMovimientos defensivos: Barrera rúnica instantánea en su mano libre, Parpadeo arcano fuera del área de efecto, Absorbe la energía del golpe en su hoja"
+    },
+    "Illusionist": {
+      "id": "Ilusionista",
+      "name": "Ilusionista",
+      "adventurer_class_custom": "Ilusionista",
+      "trait_pos_1_custom": "Servicial",
+      "trait_neg_1_custom": "Indeciso",
+      "motivation_1_custom": "Emociones",
+      "passive": "Crea duplicados y engaños constantes. (Ofensivos: Hace creer a los enemigos que están rodeados o en llamas, Oculta a todo su grupo tras un velo invisible, Confunde a un monstruo para que ataque a su aliado · Defensivos: El golpe atraviesa un duplicado ilusorio que se disipa, Destello hipnótico que ciega al agresor, Cambia su apariencia por la de un esbirro)",
+      "description": "Pasiva: Crea duplicados y engaños constantes.\nMovimientos ofensivos: Hace creer a los enemigos que están rodeados o en llamas, Oculta a todo su grupo tras un velo invisible, Confunde a un monstruo para que ataque a su aliado\nMovimientos defensivos: El golpe atraviesa un duplicado ilusorio que se disipa, Destello hipnótico que ciega al agresor, Cambia su apariencia por la de un esbirro"
+    },
+    "Inquisitor": {
+      "id": "Inquisidor",
+      "name": "Inquisidor",
+      "adventurer_class_custom": "Inquisidor",
+      "trait_pos_1_custom": "Persistente",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Justicia",
+      "passive": "Anula engaños, ilusiones y magia oscura. (Ofensivos: Disparo de ballesta bendecida con plata, Marca al malvado con un anatema que impide ocultarse, Azota con cadenas consagradas ardientes · Defensivos: Su fe inquebrantable disipa el conjuro o truco, Pronuncia un edicto que detiene en seco al atacante, Sacrifica a un subordinado para mantener la misión)",
+      "description": "Pasiva: Anula engaños, ilusiones y magia oscura.\nMovimientos ofensivos: Disparo de ballesta bendecida con plata, Marca al malvado con un anatema que impide ocultarse, Azota con cadenas consagradas ardientes\nMovimientos defensivos: Su fe inquebrantable disipa el conjuro o truco, Pronuncia un edicto que detiene en seco al atacante, Sacrifica a un subordinado para mantener la misión"
+    },
+    "Knight": {
+      "id": "Caballero",
+      "name": "Caballero",
+      "adventurer_class_custom": "Caballero",
+      "trait_pos_1_custom": "Honesto",
+      "trait_neg_1_custom": "Engreído",
+      "motivation_1_custom": "Respeto",
+      "passive": "Armadura pesada e inmune al miedo. (Ofensivos: Duelo honorable: desafía y acorrala al líder, Tajo poderoso de espada bastarda, Carga hombro con hombro inspirando valor · Defensivos: Su armadura de placas desvía el golpe limpiamente, Parada magistral y contraataque, Se mantiene firme pese al dolor por su juramento)",
+      "description": "Pasiva: Armadura pesada e inmune al miedo.\nMovimientos ofensivos: Duelo honorable: desafía y acorrala al líder, Tajo poderoso de espada bastarda, Carga hombro con hombro inspirando valor\nMovimientos defensivos: Su armadura de placas desvía el golpe limpiamente, Parada magistral y contraataque, Se mantiene firme pese al dolor por su juramento"
+    },
+    "Lancer": {
+      "id": "Lancero",
+      "name": "Lancero",
+      "adventurer_class_custom": "Lancero",
+      "trait_pos_1_custom": "Confiado",
+      "trait_neg_1_custom": "Impaciente",
+      "motivation_1_custom": "Desafío",
+      "passive": "Mantiene a los enemigos a raya con su alcance. (Ofensivos: Estocada penetrante desde segunda fila, Barrido de asta que hace tropezar a varios rivales, Salto acrobático apoyado en su lanza · Defensivos: Frena en seco la carga enemiga con la punta de la lanza, Usa la pértiga para saltar sobre el foso o trampa, Mantiene la distancia impidiendo que se acerquen)",
+      "description": "Pasiva: Mantiene a los enemigos a raya con su alcance.\nMovimientos ofensivos: Estocada penetrante desde segunda fila, Barrido de asta que hace tropezar a varios rivales, Salto acrobático apoyado en su lanza\nMovimientos defensivos: Frena en seco la carga enemiga con la punta de la lanza, Usa la pértiga para saltar sobre el foso o trampa, Mantiene la distancia impidiendo que se acerquen"
+    },
+    "Mage Hunter": {
+      "id": "Cazador de Magos",
+      "name": "Cazador de Magos",
+      "adventurer_class_custom": "Cazador de Magos",
+      "trait_pos_1_custom": "Persistente",
+      "trait_neg_1_custom": "Impetuoso",
+      "motivation_1_custom": "Venganza",
+      "passive": "Detecta y castiga cualquier uso de magia. (Ofensivos: Ataque disruptor que silencia al lanzador de conjuros, Arroja boleadoras de hierro frío antimagia, Rastrea el flujo de maná hasta el corazón o santuario · Defensivos: Su manto rúnico disipa el hechizo o poción, Interrumpe la invocación antes de que se complete, Resiste el efecto mental con férrea disciplina)",
+      "description": "Pasiva: Detecta y castiga cualquier uso de magia.\nMovimientos ofensivos: Ataque disruptor que silencia al lanzador de conjuros, Arroja boleadoras de hierro frío antimagia, Rastrea el flujo de maná hasta el corazón o santuario\nMovimientos defensivos: Su manto rúnico disipa el hechizo o poción, Interrumpe la invocación antes de que se complete, Resiste el efecto mental con férrea disciplina"
+    },
+    "Monk": {
+      "id": "Monje",
+      "name": "Monje",
+      "adventurer_class_custom": "Monje",
+      "trait_pos_1_custom": "Firme",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Desafío",
+      "passive": "No necesita armas ni armadura para ser letal. (Ofensivos: Ráfaga de golpes precisos a los puntos nerviosos, Corre por las paredes sorteando defensas, Patada giratoria que lanza al enemigo contra una trampa · Defensivos: Atrapa el proyectil o desvía el golpe con las manos vacías, Cae de pie sin hacerse daño desde cualquier altura, Medita un segundo ignorando el veneno o aturdimiento)",
+      "description": "Pasiva: No necesita armas ni armadura para ser letal.\nMovimientos ofensivos: Ráfaga de golpes precisos a los puntos nerviosos, Corre por las paredes sorteando defensas, Patada giratoria que lanza al enemigo contra una trampa\nMovimientos defensivos: Atrapa el proyectil o desvía el golpe con las manos vacías, Cae de pie sin hacerse daño desde cualquier altura, Medita un segundo ignorando el veneno o aturdimiento"
+    },
+    "Occult Slayer": {
+      "id": "Asesino de lo Oculto",
+      "name": "Asesino de lo Oculto",
+      "adventurer_class_custom": "Asesino de lo Oculto",
+      "trait_pos_1_custom": "Persistente",
+      "trait_neg_1_custom": "Deshonesto",
+      "motivation_1_custom": "Justicia",
+      "passive": "Especialista en destruir monstruos sobrenaturales. (Ofensivos: Dispara virotes grabados con runas de destierro, Usa bombas de sal, plata y hierro frío, Analiza y explota la debilidad de la raza del monstruo · Defensivos: Activa un talismán protector contra poderes oscuros, Rueda fuera del alcance dejando un abrojo bendito, Corta el vínculo mágico de la trampa o reliquia)",
+      "description": "Pasiva: Especialista en destruir monstruos sobrenaturales.\nMovimientos ofensivos: Dispara virotes grabados con runas de destierro, Usa bombas de sal, plata y hierro frío, Analiza y explota la debilidad de la raza del monstruo\nMovimientos defensivos: Activa un talismán protector contra poderes oscuros, Rueda fuera del alcance dejando un abrojo bendito, Corta el vínculo mágico de la trampa o reliquia"
+    },
+    "Ranger": {
+      "id": "Guardabosques",
+      "name": "Guardabosques",
+      "adventurer_class_custom": "Guardabosques",
+      "trait_pos_1_custom": "Astuto",
+      "trait_neg_1_custom": "Impaciente",
+      "motivation_1_custom": "Exploración",
+      "passive": "Experto en bestias y terreno subterráneo. (Ofensivos: Doble disparo certero con arco largo, Su compañero animal flanquea y derriba a la presa, Vuelve una trampa de la mazmorra contra sus creadores · Defensivos: Se mimetiza con las rocas y estalagmitas, Su bestia avisa del peligro un segundo antes, Salta con agilidad montaraz sobre el obstáculo)",
+      "description": "Pasiva: Experto en bestias y terreno subterráneo.\nMovimientos ofensivos: Doble disparo certero con arco largo, Su compañero animal flanquea y derriba a la presa, Vuelve una trampa de la mazmorra contra sus creadores\nMovimientos defensivos: Se mimetiza con las rocas y estalagmitas, Su bestia avisa del peligro un segundo antes, Salta con agilidad montaraz sobre el obstáculo"
+    },
+    "Scout": {
+      "id": "Explorador",
+      "name": "Explorador",
+      "adventurer_class_custom": "Explorador",
+      "trait_pos_1_custom": "Servicial",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Exploración",
+      "passive": "Detecta trampas y puertas secretas con facilidad. (Ofensivos: Desactiva o bloquea el mecanismo de una trampa, Señala el punto vulnerable para que sus aliados ataquen, Ataque rápido de flanqueo y retirada · Defensivos: Advierte el cable o placa de presión a tiempo, Se desliza por un hueco estrecho fuera de peligro, Lanza un abrojo o cuerda para frenar al perseguidor)",
+      "description": "Pasiva: Detecta trampas y puertas secretas con facilidad.\nMovimientos ofensivos: Desactiva o bloquea el mecanismo de una trampa, Señala el punto vulnerable para que sus aliados ataquen, Ataque rápido de flanqueo y retirada\nMovimientos defensivos: Advierte el cable o placa de presión a tiempo, Se desliza por un hueco estrecho fuera de peligro, Lanza un abrojo o cuerda para frenar al perseguidor"
+    },
+    "Shadowdancer": {
+      "id": "Bailarín Sombrío",
+      "name": "Bailarín Sombrío",
+      "adventurer_class_custom": "Bailarín Sombrío",
+      "trait_pos_1_custom": "Astuto",
+      "trait_neg_1_custom": "Impaciente",
+      "motivation_1_custom": "Emociones",
+      "passive": "Usa las propias sombras de la mazmorra para moverse. (Ofensivos: Salta de una sombra a otra apareciendo tras la espalda, Enlaza a un enemigo con cintas de penumbra, Ataque danzante que golpea a varios objetivos al pasar · Defensivos: Se sumerge en la sombra de una columna o antorcha, Esquiva con piruetas imposibles de predecir, Intercambia su posición con una silueta oscura)",
+      "description": "Pasiva: Usa las propias sombras de la mazmorra para moverse.\nMovimientos ofensivos: Salta de una sombra a otra apareciendo tras la espalda, Enlaza a un enemigo con cintas de penumbra, Ataque danzante que golpea a varios objetivos al pasar\nMovimientos defensivos: Se sumerge en la sombra de una columna o antorcha, Esquiva con piruetas imposibles de predecir, Intercambia su posición con una silueta oscura"
+    },
+    "Slinger": {
+      "id": "Hondero",
+      "name": "Hondero",
+      "adventurer_class_custom": "Hondero",
+      "trait_pos_1_custom": "Optimista",
+      "trait_neg_1_custom": "Indeciso",
+      "motivation_1_custom": "Justicia",
+      "passive": "Lanza proyectiles especiales con puntería infalible. (Ofensivos: Pedrada certera a la frente que aturde al gigante, Lanza proyectiles explosivos, ácidos o luminosos, Rebota el proyectil en el muro para dar tras cobertura · Defensivos: Derriba el arma o antorcha enemiga de una pedrada, Activa la trampa a distancia con un proyectil, Se escabulle entre las piernas de enemigos grandes)",
+      "description": "Pasiva: Lanza proyectiles especiales con puntería infalible.\nMovimientos ofensivos: Pedrada certera a la frente que aturde al gigante, Lanza proyectiles explosivos, ácidos o luminosos, Rebota el proyectil en el muro para dar tras cobertura\nMovimientos defensivos: Derriba el arma o antorcha enemiga de una pedrada, Activa la trampa a distancia con un proyectil, Se escabulle entre las piernas de enemigos grandes"
+    },
+    "Spellbow": {
+      "id": "Arquero Arcano",
+      "name": "Arquero Arcano",
+      "adventurer_class_custom": "Arquero Arcano",
+      "trait_pos_1_custom": "Astuto",
+      "trait_neg_1_custom": "Codicioso",
+      "motivation_1_custom": "Emociones",
+      "passive": "Sus flechas atraviesan coberturas y muros finos. (Ofensivos: Flecha espectral que ignora armaduras y escudos, Salva de flechas multiplicadas en el aire, Flecha explosiva que detona al clavarse · Defensivos: Dispara una flecha con cuerda mágica para impulsarse, Barrera de viento que desvía proyectiles y gases, Se mantiene en la retaguardia fuera de alcance)",
+      "description": "Pasiva: Sus flechas atraviesan coberturas y muros finos.\nMovimientos ofensivos: Flecha espectral que ignora armaduras y escudos, Salva de flechas multiplicadas en el aire, Flecha explosiva que detona al clavarse\nMovimientos defensivos: Dispara una flecha con cuerda mágica para impulsarse, Barrera de viento que desvía proyectiles y gases, Se mantiene en la retaguardia fuera de alcance"
+    },
+    "Templar": {
+      "id": "Templario",
+      "name": "Templario",
+      "adventurer_class_custom": "Templario",
+      "trait_pos_1_custom": "Firme",
+      "trait_neg_1_custom": "Terco",
+      "motivation_1_custom": "Justicia",
+      "passive": "Campeón fanático de la Luz. (Ofensivos: Espadón llameante de juicio solar, Carga purificadora que rompe la moral de los esbirros, Desafío sagrado que obliga al malvado a encararlo · Defensivos: Aura dorada que quema a quien lo golpea de cerca, Resiste el golpe con una oración inquebrantable, Escudo consagrado que refleja la magia oscura)",
+      "description": "Pasiva: Campeón fanático de la Luz.\nMovimientos ofensivos: Espadón llameante de juicio solar, Carga purificadora que rompe la moral de los esbirros, Desafío sagrado que obliga al malvado a encararlo\nMovimientos defensivos: Aura dorada que quema a quien lo golpea de cerca, Resiste el golpe con una oración inquebrantable, Escudo consagrado que refleja la magia oscura"
+    },
+    "Weaponsmith": {
+      "id": "Forjador de Armas",
+      "name": "Forjador de Armas",
+      "adventurer_class_custom": "Forjador de Armas",
+      "trait_pos_1_custom": "Honesto",
+      "trait_neg_1_custom": "Engreído",
+      "motivation_1_custom": "Desafío",
+      "passive": "Mejora el equipo de todo su grupo. (Ofensivos: Golpe demoledor capaz de quebrar armas o blindajes, Desmonta un portón o artilugio con sus herramientas, Usa un arma pesada de diseño experimental · Defensivos: Su armadura reforzada a medida detiene el impacto, Bloquea el mecanismo de la trampa con una cuña de acero, Repara el escudo o arma dañada en pleno combate)",
+      "description": "Pasiva: Mejora el equipo de todo su grupo.\nMovimientos ofensivos: Golpe demoledor capaz de quebrar armas o blindajes, Desmonta un portón o artilugio con sus herramientas, Usa un arma pesada de diseño experimental\nMovimientos defensivos: Su armadura reforzada a medida detiene el impacto, Bloquea el mecanismo de la trampa con una cuña de acero, Repara el escudo o arma dañada en pleno combate"
+    },
+    "Wildling": {
+      "id": "Salvaje",
+      "name": "Salvaje",
+      "adventurer_class_custom": "Salvaje",
+      "trait_pos_1_custom": "Generoso",
+      "trait_neg_1_custom": "Estúpido",
+      "motivation_1_custom": "Emociones",
+      "passive": "Impredecible, feroz y guiado por el instinto. (Ofensivos: Salta a la yugular con garras y dientes, Aullido primigenio que estremece la caverna, Arroja rocas, muebles o esbirros enteros · Defensivos: Huele el peligro o la trampa antes de verla, Reacciona por puro instinto felino esquivando el golpe, Se sacude las heridas con ferocidad animal)",
+      "description": "Pasiva: Impredecible, feroz y guiado por el instinto.\nMovimientos ofensivos: Salta a la yugular con garras y dientes, Aullido primigenio que estremece la caverna, Arroja rocas, muebles o esbirros enteros\nMovimientos defensivos: Huele el peligro o la trampa antes de verla, Reacciona por puro instinto felino esquivando el golpe, Se sacude las heridas con ferocidad animal"
+    }
+  }
+}

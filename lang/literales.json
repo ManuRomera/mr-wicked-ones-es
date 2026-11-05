@@ -1,0 +1,60 @@
+{
+  "exactos": {
+    "Tier 0": "Nivel 0",
+    "Tier 1": "Nivel 1",
+    "Tier 2": "Nivel 2",
+    "Tier 3": "Nivel 3",
+    "Tier 4": "Nivel 4",
+    "Tier": "Nivel",
+    "Class": "Clase",
+    "Hearts": "Corazones",
+    "Heart": "Corazón",
+    "Moves": "Movimientos",
+    "Move": "Movimiento",
+    "Passive": "Pasiva",
+    "Traits": "Rasgos",
+    "Motivation": "Motivación",
+    "Type": "Tipo",
+    "Clock": "Reloj",
+    "Name": "Nombre",
+    "Description": "Descripción",
+    "Inv #": "Inv. n.º",
+    "Transparent": "Transparente",
+    "Red": "Rojo",
+    "Blue": "Azul",
+    "Green": "Verde",
+    "Yellow": "Amarillo",
+    "Abilities List": "Lista de habilidades",
+    "Supply": "Suministros",
+    "Downtime Actions": "Acciones de tiempo libre",
+    "Psionic Discipline of": "Disciplina psiónica de",
+    "Doomseeker": "Buscafatums",
+    "Facestealer": "Robarrostros",
+    "Growth Path:": "Senda de crecimiento:",
+    "New Edge": "Nueva ventaja",
+    "Dice Roller": "Lanzador de dados",
+    "Dice Roll": "Tirar dados",
+    "Roll": "Tirar",
+    "Cancel": "Cancelar",
+    "Close": "Cerrar",
+    "Add": "Añadir"
+  },
+  "patrones": [
+    {
+      "regex": "^Add\\s+(.+)$",
+      "reemplazo": "Añadir $1"
+    },
+    {
+      "regex": "^Roll\\s+(.+)\\s+\\((\\d+D)\\)$",
+      "reemplazo": "Tirar $1 ($2)"
+    },
+    {
+      "regex": "^(\\d+)\\s+Segements$",
+      "reemplazo": "$1 segmentos"
+    },
+    {
+      "regex": "^(\\d+)\\s+Segments$",
+      "reemplazo": "$1 segmentos"
+    }
+  ]
+}

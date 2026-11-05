@@ -1,0 +1,5552 @@
+[
+  {
+    "_id": "ZdFrVSY9J4K1oZ10",
+    "name": "[Valle Silencioso] Defensores de Ciudad Floresta",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Reunir una gran cruzada para purgar las Colinas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Fortificar las murallas y torres de vigilancia"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>La milicia bien equipada y la guardia de honor de Ciudad Floresta, capital del Valle Silencioso. Patrullan los caminos principales y responden con contundencia cuando las caravanas o aldeas son atacadas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Defensores de Ciudad Floresta",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "4HdC7nMgprMBfQqX",
+    "name": "[Valle Silencioso] Abadía de Piedra Blanca",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Consagrar los antiguos santuarios del valle"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Investigar rumores de magia oscura en las colinas"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Monasterio fortificado de monjes guerreros, clérigos e inquisidores de la Luz. Custodios de una famosa biblioteca de pergaminos sagrados y reliquias selladas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Abadía de Piedra Blanca",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "fO6aZ3xpCQy9j5KB",
+    "name": "[Valle Silencioso] Círculo de la Arboleda",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Despertar a los espíritus ancestrales del bosque"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Expulsar tanto a leñadores como a saqueadores"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Druidas, guardabosques y bestias silvestres que protegen el Bosque Susurrante. Desconfían de Ciudad Floresta pero atacarán sin piedad a quienes profanen los túmulos o talen el bosque.</p>"
+    },
+    "prototypeToken": {
+      "name": "Círculo de la Arboleda",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "FPiYr6ddGrTl2qtP",
+    "name": "[Valle Silencioso] Gremio de Mercaderes del Valle",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Asegurar el Paso del Mercader con mercenarios"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Acumular riquezas para comprar influencia política"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Consorcio de caravanas, posaderos y prestamistas que transportan mercancías a través de las Colinas de Piedra Blanca. Prefieren pagar rescates o contratar aventureros antes que luchar ellos mismos.</p>"
+    },
+    "prototypeToken": {
+      "name": "Gremio de Mercaderes del Valle",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "zNNiwopH7AxjLIgC",
+    "name": "[Valle Silencioso] Tribu Colmillo Sangriento",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Arrasar las granjas del sur del valle"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Someter a las demás bandas de monstruos"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Banda belicosa de orcos, trasgos y huargos nómadas que merodean por los riscos. Pueden ser rivales feroces o aliados potenciales si se les demuestra fuerza bruta.</p>"
+    },
+    "prototypeToken": {
+      "name": "Tribu Colmillo Sangriento",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "6scKAmVpX70OhFBD",
+    "name": "[Valle Silencioso] El Culto del Gusano",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Despertar al Gusano Primigenio bajo las colinas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Infiltrar acólitos en Ciudad Floresta"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Secta secreta de hechiceros y fanáticos ocultos en las cavernas profundas que adoran a las aberraciones subterráneas.</p>"
+    },
+    "prototypeToken": {
+      "name": "El Culto del Gusano",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "7O08C17Rnju8dmeI",
+    "name": "[Valle Silencioso] Academia Arcana de Oakhaven",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Forjar un gólem arcano cazamonstruos"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Recolectar reactivos mágicos raros"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Torre de magos e ilusionistas dirigida por el Archimago Oakhaven junto al lago del valle. Sus aprendices exploran ruinas en busca de componentes.</p>"
+    },
+    "prototypeToken": {
+      "name": "Academia Arcana de Oakhaven",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "cAIydqZ5bG0QQqF5",
+    "name": "[Valle Silencioso] Cazadores de Hombres Lobo de Plata",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Dar caza a la bestia lunar del bosque"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Purgar las guaridas de las colinas"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Hermandad de exploradores y asesinos de lo oculto armados con virotes de plata que siguen el rastro de la licantropía en el Valle Silencioso.</p>"
+    },
+    "prototypeToken": {
+      "name": "Cazadores de Hombres Lobo de Plata",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "OW0fMdzitoUpCmBh",
+    "name": "[Valle Silencioso] Mineros del Pico de Cobre",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Abrir una nueva galería rica en mineral"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Contratar guardias para proteger los envíos"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Campamento minero fortificado en las laderas que excava peligrosamente cerca de las cavernas profundas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Mineros del Pico de Cobre",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "UBobRnjMhLv2NvsA",
+    "name": "[Valle Silencioso] Bandidos del Paso Quebrado",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Saquear el carruaje de impuestos del Gremio"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Encontrar un escondite seguro en las cuevas"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Forajidos humanos y desertores que asaltan viajeros en los caminos y conocen bien las patrullas de la guardia.</p>"
+    },
+    "prototypeToken": {
+      "name": "Bandidos del Paso Quebrado",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "osCEFmF3RrLupe1l",
+    "name": "[Valle Silencioso] Aquelarre de la Ciénaga Sombría",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Maldición de niebla perpetua sobre las tierras bajas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Destilar pociones prohibidas"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Tres brujas ancianas y sus siervos fúngicos que habitan los pantanos del este. Comercian con venenos, maldiciones y secretos.</p>"
+    },
+    "prototypeToken": {
+      "name": "Aquelarre de la Ciénaga Sombría",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "9BsWVFNjnLyagq8b",
+    "name": "[Valle Silencioso] Guardabosques del Rey",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Cartografiar todas las cuevas de las Colinas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Emboscada a los saqueadores nocturnos"
+      },
+      "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Compañía de arqueros y batidores de élite que patrullan las fronteras salvajes del Valle Silencioso.</p>"
+    },
+    "prototypeToken": {
+      "name": "Guardabosques del Rey",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Valle Silencioso",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "UkMomiOJjIhnUV8G",
+    "name": "[Cloacas de la Gran Ciudad] La Guardia de la Ciudad",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Redada general en los niveles inferiores"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Sellar las entradas principales al alcantarillado"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Fuerza militarizada que mantiene el orden en la superficie de la Gran Ciudad con patrullas acorazadas, perros de presa y rastrillos de hierro.</p>"
+    },
+    "prototypeToken": {
+      "name": "La Guardia de la Ciudad",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "QxJXvQGWvFpDYm1W",
+    "name": "[Cloacas de la Gran Ciudad] Orden de la Llama Purificadora",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Incinerar los nidos de corrupción subterráneos"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Interrogar a sospechosos de herejía"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Templarios e inquisidores fanáticos equipados con fuego alquímico que descienden a las cloacas para purgar monstruos y cultistas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Orden de la Llama Purificadora",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "3DKiRDvzJghnJUxC",
+    "name": "[Cloacas de la Gran Ciudad] Sindicato de los Cuchillos",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Controlar todas las rutas de contrabando subterráneo"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Extorsionar a los gremios de la superficie"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Gremio criminal de ladrones, asesinos y contrabandistas que utiliza los túneles superiores como autopista secreta.</p>"
+    },
+    "prototypeToken": {
+      "name": "Sindicato de los Cuchillos",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "lbFiuy2TUlQo2Y7m",
+    "name": "[Cloacas de la Gran Ciudad] Gremio de Alquimistas y Artificieros",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Construir autómatas de vigilancia mecánica"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Verter residuos experimentales en los canales"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Corporación rica de inventores cuyos laboratorios vierten compuestos mutagénicos al alcantarillado y guardan valiosos artilugios.</p>"
+    },
+    "prototypeToken": {
+      "name": "Gremio de Alquimistas y Artificieros",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "kJyOrdbi98Rgy7LP",
+    "name": "[Cloacas de la Gran Ciudad] Cábala de la Sangre Nocturna",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Someter al consejo noble de la Gran Ciudad"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Expandir su red de siervos y espías"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Aristócratas vampiros y nigromantes que gobiernan la noche desde criptas lujosas bajo el barrio noble.</p>"
+    },
+    "prototypeToken": {
+      "name": "Cábala de la Sangre Nocturna",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "cd9ulJiGIvJ7lkKP",
+    "name": "[Cloacas de la Gran Ciudad] Corte de los Reyes Rata",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Multiplicar la plaga en los graneros de la ciudad"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Robar baratijas y secretos de las alcantarillas"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Enjambre inteligente de hombres rata, carroñeros y trasgos de túnel que conocen cada tubería y sumidero.</p>"
+    },
+    "prototypeToken": {
+      "name": "Corte de los Reyes Rata",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "bRA8j1ck9opIPe9H",
+    "name": "[Cloacas de la Gran Ciudad] Contrabandistas del Canal Negro",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Introducir armas y pólvora sin pagar aranceles"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Sobornar a los guardias de las esclusas"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Barqueros nocturnos que navegan las galerías inundadas conectadas con el puerto fluvial.</p>"
+    },
+    "prototypeToken": {
+      "name": "Contrabandistas del Canal Negro",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "RuBF4t6xiHo5nCo4",
+    "name": "[Cloacas de la Gran Ciudad] Gremio de Poceros y Fontaneros",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Reparar las grandes compuertas hidráulicas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Denunciar presencias extrañas a la Guardia"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Trabajadores armados con picos, linternas y mapas exactos de todo el sistema de drenaje.</p>"
+    },
+    "prototypeToken": {
+      "name": "Gremio de Poceros y Fontaneros",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "bnLZNzivJqq2bRTX",
+    "name": "[Cloacas de la Gran Ciudad] Colegio de Bardos y Espías",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Descubrir quién está detrás de los secuestros"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Reclutar grupos de aventureros famosos"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Red de informantes y héroes urbanos que se reúnen en las tabernas de lujo de la superficie.</p>"
+    },
+    "prototypeToken": {
+      "name": "Colegio de Bardos y Espías",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "9kgbdeMEDVvzB1pG",
+    "name": "[Cloacas de la Gran Ciudad] Inquisición del Puerto",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Bloquear el tráfico de reliquias oscuras"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Purgar los almacenes abandonados"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Cazadores de brujas y magos que vigilan los muelles y almacenes de la ciudad.</p>"
+    },
+    "prototypeToken": {
+      "name": "Inquisición del Puerto",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "zq15nK28jZedYwF5",
+    "name": "[Cloacas de la Gran Ciudad] Culto del Dios Ahogado",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Inundar los barrios bajos mediante un ritual"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Sacrificar cautivos en las cisternas profundas"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Sectarios mutantes y criaturas anfibias que habitan las cisternas más profundas e inundadas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Culto del Dios Ahogado",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "jXBlFtOFBAdExzvO",
+    "name": "[Cloacas de la Gran Ciudad] Compañía Férrea de Mercenarios",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Cumplir el contrato del mejor postor"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Reclutar veteranos para expediciones al subsuelo"
+      },
+      "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Soldados de fortuna dispuestos a bajar a las cloacas por una bolsa llena de oro.</p>"
+    },
+    "prototypeToken": {
+      "name": "Compañía Férrea de Mercenarios",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Cloacas de la Gran Ciudad",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "YixRDmCRzxxsgyh4",
+    "name": "[Mares Coloniales] Armada del Gobernador",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Cazar y hundir todo barco pirata o monstruoso"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Artillar los fuertes costeros del archipiélago"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Galeones de guerra y fusileros navales que defienden la ley colonial desde la capital portuaria.</p>"
+    },
+    "prototypeToken": {
+      "name": "Armada del Gobernador",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "NCRwKJ5XT5ttbZb1",
+    "name": "[Mares Coloniales] Compañía Mercante Real",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Monopolizar el comercio de oro y especias"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Contratar corsarios y aventureros de escolta"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Flota comercial inmensamente rica cuyos almacenes y navíos del tesoro son el objetivo más codiciado de los mares.</p>"
+    },
+    "prototypeToken": {
+      "name": "Compañía Mercante Real",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "7TUy6VmpiXQDAO0z",
+    "name": "[Mares Coloniales] Hermandad de la Costa Pirata",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Saquear la Flota del Tesoro anual"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Defender su isla refugio de la Armada"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Capitanes bucaneros, contrabandistas y degolladores libres que respetan solo la ley del más fuerte.</p>"
+    },
+    "prototypeToken": {
+      "name": "Hermandad de la Costa Pirata",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "TqLYgJnHihl644gF",
+    "name": "[Mares Coloniales] Tribu de los Arrecifes de Coral",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Expulsar a los colonos de sus islas sagradas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Invocar a los espíritus de los tifones"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Nativos isleños y chamanes del mar que conocen cada cala oculta, arrecife traicionero y templo selvático.</p>"
+    },
+    "prototypeToken": {
+      "name": "Tribu de los Arrecifes de Coral",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "goCa9uuYMEDB6UDU",
+    "name": "[Mares Coloniales] Culto del Leviatán Abisal",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Despertar al Kraken de la Fosa Oceánica"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Hundir barcos como ofrenda al abismo"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Adoradores de las profundidades y hombres pez que arrastran tripulaciones enteras bajo las olas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Culto del Leviatán Abisal",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "PXIDZ3TFDNQjZNZo",
+    "name": "[Mares Coloniales] Flota Fantasma del Capitán Vane",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Vengarse del Gobernador que los ahorcó"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Reclutar marineros muertos en los naufragios"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Tripulación de esqueletos y espectros que navega en un bergantín envuelto en niebla verdosa.</p>"
+    },
+    "prototypeToken": {
+      "name": "Flota Fantasma del Capitán Vane",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "JyNQSHkGSuQrw65R",
+    "name": "[Mares Coloniales] Fuerte de San Cristóbal",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Vigilar el estrecho con cañones pesados"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Encarcelar piratas y monstruos capturados"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Bastión de piedra sobre los acantilados que controla el paso marítimo principal.</p>"
+    },
+    "prototypeToken": {
+      "name": "Fuerte de San Cristóbal",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "l4EjJypbsF0ElX01",
+    "name": "[Mares Coloniales] Cazadores de Tesoros del Galeón",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Recuperar el oro de las ruinas sumergidas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Cartografiar las cuevas marinas"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Buzos con campanas de bronce y aventureros audaces en busca de reliquias antiguas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Cazadores de Tesoros del Galeón",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "TNgpDbnINALEIkNF",
+    "name": "[Mares Coloniales] Contrabandistas de Ron y Pólvora",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Esconder cargamentos en las calas de los monstruos"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Vender armas a ambos bandos"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Comerciantes sin escrúpulos dispuestos a negociar suministros con los malvados.</p>"
+    },
+    "prototypeToken": {
+      "name": "Contrabandistas de Ron y Pólvora",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "DfMznm71nqGv6BaS",
+    "name": "[Mares Coloniales] Sacerdotes del Sol Naciente",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Bendecir los navíos contra la magia negra"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Erigir faros consagrados en los islotes"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Clérigos solares cuya luz revela a las criaturas ocultas bajo el agua y en la niebla.</p>"
+    },
+    "prototypeToken": {
+      "name": "Sacerdotes del Sol Naciente",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "YhQ9nPPa7BBM0kOq",
+    "name": "[Mares Coloniales] Gremio de Balleneros Arponeros",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Dar caza a las grandes bestias marinas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Reforzar sus barcos con placas de hueso"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Marineros rudos armados con arpones pesados, redes y aceite hirviendo.</p>"
+    },
+    "prototypeToken": {
+      "name": "Gremio de Balleneros Arponeros",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "iGBy3oSZMoSEhvXP",
+    "name": "[Mares Coloniales] Brujas de la Marea Negra",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Atraer barcos hacia los escollos con luces falsas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Comerciar con perlas malditas"
+      },
+      "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Hechiceras costeras que dominan los vientos, las corrientes y los monstruos del manglar.</p>"
+    },
+    "prototypeToken": {
+      "name": "Brujas de la Marea Negra",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Mares Coloniales",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "KZ8YPvZW497vfsmX",
+    "name": "[Zona de Guerra] Legión del Imperio Solar",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Lanzar la ofensiva final sobre las Tierras Quemadas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Levantar campamentos fortificados en la frontera"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Ejército disciplinado de centuriones, lanceros e ingenieros de asedio que marcha bajo el estandarte de la Luz.</p>"
+    },
+    "prototypeToken": {
+      "name": "Legión del Imperio Solar",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "NSf8eJKmxNeYG8bV",
+    "name": "[Zona de Guerra] Horda del Cráneo de Hierro",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 3,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 8,
+        "text": "Romper la línea de fortalezas imperiales"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Someter a todas las guaridas independientes a su mando"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Inmenso ejército de guerra monstruoso dirigido por un tirano implacable que exige tributo y tropas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Horda del Cráneo de Hierro",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "JS4V3LHMl4o6MFYl",
+    "name": "[Zona de Guerra] Orden de los Caballeros del Grifo",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Descabezar a los líderes enemigos tras las líneas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Escoltar los suministros sagrados del frente"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Caballería pesada y paladines de élite que realizan incursiones rápidas contra fortalezas oscuras.</p>"
+    },
+    "prototypeToken": {
+      "name": "Orden de los Caballeros del Grifo",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "PccMz8sg21KgNA1p",
+    "name": "[Zona de Guerra] Compañía Libre de Mercenarios",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Enriquecerse prolongando la guerra"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Saquear los convoyes de suministros de ambos bandos"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Veteranos pragmáticos que cambian de bando según sople el viento y el oro.</p>"
+    },
+    "prototypeToken": {
+      "name": "Compañía Libre de Mercenarios",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "EosJhLY5PrzyLjnY",
+    "name": "[Zona de Guerra] Cónclave de Nigromantes de Ceniza",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Alzar un ejército de muertos en los campos de batalla"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Cosechar almas y reliquias entre las ruinas"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Hechiceros sombríos que siguen el rastro de las grandes batallas para reanimar a los caídos.</p>"
+    },
+    "prototypeToken": {
+      "name": "Cónclave de Nigromantes de Ceniza",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "e8TqVqzuK9t4RhRv",
+    "name": "[Zona de Guerra] Carroñeros del Campo de Batalla",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Despojar de acero y suministros los frentes"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Vender información táctica al mejor postor"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Bandas de saqueadores, desertores y goblins que viven entre las trincheras y ruinas humeantes.</p>"
+    },
+    "prototypeToken": {
+      "name": "Carroñeros del Campo de Batalla",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "swzKtmLqsIz9QHlI",
+    "name": "[Zona de Guerra] Ingenieros de Asedio Imperiales",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Construir un gran cañón revienta-montañas"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Volar los túneles enemigos con pólvora"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Artilleros, minadores y forjadores de armas fuertemente escoltados.</p>"
+    },
+    "prototypeToken": {
+      "name": "Ingenieros de Asedio Imperiales",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "tc4uwksJKYwmTwwU",
+    "name": "[Zona de Guerra] Clérigos Hospitalarios del Frente",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Sanar a los héroes heridos para que vuelvan a luchar"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Purificar la tierra corrompida"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Campamento médico fortificado protegido por templarios y barreras sagradas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Clérigos Hospitalarios del Frente",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "CuPOArWsZiPBo5Ep",
+    "name": "[Zona de Guerra] Inquisidores de Campaña",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "light",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Cazar espías, saboteadores y monstruos infiltrados"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Ejecutar a los cobardes y traidores"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Policía militar implacable que investiga cualquier sabotaje tras las líneas de la Luz.</p>"
+    },
+    "prototypeToken": {
+      "name": "Inquisidores de Campaña",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "light"
+      }
+    }
+  },
+  {
+    "_id": "TmTMoFUOf4X5OLbn",
+    "name": "[Zona de Guerra] Desertores de la Marca",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Escapar de la guerra con un buen botín"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Refugiarse en una fortaleza abandonada"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Soldados desilusionados que conocen las contraseñas y horarios del ejército imperial.</p>"
+    },
+    "prototypeToken": {
+      "name": "Desertores de la Marca",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "y84cRiciDAcHomuX",
+    "name": "[Zona de Guerra] Refugiados de la Frontera",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "neutral",
+      "tier": {
+        "value": 1,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Llegar a salvo a las ciudades del interior"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Defender sus carromatos desesperadamente"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Caravanas vulnerables de aldeanos desplazados por los combates.</p>"
+    },
+    "prototypeToken": {
+      "name": "Refugiados de la Frontera",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "neutral"
+      }
+    }
+  },
+  {
+    "_id": "n5HBGCrECDjKTyXN",
+    "name": "[Zona de Guerra] Señor de la Guerra Ogro",
+    "type": "faction",
+    "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
+    "system": {
+      "category": "dark",
+      "tier": {
+        "value": 2,
+        "min": 0,
+        "max": 4
+      },
+      "clock1": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "text": "Devorar y saquear todo a su paso"
+      },
+      "clock2": {
+        "value": 0,
+        "min": 0,
+        "max": 4,
+        "text": "Desafiar a los campeones de la región"
+      },
+      "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Banda brutal de ogros y brutos acorazados que buscan pelea y comida constante.</p>"
+    },
+    "prototypeToken": {
+      "name": "Señor de la Guerra Ogro",
+      "displayName": 50,
+      "actorLink": true,
+      "texture": {
+        "src": "systems/wicked-ones/styles/assets/default-images/faction-token.webp"
+      }
+    },
+    "items": [],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "entorno": "Zona de Guerra",
+        "bando": "dark"
+      }
+    }
+  },
+  {
+    "_id": "CxAeF5GVlrpE4CA4",
+    "name": "Machacadores de Ulrot",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-ulrot.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Guardias y rompelíneas",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 1,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 0,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 2,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Orco · <strong>Función:</strong> Guardias y rompelíneas</p><p><strong>Equipo y aspecto:</strong> Hachas melladas, escudos de hierro y armaduras saqueadas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Machacadores de Ulrot",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-ulrot.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "zkCo5We30JqNF1sA",
+        "name": "Orco",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de orcos leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "NqCPASiRgZSCnFc2",
+        "name": "Guardias y rompelíneas",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Hachas melladas, escudos de hierro y armaduras saqueadas."
+        }
+      },
+      {
+        "_id": "bcqEKGAzD7fNNELX",
+        "name": "Acorazados",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Una vez por escena pueden absorber un impacto mortal sin perder integrantes."
+        }
+      },
+      {
+        "_id": "2B8G83lYjT6J9PGB",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-ulrot.webp"
+      }
+    }
+  },
+  {
+    "_id": "ei8cb9HEe2JAfN7A",
+    "name": "Acechadores Escamosos de Crag",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-crag.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Chamanes y tramperos de túnel",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 0,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 2,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 1,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Kóbold · <strong>Función:</strong> Chamanes y tramperos de túnel</p><p><strong>Equipo y aspecto:</strong> Jabalinas con plumas, máscaras de hueso y bolsas de componentes.</p>"
+    },
+    "prototypeToken": {
+      "name": "Acechadores Escamosos de Crag",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-crag.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "XQwm0R8480b1vEDX",
+        "name": "Kóbold",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de kóbolds leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "KkPIhNJ8jc1rXTt2",
+        "name": "Chamanes y tramperos de túnel",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Jabalinas con plumas, máscaras de hueso y bolsas de componentes."
+        }
+      },
+      {
+        "_id": "DNh6lGWAAjfXbvG6",
+        "name": "Iniciados en Senda Arcana",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Pueden asistir en rituales y canalizar chispas de piromancia en combate."
+        }
+      },
+      {
+        "_id": "t43q116pckPLoaod",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-crag.webp"
+      }
+    }
+  },
+  {
+    "_id": "35alhWT8ChwzU8pO",
+    "name": "Merodeadores Sombríos de Slem",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-slem.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Exploradores y asesinos nocturnos",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 2,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 2,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Sérpido · <strong>Función:</strong> Exploradores y asesinos nocturnos</p><p><strong>Equipo y aspecto:</strong> Capas oscuras, dagas envenenadas y cerbatanas silenciosas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Merodeadores Sombríos de Slem",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-slem.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "KdD8VQG7DShChwV9",
+        "name": "Sérpido",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de sérpidos leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "PKfbHAXcTS0ZMwfA",
+        "name": "Exploradores y asesinos nocturnos",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Capas oscuras, dagas envenenadas y cerbatanas silenciosas."
+        }
+      },
+      {
+        "_id": "irCIUM4KutHABIRN",
+        "name": "Sigilosos",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Se mueven en silencio absoluto por sombras y conductos estrechos."
+        }
+      },
+      {
+        "_id": "42DuBjP1dtTCGEkg",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-slem.webp"
+      }
+    }
+  },
+  {
+    "_id": "IMWHW3d8jEs9blhI",
+    "name": "Chapuceros de Viska",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-viska.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Ingenieros, minadores y artificieros",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 2,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 1,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Goblin · <strong>Función:</strong> Ingenieros, minadores y artificieros</p><p><strong>Equipo y aspecto:</strong> Gafas de latón, llaves inglesas, picos y barriles de pólvora.</p>"
+    },
+    "prototypeToken": {
+      "name": "Chapuceros de Viska",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-viska.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "Cz3KEXeaxcUVC0J7",
+        "name": "Goblin",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de goblins leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "6xT7OLYZgUibkBhB",
+        "name": "Ingenieros, minadores y artificieros",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Gafas de latón, llaves inglesas, picos y barriles de pólvora."
+        }
+      },
+      {
+        "_id": "Kip5E4YSi5h74plA",
+        "name": "Constructores incansables",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Otorgan ventaja al excavar salas o montar trampas en la guarida."
+        }
+      },
+      {
+        "_id": "Az2dkHJo8TUTPGhv",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-viska.webp"
+      }
+    }
+  },
+  {
+    "_id": "NmXAarYRbdQZPOIh",
+    "name": "Acólitos de Ceniza de Kaelen",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-kaelen.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Cultistas y guardias del santuario",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 0,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 0,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 2,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 1,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Demonio · <strong>Función:</strong> Cultistas y guardias del santuario</p><p><strong>Equipo y aspecto:</strong> Túnicas carmesíes, incensarios ardientes y espadas curvas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Acólitos de Ceniza de Kaelen",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-kaelen.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "bJmIvHKyyq95KZP5",
+        "name": "Demonio",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de demonios leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "VMeKHbl0RETCakOX",
+        "name": "Cultistas y guardias del santuario",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Túnicas carmesíes, incensarios ardientes y espadas curvas."
+        }
+      },
+      {
+        "_id": "4fnL4zDmdtpQUKuO",
+        "name": "Fanáticos devotos",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Nunca sufren rotura de moral mientras su señor esté presente."
+        }
+      },
+      {
+        "_id": "2BjdjhrTPctWutnY",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-kaelen.webp"
+      }
+    }
+  },
+  {
+    "_id": "HsAh81euWRFDkoPP",
+    "name": "Susurradores del Velo de Zira",
+    "type": "minion_pack",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/esbirros-zira.webp",
+    "system": {
+      "mp_type": "normal",
+      "ua_job": "Espías e infiltrados en la superficie",
+      "bloodied": false,
+      "morale": false,
+      "number": {
+        "min": 0,
+        "value": 4,
+        "max": 10
+      },
+      "attribute_max_value": 2,
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 1,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 2,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Raza:</strong> Devoramentes · <strong>Función:</strong> Espías e infiltrados en la superficie</p><p><strong>Equipo y aspecto:</strong> Disfraces de peregrinos, lentes oscuras y dagas ocultas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Susurradores del Velo de Zira",
+      "displayName": 30,
+      "actorLink": true,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/esbirros-zira.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "wfs04vZaHuzRsLg3",
+        "name": "Devoramentes",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Manada de devoramentess leales a la mazmorra."
+        }
+      },
+      {
+        "_id": "iMCKf2BtYAMN44JW",
+        "name": "Espías e infiltrados en la superficie",
+        "type": "minion_type",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "description": "Disfraces de peregrinos, lentes oscuras y dagas ocultas."
+        }
+      },
+      {
+        "_id": "JoBaufjRclBMeIP4",
+        "name": "Infiltrados",
+        "type": "minion_upgrade",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+        "system": {
+          "upgrade_type": "regular",
+          "upgrade_checkbox_text": "Usado en esta fase",
+          "upgrade_checkbox_checked": false,
+          "upgrade_checkbox_2_text": "",
+          "upgrade_checkbox_2_checked": false,
+          "is_for_wo": true,
+          "is_for_ua": true,
+          "description": "Pueden caminar por los pueblos de la superficie haciéndose pasar por viajeros."
+        }
+      },
+      {
+        "_id": "JlzxcOjdm8lsfvjJ",
+        "name": "Armar escándalo y saquear",
+        "type": "minionimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Celebran cada victoria con estrépito y disputas por el botín."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "esbirros",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/esbirros-zira.webp"
+      }
+    }
+  },
+  {
+    "_id": "8VPl873AVFqWFNWE",
+    "name": "Ulrot (Orco Bruto)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-ulrot.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Cicatrices de guerra, hombreras de hueso y un enorme mandoble dentado",
+      "vilefriend": "Grash (el carnicero del campamento)",
+      "minionpack": "CxAeF5GVlrpE4CA4",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 1,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 1,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 2,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Ulrot</strong> es un <strong>Orco Bruto</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Cicatrices de guerra, hombreras de hueso y un enorme mandoble dentado.</p><p><strong>Amigo vil:</strong> Grash (el carnicero del campamento).</p>"
+    },
+    "prototypeToken": {
+      "name": "Ulrot",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-ulrot.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "KRj5ZiCE9dqA9uqD",
+        "name": "Orco",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Orco."
+        }
+      },
+      {
+        "_id": "Fl5X9kOnZDbP5gOJ",
+        "name": "Bruto",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Bruto."
+        }
+      },
+      {
+        "_id": "GNstD91cVhYhBIDn",
+        "name": "Festín de carne asada y cerveza robada",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Festín de carne asada y cerveza robada"
+        }
+      },
+      {
+        "_id": "zGC4HsZZOvY17CM6",
+        "name": "Aplastar a los arrogantes campeones de la Luz",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Aplastar a los arrogantes campeones de la Luz"
+        }
+      },
+      {
+        "_id": "EFTTLSVmzfmAovP4",
+        "name": "Fuerza imparable",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Bruto",
+          "description": "Tus golpes cuerpo a cuerpo destrozan escudos, puertas y armaduras con facilidad aterradora."
+        }
+      },
+      {
+        "_id": "Y3ZZclpfCEoDiTLO",
+        "name": "Mandoble quebrantahuesos",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Mandoble quebrantahuesos"
+        }
+      },
+      {
+        "_id": "48HXKp1ibetXGCGp",
+        "name": "Armadura de placas abolladas",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Armadura de placas abolladas"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-ulrot.webp"
+      }
+    }
+  },
+  {
+    "_id": "fozRktX0JmEvzbiw",
+    "name": "Crag (Kóbold Chamán)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-crag.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Escamas rojizas, corona de cuernos y un báculo coronado por un cráneo humeante",
+      "vilefriend": "Vex (la anciana guardiana de los huevos)",
+      "minionpack": "ei8cb9HEe2JAfN7A",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 1,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 0,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 1,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Crag</strong> es un <strong>Kóbold Chamán</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Escamas rojizas, corona de cuernos y un báculo coronado por un cráneo humeante.</p><p><strong>Amigo vil:</strong> Vex (la anciana guardiana de los huevos).</p>"
+    },
+    "prototypeToken": {
+      "name": "Crag",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-crag.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "CNdqM8zN9QlfWEpF",
+        "name": "Kóbold",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Kóbold."
+        }
+      },
+      {
+        "_id": "Y3SrlGQ8k2bgPOVc",
+        "name": "Chamán",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Chamán."
+        }
+      },
+      {
+        "_id": "aD7jnF8kssz3AiUU",
+        "name": "Danza extática alrededor de la hoguera ritual",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Danza extática alrededor de la hoguera ritual"
+        }
+      },
+      {
+        "_id": "zMmKXYPpIENfw4YH",
+        "name": "Demostrar que las artes oscuras dominan el Valle Silencioso",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Demostrar que las artes oscuras dominan el Valle Silencioso"
+        }
+      },
+      {
+        "_id": "GvBvdDfHFc9qa4gC",
+        "name": "Canalizador de Gorlag",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Chamán",
+          "description": "Dominas los rituales de sangre y la senda de piromancia, canalizando el poder de los Dioses Oscuros."
+        }
+      },
+      {
+        "_id": "pfeZO2mqQMMxk5uM",
+        "name": "Báculo de canalización rúnica",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Báculo de canalización rúnica"
+        }
+      },
+      {
+        "_id": "4amMYE9lwQzYYqz1",
+        "name": "Bolsa de fetiches y pergaminos",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Bolsa de fetiches y pergaminos"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-crag.webp"
+      }
+    }
+  },
+  {
+    "_id": "yfK7gx7jq4WYSR5p",
+    "name": "Slem (Sérpido Sombra)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-slem.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Ojos verticales dorados, capucha de cuero negro y un par de dagas curvas goteantes",
+      "vilefriend": "Naga-Sss (traficante de venenos)",
+      "minionpack": "35alhWT8ChwzU8pO",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 2,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 2,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 1,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Slem</strong> es un <strong>Sérpido Sombra</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Ojos verticales dorados, capucha de cuero negro y un par de dagas curvas goteantes.</p><p><strong>Amigo vil:</strong> Naga-Sss (traficante de venenos).</p>"
+    },
+    "prototypeToken": {
+      "name": "Slem",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-slem.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "3JMffWyAN8rJWrV9",
+        "name": "Sérpido",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Sérpido."
+        }
+      },
+      {
+        "_id": "lpuGNmAT5TjeDGmX",
+        "name": "Sombra",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Sombra."
+        }
+      },
+      {
+        "_id": "xXtxXurkXXlynGkL",
+        "name": "Acechar desde las vigas altas y coleccionar llaves robadas",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Acechar desde las vigas altas y coleccionar llaves robadas"
+        }
+      },
+      {
+        "_id": "M5t4aZa5o36LDmoO",
+        "name": "Infiltrarse en las fortalezas más vigiladas sin ser visto",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Infiltrarse en las fortalezas más vigiladas sin ser visto"
+        }
+      },
+      {
+        "_id": "vMH1SJDdlarhzGJN",
+        "name": "Uno con las sombras",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Sombra",
+          "description": "Puedes desaparecer de la vista en cualquier rincón oscuro y atacar desde ángulos imposibles."
+        }
+      },
+      {
+        "_id": "EvAlhC5PNl6Ym5CY",
+        "name": "Dagas gemelas envenenadas",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Dagas gemelas envenenadas"
+        }
+      },
+      {
+        "_id": "cP2hyFwVSGgAA1ML",
+        "name": "Herramientas de ladrón y ganzúas",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Herramientas de ladrón y ganzúas"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-slem.webp"
+      }
+    }
+  },
+  {
+    "_id": "KXiMWdXTSECn3qBA",
+    "name": "Viska (Goblin Artesana)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-viska.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Dedos manchados de hollín, gafas de aumento triples y un cinturón lleno de engranajes",
+      "vilefriend": "Tock (su autómata de cuerda medio loco)",
+      "minionpack": "IMWHW3d8jEs9blhI",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 2,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 2,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 1,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 1,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 0,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Viska</strong> es un <strong>Goblin Artesana</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Dedos manchados de hollín, gafas de aumento triples y un cinturón lleno de engranajes.</p><p><strong>Amigo vil:</strong> Tock (su autómata de cuerda medio loco).</p>"
+    },
+    "prototypeToken": {
+      "name": "Viska",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-viska.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "WlTXAapLvrYT6PUW",
+        "name": "Goblin",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Goblin."
+        }
+      },
+      {
+        "_id": "bsEkclcmgfxb89mn",
+        "name": "Artesana",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Artesana."
+        }
+      },
+      {
+        "_id": "0XuKhxDqsTzgKSUu",
+        "name": "Probar explosivos e inventos ruidosos en el taller",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Probar explosivos e inventos ruidosos en el taller"
+        }
+      },
+      {
+        "_id": "18vibzuDsA2KZ4p8",
+        "name": "Convertir la mazmorra en una máquina mortal perfecta",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Convertir la mazmorra en una máquina mortal perfecta"
+        }
+      },
+      {
+        "_id": "4xOq494BGsoxbCKP",
+        "name": "Mente maestra de artilugios",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Artesana",
+          "description": "Comienzas cada fase con suministros para fabricar mejunjes alquímicos y artilugios mecánicos."
+        }
+      },
+      {
+        "_id": "98x7xEUVd5gkBZIK",
+        "name": "Ballesta de repetición",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Ballesta de repetición"
+        }
+      },
+      {
+        "_id": "Vk1IZwQPY7fKRbYY",
+        "name": "Caja de herramientas de maestro",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Caja de herramientas de maestro"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-viska.webp"
+      }
+    }
+  },
+  {
+    "_id": "Iyxl5N109V6lBJMN",
+    "name": "Kaelen (Demonio Hechicero)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-kaelen.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Cuernos curvados hacia atrás, ojos como brasas y túnica ribeteada en oro negro",
+      "vilefriend": "Malphas (un diablillo mensajero del Abismo)",
+      "minionpack": "NmXAarYRbdQZPOIh",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 1,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 0,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 1,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 2,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Kaelen</strong> es un <strong>Demonio Hechicero</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Cuernos curvados hacia atrás, ojos como brasas y túnica ribeteada en oro negro.</p><p><strong>Amigo vil:</strong> Malphas (un diablillo mensajero del Abismo).</p>"
+    },
+    "prototypeToken": {
+      "name": "Kaelen",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-kaelen.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "RMMePqqJsuvKCdzy",
+        "name": "Demonio",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Demonio."
+        }
+      },
+      {
+        "_id": "OabxSHHr6OuuJHqD",
+        "name": "Hechicero",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Hechicero."
+        }
+      },
+      {
+        "_id": "YPyAIe5pT3NcbnVJ",
+        "name": "Deleitarse con el miedo de los prisioneros y beber vino especiado",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Deleitarse con el miedo de los prisioneros y beber vino especiado"
+        }
+      },
+      {
+        "_id": "w6qkJuGF7ZcmXu1p",
+        "name": "Someter las almas de la Abadía de Piedra Blanca",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Someter las almas de la Abadía de Piedra Blanca"
+        }
+      },
+      {
+        "_id": "rGNEq9E27QcJB951",
+        "name": "Hechicería abisal",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Hechicero",
+          "description": "Desatas fuego negro, telequinesis e ilusiones aterradoras canalizando tu propia sangre demoníaca."
+        }
+      },
+      {
+        "_id": "EkI8lHhDwbociDC6",
+        "name": "Orbe de obsidiana ardiente",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Orbe de obsidiana ardiente"
+        }
+      },
+      {
+        "_id": "bpJ2hAqTXsv26UpG",
+        "name": "Túnica de escamas infernales",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Túnica de escamas infernales"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-kaelen.webp"
+      }
+    }
+  },
+  {
+    "_id": "nOxrNq5btGTRC2oP",
+    "name": "Zira (Devoramentes Confabuladora)",
+    "type": "character",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/pj-zira.webp",
+    "system": {
+      "pc_type": "wicked_one",
+      "look": "Tentáculos faciales violáceos ocultos tras una máscara de plata y capa de terciopelo",
+      "vilefriend": "Hermano Tomás (un monje corrupto de Piedra Blanca)",
+      "minionpack": "HsAh81euWRFDkoPP",
+      "wickedxp": {
+        "value": 0,
+        "max": 9,
+        "max_default": 9,
+        "name_default": "FITD.WickedXP",
+        "name": "FITD.WickedXP"
+      },
+      "recklessxp": {
+        "value": 0,
+        "max": 3,
+        "max_default": 3,
+        "name_default": "FITD.RecklessXP",
+        "name": "FITD.RecklessXP"
+      },
+      "stress": {
+        "min": 0,
+        "value": 0,
+        "max": 6
+      },
+      "bloodied": false,
+      "supply": {
+        "min": 0,
+        "value": 2,
+        "max": 2
+      },
+      "attribute_max_value": 3,
+      "downtime_action_used": false,
+      "dark_hearts": {
+        "min": 0,
+        "value": 1,
+        "max": 2
+      },
+      "gold": {
+        "min": 0,
+        "value": 1,
+        "max": 3
+      },
+      "rot": {
+        "min": 1,
+        "value": 1,
+        "max": 4
+      },
+      "attributes": {
+        "brains": {
+          "shocked": false,
+          "label": "FITD.SkillsBrains",
+          "skills": {
+            "scan": {
+              "label": "FITD.SkillsScan",
+              "value": 2,
+              "practice": 0
+            },
+            "tinker": {
+              "label": "FITD.SkillsTinker",
+              "value": 0,
+              "practice": 0
+            },
+            "trick": {
+              "label": "FITD.SkillsTrick",
+              "value": 2,
+              "practice": 0
+            }
+          }
+        },
+        "muscles": {
+          "shocked": false,
+          "label": "FITD.SkillsMuscles",
+          "skills": {
+            "finesse": {
+              "label": "FITD.SkillsFinesse",
+              "value": 0,
+              "practice": 0
+            },
+            "skulk": {
+              "label": "FITD.SkillsSkulk",
+              "value": 0,
+              "practice": 0
+            },
+            "smash": {
+              "label": "FITD.SkillsSmash",
+              "value": 0,
+              "practice": 0
+            }
+          }
+        },
+        "guts": {
+          "shocked": false,
+          "label": "FITD.SkillsGuts",
+          "skills": {
+            "banter": {
+              "label": "FITD.SkillsBanter",
+              "value": 2,
+              "practice": 0
+            },
+            "threaten": {
+              "label": "FITD.SkillsThreaten",
+              "value": 0,
+              "practice": 0
+            },
+            "horrify": {
+              "label": "FITD.SkillsHorrify",
+              "value": 0,
+              "practice": 0
+            },
+            "command": {
+              "label": "FITD.SkillsCommand",
+              "value": 0,
+              "practice": 0
+            },
+            "invoke": {
+              "label": "FITD.SkillsInvoke",
+              "value": 1,
+              "practice": 0
+            }
+          }
+        }
+      },
+      "description": "<p><strong>Zira</strong> es un <strong>Devoramentes Confabuladora</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Tentáculos faciales violáceos ocultos tras una máscara de plata y capa de terciopelo.</p><p><strong>Amigo vil:</strong> Hermano Tomás (un monje corrupto de Piedra Blanca).</p>"
+    },
+    "prototypeToken": {
+      "name": "Zira",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": 1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/pj-zira.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "i6AprJyyQnELzaeg",
+        "name": "Devoramentes",
+        "type": "monster_race",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+        "system": {
+          "primal": false,
+          "description": "Raza monstruosa: Devoramentes."
+        }
+      },
+      {
+        "_id": "VVVRbWNkuh3YJ86G",
+        "name": "Confabuladora",
+        "type": "calling",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+        "system": {
+          "is_ua_calling": false,
+          "description": "Vocación malvada: Confabuladora."
+        }
+      },
+      {
+        "_id": "H8jI86NpF7PzCzFC",
+        "name": "Saborear los recuerdos y secretos extraídos de mentes cautivas",
+        "type": "revelry",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+        "system": {
+          "description": "Saborear los recuerdos y secretos extraídos de mentes cautivas"
+        }
+      },
+      {
+        "_id": "T7Jha5dLlG1D1n47",
+        "name": "Enfrentar a las facciones de la Luz entre sí mediante intrigas",
+        "type": "wickedimpulse",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+        "system": {
+          "is_for_ua": false,
+          "description": "Enfrentar a las facciones de la Luz entre sí mediante intrigas"
+        }
+      },
+      {
+        "_id": "mAizG5vVe8nscfHd",
+        "name": "Red de marionetas",
+        "type": "specialability",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+        "system": {
+          "ability_type": "basic",
+          "ability_group": "group_core",
+          "source": "Confabuladora",
+          "description": "Siempre tienes un contacto sobornado o coaccionado dentro de la facción objetivo de la incursión."
+        }
+      },
+      {
+        "_id": "OopNJk6m3fSXXzLN",
+        "name": "Bastón estoque oculto",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Personal"
+          },
+          "description": "Bastón estoque oculto"
+        }
+      },
+      {
+        "_id": "Ouz0tBNXoADtjPOd",
+        "name": "Disfraces y sellos falsificados",
+        "type": "gearsupply",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+        "system": {
+          "gear_or_supply": "gear",
+          "quality_category": "mundane",
+          "use_type": "unlimited",
+          "uses_left": 4,
+          "edges": {
+            "0": "Útil"
+          },
+          "description": "Disfraces y sellos falsificados"
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "pj",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-zira.webp"
+      }
+    }
+  },
+  {
+    "_id": "BSHCMZtg8qmQGadk",
+    "name": "Guarida del Paso del Mercader",
+    "type": "dungeon",
+    "img": "systems/wicked-ones/styles/assets/default-images/dungeon.webp",
+    "system": {
+      "tier": {
+        "min": 0,
+        "value": 1,
+        "max": 4
+      },
+      "entrance": "Boca de cueva oculta tras los riscos del Paso del Mercader, reforzada con carromatos volcados.",
+      "structure": "Cavernas naturales de caliza conectadas con una antigua bóveda tallada de otra era.",
+      "lighting": "Braseros humeantes, antorchas de resina y hongos fosforescentes junto a la cisterna.",
+      "atmospherics": "Olor a humo de leña, humedad fría del arroyo subterráneo y murmullo constante del Corazón.",
+      "hoard": "Cajas de mercancías saqueadas, barriles de licor y cofres de monedas en la Bóveda de Piedra Antigua.",
+      "imps": "Diablillos tiznados de hollín que acarrean piedras y chillan cuando huelen intrusos.",
+      "master_plan": {
+        "step1": "1. Tomar las Cuevas del Paso del Mercader y despertar el Corazón («Un lugar al que llamar hogar»).",
+        "step2": "2. Saquear los grimorios prohibidos de la Abadía de Piedra Blanca («Una biblioteca necesita libros»).",
+        "step3": "3. Capturar la piel del Gran Hombre Lobo del Bosque Susurrante («Piel de lobo para un ritual»).",
+        "step4": "4. Repeler la invasión de los héroes del valle en nuestra guarida («¡Matad a los intrusos!»).",
+        "step5": "5. Completar el Ritual del Eclipse sobre las Colinas («Bajo la luna llena»).",
+        "step6": "6. Lanzar el asalto final contra Ciudad Floresta («La última luna llena»)."
+      },
+      "description": "<h2>Guarida de la Campaña · El Valle Silencioso</h2><p>Esta hoja representa vuestra mazmorra comunitaria tras reclamar las Cuevas del Paso del Mercader. Añadid aquí vuestras Salas de Nivel 3 y llevad el registro de vuestro Plan Maestro.</p>"
+    },
+    "items": [
+      {
+        "_id": "q17VG6o0GnjhDiAo",
+        "name": "Fortaleza de Saqueadores de las Colinas",
+        "type": "dungeon_theme",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.3_67.png",
+        "system": {
+          "special_name": "Pasadizos de emboscada",
+          "special_feature": "Los esbirros y trampas situados cerca de la entrada obtienen +1d en la primera sala.",
+          "theme_checkbox_1_text": "Emboscada activada",
+          "theme_checkbox_1_checked": false,
+          "theme_checkbox_2_text": "Alarma de cuerno",
+          "theme_checkbox_2_checked": false,
+          "description": "Un bastión excavado en la roca desde el que dominar las rutas del Valle Silencioso."
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "mazmorra"
+      }
+    }
+  },
+  {
+    "_id": "BQ4Qewwn3u7B5Vxp",
+    "name": "Expedición de Piedra Blanca (Invasión N1)",
+    "type": "party",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-defensor.webp",
+    "system": {
+      "description": "<p>Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía de Piedra Blanca para recuperar la mercancía robada y tantear vuestras defensas.</p>"
+    },
+    "prototypeToken": {
+      "name": "Expedición de Piedra Blanca (Invasión N1)",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": -1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/adv-defensor.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "i5jZqdJIKqrjcxqc",
+        "name": "Alric de Piedra Blanca",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-defensor.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Defender",
+          "adventurer_class_custom": "Alric de Piedra Blanca (Defensor)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Siempre protege primero a sus compañeros. | Ofensivos: Embestida acorazada que derriba a la primera línea, Golpe de martillo que aturde al atacante, Bloquea el pasillo entero con su coraza y escudo | Defensivos: Se interpone recibiendo el golpe sin ceder, Clava su escudo torre en el suelo, Desvía la trampa con su armadura pesada",
+          "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+          "trait_pos_1_custom": "Firme",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Indecisive",
+          "trait_neg_1_custom": "Indeciso",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Challenge",
+          "motivation_1_custom": "Desafío",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Siempre protege primero a sus compañeros.\nMovimientos ofensivos:\n• Embestida acorazada que derriba a la primera línea\n• Golpe de martillo que aturde al atacante\n• Bloquea el pasillo entero con su coraza y escudo\nMovimientos defensivos:\n• Se interpone recibiendo el golpe sin ceder\n• Clava su escudo torre en el suelo\n• Desvía la trampa con su armadura pesada"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "defender",
+            "pasivaCorto": "Siempre protege primero a sus compañeros.",
+            "ofensivos": [
+              "Embestida acorazada que derriba a la primera línea",
+              "Golpe de martillo que aturde al atacante",
+              "Bloquea el pasillo entero con su coraza y escudo"
+            ],
+            "defensivos": [
+              "Se interpone recibiendo el golpe sin ceder",
+              "Clava su escudo torre en el suelo",
+              "Desvía la trampa con su armadura pesada"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "M5T25ZZ0dmbylKhI",
+        "name": "Hermana Valeria",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-cleriga.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Cleric",
+          "adventurer_class_custom": "Hermana Valeria (Clérigo)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Restaura el corazón de un aliado como movimiento. | Ofensivos: Luz sagrada abrasadora contra criaturas oscuras, Golpe contundente con maza bendecida, Consagra el suelo impidiendo la magia oscura | Defensivos: Plegaria de escudo radiante, Sana las heridas de un compañero en el acto, Su símbolo sagrado repele el ataque",
+          "trait_pos_1": "FITD.ADV_TRAIT.Generous",
+          "trait_pos_1_custom": "Generoso",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+          "trait_neg_1_custom": "Terco",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Justice",
+          "motivation_1_custom": "Justicia",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Restaura el corazón de un aliado como movimiento.\nMovimientos ofensivos:\n• Luz sagrada abrasadora contra criaturas oscuras\n• Golpe contundente con maza bendecida\n• Consagra el suelo impidiendo la magia oscura\nMovimientos defensivos:\n• Plegaria de escudo radiante\n• Sana las heridas de un compañero en el acto\n• Su símbolo sagrado repele el ataque"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "cleric",
+            "pasivaCorto": "Restaura el corazón de un aliado como movimiento.",
+            "ofensivos": [
+              "Luz sagrada abrasadora contra criaturas oscuras",
+              "Golpe contundente con maza bendecida",
+              "Consagra el suelo impidiendo la magia oscura"
+            ],
+            "defensivos": [
+              "Plegaria de escudo radiante",
+              "Sana las heridas de un compañero en el acto",
+              "Su símbolo sagrado repele el ataque"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "YHMrZdkyxmNwRt79",
+        "name": "Garrick el Rastreador",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Scout",
+          "adventurer_class_custom": "Garrick el Rastreador (Explorador)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Detecta trampas y puertas secretas con facilidad. | Ofensivos: Desactiva o bloquea el mecanismo de una trampa, Señala el punto vulnerable para que sus aliados ataquen, Ataque rápido de flanqueo y retirada | Defensivos: Advierte el cable o placa de presión a tiempo, Se desliza por un hueco estrecho fuera de peligro, Lanza un abrojo o cuerda para frenar al perseguidor",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+          "trait_neg_1_custom": "Terco",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Exploration",
+          "motivation_1_custom": "Exploración",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Detecta trampas y puertas secretas con facilidad.\nMovimientos ofensivos:\n• Desactiva o bloquea el mecanismo de una trampa\n• Señala el punto vulnerable para que sus aliados ataquen\n• Ataque rápido de flanqueo y retirada\nMovimientos defensivos:\n• Advierte el cable o placa de presión a tiempo\n• Se desliza por un hueco estrecho fuera de peligro\n• Lanza un abrojo o cuerda para frenar al perseguidor"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "scout",
+            "pasivaCorto": "Detecta trampas y puertas secretas con facilidad.",
+            "ofensivos": [
+              "Desactiva o bloquea el mecanismo de una trampa",
+              "Señala el punto vulnerable para que sus aliados ataquen",
+              "Ataque rápido de flanqueo y retirada"
+            ],
+            "defensivos": [
+              "Advierte el cable o placa de presión a tiempo",
+              "Se desliza por un hueco estrecho fuera de peligro",
+              "Lanza un abrojo o cuerda para frenar al perseguidor"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "ypr6pC1vv8UbvbKX",
+        "name": "Guardia de Caravana",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Guard",
+          "hireling_type_custom": "Guardia",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "guard"
+          }
+        }
+      },
+      {
+        "_id": "FdJ2c5cG4eZPfGLz",
+        "name": "Buscatrampas del Gremio",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Trapfinder",
+          "hireling_type_custom": "Buscatrampas",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "trapfinder"
+          }
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "grupo_invasor",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp"
+      }
+    }
+  },
+  {
+    "_id": "4gNJxiuvQBMKGRYS",
+    "name": "Cazadores de la Luna de Plata (Invasión N2)",
+    "type": "party",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+    "system": {
+      "description": "<p>Veteranos curtidos en dar caza a bestias sobrenaturales que siguen el rastro del ritual licántropo hasta el corazón de vuestra mazmorra.</p>"
+    },
+    "prototypeToken": {
+      "name": "Cazadores de la Luna de Plata (Invasión N2)",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": -1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/adv-explorador.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "uPcuaMSTVYYavM20",
+        "name": "Vaelen Cazador de Sombras",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Occultslayer",
+          "adventurer_class_custom": "Vaelen Cazador de Sombras (Asesino de lo Oculto)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Especialista en destruir monstruos sobrenaturales. | Ofensivos: Dispara virotes grabados con runas de destierro, Usa bombas de sal, plata y hierro frío, Analiza y explota la debilidad de la raza del monstruo | Defensivos: Activa un talismán protector contra poderes oscuros, Rueda fuera del alcance dejando un abrojo bendito, Corta el vínculo mágico de la trampa o reliquia",
+          "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+          "trait_pos_1_custom": "Persistente",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
+          "trait_neg_1_custom": "Deshonesto",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Justice",
+          "motivation_1_custom": "Justicia",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Especialista en destruir monstruos sobrenaturales.\nMovimientos ofensivos:\n• Dispara virotes grabados con runas de destierro\n• Usa bombas de sal, plata y hierro frío\n• Analiza y explota la debilidad de la raza del monstruo\nMovimientos defensivos:\n• Activa un talismán protector contra poderes oscuros\n• Rueda fuera del alcance dejando un abrojo bendito\n• Corta el vínculo mágico de la trampa o reliquia"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "occultslayer",
+            "pasivaCorto": "Especialista en destruir monstruos sobrenaturales.",
+            "ofensivos": [
+              "Dispara virotes grabados con runas de destierro",
+              "Usa bombas de sal, plata y hierro frío",
+              "Analiza y explota la debilidad de la raza del monstruo"
+            ],
+            "defensivos": [
+              "Activa un talismán protector contra poderes oscuros",
+              "Rueda fuera del alcance dejando un abrojo bendito",
+              "Corta el vínculo mágico de la trampa o reliquia"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "3FFB0LgVevs10644",
+        "name": "Lyra Vientoveloz",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquera.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Spellbow",
+          "adventurer_class_custom": "Lyra Vientoveloz (Arquero Arcano)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Sus flechas atraviesan coberturas y muros finos. | Ofensivos: Flecha espectral que ignora armaduras y escudos, Salva de flechas multiplicadas en el aire, Flecha explosiva que detona al clavarse | Defensivos: Dispara una flecha con cuerda mágica para impulsarse, Barrera de viento que desvía proyectiles y gases, Se mantiene en la retaguardia fuera de alcance",
+          "trait_pos_1": "FITD.ADV_TRAIT.Clever",
+          "trait_pos_1_custom": "Astuto",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Greedy",
+          "trait_neg_1_custom": "Codicioso",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Thrills",
+          "motivation_1_custom": "Emociones",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Sus flechas atraviesan coberturas y muros finos.\nMovimientos ofensivos:\n• Flecha espectral que ignora armaduras y escudos\n• Salva de flechas multiplicadas en el aire\n• Flecha explosiva que detona al clavarse\nMovimientos defensivos:\n• Dispara una flecha con cuerda mágica para impulsarse\n• Barrera de viento que desvía proyectiles y gases\n• Se mantiene en la retaguardia fuera de alcance"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "spellbow",
+            "pasivaCorto": "Sus flechas atraviesan coberturas y muros finos.",
+            "ofensivos": [
+              "Flecha espectral que ignora armaduras y escudos",
+              "Salva de flechas multiplicadas en el aire",
+              "Flecha explosiva que detona al clavarse"
+            ],
+            "defensivos": [
+              "Dispara una flecha con cuerda mágica para impulsarse",
+              "Barrera de viento que desvía proyectiles y gases",
+              "Se mantiene en la retaguardia fuera de alcance"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "7iE5xBWo8vgjW8UE",
+        "name": "Thorn de la Arboleda",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Druid",
+          "adventurer_class_custom": "Thorn de la Arboleda (Druida)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Puede transformarse en bestia salvaje. | Ofensivos: Se transforma en oso o pantera y desgarra, Hace brotar raíces espinosas que atrapan a todos, Comanda a las bestias de la guarida contra sus amos | Defensivos: Adopta forma de serpiente o pájaro para escapar, Piel de corteza que detiene las cuchillas, Se funde con la roca y el barro natural",
+          "trait_pos_1": "FITD.ADV_TRAIT.Honest",
+          "trait_pos_1_custom": "Honesto",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Vengeance",
+          "motivation_1_custom": "Venganza",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Puede transformarse en bestia salvaje.\nMovimientos ofensivos:\n• Se transforma en oso o pantera y desgarra\n• Hace brotar raíces espinosas que atrapan a todos\n• Comanda a las bestias de la guarida contra sus amos\nMovimientos defensivos:\n• Adopta forma de serpiente o pájaro para escapar\n• Piel de corteza que detiene las cuchillas\n• Se funde con la roca y el barro natural"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "druid",
+            "pasivaCorto": "Puede transformarse en bestia salvaje.",
+            "ofensivos": [
+              "Se transforma en oso o pantera y desgarra",
+              "Hace brotar raíces espinosas que atrapan a todos",
+              "Comanda a las bestias de la guarida contra sus amos"
+            ],
+            "defensivos": [
+              "Adopta forma de serpiente o pájaro para escapar",
+              "Piel de corteza que detiene las cuchillas",
+              "Se funde con la roca y el barro natural"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "1BHvZZergaZHprR2",
+        "name": "Korgath Rompecráneos",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-barbaro.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Barbarian",
+          "adventurer_class_custom": "Korgath Rompecráneos (Bárbaro)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Tiene un corazón más. | Ofensivos: Carga salvaje destrozando barricadas y escudos, Tajo circular con hacha a dos manos, Agarra a un enemigo y lo estampa contra otro | Defensivos: Ignora el dolor rugiendo con furia, Detiene el arma enemiga con sus propias manos, Rompe la trampa a golpes brutos",
+          "trait_pos_1": "FITD.ADV_TRAIT.Confident",
+          "trait_pos_1_custom": "Confiado",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Dumb",
+          "trait_neg_1_custom": "Estúpido",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Justice",
+          "motivation_1_custom": "Justicia",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Tiene un corazón más.\nMovimientos ofensivos:\n• Carga salvaje destrozando barricadas y escudos\n• Tajo circular con hacha a dos manos\n• Agarra a un enemigo y lo estampa contra otro\nMovimientos defensivos:\n• Ignora el dolor rugiendo con furia\n• Detiene el arma enemiga con sus propias manos\n• Rompe la trampa a golpes brutos"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "barbarian",
+            "pasivaCorto": "Tiene un corazón más.",
+            "ofensivos": [
+              "Carga salvaje destrozando barricadas y escudos",
+              "Tajo circular con hacha a dos manos",
+              "Agarra a un enemigo y lo estampa contra otro"
+            ],
+            "defensivos": [
+              "Ignora el dolor rugiendo con furia",
+              "Detiene el arma enemiga con sus propias manos",
+              "Rompe la trampa a golpes brutos"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "IyypkJzSWSgWDB4J",
+        "name": "Rastreador Montaraz",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Forester",
+          "hireling_type_custom": "Montaraz",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "forester"
+          }
+        }
+      },
+      {
+        "_id": "qZbVQRQbXKpLSmsS",
+        "name": "Cirujano de Campaña",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Sawbones",
+          "hireling_type_custom": "Cirujano",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Cose heridas entre combates para mantener en pie a los aventureros.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Cose heridas entre combates para mantener en pie a los aventureros."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "sawbones"
+          }
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "grupo_invasor",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp"
+      }
+    }
+  },
+  {
+    "_id": "PwRvzrIn5rliNOC9",
+    "name": "Vanguardia de Ciudad Floresta (Invasión N3)",
+    "type": "party",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-inquisidor.webp",
+    "system": {
+      "description": "<p>La élite militar, arcana y religiosa del Valle Silencioso reunida para destruir vuestro Corazón de la Mazmorra antes del eclipse final.</p>"
+    },
+    "prototypeToken": {
+      "name": "Vanguardia de Ciudad Floresta (Invasión N3)",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": -1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/adv-inquisidor.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "v5LMZseCrZuRdrOg",
+        "name": "Alto Inquisidor Malakor",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-inquisidor.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Inquisitor",
+          "adventurer_class_custom": "Alto Inquisidor Malakor (Inquisidor)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 3,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Anula engaños, ilusiones y magia oscura. | Ofensivos: Disparo de ballesta bendecida con plata, Marca al malvado con un anatema que impide ocultarse, Azota con cadenas consagradas ardientes | Defensivos: Su fe inquebrantable disipa el conjuro o truco, Pronuncia un edicto que detiene en seco al atacante, Sacrifica a un subordinado para mantener la misión",
+          "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+          "trait_pos_1_custom": "Persistente",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+          "trait_neg_1_custom": "Terco",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Justice",
+          "motivation_1_custom": "Justicia",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Anula engaños, ilusiones y magia oscura.\nMovimientos ofensivos:\n• Disparo de ballesta bendecida con plata\n• Marca al malvado con un anatema que impide ocultarse\n• Azota con cadenas consagradas ardientes\nMovimientos defensivos:\n• Su fe inquebrantable disipa el conjuro o truco\n• Pronuncia un edicto que detiene en seco al atacante\n• Sacrifica a un subordinado para mantener la misión"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "inquisitor",
+            "pasivaCorto": "Anula engaños, ilusiones y magia oscura.",
+            "ofensivos": [
+              "Disparo de ballesta bendecida con plata",
+              "Marca al malvado con un anatema que impide ocultarse",
+              "Azota con cadenas consagradas ardientes"
+            ],
+            "defensivos": [
+              "Su fe inquebrantable disipa el conjuro o truco",
+              "Pronuncia un edicto que detiene en seco al atacante",
+              "Sacrifica a un subordinado para mantener la misión"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "q5AXZeIbc1hNKV4j",
+        "name": "Comandante Vane",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-centurion.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Centurion",
+          "adventurer_class_custom": "Comandante Vane (Centurión)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Otorga un movimiento defensivo adicional al grupo. | Ofensivos: Avanza en formación cerrada de escudos, Empuja con el escudo y ensarta con la espada corta, Ordena una maniobra táctica disciplinada | Defensivos: Alza un muro de escudos impenetrable, Protege al compañero herido bajo su pavés, Mantiene la posición sin retroceder un palmo",
+          "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+          "trait_pos_1_custom": "Firme",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+          "trait_neg_1_custom": "Terco",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Respect",
+          "motivation_1_custom": "Respeto",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Otorga un movimiento defensivo adicional al grupo.\nMovimientos ofensivos:\n• Avanza en formación cerrada de escudos\n• Empuja con el escudo y ensarta con la espada corta\n• Ordena una maniobra táctica disciplinada\nMovimientos defensivos:\n• Alza un muro de escudos impenetrable\n• Protege al compañero herido bajo su pavés\n• Mantiene la posición sin retroceder un palmo"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "centurion",
+            "pasivaCorto": "Otorga un movimiento defensivo adicional al grupo.",
+            "ofensivos": [
+              "Avanza en formación cerrada de escudos",
+              "Empuja con el escudo y ensarta con la espada corta",
+              "Ordena una maniobra táctica disciplinada"
+            ],
+            "defensivos": [
+              "Alza un muro de escudos impenetrable",
+              "Protege al compañero herido bajo su pavés",
+              "Mantiene la posición sin retroceder un palmo"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "XLV9QMQXpuv3PESE",
+        "name": "Archimago Oakhaven",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-archimago.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Chaosmage",
+          "adventurer_class_custom": "Archimago Oakhaven (Mago del Caos)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Magia poderosa y salvajemente impredecible. | Ofensivos: Desata un vórtice de relámpagos y fuego prismático, Altera la gravedad de la sala de repente, Teletransporta a los combatientes de lugar | Defensivos: Estalla en una onda de fuerza caótica, Su cuerpo parpadea entre planos al ser golpeado, Convierte el proyectil en mariposas o humo",
+          "trait_pos_1": "FITD.ADV_TRAIT.Optimistic",
+          "trait_pos_1_custom": "Optimista",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Indecisive",
+          "trait_neg_1_custom": "Indeciso",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Exploration",
+          "motivation_1_custom": "Exploración",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Magia poderosa y salvajemente impredecible.\nMovimientos ofensivos:\n• Desata un vórtice de relámpagos y fuego prismático\n• Altera la gravedad de la sala de repente\n• Teletransporta a los combatientes de lugar\nMovimientos defensivos:\n• Estalla en una onda de fuerza caótica\n• Su cuerpo parpadea entre planos al ser golpeado\n• Convierte el proyectil en mariposas o humo"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "chaosmage",
+            "pasivaCorto": "Magia poderosa y salvajemente impredecible.",
+            "ofensivos": [
+              "Desata un vórtice de relámpagos y fuego prismático",
+              "Altera la gravedad de la sala de repente",
+              "Teletransporta a los combatientes de lugar"
+            ],
+            "defensivos": [
+              "Estalla en una onda de fuerza caótica",
+              "Su cuerpo parpadea entre planos al ser golpeado",
+              "Convierte el proyectil en mariposas o humo"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "yED2V7akVQaoSAsU",
+        "name": "Sir Roland del Sol",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-caballero.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Knight",
+          "adventurer_class_custom": "Sir Roland del Sol (Caballero)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Armadura pesada e inmune al miedo. | Ofensivos: Duelo honorable: desafía y acorrala al líder, Tajo poderoso de espada bastarda, Carga hombro con hombro inspirando valor | Defensivos: Su armadura de placas desvía el golpe limpiamente, Parada magistral y contraataque, Se mantiene firme pese al dolor por su juramento",
+          "trait_pos_1": "FITD.ADV_TRAIT.Honest",
+          "trait_pos_1_custom": "Honesto",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Cocky",
+          "trait_neg_1_custom": "Engreído",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Respect",
+          "motivation_1_custom": "Respeto",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Armadura pesada e inmune al miedo.\nMovimientos ofensivos:\n• Duelo honorable: desafía y acorrala al líder\n• Tajo poderoso de espada bastarda\n• Carga hombro con hombro inspirando valor\nMovimientos defensivos:\n• Su armadura de placas desvía el golpe limpiamente\n• Parada magistral y contraataque\n• Se mantiene firme pese al dolor por su juramento"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "knight",
+            "pasivaCorto": "Armadura pesada e inmune al miedo.",
+            "ofensivos": [
+              "Duelo honorable: desafía y acorrala al líder",
+              "Tajo poderoso de espada bastarda",
+              "Carga hombro con hombro inspirando valor"
+            ],
+            "defensivos": [
+              "Su armadura de placas desvía el golpe limpiamente",
+              "Parada magistral y contraataque",
+              "Se mantiene firme pese al dolor por su juramento"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "jrrQkxSTMUdmyjje",
+        "name": "Maestro Cerrajero",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Locksmith",
+          "hireling_type_custom": "Cerrajero",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "locksmith"
+          }
+        }
+      },
+      {
+        "_id": "iXUGbRk8dqbGWY95",
+        "name": "Veterano de la Guardia",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Mercenary",
+          "hireling_type_custom": "Mercenario",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Veterano curtido que aporta potencia de combate adicional.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Veterano curtido que aporta potencia de combate adicional."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "mercenary"
+          }
+        }
+      },
+      {
+        "_id": "1Pvjnlff67dzB92R",
+        "name": "Acólito Portador del Sello",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Priest",
+          "hireling_type_custom": "Sacerdote",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "priest"
+          }
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "grupo_invasor",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp"
+      }
+    }
+  },
+  {
+    "_id": "O0Z4xHOfWCRQZrYI",
+    "name": "Escuadrón de Purga de las Cloacas (Invasión N2)",
+    "type": "party",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-centurion.webp",
+    "system": {
+      "description": "<p>Grupo de choque especializado en túneles estrechos para campañas en las Cloacas de la Gran Ciudad.</p>"
+    },
+    "prototypeToken": {
+      "name": "Escuadrón de Purga de las Cloacas (Invasión N2)",
+      "displayName": 50,
+      "actorLink": true,
+      "disposition": -1,
+      "texture": {
+        "src": "modules/mr-wicked-ones-es/assets/tokens/adv-centurion.webp"
+      }
+    },
+    "items": [
+      {
+        "_id": "RgTFgfKw5zdneVxr",
+        "name": "Hermano Ignis",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Templar",
+          "adventurer_class_custom": "Hermano Ignis (Templario)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Campeón fanático de la Luz. | Ofensivos: Espadón llameante de juicio solar, Carga purificadora que rompe la moral de los esbirros, Desafío sagrado que obliga al malvado a encararlo | Defensivos: Aura dorada que quema a quien lo golpea de cerca, Resiste el golpe con una oración inquebrantable, Escudo consagrado que refleja la magia oscura",
+          "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+          "trait_pos_1_custom": "Firme",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+          "trait_neg_1_custom": "Terco",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Justice",
+          "motivation_1_custom": "Justicia",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Campeón fanático de la Luz.\nMovimientos ofensivos:\n• Espadón llameante de juicio solar\n• Carga purificadora que rompe la moral de los esbirros\n• Desafío sagrado que obliga al malvado a encararlo\nMovimientos defensivos:\n• Aura dorada que quema a quien lo golpea de cerca\n• Resiste el golpe con una oración inquebrantable\n• Escudo consagrado que refleja la magia oscura"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "templar",
+            "pasivaCorto": "Campeón fanático de la Luz.",
+            "ofensivos": [
+              "Espadón llameante de juicio solar",
+              "Carga purificadora que rompe la moral de los esbirros",
+              "Desafío sagrado que obliga al malvado a encararlo"
+            ],
+            "defensivos": [
+              "Aura dorada que quema a quien lo golpea de cerca",
+              "Resiste el golpe con una oración inquebrantable",
+              "Escudo consagrado que refleja la magia oscura"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "7Ckwtr0WsyreIO7J",
+        "name": "Maestra Soria",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Alchemist",
+          "adventurer_class_custom": "Maestra Soria (Alquimista)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 2,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Su equipo cuenta con varias pociones. | Ofensivos: Lanza un vial de fuego alquímico o ácido, Bebe un mutágeno de furia y fuerza, Inunda la sala con humo tóxico | Defensivos: Arroja una bomba cegadora a sus pies, Neutraliza el veneno o ácido con un reactivo, Bebe un elixir curativo de emergencia",
+          "trait_pos_1": "FITD.ADV_TRAIT.Clever",
+          "trait_pos_1_custom": "Astuto",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Thrills",
+          "motivation_1_custom": "Emociones",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Su equipo cuenta con varias pociones.\nMovimientos ofensivos:\n• Lanza un vial de fuego alquímico o ácido\n• Bebe un mutágeno de furia y fuerza\n• Inunda la sala con humo tóxico\nMovimientos defensivos:\n• Arroja una bomba cegadora a sus pies\n• Neutraliza el veneno o ácido con un reactivo\n• Bebe un elixir curativo de emergencia"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "alchemist",
+            "pasivaCorto": "Su equipo cuenta con varias pociones.",
+            "ofensivos": [
+              "Lanza un vial de fuego alquímico o ácido",
+              "Bebe un mutágeno de furia y fuerza",
+              "Inunda la sala con humo tóxico"
+            ],
+            "defensivos": [
+              "Arroja una bomba cegadora a sus pies",
+              "Neutraliza el veneno o ácido con un reactivo",
+              "Bebe un elixir curativo de emergencia"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "8x55ohs8yqkppoBW",
+        "name": "Vesper Cuchillo Negro",
+        "type": "adventurer",
+        "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesina.webp",
+        "system": {
+          "adventurer_type": "adventurer",
+          "adventurer_class": "FITD.ADV_CLASS.Assassin",
+          "adventurer_class_custom": "Vesper Cuchillo Negro (Asesino)",
+          "hireling_type": "",
+          "hireling_type_custom": "",
+          "tier": 1,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Difícil de seguirle la pista en combate. | Ofensivos: Apuñala desde las sombras donde más duele, Lanza dagas envenenadas en movimiento, Corta las correas de la armadura o suministros | Defensivos: Se desvanece en una esquina oscura, Deja un señuelo y rueda a la espalda del atacante, Desvía la hoja con sus dagas gemelas",
+          "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+          "trait_pos_1_custom": "Persistente",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
+          "trait_neg_1_custom": "Deshonesto",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Pasiva: Difícil de seguirle la pista en combate.\nMovimientos ofensivos:\n• Apuñala desde las sombras donde más duele\n• Lanza dagas envenenadas en movimiento\n• Corta las correas de la armadura o suministros\nMovimientos defensivos:\n• Se desvanece en una esquina oscura\n• Deja un señuelo y rueda a la espalda del atacante\n• Desvía la hoja con sus dagas gemelas"
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "clase": "assassin",
+            "pasivaCorto": "Difícil de seguirle la pista en combate.",
+            "ofensivos": [
+              "Apuñala desde las sombras donde más duele",
+              "Lanza dagas envenenadas en movimiento",
+              "Corta las correas de la armadura o suministros"
+            ],
+            "defensivos": [
+              "Se desvanece en una esquina oscura",
+              "Deja un señuelo y rueda a la espalda del atacante",
+              "Desvía la hoja con sus dagas gemelas"
+            ]
+          }
+        }
+      },
+      {
+        "_id": "r8WiuREYHmORxomI",
+        "name": "Cazarratas Mayor",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Ratcatcher",
+          "hireling_type_custom": "Cazarratas",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "ratcatcher"
+          }
+        }
+      },
+      {
+        "_id": "4jMBxAV4wbwsqOI4",
+        "name": "Zapador de Túneles",
+        "type": "adventurer",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+        "system": {
+          "adventurer_type": "hireling",
+          "adventurer_class": "",
+          "adventurer_class_custom": "",
+          "hireling_type": "FITD.ADV_TYPE.Miner",
+          "hireling_type_custom": "Minero",
+          "tier": 0,
+          "heart_slashes": 0,
+          "moves_used": 0,
+          "passive": "Detecta muros falsos y puede abrir túneles a través de derrumbes.",
+          "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+          "trait_pos_1_custom": "Servicial",
+          "trait_pos_2": "",
+          "trait_pos_2_custom": "",
+          "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+          "trait_neg_1_custom": "Impaciente",
+          "trait_neg_2": "",
+          "trait_neg_2_custom": "",
+          "motivation_1": "FITD.ADV_MOTIVE.Riches",
+          "motivation_1_custom": "Riquezas",
+          "motivation_2": "",
+          "motivation_2_custom": "",
+          "description": "Detecta muros falsos y puede abrir túneles a través de derrumbes."
+        },
+        "flags": {
+          "mr-wicked-ones-es": {
+            "ayudante": "miner"
+          }
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "grupo_invasor",
+        "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp"
+      }
+    }
+  },
+  {
+    "_id": "PPawS8q5D5fjmP20",
+    "name": "Panel del DJ · Campaña El Valle Silencioso",
+    "type": "gm_sheet",
+    "img": "modules/mr-wicked-ones-es/assets/escenas/portada.webp",
+    "system": {
+      "current_phase": {
+        "value": 7,
+        "min": 1,
+        "max": 12
+      },
+      "description": "<h2>Guía Rápida del Ciclo de Partida · El Valle Silencioso</h2><p>La campaña comienza directamente en la <strong>Fase de Incursión (Fase 7)</strong> con el asalto inicial <em>«Un lugar al que llamar hogar»</em> contra las Cuevas del Paso del Mercader.</p><ul><li><strong>Hito R1:</strong> Reclamar la cueva y forjar el Corazón de la Mazmorra.</li><li><strong>Hito R2:</strong> Primera Fase de Guarida (excavar salas N1, colocar trampas y reclutar).</li><li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía de Piedra Blanca).</li><li><strong>Hito R4:</strong> Incursión III «Piel de lobo para un ritual» (Bosque Susurrante).</li><li><strong>Hito R5:</strong> Invasión «¡Matad a los intrusos!» (Defensa de la mazmorra).</li><li><strong>Hito R6:</strong> Clímax «La última luna llena» (Eclipse y asalto a Ciudad Floresta).</li></ul>"
+    },
+    "items": [
+      {
+        "_id": "dEi5MSxGlsinRf7q",
+        "name": "Alarma en las Colinas de Piedra Blanca",
+        "type": "project",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+        "system": {
+          "clock_sizes": [
+            4,
+            6,
+            8
+          ],
+          "clock_size": 4,
+          "clock_progress": 0,
+          "description": "Cuando se llena, el Gremio de Mercaderes envía a la Expedición de Piedra Blanca."
+        }
+      },
+      {
+        "_id": "7vwFs24MfRmAWWup",
+        "name": "Sospecha de la Abadía de Piedra Blanca",
+        "type": "project",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+        "system": {
+          "clock_sizes": [
+            4,
+            6,
+            8
+          ],
+          "clock_size": 6,
+          "clock_progress": 0,
+          "description": "Avanza con las represalias mágicas o incursiones contra lugares sagrados."
+        }
+      },
+      {
+        "_id": "cFLd5YFAQG1AXCi1",
+        "name": "El Ritual de la Última Luna Llena",
+        "type": "project",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+        "system": {
+          "clock_sizes": [
+            4,
+            6,
+            8
+          ],
+          "clock_size": 8,
+          "clock_progress": 0,
+          "description": "Reloj maestro del Plan Oscuro para sumir Ciudad Floresta en la noche eterna."
+        }
+      },
+      {
+        "_id": "wOhVKUuRUqZxmxIc",
+        "name": "Invasión 1: Expedición de Piedra Blanca",
+        "type": "invasion",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+        "system": {
+          "adventurers_lv_0": 0,
+          "adventurers_lv_1": 3,
+          "adventurers_lv_2": 0,
+          "adventurers_lv_3": 0,
+          "adventurers_lv_4": 0,
+          "hirelings": 2
+        }
+      },
+      {
+        "_id": "UisTgsaE3QRgnVXT",
+        "name": "Invasión 2: Cazadores de la Luna de Plata",
+        "type": "invasion",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+        "system": {
+          "adventurers_lv_0": 0,
+          "adventurers_lv_1": 2,
+          "adventurers_lv_2": 2,
+          "adventurers_lv_3": 0,
+          "adventurers_lv_4": 0,
+          "hirelings": 2
+        }
+      },
+      {
+        "_id": "fH8QecurEGr1czdo",
+        "name": "Invasión 3: Vanguardia de Ciudad Floresta",
+        "type": "invasion",
+        "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+        "system": {
+          "adventurers_lv_0": 0,
+          "adventurers_lv_1": 0,
+          "adventurers_lv_2": 3,
+          "adventurers_lv_3": 1,
+          "adventurers_lv_4": 0,
+          "hirelings": 3
+        }
+      }
+    ],
+    "flags": {
+      "mr-wicked-ones-es": {
+        "tipo": "panel_dj"
+      }
+    }
+  }
+]

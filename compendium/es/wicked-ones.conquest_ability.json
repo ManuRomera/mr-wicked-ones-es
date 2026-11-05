@@ -1,0 +1,68 @@
+{
+  "label": "Habilidades de Conquista (Despertar No-Muerto)",
+  "mapping": {
+    "description": "system.description"
+  },
+  "entries": {
+    "Blight": {
+      "name": "Plaga Marchitadora",
+      "description": "La corrupción de vuestro dominio pudre las cosechas y envenena las aguas de la región."
+    },
+    "Dark Omen": {
+      "name": "Presagio Oscuro",
+      "description": "Señales funestas en el cielo minan la voluntad de los defensores de la Luz antes de la batalla."
+    },
+    "Deadly Fog": {
+      "name": "Niebla Mortal",
+      "description": "Un banco de bruma helada y necrótica oculta el avance de vuestras huestes y asfixia a los vivos."
+    },
+    "Endless Tide": {
+      "name": "Marea Inagotable",
+      "description": "Vuestras filas de muertos sin mente se reponen constantemente tras cada escaramuza."
+    },
+    "Fearsome Visage": {
+      "name": "Semblante Aterrador",
+      "description": "El horror sobrenatural que emana de vuestros campeones hace huir a las milicias mortales."
+    },
+    "Grim Harvest": {
+      "name": "Cosecha Siniestra",
+      "description": "Cada batalla contra las facciones de la superficie engrosa directamente el tamaño de vuestra Horda."
+    },
+    "Haunting": {
+      "name": "Apariciones Espectrales",
+      "description": "Fantasmas y ecos de los caídos atormentan los sueños de los líderes enemigos, impidiéndoles descansar."
+    },
+    "Infiltration": {
+      "name": "Infiltración Silenciosa",
+      "description": "Agentes corruptos y siervos juramentados abren las puertas desde dentro cuando comienza el asedio."
+    },
+    "March of the Dead": {
+      "name": "Marcha de los Muertos",
+      "description": "Vuestros ejércitos no necesitan dormir ni comer, cruzando montañas y ríos de noche sin detenerse."
+    },
+    "Necrotic Empowerment": {
+      "name": "Empoderamiento Necrótico",
+      "description": "La energía de la vela ritual sobrecarga el poder físico y arcano de los Despertados."
+    },
+    "Shatter Morale": {
+      "name": "Quebrar la Moral",
+      "description": "Los gritos de los condenados rompen la disciplina de cualquier formación enemiga."
+    },
+    "Soul Tether": {
+      "name": "Vínculo de Almas",
+      "description": "Permite transferir el daño sufrido por un Despertado a sus siervos no-muertos cercanos."
+    },
+    "Tainted Land": {
+      "name": "Tierra Profanada",
+      "description": "El suelo conquistado rechaza la magia sagrada de los clérigos y paladines de la Luz."
+    },
+    "Unholy Vanguard": {
+      "name": "Vanguardia Impía",
+      "description": "La primera oleada de la Horda golpea con fuerza devastadora contra las defensas de la facción."
+    },
+    "Whispers in the Dark": {
+      "name": "Susurros en la Oscuridad",
+      "description": "La corrupción se extiende por las ciudades enemigas sembrando traición y paranoia."
+    }
+  }
+}
