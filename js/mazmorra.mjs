@@ -220,8 +220,17 @@ export function aplicarLatigo(px, py) {
   if (!contenedor || !canvas?.ready) return;
   const { S, ox, oy } = geo(), cx = (px - ox) / S, cy = (py - oy) / S, m = mapaDe(canvas.scene);
   let n = 0;
-  for (const v of vasallos) if (Math.hypot(v.x - cx, v.y - cy) <= RADIO_LATIGO) { v.azote = 9; if (v.estado === "trabaja" && m) objetivo(m, v); n++; }
+  const golpeados = [];
+  for (const v of vasallos) if (Math.hypot(v.x - cx, v.y - cy) <= RADIO_LATIGO) { v.azote = 9; if (v.estado === "trabaja" && m) objetivo(m, v); n++; golpeados.push(v); }
   sonar("latigo"); if (n) sonar("chillidos", { n });
+  // cada duende azotado suelta su grito en una burbuja que sube
+  const GRITOS = ["¡Iiik!", "¡Ay!", "¡Aaah!", "¡Yiii!", "¡Piedad!", "¡Ya voy!"];
+  golpeados.slice(0, 6).forEach((v, i) => {
+    const t = new PIXI.Text(GRITOS[Math.floor(Math.random() * GRITOS.length)], { fontSize: Math.round(S * 0.17), fill: 0xffffff, stroke: 0x3a0d08, strokeThickness: 4, fontWeight: "800" });
+    t.anchor.set(0.5); t.alpha = 0; t.zIndex = 1e7; contenedor.addChild(t);
+    const x0 = ox + v.x * S, y0 = oy + v.y * S - S * 0.2, retraso = 0.12 + i * 0.06;
+    efectos.push({ c: t, t: 0, dur: 1.1, upd(tt) { const q = Math.max(0, tt - retraso) / (1.1 - retraso); t.x = x0; t.y = y0 - S * 0.5 * q; t.alpha = tt < retraso ? 0 : Math.min(1, q * 8) * (1 - q * q); } });
+  });
   // el restallido: la tira del látigo, el estallido, el aro de la zona y el «¡ZAS!»
   const c = new PIXI.Container(), g = new PIXI.Graphics(), aro = new PIXI.Graphics();
   const lado = Math.random() < 0.5 ? -1 : 1, x0 = px + lado * S * 1.5, y0 = py - S * (0.9 + Math.random() * 0.5), kx = px + lado * S * 0.4, ky = py - S * 1.9;
@@ -456,15 +465,24 @@ export async function sincronizarEntorno(escena = canvas.scene) {
 
 /* ------------------------------------------------------------------------------------------------ tokens a la escala de la mazmorra */
 
-/** Reduce el dibujo de los tokens de la escena (una casilla es un túnel entero; el personaje ha de ser más pequeño que las salas). */
+/** Tamaño de los tokens en las escenas de mazmorra: media casilla (o el normal). Se aplica a su ancho y alto, no solo al dibujo. */
+const tamanoTokens = () => (Number(game.settings.get(MOD, "mazmorraTamanoTokens")) >= 1 ? 1 : 0.5);
+const aMedias = v => Math.max(0.5, Math.round(v * 2) / 2);
+
+/**
+ * Deja los tokens de la escena al tamaño elegido: una casilla es un túnel entero y los personajes han de ser más pequeños que las
+ * salas. Los tokens que reducía la versión 2.6-2.8 solo por el dibujo (`texture.scale`) se devuelven a su escala y se achican de verdad.
+ */
 export async function reescalarTokens(escena = canvas.scene) {
   if (!game.user.isGM || !escena || !mapaDe(escena)) return;
-  const f = Number(game.settings.get(MOD, "mazmorraEscalaTokens")) || 1;
-  const cambios = [];
+  const f = tamanoTokens(), cambios = [];
   for (const t of escena.tokens) {
-    const antes = Number(t.getFlag(MOD, "escala")) || 1;
-    if (Math.abs(antes - f) < 0.001) continue;
-    cambios.push({ _id: t.id, "texture.scaleX": (t.texture.scaleX ?? 1) / antes * f, "texture.scaleY": (t.texture.scaleY ?? 1) / antes * f, [`flags.${MOD}.escala`]: f });
+    const antes = Number(t.getFlag(MOD, "escala")) || 1, nuevo = Number(t.getFlag(MOD, "escalaV")) === 2;
+    if (nuevo && Math.abs(antes - f) < 0.001) continue;
+    const base = nuevo ? antes : 1;   // en la versión antigua el ancho y el alto no se habían tocado
+    const c = { _id: t.id, width: aMedias(t.width / base * f), height: aMedias(t.height / base * f), [`flags.${MOD}.escala`]: f, [`flags.${MOD}.escalaV`]: 2 };
+    if (!nuevo && antes !== 1) { c["texture.scaleX"] = (t.texture.scaleX ?? 1) / antes; c["texture.scaleY"] = (t.texture.scaleY ?? 1) / antes; }
+    cambios.push(c);
   }
   if (cambios.length) await escena.updateEmbeddedDocuments("Token", cambios);
 }
@@ -739,7 +757,7 @@ export class ConstructorMR extends App {
     const herr = HERR.map(([k, ic, t, ayuda]) => `<button type="button" class="mrg-cons-h ${herramienta === k ? "on" : ""}" data-herr="${k}" aria-pressed="${herramienta === k}" data-ayuda="${esc(t)}||${esc(ayuda)}"><i class="fa-solid ${ic}"></i><span>${t}</span></button>`).join("");
 
     // sonido (ajustes de este navegador)
-    const volumen = Number(game.settings.get(MOD, "mazmorraVolumen") ?? 0.6);
+    const volumen = Number(game.settings.get(MOD, "mazmorraVolumen") ?? 0.8);
     const snd = `<div class="mrg-cons-sonido" role="group" aria-label="Sonido de este navegador">${[["mazmorraSonido", efectosOn(), "fa-volume-high", "fa-volume-xmark", "Efectos", "Efectos de sonido del constructor: cavar, construir, puertas, trampas, látigo…"], ["mazmorraAmbiente", ambienteOn(), "fa-wind", "fa-wind", "Ambiente", "Ambiente de la mazmorra mientras la miras: goteo, picos lejanos, antorchas y duendes."]].map(([k, on, i1, i0, t, ay]) => `<button type="button" class="mrg-cons-snd ${on ? "on" : ""}" data-snd="${k}" aria-pressed="${on}" data-ayuda="${esc(t)}||${esc(ay + " Pulsa para " + (on ? "silenciarlos." : "activarlos."))}"><i class="fa-solid ${on ? i1 : i0}"></i> ${t}: ${on ? "sí" : "no"}</button>`).join("")}<input type="range" min="0" max="1" step="0.05" value="${volumen}" data-vol aria-label="Volumen de los sonidos del constructor"></div>`;
 
     // forma de la sala
@@ -887,12 +905,12 @@ export function registrarMazmorra() {
     scope: "client", config: true, type: Boolean, default: true, onChange: () => arrancarAmbiente()
   });
   game.settings.register(MOD, "mazmorraVolumen", {
-    name: "Volumen de los sonidos de la mazmorra", hint: "Se multiplica por el volumen de interfaz de Foundry.",
-    scope: "client", config: true, type: Number, range: { min: 0, max: 1, step: 0.05 }, default: 0.6, onChange: () => arrancarAmbiente()
+    name: "Volumen de los sonidos de la mazmorra", hint: "Volumen propio de los efectos y el ambiente del constructor, independiente del de interfaz de Foundry.",
+    scope: "client", config: true, type: Number, range: { min: 0, max: 1, step: 0.05 }, default: 0.8, onChange: () => arrancarAmbiente()
   });
-  game.settings.register(MOD, "mazmorraEscalaTokens", {
-    name: "Escala de los tokens en la mazmorra", hint: "Reduce el dibujo de los tokens en las escenas de mazmorra para que no tapen túneles ni salas. 1 = tamaño normal.",
-    scope: "world", config: true, type: Number, range: { min: 0.3, max: 1, step: 0.05 }, default: 0.6, onChange: () => { if (soyDJ()) reescalarTokens(canvas.scene); }
+  game.settings.register(MOD, "mazmorraTamanoTokens", {
+    name: "Tamaño de los tokens en la mazmorra", hint: "En las escenas de mazmorra los tokens miden media casilla para no llenar un túnel entero y quedar a la escala de las salas. Los tokens grandes se reducen a la mitad.",
+    scope: "world", config: true, type: Number, choices: { 0.5: "Media casilla (recomendado)", 1: "Normal (una casilla)" }, default: 0.5, onChange: () => { if (soyDJ()) reescalarTokens(canvas.scene); }
   });
 }
 
@@ -919,9 +937,9 @@ export function iniciarMazmorra() {
   for (const h of ["updateWall", "createWall", "deleteWall"]) Hooks.on(h, w => { if (w.parent?.id === canvas.scene?.id && w.getFlag?.(MOD, "auto")) redibujar(); });
   // tokens nuevos en una mazmorra: nacen a escala
   Hooks.on("preCreateToken", (doc) => {
-    const f = Number(game.settings.get(MOD, "mazmorraEscalaTokens")) || 1;
-    if (f >= 1 || !doc.parent || !mapaDe(doc.parent) || doc.getFlag(MOD, "escala")) return;
-    doc.updateSource({ "texture.scaleX": (doc.texture.scaleX ?? 1) * f, "texture.scaleY": (doc.texture.scaleY ?? 1) * f, [`flags.${MOD}.escala`]: f });
+    const f = tamanoTokens();
+    if (!doc.parent || !mapaDe(doc.parent) || Number(doc.getFlag(MOD, "escalaV")) === 2) return;
+    doc.updateSource({ width: aMedias(doc.width * f), height: aMedias(doc.height * f), [`flags.${MOD}.escala`]: f, [`flags.${MOD}.escalaV`]: 2 });
   });
   // la ficha de la mazmorra manda: si cambia su nivel o sus salas, el panel y las piezas (oro del tesoro, vasallos) se ponen al día
   const alCambiarFicha = doc => {

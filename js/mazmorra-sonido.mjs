@@ -18,8 +18,8 @@ function contexto() {
     const lim = ctx.createDynamicsCompressor(); lim.threshold.value = -8; lim.knee.value = 6; lim.ratio.value = 14; lim.attack.value = 0.002; lim.release.value = 0.12;
     salida.connect(lim); lim.connect(ctx.destination);
   }
-  const v = Number(ajuste("mazmorraVolumen") ?? 0.6), i = Number(game.settings.get("core", "globalInterfaceVolume") ?? 1);
-  salida.gain.value = Math.min(1, Math.max(0, v * (Number.isFinite(i) ? i : 1)));
+  const v = Number(ajuste("mazmorraVolumen") ?? 0.8);
+  salida.gain.value = Math.min(1, Math.max(0, Number.isFinite(v) ? v : 0.8));
   if (ctx.state === "suspended") ctx.resume().catch(() => {});
   return ctx;
 }
@@ -59,6 +59,16 @@ const pico = (c, d, t, v = 1) => {
 const chillido = (c, d, t, m = 1, v = 0.18) => {
   tono(c, d, { t, dur: 0.17, f: 700 * m, f2: 1250 * m, tipo: "triangle", vol: v, vibrato: 0.04 });
   tono(c, d, { t: t + 0.1, dur: 0.12, f: 1250 * m, f2: 800 * m, tipo: "triangle", vol: v * 0.8 });
+};
+/** Grito de duende azotado: voz áspera que sube y baja con vibrato, con dos resonancias (formantes) y un soplo de aire. */
+const grito = (c, d, t, m = 1, v = 0.3, dur = 0.38) => {
+  const o = c.createOscillator(); o.type = "sawtooth";
+  o.frequency.setValueAtTime(420 * m, t); o.frequency.exponentialRampToValueAtTime(1150 * m, t + dur * 0.3); o.frequency.exponentialRampToValueAtTime(640 * m, t + dur);
+  const l = c.createOscillator(), lg = c.createGain(); l.frequency.value = 13; lg.gain.value = 55 * m; l.connect(lg); lg.connect(o.frequency); l.start(t); l.stop(t + dur + 0.05);
+  const g = c.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 0.02); g.gain.setValueAtTime(v, t + dur * 0.55); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  for (const [f, q, x] of [[1250 * m, 4, 1], [2700 * m, 5, 0.55]]) { const b = c.createBiquadFilter(); b.type = "bandpass"; b.frequency.value = f; b.Q.value = q; const bg = c.createGain(); bg.gain.value = x; o.connect(b); b.connect(bg); bg.connect(g); }
+  g.connect(d); o.start(t); o.stop(t + dur + 0.05);
+  ruido(c, d, { t, dur: dur * 0.8, f: 3200, q: 0.8, vol: v * 0.22, ataque: 0.02 });
 };
 const clang = (c, d, t, v = 0.3) => { for (const [f, x] of [[330, 1], [497, 0.6], [733, 0.4]]) tono(c, d, { t, dur: 0.6, f, vol: v * x, tipo: "sine" }); ruido(c, d, { t, dur: 0.05, tipo: "highpass", f: 3000, vol: v * 0.8 }); };
 
@@ -107,12 +117,13 @@ export const RECETAS = {
     ruido(c, d, { t, dur: 0.35, tipo: "highpass", f: 6000, vol: 0.06 });
   },
   latigo: (c, d, t) => {
-    ruido(c, d, { t, dur: 0.12, f: 800, f2: 4500, q: 1.5, vol: 0.32, ataque: 0.05 });   // el silbido
-    ruido(c, d, { t: t + 0.11, dur: 0.07, tipo: "highpass", f: 2500, vol: 0.7, ataque: 0.001 });   // el restallido
-    tono(c, d, { t: t + 0.11, dur: 0.06, f: 3200, f2: 900, tipo: "square", vol: 0.28, ataque: 0.001 });
-    ruido(c, d, { t: t + 0.19, dur: 0.3, tipo: "highpass", f: 2000, vol: 0.1 });   // el eco entre las paredes
+    ruido(c, d, { t, dur: 0.14, f: 700, f2: 5200, q: 1.5, vol: 0.5, ataque: 0.06 });   // el silbido del cuero en el aire
+    ruido(c, d, { t: t + 0.13, dur: 0.09, tipo: "highpass", f: 2200, vol: 1, ataque: 0.001 });   // el restallido
+    tono(c, d, { t: t + 0.13, dur: 0.07, f: 3400, f2: 800, tipo: "square", vol: 0.4, ataque: 0.001 });
+    tono(c, d, { t: t + 0.13, dur: 0.18, f: 150, f2: 55, vol: 0.6, ataque: 0.001 });   // el golpe seco
+    ruido(c, d, { t: t + 0.22, dur: 0.4, tipo: "highpass", f: 1800, vol: 0.16 });   // el eco entre las paredes
   },
-  chillidos: (c, d, t, o = {}) => { const n = Math.min(3, o.n ?? 2); for (let i = 0; i < n; i++) chillido(c, d, t + 0.18 + i * azar(0.07, 0.15), azar(0.8, 1.4), 0.16); },
+  chillidos: (c, d, t, o = {}) => { const n = Math.min(6, Math.max(1, o.n ?? 2)); for (let i = 0; i < n; i++) grito(c, d, t + 0.16 + i * azar(0.04, 0.13), azar(0.75, 1.5), 0.26, azar(0.28, 0.46)); },
   // ambiente
   gota: (c, d, t) => { tono(c, d, { t, dur: 0.08, f: azar(1700, 2200), f2: 800, vol: 0.12 }); tono(c, d, { t: t + 0.13, dur: 0.07, f: azar(1300, 1600), f2: 700, vol: 0.05 }); },
   picoLejano: (c, d, t) => { ruido(c, d, { t, dur: 0.07, tipo: "lowpass", f: 1400, vol: 0.12 }); tono(c, d, { t, dur: 0.12, f: 130, f2: 70, vol: 0.14 }); },
@@ -129,7 +140,10 @@ export function sonar(nombre, opciones = {}) {
   if (!efectosOn() || !RECETAS[nombre]) return;
   try {
     const c = contexto();
-    if (c.state !== "running") return;   // aún sin gesto del usuario: no se encolan sonidos para que no suenen todos de golpe
+    if (c.state !== "running") {   // el navegador aún no ha dado permiso de audio: se reanuda y, si llega a tiempo, suena; nunca se encolan varios
+      c.resume().then(() => { if (c.state === "running") RECETAS[nombre](c, salida, c.currentTime + 0.01, opciones); }).catch(() => {});
+      return;
+    }
     RECETAS[nombre](c, salida, c.currentTime + 0.01, opciones);
   } catch (e) { console.warn(`${MOD} | sonido`, e); }
 }

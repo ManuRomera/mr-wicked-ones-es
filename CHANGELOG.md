@@ -1,3 +1,15 @@
+## 2.9.0 (2026-11-08)
+
+Látigo con gritos, tokens a media casilla y vídeo del constructor. / Whip with screams, half-cell tokens and a demo video.
+
+### Añadido / Added
+- **Vídeo del constructor en el README**: se ve cómo se excava, se construyen salas con forma, se ponen puertas y trampas y se dan latigazos a los duendes, que salen corriendo (versión animada y MP4 en `docs/video/`). / **Demo video in the README** (animated WebP and MP4).
+- **El látigo se oye y se ve mejor**: restallido más potente (silbido, estallido, golpe seco y eco) y los duendes azotados **gritan** (voz áspera con vibrato, hasta seis a la vez) y sueltan su grito en una burbuja que sube («¡Iiik!», «¡Ay!», «¡Piedad!»…). / **Louder whip and minion screams**, with floating shout bubbles.
+
+### Cambiado / Changed
+- **Tokens a media casilla**: en las escenas de mazmorra los tokens miden de verdad **media casilla** (ancho y alto), no solo el dibujo; así ya no llenan el cuadrado entero ni un túnel. Los tokens grandes se reducen a la mitad. Los que la 2.6-2.8 había encogido solo por el dibujo se corrigen solos. Ajuste «Tamaño de los tokens en la mazmorra» (media casilla o normal). / **Tokens are now half a cell** wide and tall in dungeon scenes (setting), legacy shrunk tokens are migrated.
+- El volumen de los sonidos del constructor es propio (por defecto 0,8) y ya no se multiplica por el de interfaz de Foundry, que por defecto lo dejaba casi inaudible; si el navegador aún no ha dado permiso de audio, el primer sonido se reanuda en vez de perderse. / **Sound volume is independent** of Foundry's interface volume; first sound no longer lost.
+
 ## 2.8.0 (2026-11-08)
 
 Sonido, látigo, obra con los relojes de proyecto y luz en todas partes. / Sound, whip, build counts from project clocks and light everywhere.
