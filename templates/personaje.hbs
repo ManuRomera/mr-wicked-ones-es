@@ -1,6 +1,6 @@
 <form class="{{cssClass}} mrg mrg-hoja-f {{#if mr.compacta}}mrg-compacta{{/if}} {{#if mr.evolucion}}mrg-evolucion{{/if}}" autocomplete="off">
 
-  {{!-- Cabecera + barra de herramientas de cristal --}}
+  {{!-- Cabecera (las herramientas viven en la barra de la ventana) --}}
   <header class="mrg-cab-hoja">
     <img class="mrg-retrato" src="{{actor.img}}" onerror="this.onerror=null;this.src='icons/svg/mystery-man.svg'" data-edit="img" alt="{{actor.name}}" data-ayuda="Retrato||Pulsa para cambiar la imagen del personaje.">
     <div class="mrg-cab-datos">
@@ -20,18 +20,6 @@
         {{#if mr.juerga}}<span class="mrg-chip mrg-chip--oro" data-ayuda="Juerga: {{mr.juerga.nombre}}||{{mr.juerga.desc}} Es cómo liberas estrés al gastar botín."><i class="fa-solid fa-beer-mug-empty"></i> {{mr.juerga.nombre}}</span>{{/if}}
         {{#if mr.evolucion}}<button type="button" class="mrg-chipbtn mrg-chipbtn--evol" data-ir-libreto="otros" data-ayuda="Impulso y juerga||Cambia tu impulso oscuro o tu juerga en el libreto."><i class="fa-solid fa-masks-theater"></i> Impulso y juerga</button>{{/if}}
       </div>
-    </div>
-    <div class="mrg-dock {{#if mr.dockAbierto}}abierto{{/if}}" role="toolbar" aria-label="Herramientas de la hoja">
-      <div class="mrg-dock-barra">
-        <button type="button" data-dock="compacta" data-ayuda="Ficha compacta||Deja la hoja en lo esencial para tenerla en un rincón de la pantalla. Pulsa otra vez para volver a la completa."><i class="fa-solid fa-compress"></i></button>
-        <button type="button" data-dock="libretos" data-ayuda="Libretos||Abre la ventana con todas las vocaciones y razas: cómo interpretarlas, capacidades y objetos de ejemplo."><i class="fa-solid fa-book-skull"></i></button>
-        <button type="button" data-dock="evolucion" class="{{#if mr.evolucion}}on{{/if}}" aria-pressed="{{mr.evolucion}}" data-ayuda="Modo evolución||Mientras está activo puedes cambiar raza, vocación, impulso y juerga y aprender capacidades. Úsalo solo cuando toque subir de nivel o cuando tu DJ lo permita."><i class="fa-solid fa-dna"></i></button>
-        <button type="button" data-dock="recuperar" data-ayuda="Recuperación||Elimina todo tu estrés, cura tus heridas (conmociones y reventado) y regenera defensas y suministros. Es lo primero que se hace en la fase de acecho."><i class="fa-solid fa-moon"></i></button>
-        <button type="button" data-dock="creador" data-ayuda="Creador de monstruos||Te guía paso a paso (o al azar) para crear un monstruo completo."><i class="fa-solid fa-wand-sparkles"></i></button>
-        <button type="button" data-dock="aspecto" data-ayuda="Aspecto y accesibilidad||Modo oscuro, contraste, tamaño de letra, ayuda al detener el cursor y más."><i class="fa-solid fa-universal-access"></i></button>
-        <button type="button" data-dock="ayuda" data-ayuda="Activar o desactivar las explicaciones||Alterna las explicaciones que salen al dejar el cursor quieto sobre algo."><i class="fa-solid fa-circle-question"></i></button>
-      </div>
-      <button type="button" class="mrg-dock-asa" data-dock="alternar" aria-label="Herramientas" data-ayuda="Herramientas||La barra aparece al acercar el cursor y se esconde al apartarlo. Pulsa la calavera para dejarla fija (o soltarla)."><i class="fa-solid fa-skull"></i></button>
     </div>
   </header>
 
@@ -96,70 +84,52 @@
   {{!-- ============ FICHA COMPLETA ============ --}}
   <section class="mrg-vitales" aria-label="Constantes vitales">
     <div class="mrg-vital mrg-vital--estres {{#if mr.vitales.estres.lleno}}mrg-lleno{{/if}}">
-      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Estrés||Se paga al resistir consecuencias (3, 2 o 1 según el resultado) y al usar capacidades. Al llegar a 6 te desatas. Pulsa una casilla para marcar hasta ahí; vuelve a pulsarla para bajar.">Estrés</span><b>{{mr.vitales.estres.valor}}/{{mr.vitales.estres.max}}</b></div>
+      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Estrés||Se paga al resistir consecuencias (3, 2 o 1 según el resultado) y al usar capacidades. Al llegar a 6 te desatas. Pulsa una casilla para marcar hasta ahí; vuelve a pulsarla para bajar.">Estrés</span><b>{{mr.vitales.estres.valor}}<small>/{{mr.vitales.estres.max}}</small></b></div>
       <div class="mrg-pips" role="group" aria-label="Estrés">
         {{#each mr.vitales.estres.pips}}<button type="button" class="mrg-pip" data-pip="system.stress.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Estrés {{n}}"></button>{{/each}}
       </div>
-      {{#if mr.vitales.estres.lleno}}<p class="mrg-feral"><i class="fa-solid fa-skull"></i> ¡Desatado! Actúa por impulso, toma un corazón oscuro y vacía el estrés al descansar.</p>{{/if}}
     </div>
-
     <div class="mrg-vital">
-      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Corazones oscuros||Dados acumulables (máximo 2). Gasta uno para añadir +1d a una tirada de acción o resistencia. Se ganan cumpliendo tu impulso oscuro o en una juerga.">Corazones oscuros</span><b>{{mr.vitales.corazones.valor}}/{{mr.vitales.corazones.max}}</b></div>
+      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Corazones oscuros||Dados acumulables (máximo 2). Gasta uno para añadir +1d a una tirada de acción o resistencia. Se ganan cumpliendo tu impulso oscuro o en una juerga.">Corazones</span><b>{{mr.vitales.corazones.valor}}<small>/{{mr.vitales.corazones.max}}</small></b></div>
       <div class="mrg-pips" role="group" aria-label="Corazones oscuros">
         {{#each mr.vitales.corazones.pips}}<button type="button" class="mrg-pip mrg-pip--corazon" data-pip="system.dark_hearts.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Corazón oscuro {{n}}"></button>{{/each}}
       </div>
     </div>
-
     {{#if mr.vitales.oro.visible}}
     <div class="mrg-vital">
-      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Oro||Cuánto tesoro controlas tú. Gasta 1 para que un amigo o facción te ayude, pagar el precio de algo o pagar a tus esbirros. Máximo 3.">Oro</span><b>{{mr.vitales.oro.valor}}/{{mr.vitales.oro.max}}</b></div>
+      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="Oro||Cuánto tesoro controlas tú (máximo 3, o los demás sospecharán). Gasta 1 para que alguien te ayude, pagar un precio o pagar a tus esbirros. Lo demás del botín va al tesoro de la mazmorra.">Oro</span><b>{{mr.vitales.oro.valor}}<small>/{{mr.vitales.oro.max}}</small></b></div>
       <div class="mrg-pips" role="group" aria-label="Oro">
         {{#each mr.vitales.oro.pips}}<button type="button" class="mrg-pip mrg-pip--moneda" data-pip="system.gold.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Oro {{n}}"></button>{{/each}}
       </div>
+      {{#if mr.tesoro}}<button type="button" class="mrg-tesoro" data-abrir-actor="{{mr.tesoro.id}}" data-ayuda="Tesoro de la mazmorra||El botín de las incursiones va al tesoro conjunto, y su tamaño es el nivel de la mazmorra (0 a 4). Tu oro es solo lo que controlas tú. Pulsa para abrir la hoja de la mazmorra."><i class="fa-solid fa-gem"></i> Tesoro · nivel {{mr.tesoro.nivel}}</button>{{/if}}
     </div>
     {{/if}}
-
     <div class="mrg-vital">
-      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="{{mr.etiquetas.suministro}}||Cada casilla tachada es algo que ya has sacado del inventario. Si no quedan casillas, no llevas nada más. Se restablecen en la fase de recuperación.">{{mr.etiquetas.suministro}}</span><b>quedan {{mr.vitales.suministro.quedan}}/{{mr.vitales.suministro.max}}</b></div>
+      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="{{mr.etiquetas.suministro}}||Cada casilla tachada es algo que ya has sacado del inventario. Si no quedan casillas, no llevas nada más. Se restablecen en la fase de recuperación.">{{mr.etiquetas.suministro}}</span><b>{{mr.vitales.suministro.quedan}}<small>/{{mr.vitales.suministro.max}}</small></b></div>
       <div class="mrg-pips" role="group" aria-label="{{mr.etiquetas.suministro}} usados">
         {{#each mr.vitales.suministro.pips}}<button type="button" class="mrg-pip" data-pip="system.supply.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Casilla {{n}} usada"></button>{{/each}}
       </div>
     </div>
+  </section>
 
-    <div class="mrg-vital mrg-vital--xp">
-      <div class="mrg-vital-t"><span class="mrg-etiqueta" data-ayuda="EXP malvada||Al completarla aprendes una capacidad nueva de tu vocación. Se gana al cumplir lo que marca tu hoja (impulso, hazañas malvadas).">EXP malvada</span><b>{{mr.vitales.malvada.valor}}/{{mr.vitales.malvada.max}}{{#if mr.vitales.malvada.lleno}} · ¡completa!{{/if}}</b></div>
-      <div class="mrg-seg mrg-seg--oro" role="group" aria-label="EXP malvada">
-        {{#each mr.vitales.malvada.pips}}<button type="button" data-pip="system.wickedxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP malvada {{n}}"></button>{{/each}}
-      </div>
-      <div class="mrg-vital-t mrg-sub"><span class="mrg-etiqueta" data-ayuda="EXP osada||Se gana al desatarte o quedar reventado interpretándolo (máximo 1 por sesión). Al completarla subes un punto de acción.">EXP osada</span><b>{{mr.vitales.osada.valor}}/{{mr.vitales.osada.max}}</b></div>
-      <div class="mrg-seg" role="group" aria-label="EXP osada">
-        {{#each mr.vitales.osada.pips}}<button type="button" data-pip="system.recklessxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP osada {{n}}"></button>{{/each}}
-      </div>
+  <section class="mrg-xp" aria-label="Experiencia">
+    <div class="mrg-xp-b">
+      <span class="mrg-etiqueta" data-ayuda="EXP malvada||Al completarla aprendes una capacidad nueva de tu vocación. Se gana al cumplir lo que marca tu hoja (impulso, hazañas malvadas).">EXP malvada <b>{{mr.vitales.malvada.valor}}/{{mr.vitales.malvada.max}}</b></span>
+      <div class="mrg-seg mrg-seg--oro" role="group" aria-label="EXP malvada">{{#each mr.vitales.malvada.pips}}<button type="button" data-pip="system.wickedxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP malvada {{n}}"></button>{{/each}}</div>
+    </div>
+    <div class="mrg-xp-b mrg-xp-b--osada">
+      <span class="mrg-etiqueta" data-ayuda="EXP osada||Se gana al desatarte o quedar reventado interpretándolo (máximo 1 por sesión). Al completarla subes un punto de acción (máximo 3 por acción).">EXP osada <b>{{mr.vitales.osada.valor}}/{{mr.vitales.osada.max}}</b></span>
+      <div class="mrg-seg" role="group" aria-label="EXP osada">{{#each mr.vitales.osada.pips}}<button type="button" data-pip="system.recklessxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP osada {{n}}"></button>{{/each}}</div>
     </div>
   </section>
 
-  {{!-- Estados: todo lo que puede estar afectando al monstruo --}}
-  <section class="mrg-estados" aria-label="Estados">
-    <div class="mrg-heridas" role="group" aria-label="Heridas">
-      <h4 class="mrg-estado-t" data-ayuda="Heridas||Un monstruo no tiene niveles de herida: sufre conmociones (leves, una por atributo), puede quedar reventado (grave) y morir. Apunta qué te ha pasado en cada una; se borra sola cuando la herida desaparece."><i class="fa-solid fa-bandage"></i> Heridas <small>apunta qué te ha pasado</small></h4>
-      {{#each mr.estados.conmocion}}
-      <div class="mrg-herida-fila {{#if on}}on{{/if}}">
-        <button type="button" class="mrg-chipbtn {{#if on}}mrg-sel{{/if}}" data-toggle="system.attributes.{{id}}.shocked" aria-pressed="{{on}}" data-ayuda="Conmoción en {{nombre}}||Herida leve o susto: −1d en tu siguiente tirada de acción o resistencia de este atributo. Se quita sola tras esa tirada y al recuperarte."><i class="fa-solid fa-bolt"></i> Conmoción · {{nombre}}</button>
-        {{#if on}}<input type="text" name="flags.mr-wicked-ones-es.heridas.{{id}}" value="{{texto}}" placeholder="¿Qué te ha pasado?" aria-label="Herida de {{nombre}}">{{else}}<span class="mrg-nota">—</span>{{/if}}
-      </div>
-      {{/each}}
-      <div class="mrg-herida-fila mrg-herida-fila--grave {{#if mr.estados.reventado}}on{{/if}}">
-        <button type="button" class="mrg-chipbtn {{#if mr.estados.reventado}}mrg-sel{{/if}}" data-toggle="system.bloodied" aria-pressed="{{mr.estados.reventado}}" data-ayuda="Reventado||Herida grave: recibes conmoción en todos los atributos y sigues reventado hasta eliminarlas todas. Otra herida seria mientras tanto te mata (aunque siempre puedes resistir la muerte)."><i class="fa-solid fa-droplet"></i> Reventado</button>
-        {{#if mr.estados.reventado}}<input type="text" name="flags.mr-wicked-ones-es.heridas.sangre" value="{{mr.estados.reventadoTexto}}" placeholder="¿Cómo te han reventado?" aria-label="Herida grave">{{else}}<span class="mrg-nota">Sin heridas graves</span>{{/if}}
-      </div>
-      <div class="mrg-herida-fila mrg-herida-fila--muerte {{#if mr.estados.muerto}}on{{/if}}">
-        <button type="button" class="mrg-chipbtn {{#if mr.estados.muerto}}mrg-sel{{/if}}" data-toggle="flags.mr-wicked-ones-es.muerto" aria-pressed="{{mr.estados.muerto}}" data-ayuda="Muerto||Si estás reventado y recibes otra herida seria, mueres. Antes puedes hacer un golpe de gracia: una acción final con +1d por cada corazón oscuro que te quede; quien lo vea gana un corazón oscuro."><i class="fa-solid fa-skull-crossbones"></i> Muerto</button>
-        {{#if mr.estados.muerto}}<span class="mrg-nota">Golpe de gracia: una acción final con +{{mr.estados.golpe}}d (un dado por corazón oscuro).</span>{{else}}<span class="mrg-nota">Reventado + otra herida seria</span>{{/if}}
-      </div>
-    </div>
-    <button type="button" class="mrg-estado mrg-estado--desatado {{#if mr.estados.desatado}}on{{/if}}" data-desatar="1" aria-pressed="{{mr.estados.desatado}}" data-ayuda="Desatado||Con el Estrés lleno actúas por impulso, tomas un corazón oscuro y no puedes usar capacidades ni resistir hasta descansar. Se marca solo al llenar el Estrés; también puedes pulsarlo.">
-      <span class="mrg-estado-t"><i class="fa-solid fa-skull"></i> Desatado</span><small>{{#if mr.estados.desatado}}Actúas por impulso{{else}}Bajo control{{/if}}</small>
+  {{!-- Heridas: solo el nivel y el texto; se gestionan en su ventana --}}
+  <section class="mrg-tira" aria-label="Estado">
+    <button type="button" class="mrg-tira-heridas nivel{{mr.heridas.nivel}}" data-heridas="1" data-ayuda="Heridas||Un monstruo sufre conmociones (leves), puede quedar reventado (grave) y morir. Pulsa para abrir la ventana donde se marcan y se apunta qué ha pasado.">
+      <span class="mrg-gotas" aria-hidden="true">{{#each mr.heridas.gotas}}<i class="fa-solid fa-droplet g{{tam}} {{#if on}}on{{/if}}"></i>{{/each}}</span>
+      <span class="mrg-tira-txt"><b>{{mr.heridas.nombre}}</b><small>{{mr.heridas.texto}}</small></span>
     </button>
+    <button type="button" class="mrg-chipbtn mrg-desatado {{#if mr.estados.desatado}}mrg-sel{{/if}}" data-desatar="1" aria-pressed="{{mr.estados.desatado}}" data-ayuda="Desatado||Con el Estrés lleno actúas por impulso, tomas un corazón oscuro y no puedes usar capacidades ni resistir hasta descansar. Se marca solo al llenar el Estrés; también puedes pulsarlo."><i class="fa-solid fa-skull"></i> {{#if mr.estados.desatado}}Desatado{{else}}Bajo control{{/if}}</button>
   </section>
 
   <nav class="mrg-nav tabs" aria-label="Secciones de la hoja">
@@ -176,7 +146,7 @@
     {{!-- ACCIONES --}}
     <section class="tab mrg-panel" data-tab="acciones">
       <div class="mrg-barra-rapida">
-        <span class="mrg-nota">Pulsa el nombre de una acción para tirar. <strong>●</strong> son tus puntos (se editan pulsando); <strong>◇</strong> es la práctica.</span>
+        <span class="mrg-nota">Pulsa el nombre de una acción para tirar. <strong>●</strong> son tus puntos (se editan pulsando). Las acciones sin puntos muestran su <strong>práctica ◇</strong>: tres tiradas y suben a 1.</span>
         <button type="button" class="mrg-btn" data-tirada-tipo="resistencia" data-ayuda="Resistir||Elige una acción y tira para reducir o evitar una consecuencia a cambio de Estrés (3, 2 o 1; el crítico despeja 1)."><i class="fa-solid fa-shield-halved"></i> Resistir</button>
         <button type="button" class="mrg-btn" data-tirada-tipo="fortuna" data-ayuda="Fortuna||Una tirada sin acción ni posición: tú eliges cuántos dados."><i class="fa-solid fa-dice"></i> Fortuna</button>
       </div>
@@ -194,9 +164,9 @@
             <div class="mrg-valor" role="group" aria-label="Puntos de {{nombre}}" data-ayuda="Puntos de {{nombre}}||Cada punto es un dado al tirar esta acción. Se reparten 3, 2, 2, 1 y 1 al crear el personaje; pulsa para cambiarlos.">
               {{#each puntos}}<button type="button" class="mrg-pip mrg-pip--punto" data-pip="system.attributes.{{../atrib}}.skills.{{../id}}.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{../nombre}} {{n}}"></button>{{/each}}
             </div>
-            <div class="mrg-practica {{#unless sinPuntos}}mrg-practica--off{{/unless}}" role="group" aria-label="Práctica de {{nombre}}" data-ayuda="Práctica||{{#if sinPuntos}}Esta acción no tiene puntos: cada tirada con ella marca una práctica y a la tercera sube a 1 punto.{{else}}La práctica solo cuenta en acciones sin puntos. {{nombre}} ya tiene puntos, así que no acumula.{{/if}}">
-              {{#each marcas}}<button type="button" class="mrg-marca {{#if on}}on{{/if}}" data-practica="1" data-atrib="{{../atrib}}" data-accion="{{../id}}" data-n="{{n}}" aria-label="Práctica {{n}}" {{#unless ../sinPuntos}}disabled{{/unless}}></button>{{/each}}
-            </div>
+            {{#if sinPuntos}}<div class="mrg-practica" role="group" aria-label="Práctica de {{nombre}}" data-ayuda="Práctica||Esta acción no tiene puntos: cada tirada con ella (aunque sea de resistencia) marca una práctica y a la tercera sube a 1 punto.">
+              {{#each marcas}}<button type="button" class="mrg-marca {{#if on}}on{{/if}}" data-practica="1" data-atrib="{{../atrib}}" data-accion="{{../id}}" data-n="{{n}}" aria-label="Práctica {{n}}"></button>{{/each}}
+            </div>{{/if}}
           </div>
           {{/each}}
         </article>
@@ -237,36 +207,26 @@
     {{!-- EQUIPO --}}
     <section class="tab mrg-panel" data-tab="equipo">
       <div class="mrg-reglas-equipo">
-        <span class="mrg-chip {{#if mr.equipoExcedido}}mrg-chip--sangre{{else}}{{#if mr.equipoLleno}}mrg-chip--oro{{/if}}{{/if}}" data-ayuda="{{mr.etiquetas.equipo}}||Lo que siempre llevas encima y usas a menudo: hasta cuatro objetos. Te dan una única defensa entre todos."><i class="fa-solid fa-toolbox"></i> {{mr.etiquetas.equipo}}: {{mr.cuentaEquipo}} de 4{{#if mr.equipoExcedido}} · ¡te pasas!{{/if}}</span>
-        <span class="mrg-chip" data-ayuda="{{mr.etiquetas.suministro}}||Lo que guardas en el cinturón o la mochila y sacas con libertad. Cada vez que sacas algo se tacha una casilla; sin casillas no llevas nada más. Se restablecen en la recuperación."><i class="fa-solid fa-sack-xmark"></i> {{mr.etiquetas.suministro}}: quedan {{mr.vitales.suministro.quedan}} de {{mr.vitales.suministro.max}}</span>
+        <span class="mrg-chip {{#if mr.equipoExcedido}}mrg-chip--sangre{{else}}{{#if mr.equipoLleno}}mrg-chip--oro{{/if}}{{/if}}" data-ayuda="{{mr.etiquetas.equipo}}||Lo que siempre llevas encima: hasta cuatro objetos. Entre todos te dan una única defensa."><i class="fa-solid fa-toolbox"></i> {{mr.etiquetas.equipo}} {{mr.cuentaEquipo}}/4{{#if mr.equipoExcedido}} · ¡te pasas!{{/if}}</span>
+        <span class="mrg-chip" data-ayuda="{{mr.etiquetas.suministro}}||Lo que guardas en el cinturón o la mochila. Al sacar algo se tacha una casilla (arriba); sin casillas no llevas nada más. Se restablecen al recuperarte."><i class="fa-solid fa-sack-xmark"></i> {{mr.etiquetas.suministro}} quedan {{mr.vitales.suministro.quedan}}/{{mr.vitales.suministro.max}}</span>
+        {{#each mr.defensas}}<label class="mrg-defensa" data-ayuda="Defensa: {{nombre}}||Tacha la casilla para usarla: evitas por completo una consecuencia de ese tipo, sin generar estrés. Se regenera al recuperarte."><input type="checkbox" data-item-check="{{id}}" data-campo="checked" {{#if on}}checked{{/if}}><span><i class="fa-solid fa-shield"></i> {{nombre}}</span><button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-xmark"></i></button></label>{{else}}<button type="button" class="mrg-chipbtn" data-selector="defense" data-ayuda="Defensa||Tu equipo te da una defensa contra un tipo de problema (captura, detección, heridas, magia…)."><i class="fa-solid fa-shield"></i> Elegir defensa</button>{{/each}}
+        <button type="button" class="mrg-btn mrg-btn--sangre mrg-anadir" data-selector="gearsupply" data-ayuda="Añadir objeto||Abre el catálogo. Los mejunjes, pociones y cosas de uso limitado van solos a suministros; lo demás, a equipo."><i class="fa-solid fa-plus"></i> Añadir objeto</button>
       </div>
-
-      <h4 class="mrg-seccion">Defensa <small>una sola, que sale de tu equipo; se usa más o menos una vez por sesión</small> <button type="button" class="mrg-btn mrg-btn--suave" data-selector="defense" data-ayuda="Añadir defensa||Elige contra qué problema te protege tu equipo (captura, detección, heridas, magia…)."><i class="fa-solid fa-plus"></i></button></h4>
-      <div class="mrg-defensas">
-        {{#each mr.defensas}}
-        <label class="mrg-defensa"><input type="checkbox" data-item-check="{{id}}" data-campo="checked" {{#if on}}checked{{/if}}><span>{{nombre}}</span><button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></label>
-        {{else}}<p class="mrg-nota">Sin defensa todavía: elige contra qué te protege tu equipo.</p>{{/each}}
-      </div>
-
-      <h4 class="mrg-seccion">{{mr.etiquetas.equipo}} <small>lo que siempre llevas encima</small> <button type="button" class="mrg-btn mrg-btn--suave" data-selector="gearsupply" data-uso="equipo" data-ayuda="Añadir equipo||Abre el catálogo de objetos para añadir uno a tu equipo."><i class="fa-solid fa-plus"></i></button></h4>
-      <div class="mrg-lista">
+      <div class="mrg-lista mrg-lista--eq">
         {{#each mr.equipo}}
-        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
-          {{#if calidad}}<span class="mrg-chip {{calidadClase}}">{{calidad}}</span>{{/if}}{{#each ventajas}}<span class="mrg-chip">{{this}}</span>{{/each}}
-          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+        <article class="mrg-objeto" data-ayuda="{{nombre}}||{{desc}}"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+          {{#if calidad}}<span class="mrg-chip {{calidadClase}}">{{calidad}}</span>{{/if}}<span class="mrg-chip">Equipo</span>
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-xmark"></i></button></header>
           {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
-        {{else}}<p class="mrg-nota">Sin equipo. Elige hasta cuatro objetos (en el libreto tienes ideas de tu vocación).</p>{{/each}}
-      </div>
-
-      <h4 class="mrg-seccion">{{mr.etiquetas.suministro}} <small>se sacan con libertad; cada uno tacha una casilla</small> <button type="button" class="mrg-btn mrg-btn--suave" data-selector="gearsupply" data-uso="suministro" data-ayuda="Añadir suministro||Abre el catálogo para añadir un objeto a tus suministros (mejunjes, pociones y cosas de uso limitado van aquí)."><i class="fa-solid fa-plus"></i></button></h4>
-      <div class="mrg-lista">
+        {{/each}}
         {{#each mr.suministros}}
-        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+        <article class="mrg-objeto" data-ayuda="{{nombre}}||{{desc}}"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
           {{#if calidad}}<span class="mrg-chip {{calidadClase}}">{{calidad}}</span>{{/if}}
           <button type="button" class="mrg-btn" data-sacar="{{id}}" data-ayuda="Sacar del inventario||Tacha una casilla de suministro y lo muestras en el chat. Si no te quedan casillas, no lo llevas."><i class="fa-solid fa-hand"></i> Sacar</button>
-          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-xmark"></i></button></header>
           {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
-        {{else}}<p class="mrg-nota">Sin suministros guardados.</p>{{/each}}
+        {{/each}}
+        {{#unless mr.equipo.length}}{{#unless mr.suministros.length}}<p class="mrg-nota">Sin objetos todavía. Pulsa «Añadir objeto» (en el libreto tienes ideas de tu vocación).</p>{{/unless}}{{/unless}}
       </div>
     </section>
 

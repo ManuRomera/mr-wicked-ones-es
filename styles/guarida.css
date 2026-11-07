@@ -96,7 +96,7 @@
 .mrg *, .mrg *::before, .mrg *::after { box-sizing: border-box; }
 .mrg :where(h1, h2, h3, h4, h5) { margin: 0; font-family: var(--g-display); font-weight: 400; color: inherit; border: 0; }
 .mrg :where(p) { margin: 0; }
-.mrg :where(button, input, select, textarea) { font-family: var(--g-texto); }
+.mrg :where(button:not(.header-control), input, select, textarea) { font-family: var(--g-texto); } /* no tocar los botones de la cabecera: su icono es una fuente */
 
 /* Ventanas ApplicationV2 propias */
 .application.mrg-ventana {
@@ -285,3 +285,16 @@
 :root.mrg-dados-img .mrg-dado.mrg-mejor { box-shadow: 0 2px 0 #000, 0 0 0 3px var(--g-oro-vivo); }
 :root.mrg-dados-img .mrg-dado.mrg-rojo { filter: saturate(1.15); }
 :root.mrg-dados-img .mrg-dado.mrg-mini { padding: 0; border-width: 0; }
+
+/* ── v2.3 · Asistente: explicaciones y tarjetas ───────────────────────────── */
+.mrg-asist-intro { margin: 0 0 .7rem; padding: .55rem .8rem; border-left: 4px solid var(--g-oro-vivo); background: color-mix(in oklab, var(--g-oro-vivo) 12%, transparent); font-size: calc(.92rem * var(--g-escala)); line-height: 1.5; }
+.mrg-guia--dj { margin-bottom: .8rem; }
+.mrg-guia--dj ol { margin: .4rem 0 .4rem 1.1rem; padding: 0; display: grid; gap: .3rem; }
+.mrg-solo-dj { margin: 0 0 .3rem; font-size: .8em; font-weight: 700; color: var(--g-oro); }
+.mrg-tabla-res { margin: .2rem 0; font: 400 1.25em / 1.2 var(--g-display); letter-spacing: .02em; }
+.mrg-semillas { display: flex; align-items: center; justify-content: center; gap: .7rem; flex-wrap: wrap; margin: .3rem 0 .6rem; }
+.mrg-semillas strong { font: 400 1.6em / 1.1 var(--g-display); padding: .2rem .7rem; border: 2px solid var(--g-sangre); border-radius: 6px; background: color-mix(in oklab, var(--g-sangre) 14%, transparent); }
+.mrg-semillas span { font-size: 1.4em; color: var(--g-oro-vivo); }
+.mrg-tabla-b { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .6rem; text-align: left; }
+.mrg-tabla-b span { display: grid; }
+.mrg-tabla-b small { font-weight: 500; font-size: .8em; opacity: .8; line-height: 1.3; }

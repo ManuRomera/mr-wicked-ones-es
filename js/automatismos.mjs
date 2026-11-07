@@ -8,6 +8,7 @@
  * Todo es desactivable en Configuración → «Aplicar las reglas automáticamente».
  */
 import { n, aplicarEstres, progresoPractica, evaluarResistencia, evaluarTirada } from "./core/reglas.mjs";
+import { aparienciaDados } from "./dados.mjs";
 
 const MOD = "mr-wicked-ones-es";
 const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
@@ -135,6 +136,7 @@ export async function gastarCorazonExtraDado(msg, actor) {
 
   const r = new Roll("1d6");
   await r.evaluate();
+  aparienciaDados(r);
   if (game.dice3d) await game.dice3d.showForRoll(r);
   const extra = r.terms[0].results[0].result;
   const caras = [...t.dados, extra];
@@ -218,6 +220,22 @@ function acoplarHeridas(actor, cambios, userId) {
   for (const a of ATRS) if (sh(a) === false) foundry.utils.setProperty(cambios, `${FLAGS}.heridas.-=${a}`, null); // la herida anotada se borra con la conmoción
 }
 
+/** EXP osada completa (3): se vacía y sube un punto en una acción a elegir (máximo 3 puntos por acción). */
+async function subirAccionPorOsada(actor) {
+  const { ATRIBUTOS, nombreAccion } = await import("./tirada.mjs");
+  const opciones = Object.entries(ATRIBUTOS).flatMap(([at, acs]) => acs.map(a => ({ at, a, v: n(actor.system.attributes?.[at]?.skills?.[a]?.value, 0) }))).filter(o => o.v < 3);
+  if (!opciones.length) return;
+  const elegida = await foundry.applications.api.DialogV2.prompt({
+    window: { title: "EXP osada completa" },
+    content: `<p><strong>${foundry.utils.escapeHTML(actor.name)}</strong> llena su EXP osada: gana un punto en una acción (máximo 3). ¿Cuál?</p><select name="accion" style="width:100%">${opciones.map(o => `<option value="${o.at}.${o.a}">${foundry.utils.escapeHTML(nombreAccion(o.a))} (${o.v} → ${o.v + 1})</option>`).join("")}</select>`,
+    ok: { label: "Subir acción", callback: (_ev, btn) => btn.form.elements.accion.value }, rejectClose: false
+  });
+  if (!elegida) return;
+  const [at, a] = elegida.split(".");
+  await actor.update({ [`system.attributes.${at}.skills.${a}.value`]: n(actor.system.attributes[at].skills[a].value, 0) + 1, "system.recklessxp.value": 0 });
+  ui.notifications.info(`${actor.name}: ${nombreAccion(a)} sube a ${n(actor.system.attributes[at].skills[a].value, 0)}.`);
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Registro                                                                  */
 /* -------------------------------------------------------------------------- */
@@ -235,6 +253,12 @@ export function registrarAutomatismos() {
     if (foundry.utils.getProperty(cambios, "system.current_phase.value") !== 1) return;
     const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Fase de recuperación" }, content: "<p>Empieza la fase de acecho con la <strong>recuperación</strong>: se elimina todo el estrés, se curan las heridas y se regeneran defensas y suministros de todos los monstruos y manadas. ¿Aplicarlo ahora?</p>", rejectClose: false });
     if (ok) await recuperarTodos();
+  });
+  Hooks.on("updateActor", async (actor, cambios, _o, userId) => {
+    if (actor.type !== "character" || game.user.id !== userId || !game.settings.get(MOD, "autoAplicar")) return;
+    if (foundry.utils.getProperty(cambios, "system.recklessxp.value") === undefined) return;
+    const r = actor.system.recklessxp;
+    if (n(r?.value, 0) >= n(r?.max, 3)) await subirAccionPorOsada(actor);
   });
   Hooks.on("createChatMessage", msg => { procesarTirada(msg).catch(e => console.error(`${MOD} | automatismos`, e)); });
 }

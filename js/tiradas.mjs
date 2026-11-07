@@ -5,6 +5,7 @@
 
 import { n, acota, evaluarTirada, evaluarResistencia, evaluarDesastre, evaluarRepresalia, evaluarDefensaMazmorra, simularIncursionEsbirros } from "./core/reglas.mjs";
 import { soyGM, aplicarModoMensaje } from "./compat.mjs";
+import { aparienciaDados } from "./dados.mjs";
 import { aplicarEstresActor, gastarCorazonExtraDado } from "./automatismos.mjs";
 
 const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
@@ -27,14 +28,20 @@ export function actorActivo(speaker = null) {
 /**
  * Envía una tarjeta de chat con el estilo de Wicked Ones y botones de acción.
  */
-export async function publicarTarjetaMR({ titulo, subtitulo = "", estado = null, dados = [], cuerpoHTML = "", botones = [], speaker = null, tipo = "Ciclo de partida" }) {
+export async function publicarTarjetaMR({ titulo, subtitulo = "", estado = null, dados = [], cuerpoHTML = "", botones = [], speaker = null, tipo = "Ciclo de partida", soloDJ = false, neutro = null }) {
   const { htmlTarjetaSimple } = await import("./tirada.mjs");
+  // Lo que sale del asistente es del DJ: se susurra a la dirección y trae un botón para enseñarlo a los jugadores
+  if (soloDJ) {
+    cuerpoHTML = `<p class="mrg-solo-dj"><i class="fa-solid fa-eye-slash"></i> Solo lo ve el DJ.</p>${cuerpoHTML}`;
+    botones = [...botones, { accion: "revelar", icono: "fa-solid fa-eye", etiqueta: "Mostrar a los jugadores" }];
+  }
   const content = htmlTarjetaSimple({
     tipo, titulo, subtitulo, estado, caras: dados.map(d => n(d, 1)), cuerpo: cuerpoHTML,
-    botones: botones.map((b, i) => ({ ...b, sangre: i === 0 })), neutro: estado ? "azul" : "sangre"
+    botones: botones.map((b, i) => ({ ...b, sangre: i === 0 && b.accion !== "revelar" })), neutro: neutro ?? (estado ? "azul" : "sangre")
   });
   const msgData = { user: game.user.id, speaker: speaker || ChatMessage.getSpeaker(), content, flags: { [MOD]: { tarjeta: true } } };
   aplicarModoMensaje(msgData);
+  if (soloDJ) msgData.whisper = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
   return ChatMessage.create(msgData);
 }
 
@@ -47,12 +54,13 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
   const cant = solicitados <= 0 ? 2 : solicitados;
   const r = new Roll(`${cant}d6`);
   await r.evaluate();
+  aparienciaDados(r);
   if (game.dice3d) await game.dice3d.showForRoll(r);
   const caras = r.terms?.[0]?.results?.map(x => x.result) ?? [1];
 
   if (tipo === "calamity") {
     const ev = evaluarDesastre(caras, solicitados);
-    return publicarTarjetaMR({
+    return publicarTarjetaMR({ soloDJ: true,
       titulo: "Fase de Desastre · Lógica de Mazmorra",
       subtitulo: nombreContexto || `Reserva: ${solicitados}D`,
       estado: ev.estado,
@@ -67,7 +75,7 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
 
   if (tipo === "blowback") {
     const ev = evaluarRepresalia(caras, solicitados);
-    return publicarTarjetaMR({
+    return publicarTarjetaMR({ soloDJ: true,
       titulo: "Fase de Represalia · Ecos de la Incursión",
       subtitulo: nombreContexto || `Reserva: ${solicitados}D`,
       estado: ev.estado,
@@ -88,7 +96,7 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
       lock: "Defensa · Portón / Cerradura",
       trick: "Defensa · Truco y Engaño"
     };
-    return publicarTarjetaMR({
+    return publicarTarjetaMR({ soloDJ: true,
       titulo: titulos[tipo],
       subtitulo: nombreContexto || `Nivel ${solicitados} (${solicitados}D)`,
       estado: ev.estado,
@@ -102,7 +110,7 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
 
   if (tipo === "minion_raid") {
     const ev = simularIncursionEsbirros(caras, solicitados);
-    return publicarTarjetaMR({
+    return publicarTarjetaMR({ soloDJ: true,
       titulo: "Simulador · Incursión de Esbirros",
       subtitulo: nombreContexto || `Manada (${solicitados}D)`,
       estado: ev.estado,
@@ -116,7 +124,7 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
   }
 
   const ev = evaluarTirada(caras, solicitados);
-  return publicarTarjetaMR({
+  return publicarTarjetaMR({ soloDJ: true,
     titulo: nombreContexto || "Tirada de Fortuna",
     subtitulo: `Reserva: ${solicitados}D`,
     estado: ev.estado,
@@ -249,6 +257,12 @@ async function manejarClicBotonChat(ev, message) {
   const actor = (actorId && game.actors.get(actorId)) || actorActivo(message?.speaker);
 
   switch (accion) {
+    case "revelar": {
+      if (!game.user.isGM) return;
+      const limpio = message.content.replace(/<p class="mrg-solo-dj">[\s\S]*?<\/p>/, "").replace(/<button[^>]*data-mr-accion="revelar"[\s\S]*?<\/button>/, "");
+      await message.update({ whisper: [], content: limpio });
+      break;
+    }
     case "tirar-resistencia": {
       if (!actor) return ui.notifications.warn("Selecciona un token o asigna un personaje para tirar Resistencia.");
       const DialogV1 = foundry.appv1?.api?.Dialog ?? Dialog;
@@ -290,6 +304,7 @@ async function manejarClicBotonChat(ev, message) {
               }
               const r = new Roll(`${dados <= 0 ? 2 : dados}d6`);
               await r.evaluate();
+              aparienciaDados(r);
               if (game.dice3d) await game.dice3d.showForRoll(r);
               const caras = r.terms?.[0]?.results?.map(x => x.result) ?? [1];
               const evT = evaluarTirada(caras, dados);

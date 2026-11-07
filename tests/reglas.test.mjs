@@ -180,7 +180,7 @@ test("Estructura del módulo: estilos, módulos JS, plantillas y versiones coher
   const m = JSON.parse(await fs.readFile(new URL("module.json", raiz), "utf8"));
   const pkg = JSON.parse(await fs.readFile(new URL("package.json", raiz), "utf8"));
   assert.equal(m.version, pkg.version);
-  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
+  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "js/heridas.mjs", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
     await fs.access(new URL(f, raiz));
   }
   for (const tour of ["director", "jugadores"]) {

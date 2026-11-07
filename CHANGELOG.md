@@ -1,3 +1,26 @@
+## 2.3.0 (2026-11-07)
+
+Hoja más limpia y compacta, asistente solo para el DJ y dados propios sin repeticiones. / Cleaner, more compact sheet; GM-only assistant; custom dice without repeats.
+
+### Añadido / Added
+- **Barra de la ventana con las herramientas** (compacta, libretos, evolución, heridas, recuperación, creador, aspecto, ayuda); se esconde y aparece al acercar el cursor (ajuste «Esconder la barra de la hoja»). / **Window-bar toolbar** that hides and shows on hover.
+- **Ventana de heridas**: la hoja solo muestra tres gotas crecientes y el texto del nivel; al pulsarlas se gestionan conmociones, reventado y muerte y se apunta qué ha pasado. / **Wounds window**; the sheet shows only growing drops and the level text.
+- **Tesoro de la mazmorra** junto al oro (el botín va al tesoro conjunto; tu oro es lo que controlas, máx. 3). / **Dungeon treasure** link next to gold.
+- **Asistente solo para el DJ**: todas sus tiradas (tablas, oráculo, ciclo, criaturas) salen con el estilo del módulo, susurradas, con botón **«Mostrar a los jugadores»**, explicaciones de cada sección y una guía «¿Primera vez dirigiendo?». El oráculo de semillas explica cómo usarlo. / **GM-only assistant** with reveal button and explanations.
+- **EXP osada completa**: un diálogo permite subir un punto en una acción (máx. 3). / **Reckless XP** raises an action.
+
+### Cambiado / Changed
+- **Hoja sin cajas** y mucho menos alta: vitales en una banda, EXP en dos barras finas, acciones y objetos con filetes en lugar de recuadros. / **Box-free, shorter sheet.**
+- **Equipo simplificado**: una sola lista y un único botón «Añadir objeto» (los mejunjes y pociones van solos a suministros). / **Simpler gear**: one list, one add button.
+- **Catálogo de objetos para jugadores**: solo objetos mundanos; mejunjes, artilugios, pociones y objetos mágicos los concede el DJ desde las tablas. / Players only see mundane gear.
+- La **práctica** solo se muestra en las acciones sin puntos (única donde se gana, según el manual). / Practice only on 0-point actions.
+
+### Corregido / Fixed
+- **Dados**: la tirada se animaba dos veces con Dice So Nice y no usaba los dados del módulo; ahora una sola animación y con los dados propios en cada tirada. / Dice animated twice and ignored the module dice: fixed.
+- **Falta la X de cerrar** en Libretos, asistente y demás ventanas (una regla de CSS pisaba la fuente de iconos). / Missing close button.
+- Las tarjetas de las tablas del asistente ya no llevan botones de Resistir ni repiten el texto. / Table cards no longer show resist buttons or duplicate text.
+- El chip seleccionado de las hojas se deformaba por un conflicto de nombre de clase. / Selected chip layout.
+
 ## 2.2.0 (2026-11-07)
 
 Más claridad en la hoja, creador de personajes y dados propios. / Clearer sheet, character creator and custom dice.

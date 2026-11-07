@@ -6,6 +6,7 @@
  */
 import { n, acota, evaluarTirada, evaluarResistencia, progresoPractica, probabilidades } from "./core/reglas.mjs";
 import { aplicarEstresActor } from "./automatismos.mjs";
+import { aparienciaDados } from "./dados.mjs";
 import { aplicarModoMensaje } from "./compat.mjs";
 
 const MOD = "mr-wicked-ones-es";
@@ -127,7 +128,7 @@ export async function tirar(actor, c = {}) {
   const cero = dados <= 0;
   const roll = new Roll(`${cero ? 2 : dados}d6`);
   await roll.evaluate();
-  if (game.dice3d) { try { await game.dice3d.showForRoll(roll, game.user, true); } catch { /* sin Dice So Nice */ } }
+  aparienciaDados(roll); // Dice So Nice anima la tirada sola al publicar el mensaje: no se llama a showForRoll (se veía dos veces)
   const caras = roll.terms[0].results.map(r => r.result);
   const ev = evaluarTirada(caras, dados);
   const estado = ESTADO[ev.estado];
@@ -200,6 +201,7 @@ export async function gastarCorazon(mensaje) {
 
   const r = new Roll("1d6");
   await r.evaluate();
+  aparienciaDados(r);
   if (game.dice3d) { try { await game.dice3d.showForRoll(r, game.user, true); } catch { /* ok */ } }
   const nueva = r.terms[0].results[0].result;
   const antes = d.estado;

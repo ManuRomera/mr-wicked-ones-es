@@ -5,6 +5,14 @@
 const MOD = "mr-wicked-ones-es";
 const RUTA = `modules/${MOD}/assets/dados`;
 
+/** Pide a Dice So Nice que use nuestros dados en esta tirada, tenga el jugador la apariencia que tenga (si el ajuste está activo). */
+export function aparienciaDados(roll) {
+  try {
+    if (roll && game.settings.get(MOD, "dadosPropios")) roll.options.appearance = { system: "mr-wicked-ones", colorset: "mr-wicked-ones" };
+  } catch { /* sin ajuste */ }
+  return roll;
+}
+
 export function registrarDados() {
   Hooks.once("diceSoNiceReady", dice3d => {
     const activo = (() => { try { return game.settings.get(MOD, "dadosPropios"); } catch { return true; } })();

@@ -359,7 +359,7 @@ button.mrg-estado { cursor: pointer; }
 
 /* ── v2.2 · Selector de objetos ───────────────────────────────────────────── */
 .mrg-selector-app .window-content { padding: 0; background: var(--g-fondo); color: var(--g-tinta); overflow: hidden; }
-.mrg-sel { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.mrg-sel-raiz { display: flex; flex-direction: column; height: 100%; min-height: 0; }
 .mrg-sel-cab { display: grid; gap: .5rem; padding: .7rem .8rem; background: var(--g-papel-2); border-bottom: 2px solid var(--g-sangre); }
 .mrg-sel-buscar { width: 100%; height: 2.4rem; padding: 0 .8rem; font: 600 calc(1rem * var(--g-escala)) var(--g-texto); color: var(--g-tinta); background: var(--g-papel); border: 2px solid var(--g-linea); border-radius: var(--g-radio); }
 .mrg-sel-buscar:focus { outline: 0; border-color: var(--g-sangre); }
@@ -451,3 +451,97 @@ button.mrg-estado { cursor: pointer; }
 .mrg-herida-fila--grave .mrg-chipbtn.mrg-sel { background: var(--g-sangre-fuerte); }
 .mrg-herida-fila--muerte .mrg-chipbtn.mrg-sel { background: #000; color: #fff; border-color: var(--g-sangre); }
 @media (max-width: 760px) { .mrg-herida-fila { grid-template-columns: 1fr; } }
+
+/* ══ v2.3 · Hoja sin cajas, más compacta y con carácter ═════════════════════ */
+
+/* Barra de la ventana: se esconde y aparece al acercar el cursor (ajuste «barraAuto») */
+:root.mrg-barra-auto .app.mrg-hoja > .window-header {
+  position: absolute; inset: 0 0 auto 0; z-index: 40; height: .7rem; min-height: 0; padding: 0 .5rem; overflow: hidden;
+  border-bottom-width: 3px; transition: height .18s ease .4s;
+}
+:root.mrg-barra-auto .app.mrg-hoja > .window-header > * { opacity: 0; transition: opacity .12s ease .4s; }
+:root.mrg-barra-auto .app.mrg-hoja > .window-header:hover, :root.mrg-barra-auto .app.mrg-hoja > .window-header:focus-within { height: 2.4rem; transition-delay: 0s; }
+:root.mrg-barra-auto .app.mrg-hoja > .window-header:hover > *, :root.mrg-barra-auto .app.mrg-hoja > .window-header:focus-within > * { opacity: 1; transition-delay: 0s; }
+:root.mrg-barra-auto .app.mrg-hoja > .window-content { height: 100%; }
+.app.mrg-hoja .window-header .mrg-hb.on { color: var(--g-oro-vivo); text-shadow: 0 0 8px var(--g-sangre); }
+.app.mrg-hoja .window-header .header-button { padding: 0 .35rem; }
+
+/* Cabecera: menos alta, sin degradado de caja */
+.mrg-cab-hoja { grid-template-columns: 4.4rem 1fr; padding: .85rem .9rem .3rem; gap: .7rem; background: transparent; border-bottom: 0; }
+.mrg-retrato { width: 4.4rem; height: 4.4rem; }
+.mrg-cab-datos { padding-right: 0; gap: .25rem; }
+.mrg-hoja-f input.mrg-nombre { font-size: calc(1.7rem * var(--g-escala)); }
+
+/* Constantes vitales: una banda, sin cajas */
+.mrg-vitales { display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: .5rem 0; padding: .3rem .9rem .2rem; background: transparent; border-bottom: 0; }
+.mrg-vital { display: grid; gap: .2rem; align-content: start; padding: 0 .95rem; background: transparent; border: 0; border-radius: 0; }
+.mrg-vital:first-child { padding-left: 0; }
+.mrg-vital + .mrg-vital { border-left: 1px solid var(--g-linea); }
+.mrg-vital--estres { grid-column: auto; border: 0; }
+.mrg-vital--estres.mrg-lleno { background: transparent; }
+.mrg-vital--estres.mrg-lleno .mrg-pip { box-shadow: 0 0 10px var(--g-sangre); }
+.mrg-vital-t { justify-content: flex-start; gap: .55rem; align-items: baseline; }
+.mrg-vital-t .mrg-etiqueta { font: 800 calc(.78rem * var(--g-escala)) / 1 var(--g-texto); text-transform: uppercase; letter-spacing: .12em; color: var(--g-tinta-2); }
+.mrg-vital-t b { font: 400 calc(1.55rem * var(--g-escala)) / 1 var(--g-display); letter-spacing: .02em; color: var(--g-tinta); }
+.mrg-vital-t b small { font-size: .6em; color: var(--g-tinta-2); }
+.mrg-vital .mrg-pip { width: calc(1.75rem * var(--g-escala)); height: calc(1.75rem * var(--g-escala)); }
+.mrg-vital--estres .mrg-pip { width: calc(1.9rem * var(--g-escala)); height: calc(1.9rem * var(--g-escala)); }
+.mrg-vital .mrg-pip[aria-pressed="true"] { background: linear-gradient(160deg, var(--g-sangre), var(--g-sangre-fuerte)); box-shadow: 0 0 6px color-mix(in oklab, var(--g-sangre) 60%, transparent); }
+.mrg-vital .mrg-pip--moneda[aria-pressed="true"] { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--g-oro-vivo)); box-shadow: 0 0 6px color-mix(in oklab, var(--g-oro-vivo) 50%, transparent); }
+.mrg-vital .mrg-pip--corazon[aria-pressed="true"] { box-shadow: none; background: transparent; }
+.mrg-vital .mrg-pip--corazon { width: calc(2.1rem * var(--g-escala)); height: calc(1.9rem * var(--g-escala)); }
+.mrg-tesoro { appearance: none; cursor: pointer; width: auto; height: auto; padding: 0; background: transparent; border: 0; color: var(--g-oro); font: 700 calc(.78rem * var(--g-escala)) var(--g-texto); text-align: left; }
+.mrg-tesoro:hover { color: var(--g-oro-vivo); text-decoration: underline; }
+
+/* EXP: dos barras finas en una línea */
+.mrg-xp { display: grid; grid-template-columns: 3fr 1.2fr; gap: 1.4rem; padding: .25rem .9rem .45rem; border-bottom: 1px solid var(--g-linea); }
+.mrg-xp-b { display: grid; gap: .2rem; min-width: 0; }
+.mrg-xp-b .mrg-etiqueta { font: 800 calc(.72rem * var(--g-escala)) / 1 var(--g-texto); text-transform: uppercase; letter-spacing: .12em; color: var(--g-tinta-2); display: flex; gap: .5rem; }
+.mrg-xp-b .mrg-etiqueta b { color: var(--g-tinta); }
+.mrg-xp .mrg-seg button { height: calc(.8rem * var(--g-escala)); }
+
+/* Tira de heridas: gotas cada vez más grandes + texto */
+.mrg-tira { display: flex; flex-direction: row; align-items: center; gap: .8rem; padding: .35rem .9rem; border-bottom: 3px solid var(--g-hierro); }
+.mrg-tira-heridas { appearance: none; cursor: pointer; flex: 1; min-width: 0; width: auto; height: auto; display: flex; align-items: center; gap: .7rem; padding: .1rem .3rem; text-align: left; color: var(--g-tinta); background: transparent; border: 0; border-radius: 6px; font-family: var(--g-texto); }
+.mrg-tira-heridas:hover { background: color-mix(in oklab, var(--g-sangre) 12%, transparent); }
+.mrg-gotas { display: flex; align-items: flex-end; gap: .15rem; flex: none; }
+.mrg-gotas i { color: var(--g-linea); opacity: .55; }
+.mrg-gotas i.g1 { font-size: 1rem; } .mrg-gotas i.g2 { font-size: 1.4rem; } .mrg-gotas i.g3 { font-size: 1.9rem; }
+.mrg-gotas i.on { color: var(--g-sangre); opacity: 1; filter: drop-shadow(0 0 4px color-mix(in oklab, var(--g-sangre) 70%, transparent)); }
+.mrg-tira-heridas.nivel3 .mrg-gotas i.on { color: #000; filter: drop-shadow(0 0 5px var(--g-sangre)); }
+.mrg-tira-txt { display: grid; min-width: 0; }
+.mrg-tira-txt b { font: 800 calc(.95rem * var(--g-escala)) / 1.1 var(--g-texto); text-transform: uppercase; letter-spacing: .08em; }
+.mrg-tira-txt small { font-size: calc(.86rem * var(--g-escala)); color: var(--g-tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mrg-tira-heridas.nivel0 .mrg-tira-txt b { color: var(--g-tinta-2); font-weight: 700; }
+.mrg-desatado { flex: none; }
+
+/* Pestañas y paneles: menos aire muerto */
+.mrg-nav { padding: 0 .9rem; border-bottom-width: 2px; background: transparent; }
+.mrg-nav a.item { padding: .4rem .75rem; }
+.mrg-panel { padding: .6rem .9rem .9rem; gap: .6rem; }
+
+/* Acciones sin cajas: título con subrayado de sangre y filas con línea fina */
+.mrg-atributos { gap: .4rem 1.4rem; }
+.mrg-atributo { background: transparent; border: 0; border-radius: 0; overflow: visible; }
+.mrg-atributo > header { background: transparent; color: var(--g-tinta); border-bottom: 3px solid var(--g-sangre); padding: 0 0 .15rem; }
+.mrg-atr-desc { padding: .2rem 0 .1rem; }
+.mrg-accion-fila { padding: .3rem 0; border-top: 1px solid color-mix(in oklab, var(--g-linea) 70%, transparent); }
+.mrg-shock > header { border-bottom-color: var(--g-tinta); }
+.mrg-practica::before { content: "práctica"; }
+
+/* Capacidades y objetos: sin caja, con filete */
+.mrg-cap, .mrg-objeto { background: transparent; border: 0; border-bottom: 1px solid var(--g-linea); border-radius: 0; padding: .5rem 0 .6rem; box-shadow: none; }
+.mrg-cap { border-left: 4px solid var(--g-hierro); padding-left: .7rem; }
+.mrg-cap--principal { border-left-color: var(--g-sangre); }
+.mrg-lista--eq { gap: 0; }
+.mrg-reglas-equipo { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; }
+.mrg-reglas-equipo .mrg-anadir { margin-left: auto; width: auto; }
+.mrg-defensa { display: inline-flex; align-items: center; gap: .4rem; padding: .15rem .6rem; border: 1px solid var(--g-azul); border-radius: 999px; font-weight: 700; font-size: calc(.84rem * var(--g-escala)); cursor: pointer; }
+.mrg-defensa input { margin: 0; }
+
+/* Ventana de heridas */
+.mrg-heridas-app .window-content { padding: .8rem 1rem 1rem; background: var(--g-fondo); color: var(--g-tinta); }
+.mrg-heridas-v { display: grid; gap: .45rem; }
+.mrg-heridas-v h4 { margin: .5rem 0 0; }
+.mrg-heridas-v h4 small { font-weight: 600; color: var(--g-tinta-2); margin-left: .4rem; }
+.mrg-tira-heridas { justify-content: flex-start; }

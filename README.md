@@ -63,6 +63,11 @@ El **creador** sigue el orden del manual: raza, vocación, capacidad de vocació
 ### Una hoja que no estorba
 Raza, vocación, impulso y juerga quedan **fijados** una vez elegidos; solo se pueden cambiar activando el **modo evolución** de la barra de la hoja, y las capacidades nuevas se ofrecen cuando llenas la EXP malvada. Las herramientas (compacta, libretos, evolución, aspecto, ayuda, creador) viven en una **barra flotante de cristal** que se muestra u oculta con la calavera. Cada capacidad dice **cómo se usa** (cuesta estrés, pasiva, tiene tirada…) y tiene su botón de uso; las **conmociones, reventado y desatado** salen en un panel de estados; la EXP de práctica solo aparece donde se puede ganar.
 
+### Una hoja limpia: sin cajas y con las herramientas en la barra de la ventana
+Los iconos (compacta, libretos, evolución, heridas, recuperación, creador, aspecto, ayuda) viven en la **barra de la ventana**, que se esconde y aparece al acercar el cursor, así la ficha se ve limpia. Las constantes vitales forman una sola banda y las heridas se resumen en **tres gotas crecientes** con el texto del nivel; al pulsarlas se abre su ventana.
+
+<p align="center"><img src="docs/img/ficha.webp" alt="Hoja de monstruo sin cajas" width="62%"> <img src="docs/img/heridas.webp" alt="Ventana de heridas" width="62%"></p>
+
 ### Heridas que se apuntan, y recuperación
 Un monstruo no tiene tres niveles de herida: sufre **conmociones** (leves, una por atributo), puede quedar **reventado** y, si recibe otra herida seria, **muere**. El panel de **Heridas** deja anotar qué te ha pasado en cada una (se borra sola al curarse), reventarse pone conmoción en todos los atributos, y la **recuperación** (botón de la barra de la hoja, o al pasar el ciclo a la fase 1) elimina estrés y heridas y regenera defensas y suministros. La barra de herramientas **aparece al acercar el cursor**.
 
@@ -110,9 +115,9 @@ Un panel con vista previa: **modo oscuro** (también en las tarjetas del chat), 
 En Configuración, **«Estilo de las hojas»** y **«Estilo de las tiradas y las tarjetas»** se pueden poner en *Original del sistema* para volver al aspecto de siempre (por defecto, MR). Los automatismos de reglas siguen funcionando en cualquier caso.
 
 ### Asistente y generador
-Rehecho: cinco secciones (**La mesa**, **Esbirros**, **Guarida**, **Invasores**, **Tablas**) con tarjetas claras, labores agrupadas por tipo y tablas con su dado.
+Solo para la dirección: todas sus tiradas se **susurran al DJ** y traen un botón **«Mostrar a los jugadores»**; cada sección explica para qué sirve (con una guía para quien dirige por primera vez). Rehecho: cinco secciones (**La mesa**, **Esbirros**, **Guarida**, **Invasores**, **Tablas**) con tarjetas claras, labores agrupadas por tipo y tablas con su dado.
 
-<p align="center"><img src="docs/img/asistente.webp" alt="Asistente y generador" width="62%"></p>
+<p align="center"><img src="docs/img/asistente.webp" alt="Asistente y generador" width="62%"> <img src="docs/img/tarjeta-dj.webp" alt="Tarjeta solo para el DJ" width="30%"></p>
 
 ### Reglas automatizadas
 Tras cada tirada se aplican solas las reglas del libro (se puede desactivar en Configuración):
@@ -173,6 +178,7 @@ npm run datos && npm run build
 - **Searchable item catalogue** (categories, alphabetical, descriptions) instead of the system's long dropdown, and **wound ± controls** for adventurers.
 - **Custom dice** (colour-scaled faces, Dark Lord emblem on the 6) in chat cards and in **Dice So Nice**.
 - **Wounds you can annotate** (shock → bloodied → dead), a **Recovery** button and prompt on cycle phase 1, and a toolbar that appears on hover.
+- **GM-only assistant** (whispered rolls with a *Show to players* button and explanations), **box-free sheet** with the toolbar in the window bar (shows on hover) and a wounds window.
 - **Hover help**: rest the cursor for two seconds on anything and a balloon explains it.
 - **Playbooks** for every calling and monster race (how to play it, abilities you can learn, example items), readable by players.
 - **Roller** inspired by generic FitD rollers (Position × Effect grid, Help / Go all out / dark pact / dark heart, live odds) and **monster-themed chat cards**.

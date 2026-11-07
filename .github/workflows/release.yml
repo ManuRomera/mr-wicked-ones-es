@@ -67,6 +67,7 @@ jobs:
             js/creador.mjs \
             js/dados.mjs \
             js/ayuda.mjs \
+            js/heridas.mjs \
             templates/capacidad-compacta.hbs \
             assets/dados/d6-6.png \
             js/tirada.mjs \

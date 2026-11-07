@@ -11,6 +11,7 @@ import { ATRIBUTOS, nombreAccion, nombreAtributo, htmlTarjetaSimple } from "./ti
 import { aplicarEstresActor, recuperar } from "./automatismos.mjs";
 import { htmlLibreto, clicLibreto, abrirLibretos, vocacionDe, razaDe } from "./libretos.mjs";
 import { abrirPanelAspecto } from "./ajustes.mjs";
+import { abrirHeridas } from "./heridas.mjs";
 import { escuchasComunes, MOD, L, pips } from "./hojas-base.mjs";
 
 const claveCompacta = id => `${MOD}.compacta.${id}`;
@@ -122,7 +123,15 @@ function crearClase(Base) {
       const raza = (despertado ? actor.items.find(i => i.type === "awakened_type") : razaDe(actor))?.name ?? "";
       const voc = vocacionDe(actor)?.name ?? "";
 
+      const hs = actor.getFlag(MOD, "heridas") ?? {};
+      const muerto = Boolean(actor.getFlag(MOD, "muerto"));
+      const shocks = atributos.filter(a => a.shocked);
+      const nivelH = muerto ? 3 : s.bloodied ? 2 : shocks.length ? 1 : 0;
+      const textoH = muerto ? "Golpe de gracia: una acción final" : s.bloodied ? (hs.sangre || "Otra herida seria te mata") : shocks.length ? shocks.map(a => `${a.nombre}${hs[a.id] ? `: ${hs[a.id]}` : ""}`).join(" · ") : "Sin heridas";
+      const mazmorra = game.actors.find(a => a.type === "dungeon");
       d.mr = {
+        heridas: { nivel: nivelH, nombre: ["Ileso", "Conmoción", "Reventado", "Muerto"][nivelH], texto: textoH, gotas: [1, 2, 3].map(k => ({ tam: k, on: k <= nivelH })) },
+        tesoro: mazmorra ? { id: mazmorra.id, nivel: n(mazmorra.system?.tier?.value, 0), nombre: mazmorra.name } : null,
         compacta: this.compacta, evolucion: this.#evolucion, dockAbierto: this.dockAbierto, editable: this.isEditable, despertado,
         raza, vocacion: voc, impulsos: por("wickedimpulse").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" })),
         juerga: despertado ? null : por("revelry").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" }))[0] ?? null,
@@ -161,6 +170,51 @@ function crearClase(Base) {
       return d;
     }
 
+    /** Herramientas de la hoja: viven en la barra de la ventana. */
+    async accionDock(a) {
+      const actor = this.actor;
+      if (a === "compacta") this.#alternarCompacta();
+      else if (a === "libretos") abrirLibretos(actor, this.#libreto);
+      else if (a === "aspecto") abrirPanelAspecto();
+      else if (a === "evolucion") { this.#evolucion = !this.#evolucion; if (this.#evolucion) ui.notifications.info("Modo evolución: ahora puedes cambiar raza, vocación, impulso y juerga, y aprender capacidades."); await this.render(false); }
+      else if (a === "ayuda") { const v = !game.settings.get(MOD, "ayudaActiva"); await game.settings.set(MOD, "ayudaActiva", v); ui.notifications.info(v ? "Ayuda al detener el cursor: activada." : "Ayuda al detener el cursor: desactivada."); }
+      else if (a === "recuperar") { const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Recuperación" }, content: `<p>Elimina todo el estrés de <strong>${foundry.utils.escapeHTML(actor.name)}</strong>, cura sus heridas (conmociones y reventado) y regenera defensas y suministros. ¿Aplicarlo?</p>`, rejectClose: false }); if (ok) await recuperar(actor); }
+      else if (a === "heridas") abrirHeridas(actor);
+      else if (a === "creador") game.modules.get(MOD)?.api?.abrirCreador?.(actor);
+      this.#marcarCabecera();
+    }
+
+    _getHeaderButtons() {
+      const b = super._getHeaderButtons();
+      const mk = (k, icon, label) => ({ label, class: `mrg-hb mrg-hb-${k}`, icon, onclick: () => this.accionDock(k) });
+      return [mk("compacta", "fa-solid fa-compress", "Compacta"), mk("libretos", "fa-solid fa-book-skull", "Libretos"), mk("evolucion", "fa-solid fa-dna", "Evolución"),
+        mk("heridas", "fa-solid fa-droplet", "Heridas"), mk("recuperar", "fa-solid fa-moon", "Recuperación"), mk("creador", "fa-solid fa-wand-sparkles", "Creador"),
+        mk("aspecto", "fa-solid fa-universal-access", "Aspecto"), mk("ayuda", "fa-solid fa-circle-question", "Ayuda"), ...b];
+    }
+
+    /** Explicación de cada botón de la barra y estado de los que se activan. */
+    #marcarCabecera() {
+      const el = this.element?.[0]; if (!el) return;
+      const T = {
+        compacta: "Ficha compacta||Deja la hoja en lo esencial para tenerla en un rincón de la pantalla. Pulsa otra vez para volver a la completa.",
+        libretos: "Libretos||Abre la ventana con todas las vocaciones y razas: cómo interpretarlas, capacidades y objetos de ejemplo.",
+        evolucion: "Modo evolución||Mientras está activo puedes cambiar raza, vocación, impulso y juerga y aprender capacidades. Úsalo solo cuando toque subir de nivel o cuando tu DJ lo permita.",
+        heridas: "Heridas||Abre la ventana para gestionar conmociones, reventado y muerte, y apuntar qué te ha pasado en cada una.",
+        recuperar: "Recuperación||Elimina todo tu estrés, cura tus heridas y regenera defensas y suministros. Es lo primero que se hace en la fase de acecho.",
+        creador: "Creador de monstruos||Te guía paso a paso (o al azar) para crear un monstruo completo.",
+        aspecto: "Aspecto y accesibilidad||Modo oscuro, contraste, tamaño de letra, barra de ventana y más.",
+        ayuda: "Explicaciones||Activa o desactiva las explicaciones que salen al dejar el cursor quieto sobre algo."
+      };
+      for (const [k, t] of Object.entries(T)) { const b = el.querySelector(`.window-header .mrg-hb-${k}`); if (b) b.dataset.ayuda = t; }
+      el.querySelector(".window-header .mrg-hb-evolucion")?.classList.toggle("on", this.#evolucion);
+      el.querySelector(".window-header .mrg-hb-compacta")?.classList.toggle("on", this.compacta);
+    }
+
+    async _render(force, options) {
+      await super._render(force, options);
+      this.#marcarCabecera();
+    }
+
     activateListeners(html) {
       super.activateListeners(html);
       escuchasComunes(this, html);
@@ -168,21 +222,8 @@ function crearClase(Base) {
 
       root.querySelector("[data-pestana-libreto]")?.addEventListener("click", ev => clicLibreto(ev, actor, this.#libreto, async () => { await this.render(false); }));
 
-      html.find("[data-dock]").on("click", async ev => {
-        const a = ev.currentTarget.dataset.dock;
-        if (a === "alternar") {
-          this.#dock = !this.dockAbierto;
-          try { localStorage.setItem(`${MOD}.dock`, this.#dock ? "1" : "0"); } catch { /* sin almacenamiento */ }
-          root.querySelector(".mrg-dock")?.classList.toggle("abierto", this.#dock);
-        } else if (a === "compacta") this.#alternarCompacta();
-        else if (a === "libretos") abrirLibretos(actor, this.#libreto);
-        else if (a === "aspecto") abrirPanelAspecto();
-        else if (a === "evolucion") { this.#evolucion = !this.#evolucion; if (this.#evolucion) ui.notifications.info("Modo evolución: ahora puedes cambiar raza, vocación, impulso y juerga, y aprender capacidades."); await this.render(false); }
-        else if (a === "ayuda") { const v = !game.settings.get(MOD, "ayudaActiva"); await game.settings.set(MOD, "ayudaActiva", v); ui.notifications.info(v ? "Ayuda al detener el cursor: activada." : "Ayuda al detener el cursor: desactivada."); }
-        else if (a === "recuperar") { const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Recuperación" }, content: `<p>Elimina todo el estrés de <strong>${foundry.utils.escapeHTML(actor.name)}</strong>, cura sus heridas (conmociones y reventado) y regenera defensas y suministros. ¿Aplicarlo?</p>`, rejectClose: false }); if (ok) await recuperar(actor); }
-        else if (a === "creador") game.modules.get(MOD)?.api?.abrirCreador?.(actor);
-      });
-
+      html.find("[data-heridas]").on("click", () => abrirHeridas(actor));
+      html.find("[data-abrir-actor]").on("click", ev => game.actors.get(ev.currentTarget.dataset.abrirActor)?.sheet.render(true));
       html.find("[data-ir-libreto]").on("click", async ev => {
         this.#libreto.modo = ev.currentTarget.dataset.irLibreto;
         await this.render(false);

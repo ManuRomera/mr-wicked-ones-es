@@ -91,11 +91,14 @@ export class SelectorMR extends App {
   async _renderHTML() {
     if (this.tipo === "defense") return this.#htmlDefensa();
     const todos = await cargar(this.tipo);
-    const cats = [...new Set(todos.map(x => x.cat).filter(Boolean))];
+    const permitido = x => !this.#restringido(x);
+    const visibles = todos.filter(permitido);
+    const cats = [...new Set(visibles.map(x => x.cat).filter(Boolean))];
     const f = sn(this.filtro);
-    const lista = todos.filter(x => (!this.cat || x.cat === this.cat) && (!f || sn(x.nombre).includes(f) || sn(x.desc).includes(f)));
-    const chips = cats.length > 1 ? `<div class="mrg-sel-cats" role="group" aria-label="Categorías"><button type="button" class="mrg-chipbtn ${!this.cat ? "mrg-sel" : ""}" data-cat="">Todo <b>${todos.length}</b></button>${cats.map(c => `<button type="button" class="mrg-chipbtn ${this.cat === c ? "mrg-sel" : ""}" data-cat="${esc(c)}">${esc(c)} <b>${todos.filter(x => x.cat === c).length}</b></button>`).join("")}</div>` : "";
-    const extra = this.tipo === "gearsupply" && this.uso ? `<p class="mrg-nota">Se añade como <strong>${this.uso === "equipo" ? "equipo" : "suministro"}</strong>. ${this.uso === "equipo" ? `Llevas ${this.actor.items.filter(i => i.type === "gearsupply" && i.system.gear_or_supply !== "supply").length} de 4.` : "Mejunjes, pociones y cosas de uso limitado van siempre como suministro."}</p>` : "";
+    const lista = visibles.filter(x => (!this.cat || x.cat === this.cat) && (!f || sn(x.nombre).includes(f) || sn(x.desc).includes(f)));
+    const chips = cats.length > 1 ? `<div class="mrg-sel-cats" role="group" aria-label="Categorías"><button type="button" class="mrg-chipbtn ${!this.cat ? "mrg-sel" : ""}" data-cat="">Todo <b>${visibles.length}</b></button>${cats.map(c => `<button type="button" class="mrg-chipbtn ${this.cat === c ? "mrg-sel" : ""}" data-cat="${esc(c)}">${esc(c)} <b>${visibles.filter(x => x.cat === c).length}</b></button>`).join("")}</div>` : "";
+    const nEq = this.actor.items.filter(i => i.type === "gearsupply" && i.system.gear_or_supply !== "supply").length;
+    const extra = this.tipo === "gearsupply" ? `<p class="mrg-nota">Llevas ${nEq} de 4 objetos de equipo. Los mejunjes, las pociones y lo de uso limitado van solos a suministros; lo demás, a equipo.${game.user.isGM ? "" : " <strong>Los mejunjes, artilugios, pociones y objetos mágicos no se eligen: salen de las tablas de botín y creación, y te los da el DJ.</strong>"}</p>` : "";
     const filas = lista.map(x => {
       const ya = !UNICOS.has(this.tipo) && this.tiene(x.nombre);
       const s = x.datos.system ?? {};
@@ -106,13 +109,19 @@ export class SelectorMR extends App {
         ${ya ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> Ya lo tienes</span>` : `<button type="button" class="mrg-btn mrg-btn--sangre" data-add="${todos.indexOf(x)}"><i class="fa-solid fa-plus"></i> Añadir</button>`}</header>
         ${marcas ? `<div class="mrg-sel-marcas">${marcas}</div>` : ""}${x.desc ? `<p>${esc(x.desc)}</p>` : ""}</article>`;
     }).join("");
-    return `<div class="mrg-sel"><div class="mrg-sel-cab"><input type="search" class="mrg-sel-buscar" placeholder="Buscar por nombre o descripción…" value="${esc(this.filtro)}" aria-label="Buscar" autofocus>${chips}${extra}
-      <p class="mrg-nota">${lista.length} de ${todos.length} · ordenados por categoría y nombre</p></div><div class="mrg-sel-lista">${filas || `<p class="mrg-vacio">Nada coincide con la búsqueda.</p>`}</div></div>`;
+    return `<div class="mrg-sel-raiz"><div class="mrg-sel-cab"><input type="search" class="mrg-sel-buscar" placeholder="Buscar por nombre o descripción…" value="${esc(this.filtro)}" aria-label="Buscar" autofocus>${chips}${extra}
+      <p class="mrg-nota">${lista.length} de ${visibles.length} · ordenados por categoría y nombre</p></div><div class="mrg-sel-lista">${filas || `<p class="mrg-vacio">Nada coincide con la búsqueda.</p>`}</div></div>`;
+  }
+
+  /** Los jugadores solo eligen objetos mundanos: los de las tablas (mejunjes, artilugios, pociones, reliquias) los concede el DJ. */
+  #restringido(x) {
+    if (this.tipo !== "gearsupply" || game.user.isGM) return false;
+    return ["Mejunjes", "Artilugios", "Pociones", "Objetos mágicos"].includes(x.cat);
   }
 
   #htmlDefensa() {
     const filas = DEFENSAS.map(([n, ej], i) => `<article class="mrg-sel-fila ${this.tiene(n) ? "mrg-tiene" : ""}"><header><h5>${esc(n)}</h5><button type="button" class="mrg-btn mrg-btn--sangre" data-defensa="${i}"><i class="fa-solid fa-plus"></i> Elegir</button></header><p>Ejemplos de equipo: ${esc(ej)}</p></article>`).join("");
-    return `<div class="mrg-sel"><div class="mrg-sel-cab"><p class="mrg-nota">Tu equipo da <strong>una sola defensa</strong>. Negocia con el DJ cuál: ni demasiado concreta ni demasiado amplia; debería usarse más o menos una vez por sesión.</p>
+    return `<div class="mrg-sel-raiz"><div class="mrg-sel-cab"><p class="mrg-nota">Tu equipo da <strong>una sola defensa</strong>. Negocia con el DJ cuál: ni demasiado concreta ni demasiado amplia; debería usarse más o menos una vez por sesión.</p>
       <label class="mrg-campo"><span class="mrg-etiqueta">O escribe la tuya</span><span class="mrg-fila"><input type="text" class="mrg-sel-libre" placeholder="Contra qué te protege"><button type="button" class="mrg-btn" data-defensa-libre><i class="fa-solid fa-plus"></i> Añadir</button></span></label></div>
       <div class="mrg-sel-lista">${filas}</div></div>`;
   }
@@ -145,12 +154,13 @@ export class SelectorMR extends App {
     if (!x) return;
     const o = foundry.utils.deepClone(x.datos);
     delete o._id;
-    if (this.tipo === "gearsupply" && this.uso) {
-      o.system = { ...(o.system ?? {}), gear_or_supply: this.uso === "equipo" ? "gear" : "supply" };
-      if (this.uso === "equipo") {
-        const n = this.actor.items.filter(i => i.type === "gearsupply" && i.system.gear_or_supply !== "supply").length;
-        if (n >= 4 && !(await foundry.applications.api.DialogV2.confirm({ window: { title: "Equipo lleno" }, content: "<p>Ya llevas cuatro objetos de equipo. ¿Añadir este de todos modos?</p>", rejectClose: false }))) return;
-      }
+    if (this.tipo === "gearsupply") {
+      if (!game.user.isGM && this.#restringido(x)) return ui.notifications.warn("Ese objeto lo concede el DJ (sale de las tablas).");
+      const n = this.actor.items.filter(i => i.type === "gearsupply" && i.system.gear_or_supply !== "supply").length;
+      const consumible = ["Mejunjes", "Pociones", "Consumibles"].includes(x.cat);
+      const uso = this.uso ?? (consumible || n >= 4 ? "suministro" : "equipo");
+      o.system = { ...(o.system ?? {}), gear_or_supply: uso === "equipo" ? "gear" : "supply" };
+      ui.notifications.info(`${x.nombre}: añadido como ${uso === "equipo" ? "equipo" : "suministro"}.`);
     }
     if (UNICOS.has(this.tipo)) {
       const previos = this.actor.items.filter(i => i.type === this.tipo).map(i => i.id);
