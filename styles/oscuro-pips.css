@@ -1,0 +1,72 @@
+/* GENERADO por tools/gen_oscuro.py a partir de wicked.css: no editar a mano.
+   Recolorea los indicadores negros del sistema cuando el modo oscuro está activo. */
+body.mr-wo-oscuro form.wicked-one-sheet table.base-info .big-teeth.rot label,
+body.mr-wo-oscuro form.wicked-one-sheet table.base-info .big-teeth.rot input:checked + label,
+body.mr-wo-oscuro form.wicked-one-sheet #abilities-list .value-tracker label,
+body.mr-wo-oscuro form.wicked-one-sheet #abilities-list .value-tracker input:checked ~ label,
+body.mr-wo-oscuro form.wicked-one-sheet #abilities-list .value-tracker input:checked + label,
+body.mr-wo-oscuro form.party-sheet .adventurer-hearts label.slashed-1,
+body.mr-wo-oscuro form.party-sheet .adventurer-hearts label.slashed-2,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div label,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div input:checked ~ label,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div input:checked ~ label.dark-heart,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div input:checked + label,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div input:checked + label.practice-one,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div input:checked + label.practice-two,
+body.mr-wo-oscuro form.party-sheet td.moves-radio label.adv-move-greyed,
+body.mr-wo-oscuro form.gm-sheet table.cycle-of-play td label,
+body.mr-wo-oscuro form.gm-sheet table.cycle-of-play td input:checked + label,
+body.mr-wo-oscuro form.conquest-sheet .big-teeth.domain label,
+body.mr-wo-oscuro form.conquest-sheet .big-teeth.domain input:checked ~ label,
+body.mr-wo-oscuro form.conquest-sheet .big-teeth.domain input:checked + label,
+body.mr-wo-oscuro form.conquest-sheet .big-teeth.domain input:checked:nth-of-type(1) ~ label:nth-of-type(2),
+body.mr-wo-oscuro form.conquest-sheet .empowered label,
+body.mr-wo-oscuro form.conquest-sheet .threatened label,
+body.mr-wo-oscuro #attributes .attributes-container label,
+body.mr-wo-oscuro #attributes .attributes-container input:checked ~ label,
+body.mr-wo-oscuro #attributes .attributes-container input:checked ~ label.dark-heart,
+body.mr-wo-oscuro #attributes .attributes-container input:checked + label,
+body.mr-wo-oscuro #attributes .attributes-container input:checked + label.practice-one,
+body.mr-wo-oscuro #attributes .attributes-container input:checked + label.practice-two,
+body.mr-wo-oscuro #attributes .shock label,
+body.mr-wo-oscuro #attributes .shock input:checked + label,
+body.mr-wo-oscuro #attributes .bloodied label,
+body.mr-wo-oscuro #attributes .exposed label,
+body.mr-wo-oscuro #attributes .bloodied-minion label,
+body.mr-wo-oscuro #attributes .exposed-minion label,
+body.mr-wo-oscuro #attributes .morale-minion label,
+body.mr-wo-oscuro #attributes .morale-minion input:checked + label,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container label,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked ~ label,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked ~ label.dark-heart,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked + label,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked + label.practice-one,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked + label.practice-two,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container label.essence,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked ~ label.essence,
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked + label.essence,
+body.mr-wo-oscuro .standard-checkbox label,
+body.mr-wo-oscuro .standard-checkbox input[type=checkbox]:checked + label,
+body.mr-wo-oscuro .mr-wo-pip-fix {
+  filter: var(--mr-wo-filtro-pip, invert(0.92) sepia(0.28) saturate(1.2) brightness(1.02));
+}
+
+body.mr-wo-oscuro form.wicked-one-sheet #abilities-list .value-tracker label.black-label,
+body.mr-wo-oscuro form.wicked-one-sheet #loadout .gear-tags label.quality-mundane,
+body.mr-wo-oscuro form.party-sheet .trait-tags label.motivation {
+  color: var(--mr-wo-tinta);
+}
+
+body.mr-wo-oscuro form.wicked-one-sheet #abilities-list .value-tracker label.black-label:hover,
+body.mr-wo-oscuro form.wicked-one-sheet #loadout .gear-tags label.quality-powerful,
+body.mr-wo-oscuro form.party-sheet td.moves-radio div label.fa-shield:hover {
+  color: var(--mr-wo-sangre);
+}
+
+body.mr-wo-oscuro form.faction-ua-sheet #faction-sheet div.primary-domain label,
+body.mr-wo-oscuro form.faction-ua-sheet #faction-sheet div.primary-domain div.standard-checkbox,
+body.mr-wo-oscuro form.party-sheet .trait-tags label.negative,
+body.mr-wo-oscuro table.base-info tr .item-add-popup,
+body.mr-wo-oscuro table.base-info tr .text-input {
+  color: var(--mr-wo-oro);
+}

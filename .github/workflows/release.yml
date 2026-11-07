@@ -43,7 +43,18 @@ jobs:
             packs/equipo-es/CURRENT \
             packs/aventureros-es/CURRENT \
             packs/facciones-es/CURRENT \
+            packs/personajes-es/CURRENT \
+            packs/esbirros-es/CURRENT \
+            packs/grupos-es/CURRENT \
             packs/tablas-es/CURRENT \
+            tours/director.json \
+            tours/jugadores.json \
+            js/ficha.mjs \
+            js/automatismos.mjs \
+            js/inicio.mjs \
+            assets/brand/mr-marca.webm \
+            styles/compacta.css \
+            styles/oscuro-pips.css \
             js/main.mjs \
             js/core/reglas.mjs \
             content/direccion-es.json \

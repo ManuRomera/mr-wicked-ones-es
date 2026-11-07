@@ -60,16 +60,40 @@ export function evaluarResistencia(posicion = "default", estadoResistencia = "su
     return { estres: 0, conmocionado: true, malherido: true, muerte: true, resumen: "Fallo al Resistir la Muerte (1–3): el golpe resulta letal." };
   }
 
+  // Libro (Resistencias): fallo 3 de estrés, parcial 2, éxito 1; crítico despeja 1 y resiste del todo.
   if (estadoResistencia === "critical") {
-    return { estres: 0, conmocionado: false, malherido: false, muerte: false, resumen: "¡Resistencia crítica! Anulas la consecuencia sin coste de Estrés y recuperas 1 de Estrés." };
+    return { estres: -1, conmocionado: false, malherido: false, muerte: false, total: true, resumen: "Resistencia crítica: resistes por completo y despejas 1 de Estrés." };
   }
   if (estadoResistencia === "success") {
-    return { estres: 0, conmocionado: false, malherido: false, muerte: false, resumen: "Resistes la consecuencia limpiamente (0 de Estrés)." };
+    return { estres: 1, conmocionado: false, malherido: false, muerte: false, total: true, resumen: "Éxito: resistes por completo la consecuencia y pagas 1 de Estrés." };
   }
   if (estadoResistencia === "mixed") {
-    return { estres: 1, conmocionado: false, malherido: false, muerte: false, resumen: "Resistes la consecuencia sufriendo 1 de Estrés." };
+    return { estres: 2, conmocionado: false, malherido: false, muerte: false, total: false, resumen: "Parcial: resistes solo en parte la consecuencia y pagas 2 de Estrés." };
   }
-  return { estres: 2, conmocionado: true, malherido: false, muerte: false, resumen: "Resistes la consecuencia, pero sufres 2 de Estrés (o marcas el atributo como Conmocionado)." };
+  return { estres: 3, conmocionado: false, malherido: false, muerte: false, total: false, resumen: "Fallo: resistes solo en parte la consecuencia y pagas 3 de Estrés." };
+}
+
+/**
+ * Suma (o despeja, si es negativo) estrés respetando el reloj de 6 casillas. Al llenarlo el personaje se desata (feral):
+ * el desbordamiento se ignora (libro, «Going Feral»).
+ * @returns {{ nuevo: number, feral: boolean, aplicado: number }}
+ */
+export function aplicarEstres(actual, delta, max = 6) {
+  const a = n(actual, 0);
+  const nuevo = acota(a + n(delta, 0), 0, n(max, 6));
+  return { nuevo, feral: nuevo >= n(max, 6) && n(delta, 0) > 0, aplicado: nuevo - a };
+}
+
+/**
+ * Experiencia de práctica (libro, «Practice XP»): tras una tirada de acción o resistencia con una acción SIN puntos,
+ * se marca 1 de práctica; a la tercera la acción sube a 1 punto. practica va de 0 a 2.
+ * @returns {{ valor: number, practica: number, sube: boolean }}
+ */
+export function progresoPractica(valor, practica) {
+  if (n(valor, 0) > 0) return { valor: n(valor, 0), practica: n(practica, 0), sube: false };
+  const p = n(practica, 0);
+  if (p >= 2) return { valor: 1, practica: 0, sube: true };
+  return { valor: 0, practica: p + 1, sube: false };
 }
 
 /**

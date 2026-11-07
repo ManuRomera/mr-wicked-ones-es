@@ -1,8 +1,8 @@
 {
   "id": "mr-wicked-ones-es",
-  "title": "MR- Wicked Ones: Contenido Completo y Campaña",
-  "description": "Expansión completa en español (edición de The Hills Press) y campaña lista para jugar para el sistema Wicked Ones y su traducción wicked-ones-esp. Corrige mapeos de Babele y textos sin traducir de las hojas; añade el Manual completo en diarios, los 4 entornos oficiales con sus 24 facciones y mapas, todas las salas de nivel 1 y 2, trampas, trucos, portones, criaturas de guarida, equipo, armas, suministros, mejunjes, artilugios, pociones y objetos mágicos, los 30 aventureros con sus 6 movimientos ofensivos y defensivos, las tablas de incursión, invasión y modo solitario («El Gran Malo Malvado», «Los Errantes» y «Los Valientes»), generador interactivo, automatización de tiradas en el chat, modo oscuro y accesibilidad, además de la campaña «El Valle Silencioso: Un lugar al que llamar hogar» integrada con MR- Dirección.",
-  "version": "1.0.0",
+  "title": "MR- Wicked Ones: Campaña, Compendios y Mejoras",
+  "description": "Todo lo que le falta al sistema Wicked Ones en español, con la calidad MR-: campaña «El Valle Silencioso» con escenas ilustradas con su lectura y música (MR- Dirección), personajes, esbirros, 30 aventureros y 36 ayudantes, 48 facciones de 4 entornos, salas, trampas, criaturas y todo el equipo con arte propio, tablas y modo solitario, el libro en diarios y un generador. Mejoras: modo oscuro corregido, ficha compacta real, tiradas con las reglas del libro automatizadas (estrés, conmoción, práctica, desatado), todo ordenado en carpetas (compendios del sistema separados de los del módulo), asistente para importar todo al mundo y tutorial guiado.",
+  "version": "2.0.0",
   "authors": [
     {
       "name": "Manu Romera",
@@ -51,7 +51,9 @@
   ],
   "styles": [
     "styles/mr-wicked-ones.css",
-    "styles/oscuro.css"
+    "styles/oscuro-pips.css",
+    "styles/oscuro.css",
+    "styles/compacta.css"
   ],
   "languages": [
     {
@@ -63,7 +65,7 @@
   "packs": [
     {
       "name": "aventura-es",
-      "label": "MR- Campaña: El Valle Silencioso y Entornos",
+      "label": "MR- Campaña: El Valle Silencioso",
       "path": "packs/aventura-es",
       "type": "Adventure",
       "system": "wicked-ones",
@@ -74,7 +76,7 @@
     },
     {
       "name": "manual-es",
-      "label": "MR- Manual y Reglas (The Hills Press)",
+      "label": "MR- Libro y referencia (diarios)",
       "path": "packs/manual-es",
       "type": "JournalEntry",
       "system": "wicked-ones",
@@ -84,8 +86,30 @@
       }
     },
     {
+      "name": "tablas-es",
+      "label": "MR- Tablas de incursión, botín y solitario",
+      "path": "packs/tablas-es",
+      "type": "RollTable",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "aventureros-es",
+      "label": "MR- Aventureros y ayudantes",
+      "path": "packs/aventureros-es",
+      "type": "Item",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "labores-es",
-      "label": "MR- Salas N1-N2, Trampas, Trucos, Portones y Criaturas",
+      "label": "MR- Salas, trampas, trucos, portones y criaturas",
       "path": "packs/labores-es",
       "type": "Item",
       "system": "wicked-ones",
@@ -96,7 +120,7 @@
     },
     {
       "name": "equipo-es",
-      "label": "MR- Equipo, Armas, Mejunjes, Artilugios, Pociones y Reliquias",
+      "label": "MR- Equipo, mejunjes, artilugios, pociones y reliquias",
       "path": "packs/equipo-es",
       "type": "Item",
       "system": "wicked-ones",
@@ -106,10 +130,21 @@
       }
     },
     {
-      "name": "aventureros-es",
-      "label": "MR- Aventureros (con Movimientos) y Ayudantes",
-      "path": "packs/aventureros-es",
-      "type": "Item",
+      "name": "personajes-es",
+      "label": "MR- Personajes pregenerados",
+      "path": "packs/personajes-es",
+      "type": "Actor",
+      "system": "wicked-ones",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "esbirros-es",
+      "label": "MR- Manadas de esbirros",
+      "path": "packs/esbirros-es",
+      "type": "Actor",
       "system": "wicked-ones",
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -118,7 +153,7 @@
     },
     {
       "name": "facciones-es",
-      "label": "MR- Facciones (4 Entornos), Mazmorras y Grupos",
+      "label": "MR- Facciones de los cuatro entornos",
       "path": "packs/facciones-es",
       "type": "Actor",
       "system": "wicked-ones",
@@ -128,10 +163,10 @@
       }
     },
     {
-      "name": "tablas-es",
-      "label": "MR- Tablas de Incursión, Invasión, Criaturas y Solitario",
-      "path": "packs/tablas-es",
-      "type": "RollTable",
+      "name": "grupos-es",
+      "label": "MR- Aventureros rivales, mazmorra y panel del DJ",
+      "path": "packs/grupos-es",
+      "type": "Actor",
       "system": "wicked-ones",
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -146,5 +181,49 @@
   "bugs": "https://github.com/ManuRomera/mr-wicked-ones-es/issues",
   "license": "MIT",
   "readme": "https://github.com/ManuRomera/mr-wicked-ones-es#readme",
-  "changelog": "https://github.com/ManuRomera/mr-wicked-ones-es/blob/main/CHANGELOG.md"
+  "changelog": "https://github.com/ManuRomera/mr-wicked-ones-es/blob/main/CHANGELOG.md",
+  "packFolders": [
+    {
+      "name": "MR · Wicked Ones (este módulo)",
+      "sorting": "m",
+      "color": "#a83228",
+      "packs": [],
+      "folders": [
+        {
+          "name": "Campaña y libro",
+          "color": "#a83228",
+          "packs": [
+            "aventura-es",
+            "manual-es",
+            "tablas-es"
+          ]
+        },
+        {
+          "name": "Personajes y esbirros",
+          "color": "#5f7f3a",
+          "packs": [
+            "personajes-es",
+            "esbirros-es"
+          ]
+        },
+        {
+          "name": "Mundo: facciones y rivales",
+          "color": "#8a6d3b",
+          "packs": [
+            "facciones-es",
+            "grupos-es",
+            "aventureros-es"
+          ]
+        },
+        {
+          "name": "Mazmorra y equipo",
+          "color": "#4d6a8c",
+          "packs": [
+            "labores-es",
+            "equipo-es"
+          ]
+        }
+      ]
+    }
+  ]
 }

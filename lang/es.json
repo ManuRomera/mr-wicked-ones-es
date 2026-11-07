@@ -50,7 +50,6 @@
   "FITD.ROLL.SALA.Success": "Aprovechas los elementos de la sala a tu favor.",
   "FITD.ROLL.SALA.Mixed": "La sala ofrece ventaja parcial, pero algo de su mobiliario queda dañado.",
   "FITD.ROLL.SALA.Failure": "Los invasores toman el control de los puntos clave de la sala.",
-
   "MRWO.Titulo": "MR · Wicked Ones (The Hills Press)",
   "MRWO.AbrirGenerador": "Asistente y Generador MR",
   "MRWO.Accesibilidad": "Accesibilidad y Modo Oscuro",
@@ -68,5 +67,9 @@
   "MRWO.Settings.Legible.Name": "Tipografía de alta legibilidad",
   "MRWO.Settings.Legible.Hint": "Usa una fuente limpia sin remates para descripciones largas y tablas.",
   "MRWO.Settings.Escala.Name": "Escala de texto en hojas (%)",
-  "MRWO.Settings.Escala.Hint": "Ajusta el tamaño de letra de las hojas (90 % a 125 %)."
+  "MRWO.Settings.Escala.Hint": "Ajusta el tamaño de letra de las hojas (90 % a 125 %).",
+  "MRWO.Settings.CompactaDefecto.Name": "Abrir las fichas en modo compacto",
+  "MRWO.Settings.CompactaDefecto.Hint": "Las fichas de personaje y de esbirros se abren con la vista compacta (se puede alternar en cada ficha con el botón de la cabecera).",
+  "MRWO.Settings.AutoAplicar.Name": "Aplicar las reglas automáticamente",
+  "MRWO.Settings.AutoAplicar.Hint": "Tras cada tirada se aplican solas las reglas del libro: estrés de las resistencias (fallo 3, parcial 2, éxito 1, crítico despeja 1), conmoción que se limpia, EXP de práctica y personaje desatado al llenar el Estrés."
 }

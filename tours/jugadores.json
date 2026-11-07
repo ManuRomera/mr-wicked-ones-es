@@ -1,0 +1,53 @@
+{
+  "title": "Wicked Ones · Tutorial para jugadoras y jugadores",
+  "description": "Cómo usar tu hoja de monstruo: habilidades, estrés, EXP, ficha compacta y las tarjetas del chat.",
+  "display": true,
+  "canBeResumed": true,
+  "steps": [
+    {
+      "id": "bienvenida",
+      "title": "Eres un monstruo malvado",
+      "content": "Con tu personaje excavas una guarida, saqueas la superficie y resistes a los héroes que vienen a por vosotros.\nEn unos minutos verás cómo se usa tu hoja. Puedes repetirlo desde Configuración → Tours."
+    },
+    {
+      "id": "ficha",
+      "title": "Tu hoja",
+      "content": "Arriba están tu nombre, tu raza y tu vocación. Debajo, tus contadores de <strong>Oro</strong>, <strong>EXP Malvada</strong> y <strong>EXP Osada</strong> (haz clic en un diente para marcarlo; clic en el nombre del contador para vaciarlo).",
+      "selector": ".wicked-ones.sheet.actor",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "habilidades",
+      "title": "Habilidades y tiradas",
+      "content": "Hay tres atributos —<strong>Sesos, Músculos y Agallas</strong>— con tres habilidades cada uno. Cada casilla marcada es un dado. Pulsa el nombre de la habilidad para tirar: eliges posición y efecto y se lanzan los dados.\nEl cuadrado de la izquierda del atributo es la <strong>conmoción</strong>: si lo marcas, tiras 1D menos.",
+      "selector": "#attributes",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "estres",
+      "title": "Estrés y defensas",
+      "content": "El reloj es tu <strong>estrés</strong> (6 casillas). Al resistir una consecuencia pagas estrés; si se llena, tu personaje se descontrola. Las <strong>defensas</strong> son las que ya has gastado y los <strong>impulsos oscuros</strong>, lo que te obsesiona.",
+      "selector": "#defenses-stress",
+      "tooltipDirection": "RIGHT"
+    },
+    {
+      "id": "compacta",
+      "title": "Ficha compacta",
+      "content": "Pulsa este botón para reducir la hoja a lo esencial en una sola vista. Capacidades, equipo y labores quedan en secciones que se abren y se cierran; las descripciones largas se despliegan al pulsarlas. Vuelve a pulsarlo para ver la ficha completa.",
+      "selector": ".mr-wo-compacta",
+      "tooltipDirection": "DOWN"
+    },
+    {
+      "id": "chat",
+      "title": "Las tarjetas del chat",
+      "content": "Tras cada tirada verás el resultado y botones para lo que toca hacer: <strong>Resistir</strong>, sumar <strong>+1 Estrés</strong> o gastar un <strong>Corazón Oscuro</strong> para añadir un dado. Basta un clic: la hoja se actualiza sola.",
+      "selector": "#chat",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "fin",
+      "title": "¡A por ellos!",
+      "content": "Ya sabes lo básico. Pregunta a quien dirige por cualquier duda y recuerda: en esta mesa los malos sois vosotras."
+    }
+  ]
+}

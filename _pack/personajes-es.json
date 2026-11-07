@@ -1,0 +1,1394 @@
+[
+ {
+  "_id": "8VPl873AVFqWFNWE",
+  "name": "Ulrot (Orco Bruto)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-ulrot.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Cicatrices de guerra, hombreras de hueso y un enorme mandoble dentado",
+   "vilefriend": "Grash (el carnicero del campamento)",
+   "minionpack": "CxAeF5GVlrpE4CA4",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 1,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 1,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 2,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Ulrot</strong> es un <strong>Orco Bruto</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Cicatrices de guerra, hombreras de hueso y un enorme mandoble dentado.</p><p><strong>Amigo vil:</strong> Grash (el carnicero del campamento).</p>"
+  },
+  "prototypeToken": {
+   "name": "Ulrot",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-ulrot.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "KRj5ZiCE9dqA9uqD",
+    "name": "Orco",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Orco."
+    }
+   },
+   {
+    "_id": "Fl5X9kOnZDbP5gOJ",
+    "name": "Bruto",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Bruto."
+    }
+   },
+   {
+    "_id": "GNstD91cVhYhBIDn",
+    "name": "Festín de carne asada y cerveza robada",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Festín de carne asada y cerveza robada"
+    }
+   },
+   {
+    "_id": "zGC4HsZZOvY17CM6",
+    "name": "Aplastar a los arrogantes campeones de la Luz",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Aplastar a los arrogantes campeones de la Luz"
+    }
+   },
+   {
+    "_id": "EFTTLSVmzfmAovP4",
+    "name": "Fuerza imparable",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Bruto",
+     "description": "Tus golpes cuerpo a cuerpo destrozan escudos, puertas y armaduras con facilidad aterradora."
+    }
+   },
+   {
+    "_id": "Y3ZZclpfCEoDiTLO",
+    "name": "Mandoble quebrantahuesos",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Mandoble quebrantahuesos"
+    }
+   },
+   {
+    "_id": "48HXKp1ibetXGCGp",
+    "name": "Armadura de placas abolladas",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Armadura de placas abolladas"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-ulrot.webp",
+    "slug": "pj-ulrot"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ },
+ {
+  "_id": "fozRktX0JmEvzbiw",
+  "name": "Crag (Kóbold Chamán)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-crag.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Escamas rojizas, corona de cuernos y un báculo coronado por un cráneo humeante",
+   "vilefriend": "Vex (la anciana guardiana de los huevos)",
+   "minionpack": "ei8cb9HEe2JAfN7A",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 1,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 0,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 1,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Crag</strong> es un <strong>Kóbold Chamán</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Escamas rojizas, corona de cuernos y un báculo coronado por un cráneo humeante.</p><p><strong>Amigo vil:</strong> Vex (la anciana guardiana de los huevos).</p>"
+  },
+  "prototypeToken": {
+   "name": "Crag",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-crag.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "CNdqM8zN9QlfWEpF",
+    "name": "Kóbold",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Kóbold."
+    }
+   },
+   {
+    "_id": "Y3SrlGQ8k2bgPOVc",
+    "name": "Chamán",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Chamán."
+    }
+   },
+   {
+    "_id": "aD7jnF8kssz3AiUU",
+    "name": "Danza extática alrededor de la hoguera ritual",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Danza extática alrededor de la hoguera ritual"
+    }
+   },
+   {
+    "_id": "zMmKXYPpIENfw4YH",
+    "name": "Demostrar que las artes oscuras dominan el Valle Silencioso",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Demostrar que las artes oscuras dominan el Valle Silencioso"
+    }
+   },
+   {
+    "_id": "GvBvdDfHFc9qa4gC",
+    "name": "Canalizador de Gorlag",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Chamán",
+     "description": "Dominas los rituales de sangre y la senda de piromancia, canalizando el poder de los Dioses Oscuros."
+    }
+   },
+   {
+    "_id": "pfeZO2mqQMMxk5uM",
+    "name": "Báculo de canalización rúnica",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Báculo de canalización rúnica"
+    }
+   },
+   {
+    "_id": "4amMYE9lwQzYYqz1",
+    "name": "Bolsa de fetiches y pergaminos",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Bolsa de fetiches y pergaminos"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-crag.webp",
+    "slug": "pj-crag"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ },
+ {
+  "_id": "yfK7gx7jq4WYSR5p",
+  "name": "Slem (Sérpido Sombra)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-slem.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Ojos verticales dorados, capucha de cuero negro y un par de dagas curvas goteantes",
+   "vilefriend": "Naga-Sss (traficante de venenos)",
+   "minionpack": "35alhWT8ChwzU8pO",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 2,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 2,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 1,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Slem</strong> es un <strong>Sérpido Sombra</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Ojos verticales dorados, capucha de cuero negro y un par de dagas curvas goteantes.</p><p><strong>Amigo vil:</strong> Naga-Sss (traficante de venenos).</p>"
+  },
+  "prototypeToken": {
+   "name": "Slem",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-slem.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "3JMffWyAN8rJWrV9",
+    "name": "Sérpido",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Sérpido."
+    }
+   },
+   {
+    "_id": "lpuGNmAT5TjeDGmX",
+    "name": "Sombra",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Sombra."
+    }
+   },
+   {
+    "_id": "xXtxXurkXXlynGkL",
+    "name": "Acechar desde las vigas altas y coleccionar llaves robadas",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Acechar desde las vigas altas y coleccionar llaves robadas"
+    }
+   },
+   {
+    "_id": "M5t4aZa5o36LDmoO",
+    "name": "Infiltrarse en las fortalezas más vigiladas sin ser visto",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Infiltrarse en las fortalezas más vigiladas sin ser visto"
+    }
+   },
+   {
+    "_id": "vMH1SJDdlarhzGJN",
+    "name": "Uno con las sombras",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Sombra",
+     "description": "Puedes desaparecer de la vista en cualquier rincón oscuro y atacar desde ángulos imposibles."
+    }
+   },
+   {
+    "_id": "EvAlhC5PNl6Ym5CY",
+    "name": "Dagas gemelas envenenadas",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Dagas gemelas envenenadas"
+    }
+   },
+   {
+    "_id": "cP2hyFwVSGgAA1ML",
+    "name": "Herramientas de ladrón y ganzúas",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Herramientas de ladrón y ganzúas"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-slem.webp",
+    "slug": "pj-slem"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ },
+ {
+  "_id": "KXiMWdXTSECn3qBA",
+  "name": "Viska (Goblin Artesana)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-viska.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Dedos manchados de hollín, gafas de aumento triples y un cinturón lleno de engranajes",
+   "vilefriend": "Tock (su autómata de cuerda medio loco)",
+   "minionpack": "IMWHW3d8jEs9blhI",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 2,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 2,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 1,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 1,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Viska</strong> es un <strong>Goblin Artesana</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Dedos manchados de hollín, gafas de aumento triples y un cinturón lleno de engranajes.</p><p><strong>Amigo vil:</strong> Tock (su autómata de cuerda medio loco).</p>"
+  },
+  "prototypeToken": {
+   "name": "Viska",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-viska.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "WlTXAapLvrYT6PUW",
+    "name": "Goblin",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Goblin."
+    }
+   },
+   {
+    "_id": "bsEkclcmgfxb89mn",
+    "name": "Artesana",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Artesana."
+    }
+   },
+   {
+    "_id": "0XuKhxDqsTzgKSUu",
+    "name": "Probar explosivos e inventos ruidosos en el taller",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Probar explosivos e inventos ruidosos en el taller"
+    }
+   },
+   {
+    "_id": "18vibzuDsA2KZ4p8",
+    "name": "Convertir la mazmorra en una máquina mortal perfecta",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Convertir la mazmorra en una máquina mortal perfecta"
+    }
+   },
+   {
+    "_id": "4xOq494BGsoxbCKP",
+    "name": "Mente maestra de artilugios",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Artesana",
+     "description": "Comienzas cada fase con suministros para fabricar mejunjes alquímicos y artilugios mecánicos."
+    }
+   },
+   {
+    "_id": "98x7xEUVd5gkBZIK",
+    "name": "Ballesta de repetición",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Ballesta de repetición"
+    }
+   },
+   {
+    "_id": "Vk1IZwQPY7fKRbYY",
+    "name": "Caja de herramientas de maestro",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Caja de herramientas de maestro"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-viska.webp",
+    "slug": "pj-viska"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ },
+ {
+  "_id": "Iyxl5N109V6lBJMN",
+  "name": "Kaelen (Demonio Hechicero)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-kaelen.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Cuernos curvados hacia atrás, ojos como brasas y túnica ribeteada en oro negro",
+   "vilefriend": "Malphas (un diablillo mensajero del Abismo)",
+   "minionpack": "NmXAarYRbdQZPOIh",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 0,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 1,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 2,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Kaelen</strong> es un <strong>Demonio Hechicero</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Cuernos curvados hacia atrás, ojos como brasas y túnica ribeteada en oro negro.</p><p><strong>Amigo vil:</strong> Malphas (un diablillo mensajero del Abismo).</p>"
+  },
+  "prototypeToken": {
+   "name": "Kaelen",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-kaelen.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "RMMePqqJsuvKCdzy",
+    "name": "Demonio",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Demonio."
+    }
+   },
+   {
+    "_id": "OabxSHHr6OuuJHqD",
+    "name": "Hechicero",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Hechicero."
+    }
+   },
+   {
+    "_id": "YPyAIe5pT3NcbnVJ",
+    "name": "Deleitarse con el miedo de los prisioneros y beber vino especiado",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Deleitarse con el miedo de los prisioneros y beber vino especiado"
+    }
+   },
+   {
+    "_id": "w6qkJuGF7ZcmXu1p",
+    "name": "Someter las almas de la Abadía de Piedra Blanca",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Someter las almas de la Abadía de Piedra Blanca"
+    }
+   },
+   {
+    "_id": "rGNEq9E27QcJB951",
+    "name": "Hechicería abisal",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Hechicero",
+     "description": "Desatas fuego negro, telequinesis e ilusiones aterradoras canalizando tu propia sangre demoníaca."
+    }
+   },
+   {
+    "_id": "EkI8lHhDwbociDC6",
+    "name": "Orbe de obsidiana ardiente",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Orbe de obsidiana ardiente"
+    }
+   },
+   {
+    "_id": "bpJ2hAqTXsv26UpG",
+    "name": "Túnica de escamas infernales",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Túnica de escamas infernales"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-kaelen.webp",
+    "slug": "pj-kaelen"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ },
+ {
+  "_id": "nOxrNq5btGTRC2oP",
+  "name": "Zira (Devoramentes Confabuladora)",
+  "type": "character",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/pj-zira.webp",
+  "system": {
+   "pc_type": "wicked_one",
+   "look": "Tentáculos faciales violáceos ocultos tras una máscara de plata y capa de terciopelo",
+   "vilefriend": "Hermano Tomás (un monje corrupto de Piedra Blanca)",
+   "minionpack": "HsAh81euWRFDkoPP",
+   "wickedxp": {
+    "value": 0,
+    "max": 9,
+    "max_default": 9,
+    "name_default": "FITD.WickedXP",
+    "name": "FITD.WickedXP"
+   },
+   "recklessxp": {
+    "value": 0,
+    "max": 3,
+    "max_default": 3,
+    "name_default": "FITD.RecklessXP",
+    "name": "FITD.RecklessXP"
+   },
+   "stress": {
+    "min": 0,
+    "value": 0,
+    "max": 6
+   },
+   "bloodied": false,
+   "supply": {
+    "min": 0,
+    "value": 2,
+    "max": 2
+   },
+   "attribute_max_value": 3,
+   "downtime_action_used": false,
+   "dark_hearts": {
+    "min": 0,
+    "value": 1,
+    "max": 2
+   },
+   "gold": {
+    "min": 0,
+    "value": 1,
+    "max": 3
+   },
+   "rot": {
+    "min": 1,
+    "value": 1,
+    "max": 4
+   },
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 2,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 0,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 2,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Zira</strong> es un <strong>Devoramentes Confabuladora</strong> que busca forjar un nuevo hogar en las Colinas de Piedra Blanca del Valle Silencioso.</p><p><strong>Aspecto:</strong> Tentáculos faciales violáceos ocultos tras una máscara de plata y capa de terciopelo.</p><p><strong>Amigo vil:</strong> Hermano Tomás (un monje corrupto de Piedra Blanca).</p>"
+  },
+  "prototypeToken": {
+   "name": "Zira",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": 1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/pj-zira.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "i6AprJyyQnELzaeg",
+    "name": "Devoramentes",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Raza monstruosa: Devoramentes."
+    }
+   },
+   {
+    "_id": "VVVRbWNkuh3YJ86G",
+    "name": "Confabuladora",
+    "type": "calling",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+    "system": {
+     "is_ua_calling": false,
+     "description": "Vocación malvada: Confabuladora."
+    }
+   },
+   {
+    "_id": "H8jI86NpF7PzCzFC",
+    "name": "Saborear los recuerdos y secretos extraídos de mentes cautivas",
+    "type": "revelry",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
+    "system": {
+     "description": "Saborear los recuerdos y secretos extraídos de mentes cautivas"
+    }
+   },
+   {
+    "_id": "T7Jha5dLlG1D1n47",
+    "name": "Enfrentar a las facciones de la Luz entre sí mediante intrigas",
+    "type": "wickedimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Enfrentar a las facciones de la Luz entre sí mediante intrigas"
+    }
+   },
+   {
+    "_id": "mAizG5vVe8nscfHd",
+    "name": "Red de marionetas",
+    "type": "specialability",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
+    "system": {
+     "ability_type": "basic",
+     "ability_group": "group_core",
+     "source": "Confabuladora",
+     "description": "Siempre tienes un contacto sobornado o coaccionado dentro de la facción objetivo de la incursión."
+    }
+   },
+   {
+    "_id": "OopNJk6m3fSXXzLN",
+    "name": "Bastón estoque oculto",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Personal"
+     },
+     "description": "Bastón estoque oculto"
+    }
+   },
+   {
+    "_id": "Ouz0tBNXoADtjPOd",
+    "name": "Disfraces y sellos falsificados",
+    "type": "gearsupply",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+    "system": {
+     "gear_or_supply": "gear",
+     "quality_category": "mundane",
+     "use_type": "unlimited",
+     "uses_left": 4,
+     "edges": {
+      "0": "Útil"
+     },
+     "description": "Disfraces y sellos falsificados"
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "pj",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-zira.webp",
+    "slug": "pj-zira"
+   }
+  },
+  "folder": "yC0RM3z2HA5dG30k"
+ }
+]

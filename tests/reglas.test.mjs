@@ -12,6 +12,8 @@ import {
   acota,
   evaluarTirada,
   evaluarResistencia,
+  aplicarEstres,
+  progresoPractica,
   evaluarImplicacion,
   evaluarDesastre,
   evaluarRepresalia,
@@ -59,15 +61,17 @@ test("Evaluación de tiradas Forged in the Dark (normal y modo cero)", () => {
 
 test("Evaluación de Resistencia y Resistir la Muerte", () => {
   const resExito = evaluarResistencia("default", "success");
-  assert.equal(resExito.estres, 0);
+  assert.equal(resExito.estres, 1);
+  assert.equal(resExito.total, true);
+  assert.equal(evaluarResistencia("default", "critical").estres, -1);
   assert.equal(resExito.muerte, false);
 
   const resParcial = evaluarResistencia("dire", "mixed");
-  assert.equal(resParcial.estres, 1);
+  assert.equal(resParcial.estres, 2);
 
   const resFallo = evaluarResistencia("default", "failure");
-  assert.equal(resFallo.estres, 2);
-  assert.equal(resFallo.conmocionado, true);
+  assert.equal(resFallo.estres, 3);
+  assert.equal(resFallo.total, false);
 
   const muerteFallo = evaluarResistencia("deadly", "failure");
   assert.equal(muerteFallo.muerte, true);
@@ -130,4 +134,17 @@ test("Integridad de datos generados y cumplimiento de reglas CSS de la casa MR-"
     const css = await fs.readFile(archivoCss, "utf8");
     assert.doesNotMatch(css, /^\s*(\*|i|\.window-header)\s*\{[^}]*\b(font-family|font|all)\s*:/m);
   }
+});
+
+test("Estrés: se despeja, se limita a 6 y al llenarse se desata (feral)", () => {
+  assert.deepEqual(aplicarEstres(2, 1), { nuevo: 3, feral: false, aplicado: 1 });
+  assert.deepEqual(aplicarEstres(4, 3), { nuevo: 6, feral: true, aplicado: 2 });
+  assert.deepEqual(aplicarEstres(1, -1), { nuevo: 0, feral: false, aplicado: -1 });
+  assert.equal(aplicarEstres(0, -1).nuevo, 0);
+});
+
+test("EXP de práctica: tres marcas suben la acción sin puntos a 1", () => {
+  assert.deepEqual(progresoPractica(0, 0), { valor: 0, practica: 1, sube: false });
+  assert.deepEqual(progresoPractica(0, 2), { valor: 1, practica: 0, sube: true });
+  assert.deepEqual(progresoPractica(2, 1), { valor: 2, practica: 1, sube: false });
 });

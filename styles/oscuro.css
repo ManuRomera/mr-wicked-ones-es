@@ -1,62 +1,142 @@
 /**
- * Paleta de Modo Oscuro y Alto Contraste derivada con color-mix(in oklab, ...)
- * para las hojas de Wicked Ones (Personaje, Esbirros, Mazmorra, Grupo, Facción y DJ).
- * REGLA ESTRICTA: Nunca tocar font-family, font o all en button, i, .window-header ni *.
+ * Tema «Pergamino oscuro» de MR- Wicked Ones.
+ * El sistema base es un pergamino claro; aquí se invierte su paleta sin tocar las imágenes originales:
+ * los indicadores negros se recolorean con styles/oscuro-pips.css (generado por tools/gen_oscuro.py).
+ * REGLA: nunca font-family / font / all sobre button, i, .window-header ni * (rompe los iconos de ventana).
  */
 
 body.mr-wo-oscuro {
-  --mr-wo-bg-1: #16141b;
-  --mr-wo-bg-2: color-mix(in oklab, var(--mr-wo-bg-1) 86%, #352b42);
-  --mr-wo-bg-3: color-mix(in oklab, var(--mr-wo-bg-1) 74%, #c49a45);
-  --mr-wo-fg-1: #f0e9dc;
-  --mr-wo-fg-2: color-mix(in oklab, var(--mr-wo-fg-1) 78%, #9b8e78);
-  --mr-wo-borde-osc: color-mix(in oklab, #c49a45 45%, #2a2433);
+  --mr-wo-papel: #1a1618;
+  --mr-wo-papel-2: #261f22;
+  --mr-wo-papel-3: #342a2d;
+  --mr-wo-tinta: #f1e7d0;
+  --mr-wo-tinta-2: #cdbfa6;
+  --mr-wo-oro: #e6b865;
+  --mr-wo-sangre: #e0604b;
+  --mr-wo-linea: #7a5646;
+  --mr-wo-cinta: #6d3a31;
+  --mr-wo-filtro-pip: invert(0.93) sepia(0.3) saturate(1.3) brightness(1.03);
 }
 
 body.mr-wo-oscuro.mr-wo-contraste {
-  --mr-wo-bg-1: #0d0b10;
-  --mr-wo-fg-1: #ffffff;
-  --mr-wo-borde-osc: #f0c465;
+  --mr-wo-papel: #0c0a0b;
+  --mr-wo-papel-2: #171214;
+  --mr-wo-papel-3: #241c1f;
+  --mr-wo-tinta: #ffffff;
+  --mr-wo-oro: #ffd27a;
+  --mr-wo-linea: #f0c465;
 }
 
-body.mr-wo-oscuro .wicked-ones.sheet .window-content {
-  background: var(--mr-wo-bg-1);
-  color: var(--mr-wo-fg-1);
+/* ---- Marco de la ventana ------------------------------------------------------------------------------- */
+body.mr-wo-oscuro .wicked-ones.sheet .window-content,
+body.mr-wo-oscuro .wicked-ones.sheet.actor .window-content {
+  background: radial-gradient(120% 80% at 50% 0%, var(--mr-wo-papel-2), var(--mr-wo-papel) 70%);
+  color: var(--mr-wo-tinta);
+  color-scheme: dark;
 }
 
+/* ---- Cabecera: runas negras -> marfil, nombre y etiquetas ------------------------------------------------ */
+body.mr-wo-oscuro .wicked-ones.sheet .top-decoration,
+body.mr-wo-oscuro .wicked-ones.sheet .blades-clock,
+body.mr-wo-oscuro .wicked-ones.sheet .clock-zero-label {
+  filter: var(--mr-wo-filtro-pip);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .large-name input,
+body.mr-wo-oscuro .wicked-ones.sheet .large-name {
+  color: var(--mr-wo-oro);
+  background: color-mix(in oklab, var(--mr-wo-papel) 80%, transparent);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .item-class-label a,
+body.mr-wo-oscuro .wicked-ones.sheet .text-input label,
+body.mr-wo-oscuro .wicked-ones.sheet .item-class-label {
+  color: var(--mr-wo-oro);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .item-name,
+body.mr-wo-oscuro .wicked-ones.sheet .item-description,
+body.mr-wo-oscuro .wicked-ones.sheet label,
+body.mr-wo-oscuro .wicked-ones.sheet p,
+body.mr-wo-oscuro .wicked-ones.sheet td,
+body.mr-wo-oscuro .wicked-ones.sheet li {
+  color: var(--mr-wo-tinta);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .label-stripe,
+body.mr-wo-oscuro .wicked-ones.sheet .label-stripe label,
+body.mr-wo-oscuro .wicked-ones.sheet .label-stripe p,
+body.mr-wo-oscuro .wicked-ones.sheet .xp-stripe label,
+body.mr-wo-oscuro .wicked-ones.sheet th.black-white,
+body.mr-wo-oscuro .wicked-ones.sheet .attribute-label {
+  color: #fff6e2;
+}
+body.mr-wo-oscuro .wicked-ones.sheet .stripe,
+body.mr-wo-oscuro .wicked-ones.sheet .label-stripe,
+body.mr-wo-oscuro .wicked-ones.sheet .xp-stripe,
+body.mr-wo-oscuro .wicked-ones.sheet th.black-white {
+  background-color: var(--mr-wo-cinta);
+}
+
+/* Corazones oscuros: solo los vacíos son negros; el relleno ya es de color (mismo orden que el sistema) */
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container label.dark-heart {
+  filter: none;
+}
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked ~ label.dark-heart {
+  filter: var(--mr-wo-filtro-pip);
+}
+body.mr-wo-oscuro #attributes #attributes-darkhearts .heart-container input:checked + label.dark-heart {
+  filter: none;
+}
+
+/* ---- Campos ------------------------------------------------------------------------------------------- */
 body.mr-wo-oscuro .wicked-ones.sheet input[type="text"],
 body.mr-wo-oscuro .wicked-ones.sheet input[type="number"],
 body.mr-wo-oscuro .wicked-ones.sheet select,
 body.mr-wo-oscuro .wicked-ones.sheet textarea {
-  background: var(--mr-wo-bg-2);
-  color: var(--mr-wo-fg-1);
-  border: 1px solid var(--mr-wo-borde-osc);
+  background: var(--mr-wo-papel-3);
+  color: var(--mr-wo-tinta);
+  border: 1px solid var(--mr-wo-linea);
+}
+body.mr-wo-oscuro .wicked-ones.sheet input::placeholder,
+body.mr-wo-oscuro .wicked-ones.sheet textarea::placeholder {
+  color: var(--mr-wo-tinta-2);
+  opacity: 0.7;
 }
 
-body.mr-wo-oscuro .wicked-ones.sheet .label-stripe {
-  background: color-mix(in oklab, #281f30 82%, #c49a45);
-  color: #f7e3b0;
-  border-bottom: 1px solid var(--mr-wo-borde-osc);
-}
-
-body.mr-wo-oscuro .wicked-ones.sheet table tr:nth-child(even) {
-  background: color-mix(in oklab, var(--mr-wo-bg-1) 92%, #ffffff);
-}
-
+/* ---- Pestañas ------------------------------------------------------------------------------------------ */
 body.mr-wo-oscuro .wicked-ones.sheet nav.tabs a.item {
-  background: var(--mr-wo-bg-2);
-  color: var(--mr-wo-fg-2);
-  border: 1px solid var(--mr-wo-borde-osc);
+  background: var(--mr-wo-papel-3);
+  color: var(--mr-wo-tinta-2);
+  border: 1px solid var(--mr-wo-linea);
 }
-
 body.mr-wo-oscuro .wicked-ones.sheet nav.tabs a.item.active {
-  background: color-mix(in oklab, #a83228 65%, var(--mr-wo-bg-2));
-  color: #fff8eb;
-  border-color: #e0b458;
+  background: var(--mr-wo-cinta);
+  color: #fff6e2;
+  border-color: var(--mr-wo-oro);
 }
 
-body.mr-wo-oscuro .wicked-ones.sheet .item-description,
-body.mr-wo-oscuro .wicked-ones.sheet .item-name,
-body.mr-wo-oscuro .wicked-ones.sheet label {
-  color: var(--mr-wo-fg-1);
+/* ---- Listas y tablas ------------------------------------------------------------------------------------ */
+body.mr-wo-oscuro .wicked-ones.sheet table tr:nth-child(even),
+body.mr-wo-oscuro .wicked-ones.sheet .item:nth-child(even) {
+  background-color: color-mix(in oklab, var(--mr-wo-papel) 90%, #ffffff);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .item-control,
+body.mr-wo-oscuro .wicked-ones.sheet .item-add-popup,
+body.mr-wo-oscuro .wicked-ones.sheet a i.fas,
+body.mr-wo-oscuro .wicked-ones.sheet a i.far {
+  color: var(--mr-wo-oro);
+}
+body.mr-wo-oscuro .wicked-ones.sheet .rollable-text:hover,
+body.mr-wo-oscuro .wicked-ones.sheet a:hover {
+  color: var(--mr-wo-sangre);
+}
+
+/* Cuadros de texto enriquecido (notas, descripciones) */
+body.mr-wo-oscuro .wicked-ones.sheet .editor-content,
+body.mr-wo-oscuro .wicked-ones.sheet .editor {
+  color: var(--mr-wo-tinta);
+}
+
+/* Diálogos propios del sistema */
+body.mr-wo-oscuro .dialog-content {
+  background-color: color-mix(in oklab, var(--mr-wo-papel) 88%, transparent);
+  box-shadow: 0 0 6px 7px color-mix(in oklab, var(--mr-wo-papel) 88%, transparent);
+  color: var(--mr-wo-tinta);
 }

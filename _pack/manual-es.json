@@ -1,0 +1,722 @@
+[
+ {
+  "_id": "GwGaR1JzUSb8tuis",
+  "name": "00 · Empieza aquí",
+  "folder": "I5G8ciQKfL4tdFm2",
+  "ownership": {
+   "default": 2
+  },
+  "flags": {
+   "mr-wicked-ones-es": {
+    "clave": "empieza-aqui"
+   }
+  },
+  "pages": [
+   {
+    "_id": "lQtnub61vUHm3z7s",
+    "name": "Bienvenido, Señor Oscuro",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 0,
+    "text": {
+     "format": 1,
+     "content": "\n<h2>Bienvenido, Señor Oscuro</h2>\n<p><strong>Wicked Ones</strong> es un juego de monstruos que excavan una guarida bajo la montaña mientras los «héroes» de la superficie los persiguen. Este módulo trae todo lo que necesitas, ordenado en carpetas.</p>\n<h3>Dónde está cada cosa</h3>\n<ul>\n<li><strong>Escenas</strong>: la portada, los cuatro entornos con su mapa, los planos tácticos de la guarida y las escenas ilustradas. Todas tienen su <em>lectura</em> (el icono del libro en el mapa) y su música.</li>\n<li><strong>Actores</strong>: personajes pregenerados, manadas de esbirros, aventureros rivales y las 48 facciones, por entorno.</li>\n<li><strong>Objetos</strong>: aventureros y ayudantes, salas, trampas, criaturas, mejunjes, artilugios, pociones y objetos mágicos.</li>\n<li><strong>Diarios</strong>: el libro de reglas por capítulos. <strong>Tablas</strong>: botín, incursiones, calamidades y el modo solitario.</li>\n<li><strong>Compendios</strong>: «Wicked Ones · Sistema base» (lo que trae el sistema) y «MR · Wicked Ones» (lo que añade este módulo).</li>\n</ul>\n<h3>Para empezar</h3>\n<ol>\n<li>Reparte los personajes pregenerados o crea los vuestros desde el compendio del sistema.</li>\n<li>Activa la escena <strong>00 · Portada</strong> y lee su texto en voz alta.</li>\n<li>Empieza por la <strong>Fase de Incursión</strong>: escena «02 · Un lugar al que llamar hogar».</li>\n<li>Usa el <strong>Generador del Señor Oscuro</strong> (icono de la mazmorra en los controles de escena) cuando necesites un golpe de inspiración.</li>\n</ol>\n<p>¿Quieres que te lo enseñe paso a paso? Configuración → <em>MR- Wicked Ones</em> → Tutorial guiado.</p>\n"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   }
+  ]
+ },
+ {
+  "_id": "IOGEIzlvx9FKnii0",
+  "name": "01 · Campaña: El Valle Silencioso («Un lugar al que llamar hogar»)",
+  "pages": [
+   {
+    "_id": "l2hbQ4ZK9bZqu16y",
+    "name": "Bienvenida y Resumen de la Campaña",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/portada.webp\" alt=\"Portada\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Un lugar al que llamar hogar · Campaña oficial en el Valle Silencioso</h2>\n                <p>Esta campaña lista para jugar traslada a la mesa el arco completo de los ejemplos narrativos del manual de <strong>Wicked Ones (The Hills Press)</strong> protagonizados por <strong>Ulrot</strong> (Orco Bruto), <strong>Crag</strong> (Kóbold Chamán) y <strong>Slem</strong> (Sérpido Sombra), junto a tres compañeros adicionales listos para elegir (<strong>Viska</strong>, <strong>Kaelen</strong> y <strong>Zira</strong>).</p>\n                <blockquote><p><em>«Hartos de huir de los cruzados de Ciudad Floresta y de dormir bajo la lluvia en los riscos, habéis descubierto el lugar perfecto para fundar vuestra propia mazmorra: las Cuevas del Paso del Mercader, en las Colinas de Piedra Blanca. Solo hay un pequeño problema: una caravana armada del Gremio de Mercaderes las está usando como almacén fortificado…»</em></p></blockquote>\n                <h3>Estructura en 6 Hitos (Integrada con MR- Dirección)</h3>\n                <ol>\n                    <li><strong>Hito R1 · Incursión Inicial («Un lugar al que llamar hogar», pág. 37):</strong> Asalto a las Cuevas del Paso del Mercader para expulsar o aniquilar a los guardias del Gremio, quedarse con su botín inicial y despertar el <strong>Corazón de la Mazmorra</strong> en la Bóveda de Piedra Antigua.</li>\n                    <li><strong>Hito R2 · Fase de Guarida y Desastre («Construyendo el santuario», pág. 191):</strong> Primera fase de construcción: excavar salas de Nivel 1, tender trampas, reclutar esbirros y afrontar la primera tirada de Desastre y Represalia.</li>\n                    <li><strong>Hito R3 · Incursión II («Una biblioteca necesita libros», pág. 116):</strong> Infiltración o asalto nocturno contra la <strong>Abadía de Piedra Blanca</strong> para robar los códices prohibidos que Crag y Kaelen necesitan para su gran ritual.</li>\n                    <li><strong>Hito R4 · Incursión III («Piel de lobo para un ritual», pág. 165):</strong> Caza en el <strong>Bosque Susurrante</strong> para abatir al Gran Hombre Lobo antes de que los Cazadores de Plata o los Druidas del Círculo lo reclamen.</li>\n                    <li><strong>Hito R5 · Defensa de la Guarida («¡Matad a los intrusos!», pág. 229):</strong> ¡Invasión! La <em>Expedición de Piedra Blanca</em> (o los <em>Cazadores de la Luna de Plata</em>) penetra en vuestra mazmorra. Hora de activar trampas, trucos, portones y manadas.</li>\n                    <li><strong>Hito R6 · Clímax («La última luna llena», pág. 267 y 333):</strong> Con el ritual del Eclipse completado, la horda marcha sobre <strong>Ciudad Floresta</strong> mientras la vanguardia de campeones de la Luz lanza su asalto desesperado contra el Santuario.</li>\n                </ol>\n            "
+    },
+    "sort": 1000
+   },
+   {
+    "_id": "4f4jq4GH3FiDYSH6",
+    "name": "Hito R1 · Un lugar al que llamar hogar (Incursión Inicial)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/cueva-mercaderes.webp\" alt=\"Cueva de los Mercaderes\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R1 · Un lugar al que llamar hogar (Pág. 37)</h2>\n                <p>Según las reglas de inicio rápido del manual, toda campaña de <em>Wicked Ones</em> arranca <strong>en mitad de la primera incursión</strong> para reclamar el emplazamiento de la mazmorra, sin necesidad de tirada de Implicación previa: los PJs ya están frente a la entrada (Posición <strong>Por defecto</strong>).</p>\n                <h3>Situación Táctica en las Cuevas del Paso del Mercader</h3>\n                <ul>\n                    <li><strong>1. Boca de la Cueva y Carromatos:</strong> Dos carromatos blindados forman un parapeto junto a una hoguera. Cuatro guardias del Gremio vigilan el camino con ballestas y lanzas.</li>\n                    <li><strong>2. Galería de los Guardias:</strong> El capataz <strong>Bram</strong> y seis guardias veteranos descansan junto a un <strong>cuerno de bronce de alarma</strong> (Reloj de 4 segmentos: <em>«¡Fuego de señales hacia Piedra Blanca!»</em>).</li>\n                    <li><strong>3. Depósito de Caravanas (Norte):</strong> Cajas de herramientas, barriles de licor, hierro forjado y un cofre con la paga (<strong>2 de Oro</strong> y <strong>2 Suministros</strong> para empezar la guarida). Accesible en sigilo por la <em>Grieta de humo</em> superior.</li>\n                    <li><strong>4. Cisterna del Arroyo Frío (Sur):</strong> Estanque subterráneo conectado al exterior por un sumidero sumergido. En el fondo acecha una <em>Serpiente constrictora albina</em> (Criatura N1) que puede ser domada o azuzada contra los guardias.</li>\n                    <li><strong>5. Bóveda de Piedra Antigua (Este):</strong> Cámara sellada tras un derrumbe parcial donde late una fisura de energía oscura perfecta para anclar el <strong>Corazón de la Mazmorra</strong>.</li>\n                </ul>\n            "
+    },
+    "sort": 2000
+   },
+   {
+    "_id": "gmkTPN7MYPfHAPC3",
+    "name": "Hitos R2 a R6 · El ascenso de la Oscuridad",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/biblioteca-abadia.webp\" alt=\"Biblioteca de la Abadía\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R3 · Una biblioteca necesita libros (Pág. 116)</h2>\n                <p>Para desbloquear salas avanzadas y el <strong>Ritual del Eclipse de Sangre</strong>, los malvados necesitan los tomos encuadernados en hierro custodiados en el scriptorium de la <strong>Abadía de Piedra Blanca (Facción Nivel 2, Luz)</strong>.</p>\n                <ul>\n                    <li><strong>Enfoque de Asalto:</strong> Derribar el portón lateral del claustro y enfrentarse a los monjes guerreros antes de que tañan la gran campana.</li>\n                    <li><strong>Enfoque de Sigilo / Engaño:</strong> Escalar los contrafuertes góticos bajo la lluvia o infiltrarse con hábitos robados hasta el archivo prohibido.</li>\n                    <li><strong>Oposición:</strong> La <strong>Hermana Valeria</strong> (Clériga N1) y dos escuadras de guardias monásticos custodian el relicario.</li>\n                </ul>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/ritual-luna-llena.webp\" alt=\"Ritual de Luna Llena\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R4 · Piel de lobo para un ritual (Pág. 165)</h2>\n                <p>El segundo ingrediente del gran ritual exige desollar al <strong>Gran Hombre Lobo Alfa</strong> que aterroriza el Bosque Susurrante en noche de luna llena. Sin embargo, los <strong>Cazadores de Hombres Lobo de Plata (N2)</strong> también le han tendido una trampa esa misma noche.</p>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/defensa-mazmorra.webp\" alt=\"Defensa de la Mazmorra\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R5 · ¡Matad a los intrusos! (Pág. 229) y Hito R6 · La última luna llena (Pág. 333)</h2>\n                <p>Cuando los relojes de las facciones de la Luz se completan, los grupos de aventureros (disponibles en la carpeta de Actores listos para arrastrar con sus Corazones y 6 Movimientos) invaden vuestra mazmorra. Si los malvados defienden su Corazón y completan los 6 pasos de su Plan Maestro, desatan el asalto final sobre <strong>Ciudad Floresta</strong>.</p>\n            "
+    },
+    "sort": 3000
+   }
+  ],
+  "folder": "I5G8ciQKfL4tdFm2"
+ },
+ {
+  "_id": "EYe3N8HD4R3kMDwF",
+  "name": "02 · Manual: Ciclo de Partida, Tiradas y Automatización",
+  "pages": [
+   {
+    "_id": "pqvMX9mN8FMbyByh",
+    "name": "Las 4 Fases del Ciclo de Partida",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>El Ciclo de Partida en Wicked Ones</h2>\n                <p>El juego alterna entre cuatro fases claramente diferenciadas que puedes seguir paso a paso en la <strong>Hoja del DJ (Panel del DJ)</strong>:</p>\n                <ol>\n                    <li><strong>Fase de Acecho (Guarida / Tiempo Libre):</strong>\n                        <ul>\n                            <li>Los jugadores eligen y resuelven su <strong>Acción de Tiempo Libre</strong> (Reclutar, Construir, Fabricar, Investigar, Entrenar, Juerga o Proyecto a largo plazo) y pueden <em>Arriesgarse</em> (+1 acción a cambio de +1 dado en la tirada de Desastre).</li>\n                            <li>Se realizan las labores de excavación, salas de Nivel 1-3, defensas y mejoras de la mazmorra.</li>\n                        </ul>\n                    </li>\n                    <li><strong>Fase de Desastre (Lógica de Mazmorra):</strong>\n                        <ul>\n                            <li>El DJ tira por <strong>Desastre (Calamity)</strong> lanzando tantos dados como la Inmundicia/Tamaño más los dados por <em>Arriesgarse</em>.</li>\n                            <li>Si hay grupos de aventureros capturados o invasiones pendientes, se resuelven en el interior de la guarida.</li>\n                        </ul>\n                    </li>\n                    <li><strong>Fase de Incursión (Raiding):</strong>\n                        <ul>\n                            <li>Los malvados salen a la superficie para golpear a una facción del entorno: eligen objetivo, enfoque y realizan la <strong>Tirada de Implicación</strong>.</li>\n                            <li>Usa flashbacks, trabajo en equipo, esbirros y Corazones Oscuros para superar los obstáculos y volver con Oro, Suministros y cautivos.</li>\n                        </ul>\n                    </li>\n                    <li><strong>Fase de Represalia (Blowback):</strong>\n                        <ul>\n                            <li>Se hace la <strong>Tirada de Represalia</strong> (2d por defecto) para ver cuánto ruido ha hecho la incursión.</li>\n                            <li>Los relojes de las facciones del entorno avanzan y se comprueba si se desencadena una Invasión.</li>\n                        </ul>\n                    </li>\n                </ol>\n            "
+    },
+    "sort": 1000
+   },
+   {
+    "_id": "QV2ubhKQSVpV0C3D",
+    "name": "Posición, Efecto, Resistencia y Corazones Oscuros",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Posición y Efecto</h2>\n                <p>En <em>Wicked Ones</em> no es necesario negociar posición y efecto en cada tirada salvo que cambien respecto al estándar:</p>\n                <ul>\n                    <li><strong>Posición Por defecto:</strong> Situación normal de riesgo equilibrado (consecuencia estándar: 2 de Estrés o quedar Malherido si ya no puedes asumir estrés).</li>\n                    <li><strong>Posición Dominante:</strong> Llevas toda la ventaja (consecuencia menor: 1 de Estrés o pérdida de oportunidad).</li>\n                    <li><strong>Posición Funesta (Dire):</strong> Estás en clara desventaja (consecuencia grave: 3 de Estrés, quedar Malherido + Conmocionado o perder un esbirro).</li>\n                    <li><strong>Posición Mortal (Deadly):</strong> Si fallas o sacas éxito parcial y decides resistir, debes hacer una <strong>Tirada de Resistir la Muerte</strong> (con 1-3 mueres; con 4-5 sobrevives pero quedas fuera de combate y Malherido).</li>\n                </ul>\n                <h3>Automatización MR- en las Tarjetas de Chat</h3>\n                <p>Este módulo añade botones interactivos en las tarjetas de tirada del chat para agilizar la mesa sin quitar nunca la decisión narrativa:</p>\n                <ul>\n                    <li><strong>Resistir consecuencia:</strong> Lanza la tirada de resistencia con el atributo elegido o aplica el coste de estrés calculado.</li>\n                    <li><strong>Gastar Corazón Oscuro:</strong> Permite invocar un flashback gratuito, potenciar al máximo el efecto o activar habilidades especiales de vocación.</li>\n                    <li><strong>Abrir Asistente / Generador MR:</strong> Accesible desde los controles de escena o la cabecera de las fichas para generar incursiones, invasores, salas o tirar en los oráculos.</li>\n                </ul>\n            "
+    },
+    "sort": 2000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "xknxRE6G33JQc60J",
+  "name": "03 · Manual: Las Artes Oscuras, Invocación y los 13 Dioses",
+  "pages": [
+   {
+    "_id": "N5D0natNi1BqAQj0",
+    "name": "Las 9 Sendas de Conjuros, Brujería y Hechicería",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Las Artes Oscuras (Págs. 129–171)</h2>\n                <p>Cuando un personaje o manada usa la acción <strong>Invocar</strong> o fabrica creaciones arcanas, recurre a una de las ramas de las Artes Oscuras:</p>\n                <ul>\n                    <li><strong>Alquimia y Artificiería (Págs. 130–133):</strong> Permite destilar los <strong>36 Mejunjes</strong> y ensamblar los <strong>36 Artilugios</strong> (todos disponibles como objetos arrastrables en el compendio <em>MR- Equipo</em> y en sus tablas d36).</li>\n                    <li><strong>Las 9 Sendas de Conjuros (Págs. 136–139):</strong>\n                        <ol>\n                            <li><strong>Piromancia:</strong> Fuego, humo, calor y explosiones ígneas.</li>\n                            <li><strong>Criomancia:</strong> Hielo, escarcha, entumecimiento y muros helados.</li>\n                            <li><strong>Electromancia:</strong> Relámpagos, magnetismo y sobrecargas nerviosas.</li>\n                            <li><strong>Geomancia:</strong> Roca, barro, temblores, fosos y piel de piedra.</li>\n                            <li><strong>Umbramancia:</strong> Sombras sólidas, ceguera, silencio y paso oscuro.</li>\n                            <li><strong>Biomancia:</strong> Mutación corporal, garras, venenos, curación grotesca y plagas.</li>\n                            <li><strong>Ilusionismo:</strong> Espejismos, duplicados, disfraces y sonidos falsos.</li>\n                            <li><strong> Gravitomancia / Cinética:</strong> Empujones telequinéticos, levitación y aplastamiento.</li>\n                            <li><strong>Nigromancia:</strong> Hablar con cadáveres, reanimar huesos y drenar vigor.</li>\n                        </ol>\n                    </li>\n                    <li><strong>Brujería y Pociones (Págs. 140–141):</strong> Elaboración de las <strong>36 Pociones Mágicas</strong> y fetiches de maldición simpática.</li>\n                    <li><strong>Rituales y Objetos Mágicos (Págs. 142–143):</strong> Proyectos de reloj de 4, 6 u 8 segmentos capaces de alterar toda la región o forjar las <strong>36 Reliquias Mágicas</strong>.</li>\n                </ul>\n            "
+    },
+    "sort": 1000
+   },
+   {
+    "_id": "bQn29ncfuNz7Pa30",
+    "name": "Panteón de los 13 Dioses Oscuros (Canalización)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Los 13 Dioses Oscuros (Págs. 145–157)</h2>\n                <p>Los Chamanes, Fanáticos y acólitos que practican la <strong>Canalización</strong> suplican favores a estas trece entidades primordiales:</p>\n                \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/gorlag.webp\" alt=\"Gorlag, el Señor de la Matanza\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Gorlag, el Señor de la Matanza</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Guerra, sangre, furia berseker y conquista brutal.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Sacrificar a un guerrero digno en combate singular o bañarse en la sangre de los caídos.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Desatar una furia imparable, quebrar muros y armas, o invocar sabuesos de sangre.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/iziza.webp\" alt=\"Iziza, la Reina de los Enjambres\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Iziza, la Reina de los Enjambres</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Insectos, plagas, venenos, telarañas y mutación quitinosa.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Alimentar al nido con carne fresca o infectar un asentamiento de la superficie.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Invocar nubes de insectos devoradores, segregar veneno letal o caminar por techos y muros.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/melkahar.webp\" alt=\"Melkahar, el Corazón de la Fragua Ardiente\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Melkahar, el Corazón de la Fragua Ardiente</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Fuego, magma, ceniza, metal fundido y destrucción volcánica.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Arrojar tesoros de oro o prisioneros vivos a una fisura de lava o gran horno.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Tormentas de fuego, fundir el acero enemigo o revestir a la horda en piel de magma.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/gimosha.webp\" alt=\"Gimosha, el Silencio de la Cripta\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Gimosha, el Silencio de la Cripta</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> No-muertos, huesos, frío sepulcral y nigromancia.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Profanar cementerios sagrados y entregar cadáveres intactos al osario.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Alzar legiones de esqueletos, drenar la vida con un toque o hablar con los espíritus antiguos.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/dalgeth.webp\" alt=\"Dalgeth, el Tejedor de Mentiras\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Dalgeth, el Tejedor de Mentiras</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Engaño, ilusiones, traición, secretos y paranoia.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Sembrar la discordia hasta que dos aliados de la Luz se destruyan entre sí.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Disfraces perfectos, invisibilidad masiva o volver locos de sospecha a los defensores.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/nezame.webp\" alt=\"Nezame, la Dama de las Sombras\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Nezame, la Dama de las Sombras</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Oscuridad, noche eterna, sigilo, robo y asesinatos silenciosos.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Apagar las luces sagradas de un templo o robar la joya más vigilada sin dejar rastro.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Teletransportarse entre sombras, apagar toda luz en kilómetros o estrangular con penumbra sólida.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/melawa.webp\" alt=\"Melawa, la Madre del Cieno y la Podredumbre\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Melawa, la Madre del Cieno y la Podredumbre</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Ácido, hongos, esporas, pantanos y decadencia orgánica.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Corromper los manantiales y cosechas de la superficie con lodo fúngico.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Lluvia ácida, levantar colosos de barro y micelio o disolver portones de piedra.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/shabaz.webp\" alt=\"Shabaz, el Ojo de la Tormenta\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Shabaz, el Ojo de la Tormenta</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Relámpagos, huracanes, trueno y furia de los cielos.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Atar ofrendas en la cumbre más alta durante una tempestad eléctrica.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Descargar rayos devastadores, volar sobre vientos huracanados o derribar torres.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/labisha.webp\" alt=\"Labisha, la Señora del Dolor Exquisito\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Labisha, la Señora del Dolor Exquisito</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Tortura, terror, pesadillas, cadenas y sumisión.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Quebrar la fe de un campeón de la Luz sin matarlo.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Paralizar de pavor a un ejército, infligir dolor psíquico a distancia o atar con cadenas espectrales.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/talazar.webp\" alt=\"Talazar, el Arquitecto del Laberinto\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Talazar, el Arquitecto del Laberinto</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Piedra, trampas, geometría imposible y secretos subterráneos.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Construir un complejo de trampas que acabe con un grupo entero sin intervención directa.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Remodelar pasillos en el acto, abrir fosos bajo los pies o animar estatuas de piedra.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/crevis.webp\" alt=\"Crevis, el Hambre Insaciable\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Crevis, el Hambre Insaciable</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Gula, canibalismo, bestias salvajes y caza implacable.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Celebrar un festín monstruoso con las reservas de toda una aldea.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Otorgar fauces y garras de depredador alfa, regenerar heridas devorando o atraer monstruos.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/vahoona.webp\" alt=\"Vahoona, el Susurro del Vacío\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Vahoona, el Susurro del Vacío</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Locura, estrellas oscuras, gravedad, portales y aberraciones.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Contemplar el abismo cósmico y destruir obras de conocimiento racional.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Alterar la gravedad, abrir grietas dimensionales o quebrar la mente de los eruditos.</p>\n                </div>\n            </div>\n        \n            <div style=\"display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;\">\n                <img src=\"modules/mr-wicked-ones-es/assets/dioses/zaheen.webp\" alt=\"Zaheen, el Príncipe de la Avaricia\" style=\"width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;\" />\n                <div>\n                    <h3 style=\"margin:0 0 4px 0;\">Zaheen, el Príncipe de la Avaricia</h3>\n                    <p style=\"margin:2px 0;\"><strong>Dominios:</strong> Oro, contratos de sangre, corrupción, sobornos y reliquias.</p>\n                    <p style=\"margin:2px 0;\"><strong>Ofrenda predilecta:</strong> Acumular un tesoro legendario y comprar el alma de un gobernante justo.</p>\n                    <p style=\"margin:2px 0;\"><strong>Milagros de Canalización:</strong> Convertir la carne en oro, maldecir las monedas robadas o someter mediante pactos irrompibles.</p>\n                </div>\n            </div>\n        \n            "
+    },
+    "sort": 2000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "83dkllPYER0o5tjB",
+  "name": "04 · Manual: Construcción de la Mazmorra, Salas y Defensas",
+  "pages": [
+   {
+    "_id": "sSuMNbwa357aauEC",
+    "name": "El Corazón, los Diablillos y el Nivel de la Mazmorra",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-1.webp\" alt=\"Ejemplo de Mazmorra\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>La Guarida de los Malvados (Págs. 173–223)</h2>\n                <p>La mazmorra es un personaje compartido por toda la mesa. Su poder se mide por su <strong>Nivel (Tier 1 a 3)</strong>:</p>\n                <ul>\n                    <li><strong>El Corazón de la Mazmorra:</strong> Es el nexo vital. Si los aventureros llegan hasta él y lo destruyen, la campaña termina o los malvados se ven obligados a huir.</li>\n                    <li><strong>Los Diablillos (Imps):</strong> Trabajadores incansables convocados por el Corazón que excavan túneles y muros básicos de forma gratuita entre fases.</li>\n                    <li><strong>Salas de Nivel 1 (18 tipos) y Nivel 2 (18 tipos):</strong> Otorgan narrativa y permisos de ficción para entrenar, forjar, destilar o encerrar cautivos (todas incluidas en el compendio <em>MR- Salas N1-N2, Trampas y Criaturas</em>).</li>\n                    <li><strong>Salas de Nivel 3 (Temas de Mazmorra):</strong> Cada tema de mazmorra desbloquea salas de Nivel 3 con beneficios mecánicos directos y casillas de uso especial.</li>\n                    <li><strong>Defensas (Trampas, Trucos, Portones y Criaturas):</strong> Durante una invasión, el DJ o los jugadores tiran los dados del <strong>Nivel de la Trampa/Portón/Criatura</strong> cuando los aventureros entran en contacto con ellos.</li>\n                </ul>\n            "
+    },
+    "sort": 1000
+   },
+   {
+    "_id": "GmLEYu0rqPZJolfz",
+    "name": "Planos de Mazmorras de Ejemplo del Libro",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Ejemplos Oficiales de Diseño de Mazmorras (Págs. 214–219)</h2>\n                <p>El módulo incluye como escenas listas para activar los tres planos a doble página del manual:</p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-2.webp\" alt=\"Mazmorra 2\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-3.webp\" alt=\"Mazmorra 3\" style=\"width:100%;border-radius:8px;\" /></p>\n            "
+    },
+    "sort": 2000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "Jl6ZsDmgmXZlUsJS",
+  "name": "05 · Manual: Los 4 Entornos Oficiales y sus 48 Facciones",
+  "pages": [
+   {
+    "_id": "j1IN9eLs8RYEDIiG",
+    "name": "1. El Valle Silencioso y 2. Las Cloacas de la Gran Ciudad",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>1. El Valle Silencioso (Págs. 288–291)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/valle-dj.webp\" alt=\"Valle Silencioso\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>El entorno clásico de fantasía pastoral lista para ser corrompida: caravanas mercantes, una abadía fortificada, druidas ancestrales y la amurallada <strong>Ciudad Floresta</strong>.</p>\n                <hr/>\n                <h2>2. Las Cloacas de la Gran Ciudad (Págs. 280–283)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/cloacas-dj.webp\" alt=\"Cloacas de la Gran Ciudad\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Campaña claustrofóbica bajo una metrópolis superpoblada: gremios de ladrones, inquisidores con lanzallamas, vampiros aristócratas y el alcantarillado profundo.</p>\n            "
+    },
+    "sort": 1000
+   },
+   {
+    "_id": "S19ReDpnvo39jwZ3",
+    "name": "3. Los Mares Coloniales y 4. La Zona de Guerra",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>3. Los Mares Coloniales (Págs. 284–287)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mares-dj.webp\" alt=\"Mares Coloniales\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Archipiélago tropical de galeones del tesoro, fuertes costeros, piratas bucaneros, tribus isleñas y cultos abisales.</p>\n                <hr/>\n                <h2>4. La Zona de Guerra (Págs. 292–295)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/guerra-dj.webp\" alt=\"Zona de Guerra\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Frente devastado entre el Imperio Solar y la Horda del Cráneo de Hierro, lleno de trincheras, mercenarios, nigromantes e ingenieros de asedio.</p>\n            "
+    },
+    "sort": 2000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "QlAD2rqNQ5DRWgSy",
+  "name": "06 · Manual: Los 30 Aventureros (con sus 6 Movimientos) y Ayudantes",
+  "pages": [
+   {
+    "_id": "KzBhkJRwfgXN2win",
+    "name": "Referencia Completa de los 30 Aventureros (Págs. 320–331)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Los 30 Aventureros y sus Movimientos Ofensivos y Defensivos</h2>\n                <p>Cuando un aventurero actúa o gasta una casilla de <strong>Movimiento</strong> en la hoja de grupo, usa uno de sus movimientos característicos:</p>\n                <table border=\"1\" style=\"width:100%;border-collapse:collapse;font-size:0.9em;\">\n                    <thead>\n                        <tr>\n                            <th>Clase y Rasgos</th>\n                            <th>Pasiva</th>\n                            <th>3 Movimientos Ofensivos</th>\n                            <th>3 Movimientos Defensivos</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        \n            <tr>\n                <td><strong>Académico</strong><br/><small>+Astuto / −Codicioso<br/>Motivación: Exploración</small></td>\n                <td>Identifica la magia rápidamente.</td>\n                <td>• Deduce el punto débil de una estructura o criatura<br/>• Usa un pergamino arcano inesperado<br/>• Revela un pasadizo o secreto oculto</td>\n                <td>• Advierte a sus aliados justo antes del impacto<br/>• Recita un contraconjuro estudiado<br/>• Se cubre tras su ayudante o compañero</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Alquimista</strong><br/><small>+Astuto / −Impaciente<br/>Motivación: Emociones</small></td>\n                <td>Su equipo cuenta con varias pociones.</td>\n                <td>• Lanza un vial de fuego alquímico o ácido<br/>• Bebe un mutágeno de furia y fuerza<br/>• Inunda la sala con humo tóxico</td>\n                <td>• Arroja una bomba cegadora a sus pies<br/>• Neutraliza el veneno o ácido con un reactivo<br/>• Bebe un elixir curativo de emergencia</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Amazona</strong><br/><small>+Honesto / −Terco<br/>Motivación: Desafío</small></td>\n                <td>Extremadamente ágil.</td>\n                <td>• Salta sobre los obstáculos con lanza en ristre<br/>• Lanza una jabalina con precisión letal<br/>• Derriba a su presa de un barrido acrobático</td>\n                <td>• Rueda y salta fuera del alcance del peligro<br/>• Desvía el golpe con su escudo ligero<br/>• Trepa por el muro para ganar altura</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Aristócrata</strong><br/><small>+Confiado / −Impetuoso<br/>Motivación: Respeto</small></td>\n                <td>Comienza con un ayudante adicional.</td>\n                <td>• Ordena un ataque coordinado a sus guardaespaldas<br/>• Estocada precisa con estoque de duelo<br/>• Intenta sobornar a los esbirros con oro</td>\n                <td>• Empuja a un ayudante para que reciba el golpe<br/>• Desvía el ataque con su capa bordada<br/>• Exige rendición con arrogancia desconcertante</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Asesino</strong><br/><small>+Persistente / −Deshonesto<br/>Motivación: Riquezas</small></td>\n                <td>Difícil de seguirle la pista en combate.</td>\n                <td>• Apuñala desde las sombras donde más duele<br/>• Lanza dagas envenenadas en movimiento<br/>• Corta las correas de la armadura o suministros</td>\n                <td>• Se desvanece en una esquina oscura<br/>• Deja un señuelo y rueda a la espalda del atacante<br/>• Desvía la hoja con sus dagas gemelas</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Bárbaro</strong><br/><small>+Confiado / −Estúpido<br/>Motivación: Justicia</small></td>\n                <td>Tiene un corazón más.</td>\n                <td>• Carga salvaje destrozando barricadas y escudos<br/>• Tajo circular con hacha a dos manos<br/>• Agarra a un enemigo y lo estampa contra otro</td>\n                <td>• Ignora el dolor rugiendo con furia<br/>• Detiene el arma enemiga con sus propias manos<br/>• Rompe la trampa a golpes brutos</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Bardo</strong><br/><small>+Servicial / −Codicioso<br/>Motivación: Riquezas</small></td>\n                <td>Inspira a sus aliados en combate.</td>\n                <td>• Entona un himno que enardece a todo el grupo<br/>• Burla mordaz que desconcentra y enfurece<br/>• Disparo rápido de ballesta de mano</td>\n                <td>• Acorde disonante que desvía la puntería<br/>• Finge caer herido con actuación dramática<br/>• Un aliado inspirado interviene para protegerlo</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Bucanero</strong><br/><small>+Generoso / −Engreído<br/>Motivación: Riquezas</small></td>\n                <td>Lleva pistolas de pólvora negra.</td>\n                <td>• Disparo a bocajarro con pistola de chispa<br/>• Se columpia en una cuerda o lámpara al atacar<br/>• Golpe sucio con el pomo del sable y patada</td>\n                <td>• Dispara a la trampa o cuerda antes de que caiga<br/>• Cubre su retirada con el humo de la pólvora<br/>• Bloquea con sable y daga de vela</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Centurión</strong><br/><small>+Firme / −Terco<br/>Motivación: Respeto</small></td>\n                <td>Otorga un movimiento defensivo adicional al grupo.</td>\n                <td>• Avanza en formación cerrada de escudos<br/>• Empuja con el escudo y ensarta con la espada corta<br/>• Ordena una maniobra táctica disciplinada</td>\n                <td>• Alza un muro de escudos impenetrable<br/>• Protege al compañero herido bajo su pavés<br/>• Mantiene la posición sin retroceder un palmo</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Mago del Caos</strong><br/><small>+Optimista / −Indeciso<br/>Motivación: Exploración</small></td>\n                <td>Magia poderosa y salvajemente impredecible.</td>\n                <td>• Desata un vórtice de relámpagos y fuego prismático<br/>• Altera la gravedad de la sala de repente<br/>• Teletransporta a los combatientes de lugar</td>\n                <td>• Estalla en una onda de fuerza caótica<br/>• Su cuerpo parpadea entre planos al ser golpeado<br/>• Convierte el proyectil en mariposas o humo</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Clérigo</strong><br/><small>+Generoso / −Terco<br/>Motivación: Justicia</small></td>\n                <td>Restaura el corazón de un aliado como movimiento.</td>\n                <td>• Luz sagrada abrasadora contra criaturas oscuras<br/>• Golpe contundente con maza bendecida<br/>• Consagra el suelo impidiendo la magia oscura</td>\n                <td>• Plegaria de escudo radiante<br/>• Sana las heridas de un compañero en el acto<br/>• Su símbolo sagrado repele el ataque</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Caballero de la Muerte</strong><br/><small>+Persistente / −Engreído<br/>Motivación: Venganza</small></td>\n                <td>Aterra a los esbirros cercanos.</td>\n                <td>• Tajo helado que drena el calor y el valor<br/>• Alza a un esbirro caído como siervo esquelético<br/>• Mirada sepulcral que paraliza de terror</td>\n                <td>• Su armadura negra absorbe el impacto sin inmutarse<br/>• Envuelve su cuerpo en niebla necrótica<br/>• Desvía el golpe con su espadón rúnico</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Defensor</strong><br/><small>+Firme / −Indeciso<br/>Motivación: Desafío</small></td>\n                <td>Siempre protege primero a sus compañeros.</td>\n                <td>• Embestida acorazada que derriba a la primera línea<br/>• Golpe de martillo que aturde al atacante<br/>• Bloquea el pasillo entero con su coraza y escudo</td>\n                <td>• Se interpone recibiendo el golpe sin ceder<br/>• Clava su escudo torre en el suelo<br/>• Desvía la trampa con su armadura pesada</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Druida</strong><br/><small>+Honesto / −Impaciente<br/>Motivación: Venganza</small></td>\n                <td>Puede transformarse en bestia salvaje.</td>\n                <td>• Se transforma en oso o pantera y desgarra<br/>• Hace brotar raíces espinosas que atrapan a todos<br/>• Comanda a las bestias de la guarida contra sus amos</td>\n                <td>• Adopta forma de serpiente o pájaro para escapar<br/>• Piel de corteza que detiene las cuchillas<br/>• Se funde con la roca y el barro natural</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Guerrero Sobrenatural</strong><br/><small>+Optimista / −Engreído<br/>Motivación: Desafío</small></td>\n                <td>Combina esgrima letal y magia de combate.</td>\n                <td>• Envuelve su espada en llamas o relámpagos al atacar<br/>• Se teletransporta junto al objetivo y golpea<br/>• Onda cortante de energía arcana a distancia</td>\n                <td>• Barrera rúnica instantánea en su mano libre<br/>• Parpadeo arcano fuera del área de efecto<br/>• Absorbe la energía del golpe en su hoja</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Ilusionista</strong><br/><small>+Servicial / −Indeciso<br/>Motivación: Emociones</small></td>\n                <td>Crea duplicados y engaños constantes.</td>\n                <td>• Hace creer a los enemigos que están rodeados o en llamas<br/>• Oculta a todo su grupo tras un velo invisible<br/>• Confunde a un monstruo para que ataque a su aliado</td>\n                <td>• El golpe atraviesa un duplicado ilusorio que se disipa<br/>• Destello hipnótico que ciega al agresor<br/>• Cambia su apariencia por la de un esbirro</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Inquisidor</strong><br/><small>+Persistente / −Terco<br/>Motivación: Justicia</small></td>\n                <td>Anula engaños, ilusiones y magia oscura.</td>\n                <td>• Disparo de ballesta bendecida con plata<br/>• Marca al malvado con un anatema que impide ocultarse<br/>• Azota con cadenas consagradas ardientes</td>\n                <td>• Su fe inquebrantable disipa el conjuro o truco<br/>• Pronuncia un edicto que detiene en seco al atacante<br/>• Sacrifica a un subordinado para mantener la misión</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Caballero</strong><br/><small>+Honesto / −Engreído<br/>Motivación: Respeto</small></td>\n                <td>Armadura pesada e inmune al miedo.</td>\n                <td>• Duelo honorable: desafía y acorrala al líder<br/>• Tajo poderoso de espada bastarda<br/>• Carga hombro con hombro inspirando valor</td>\n                <td>• Su armadura de placas desvía el golpe limpiamente<br/>• Parada magistral y contraataque<br/>• Se mantiene firme pese al dolor por su juramento</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Lancero</strong><br/><small>+Confiado / −Impaciente<br/>Motivación: Desafío</small></td>\n                <td>Mantiene a los enemigos a raya con su alcance.</td>\n                <td>• Estocada penetrante desde segunda fila<br/>• Barrido de asta que hace tropezar a varios rivales<br/>• Salto acrobático apoyado en su lanza</td>\n                <td>• Frena en seco la carga enemiga con la punta de la lanza<br/>• Usa la pértiga para saltar sobre el foso o trampa<br/>• Mantiene la distancia impidiendo que se acerquen</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Cazador de Magos</strong><br/><small>+Persistente / −Impetuoso<br/>Motivación: Venganza</small></td>\n                <td>Detecta y castiga cualquier uso de magia.</td>\n                <td>• Ataque disruptor que silencia al lanzador de conjuros<br/>• Arroja boleadoras de hierro frío antimagia<br/>• Rastrea el flujo de maná hasta el corazón o santuario</td>\n                <td>• Su manto rúnico disipa el hechizo o poción<br/>• Interrumpe la invocación antes de que se complete<br/>• Resiste el efecto mental con férrea disciplina</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Monje</strong><br/><small>+Firme / −Terco<br/>Motivación: Desafío</small></td>\n                <td>No necesita armas ni armadura para ser letal.</td>\n                <td>• Ráfaga de golpes precisos a los puntos nerviosos<br/>• Corre por las paredes sorteando defensas<br/>• Patada giratoria que lanza al enemigo contra una trampa</td>\n                <td>• Atrapa el proyectil o desvía el golpe con las manos vacías<br/>• Cae de pie sin hacerse daño desde cualquier altura<br/>• Medita un segundo ignorando el veneno o aturdimiento</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Asesino de lo Oculto</strong><br/><small>+Persistente / −Deshonesto<br/>Motivación: Justicia</small></td>\n                <td>Especialista en destruir monstruos sobrenaturales.</td>\n                <td>• Dispara virotes grabados con runas de destierro<br/>• Usa bombas de sal, plata y hierro frío<br/>• Analiza y explota la debilidad de la raza del monstruo</td>\n                <td>• Activa un talismán protector contra poderes oscuros<br/>• Rueda fuera del alcance dejando un abrojo bendito<br/>• Corta el vínculo mágico de la trampa o reliquia</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Guardabosques</strong><br/><small>+Astuto / −Impaciente<br/>Motivación: Exploración</small></td>\n                <td>Experto en bestias y terreno subterráneo.</td>\n                <td>• Doble disparo certero con arco largo<br/>• Su compañero animal flanquea y derriba a la presa<br/>• Vuelve una trampa de la mazmorra contra sus creadores</td>\n                <td>• Se mimetiza con las rocas y estalagmitas<br/>• Su bestia avisa del peligro un segundo antes<br/>• Salta con agilidad montaraz sobre el obstáculo</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Explorador</strong><br/><small>+Servicial / −Terco<br/>Motivación: Exploración</small></td>\n                <td>Detecta trampas y puertas secretas con facilidad.</td>\n                <td>• Desactiva o bloquea el mecanismo de una trampa<br/>• Señala el punto vulnerable para que sus aliados ataquen<br/>• Ataque rápido de flanqueo y retirada</td>\n                <td>• Advierte el cable o placa de presión a tiempo<br/>• Se desliza por un hueco estrecho fuera de peligro<br/>• Lanza un abrojo o cuerda para frenar al perseguidor</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Bailarín Sombrío</strong><br/><small>+Astuto / −Impaciente<br/>Motivación: Emociones</small></td>\n                <td>Usa las propias sombras de la mazmorra para moverse.</td>\n                <td>• Salta de una sombra a otra apareciendo tras la espalda<br/>• Enlaza a un enemigo con cintas de penumbra<br/>• Ataque danzante que golpea a varios objetivos al pasar</td>\n                <td>• Se sumerge en la sombra de una columna o antorcha<br/>• Esquiva con piruetas imposibles de predecir<br/>• Intercambia su posición con una silueta oscura</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Hondero</strong><br/><small>+Optimista / −Indeciso<br/>Motivación: Justicia</small></td>\n                <td>Lanza proyectiles especiales con puntería infalible.</td>\n                <td>• Pedrada certera a la frente que aturde al gigante<br/>• Lanza proyectiles explosivos, ácidos o luminosos<br/>• Rebota el proyectil en el muro para dar tras cobertura</td>\n                <td>• Derriba el arma o antorcha enemiga de una pedrada<br/>• Activa la trampa a distancia con un proyectil<br/>• Se escabulle entre las piernas de enemigos grandes</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Arquero Arcano</strong><br/><small>+Astuto / −Codicioso<br/>Motivación: Emociones</small></td>\n                <td>Sus flechas atraviesan coberturas y muros finos.</td>\n                <td>• Flecha espectral que ignora armaduras y escudos<br/>• Salva de flechas multiplicadas en el aire<br/>• Flecha explosiva que detona al clavarse</td>\n                <td>• Dispara una flecha con cuerda mágica para impulsarse<br/>• Barrera de viento que desvía proyectiles y gases<br/>• Se mantiene en la retaguardia fuera de alcance</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Templario</strong><br/><small>+Firme / −Terco<br/>Motivación: Justicia</small></td>\n                <td>Campeón fanático de la Luz.</td>\n                <td>• Espadón llameante de juicio solar<br/>• Carga purificadora que rompe la moral de los esbirros<br/>• Desafío sagrado que obliga al malvado a encararlo</td>\n                <td>• Aura dorada que quema a quien lo golpea de cerca<br/>• Resiste el golpe con una oración inquebrantable<br/>• Escudo consagrado que refleja la magia oscura</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Forjador de Armas</strong><br/><small>+Honesto / −Engreído<br/>Motivación: Desafío</small></td>\n                <td>Mejora el equipo de todo su grupo.</td>\n                <td>• Golpe demoledor capaz de quebrar armas o blindajes<br/>• Desmonta un portón o artilugio con sus herramientas<br/>• Usa un arma pesada de diseño experimental</td>\n                <td>• Su armadura reforzada a medida detiene el impacto<br/>• Bloquea el mecanismo de la trampa con una cuña de acero<br/>• Repara el escudo o arma dañada en pleno combate</td>\n            </tr>\n        \n            <tr>\n                <td><strong>Salvaje</strong><br/><small>+Generoso / −Estúpido<br/>Motivación: Emociones</small></td>\n                <td>Impredecible, feroz y guiado por el instinto.</td>\n                <td>• Salta a la yugular con garras y dientes<br/>• Aullido primigenio que estremece la caverna<br/>• Arroja rocas, muebles o esbirros enteros</td>\n                <td>• Huele el peligro o la trampa antes de verla<br/>• Reacciona por puro instinto felino esquivando el golpe<br/>• Se sacude las heridas con ferocidad animal</td>\n            </tr>\n        \n                    </tbody>\n                </table>\n            "
+    },
+    "sort": 1000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "mOC0Rs0zWhFaGoCF",
+  "name": "07 · Expansión: Monstruos Primigenios (Devoramentes, Buscafatums, Robarrostros, Acaparador)",
+  "pages": [
+   {
+    "_id": "197QTnq0JID7NJuB",
+    "name": "Jugar como un Monstruo Primigenio (Págs. 336–347)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Monstruos Primigenios</h2>\n                <p>En lugar de elegir una raza monstruosa y una vocación normal, un jugador puede encarnar a uno de los cuatro <strong>Monstruos Primigenios</strong>:</p>\n                <ul>\n                    <li><strong>Devoramentes (Braineater):</strong> Señor psiónico con tentáculos faciales que no usa la acción <em>Invocar</em> normal, sino sus propias <strong>Disciplinas Psiónicas</strong> (Telepatía, Telequinesis, Piroquinesis, Proyección Astral y Dominación) y se alimenta de cerebros.</li>\n                    <li><strong>Buscafatums (Doomseeker):</strong> Aberración esférica flotante con un gran ojo central antimagia y <strong>9 Rayos Oculares</strong> personalizables (Hechizar, Muerte, Miedo, Nulidad, Parálisis, Telequinesis, Tiempo, Transmutación y Visión).</li>\n                    <li><strong>Robarrostros (Facestealer):</strong> Cambiaformas infiltrado capaz de coleccionar hasta varias <strong>Caras</strong> con sus recuerdos y talentos robados a víctimas de la superficie.</li>\n                    <li><strong>Acaparador de Oro (Goldmonger / Dragón):</strong> Sierpe dracónica obsesionada con hacer crecer su tesoro y su propio tamaño a través de tres <strong>Sendas de Crecimiento</strong> (Guarida, Aliento Elemental y Escamas/Cuerpo) y la tirada especial de <strong>Letargo (Slumber)</strong>.</li>\n                </ul>\n            "
+    },
+    "sort": 1000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "Q6Y3iHprnFrmGE0d",
+  "name": "08 · Expansión: «Los Errantes» y «Los Valientes» (Modos Alternativos)",
+  "pages": [
+   {
+    "_id": "NA6OAEz4vfkFtEkm",
+    "name": "Los Errantes (Sin Mazmorra) y Los Valientes (Héroes FitD)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Los Errantes (Wandering Ones, Págs. 354–357)</h2>\n                <p>En este modo alternativo, los personajes no tienen una mazmorra fija ni fase de guarida: son una banda de monstruos nómadas o mercenarios que viajan de región en región realizando incursiones, acampando al raso y huyendo de la justicia de la Luz.</p>\n                <hr/>\n                <h2>Los Valientes (Valiant Ones, Págs. 358–361)</h2>\n                <p>Invierte por completo la premisa del juego: los jugadores interpretan a los <strong>héroes de la Luz</strong> (usando las vocaciones recontextualizadas: el Bruto es el Campeón, el Chamán es el Clérigo, la Sombra es el Pícaro, el Hechicero es el Mago...) que defienden un asentamiento fronterizo y realizan expediciones contra las guaridas del mal.</p>\n            "
+    },
+    "sort": 1000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "aL06OtAMJ0KEBWYd",
+  "name": "09 · Expansión: Modo Solitario («El Gran Malo Malvado») y Generador de Mazmorras",
+  "pages": [
+   {
+    "_id": "TQZZGKSAUD8qeDGz",
+    "name": "El Gran Malo Malvado (Big Bad Wicked One, Págs. 362–373)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Jugar en Solitario: El Gran Malo Malvado</h2>\n                <p>En el modo solitario encarnas al único señor supremo de la mazmorra rodeado de lugartenientes (manadas de esbirros con personalidad propia):</p>\n                <ul>\n                    <li><strong>Tus Lugartenientes:</strong> Comienzas con dos o tres manadas de esbirros que actúan como tus capitanes. Puedes enviarlos a realizar incursiones usando el <strong>Simulador de Incursión de Esbirros</strong> del Generador MR o liderar tú mismo los asaltos clave.</li>\n                    <li><strong>Oráculos de Dos Semillas:</strong> Cuando tengas una pregunta abierta, pulsa el botón <strong>Oráculo de Semillas</strong> en el Asistente MR para combinar la <em>Primera Semilla</em> y la <em>Segunda Semilla</em>.</li>\n                    <li><strong>Generador de Mazmorras:</strong> Si necesitas explorar una mazmorra rival (o jugar como <em>Los Valientes</em>), usa la tabla 15 o el botón del Asistente MR para generar salas, trampas, trucos y criaturas al vuelo.</li>\n                </ul>\n            "
+    },
+    "sort": 1000
+   }
+  ],
+  "folder": "irSwnQU2ToR2KNXU"
+ },
+ {
+  "_id": "Uz1jDpQziKNwmIam",
+  "name": "10 · Guía de la Interfaz en Español, Accesibilidad y Herramientas MR-",
+  "pages": [
+   {
+    "_id": "PYnN16d0K4irXoJw",
+    "name": "Cómo aprovechar las mejoras de MR- Wicked Ones",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "text": {
+     "format": 1,
+     "content": "\n                <h2>Guía de Interfaz y Mejoras MR-</h2>\n                <ul>\n                    <li><strong>Botón de Accesibilidad (<i class=\"fas fa-universal-access\"></i>):</strong> En la barra superior de las ventanas encontrarás el menú rápido para activar el <strong>Modo Oscuro</strong>, <strong>Alto Contraste</strong>, <strong>Tipografía Legible</strong>, <strong>Escala de Fuente</strong> y la <strong>Ficha Resumida</strong>.</li>\n                    <li><strong>Asistente y Generador Interactivo MR (<i class=\"fas fa-dungeon\"></i>):</strong> Disponible en la barra de controles de la izquierda (bajo el botón de dados) y en las cabeceras de las hojas de Mazmorra, Grupo y DJ. Permite:\n                        <ol>\n                            <li>Reclutar y crear <strong>Manadas de Esbirros</strong> completas en un clic.</li>\n                            <li>Añadir <strong>Salas N1/N2, Trampas, Trucos, Portones, Criaturas y Hallazgos</strong> a la guarida o a un PJ.</li>\n                            <li>Generar <strong>Invasiones y Grupos de Aventureros</strong> completos con sus 6 movimientos en español.</li>\n                            <li>Lanzar todas las tiradas del ciclo (<strong>Desastre, Represalia, Letargo, Simulador de Esbirros y Oráculos Solitarios</strong>) con resultados enriquecidos en el chat.</li>\n                        </ol>\n                    </li>\n                </ul>\n            "
+    },
+    "sort": 1000
+   }
+  ],
+  "folder": "I5G8ciQKfL4tdFm2"
+ },
+ {
+  "_id": "1I3aZp2KO04P3qGL",
+  "name": "Lecturas de escena (para leer en voz alta)",
+  "pages": [
+   {
+    "_id": "B7JA2CnhmlMYlFUH",
+    "name": "00 · Portada: El Valle Silencioso",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 100,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Bajo vuestros pies, la montaña respira. Allá abajo, en el Valle Silencioso, las chimeneas de Ciudad Floresta humean y nadie sospecha que los monstruos más viejos de las Colinas de Piedra Blanca han decidido, por fin, tener un hogar. Un lugar que llamar vuestro. Un lugar al que ellos no van a poder llegar jamás.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "yKhmIYiI9H1hiaeT",
+    "name": "01 · Entorno I: El Valle Silencioso",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 200,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Un valle verde y callado, partido por un río lento: la ciudad amurallada de las flores, la abadía de piedra blanca sobre las colinas, el bosque oscuro, los picos de cobre y, entre dos montañas, un paso donde pasan las caravanas. Aquí hay mucho que robar y mucho que temer.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "hEtF2nh8hvjKI2Me",
+    "name": "02 · Hito R1: Un lugar al que llamar hogar",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 300,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>La caravana ha cometido el error de acampar junto a la boca de la cueva. El carromato vuelca con un crujido, las cajas se abren y el aroma del grano, la sal y el aceite llena el aire frío de la noche. Las antorchas de los guardias tiemblan. Es vuestro momento: reclamad las cuevas del Paso del Mercader.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "me0y05334X78Ch0f",
+    "name": "02b · Plano táctico: Cuevas del Paso del Mercader",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 400,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Una caverna natural, húmeda y estrecha: la boca con los carromatos, la galería donde dormitan los guardias, un depósito de piedra, un arroyo helado y, al fondo, las ruinas de un viejo santuario donde brilla algo con forma de corazón.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "HgeyYomeaN2JCRse",
+    "name": "03 · Hito R2: Nuestra Guarida (nivel 1)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 500,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Aún huele a piedra recién rota y a polvo. Unos pocos túneles, una cámara central y, sobre un pedestal, el Corazón de la Mazmorra palpitando con una luz roja que os reconoce. Todo lo demás está por excavar. Todo.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "AzLztT1OCeji1JL0",
+    "name": "03b · La Guarida (nivel 2)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 600,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>La guarida ya tiene salas, olor a forja y un cuartel donde los esbirros se pelean por la paja. Las trampas escupen óxido y los pasillos empiezan a parecer un laberinto de verdad.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "47XU6PmsXDitprUd",
+    "name": "03c · La Guarida (nivel 3)",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 700,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Una fortaleza bajo la montaña: salón del trono, círculo ritual, foso de arena y pasillos que se retuercen sobre sí mismos. Los héroes que lleguen hasta aquí no volverán a contar nada.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "NLxIOYGVAGPVEkb4",
+    "name": "04 · Hito R3: Una biblioteca necesita libros",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 800,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Estanterías hasta el techo, velas que no deberían estar encendidas y un monje que duerme sobre un atril. Cada tomo prohibido de la Abadía de Piedra Blanca es una página arrancada de vuestro futuro. Silencio: ahora, a robar.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "9UDT2XsJtBj0sR1a",
+    "name": "05 · Hito R4: Piel de lobo para un ritual",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 900,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>La luna llena cuelga como un ojo enorme sobre el claro. En el altar de piedra, la piel del Gran Hombre Lobo aún humea. Las llamas se vuelven verdes. El chamán canta. El demonio sonríe. Algo, muy abajo, contesta.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "0qgQ9fBXAab7H7sA",
+    "name": "06 · Hito R5: ¡Matad a los intrusos!",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1000,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Pasos de metal en el túnel. Voces de hombres que creen que hacen el bien. La guarida entera contiene la respiración: la barricada, las estacas, los esbirros en las sombras. Que entren. Que entren todos.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "CUPZimWuUZykTySU",
+    "name": "07 · El Plan Maestro: preparando la horda",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1100,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Alrededor de la mesa de piedra, una docena de ojos feroces miran el mapa del Valle. El dedo de garra avanza sobre Ciudad Floresta. Habla el más viejo: «Cuando la última luna se apague, abriremos las puertas».</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "MugT2X50Fgo4ayqb",
+    "name": "08 · Hito R6: La última luna llena",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1200,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>El santuario se alza sobre la colina, blanco y orgulloso. Las banderas de la Luz ondean sobre las escaleras y vuestra horda sube, rugiendo, por entre las llamas. Hoy el Valle Silencioso aprende vuestro nombre.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "cDpxuqR4IvMcXBR3",
+    "name": "09 · Entorno II: Cloacas de la Gran Ciudad",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1300,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Una gran ciudad sobre otra ciudad: tejados, canales, catedral y puerto arriba; túneles, esclusas y ratas del tamaño de perros abajo. Quien domine las cloacas domina a quien cree gobernarlas.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "JUABJcMdepTpC23Z",
+    "name": "10 · Entorno III: Mares Coloniales",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1400,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Un archipiélago de sal y pólvora: fuertes, ensenadas piratas, arrecifes de coral, galeones y, en el centro, un remolino que no sale en ninguna carta de navegación.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "jrzereorV1u5s6qb",
+    "name": "11 · Entorno IV: Zona de Guerra",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1500,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Trincheras, campamentos de asedio y aldeas quemadas a lo largo de un río con un fuerte. Aquí la guerra se alimenta sola, y siempre hay sitio para un nuevo señor de la matanza.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "L7JxQYvVD6kff3iM",
+    "name": "12 · Escena: la sala del trono",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1600,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Un trono de calaveras, braseros que lanzan sombras largas y goblins que no se atreven a levantar la vista. La sala del trono es el corazón político de la guarida.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "xeShAnCBb6yT97N7",
+    "name": "13 · Escena: excavando la guarida",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1700,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Picos que golpean la roca, carretillas de escombro, faroles temblorosos. En el filo de una pared, una veta de oro brilla como una promesa. Cada golpe os acerca a la próxima sala.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "ZqZ75XLYM4RDyEaR",
+    "name": "14 · Escena: el taller de alquimia",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1800,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Matraces que hierven, engranajes que giran solos y un olor que no se sabe si es de azufre o de ideas peligrosas. Aquí se destilan los mejunjes y se arman los artilugios.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "7YNXmFJNTgh1N05v",
+    "name": "15 · Escena: una cripta olvidada",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 1900,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>El muro cede y, tras él, una cripta que nadie ha pisado en siglos: sarcófagos, runas que brillan al despertar y telarañas tan viejas como los reinos que las vieron nacer.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "zpvHxI67L5pa5l4y",
+    "name": "16 · Escena: el gran banquete",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 2000,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Mesas largas, carne asada, jarras que chocan y una pelea que ya ha empezado en el otro extremo. Un monstruo que come bien es un monstruo leal. Durante un rato.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   },
+   {
+    "_id": "kjtnfqVoJ3L5zGq7",
+    "name": "17 · Escena: aventureros en el pasillo",
+    "type": "text",
+    "title": {
+     "show": true,
+     "level": 1
+    },
+    "sort": 2100,
+    "text": {
+     "format": 1,
+     "content": "<blockquote><p>Un caballero, una maga y una arquera avanzan por vuestro pasillo con la antorcha en alto. Creen que el suelo es suelo. Creen que las paredes son paredes. Están a punto de aprender que no.</p></blockquote><p><em>Texto para leer en voz alta.</em></p>"
+    },
+    "ownership": {
+     "default": -1
+    },
+    "flags": {}
+   }
+  ],
+  "ownership": {
+   "default": 0
+  },
+  "flags": {
+   "mr-wicked-ones-es": {
+    "clave": "lecturas"
+   }
+  },
+  "folder": "I5G8ciQKfL4tdFm2"
+ }
+]

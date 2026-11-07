@@ -1,144 +1,1817 @@
 {
+  "schema": 1,
   "id": "mr-wicked-ones-es",
   "title": "Wicked Ones · El Valle Silencioso",
+  "version": "2.0.0",
+  "author": "Manu Romera",
+  "license": "MIT",
+  "settings": {
+    "fade": 3.5,
+    "motifs": [
+      {
+        "id": "acecho",
+        "label": "Acecho en la guarida",
+        "icon": "hammer",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "acecho"
+          ]
+        }
+      },
+      {
+        "id": "incursion",
+        "label": "Incursión nocturna",
+        "icon": "skull",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "incursion"
+          ]
+        }
+      },
+      {
+        "id": "ritual",
+        "label": "Artes oscuras y ritual",
+        "icon": "eye",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "ritual"
+          ]
+        }
+      },
+      {
+        "id": "invasion",
+        "label": "¡Invasión de héroes!",
+        "icon": "shield-halved",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "invasion"
+          ]
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "puerta",
+        "label": "Portón",
+        "icon": "door-closed",
+        "sound": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "puerta"
+          ]
+        }
+      },
+      {
+        "id": "trampa",
+        "label": "Trampa",
+        "icon": "bomb",
+        "sound": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "trampa"
+          ]
+        }
+      },
+      {
+        "id": "gong",
+        "label": "Gong de guerra",
+        "icon": "bell",
+        "sound": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "gong"
+          ]
+        }
+      },
+      {
+        "id": "rugido",
+        "label": "Rugido",
+        "icon": "dragon",
+        "sound": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "rugido"
+          ]
+        }
+      },
+      {
+        "id": "derrumbe",
+        "label": "Derrumbe",
+        "icon": "mountain",
+        "sound": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "derrumbe"
+          ]
+        }
+      }
+    ],
+    "markers": {
+      "milestones": [
+        {
+          "id": "r1",
+          "label": "R1 · Reclamar las Cuevas del Paso del Mercader",
+          "public": true
+        },
+        {
+          "id": "r2",
+          "label": "R2 · Despertar el Corazón y excavar la Guarida",
+          "public": true
+        },
+        {
+          "id": "r3",
+          "label": "R3 · Saquear los grimorios de la Abadía de Piedra Blanca",
+          "public": true
+        },
+        {
+          "id": "r4",
+          "label": "R4 · Cazar al Gran Hombre Lobo del Bosque Susurrante",
+          "public": true
+        },
+        {
+          "id": "r5",
+          "label": "R5 · Aniquilar a la Expedición Invasora en la Mazmorra",
+          "public": true
+        },
+        {
+          "id": "r6",
+          "label": "R6 · Completar el Eclipse y asaltar Ciudad Floresta",
+          "public": true
+        }
+      ],
+      "clocks": [
+        {
+          "id": "alarma",
+          "label": "Alarma en las Colinas de Piedra Blanca",
+          "segments": 4,
+          "public": false,
+          "announce": true,
+          "phrases": [
+            "Alguien ha visto humo.",
+            "Llegan rumores a Ciudad Floresta.",
+            "El gremio manda exploradores.",
+            "La Expedición se pone en marcha."
+          ]
+        },
+        {
+          "id": "abadia",
+          "label": "Sospecha de la Abadía",
+          "segments": 6,
+          "public": false,
+          "announce": false,
+          "phrases": [
+            "Un monje echa de menos un libro.",
+            "Se refuerzan las cerraduras.",
+            "El abad convoca un cónclave.",
+            "Cazadores de brujas recorren el camino.",
+            "La abadía pide ayuda a la ciudad.",
+            "Cruzada contra las colinas."
+          ]
+        },
+        {
+          "id": "cruzada",
+          "label": "Cruzada de Ciudad Floresta",
+          "segments": 8,
+          "public": false,
+          "announce": true,
+          "phrases": []
+        },
+        {
+          "id": "eclipse",
+          "label": "Plan Maestro: el Eclipse de la última luna",
+          "segments": 8,
+          "public": true,
+          "announce": true,
+          "phrases": []
+        }
+      ]
+    }
+  },
   "scenes": [
     {
-      "id": "portada",
-      "name": "Portada",
-      "sceneName": "00 · Portada: El Valle Silencioso",
-      "icon": "fa-solid fa-dungeon"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "portada"
+        ]
+      },
+      "order": 0,
+      "name": "Portada: El Valle Silencioso",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.B7JA2CnhmlMYlFUH"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "acecho"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-portada.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "mapa_valle",
-      "name": "Mapa del Valle",
-      "sceneName": "01 · Entorno: El Valle Silencioso (Mesa)",
-      "icon": "fa-solid fa-map"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "valle"
+        ]
+      },
+      "order": 1,
+      "name": "Entorno I: El Valle Silencioso",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.yKhmIYiI9H1hiaeT"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "valle"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-valle.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "incursion_cueva",
-      "name": "R1 · Cueva Mercaderes",
-      "sceneName": "02 · Hito R1: Un lugar al que llamar hogar (Escena)",
-      "icon": "fa-solid fa-campground"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cueva-mercaderes"
+        ]
+      },
+      "order": 2,
+      "name": "Hito R1: Un lugar al que llamar hogar",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.hEtF2nh8hvjKI2Me"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "incursion"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-cueva-mercaderes.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "plano_cueva",
-      "name": "Plano Cueva",
-      "sceneName": "02b · Plano Táctico: Cuevas del Paso del Mercader (Mesa)",
-      "icon": "fa-solid fa-chess-board"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cueva-mercader-plano"
+        ]
+      },
+      "order": 3,
+      "name": "Plano táctico: Cuevas del Paso del Mercader",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.me0y05334X78Ch0f"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cueva"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-cueva-mercader.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "guarida",
-      "name": "R2 · Nuestra Guarida",
-      "sceneName": "03 · Hito R2: Nuestra Guarida (Plano Base I)",
-      "icon": "fa-solid fa-fort-awesome"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "guarida-1"
+        ]
+      },
+      "order": 4,
+      "name": "Hito R2: Nuestra Guarida (nivel 1)",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.HgeyYomeaN2JCRse"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "acecho"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-1.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "incursion_abadia",
-      "name": "R3 · Biblioteca Abadía",
-      "sceneName": "04 · Hito R3: Una biblioteca necesita libros (Abadía)",
-      "icon": "fa-solid fa-book-skull"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "guarida-2"
+        ]
+      },
+      "order": 5,
+      "name": "La Guarida (nivel 2)",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.AzLztT1OCeji1JL0"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "taller"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-2.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "incursion_lobo",
-      "name": "R4 · Ritual del Lobo",
-      "sceneName": "05 · Hito R4: Piel de lobo para un ritual (Bosque)",
-      "icon": "fa-solid fa-moon"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "guarida-3"
+        ]
+      },
+      "order": 6,
+      "name": "La Guarida (nivel 3)",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.47XU6PmsXDitprUd"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "invasion"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-3.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "invasion",
-      "name": "R5 · ¡Intrusos!",
-      "sceneName": "06 · Hito R5: ¡Matad a los intrusos! (Invasión)",
-      "icon": "fa-solid fa-shield-halved"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "biblioteca-abadia"
+        ]
+      },
+      "order": 7,
+      "name": "Hito R3: Una biblioteca necesita libros",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.NLxIOYGVAGPVEkb4"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "abadia"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-biblioteca-abadia.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "climax",
-      "name": "R6 · Última Luna Llena",
-      "sceneName": "08 · Hito R6: La última luna llena (Clímax)",
-      "icon": "fa-solid fa-fire-flame-curved"
-    }
-  ],
-  "motifs": [
-    {
-      "id": "acecho",
-      "name": "Acecho en la Guarida",
-      "icon": "fa-solid fa-hammer",
-      "color": "#8a6d3b"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "ritual-luna-llena"
+        ]
+      },
+      "order": 8,
+      "name": "Hito R4: Piel de lobo para un ritual",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.9UDT2XsJtBj0sR1a"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "ritual"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-ritual-luna-llena.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "incursion",
-      "name": "Incursión Nocturna",
-      "icon": "fa-solid fa-skull",
-      "color": "#b83a2e"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "defensa-mazmorra"
+        ]
+      },
+      "order": 9,
+      "name": "Hito R5: ¡Matad a los intrusos!",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.0qgQ9fBXAab7H7sA"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "invasion"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-defensa-mazmorra.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "ritual",
-      "name": "Artes Oscuras y Ritual",
-      "icon": "fa-solid fa-eye",
-      "color": "#7b4397"
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "consejo-guerra"
+        ]
+      },
+      "order": 10,
+      "name": "El Plan Maestro: preparando la horda",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.CUPZimWuUZykTySU"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "consejo"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-consejo-guerra.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "invasion",
-      "name": "¡Invasión de Héroes!",
-      "icon": "fa-solid fa-swords",
-      "color": "#d49a35"
-    }
-  ],
-  "milestones": [
-    {
-      "id": "R1",
-      "label": "R1 · Reclamar las Cuevas del Paso del Mercader",
-      "done": false
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "batalla-santuario"
+        ]
+      },
+      "order": 11,
+      "name": "Hito R6: La última luna llena",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.MugT2X50Fgo4ayqb"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "climax"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-ulrot"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-crag"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-slem"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-viska"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "pj-kaelen"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-batalla-santuario.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "R2",
-      "label": "R2 · Despertar el Corazón y excavar la Guarida",
-      "done": false
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cloacas"
+        ]
+      },
+      "order": 12,
+      "name": "Entorno II: Cloacas de la Gran Ciudad",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.cDpxuqR4IvMcXBR3"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cloacas"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-cloacas.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "R3",
-      "label": "R3 · Saquear los grimorios de la Abadía de Piedra Blanca",
-      "done": false
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "mares"
+        ]
+      },
+      "order": 13,
+      "name": "Entorno III: Mares Coloniales",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.JUABJcMdepTpC23Z"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "mares"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-mares.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "R4",
-      "label": "R4 · Cazar al Gran Hombre Lobo del Bosque Susurrante",
-      "done": false
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "guerra"
+        ]
+      },
+      "order": 14,
+      "name": "Entorno IV: Zona de Guerra",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.jrzereorV1u5s6qb"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "guerra"
+        ]
+      },
+      "motifs": null,
+      "cues": [],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guerra.webp",
+      "stage": {
+        "mode": "none"
+      }
     },
     {
-      "id": "R5",
-      "label": "R5 · Aniquilar a la Expedición Invasora en la Mazmorra",
-      "done": false
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "sala-del-trono"
+        ]
+      },
+      "order": 15,
+      "name": "Escena: la sala del trono",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.L7JxQYvVD6kff3iM"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "consejo"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-sala-del-trono.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "R6",
-      "label": "R6 · Completar el Eclipse y asaltar Ciudad Floresta",
-      "done": false
-    }
-  ],
-  "clocks": [
-    {
-      "id": "alarma_gremio",
-      "name": "Alarma en las Colinas de Piedra Blanca",
-      "value": 0,
-      "max": 4
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "excavacion"
+        ]
+      },
+      "order": 16,
+      "name": "Escena: excavando la guarida",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.xeShAnCBb6yT97N7"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "excavacion"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-excavacion.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "sospecha_abadia",
-      "name": "Sospecha de la Abadía de Piedra Blanca",
-      "value": 0,
-      "max": 6
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "taller-alquimia"
+        ]
+      },
+      "order": 17,
+      "name": "Escena: el taller de alquimia",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.ZqZ75XLYM4RDyEaR"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "taller"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-taller-alquimia.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "cruzada_floresta",
-      "name": "Cruzada de Ciudad Floresta",
-      "value": 0,
-      "max": 8
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cripta-hallazgo"
+        ]
+      },
+      "order": 18,
+      "name": "Escena: una cripta olvidada",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.7YNXmFJNTgh1N05v"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "cripta"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-cripta-hallazgo.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     },
     {
-      "id": "ritual_eclipse",
-      "name": "Plan Maestro: El Eclipse de la Última Luna",
-      "value": 0,
-      "max": 8
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "banquete"
+        ]
+      },
+      "order": 19,
+      "name": "Escena: el gran banquete",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.zpvHxI67L5pa5l4y"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "banquete"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-banquete.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
+    },
+    {
+      "ref": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "incursion-aventureros"
+        ]
+      },
+      "order": 20,
+      "name": "Escena: aventureros en el pasillo",
+      "reading": {
+        "uuid": "JournalEntry.1I3aZp2KO04P3qGL.JournalEntryPage.kjtnfqVoJ3L5zGq7"
+      },
+      "music": {
+        "flag": [
+          "mr-wicked-ones-es",
+          "slug",
+          "incursion"
+        ]
+      },
+      "motifs": null,
+      "cues": [
+        {
+          "label": "Portón",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Trampa",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Gong de guerra",
+          "icon": "bell",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "gong"
+            ]
+          }
+        }
+      ],
+      "ambient": null,
+      "figures": [
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "adv-caballero"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "adv-mago-del-caos"
+            ]
+          },
+          "label": ""
+        },
+        {
+          "ref": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "adv-arquero-arcano"
+            ]
+          },
+          "label": ""
+        }
+      ],
+      "handouts": [],
+      "notes": "",
+      "thumb": "modules/mr-wicked-ones-es/assets/thumbs/esc-incursion-aventureros.webp",
+      "stage": {
+        "eye": 0.5,
+        "anchors": [
+          [
+            0.3,
+            0.88
+          ],
+          [
+            0.5,
+            0.9
+          ],
+          [
+            0.7,
+            0.88
+          ]
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,944 @@
+[
+ {
+  "_id": "CxAeF5GVlrpE4CA4",
+  "name": "Machacadores de Ulrot",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-ulrot.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Guardias y rompelíneas",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 1,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 0,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 2,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Orco · <strong>Función:</strong> Guardias y rompelíneas</p><p><strong>Equipo y aspecto:</strong> Hachas melladas, escudos de hierro y armaduras saqueadas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Machacadores de Ulrot",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-ulrot.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "zkCo5We30JqNF1sA",
+    "name": "Orco",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de orcos leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "NqCPASiRgZSCnFc2",
+    "name": "Guardias y rompelíneas",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Hachas melladas, escudos de hierro y armaduras saqueadas."
+    }
+   },
+   {
+    "_id": "bcqEKGAzD7fNNELX",
+    "name": "Acorazados",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Una vez por escena pueden absorber un impacto mortal sin perder integrantes."
+    }
+   },
+   {
+    "_id": "2B8G83lYjT6J9PGB",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-ulrot.webp",
+    "slug": "esb-ulrot"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ },
+ {
+  "_id": "ei8cb9HEe2JAfN7A",
+  "name": "Acechadores Escamosos de Crag",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-crag.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Chamanes y tramperos de túnel",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 0,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 2,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 1,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Kóbold · <strong>Función:</strong> Chamanes y tramperos de túnel</p><p><strong>Equipo y aspecto:</strong> Jabalinas con plumas, máscaras de hueso y bolsas de componentes.</p>"
+  },
+  "prototypeToken": {
+   "name": "Acechadores Escamosos de Crag",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-crag.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "XQwm0R8480b1vEDX",
+    "name": "Kóbold",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de kóbolds leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "KkPIhNJ8jc1rXTt2",
+    "name": "Chamanes y tramperos de túnel",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Jabalinas con plumas, máscaras de hueso y bolsas de componentes."
+    }
+   },
+   {
+    "_id": "DNh6lGWAAjfXbvG6",
+    "name": "Iniciados en Senda Arcana",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Pueden asistir en rituales y canalizar chispas de piromancia en combate."
+    }
+   },
+   {
+    "_id": "t43q116pckPLoaod",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-crag.webp",
+    "slug": "esb-crag"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ },
+ {
+  "_id": "35alhWT8ChwzU8pO",
+  "name": "Merodeadores Sombríos de Slem",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-slem.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Exploradores y asesinos nocturnos",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 2,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 2,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Sérpido · <strong>Función:</strong> Exploradores y asesinos nocturnos</p><p><strong>Equipo y aspecto:</strong> Capas oscuras, dagas envenenadas y cerbatanas silenciosas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Merodeadores Sombríos de Slem",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-slem.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "KdD8VQG7DShChwV9",
+    "name": "Sérpido",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de sérpidos leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "PKfbHAXcTS0ZMwfA",
+    "name": "Exploradores y asesinos nocturnos",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Capas oscuras, dagas envenenadas y cerbatanas silenciosas."
+    }
+   },
+   {
+    "_id": "irCIUM4KutHABIRN",
+    "name": "Sigilosos",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Se mueven en silencio absoluto por sombras y conductos estrechos."
+    }
+   },
+   {
+    "_id": "42DuBjP1dtTCGEkg",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-slem.webp",
+    "slug": "esb-slem"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ },
+ {
+  "_id": "IMWHW3d8jEs9blhI",
+  "name": "Chapuceros de Viska",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-viska.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Ingenieros, minadores y artificieros",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 2,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 1,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 0,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Goblin · <strong>Función:</strong> Ingenieros, minadores y artificieros</p><p><strong>Equipo y aspecto:</strong> Gafas de latón, llaves inglesas, picos y barriles de pólvora.</p>"
+  },
+  "prototypeToken": {
+   "name": "Chapuceros de Viska",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-viska.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "Cz3KEXeaxcUVC0J7",
+    "name": "Goblin",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de goblins leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "6xT7OLYZgUibkBhB",
+    "name": "Ingenieros, minadores y artificieros",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Gafas de latón, llaves inglesas, picos y barriles de pólvora."
+    }
+   },
+   {
+    "_id": "Kip5E4YSi5h74plA",
+    "name": "Constructores incansables",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Otorgan ventaja al excavar salas o montar trampas en la guarida."
+    }
+   },
+   {
+    "_id": "Az2dkHJo8TUTPGhv",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-viska.webp",
+    "slug": "esb-viska"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ },
+ {
+  "_id": "NmXAarYRbdQZPOIh",
+  "name": "Acólitos de Ceniza de Kaelen",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-kaelen.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Cultistas y guardias del santuario",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 0,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 0,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 1,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 2,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 1,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Demonio · <strong>Función:</strong> Cultistas y guardias del santuario</p><p><strong>Equipo y aspecto:</strong> Túnicas carmesíes, incensarios ardientes y espadas curvas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Acólitos de Ceniza de Kaelen",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-kaelen.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "bJmIvHKyyq95KZP5",
+    "name": "Demonio",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de demonios leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "VMeKHbl0RETCakOX",
+    "name": "Cultistas y guardias del santuario",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Túnicas carmesíes, incensarios ardientes y espadas curvas."
+    }
+   },
+   {
+    "_id": "4fnL4zDmdtpQUKuO",
+    "name": "Fanáticos devotos",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Nunca sufren rotura de moral mientras su señor esté presente."
+    }
+   },
+   {
+    "_id": "2BjdjhrTPctWutnY",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-kaelen.webp",
+    "slug": "esb-kaelen"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ },
+ {
+  "_id": "HsAh81euWRFDkoPP",
+  "name": "Susurradores del Velo de Zira",
+  "type": "minion_pack",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/esb-zira.webp",
+  "system": {
+   "mp_type": "normal",
+   "ua_job": "Espías e infiltrados en la superficie",
+   "bloodied": false,
+   "morale": false,
+   "number": {
+    "min": 0,
+    "value": 4,
+    "max": 10
+   },
+   "attribute_max_value": 2,
+   "attributes": {
+    "brains": {
+     "shocked": false,
+     "label": "FITD.SkillsBrains",
+     "skills": {
+      "scan": {
+       "label": "FITD.SkillsScan",
+       "value": 1,
+       "practice": 0
+      },
+      "tinker": {
+       "label": "FITD.SkillsTinker",
+       "value": 0,
+       "practice": 0
+      },
+      "trick": {
+       "label": "FITD.SkillsTrick",
+       "value": 2,
+       "practice": 0
+      }
+     }
+    },
+    "muscles": {
+     "shocked": false,
+     "label": "FITD.SkillsMuscles",
+     "skills": {
+      "finesse": {
+       "label": "FITD.SkillsFinesse",
+       "value": 0,
+       "practice": 0
+      },
+      "skulk": {
+       "label": "FITD.SkillsSkulk",
+       "value": 1,
+       "practice": 0
+      },
+      "smash": {
+       "label": "FITD.SkillsSmash",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    },
+    "guts": {
+     "shocked": false,
+     "label": "FITD.SkillsGuts",
+     "skills": {
+      "banter": {
+       "label": "FITD.SkillsBanter",
+       "value": 2,
+       "practice": 0
+      },
+      "threaten": {
+       "label": "FITD.SkillsThreaten",
+       "value": 0,
+       "practice": 0
+      },
+      "horrify": {
+       "label": "FITD.SkillsHorrify",
+       "value": 0,
+       "practice": 0
+      },
+      "command": {
+       "label": "FITD.SkillsCommand",
+       "value": 0,
+       "practice": 0
+      },
+      "invoke": {
+       "label": "FITD.SkillsInvoke",
+       "value": 0,
+       "practice": 0
+      }
+     }
+    }
+   },
+   "description": "<p><strong>Raza:</strong> Devoramentes · <strong>Función:</strong> Espías e infiltrados en la superficie</p><p><strong>Equipo y aspecto:</strong> Disfraces de peregrinos, lentes oscuras y dagas ocultas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Susurradores del Velo de Zira",
+   "displayName": 30,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/esb-zira.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "wfs04vZaHuzRsLg3",
+    "name": "Devoramentes",
+    "type": "monster_race",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
+    "system": {
+     "primal": false,
+     "description": "Manada de devoramentess leales a la mazmorra."
+    }
+   },
+   {
+    "_id": "iMCKf2BtYAMN44JW",
+    "name": "Espías e infiltrados en la superficie",
+    "type": "minion_type",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "description": "Disfraces de peregrinos, lentes oscuras y dagas ocultas."
+    }
+   },
+   {
+    "_id": "JoBaufjRclBMeIP4",
+    "name": "Infiltrados",
+    "type": "minion_upgrade",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
+    "system": {
+     "upgrade_type": "regular",
+     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_checked": false,
+     "upgrade_checkbox_2_text": "",
+     "upgrade_checkbox_2_checked": false,
+     "is_for_wo": true,
+     "is_for_ua": true,
+     "description": "Pueden caminar por los pueblos de la superficie haciéndose pasar por viajeros."
+    }
+   },
+   {
+    "_id": "JlzxcOjdm8lsfvjJ",
+    "name": "Armar escándalo y saquear",
+    "type": "minionimpulse",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
+    "system": {
+     "is_for_ua": false,
+     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "esbirros",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-zira.webp",
+    "slug": "esb-zira"
+   }
+  },
+  "folder": "umhaXEG2hmp5mnHe"
+ }
+]

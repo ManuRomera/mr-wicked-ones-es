@@ -1,0 +1,2066 @@
+[
+ {
+  "_id": "ZdFrVSY9J4K1oZ10",
+  "name": "[Valle Silencioso] Defensores de Ciudad Floresta",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-defensores.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Reunir una gran cruzada para purgar las Colinas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Fortificar las murallas y torres de vigilancia"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>La milicia bien equipada y la guardia de honor de Ciudad Floresta, capital del Valle Silencioso. Patrullan los caminos principales y responden con contundencia cuando las caravanas o aldeas son atacadas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Defensores de Ciudad Floresta",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-defensores.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "light"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "4HdC7nMgprMBfQqX",
+  "name": "[Valle Silencioso] Abadía de Piedra Blanca",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-abadia.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Consagrar los antiguos santuarios del valle"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Investigar rumores de magia oscura en las colinas"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Monasterio fortificado de monjes guerreros, clérigos e inquisidores de la Luz. Custodios de una famosa biblioteca de pergaminos sagrados y reliquias selladas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Abadía de Piedra Blanca",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-abadia.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "light"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "fO6aZ3xpCQy9j5KB",
+  "name": "[Valle Silencioso] Círculo de la Arboleda",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-arboleda.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Despertar a los espíritus ancestrales del bosque"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Expulsar tanto a leñadores como a saqueadores"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Druidas, guardabosques y bestias silvestres que protegen el Bosque Susurrante. Desconfían de Ciudad Floresta pero atacarán sin piedad a quienes profanen los túmulos o talen el bosque.</p>"
+  },
+  "prototypeToken": {
+   "name": "Círculo de la Arboleda",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-arboleda.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "neutral"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "FPiYr6ddGrTl2qtP",
+  "name": "[Valle Silencioso] Gremio de Mercaderes del Valle",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-mercaderes.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Asegurar el Paso del Mercader con mercenarios"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Acumular riquezas para comprar influencia política"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Consorcio de caravanas, posaderos y prestamistas que transportan mercancías a través de las Colinas de Piedra Blanca. Prefieren pagar rescates o contratar aventureros antes que luchar ellos mismos.</p>"
+  },
+  "prototypeToken": {
+   "name": "Gremio de Mercaderes del Valle",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-mercaderes.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "neutral"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "zNNiwopH7AxjLIgC",
+  "name": "[Valle Silencioso] Tribu Colmillo Sangriento",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-colmillo.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Arrasar las granjas del sur del valle"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Someter a las demás bandas de monstruos"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Banda belicosa de orcos, trasgos y huargos nómadas que merodean por los riscos. Pueden ser rivales feroces o aliados potenciales si se les demuestra fuerza bruta.</p>"
+  },
+  "prototypeToken": {
+   "name": "Tribu Colmillo Sangriento",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-colmillo.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "dark"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "6scKAmVpX70OhFBD",
+  "name": "[Valle Silencioso] El Culto del Gusano",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-gusano.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Despertar al Gusano Primigenio bajo las colinas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Infiltrar acólitos en Ciudad Floresta"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Secta secreta de hechiceros y fanáticos ocultos en las cavernas profundas que adoran a las aberraciones subterráneas.</p>"
+  },
+  "prototypeToken": {
+   "name": "El Culto del Gusano",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-gusano.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "dark"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "7O08C17Rnju8dmeI",
+  "name": "[Valle Silencioso] Academia Arcana de Oakhaven",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-academia.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Forjar un gólem arcano cazamonstruos"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Recolectar reactivos mágicos raros"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Torre de magos e ilusionistas dirigida por el Archimago Oakhaven junto al lago del valle. Sus aprendices exploran ruinas en busca de componentes.</p>"
+  },
+  "prototypeToken": {
+   "name": "Academia Arcana de Oakhaven",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-academia.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "light"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "cAIydqZ5bG0QQqF5",
+  "name": "[Valle Silencioso] Cazadores de Hombres Lobo de Plata",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-cazadores.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Dar caza a la bestia lunar del bosque"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Purgar las guaridas de las colinas"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Hermandad de exploradores y asesinos de lo oculto armados con virotes de plata que siguen el rastro de la licantropía en el Valle Silencioso.</p>"
+  },
+  "prototypeToken": {
+   "name": "Cazadores de Hombres Lobo de Plata",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-cazadores.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "light"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "OW0fMdzitoUpCmBh",
+  "name": "[Valle Silencioso] Mineros del Pico de Cobre",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-mineros.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Abrir una nueva galería rica en mineral"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Contratar guardias para proteger los envíos"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Campamento minero fortificado en las laderas que excava peligrosamente cerca de las cavernas profundas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Mineros del Pico de Cobre",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-mineros.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "neutral"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "UBobRnjMhLv2NvsA",
+  "name": "[Valle Silencioso] Bandidos del Paso Quebrado",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-bandidos.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Saquear el carruaje de impuestos del Gremio"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Encontrar un escondite seguro en las cuevas"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Forajidos humanos y desertores que asaltan viajeros en los caminos y conocen bien las patrullas de la guardia.</p>"
+  },
+  "prototypeToken": {
+   "name": "Bandidos del Paso Quebrado",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-bandidos.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "neutral"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "osCEFmF3RrLupe1l",
+  "name": "[Valle Silencioso] Aquelarre de la Ciénaga Sombría",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-aquelarre.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Maldición de niebla perpetua sobre las tierras bajas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Destilar pociones prohibidas"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Tres brujas ancianas y sus siervos fúngicos que habitan los pantanos del este. Comercian con venenos, maldiciones y secretos.</p>"
+  },
+  "prototypeToken": {
+   "name": "Aquelarre de la Ciénaga Sombría",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-aquelarre.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "dark"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "9BsWVFNjnLyagq8b",
+  "name": "[Valle Silencioso] Guardabosques del Rey",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-guardabosques.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Cartografiar todas las cuevas de las Colinas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Emboscada a los saqueadores nocturnos"
+   },
+   "description": "<p><strong>Entorno:</strong> Valle Silencioso</p><p>Compañía de arqueros y batidores de élite que patrullan las fronteras salvajes del Valle Silencioso.</p>"
+  },
+  "prototypeToken": {
+   "name": "Guardabosques del Rey",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-valle-guardabosques.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Valle Silencioso",
+    "bando": "light"
+   }
+  },
+  "folder": "yzopOvJt75VypJXa"
+ },
+ {
+  "_id": "UkMomiOJjIhnUV8G",
+  "name": "[Cloacas de la Gran Ciudad] La Guardia de la Ciudad",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-guardia.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Redada general en los niveles inferiores"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Sellar las entradas principales al alcantarillado"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Fuerza militarizada que mantiene el orden en la superficie de la Gran Ciudad con patrullas acorazadas, perros de presa y rastrillos de hierro.</p>"
+  },
+  "prototypeToken": {
+   "name": "La Guardia de la Ciudad",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-guardia.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "light"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "QxJXvQGWvFpDYm1W",
+  "name": "[Cloacas de la Gran Ciudad] Orden de la Llama Purificadora",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-llama.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Incinerar los nidos de corrupción subterráneos"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Interrogar a sospechosos de herejía"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Templarios e inquisidores fanáticos equipados con fuego alquímico que descienden a las cloacas para purgar monstruos y cultistas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Orden de la Llama Purificadora",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-llama.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "light"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "3DKiRDvzJghnJUxC",
+  "name": "[Cloacas de la Gran Ciudad] Sindicato de los Cuchillos",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-cuchillos.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Controlar todas las rutas de contrabando subterráneo"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Extorsionar a los gremios de la superficie"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Gremio criminal de ladrones, asesinos y contrabandistas que utiliza los túneles superiores como autopista secreta.</p>"
+  },
+  "prototypeToken": {
+   "name": "Sindicato de los Cuchillos",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-cuchillos.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "neutral"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "lbFiuy2TUlQo2Y7m",
+  "name": "[Cloacas de la Gran Ciudad] Gremio de Alquimistas y Artificieros",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-alquimistas.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Construir autómatas de vigilancia mecánica"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Verter residuos experimentales en los canales"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Corporación rica de inventores cuyos laboratorios vierten compuestos mutagénicos al alcantarillado y guardan valiosos artilugios.</p>"
+  },
+  "prototypeToken": {
+   "name": "Gremio de Alquimistas y Artificieros",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-alquimistas.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "neutral"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "kJyOrdbi98Rgy7LP",
+  "name": "[Cloacas de la Gran Ciudad] Cábala de la Sangre Nocturna",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-sangre.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Someter al consejo noble de la Gran Ciudad"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Expandir su red de siervos y espías"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Aristócratas vampiros y nigromantes que gobiernan la noche desde criptas lujosas bajo el barrio noble.</p>"
+  },
+  "prototypeToken": {
+   "name": "Cábala de la Sangre Nocturna",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-sangre.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "dark"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "cd9ulJiGIvJ7lkKP",
+  "name": "[Cloacas de la Gran Ciudad] Corte de los Reyes Rata",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ratas.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Multiplicar la plaga en los graneros de la ciudad"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Robar baratijas y secretos de las alcantarillas"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Enjambre inteligente de hombres rata, carroñeros y trasgos de túnel que conocen cada tubería y sumidero.</p>"
+  },
+  "prototypeToken": {
+   "name": "Corte de los Reyes Rata",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ratas.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "dark"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "bRA8j1ck9opIPe9H",
+  "name": "[Cloacas de la Gran Ciudad] Contrabandistas del Canal Negro",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-contrabandistas.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Introducir armas y pólvora sin pagar aranceles"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Sobornar a los guardias de las esclusas"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Barqueros nocturnos que navegan las galerías inundadas conectadas con el puerto fluvial.</p>"
+  },
+  "prototypeToken": {
+   "name": "Contrabandistas del Canal Negro",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-contrabandistas.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "neutral"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "RuBF4t6xiHo5nCo4",
+  "name": "[Cloacas de la Gran Ciudad] Gremio de Poceros y Fontaneros",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-poceros.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Reparar las grandes compuertas hidráulicas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Denunciar presencias extrañas a la Guardia"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Trabajadores armados con picos, linternas y mapas exactos de todo el sistema de drenaje.</p>"
+  },
+  "prototypeToken": {
+   "name": "Gremio de Poceros y Fontaneros",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-poceros.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "neutral"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "bnLZNzivJqq2bRTX",
+  "name": "[Cloacas de la Gran Ciudad] Colegio de Bardos y Espías",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-bardos.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Descubrir quién está detrás de los secuestros"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Reclutar grupos de aventureros famosos"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Red de informantes y héroes urbanos que se reúnen en las tabernas de lujo de la superficie.</p>"
+  },
+  "prototypeToken": {
+   "name": "Colegio de Bardos y Espías",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-bardos.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "light"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "9kgbdeMEDVvzB1pG",
+  "name": "[Cloacas de la Gran Ciudad] Inquisición del Puerto",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-inquisicion.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Bloquear el tráfico de reliquias oscuras"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Purgar los almacenes abandonados"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Cazadores de brujas y magos que vigilan los muelles y almacenes de la ciudad.</p>"
+  },
+  "prototypeToken": {
+   "name": "Inquisición del Puerto",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-inquisicion.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "light"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "zq15nK28jZedYwF5",
+  "name": "[Cloacas de la Gran Ciudad] Culto del Dios Ahogado",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ahogado.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Inundar los barrios bajos mediante un ritual"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Sacrificar cautivos en las cisternas profundas"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Sectarios mutantes y criaturas anfibias que habitan las cisternas más profundas e inundadas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Culto del Dios Ahogado",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ahogado.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "dark"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "jXBlFtOFBAdExzvO",
+  "name": "[Cloacas de la Gran Ciudad] Compañía Férrea de Mercenarios",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ferrea.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Cumplir el contrato del mejor postor"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Reclutar veteranos para expediciones al subsuelo"
+   },
+   "description": "<p><strong>Entorno:</strong> Cloacas de la Gran Ciudad</p><p>Soldados de fortuna dispuestos a bajar a las cloacas por una bolsa llena de oro.</p>"
+  },
+  "prototypeToken": {
+   "name": "Compañía Férrea de Mercenarios",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-cloaca-ferrea.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Cloacas de la Gran Ciudad",
+    "bando": "neutral"
+   }
+  },
+  "folder": "mRRVEc63UxewhAe9"
+ },
+ {
+  "_id": "YixRDmCRzxxsgyh4",
+  "name": "[Mares Coloniales] Armada del Gobernador",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-armada.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Cazar y hundir todo barco pirata o monstruoso"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Artillar los fuertes costeros del archipiélago"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Galeones de guerra y fusileros navales que defienden la ley colonial desde la capital portuaria.</p>"
+  },
+  "prototypeToken": {
+   "name": "Armada del Gobernador",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-armada.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "light"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "NCRwKJ5XT5ttbZb1",
+  "name": "[Mares Coloniales] Compañía Mercante Real",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-mercante.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Monopolizar el comercio de oro y especias"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Contratar corsarios y aventureros de escolta"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Flota comercial inmensamente rica cuyos almacenes y navíos del tesoro son el objetivo más codiciado de los mares.</p>"
+  },
+  "prototypeToken": {
+   "name": "Compañía Mercante Real",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-mercante.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "light"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "7TUy6VmpiXQDAO0z",
+  "name": "[Mares Coloniales] Hermandad de la Costa Pirata",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-hermandad.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Saquear la Flota del Tesoro anual"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Defender su isla refugio de la Armada"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Capitanes bucaneros, contrabandistas y degolladores libres que respetan solo la ley del más fuerte.</p>"
+  },
+  "prototypeToken": {
+   "name": "Hermandad de la Costa Pirata",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-hermandad.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "neutral"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "TqLYgJnHihl644gF",
+  "name": "[Mares Coloniales] Tribu de los Arrecifes de Coral",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-arrecife.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Expulsar a los colonos de sus islas sagradas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Invocar a los espíritus de los tifones"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Nativos isleños y chamanes del mar que conocen cada cala oculta, arrecife traicionero y templo selvático.</p>"
+  },
+  "prototypeToken": {
+   "name": "Tribu de los Arrecifes de Coral",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-arrecife.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "neutral"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "goCa9uuYMEDB6UDU",
+  "name": "[Mares Coloniales] Culto del Leviatán Abisal",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-leviatan.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Despertar al Kraken de la Fosa Oceánica"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Hundir barcos como ofrenda al abismo"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Adoradores de las profundidades y hombres pez que arrastran tripulaciones enteras bajo las olas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Culto del Leviatán Abisal",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-leviatan.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "dark"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "PXIDZ3TFDNQjZNZo",
+  "name": "[Mares Coloniales] Flota Fantasma del Capitán Vane",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-fantasma.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Vengarse del Gobernador que los ahorcó"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Reclutar marineros muertos en los naufragios"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Tripulación de esqueletos y espectros que navega en un bergantín envuelto en niebla verdosa.</p>"
+  },
+  "prototypeToken": {
+   "name": "Flota Fantasma del Capitán Vane",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-fantasma.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "dark"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "JyNQSHkGSuQrw65R",
+  "name": "[Mares Coloniales] Fuerte de San Cristóbal",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-fuerte.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Vigilar el estrecho con cañones pesados"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Encarcelar piratas y monstruos capturados"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Bastión de piedra sobre los acantilados que controla el paso marítimo principal.</p>"
+  },
+  "prototypeToken": {
+   "name": "Fuerte de San Cristóbal",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-fuerte.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "light"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "l4EjJypbsF0ElX01",
+  "name": "[Mares Coloniales] Cazadores de Tesoros del Galeón",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-tesoro.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Recuperar el oro de las ruinas sumergidas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Cartografiar las cuevas marinas"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Buzos con campanas de bronce y aventureros audaces en busca de reliquias antiguas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Cazadores de Tesoros del Galeón",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-tesoro.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "neutral"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "TNgpDbnINALEIkNF",
+  "name": "[Mares Coloniales] Contrabandistas de Ron y Pólvora",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-ron.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Esconder cargamentos en las calas de los monstruos"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Vender armas a ambos bandos"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Comerciantes sin escrúpulos dispuestos a negociar suministros con los malvados.</p>"
+  },
+  "prototypeToken": {
+   "name": "Contrabandistas de Ron y Pólvora",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-ron.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "neutral"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "DfMznm71nqGv6BaS",
+  "name": "[Mares Coloniales] Sacerdotes del Sol Naciente",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-sol.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Bendecir los navíos contra la magia negra"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Erigir faros consagrados en los islotes"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Clérigos solares cuya luz revela a las criaturas ocultas bajo el agua y en la niebla.</p>"
+  },
+  "prototypeToken": {
+   "name": "Sacerdotes del Sol Naciente",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-sol.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "light"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "YhQ9nPPa7BBM0kOq",
+  "name": "[Mares Coloniales] Gremio de Balleneros Arponeros",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-balleneros.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Dar caza a las grandes bestias marinas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Reforzar sus barcos con placas de hueso"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Marineros rudos armados con arpones pesados, redes y aceite hirviendo.</p>"
+  },
+  "prototypeToken": {
+   "name": "Gremio de Balleneros Arponeros",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-balleneros.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "neutral"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "iGBy3oSZMoSEhvXP",
+  "name": "[Mares Coloniales] Brujas de la Marea Negra",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-brujas.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Atraer barcos hacia los escollos con luces falsas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Comerciar con perlas malditas"
+   },
+   "description": "<p><strong>Entorno:</strong> Mares Coloniales</p><p>Hechiceras costeras que dominan los vientos, las corrientes y los monstruos del manglar.</p>"
+  },
+  "prototypeToken": {
+   "name": "Brujas de la Marea Negra",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-mares-brujas.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Mares Coloniales",
+    "bando": "dark"
+   }
+  },
+  "folder": "DhHxbitg219PPPOP"
+ },
+ {
+  "_id": "KZ8YPvZW497vfsmX",
+  "name": "[Zona de Guerra] Legión del Imperio Solar",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-legion.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Lanzar la ofensiva final sobre las Tierras Quemadas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Levantar campamentos fortificados en la frontera"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Ejército disciplinado de centuriones, lanceros e ingenieros de asedio que marcha bajo el estandarte de la Luz.</p>"
+  },
+  "prototypeToken": {
+   "name": "Legión del Imperio Solar",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-legion.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "light"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "NSf8eJKmxNeYG8bV",
+  "name": "[Zona de Guerra] Horda del Cráneo de Hierro",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-horda.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 3,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 8,
+    "text": "Romper la línea de fortalezas imperiales"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Someter a todas las guaridas independientes a su mando"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Inmenso ejército de guerra monstruoso dirigido por un tirano implacable que exige tributo y tropas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Horda del Cráneo de Hierro",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-horda.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "dark"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "JS4V3LHMl4o6MFYl",
+  "name": "[Zona de Guerra] Orden de los Caballeros del Grifo",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-grifo.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Descabezar a los líderes enemigos tras las líneas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Escoltar los suministros sagrados del frente"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Caballería pesada y paladines de élite que realizan incursiones rápidas contra fortalezas oscuras.</p>"
+  },
+  "prototypeToken": {
+   "name": "Orden de los Caballeros del Grifo",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-grifo.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "light"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "PccMz8sg21KgNA1p",
+  "name": "[Zona de Guerra] Compañía Libre de Mercenarios",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-libre.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Enriquecerse prolongando la guerra"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Saquear los convoyes de suministros de ambos bandos"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Veteranos pragmáticos que cambian de bando según sople el viento y el oro.</p>"
+  },
+  "prototypeToken": {
+   "name": "Compañía Libre de Mercenarios",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-libre.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "neutral"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "EosJhLY5PrzyLjnY",
+  "name": "[Zona de Guerra] Cónclave de Nigromantes de Ceniza",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-nigromantes.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Alzar un ejército de muertos en los campos de batalla"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Cosechar almas y reliquias entre las ruinas"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Hechiceros sombríos que siguen el rastro de las grandes batallas para reanimar a los caídos.</p>"
+  },
+  "prototypeToken": {
+   "name": "Cónclave de Nigromantes de Ceniza",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-nigromantes.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "dark"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "e8TqVqzuK9t4RhRv",
+  "name": "[Zona de Guerra] Carroñeros del Campo de Batalla",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-carroneros.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Despojar de acero y suministros los frentes"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Vender información táctica al mejor postor"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Bandas de saqueadores, desertores y goblins que viven entre las trincheras y ruinas humeantes.</p>"
+  },
+  "prototypeToken": {
+   "name": "Carroñeros del Campo de Batalla",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-carroneros.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "neutral"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "swzKtmLqsIz9QHlI",
+  "name": "[Zona de Guerra] Ingenieros de Asedio Imperiales",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-ingenieros.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Construir un gran cañón revienta-montañas"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Volar los túneles enemigos con pólvora"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Artilleros, minadores y forjadores de armas fuertemente escoltados.</p>"
+  },
+  "prototypeToken": {
+   "name": "Ingenieros de Asedio Imperiales",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-ingenieros.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "light"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "tc4uwksJKYwmTwwU",
+  "name": "[Zona de Guerra] Clérigos Hospitalarios del Frente",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-hospitalarios.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Sanar a los héroes heridos para que vuelvan a luchar"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Purificar la tierra corrompida"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Campamento médico fortificado protegido por templarios y barreras sagradas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Clérigos Hospitalarios del Frente",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-hospitalarios.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "light"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "CuPOArWsZiPBo5Ep",
+  "name": "[Zona de Guerra] Inquisidores de Campaña",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-inquisidores.webp",
+  "system": {
+   "category": "light",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Cazar espías, saboteadores y monstruos infiltrados"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Ejecutar a los cobardes y traidores"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Policía militar implacable que investiga cualquier sabotaje tras las líneas de la Luz.</p>"
+  },
+  "prototypeToken": {
+   "name": "Inquisidores de Campaña",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-inquisidores.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "light"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "TmTMoFUOf4X5OLbn",
+  "name": "[Zona de Guerra] Desertores de la Marca",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-desertores.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Escapar de la guerra con un buen botín"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Refugiarse en una fortaleza abandonada"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Soldados desilusionados que conocen las contraseñas y horarios del ejército imperial.</p>"
+  },
+  "prototypeToken": {
+   "name": "Desertores de la Marca",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-desertores.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "neutral"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "y84cRiciDAcHomuX",
+  "name": "[Zona de Guerra] Refugiados de la Frontera",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-refugiados.webp",
+  "system": {
+   "category": "neutral",
+   "tier": {
+    "value": 1,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Llegar a salvo a las ciudades del interior"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Defender sus carromatos desesperadamente"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Caravanas vulnerables de aldeanos desplazados por los combates.</p>"
+  },
+  "prototypeToken": {
+   "name": "Refugiados de la Frontera",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-refugiados.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "neutral"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ },
+ {
+  "_id": "n5HBGCrECDjKTyXN",
+  "name": "[Zona de Guerra] Señor de la Guerra Ogro",
+  "type": "faction",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-ogro.webp",
+  "system": {
+   "category": "dark",
+   "tier": {
+    "value": 2,
+    "min": 0,
+    "max": 4
+   },
+   "clock1": {
+    "value": 0,
+    "min": 0,
+    "max": 6,
+    "text": "Devorar y saquear todo a su paso"
+   },
+   "clock2": {
+    "value": 0,
+    "min": 0,
+    "max": 4,
+    "text": "Desafiar a los campeones de la región"
+   },
+   "description": "<p><strong>Entorno:</strong> Zona de Guerra</p><p>Banda brutal de ogros y brutos acorazados que buscan pelea y comida constante.</p>"
+  },
+  "prototypeToken": {
+   "name": "Señor de la Guerra Ogro",
+   "displayName": 50,
+   "actorLink": true,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/iconos/fac-guerra-ogro.webp"
+   }
+  },
+  "items": [],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "entorno": "Zona de Guerra",
+    "bando": "dark"
+   }
+  },
+  "folder": "9PyO37BeGgJwDcaj"
+ }
+]

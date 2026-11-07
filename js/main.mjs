@@ -8,6 +8,11 @@ import { inicializarHooksChat, dialogoCiclo, ejecutarTiradaCiclo } from "./tirad
 import { GeneradorWickedOnes, tirarTablaPorClave } from "./generador.mjs";
 import { cargarLiterales, inicializarMejoras, aplicarClasesAccesibilidad, abrirMenuAccesibilidad } from "./mejoras.mjs";
 import { registrarCreditosMR } from "./mr-credits.mjs";
+import { registrarFicha } from "./ficha.mjs";
+import { registrarAutomatismos } from "./automatismos.mjs";
+import { configurarInicio, arrancar, abrirAsistente, importarCampana, registrarMenus } from "./inicio.mjs";
+import { registrarTutorial, ofrecerTutorial, empezarTutorial } from "./tutorial.mjs";
+import { organizarCompendios } from "./carpetas.mjs";
 
 const MOD = "mr-wicked-ones-es";
 let instanciaGenerador = null;
@@ -43,53 +48,6 @@ async function registrarPaqueteDireccion() {
   }
 }
 
-/**
- * Comprueba si el mundo está vacío (sin escenas ni personajes creados).
- */
-function mundoVacio() {
-  const sinEscenas = game.scenes.size === 0;
-  const sinPJs = game.actors.filter(a => a.type === "character").length === 0;
-  return sinEscenas && sinPJs;
-}
-
-/**
- * Filtro preImport para no sobrescribir nunca a los PJs que ya estén jugando al actualizar la aventura.
- */
-function respetarPJ(adventure, importOptions, toCreate, toUpdate) {
-  if (!toUpdate?.Actor) return;
-  toUpdate.Actor = toUpdate.Actor.filter(a => {
-    const existente = game.actors.get(a._id);
-    if (existente?.flags?.[MOD]?.tipo === "pj") return false;
-    return true;
-  });
-}
-
-/**
- * Importa la aventura desde el compendio aventura-es y activa la escena de portada.
- */
-export async function importarAventuraCampana() {
-  const pack = game.packs.get(`${MOD}.aventura-es`);
-  if (!pack) return;
-  const docs = await pack.getDocuments();
-  const adv = docs[0];
-  if (!adv) return;
-
-  await adv.sheet?._importContent?.(adv.toObject(), { preImport: [respetarPJ] })
-    ?? adv.import({ preImport: [respetarPJ] });
-
-  const versionMod = game.modules.get(MOD)?.version || "1.0.0";
-  await game.settings.set(MOD, "versionImportada", versionMod);
-
-  const portada = game.scenes.find(s => s.flags?.[MOD]?.clave === "portada" || s.name.includes("Portada"));
-  if (portada) await portada.activate();
-
-  const diarioInicial = game.journal.find(j => j.name.startsWith("01 · Campaña"));
-  diarioInicial?.sheet?.render(true);
-
-  await registrarPaqueteDireccion();
-  ui.notifications.info("¡Campaña «El Valle Silencioso» y contenidos de Wicked Ones importados con éxito!");
-}
-
 /* -------------------------------------------------------------------------- */
 /*  Hooks de Inicialización                                                   */
 /* -------------------------------------------------------------------------- */
@@ -104,6 +62,8 @@ Hooks.once("init", () => {
     default: true
   });
 
+  game.settings.register(MOD, "asistenteHecho", { scope: "world", config: false, type: Boolean, default: false });
+  game.settings.register(MOD, "tutorialOfrecido", { scope: "client", config: false, type: Boolean, default: false });
   game.settings.register(MOD, "versionImportada", {
     name: "Versión de la aventura importada",
     scope: "world",
@@ -180,10 +140,16 @@ Hooks.once("init", () => {
       dialogoCiclo,
       ejecutarTiradaCiclo,
       tirarTablaCompendio: tirarTablaPorClave,
-      importarAventuraCampana
+      importarCampana,
+      abrirAsistente,
+      empezarTutorial,
+      organizarCompendios
     };
   }
 
+  registrarFicha();
+  registrarAutomatismos();
+  registrarMenus();
   inicializarMejoras();
   inicializarHooksChat();
   registrarCreditosMR();
@@ -233,32 +199,8 @@ Hooks.once("ready", async () => {
     }
   });
 
-  if (!soyGM()) return;
-
-  // Auto-importación segura en mundos vacíos o aviso de actualización
-  const autoImp = game.settings.get(MOD, "autoImportar");
-  const verActual = game.modules.get(MOD)?.version || "1.0.0";
-  const verImp = game.settings.get(MOD, "versionImportada") || "0.0.0";
-
-  if (autoImp && mundoVacio()) {
-    await importarAventuraCampana();
-  } else if (verImp !== "0.0.0" && foundry.utils.isNewerVersion(verActual, verImp)) {
-    const DialogV1 = foundry.appv1?.api?.Dialog ?? Dialog;
-    new DialogV1({
-      title: "MR · Actualización de Wicked Ones disponible",
-      content: `<p>Se ha detectado la versión <strong>${verActual}</strong> de <em>MR- Wicked Ones</em> (anterior: ${verImp}). ¿Deseas reimportar las escenas, tablas y diarios actualizados respetando las fichas de los PJs actuales?</p>`,
-      buttons: {
-        si: {
-          icon: '<i class="fas fa-download"></i>',
-          label: "Actualizar contenido (respetar PJs)",
-          callback: () => importarAventuraCampana()
-        },
-        no: {
-          icon: '<i class="fas fa-times"></i>',
-          label: "Más tarde"
-        }
-      },
-      default: "si"
-    }).render(true);
-  }
+  await registrarTutorial();
+  configurarInicio({ despues: registrarPaqueteDireccion });
+  if (game.user.isGM) await arrancar();
+  if (game.settings.get(MOD, "asistenteHecho")) setTimeout(ofrecerTutorial, 3000);
 });

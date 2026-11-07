@@ -13,11 +13,13 @@ const PREFIJOS = {
 };
 
 const manifest = JSON.parse(await fs.readFile("module.json", "utf8"));
+const TIPO_CARPETA = { Item: "Item", Actor: "Actor", JournalEntry: "JournalEntry", RollTable: "RollTable" };
+const todasCarpetas = JSON.parse(await fs.readFile("_pack/carpetas.json", "utf8"));
 
 for (const pack of manifest.packs) {
   await fs.rm(pack.path, { recursive: true, force: true });
   const db = new ClassicLevel(pack.path, { valueEncoding: "json" });
-  const docs = JSON.parse(await fs.readFile(`_data/${pack.name}.json`, "utf8"));
+  const docs = JSON.parse(await fs.readFile(`_pack/${pack.name}.json`, "utf8"));
   const pref = PREFIJOS[pack.type] || "items";
 
   for (const raw of docs) {
@@ -50,6 +52,17 @@ for (const pack of manifest.packs) {
     await db.put(`!${pref}!${d._id}`, d);
   }
 
+  // Carpetas del compendio: las usadas por sus documentos y sus ancestras
+  const carpetaTipo = TIPO_CARPETA[pack.type];
+  if (carpetaTipo) {
+    const porId = new Map((todasCarpetas[carpetaTipo] ?? []).map(f => [f._id, f]));
+    const usadas = new Set();
+    for (const d of docs) {
+      for (let id = d.folder; id && porId.has(id) && !usadas.has(id); id = porId.get(id).folder) usadas.add(id);
+    }
+    for (const id of usadas) await db.put(`!folders!${id}`, { ...porId.get(id), _stats: { systemId: "wicked-ones" } });
+  }
+
   await db.close();
   console.log(`  [OK] Pack ${pack.name} (${pack.type}): ${docs.length} documento(s)`);
 }
@@ -64,7 +77,7 @@ const done = new Promise((res, rej) => {
   zip.on("error", rej);
 });
 
-for (const p of ["module.json", "js", "styles", "lang", "packs", "assets", "content", "compendium", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md"]) {
+for (const p of ["module.json", "js", "styles", "lang", "packs", "assets", "content", "compendium", "tours", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md"]) {
   try {
     const st = await fs.stat(p);
     if (st.isDirectory()) zip.directory(p, p);

@@ -1,126 +1,129 @@
 <p align="center">
-  <img src="docs/img/banner.webp" alt="MR- Wicked Ones — Contenido Completo y Campaña «El Valle Silencioso»" width="100%">
+  <img src="docs/img/banner.webp" alt="MR- Wicked Ones — Campaña, compendios y mejoras" width="100%">
 </p>
 
 <p align="center">
   <a href="https://github.com/ManuRomera"><img alt="Manu Romera · Digital RPG Design" src="https://raw.githubusercontent.com/ManuRomera/ManuRomera/main/badges/mr-firma.svg" height="28"></a>
   <a href="https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest"><img alt="Versión" src="https://img.shields.io/github/v/release/ManuRomera/mr-wicked-ones-es?style=for-the-badge&color=c49a45&label=release"></a>
-  <img alt="Foundry VTT v13 | v14" src="https://img.shields.io/badge/Foundry%20VTT-v13%20%7C%20v14-57d8c8?style=for-the-badge">
+  <img alt="Foundry VTT v13" src="https://img.shields.io/badge/Foundry%20VTT-v13-57d8c8?style=for-the-badge">
   <a href="https://github.com/ManuRomera/mr-wicked-ones-es/releases"><img alt="Descargas" src="https://raw.githubusercontent.com/ManuRomera/ManuRomera/main/badges/descargas/mr-wicked-ones-es.svg"></a>
-  <img alt="Wicked Ones" src="https://img.shields.io/badge/Wicked%20Ones-The%20Hills%20Press-a83228?style=for-the-badge">
+  <img alt="Wicked Ones" src="https://img.shields.io/badge/Wicked%20Ones-CC0-a83228?style=for-the-badge">
   <img alt="Idioma" src="https://img.shields.io/badge/idioma-castellano-0d6670?style=for-the-badge">
   <a href="LICENSE"><img alt="Licencia MIT" src="https://img.shields.io/badge/license-MIT-2b3245?style=for-the-badge"></a>
 </p>
 
-<h3 align="center">El contenido íntegro que faltaba en Foundry VTT para la edición en español de <em>Wicked Ones</em> (The Hills Press), junto con la campaña lista para jugar «El Valle Silencioso».</h3>
+<h3 align="center">Lo que le falta al sistema <em>Wicked Ones</em> en Foundry VTT: campaña, compendios, arte propio, ficha compacta, modo oscuro y reglas automatizadas.</h3>
 
 > [!IMPORTANT]
-> Este módulo amplía el sistema [**Wicked Ones**](https://foundryvtt.com/packages/wicked-ones) y su traducción [**Wicked Ones (Español)**](https://github.com/Billy-Blade/wicked-ones-esp) con **Babele**. Para disfrutar de la barra del Director de Juego, las lecturas en voz alta, los relojes de facción en pantalla y las figuras de cuerpo entero a escala en la campaña, instala también [**MR- Dirección**](https://github.com/ManuRomera/mr-direccion).
+> Este módulo amplía el sistema [**Wicked Ones**](https://foundryvtt.com/packages/wicked-ones) y su traducción [**Wicked Ones (Español)**](https://foundryvtt.com/packages/wicked-ones-esp) con **Babele**. Para la barra del Director de Juego (escenas, música, relojes) instala también [**MR- Dirección**](https://github.com/ManuRomera/mr-direccion).
 
 <p align="center">
-  <a href="https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.zip"><strong>⬇️ Descargar última versión</strong></a>
+  <a href="https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.zip"><strong>⬇️ Descargar</strong></a>
   ·
   <a href="#-instalar"><strong>⚡ Instalar</strong></a>
   ·
-  <a href="#-qué-trae-el-módulo"><strong>📦 Contenido</strong></a>
+  <a href="#-qué-trae"><strong>📦 Contenido</strong></a>
   ·
-  <a href="#-cómo-empezar"><strong>🏰 Cómo empezar</strong></a>
+  <a href="#-mejoras-de-juego"><strong>🛠️ Mejoras</strong></a>
 </p>
 
 ---
 
 ## 🏰 La premisa
 
-Sois **Malvados** —caudillos de guerra, hechiceros oscuros, fanáticos, cerebros criminales y brutos monstruosos— excavando vuestra propia guarida bajo la montaña mientras los autoproclamados «héroes» de la superficie os persiguen.
-
-El sistema oficial de *Wicked Ones* para Foundry VTT y su traducción inicial solo incluían los arquetipos básicos, poderes y esbirros, dejando fuera **más de 400 elementos del manual de The Hills Press**: las salas de mazmorra N1–N2, trampas, trucos, cerraduras, criaturas de guarida, mejunjes, artilugios, pociones, objetos mágicos, los **6 movimientos individuales de cada uno de los 30 aventureros**, los 36 ayudantes, los **4 entornos de campaña con sus 48 facciones**, las tablas de botín y calamidades, el modo en solitario **«El Gran Malo Malvado»** y una aventura lista para abrir mesa. **MR- Wicked Ones** incorpora todo ese material, corrige traducciones pendientes, añade un generador interactivo de incursiones y mazmorra y despliega la campaña completa **«El Valle Silencioso: Un lugar al que llamar hogar»**.
+Sois **monstruos** —orcos, goblins, kóbolds, demonios, serpientes— que excavan su guarida bajo la montaña mientras los «héroes» de la superficie os persiguen. Este módulo trae el contenido que el sistema no incluye, ordenado y con arte propio en el estilo gráfico del juego.
 
 <p align="center">
-  <img src="docs/img/foundry-portada.webp" alt="Portada de la campaña en Foundry" width="49%">
-  <img src="docs/img/foundry-valle.webp" alt="Mapa del Valle Silencioso" width="49%">
+  <img src="docs/img/escenas.webp" alt="Escenas de la campaña con su lectura y su música" width="100%">
 </p>
 
-<p align="center">
-  <img src="docs/img/foundry-cueva.webp" alt="Plano táctico de las Cuevas del Paso del Mercader" width="49%">
-  <img src="docs/img/foundry-guarida.webp" alt="Fase de Guarida: ¡Matad a los intrusos!" width="49%">
-</p>
+## 📦 Qué trae
 
----
+Todo está en carpetas, y los compendios del sistema quedan separados de los de este módulo.
 
-## 📦 Qué trae el módulo
-
-Al activar **MR- Wicked Ones: Contenido Completo y Campaña** en un mundo vacío, la aventura se importa sola y activa la escena de portada. Todos los recursos quedan también disponibles en 7 compendios en español:
-
-| Recurso | Detalle |
+| Compendio | Contenido |
 |---|---|
-| **Salas, Trampas, Trucos y Criaturas (`labores-es`)** | **130 elementos de guarida**: las 18 salas de Nivel 1, 18 salas de Nivel 2, 20 trampas, 14 trucos, 12 cerraduras y portones, 36 criaturas de guarida (N1–N3) y 12 descubrimientos subterráneos con costes y reglas exactas. |
-| **Arsenal, Alquimia, Artilugios y Magia (`equipo-es`)** | **165 objetos**: armas, armaduras y suministros, los 36 mejunjes alquímicos, los 36 artilugios goblinoides, las 36 pociones (N1–N3), los 36 objetos mágicos (N1–N3) y proyectos de ritual. |
-| **30 Aventureros Completos y 36 Ayudantes (`aventureros-es`)** | Los **30 arquetipos de aventureros** con sus rasgos, motivaciones, pasiva y sus **6 movimientos individuales** (3 ofensivos + 3 defensivos) en español e ilustración propia, más los **36 ayudantes y mercenarios** de los 6 gremios y cultos. |
-| **4 Entornos y 48 Facciones (`facciones-es`)** | Los 4 entornos del libro (*El Valle Silencioso*, *Las Cloacas de Cantoclaro*, *Los Mares de Sharn* y *La Guerra por el Trono*) con sus **48 facciones** completas, más **6 PJ pregenerados**, **6 manadas de esbirros**, el actor de la **Mazmorra** y **4 grupos de aventureros rivales**. |
-| **16 Tablas y Oráculos (`tablas-es`)** | Tablas de botín (N1–N3), eventos de incursión, calamidades de guarida, nombres y apodos monstruosos, generador de aventureros rivales y los **5 oráculos completos del modo en solitario «El Gran Malo Malvado»**. |
-| **Manual y Referencia (`manual-es`)** | **10 diarios multipágina** con guía de inicio («Empieza aquí»), referencia rápida de fases, los **13 Dioses Oscuros** ilustrados, catálogo de salas y trampas, alquimia y magia, los 4 entornos de campaña y las reglas completas del modo en solitario y sin DJ. |
-| **Campaña «El Valle Silencioso» (`aventura-es`)** | **15 escenas** (portada, los 4 mapas regionales en versión mesa y DJ, planos tácticos de las *Cuevas del Paso del Mercader* en versión mesa sin secretos y versión DJ con rutas y etiquetas, los 3 niveles de guarida y 4 escenas ilustradas de incursión, defensa, consejo de guerra y ritual), actores con retrato, token redondo y **figura de cuerpo entero**, y paquete preconfigurado para **MR- Dirección**. |
-| **Generador, Chat y Accesibilidad** | **Generador y Oráculo del Señor Oscuro** (`ConMemoria`), tarjetas de chat enriquecidas con botones de confirmación (`Consecuencia`, `Reloj +1/+2/+3`, `Estrés`, `Tirar botín`), traducción reactiva de textos fijos del sistema y modo oscuro/accesibilidad compartido con el ecosistema `MR-`. |
+| **Campaña** | «El Valle Silencioso»: 21 escenas ilustradas y mapas, con **lectura**, **música** y **efectos**; listas de reproducción; macros. |
+| **Libro y referencia** | Diarios por capítulos, «Empieza aquí» y las lecturas de escena. |
+| **Tablas** | Botín N1–N3, incursiones, calamidades, nombres y el modo solitario «El Gran Malo Malvado». |
+| **Aventureros y ayudantes** | 30 aventureros con sus 6 movimientos y 36 ayudantes, cada uno con retrato. |
+| **Salas, trampas, trucos, portones y criaturas** | 130 elementos de guarida con icono propio. |
+| **Equipo** | 165 objetos: arsenal, 36 mejunjes, 36 artilugios, 36 pociones y 36 reliquias, todos con icono. |
+| **Personajes · Esbirros · Facciones · Grupos** | 6 pregenerados, 6 manadas, 48 facciones de 4 entornos y grupos rivales, con retrato, token y figura de cuerpo entero. |
 
----
+<p align="center">
+  <img src="docs/img/carpetas.webp" alt="Actores, objetos y compendios ordenados en carpetas" width="100%">
+</p>
+
+## 🛠️ Mejoras de juego
+
+### Ficha compacta
+Reúne en una sola vista lo habitual —retrato, EXP, estrés, defensas y los tres atributos— y deja capacidades, equipo y labores en secciones plegables que se pueden tener abiertas a la vez. Recuerda tamaño, posición y secciones de cada ficha.
+
+<p align="center"><img src="docs/img/compacta.webp" alt="Ficha compacta" width="70%"></p>
+
+### Modo oscuro que se ve
+Los indicadores negros del sistema (casillas de habilidad, conmoción, reloj de estrés, corazones) se recolorean en oscuro. Se activa desde el icono de accesibilidad de la cabecera.
+
+<p align="center"><img src="docs/img/oscuro.webp" alt="Modo oscuro" width="70%"></p>
+
+### Reglas automatizadas
+Tras cada tirada se aplican solas las reglas del libro (se puede desactivar en Configuración):
+- **Resistencias**: fallo 3 de Estrés, parcial 2, éxito 1; el crítico despeja 1.
+- **Estrés lleno**: el personaje se **desata** y la tarjeta recuerda los pasos.
+- **Conmoción** que se limpia y **EXP de práctica** (tres marcas suben la acción a 1 punto).
+- **Corazón Oscuro**: un botón gasta uno, tira +1D y recalcula el resultado.
+
+### Asistente de instalación y tutorial
+Al activar el módulo en un mundo vacío, un asistente te deja **importar todo al mundo** o **solo ordenar los compendios**. Después, un **tutorial guiado** para dirección y para jugadores. Ambos se repiten desde Configuración.
 
 ## 📋 Requisitos
 
 | Componente | Notas |
 |---|---|
-| **Foundry VTT** | **v13** o **v14** (código unificado mediante `js/compat.mjs`). |
-| **Sistema [Wicked Ones](https://foundryvtt.com/packages/wicked-ones)** | Sistema base Forged in the Dark para *Wicked Ones*. |
-| **[Babele](https://foundryvtt.com/packages/babele)** y **[Wicked Ones (Español)](https://github.com/Billy-Blade/wicked-ones-esp)** | Para la traducción base de arquetipos y poderes sobre la que este módulo aplica sus parches y compendios adicionales. |
-| **[MR- Dirección](https://github.com/ManuRomera/mr-direccion)** *(recomendado)* | Para mostrar las escenas ilustradas a toda pantalla, colocar figuras de cuerpo entero a escala y manejar los relojes del Valle Silencioso desde la barra inferior. |
-
----
+| **Foundry VTT** | v13 (v14 sin probar). |
+| **Sistema [Wicked Ones](https://foundryvtt.com/packages/wicked-ones)** | Sistema base. |
+| **[Babele](https://foundryvtt.com/packages/babele)** y **[Wicked Ones (Español)](https://foundryvtt.com/packages/wicked-ones-esp)** | Traducción base. |
+| **[MR- Dirección](https://github.com/ManuRomera/mr-direccion)** *(recomendado)* | Escenas, música, motivos, figuras y relojes. |
 
 ## ⚡ Instalar
 
-### Desde Foundry VTT (recomendado)
+En Foundry: **Add-on Modules → Install Module** y pega el manifiesto:
 
-1. En Foundry, ve a **Add-on Modules → Install Module**.
-2. En **Manifest URL**, pega:
-   ```text
-   https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.json
-   ```
-3. Pulsa **Install**.
-
-### Manual
-
-Descarga [`module.zip`](https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.zip) de la última versión y descomprímelo dentro de `Data/modules/mr-wicked-ones-es/`.
-
----
-
-## 🏰 Cómo empezar
-
-1. Crea un mundo con el sistema **Wicked Ones**.
-2. En **Manage Modules**, activa **Babele**, **Wicked Ones (Español)**, **MR- Dirección** y **MR- Wicked Ones: Contenido Completo y Campaña (The Hills Press)**.
-3. Al entrar por primera vez, el módulo importa automáticamente la campaña **«El Valle Silencioso: Un lugar al que llamar hogar»**, activa la escena de portada y abre el diario **«00 · Empieza aquí — El Valle Silencioso»**.
-4. Usa el botón de los controles de escena (o la macro incluida) para abrir el **Generador y Oráculo del Señor Oscuro** en cualquier momento de la partida.
-
----
+```text
+https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.json
+```
 
 ## 🔧 Cómo está hecho
 
-Los datos fuente viven en JSON determinista (`_data/*.json`) generados desde `tools/datos_reglas.py` y `tools/build_foundry.py`; el artefacto gráficos se extrae y marca con `tools/extract_assets.py` y `tools/banner.py`, y los compendios LevelDB se compilan con `scripts/build.mjs`. La lógica pura de dados, oráculos y generadores está aislada en `js/core/reglas.mjs` y cubierta por tests (`npm test`).
+El arte se genera en local con **Flux (Draw Things)** y se procesa con `tools/ingest_arte.py`; la música se sintetiza con `tools/audio.py`; `npm run datos` ensambla los compendios (`_data` → `_pack`) y `npm run build` los compila. El informe de la reescritura está en [`docs/AUDITORIA.md`](docs/AUDITORIA.md).
 
 ```bash
 npm install
-npm test                   # ejecuta los tests unitarios del núcleo puro (node --test)
-python3 tools/build_foundry.py
-npm run build              # compila _data/*.json -> packs/* y genera dist/module.zip
+npm test
+npm run datos && npm run build
 ```
-
----
 
 ## 📜 Créditos y aviso
 
-- **Juego original:** *Wicked Ones*, de **Ben Nielson** (**Bandit Camp**), publicado bajo licencia CC BY 4.0.
-- **Edición en español:** **The Hills Press**.
-- **Diseño, programación, generador, campaña y adaptación a Foundry VTT:** Manu Romera (MR · Digital RPG Design).
-- **Licencia:** MIT para el código del módulo. Consulta [`NOTICE.md`](NOTICE.md) y [`LICENSE`](LICENSE) para el detalle completo.
+- **Juego original:** *Wicked Ones*, de **Ben Nielson** (Bandit Camp), CC0. Edición en español: The Hills Press.
+- **Sistema:** Spearhead y LorduFreeman. **Traducción base:** wicked-ones-esp.
+- **Diseño, arte generado, música, programación y adaptación:** Manu Romera (MR · Digital RPG Design).
+- Más en [`NOTICE.md`](NOTICE.md). Licencia MIT para el código.
 
-<p align="center">
-  <sub>MR- · Manu Romera · <a href="https://github.com/ManuRomera">github.com/ManuRomera</a></sub>
-</p>
+<p align="center"><sub>MR- · Manu Romera · <a href="https://github.com/ManuRomera">github.com/ManuRomera</a></sub></p>
+
+---
+
+## 🇬🇧 English summary
+
+**MR- Wicked Ones** extends the [Wicked Ones](https://foundryvtt.com/packages/wicked-ones) system for Foundry VTT (v13) with a complete Spanish-language campaign (*El Valle Silencioso*), all-new art generated locally in the Wicked Ones style, and the usual MR- toolkit:
+
+- **Everything in folders**: actors, items, scenes, journals and compendia, with this module's content separated from the system's.
+- **Real compact sheet** (not a crop): header, counters, defences/stress, attributes and collapsible sections regrouped in one place; remembers size, position and open sections per sheet.
+- **Fixed dark mode** (black PNG indicators recoloured so they stay visible).
+- **Scene reading + music + effects** for 21 scenes through [MR- Dirección](https://github.com/ManuRomera/mr-direccion); original synthesized soundtrack.
+- **Automations** verified against the *Wicked Ones* 1.4 rulebook (CC0): resistance stress, feral state, shock, practice XP, Dark Heart +1D; all optional.
+- **Guided tour** for the GM and for players, and an install wizard (import everything or just organise the compendia).
+
+Requires the `wicked-ones` system, `babele` and `wicked-ones-esp`. Manifest: `https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.json`. Foundry v14 is untested.

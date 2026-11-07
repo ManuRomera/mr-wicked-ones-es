@@ -5,6 +5,7 @@
 
 import { n, acota, evaluarTirada, evaluarResistencia, evaluarDesastre, evaluarRepresalia, evaluarDefensaMazmorra, simularIncursionEsbirros } from "./core/reglas.mjs";
 import { soyGM, aplicarModoMensaje } from "./compat.mjs";
+import { aplicarEstresActor, gastarCorazonExtraDado } from "./automatismos.mjs";
 
 const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
 const MOD = "mr-wicked-ones-es";
@@ -237,16 +238,13 @@ export function inicializarHooksChat() {
           <button type="button" class="mr-wo-btn-chat" data-mr-accion="tirar-resistencia" data-actor-id="${esc(spActorId)}" title="Abrir tirada de Resistencia para mitigar la consecuencia">
             <i class="fas fa-shield-alt"></i> Resistir
           </button>
-          <button type="button" class="mr-wo-btn-chat" data-mr-accion="sumar-estres" data-actor-id="${esc(spActorId)}" data-valor="1" title="Marcar +1 de Estrés en el personaje activo">
-            <i class="fas fa-bolt"></i> +1 Estrés
-          </button>
         `;
       }
 
       // Siempre permitir gastar 1 Corazón Oscuro si el actor tiene alguno disponible
       barra.innerHTML += `
-        <button type="button" class="mr-wo-btn-chat" data-mr-accion="gastar-corazon" data-actor-id="${esc(spActorId)}" title="Gastar 1 Corazón Oscuro del personaje">
-          <i class="fas fa-heart"></i> Corazón Oscuro
+        <button type="button" class="mr-wo-btn-chat" data-mr-accion="gastar-corazon" data-actor-id="${esc(spActorId)}" title="Gasta 1 Corazón Oscuro: tira +1D y recalcula el resultado">
+          <i class="fas fa-heart"></i> Corazón Oscuro (+1D)
         </button>
       `;
 
@@ -325,7 +323,7 @@ async function manejarClicBotonChat(ev, message) {
                 cuerpoHTML: `<p>${esc(evR.resumen)}</p>`,
                 botones: [
                   ...(evR.estres > 0 ? [{ accion: "sumar-estres", actorId: actor.id, valor: evR.estres, icono: "fas fa-bolt", etiqueta: `Aplicar +${evR.estres} Estrés` }] : []),
-                  ...(evR.conmocionado ? [{ accion: "marcar-conmocionado", actorId: actor.id, extra: atrib, icono: "fas fa-dizzy", etiqueta: `Marcar ${nombresAtrib[atrib]} Conmocionado` }] : [])
+                  ...(evR.estres < 0 ? [{ accion: "sumar-estres", actorId: actor.id, valor: evR.estres, icono: "fas fa-heart-pulse", etiqueta: "Despejar 1 Estrés" }] : [])
                 ]
               });
             }
@@ -338,12 +336,24 @@ async function manejarClicBotonChat(ev, message) {
 
     case "sumar-estres": {
       if (!actor) return ui.notifications.warn("No se encontró un personaje activo.");
-      const delta = n(valor, 1);
-      const actual = n(actor.system?.stress?.value, 0);
-      const max = n(actor.system?.stress?.max, 6);
-      const nuevo = acota(actual + delta, 0, max);
-      await actualizarActorSeguro(actor, { "system.stress.value": nuevo });
-      ui.notifications.info(`${actor.name}: Estrés actualizado a ${nuevo}/${max}.`);
+      if (actor.isOwner || soyGM()) await aplicarEstresActor(actor, n(valor, 1));
+      else await actualizarActorSeguro(actor, { "system.stress.value": acota(n(actor.system?.stress?.value, 0) + n(valor, 1), 0, n(actor.system?.stress?.max, 6)) });
+      break;
+    }
+
+    case "ganar-corazon": {
+      if (!actor) return;
+      const max = n(actor.system?.dark_hearts?.max, 2);
+      await actualizarActorSeguro(actor, { "system.dark_hearts.value": acota(n(actor.system?.dark_hearts?.value, 0) + 1, 0, max) });
+      ui.notifications.info(`${actor.name} recibe un Corazón Oscuro.`);
+      break;
+    }
+
+    case "marcar-osada": {
+      if (!actor) return;
+      const rx = actor.system?.recklessxp;
+      await actualizarActorSeguro(actor, { "system.recklessxp.value": acota(n(rx?.value, 0) + 1, 0, n(rx?.max, 3)) });
+      ui.notifications.info(`${actor.name}: EXP Osada marcada (máx. 1 por sesión).`);
       break;
     }
 
@@ -357,10 +367,7 @@ async function manejarClicBotonChat(ev, message) {
 
     case "gastar-corazon": {
       if (!actor) return ui.notifications.warn("No se encontró un personaje activo.");
-      const actual = n(actor.system?.dark_hearts?.value, 0);
-      if (actual <= 0) return ui.notifications.warn(`${actor.name} no tiene Corazones Oscuros disponibles.`);
-      await actualizarActorSeguro(actor, { "system.dark_hearts.value": actual - 1 });
-      ui.notifications.info(`${actor.name} ha gastado 1 Corazón Oscuro (quedan ${actual - 1}).`);
+      await gastarCorazonExtraDado(message, actor);
       break;
     }
 

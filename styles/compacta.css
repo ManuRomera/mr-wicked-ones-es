@@ -1,0 +1,157 @@
+/**
+ * Ficha compacta de Wicked Ones (js/ficha.mjs). Re-compone la hoja del sistema en una sola vista:
+ * cabecera con retrato pequeño · contadores · defensas/estrés/impulsos · tres atributos en columnas ·
+ * secciones plegables (capacidades, equipo, labores, notas) · datos del personaje.
+ * REGLA: nunca font-family / font / all sobre button, i, .window-header ni *.
+ */
+
+.mr-ventana-compacta {
+  --mrc-cinta: var(--mr-wo-cinta, #68332c);
+  --mrc-linea: var(--mr-wo-linea, #68332c);
+  --mrc-tinta: var(--mr-wo-tinta, #191919);
+  --mrc-oro: var(--mr-wo-oro, #68332c);
+  --mrc-fondo: color-mix(in oklab, var(--mrc-cinta) 10%, transparent);
+}
+
+.wicked-ones.sheet form.mr-compacta {
+  padding: 8px 10px 12px;
+}
+.mr-compacta .mrc-oculto { display: none !important; }
+.mr-compacta .mrc-marco {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* ---- Cabecera ------------------------------------------------------------------------------------------ */
+.mr-compacta .mrc-cab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mr-compacta .mrc-cab img.profile-big {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 12px;
+  border: 2px solid var(--mrc-linea);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.35);
+}
+.mr-compacta .mrc-ident { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.mr-compacta .mrc-ident .large-name { margin: 0; }
+.mr-compacta .mrc-ident .large-name input {
+  font-size: 1.9rem;
+  line-height: 1.1;
+  height: auto;
+  padding: 0 6px;
+  width: 100%;
+}
+.mr-compacta .mrc-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.mr-compacta .mrc-chip {
+  padding: 1px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--mrc-linea);
+  background: var(--mrc-fondo);
+  color: var(--mrc-tinta);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.mr-compacta .mrc-cab-botones { align-self: flex-start; }
+.mr-compacta .mrc-cab-botones .sheet-type select { font-size: 0.8rem; }
+
+/* ---- Contadores ---------------------------------------------------------------------------------------- */
+.mr-compacta table.mrc-stats { width: 100%; margin: 0; border-radius: 6px; overflow: hidden; }
+.mr-compacta table.mrc-stats tr.xp-stripe { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 2px 6px; }
+.mr-compacta table.mrc-stats td { padding: 0; width: auto; }
+
+/* ---- Defensas · estrés · impulsos --------------------------------------------------------------------- */
+.mr-compacta .mrc-medio { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.mr-compacta .mrc-vitales table { width: 100%; }
+.mr-compacta .mrc-vitales th, .mr-compacta .mrc-vitales td { padding-top: 2px; padding-bottom: 2px; vertical-align: middle; }
+.mr-compacta .mrc-vitales th { font-size: 0.85rem; }
+.mr-compacta .mrc-vitales .item-name { font-size: 1rem; line-height: 1.15; }
+.mr-compacta .mrc-vitales #character-stress-clock { display: flex; justify-content: center; }
+.mr-compacta .mrc-vitales .blades-clock { width: 62px; height: 62px; background-size: contain; margin: 0 auto; }
+
+/* ---- Habilidades: tres atributos en columnas ----------------------------------------------------------- */
+.mr-compacta #attributes {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px 10px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+.mr-compacta #attributes .attribute { min-width: 0; margin: 0; align-items: flex-start; }
+.mr-compacta #attributes .attribute .main { min-width: 0; flex: 1; }
+.mr-compacta #attributes .skill-description,
+.mr-compacta #attributes .attribute-description { display: none; }
+.mr-compacta #attributes .attribute-skill-label { font-size: 0.82rem; white-space: nowrap; }
+.mr-compacta #attributes > .attribute { grid-column: span 2; }
+.mr-compacta #attributes > #attributes-bloodied,
+.mr-compacta #attributes > #attributes-darkhearts,
+.mr-compacta #attributes > #attributes-rot { grid-column: span 3; }
+.mr-compacta #attributes .stripe { font-size: 0.9rem; }
+.mr-compacta #attributes #attributes-darkhearts .heart-container { flex-wrap: wrap; }
+
+/* ---- Secciones plegables ------------------------------------------------------------------------------- */
+.mr-compacta .mrc-cuerpo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mr-compacta details.mrc-sec,
+.mr-compacta details.mrc-datos {
+  border: 1px solid var(--mrc-linea);
+  border-radius: 8px;
+  background: var(--mrc-fondo);
+  overflow: hidden;
+}
+.mr-compacta details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: var(--mrc-cinta);
+  color: #fff6e2;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mr-compacta details > summary::-webkit-details-marker { display: none; }
+.mr-compacta details > summary::after {
+  content: "";
+  margin-left: auto;
+  width: 8px; height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.mr-compacta details[open] > summary::after { transform: rotate(225deg); }
+
+/* El contenido de las pestañas siempre visible dentro de su sección (se ignora el selector de pestañas) */
+.mr-compacta details.mrc-sec > .tab { display: flex !important; flex-direction: column; padding: 4px 6px 8px; min-height: 0; }
+.mr-compacta details.mrc-sec > .tab > .label-stripe:first-child { display: none; }
+.mr-compacta details.mrc-sec .label-stripe { border-radius: 4px; margin-top: 6px; }
+
+/* Capacidades: una línea de descripción hasta pulsar */
+.mr-compacta #abilities-list td { padding: 3px 4px; vertical-align: top; }
+.mr-compacta #abilities-list .item-name { font-size: 0.95rem; }
+.mr-compacta #abilities-list .item-description {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+.mr-compacta #abilities-list .item-description.mrc-abierta { -webkit-line-clamp: unset; display: block; }
+
+/* Datos del personaje */
+.mr-compacta .mrc-datos-cuerpo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 12px; padding: 6px 8px; }
+.mr-compacta .mrc-datos-cuerpo > * { min-width: 0; }
+.mr-compacta table.mrc-datos-tabla { width: 100%; margin: 0; }

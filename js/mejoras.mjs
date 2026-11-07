@@ -209,16 +209,6 @@ function inyectarBotonesCabecera(app, raiz) {
     game.modules.get(MOD)?.api?.abrirGenerador();
   });
 
-  // Botón Ficha Resumida
-  const btnRes = document.createElement("a");
-  btnRes.className = "header-button control mr-wo-header-btn";
-  btnRes.title = "Alternar modo compacto (mr-resumida)";
-  btnRes.innerHTML = '<i class="fas fa-compress-alt"></i>';
-  btnRes.addEventListener("click", ev => {
-    ev.preventDefault();
-    ventana.classList.toggle("mr-resumida");
-  });
-
   // Botón Accesibilidad / Modo Oscuro
   const btnA11y = document.createElement("a");
   btnA11y.className = "header-button control mr-wo-header-btn";
@@ -230,7 +220,6 @@ function inyectarBotonesCabecera(app, raiz) {
   });
 
   header.insertBefore(btnGen, closeBtn);
-  header.insertBefore(btnRes, closeBtn);
   header.insertBefore(btnA11y, closeBtn);
 }
 

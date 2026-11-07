@@ -1,0 +1,489 @@
+{
+ "Item": [
+  {
+   "_id": "3Cm5vo1S64bsBGXr",
+   "name": "Salas de la mazmorra",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "LRD7Z9ruHDsWnriY",
+   "name": "Nivel 1",
+   "type": "Item",
+   "folder": "3Cm5vo1S64bsBGXr",
+   "sorting": "a",
+   "sort": 200,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "k7tVazkYOmcJYr7X",
+   "name": "Nivel 2",
+   "type": "Item",
+   "folder": "3Cm5vo1S64bsBGXr",
+   "sorting": "a",
+   "sort": 300,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "f8QEqNac8yNUa7BF",
+   "name": "Trampas",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 400,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "5pvwbHU4c8Ko1Lnr",
+   "name": "Nivel 1",
+   "type": "Item",
+   "folder": "f8QEqNac8yNUa7BF",
+   "sorting": "a",
+   "sort": 500,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "LWLMmtdtqjLETE86",
+   "name": "Nivel 2",
+   "type": "Item",
+   "folder": "f8QEqNac8yNUa7BF",
+   "sorting": "a",
+   "sort": 600,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "vbFAixwF9pHMiTF8",
+   "name": "Trucos de la mazmorra",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 700,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "EFv7nFygpWZ6rjKf",
+   "name": "Portones y cerraduras",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 800,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "NmdynD90670vr4iU",
+   "name": "Nivel 1",
+   "type": "Item",
+   "folder": "EFv7nFygpWZ6rjKf",
+   "sorting": "a",
+   "sort": 900,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "ZW5vj2Om9zIkAeEb",
+   "name": "Nivel 2",
+   "type": "Item",
+   "folder": "EFv7nFygpWZ6rjKf",
+   "sorting": "a",
+   "sort": 1000,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "5M6SlpsbofH2xhrd",
+   "name": "Criaturas de guarida",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1100,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "LZfV1vwpxUI822xa",
+   "name": "Nivel 1",
+   "type": "Item",
+   "folder": "5M6SlpsbofH2xhrd",
+   "sorting": "a",
+   "sort": 1200,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "Lu2647mpY9A4ZF0z",
+   "name": "Nivel 2",
+   "type": "Item",
+   "folder": "5M6SlpsbofH2xhrd",
+   "sorting": "a",
+   "sort": 1300,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "81jflr7aBxTbQNbY",
+   "name": "Nivel 3",
+   "type": "Item",
+   "folder": "5M6SlpsbofH2xhrd",
+   "sorting": "a",
+   "sort": 1400,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "04WlCVcyrC0XV2DM",
+   "name": "Hallazgos de excavación",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1500,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "Td7vqk2HEbyY5LfT",
+   "name": "Arsenal y herramientas",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1600,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "QloDuXjZXIF5GCWG",
+   "name": "Mejunjes alquímicos (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1700,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "tiXq1oEiMaeCZlQ5",
+   "name": "Artilugios goblinoides (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1800,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "FPj1rT3jbxblG035",
+   "name": "Pociones mágicas (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 1900,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "VuAwlgPv6YxwXVGZ",
+   "name": "Reliquias y objetos mágicos (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 2000,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "TYRtQKCRTxB5QnxB",
+   "name": "Rituales y proyectos",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 2100,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "W7iYYZxHzsTDS6cL",
+   "name": "Aventureros (rivales)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 2200,
+   "color": "#4d6a8c",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "RnqB64WBgFtreQiU",
+   "name": "Ayudantes y mercenarios",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 2300,
+   "color": "#6b6b6b",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "Actor": [
+  {
+   "_id": "yC0RM3z2HA5dG30k",
+   "name": "Personajes pregenerados",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#5f7f3a",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "umhaXEG2hmp5mnHe",
+   "name": "Manadas de esbirros",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 200,
+   "color": "#5f7f3a",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "yRokJ4EFwfGttTka",
+   "name": "Aventureros rivales",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 300,
+   "color": "#4d6a8c",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "kparm0JeHxb1mMW1",
+   "name": "Mazmorra",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 400,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "o5EaLfdwZSNBM7pG",
+   "name": "Panel del DJ",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 500,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "mKJRbLBLrbGF2jLm",
+   "name": "Facciones por entorno",
+   "type": "Actor",
+   "folder": null,
+   "sorting": "a",
+   "sort": 600,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "yzopOvJt75VypJXa",
+   "name": "Valle Silencioso",
+   "type": "Actor",
+   "folder": "mKJRbLBLrbGF2jLm",
+   "sorting": "a",
+   "sort": 700,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "mRRVEc63UxewhAe9",
+   "name": "Cloacas de la Gran Ciudad",
+   "type": "Actor",
+   "folder": "mKJRbLBLrbGF2jLm",
+   "sorting": "a",
+   "sort": 800,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "DhHxbitg219PPPOP",
+   "name": "Mares Coloniales",
+   "type": "Actor",
+   "folder": "mKJRbLBLrbGF2jLm",
+   "sorting": "a",
+   "sort": 900,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "9PyO37BeGgJwDcaj",
+   "name": "Zona de Guerra",
+   "type": "Actor",
+   "folder": "mKJRbLBLrbGF2jLm",
+   "sorting": "a",
+   "sort": 1000,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "Scene": [
+  {
+   "_id": "diwRbiKLcotxIaQ6",
+   "name": "Campaña · El Valle Silencioso",
+   "type": "Scene",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "icCMElClmBONEq9P",
+   "name": "Entornos (mapas regionales)",
+   "type": "Scene",
+   "folder": null,
+   "sorting": "a",
+   "sort": 200,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "NcPNcetnI9W7GCnP",
+   "name": "Planos tácticos",
+   "type": "Scene",
+   "folder": null,
+   "sorting": "a",
+   "sort": 300,
+   "color": "#4d6a8c",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "fA3Ap91ZuwovCmkJ",
+   "name": "Escenas de fase (ilustradas)",
+   "type": "Scene",
+   "folder": null,
+   "sorting": "a",
+   "sort": 400,
+   "color": "#5f7f3a",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "JournalEntry": [
+  {
+   "_id": "irSwnQU2ToR2KNXU",
+   "name": "Libro y referencia",
+   "type": "JournalEntry",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "I5G8ciQKfL4tdFm2",
+   "name": "Campaña y escenas",
+   "type": "JournalEntry",
+   "folder": null,
+   "sorting": "a",
+   "sort": 200,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "RollTable": [
+  {
+   "_id": "5wUvj22M1d7dWTHR",
+   "name": "Tablas de MR · Wicked Ones",
+   "type": "RollTable",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "Playlist": [
+  {
+   "_id": "XSZg5Q9fHUqKarq3",
+   "name": "Música",
+   "type": "Playlist",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  },
+  {
+   "_id": "VBlpBBJMLAPTcL7T",
+   "name": "Efectos",
+   "type": "Playlist",
+   "folder": null,
+   "sorting": "a",
+   "sort": 200,
+   "color": "#6b6b6b",
+   "description": "",
+   "flags": {}
+  }
+ ],
+ "Macro": [
+  {
+   "_id": "yxxaf3qOh2JMZk1A",
+   "name": "MR · Herramientas",
+   "type": "Macro",
+   "folder": null,
+   "sorting": "a",
+   "sort": 100,
+   "color": "#a83228",
+   "description": "",
+   "flags": {}
+  }
+ ]
+}

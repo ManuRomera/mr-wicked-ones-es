@@ -1,0 +1,1232 @@
+[
+ {
+  "_id": "BSHCMZtg8qmQGadk",
+  "name": "Guarida del Paso del Mercader",
+  "type": "dungeon",
+  "img": "modules/mr-wicked-ones-es/assets/escenas/mapa-guarida-1.webp",
+  "system": {
+   "tier": {
+    "min": 0,
+    "value": 1,
+    "max": 4
+   },
+   "entrance": "Boca de cueva oculta tras los riscos del Paso del Mercader, reforzada con carromatos volcados.",
+   "structure": "Cavernas naturales de caliza conectadas con una antigua bóveda tallada de otra era.",
+   "lighting": "Braseros humeantes, antorchas de resina y hongos fosforescentes junto a la cisterna.",
+   "atmospherics": "Olor a humo de leña, humedad fría del arroyo subterráneo y murmullo constante del Corazón.",
+   "hoard": "Cajas de mercancías saqueadas, barriles de licor y cofres de monedas en la Bóveda de Piedra Antigua.",
+   "imps": "Diablillos tiznados de hollín que acarrean piedras y chillan cuando huelen intrusos.",
+   "master_plan": {
+    "step1": "1. Tomar las Cuevas del Paso del Mercader y despertar el Corazón («Un lugar al que llamar hogar»).",
+    "step2": "2. Saquear los grimorios prohibidos de la Abadía de Piedra Blanca («Una biblioteca necesita libros»).",
+    "step3": "3. Capturar la piel del Gran Hombre Lobo del Bosque Susurrante («Piel de lobo para un ritual»).",
+    "step4": "4. Repeler la invasión de los héroes del valle en nuestra guarida («¡Matad a los intrusos!»).",
+    "step5": "5. Completar el Ritual del Eclipse sobre las Colinas («Bajo la luna llena»).",
+    "step6": "6. Lanzar el asalto final contra Ciudad Floresta («La última luna llena»)."
+   },
+   "description": "<h2>Guarida de la Campaña · El Valle Silencioso</h2><p>Esta hoja representa vuestra mazmorra comunitaria tras reclamar las Cuevas del Paso del Mercader. Añadid aquí vuestras Salas de Nivel 3 y llevad el registro de vuestro Plan Maestro.</p>"
+  },
+  "items": [
+   {
+    "_id": "q17VG6o0GnjhDiAo",
+    "name": "Fortaleza de Saqueadores de las Colinas",
+    "type": "dungeon_theme",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.3_67.png",
+    "system": {
+     "special_name": "Pasadizos de emboscada",
+     "special_feature": "Los esbirros y trampas situados cerca de la entrada obtienen +1d en la primera sala.",
+     "theme_checkbox_1_text": "Emboscada activada",
+     "theme_checkbox_1_checked": false,
+     "theme_checkbox_2_text": "Alarma de cuerno",
+     "theme_checkbox_2_checked": false,
+     "description": "Un bastión excavado en la roca desde el que dominar las rutas del Valle Silencioso."
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "mazmorra"
+   }
+  },
+  "folder": "kparm0JeHxb1mMW1"
+ },
+ {
+  "_id": "BQ4Qewwn3u7B5Vxp",
+  "name": "Expedición de Piedra Blanca (Invasión N1)",
+  "type": "party",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-defensor.webp",
+  "system": {
+   "description": "<p>Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía de Piedra Blanca para recuperar la mercancía robada y tantear vuestras defensas.</p>"
+  },
+  "prototypeToken": {
+   "name": "Expedición de Piedra Blanca (Invasión N1)",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": -1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-defensor.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "i5jZqdJIKqrjcxqc",
+    "name": "Alric de Piedra Blanca",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-defensor.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Defender",
+     "adventurer_class_custom": "Alric de Piedra Blanca (Defensor)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Siempre protege primero a sus compañeros. | Ofensivos: Embestida acorazada que derriba a la primera línea, Golpe de martillo que aturde al atacante, Bloquea el pasillo entero con su coraza y escudo | Defensivos: Se interpone recibiendo el golpe sin ceder, Clava su escudo torre en el suelo, Desvía la trampa con su armadura pesada",
+     "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+     "trait_pos_1_custom": "Firme",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Indecisive",
+     "trait_neg_1_custom": "Indeciso",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Challenge",
+     "motivation_1_custom": "Desafío",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Siempre protege primero a sus compañeros.\nMovimientos ofensivos:\n• Embestida acorazada que derriba a la primera línea\n• Golpe de martillo que aturde al atacante\n• Bloquea el pasillo entero con su coraza y escudo\nMovimientos defensivos:\n• Se interpone recibiendo el golpe sin ceder\n• Clava su escudo torre en el suelo\n• Desvía la trampa con su armadura pesada"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "defender",
+      "pasivaCorto": "Siempre protege primero a sus compañeros.",
+      "ofensivos": [
+       "Embestida acorazada que derriba a la primera línea",
+       "Golpe de martillo que aturde al atacante",
+       "Bloquea el pasillo entero con su coraza y escudo"
+      ],
+      "defensivos": [
+       "Se interpone recibiendo el golpe sin ceder",
+       "Clava su escudo torre en el suelo",
+       "Desvía la trampa con su armadura pesada"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "M5T25ZZ0dmbylKhI",
+    "name": "Hermana Valeria",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-cleriga.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Cleric",
+     "adventurer_class_custom": "Hermana Valeria (Clérigo)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Restaura el corazón de un aliado como movimiento. | Ofensivos: Luz sagrada abrasadora contra criaturas oscuras, Golpe contundente con maza bendecida, Consagra el suelo impidiendo la magia oscura | Defensivos: Plegaria de escudo radiante, Sana las heridas de un compañero en el acto, Su símbolo sagrado repele el ataque",
+     "trait_pos_1": "FITD.ADV_TRAIT.Generous",
+     "trait_pos_1_custom": "Generoso",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+     "trait_neg_1_custom": "Terco",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Justice",
+     "motivation_1_custom": "Justicia",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Restaura el corazón de un aliado como movimiento.\nMovimientos ofensivos:\n• Luz sagrada abrasadora contra criaturas oscuras\n• Golpe contundente con maza bendecida\n• Consagra el suelo impidiendo la magia oscura\nMovimientos defensivos:\n• Plegaria de escudo radiante\n• Sana las heridas de un compañero en el acto\n• Su símbolo sagrado repele el ataque"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "cleric",
+      "pasivaCorto": "Restaura el corazón de un aliado como movimiento.",
+      "ofensivos": [
+       "Luz sagrada abrasadora contra criaturas oscuras",
+       "Golpe contundente con maza bendecida",
+       "Consagra el suelo impidiendo la magia oscura"
+      ],
+      "defensivos": [
+       "Plegaria de escudo radiante",
+       "Sana las heridas de un compañero en el acto",
+       "Su símbolo sagrado repele el ataque"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "YHMrZdkyxmNwRt79",
+    "name": "Garrick el Rastreador",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Scout",
+     "adventurer_class_custom": "Garrick el Rastreador (Explorador)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Detecta trampas y puertas secretas con facilidad. | Ofensivos: Desactiva o bloquea el mecanismo de una trampa, Señala el punto vulnerable para que sus aliados ataquen, Ataque rápido de flanqueo y retirada | Defensivos: Advierte el cable o placa de presión a tiempo, Se desliza por un hueco estrecho fuera de peligro, Lanza un abrojo o cuerda para frenar al perseguidor",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+     "trait_neg_1_custom": "Terco",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Exploration",
+     "motivation_1_custom": "Exploración",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Detecta trampas y puertas secretas con facilidad.\nMovimientos ofensivos:\n• Desactiva o bloquea el mecanismo de una trampa\n• Señala el punto vulnerable para que sus aliados ataquen\n• Ataque rápido de flanqueo y retirada\nMovimientos defensivos:\n• Advierte el cable o placa de presión a tiempo\n• Se desliza por un hueco estrecho fuera de peligro\n• Lanza un abrojo o cuerda para frenar al perseguidor"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "scout",
+      "pasivaCorto": "Detecta trampas y puertas secretas con facilidad.",
+      "ofensivos": [
+       "Desactiva o bloquea el mecanismo de una trampa",
+       "Señala el punto vulnerable para que sus aliados ataquen",
+       "Ataque rápido de flanqueo y retirada"
+      ],
+      "defensivos": [
+       "Advierte el cable o placa de presión a tiempo",
+       "Se desliza por un hueco estrecho fuera de peligro",
+       "Lanza un abrojo o cuerda para frenar al perseguidor"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "ypr6pC1vv8UbvbKX",
+    "name": "Guardia de Caravana",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Guard",
+     "hireling_type_custom": "Guardia",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "guard"
+     }
+    }
+   },
+   {
+    "_id": "FdJ2c5cG4eZPfGLz",
+    "name": "Buscatrampas del Gremio",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Trapfinder",
+     "hireling_type_custom": "Buscatrampas",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "trapfinder"
+     }
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "grupo_invasor",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp"
+   }
+  },
+  "folder": "yRokJ4EFwfGttTka"
+ },
+ {
+  "_id": "4gNJxiuvQBMKGRYS",
+  "name": "Cazadores de la Luna de Plata (Invasión N2)",
+  "type": "party",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+  "system": {
+   "description": "<p>Veteranos curtidos en dar caza a bestias sobrenaturales que siguen el rastro del ritual licántropo hasta el corazón de vuestra mazmorra.</p>"
+  },
+  "prototypeToken": {
+   "name": "Cazadores de la Luna de Plata (Invasión N2)",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": -1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-explorador.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "uPcuaMSTVYYavM20",
+    "name": "Vaelen Cazador de Sombras",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Occultslayer",
+     "adventurer_class_custom": "Vaelen Cazador de Sombras (Asesino de lo Oculto)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Especialista en destruir monstruos sobrenaturales. | Ofensivos: Dispara virotes grabados con runas de destierro, Usa bombas de sal, plata y hierro frío, Analiza y explota la debilidad de la raza del monstruo | Defensivos: Activa un talismán protector contra poderes oscuros, Rueda fuera del alcance dejando un abrojo bendito, Corta el vínculo mágico de la trampa o reliquia",
+     "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+     "trait_pos_1_custom": "Persistente",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
+     "trait_neg_1_custom": "Deshonesto",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Justice",
+     "motivation_1_custom": "Justicia",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Especialista en destruir monstruos sobrenaturales.\nMovimientos ofensivos:\n• Dispara virotes grabados con runas de destierro\n• Usa bombas de sal, plata y hierro frío\n• Analiza y explota la debilidad de la raza del monstruo\nMovimientos defensivos:\n• Activa un talismán protector contra poderes oscuros\n• Rueda fuera del alcance dejando un abrojo bendito\n• Corta el vínculo mágico de la trampa o reliquia"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "occultslayer",
+      "pasivaCorto": "Especialista en destruir monstruos sobrenaturales.",
+      "ofensivos": [
+       "Dispara virotes grabados con runas de destierro",
+       "Usa bombas de sal, plata y hierro frío",
+       "Analiza y explota la debilidad de la raza del monstruo"
+      ],
+      "defensivos": [
+       "Activa un talismán protector contra poderes oscuros",
+       "Rueda fuera del alcance dejando un abrojo bendito",
+       "Corta el vínculo mágico de la trampa o reliquia"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "3FFB0LgVevs10644",
+    "name": "Lyra Vientoveloz",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquera.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Spellbow",
+     "adventurer_class_custom": "Lyra Vientoveloz (Arquero Arcano)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Sus flechas atraviesan coberturas y muros finos. | Ofensivos: Flecha espectral que ignora armaduras y escudos, Salva de flechas multiplicadas en el aire, Flecha explosiva que detona al clavarse | Defensivos: Dispara una flecha con cuerda mágica para impulsarse, Barrera de viento que desvía proyectiles y gases, Se mantiene en la retaguardia fuera de alcance",
+     "trait_pos_1": "FITD.ADV_TRAIT.Clever",
+     "trait_pos_1_custom": "Astuto",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Greedy",
+     "trait_neg_1_custom": "Codicioso",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Thrills",
+     "motivation_1_custom": "Emociones",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Sus flechas atraviesan coberturas y muros finos.\nMovimientos ofensivos:\n• Flecha espectral que ignora armaduras y escudos\n• Salva de flechas multiplicadas en el aire\n• Flecha explosiva que detona al clavarse\nMovimientos defensivos:\n• Dispara una flecha con cuerda mágica para impulsarse\n• Barrera de viento que desvía proyectiles y gases\n• Se mantiene en la retaguardia fuera de alcance"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "spellbow",
+      "pasivaCorto": "Sus flechas atraviesan coberturas y muros finos.",
+      "ofensivos": [
+       "Flecha espectral que ignora armaduras y escudos",
+       "Salva de flechas multiplicadas en el aire",
+       "Flecha explosiva que detona al clavarse"
+      ],
+      "defensivos": [
+       "Dispara una flecha con cuerda mágica para impulsarse",
+       "Barrera de viento que desvía proyectiles y gases",
+       "Se mantiene en la retaguardia fuera de alcance"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "7iE5xBWo8vgjW8UE",
+    "name": "Thorn de la Arboleda",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Druid",
+     "adventurer_class_custom": "Thorn de la Arboleda (Druida)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Puede transformarse en bestia salvaje. | Ofensivos: Se transforma en oso o pantera y desgarra, Hace brotar raíces espinosas que atrapan a todos, Comanda a las bestias de la guarida contra sus amos | Defensivos: Adopta forma de serpiente o pájaro para escapar, Piel de corteza que detiene las cuchillas, Se funde con la roca y el barro natural",
+     "trait_pos_1": "FITD.ADV_TRAIT.Honest",
+     "trait_pos_1_custom": "Honesto",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Vengeance",
+     "motivation_1_custom": "Venganza",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Puede transformarse en bestia salvaje.\nMovimientos ofensivos:\n• Se transforma en oso o pantera y desgarra\n• Hace brotar raíces espinosas que atrapan a todos\n• Comanda a las bestias de la guarida contra sus amos\nMovimientos defensivos:\n• Adopta forma de serpiente o pájaro para escapar\n• Piel de corteza que detiene las cuchillas\n• Se funde con la roca y el barro natural"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "druid",
+      "pasivaCorto": "Puede transformarse en bestia salvaje.",
+      "ofensivos": [
+       "Se transforma en oso o pantera y desgarra",
+       "Hace brotar raíces espinosas que atrapan a todos",
+       "Comanda a las bestias de la guarida contra sus amos"
+      ],
+      "defensivos": [
+       "Adopta forma de serpiente o pájaro para escapar",
+       "Piel de corteza que detiene las cuchillas",
+       "Se funde con la roca y el barro natural"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "1BHvZZergaZHprR2",
+    "name": "Korgath Rompecráneos",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-barbaro.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Barbarian",
+     "adventurer_class_custom": "Korgath Rompecráneos (Bárbaro)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Tiene un corazón más. | Ofensivos: Carga salvaje destrozando barricadas y escudos, Tajo circular con hacha a dos manos, Agarra a un enemigo y lo estampa contra otro | Defensivos: Ignora el dolor rugiendo con furia, Detiene el arma enemiga con sus propias manos, Rompe la trampa a golpes brutos",
+     "trait_pos_1": "FITD.ADV_TRAIT.Confident",
+     "trait_pos_1_custom": "Confiado",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Dumb",
+     "trait_neg_1_custom": "Estúpido",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Justice",
+     "motivation_1_custom": "Justicia",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Tiene un corazón más.\nMovimientos ofensivos:\n• Carga salvaje destrozando barricadas y escudos\n• Tajo circular con hacha a dos manos\n• Agarra a un enemigo y lo estampa contra otro\nMovimientos defensivos:\n• Ignora el dolor rugiendo con furia\n• Detiene el arma enemiga con sus propias manos\n• Rompe la trampa a golpes brutos"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "barbarian",
+      "pasivaCorto": "Tiene un corazón más.",
+      "ofensivos": [
+       "Carga salvaje destrozando barricadas y escudos",
+       "Tajo circular con hacha a dos manos",
+       "Agarra a un enemigo y lo estampa contra otro"
+      ],
+      "defensivos": [
+       "Ignora el dolor rugiendo con furia",
+       "Detiene el arma enemiga con sus propias manos",
+       "Rompe la trampa a golpes brutos"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "IyypkJzSWSgWDB4J",
+    "name": "Rastreador Montaraz",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Forester",
+     "hireling_type_custom": "Montaraz",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "forester"
+     }
+    }
+   },
+   {
+    "_id": "qZbVQRQbXKpLSmsS",
+    "name": "Cirujano de Campaña",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Sawbones",
+     "hireling_type_custom": "Cirujano",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Cose heridas entre combates para mantener en pie a los aventureros.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Cose heridas entre combates para mantener en pie a los aventureros."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "sawbones"
+     }
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "grupo_invasor",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp"
+   }
+  },
+  "folder": "yRokJ4EFwfGttTka"
+ },
+ {
+  "_id": "PwRvzrIn5rliNOC9",
+  "name": "Vanguardia de Ciudad Floresta (Invasión N3)",
+  "type": "party",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-inquisidor.webp",
+  "system": {
+   "description": "<p>La élite militar, arcana y religiosa del Valle Silencioso reunida para destruir vuestro Corazón de la Mazmorra antes del eclipse final.</p>"
+  },
+  "prototypeToken": {
+   "name": "Vanguardia de Ciudad Floresta (Invasión N3)",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": -1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-inquisidor.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "v5LMZseCrZuRdrOg",
+    "name": "Alto Inquisidor Malakor",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-inquisidor.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Inquisitor",
+     "adventurer_class_custom": "Alto Inquisidor Malakor (Inquisidor)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 3,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Anula engaños, ilusiones y magia oscura. | Ofensivos: Disparo de ballesta bendecida con plata, Marca al malvado con un anatema que impide ocultarse, Azota con cadenas consagradas ardientes | Defensivos: Su fe inquebrantable disipa el conjuro o truco, Pronuncia un edicto que detiene en seco al atacante, Sacrifica a un subordinado para mantener la misión",
+     "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+     "trait_pos_1_custom": "Persistente",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+     "trait_neg_1_custom": "Terco",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Justice",
+     "motivation_1_custom": "Justicia",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Anula engaños, ilusiones y magia oscura.\nMovimientos ofensivos:\n• Disparo de ballesta bendecida con plata\n• Marca al malvado con un anatema que impide ocultarse\n• Azota con cadenas consagradas ardientes\nMovimientos defensivos:\n• Su fe inquebrantable disipa el conjuro o truco\n• Pronuncia un edicto que detiene en seco al atacante\n• Sacrifica a un subordinado para mantener la misión"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "inquisitor",
+      "pasivaCorto": "Anula engaños, ilusiones y magia oscura.",
+      "ofensivos": [
+       "Disparo de ballesta bendecida con plata",
+       "Marca al malvado con un anatema que impide ocultarse",
+       "Azota con cadenas consagradas ardientes"
+      ],
+      "defensivos": [
+       "Su fe inquebrantable disipa el conjuro o truco",
+       "Pronuncia un edicto que detiene en seco al atacante",
+       "Sacrifica a un subordinado para mantener la misión"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "q5AXZeIbc1hNKV4j",
+    "name": "Comandante Vane",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-centurion.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Centurion",
+     "adventurer_class_custom": "Comandante Vane (Centurión)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Otorga un movimiento defensivo adicional al grupo. | Ofensivos: Avanza en formación cerrada de escudos, Empuja con el escudo y ensarta con la espada corta, Ordena una maniobra táctica disciplinada | Defensivos: Alza un muro de escudos impenetrable, Protege al compañero herido bajo su pavés, Mantiene la posición sin retroceder un palmo",
+     "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+     "trait_pos_1_custom": "Firme",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+     "trait_neg_1_custom": "Terco",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Respect",
+     "motivation_1_custom": "Respeto",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Otorga un movimiento defensivo adicional al grupo.\nMovimientos ofensivos:\n• Avanza en formación cerrada de escudos\n• Empuja con el escudo y ensarta con la espada corta\n• Ordena una maniobra táctica disciplinada\nMovimientos defensivos:\n• Alza un muro de escudos impenetrable\n• Protege al compañero herido bajo su pavés\n• Mantiene la posición sin retroceder un palmo"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "centurion",
+      "pasivaCorto": "Otorga un movimiento defensivo adicional al grupo.",
+      "ofensivos": [
+       "Avanza en formación cerrada de escudos",
+       "Empuja con el escudo y ensarta con la espada corta",
+       "Ordena una maniobra táctica disciplinada"
+      ],
+      "defensivos": [
+       "Alza un muro de escudos impenetrable",
+       "Protege al compañero herido bajo su pavés",
+       "Mantiene la posición sin retroceder un palmo"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "XLV9QMQXpuv3PESE",
+    "name": "Archimago Oakhaven",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-archimago.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Chaosmage",
+     "adventurer_class_custom": "Archimago Oakhaven (Mago del Caos)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Magia poderosa y salvajemente impredecible. | Ofensivos: Desata un vórtice de relámpagos y fuego prismático, Altera la gravedad de la sala de repente, Teletransporta a los combatientes de lugar | Defensivos: Estalla en una onda de fuerza caótica, Su cuerpo parpadea entre planos al ser golpeado, Convierte el proyectil en mariposas o humo",
+     "trait_pos_1": "FITD.ADV_TRAIT.Optimistic",
+     "trait_pos_1_custom": "Optimista",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Indecisive",
+     "trait_neg_1_custom": "Indeciso",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Exploration",
+     "motivation_1_custom": "Exploración",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Magia poderosa y salvajemente impredecible.\nMovimientos ofensivos:\n• Desata un vórtice de relámpagos y fuego prismático\n• Altera la gravedad de la sala de repente\n• Teletransporta a los combatientes de lugar\nMovimientos defensivos:\n• Estalla en una onda de fuerza caótica\n• Su cuerpo parpadea entre planos al ser golpeado\n• Convierte el proyectil en mariposas o humo"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "chaosmage",
+      "pasivaCorto": "Magia poderosa y salvajemente impredecible.",
+      "ofensivos": [
+       "Desata un vórtice de relámpagos y fuego prismático",
+       "Altera la gravedad de la sala de repente",
+       "Teletransporta a los combatientes de lugar"
+      ],
+      "defensivos": [
+       "Estalla en una onda de fuerza caótica",
+       "Su cuerpo parpadea entre planos al ser golpeado",
+       "Convierte el proyectil en mariposas o humo"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "yED2V7akVQaoSAsU",
+    "name": "Sir Roland del Sol",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-caballero.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Knight",
+     "adventurer_class_custom": "Sir Roland del Sol (Caballero)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Armadura pesada e inmune al miedo. | Ofensivos: Duelo honorable: desafía y acorrala al líder, Tajo poderoso de espada bastarda, Carga hombro con hombro inspirando valor | Defensivos: Su armadura de placas desvía el golpe limpiamente, Parada magistral y contraataque, Se mantiene firme pese al dolor por su juramento",
+     "trait_pos_1": "FITD.ADV_TRAIT.Honest",
+     "trait_pos_1_custom": "Honesto",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Cocky",
+     "trait_neg_1_custom": "Engreído",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Respect",
+     "motivation_1_custom": "Respeto",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Armadura pesada e inmune al miedo.\nMovimientos ofensivos:\n• Duelo honorable: desafía y acorrala al líder\n• Tajo poderoso de espada bastarda\n• Carga hombro con hombro inspirando valor\nMovimientos defensivos:\n• Su armadura de placas desvía el golpe limpiamente\n• Parada magistral y contraataque\n• Se mantiene firme pese al dolor por su juramento"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "knight",
+      "pasivaCorto": "Armadura pesada e inmune al miedo.",
+      "ofensivos": [
+       "Duelo honorable: desafía y acorrala al líder",
+       "Tajo poderoso de espada bastarda",
+       "Carga hombro con hombro inspirando valor"
+      ],
+      "defensivos": [
+       "Su armadura de placas desvía el golpe limpiamente",
+       "Parada magistral y contraataque",
+       "Se mantiene firme pese al dolor por su juramento"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "jrrQkxSTMUdmyjje",
+    "name": "Maestro Cerrajero",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Locksmith",
+     "hireling_type_custom": "Cerrajero",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "locksmith"
+     }
+    }
+   },
+   {
+    "_id": "iXUGbRk8dqbGWY95",
+    "name": "Veterano de la Guardia",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Mercenary",
+     "hireling_type_custom": "Mercenario",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Veterano curtido que aporta potencia de combate adicional.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Veterano curtido que aporta potencia de combate adicional."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "mercenary"
+     }
+    }
+   },
+   {
+    "_id": "1Pvjnlff67dzB92R",
+    "name": "Acólito Portador del Sello",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Priest",
+     "hireling_type_custom": "Sacerdote",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "priest"
+     }
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "grupo_invasor",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp"
+   }
+  },
+  "folder": "yRokJ4EFwfGttTka"
+ },
+ {
+  "_id": "O0Z4xHOfWCRQZrYI",
+  "name": "Escuadrón de Purga de las Cloacas (Invasión N2)",
+  "type": "party",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+  "system": {
+   "description": "<p>Grupo de choque especializado en túneles estrechos para campañas en las Cloacas de la Gran Ciudad.</p>"
+  },
+  "prototypeToken": {
+   "name": "Escuadrón de Purga de las Cloacas (Invasión N2)",
+   "displayName": 50,
+   "actorLink": true,
+   "disposition": -1,
+   "texture": {
+    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-explorador.webp"
+   }
+  },
+  "items": [
+   {
+    "_id": "RgTFgfKw5zdneVxr",
+    "name": "Hermano Ignis",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Templar",
+     "adventurer_class_custom": "Hermano Ignis (Templario)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Campeón fanático de la Luz. | Ofensivos: Espadón llameante de juicio solar, Carga purificadora que rompe la moral de los esbirros, Desafío sagrado que obliga al malvado a encararlo | Defensivos: Aura dorada que quema a quien lo golpea de cerca, Resiste el golpe con una oración inquebrantable, Escudo consagrado que refleja la magia oscura",
+     "trait_pos_1": "FITD.ADV_TRAIT.Steady",
+     "trait_pos_1_custom": "Firme",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
+     "trait_neg_1_custom": "Terco",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Justice",
+     "motivation_1_custom": "Justicia",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Campeón fanático de la Luz.\nMovimientos ofensivos:\n• Espadón llameante de juicio solar\n• Carga purificadora que rompe la moral de los esbirros\n• Desafío sagrado que obliga al malvado a encararlo\nMovimientos defensivos:\n• Aura dorada que quema a quien lo golpea de cerca\n• Resiste el golpe con una oración inquebrantable\n• Escudo consagrado que refleja la magia oscura"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "templar",
+      "pasivaCorto": "Campeón fanático de la Luz.",
+      "ofensivos": [
+       "Espadón llameante de juicio solar",
+       "Carga purificadora que rompe la moral de los esbirros",
+       "Desafío sagrado que obliga al malvado a encararlo"
+      ],
+      "defensivos": [
+       "Aura dorada que quema a quien lo golpea de cerca",
+       "Resiste el golpe con una oración inquebrantable",
+       "Escudo consagrado que refleja la magia oscura"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "7Ckwtr0WsyreIO7J",
+    "name": "Maestra Soria",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Alchemist",
+     "adventurer_class_custom": "Maestra Soria (Alquimista)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 2,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Su equipo cuenta con varias pociones. | Ofensivos: Lanza un vial de fuego alquímico o ácido, Bebe un mutágeno de furia y fuerza, Inunda la sala con humo tóxico | Defensivos: Arroja una bomba cegadora a sus pies, Neutraliza el veneno o ácido con un reactivo, Bebe un elixir curativo de emergencia",
+     "trait_pos_1": "FITD.ADV_TRAIT.Clever",
+     "trait_pos_1_custom": "Astuto",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Thrills",
+     "motivation_1_custom": "Emociones",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Su equipo cuenta con varias pociones.\nMovimientos ofensivos:\n• Lanza un vial de fuego alquímico o ácido\n• Bebe un mutágeno de furia y fuerza\n• Inunda la sala con humo tóxico\nMovimientos defensivos:\n• Arroja una bomba cegadora a sus pies\n• Neutraliza el veneno o ácido con un reactivo\n• Bebe un elixir curativo de emergencia"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "alchemist",
+      "pasivaCorto": "Su equipo cuenta con varias pociones.",
+      "ofensivos": [
+       "Lanza un vial de fuego alquímico o ácido",
+       "Bebe un mutágeno de furia y fuerza",
+       "Inunda la sala con humo tóxico"
+      ],
+      "defensivos": [
+       "Arroja una bomba cegadora a sus pies",
+       "Neutraliza el veneno o ácido con un reactivo",
+       "Bebe un elixir curativo de emergencia"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "8x55ohs8yqkppoBW",
+    "name": "Vesper Cuchillo Negro",
+    "type": "adventurer",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesina.webp",
+    "system": {
+     "adventurer_type": "adventurer",
+     "adventurer_class": "FITD.ADV_CLASS.Assassin",
+     "adventurer_class_custom": "Vesper Cuchillo Negro (Asesino)",
+     "hireling_type": "",
+     "hireling_type_custom": "",
+     "tier": 1,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Difícil de seguirle la pista en combate. | Ofensivos: Apuñala desde las sombras donde más duele, Lanza dagas envenenadas en movimiento, Corta las correas de la armadura o suministros | Defensivos: Se desvanece en una esquina oscura, Deja un señuelo y rueda a la espalda del atacante, Desvía la hoja con sus dagas gemelas",
+     "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
+     "trait_pos_1_custom": "Persistente",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
+     "trait_neg_1_custom": "Deshonesto",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Pasiva: Difícil de seguirle la pista en combate.\nMovimientos ofensivos:\n• Apuñala desde las sombras donde más duele\n• Lanza dagas envenenadas en movimiento\n• Corta las correas de la armadura o suministros\nMovimientos defensivos:\n• Se desvanece en una esquina oscura\n• Deja un señuelo y rueda a la espalda del atacante\n• Desvía la hoja con sus dagas gemelas"
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "clase": "assassin",
+      "pasivaCorto": "Difícil de seguirle la pista en combate.",
+      "ofensivos": [
+       "Apuñala desde las sombras donde más duele",
+       "Lanza dagas envenenadas en movimiento",
+       "Corta las correas de la armadura o suministros"
+      ],
+      "defensivos": [
+       "Se desvanece en una esquina oscura",
+       "Deja un señuelo y rueda a la espalda del atacante",
+       "Desvía la hoja con sus dagas gemelas"
+      ]
+     }
+    }
+   },
+   {
+    "_id": "r8WiuREYHmORxomI",
+    "name": "Cazarratas Mayor",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Ratcatcher",
+     "hireling_type_custom": "Cazarratas",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "ratcatcher"
+     }
+    }
+   },
+   {
+    "_id": "4jMBxAV4wbwsqOI4",
+    "name": "Zapador de Túneles",
+    "type": "adventurer",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+    "system": {
+     "adventurer_type": "hireling",
+     "adventurer_class": "",
+     "adventurer_class_custom": "",
+     "hireling_type": "FITD.ADV_TYPE.Miner",
+     "hireling_type_custom": "Minero",
+     "tier": 0,
+     "heart_slashes": 0,
+     "moves_used": 0,
+     "passive": "Detecta muros falsos y puede abrir túneles a través de derrumbes.",
+     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
+     "trait_pos_1_custom": "Servicial",
+     "trait_pos_2": "",
+     "trait_pos_2_custom": "",
+     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
+     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_2": "",
+     "trait_neg_2_custom": "",
+     "motivation_1": "FITD.ADV_MOTIVE.Riches",
+     "motivation_1_custom": "Riquezas",
+     "motivation_2": "",
+     "motivation_2_custom": "",
+     "description": "Detecta muros falsos y puede abrir túneles a través de derrumbes."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "ayudante": "miner"
+     }
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "grupo_invasor",
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp"
+   }
+  },
+  "folder": "yRokJ4EFwfGttTka"
+ },
+ {
+  "_id": "PPawS8q5D5fjmP20",
+  "name": "Panel del DJ · Campaña El Valle Silencioso",
+  "type": "gm_sheet",
+  "img": "modules/mr-wicked-ones-es/assets/escenas/portada.webp",
+  "system": {
+   "current_phase": {
+    "value": 7,
+    "min": 1,
+    "max": 12
+   },
+   "description": "<h2>Guía Rápida del Ciclo de Partida · El Valle Silencioso</h2><p>La campaña comienza directamente en la <strong>Fase de Incursión (Fase 7)</strong> con el asalto inicial <em>«Un lugar al que llamar hogar»</em> contra las Cuevas del Paso del Mercader.</p><ul><li><strong>Hito R1:</strong> Reclamar la cueva y forjar el Corazón de la Mazmorra.</li><li><strong>Hito R2:</strong> Primera Fase de Guarida (excavar salas N1, colocar trampas y reclutar).</li><li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía de Piedra Blanca).</li><li><strong>Hito R4:</strong> Incursión III «Piel de lobo para un ritual» (Bosque Susurrante).</li><li><strong>Hito R5:</strong> Invasión «¡Matad a los intrusos!» (Defensa de la mazmorra).</li><li><strong>Hito R6:</strong> Clímax «La última luna llena» (Eclipse y asalto a Ciudad Floresta).</li></ul>"
+  },
+  "items": [
+   {
+    "_id": "dEi5MSxGlsinRf7q",
+    "name": "Alarma en las Colinas de Piedra Blanca",
+    "type": "project",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+    "system": {
+     "clock_sizes": [
+      4,
+      6,
+      8
+     ],
+     "clock_size": 4,
+     "clock_progress": 0,
+     "description": "Cuando se llena, el Gremio de Mercaderes envía a la Expedición de Piedra Blanca."
+    }
+   },
+   {
+    "_id": "7vwFs24MfRmAWWup",
+    "name": "Sospecha de la Abadía de Piedra Blanca",
+    "type": "project",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+    "system": {
+     "clock_sizes": [
+      4,
+      6,
+      8
+     ],
+     "clock_size": 6,
+     "clock_progress": 0,
+     "description": "Avanza con las represalias mágicas o incursiones contra lugares sagrados."
+    }
+   },
+   {
+    "_id": "cFLd5YFAQG1AXCi1",
+    "name": "El Ritual de la Última Luna Llena",
+    "type": "project",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+    "system": {
+     "clock_sizes": [
+      4,
+      6,
+      8
+     ],
+     "clock_size": 8,
+     "clock_progress": 0,
+     "description": "Reloj maestro del Plan Oscuro para sumir Ciudad Floresta en la noche eterna."
+    }
+   },
+   {
+    "_id": "wOhVKUuRUqZxmxIc",
+    "name": "Invasión 1: Expedición de Piedra Blanca",
+    "type": "invasion",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+    "system": {
+     "adventurers_lv_0": 0,
+     "adventurers_lv_1": 3,
+     "adventurers_lv_2": 0,
+     "adventurers_lv_3": 0,
+     "adventurers_lv_4": 0,
+     "hirelings": 2
+    }
+   },
+   {
+    "_id": "UisTgsaE3QRgnVXT",
+    "name": "Invasión 2: Cazadores de la Luna de Plata",
+    "type": "invasion",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+    "system": {
+     "adventurers_lv_0": 0,
+     "adventurers_lv_1": 2,
+     "adventurers_lv_2": 2,
+     "adventurers_lv_3": 0,
+     "adventurers_lv_4": 0,
+     "hirelings": 2
+    }
+   },
+   {
+    "_id": "fH8QecurEGr1czdo",
+    "name": "Invasión 3: Vanguardia de Ciudad Floresta",
+    "type": "invasion",
+    "img": "systems/wicked-ones/styles/assets/icons/Icon.6_01.png",
+    "system": {
+     "adventurers_lv_0": 0,
+     "adventurers_lv_1": 0,
+     "adventurers_lv_2": 3,
+     "adventurers_lv_3": 1,
+     "adventurers_lv_4": 0,
+     "hirelings": 3
+    }
+   }
+  ],
+  "flags": {
+   "mr-wicked-ones-es": {
+    "tipo": "panel_dj"
+   }
+  },
+  "folder": "o5EaLfdwZSNBM7pG"
+ }
+]

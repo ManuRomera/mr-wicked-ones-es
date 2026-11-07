@@ -1,0 +1,77 @@
+{
+  "title": "Wicked Ones · Tutorial del Director de Juego",
+  "description": "Recorrido por todo lo que trae MR- Wicked Ones: compendios, carpetas, hoja de personaje y modo compacto, tiradas con automatismos, generador y escenas con lectura y música.",
+  "display": true,
+  "canBeResumed": true,
+  "suggestedNextTours": ["mr-wicked-ones-es.jugadores"],
+  "steps": [
+    {
+      "id": "bienvenida",
+      "title": "Bienvenido, Señor Oscuro",
+      "content": "En <em>Wicked Ones</em> las jugadoras son monstruos que excavan su guarida mientras los «héroes» de la superficie las persiguen.\nEste tutorial dura unos minutos y te enseña dónde está cada cosa. Puedes salir cuando quieras y repetirlo desde Configuración → Tours."
+    },
+    {
+      "id": "compendios",
+      "title": "Compendios en dos carpetas",
+      "content": "Aquí está todo lo que se puede arrastrar al mundo.\n<strong>Wicked Ones · Sistema base</strong> contiene lo que trae el sistema (y su traducción). <strong>MR · Wicked Ones</strong> contiene lo que aporta este módulo: campaña, libro, aventureros, salas, equipo, facciones y tablas, cada uno en su subcarpeta.",
+      "selector": "#sidebar",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "carpetas",
+      "title": "Personajes, PNJ y facciones ordenados",
+      "content": "Los actores importados están en carpetas: <strong>Personajes pregenerados</strong>, <strong>Esbirros</strong>, <strong>Aventureros rivales</strong>, <strong>Facciones</strong> (una subcarpeta por entorno), <strong>Mazmorra</strong> y <strong>Panel del DJ</strong>. Los objetos, escenas, diarios y tablas siguen el mismo orden.",
+      "selector": "#sidebar",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "escenas",
+      "title": "Escenas con lectura y música",
+      "content": "Cada escena ilustrada lleva su <strong>texto para leer en voz alta</strong>, su <strong>música</strong> y sus efectos. Con <strong>MR- Dirección</strong> los controlas desde la barra inferior: cambias de escena, lanzas el motivo musical (acecho, incursión, ritual, invasión) y mueves los relojes.",
+      "selector": "#sidebar",
+      "tooltipDirection": "LEFT",
+      "restricted": true
+    },
+    {
+      "id": "diarios",
+      "title": "El libro en diarios",
+      "content": "Empieza por <strong>«00 · Empieza aquí»</strong>. Después tienes la referencia rápida de las cuatro fases del ciclo de juego, las reglas de posición y efecto, los 13 Dioses Oscuros y los cuatro entornos con sus 48 facciones.",
+      "selector": "#sidebar",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "ficha",
+      "title": "La hoja de personaje",
+      "content": "Cada habilidad es una tirada: pulsa su nombre y elige posición y efecto. Los puntos negros ya se ven también con el <strong>modo oscuro</strong>, que puedes activar con el icono de accesibilidad de la cabecera.",
+      "selector": ".wicked-ones.sheet.actor",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "compacta",
+      "title": "Ficha compacta",
+      "content": "Este botón cambia a la <strong>ficha compacta</strong>: reúne en una sola vista lo habitual (retrato, EXP, estrés, habilidades) y deja capacidades, equipo y labores en secciones plegables que se pueden tener abiertas a la vez. La ventana recuerda su tamaño y posición en cada modo.",
+      "selector": ".mr-wo-compacta",
+      "tooltipDirection": "DOWN"
+    },
+    {
+      "id": "generador",
+      "title": "Generador y Oráculo del Señor Oscuro",
+      "content": "Incursiones de aventureros por nivel, hallazgos de excavación, botín y el <strong>modo solitario «El Gran Malo Malvado»</strong>. Se abre desde el icono de la mazmorra de los controles de escena o desde la cabecera de cualquier ficha.",
+      "selector": ".mr-wo-control-generador",
+      "tooltipDirection": "RIGHT",
+      "restricted": true
+    },
+    {
+      "id": "chat",
+      "title": "Tiradas que se resuelven solas",
+      "content": "Al tirar, la tarjeta del chat muestra el resultado y te ofrece lo que toca: <strong>Resistir</strong>, <strong>+Estrés</strong>, gastar un <strong>Corazón Oscuro</strong> y, en las fases de desastre y represalia, mover los <strong>relojes</strong> de la facción. Un clic y se aplica; no hay que apuntar nada a mano.",
+      "selector": "#chat",
+      "tooltipDirection": "LEFT"
+    },
+    {
+      "id": "fin",
+      "title": "Listo para dirigir",
+      "content": "Abre el diario <strong>«00 · Empieza aquí»</strong> y empieza por la Fase de Incursión. Si algo no está claro, este tutorial se repite desde Configuración → MR- Wicked Ones.\n¡Que vuestra guarida sea terrible!"
+    }
+  ]
+}
