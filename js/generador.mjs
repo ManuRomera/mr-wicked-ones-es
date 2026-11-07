@@ -368,11 +368,21 @@ export async function tirarTablaPorClave(clave) {
   const texto = String(r.results?.[0]?.text ?? "").trim();
   const m = texto.match(/^(.{3,80}?)(?::\s+|\s+\()(.*?)\)?$/s);
   const [cabeza, cola] = m ? [m[1].trim(), m[2].trim()] : [texto, ""];
+  // Si la tabla da un objeto del compendio, la tarjeta lo ofrece para arrastrarlo a una hoja
+  const CAT = { "mejunjes-36": "mejunje", "artilugios-36": "artilugio", "pociones-36": "pocion", "reliquias-36": "reliquia" };
+  let objeto = "";
+  if (CAT[clave]) {
+    const eq = game.packs.get(`${MOD}.equipo-es`);
+    const num = texto.match(/^\[(\d+)\]/)?.[1];
+    const nombre = cabeza.replace(/^\[\d+\]\s*/, "").trim().toLowerCase();
+    const it = eq && (await eq.getDocuments()).find(d => d.flags?.[MOD]?.categoria === CAT[clave] && ((num && String(d.flags[MOD].tabla) === num) || d.name.toLowerCase() === nombre));
+    if (it) objeto = `<a class="mrg-arrastrable" draggable="true" data-uuid="${it.uuid}" data-ayuda="Arrastrar objeto||Arrastra este objeto a la hoja de un personaje para dárselo."><img src="${esc(it.img)}" alt=""><span><strong>${esc(it.name)}</strong><small>Arrástralo a la hoja de un personaje</small></span><i class="fa-solid fa-grip"></i></a>`;
+  }
   const titulo = tabla.name.replace(/^\d+\s*·\s*/, "").replace(/\s*\(d\d+\)\s*$/, "");
   const desc = String(tabla.description ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   await publicarTarjetaMR({
     titulo, subtitulo: `${tabla.formula} → ${r.roll.total}`, tipo: "Tabla", estado: null, soloDJ: true,
-    cuerpoHTML: `<h4 class="mrg-tabla-res">${esc(cabeza)}</h4>${cola ? `<p>${esc(cola)}</p>` : ""}${desc ? `<p class="mrg-nota">${esc(desc)}</p>` : ""}`,
+    cuerpoHTML: `<h4 class="mrg-tabla-res">${esc(cabeza)}</h4>${cola ? `<p>${esc(cola)}</p>` : ""}${objeto}${desc ? `<p class="mrg-nota">${esc(desc)}</p>` : ""}`,
     botones: [{ accion: "tirar-tabla", valor: clave, icono: "fa-solid fa-rotate", etiqueta: "Volver a tirar" }]
   });
 }

@@ -362,7 +362,13 @@ export function registrarTarjetas() {
     const raiz = html instanceof HTMLElement ? html : html?.[0];
     if (!raiz) return;
     if (msg.getFlag?.(MOD, "tirada")) { raiz.classList.add("mrg-msg"); enlazarBotones(raiz, msg); return; }
-    if (msg.getFlag?.(MOD, "tarjeta")) { raiz.classList.add("mrg-msg"); return; }
+    if (msg.getFlag?.(MOD, "tarjeta")) {
+      raiz.classList.add("mrg-msg");
+      raiz.querySelectorAll(".mrg-arrastrable").forEach(el => el.addEventListener("dragstart", ev => {
+        ev.dataTransfer.setData("text/plain", JSON.stringify({ type: "Item", uuid: el.dataset.uuid }));
+      }));
+      return;
+    }
     if (game.settings.get(MOD, "estiloTiradas") !== "mr") return;
     const d = leerTarjetaSistema(msg.content);
     if (!d) return;

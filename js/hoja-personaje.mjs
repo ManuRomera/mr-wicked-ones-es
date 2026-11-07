@@ -186,7 +186,7 @@ function crearClase(Base) {
 
     _getHeaderButtons() {
       const b = super._getHeaderButtons();
-      const mk = (k, icon, label) => ({ label, class: `mrg-hb mrg-hb-${k}`, icon, onclick: () => this.accionDock(k) });
+      const mk = (k, icon, label) => ({ label, class: `mrg-hb-${k}`, icon, onclick: () => this.accionDock(k) });
       return [mk("compacta", "fa-solid fa-compress", "Compacta"), mk("libretos", "fa-solid fa-book-skull", "Libretos"), mk("evolucion", "fa-solid fa-dna", "Evolución"),
         mk("heridas", "fa-solid fa-droplet", "Heridas"), mk("recuperar", "fa-solid fa-moon", "Recuperación"), mk("creador", "fa-solid fa-wand-sparkles", "Creador"),
         mk("aspecto", "fa-solid fa-universal-access", "Aspecto"), mk("ayuda", "fa-solid fa-circle-question", "Ayuda"), ...b];

@@ -24,6 +24,15 @@ export function registrarDados() {
       labels: [1, 2, 3, 4, 5, 6].map(i => cara("d6", i)),
       bumpMaps: [1, 2, 3, 4, 5, 6].map(i => cara("bump", i))
     });
+    // Dice So Nice solo precarga las texturas una vez al arrancar: las del preset añadido después hay que cargarlas a mano
+    // (si no, dibuja la ruta del archivo como texto en las caras). Se reintenta hasta que su cargador esté listo.
+    const cargar = async (intentos = 8) => {
+      const p = dice3d.DiceFactory?.systems?.get("mr-wicked-ones")?.dice?.get("d6");
+      if (!p || p.modelLoaded) return;
+      try { p.modelLoading = false; await p.loadTextures(); } catch { /* aún no está listo */ }
+      if (!p.modelLoaded && intentos > 0) setTimeout(() => cargar(intentos - 1), 1500);
+    };
+    setTimeout(() => cargar(), 1000);
     dice3d.addColorset({
       name: "mr-wicked-ones", description: "Wicked Ones · escala de éxito", category: "Wicked Ones",
       foreground: "#ffae00", background: "#16141c", outline: "#000000", edge: "#2a1215", material: "metal"

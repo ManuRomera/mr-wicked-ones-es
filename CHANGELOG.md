@@ -1,3 +1,14 @@
+## 2.3.1 (2026-11-07)
+
+Arreglos de la 2.3.0. / Fixes for 2.3.0.
+
+### Corregido / Fixed
+- **Los iconos de la barra de la ventana no respondían al hacer clic**: Foundry identifica cada botón por una única clase y los míos llevaban dos. / **Window-bar icons now respond to clicks.**
+- **Dados 3D incorrectos**: Dice So Nice dibujaba la ruta de la imagen como texto en las caras; ahora carga las texturas de los dados del módulo (emblema del Señor Oscuro en el 6) con reintentos. / **Wrong 3D dice**: textures were never loaded; now they are.
+
+### Añadido / Added
+- Cuando una tabla del asistente da un **objeto del compendio** (mejunje, artilugio, poción, objeto mágico), la tarjeta lo muestra para **arrastrarlo a la hoja** de un personaje. / Table cards offer the resulting item as draggable.
+
 ## 2.3.0 (2026-11-07)
 
 Hoja más limpia y compacta, asistente solo para el DJ y dados propios sin repeticiones. / Cleaner, more compact sheet; GM-only assistant; custom dice without repeats.

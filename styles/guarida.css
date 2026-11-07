@@ -298,3 +298,8 @@
 .mrg-tabla-b { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .6rem; text-align: left; }
 .mrg-tabla-b span { display: grid; }
 .mrg-tabla-b small { font-weight: 500; font-size: .8em; opacity: .8; line-height: 1.3; }
+.mrg-arrastrable { display: flex; align-items: center; gap: .6rem; margin: .4rem 0; padding: .4rem .6rem; border: 2px dashed var(--g-oro-vivo); border-radius: 6px; background: color-mix(in oklab, var(--g-oro-vivo) 12%, transparent); cursor: grab; color: inherit; text-decoration: none; }
+.mrg-arrastrable img { width: 2.4rem; height: 2.4rem; object-fit: cover; border: 0; border-radius: 4px; flex: none; }
+.mrg-arrastrable span { display: grid; flex: 1; }
+.mrg-arrastrable small { opacity: .75; font-size: .8em; }
+.mrg-arrastrable:active { cursor: grabbing; }
