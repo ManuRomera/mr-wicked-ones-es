@@ -8,10 +8,11 @@
  * aquí y se explican en el panel; el DJ puede apagarlas en los ajustes del módulo.
  */
 import {
-  TIPOS_SALA, COSTE_NIVEL, TRAMO, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
-  validarSala, ajustarSala, reglasSala, costeSala, costeExcavar, puedeGastar, gastar, tipoDeTema, muros, decorar, antorchasTunel,
-  lucesDe, lucesTunel, resumen, abierta, DIRS
+  TIPOS_SALA, COSTE_NIVEL, TRAMO, FORMAS, MECANISMOS, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
+  validarCeldas, ajustarSala, celdasForma, reglasSala, costeSala, costeExcavar, costeTrampa, puedeGastar, gastar, tipoDeTema, muros, decorar,
+  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, resumen, abierta, DIRS
 } from "./core/mazmorra.mjs";
+import { abrirTrampa, abrirExtra } from "./mazmorra-trampas.mjs";
 
 const MOD = "mr-wicked-ones-es";
 const FLAG = "mazmorra";
@@ -20,7 +21,7 @@ const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
 const App = foundry.applications?.api?.ApplicationV2;
 const ALTO = 0.34;   // altura de los bloques, en celdas
 
-let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario";
+let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario", forma = "rect", giro = 0;
 let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [];
 
 export const mapaDe = escena => escena?.getFlag(MOD, FLAG) ?? null;
@@ -31,7 +32,9 @@ const reglasOn = () => game.settings.get(MOD, "mazmorraReglas");
 /* ------------------------------------------------------------------------------------------------ texturas */
 
 const PROPS = ["brasero", "pilar", "estandarte", "estatua", "cofre", "oro", "yunque", "horno", "altar", "trono", "estanteria", "mesa", "jergon", "armero", "barril", "jaula"];
+const TRAMPA_CLAVES = ["muro", "dardos", "pinchos", "roca", "sierra", "pendulo", "gas", "calambre", "mangual", "barril", "pozo", "cuchillas"];   // en el orden de MECANISMOS
 const TEX = {
+  ...Object.fromEntries([...TRAMPA_CLAVES.map(k => [`trampa_${k}`, `objetos/trampa_${k}_iso.webp`]), ["truco_marca", "objetos/truco_marca_iso.webp"]]),
   roca: "terrain/bedrock_iso.webp", tierra: "terrain/earth_iso.webp", tunel: "terrain/tunnel_iso.webp",
   puerta_cerrada: "objetos/puerta_cerrada_iso.webp", puerta_abierta: "objetos/puerta_abierta_iso.webp",
   ...Object.fromEntries(PROPS.map(p => [p, `objetos/${p}_iso.webp`])),
@@ -121,6 +124,24 @@ function dibujarAntorcha(e, S, ox, oy, H) {
   return g;
 }
 
+/** Trampa o truco: su dibujo del manual (o un aviso genérico si el mecanismo es otro) y una insignia con el nivel. */
+const COLOR_NIVEL = [0, 0x6f9a3e, 0xe0a02a, 0xc83a2a];
+function dibujarTrampa(t, S, ox, oy, sube = 0) {
+  const c = new PIXI.Container(), cx = ox + (t.x + 0.5) * S, cy = oy + (t.y + 0.5) * S - sube;
+  const i = MECANISMOS.findIndex(n => n.toLowerCase() === String(t.mecanismo).toLowerCase());
+  const tex = texturas[t.tipo === "truco" ? "truco_marca" : i >= 0 ? `trampa_${TRAMPA_CLAVES[i]}` : ""];
+  if (tex) { const sp = new PIXI.Sprite(tex); sp.anchor.set(0.5); sp.scale.set(Math.min(S * 0.62 / tex.width, S * 0.62 / tex.height)); sp.x = cx; sp.y = cy; c.addChild(sp); }
+  else {
+    const g = new PIXI.Graphics(); g.beginFill(0x1c1612, 0.9).lineStyle(3, COLOR_NIVEL[t.nivel], 1).drawCircle(cx, cy, S * 0.26).endFill();
+    g.lineStyle(0).beginFill(COLOR_NIVEL[t.nivel]).drawPolygon([cx, cy - S * 0.15, cx + S * 0.15, cy + S * 0.11, cx - S * 0.15, cy + S * 0.11]).endFill(); c.addChild(g);
+  }
+  const ins = new PIXI.Graphics(); ins.beginFill(COLOR_NIVEL[t.nivel]).lineStyle(2, 0x000000, 0.9).drawCircle(cx + S * 0.25, cy + S * 0.24, S * 0.1).endFill(); c.addChild(ins);
+  const n = new PIXI.Text(String(t.nivel), { fontSize: Math.round(S * 0.13), fill: 0xffffff, stroke: 0x000000, strokeThickness: 3, fontWeight: "800" }); n.anchor.set(0.5); n.x = cx + S * 0.25; n.y = cy + S * 0.24; c.addChild(n);
+  if (t.revelada) { c.alpha = 0.55; const r = new PIXI.Graphics(); r.lineStyle(2, 0xe0503a, 0.9).drawCircle(cx, cy, S * 0.34); c.addChild(r); }
+  c.zIndex = cy + S * 0.3;
+  return c;
+}
+
 /* ------------------------------------------------------------------------------------------------ vasallos constructores */
 
 const TIPOS_VASALLO = [
@@ -176,14 +197,11 @@ function objetivo(m, v) {
   v.estado = v.ruta.length ? "camina" : "trabaja"; v.t = 1 + Math.random() * 2;
 }
 
-/** Cuántos vasallos hay: crecen con las salas, los túneles y el nivel de la mazmorra. */
-const cuantosVasallos = (m, nivel) => { const r = resumen(m); return Math.min(26, r.salas ? 2 + r.salas * 2 + Math.floor(r.tunel / 14) + nivel * 2 : Math.min(4, Math.ceil(r.tunel / 10))); };
-
 function crearVasallos(m, S, ox, oy) {
   vasallos = [];
   if (!game.settings.get(MOD, "mazmorraVasallos")) return;
   const libres = abiertas(m); if (!libres.length) return;
-  const n = cuantosVasallos(m, Number(actorDe(m)?.system.tier?.value) || 0);
+  const n = numDuendes(m, Number(actorDe(m)?.system.tier?.value) || 0);
   const lienzo = new PIXI.Container(); lienzo.sortableChildren = true; contenedor.addChild(lienzo);
   for (let k = 0; k < n; k++) {
     const mem = vasalloMemoria[k];
@@ -286,6 +304,9 @@ export function dibujar() {
   // 3b) antorchas de los pasillos: de frente en los horizontales, de perfil en los verticales
   for (const e of antorchasTunel(m)) contenedor.addChild(dibujarAntorcha(e, S, ox, oy, H));
 
+  // 3c) trampas y trucos: las ven todos; las descubiertas se dibujan apagadas
+  for (const t of m.trampas ?? []) contenedor.addChild(dibujarTrampa(t, S, ox, oy, abierta(celda(m, t.x, t.y + 1)) ? 0 : S * 0.16));   // junto al muro sur el bloque tapa la parte baja: se sube
+
   // 4) puertas (los muros los pone Foundry; aquí solo el dibujo)
   for (const p of m.puertas) {
     const clave = puertaAbierta(canvas.scene, p, S, ox, oy) ? "puerta_abierta" : "puerta_cerrada";
@@ -331,7 +352,7 @@ const accionesPorDefecto = () => Math.max(2, (game.actors?.filter(a => a.type ==
 
 async function reiniciarObra(escena) {
   const m = foundry.utils.deepClone(mapaDe(escena)); if (!m) return;
-  m.obra = { total: accionesPorDefecto(), gastadas: 0 };
+  m.obra = { total: accionesPorDefecto(), gastadas: 0, extra: 0 };
   await escena.setFlag(MOD, FLAG, m);
   ChatMessage.create({ content: `<p><strong>Nueva fase de acecho.</strong> La mazmorra tiene ${m.obra.total} acciones de descanso para excavar y construir.</p>`, flags: { [MOD]: { tarjeta: true } } });
 }
@@ -387,7 +408,7 @@ export async function reescalarTokens(escena = canvas.scene) {
 
 /* ------------------------------------------------------------------------------------------------ acciones (las ejecuta el DJ) */
 
-const SOLO_DJ = new Set(["obra", "actor"]);
+const SOLO_DJ = new Set(["obra", "actor", "duendes"]);
 
 async function aviso(texto) {
   try {
@@ -396,39 +417,64 @@ async function aviso(texto) {
   } catch { await ChatMessage.create({ content: `<p>${texto}</p>` }); }
 }
 
+const plural = (n, a, b) => `${n} ${n === 1 ? a : b}`;
+
 async function ejecutar(escena, accion, datos, usuario) {
   const actual = mapaDe(escena); if (!actual) return { ok: false, motivo: "Esta escena no tiene mazmorra." };
   const m = foundry.utils.deepClone(actual), reglas = reglasOn();
-  const quien = usuario?.name ?? game.user.name;
+  const quien = esc(usuario?.name ?? game.user.name);
   let r = { ok: true }, texto = "";
+  const cobrar = coste => { if (!reglas) return { ok: true }; const p = puedeGastar(m, coste); if (p.ok) gastar(m, coste); return p; };
+
   if (accion === "celdas") {
     let n = 0;
     for (const [x, y] of datos.celdas) n += (datos.modo === "excavar" ? excavar(m, x, y) : rellenar(m, x, y)) ? 1 : 0;
     r = { ok: n > 0, motivo: n ? "" : "Nada que cambiar ahí." };
     if (r.ok && datos.modo === "excavar") {
-      const coste = costeExcavar(n);
-      if (reglas) { const p = puedeGastar(m, coste); if (!p.ok) return p; gastar(m, coste); }
-      texto = `${esc(quien)} excava ${n} celda${n > 1 ? "s" : ""} de túnel${reglas ? ` (${coste} acción${coste > 1 ? "es" : ""} de descanso)` : ""}.`;
+      const coste = costeExcavar(n), p = cobrar(coste); if (!p.ok) return p;
+      texto = `${quien} excava ${plural(n, "celda", "celdas")} de túnel${reglas ? ` (${plural(coste, "acción", "acciones")} de descanso)` : ""}.`;
     }
   } else if (accion === "sala") {
     const t = TIPOS_SALA[datos.tipo];
-    if (reglas) { const ctx = contextoReglas(m), rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: ctx.materiales }); if (!rg.ok) return rg; }
-    r = construirSala(m, datos.rect, datos.tipo);
-    if (r.ok && reglas) { const p = puedeGastar(m, costeSala(datos.tipo)); if (!p.ok) return p; gastar(m, costeSala(datos.tipo)); }
-    if (r.ok) texto = `${esc(quien)} construye ${t.nombre.toLowerCase()} (${r.rect.w}×${r.rect.h})${reglas && costeSala(datos.tipo) ? `: ${costeSala(datos.tipo)} acción${costeSala(datos.tipo) > 1 ? "es" : ""} de descanso` : ""}.`;
+    if (reglas && t) { const ctx = contextoReglas(m), rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: ctx.materiales }); if (!rg.ok) return rg; }
+    r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas });
+    if (r.ok) {
+      const coste = costeSala(datos.tipo), p = cobrar(coste); if (!p.ok) return p;
+      texto = `${quien} construye ${t.nombre.toLowerCase()} (${r.forma === "rect" ? `${r.rect.w}×${r.rect.h}` : `${FORMAS[r.forma].toLowerCase()}, ${r.celdas} celdas`})${reglas && coste ? `: ${plural(coste, "acción", "acciones")} de descanso` : ""}.`;
+    }
   } else if (accion === "quitarSala") r = { ok: quitarSala(m, datos.id) };
   else if (accion === "puerta") r = alternarPuerta(m, datos.x, datos.y, datos.d);
-  else if (accion === "obra") {
-    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0 };
+  else if (accion === "trampa") {
+    if (datos.op === "poner") {
+      r = ponerTrampa(m, datos);
+      if (r.ok) { const p = cobrar(r.coste); if (!p.ok) return p; texto = `${quien} prepara ${datos.tipo === "truco" ? "un truco" : "una trampa"} de nivel ${r.nivel}${reglas && r.coste ? ` (${plural(r.coste, "acción", "acciones")} de descanso)` : ""}.`; }
+    } else if (datos.op === "editar") {
+      const t = m.trampas?.find(z => z.id === datos.id);
+      if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };
+      const sube = "nivel" in datos.cambios ? Math.max(0, costeTrampa(datos.cambios.nivel) - costeTrampa(t.nivel)) : 0;
+      const p = cobrar(sube); if (!p.ok) return p;
+      r = editarTrampa(m, datos.id, datos.cambios);
+    } else if (datos.op === "quitar") r = { ok: quitarTrampa(m, datos.id) };
+    else if (datos.op === "descubrir") {
+      r = editarTrampa(m, datos.id, { revelada: datos.valor });
+      const t = m.trampas?.find(z => z.id === datos.id);
+      if (r.ok && t) texto = `${t.tipo === "truco" ? "Un truco" : "Una trampa"} (${esc(t.mecanismo)}) ${datos.valor ? "ha sido descubierta por los aventureros" : "vuelve a estar armada"}.`;
+    }
+  } else if (accion === "obra") {
+    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, extra: 0 };
     if (datos.reiniciar) { await reiniciarObra(escena); return { ok: true }; }
-    m.obra.total = Math.max(0, m.obra.total + (datos.delta ?? 0));
+    const d = Math.trunc(datos.delta ?? 0);
+    m.obra.total = Math.max(0, m.obra.total + d);
     m.obra.gastadas = Math.min(m.obra.gastadas, m.obra.total);
-  } else if (accion === "actor") m.actor = datos.id || null;
+    if (datos.extra && d > 0) { m.obra.extra = (m.obra.extra ?? 0) + d; texto = `El DJ concede <strong>+${d}</strong> ${d === 1 ? "acción" : "acciones"} de descanso extra${datos.motivo ? `: ${esc(datos.motivo)}` : ""}.`; }
+  } else if (accion === "duendes") m.duendes = { densidad: Math.min(2, Math.max(0, Number(datos.densidad) || 0)) };
+  else if (accion === "actor") m.actor = datos.id || null;
   if (!r.ok) return r;
   await escena.setFlag(MOD, FLAG, m);
   await sincronizarEntorno(escena);
   if (texto) {
-    const resto = reglas && m.obra ? ` Quedan ${Math.max(0, m.obra.total - m.obra.gastadas)} de ${m.obra.total}.` : "";
+    const cuenta = reglas && m.obra && (["celdas", "sala", "obra"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
+    const resto = cuenta ? ` Quedan ${Math.max(0, m.obra.total - m.obra.gastadas)} de ${m.obra.total}.` : "";
     aviso(texto + resto);
   }
   return r;
@@ -455,6 +501,35 @@ function quitarOverlay() { if (overlay) { overlay.destroy({ children: true }); o
 
 const aCelda = p => { const { S, ox, oy } = geo(), u = (p.x - ox) / S, v = (p.y - oy) / S; return { i: Math.floor(u), j: Math.floor(v), fx: u - Math.floor(u), fy: v - Math.floor(v) }; };
 
+/** Celdas por las que pasa una línea entre dos celdas (para que pintar rápido no deje huecos). */
+function linea(a, b) {
+  const out = []; let x = a.i, y = a.j;
+  const dx = Math.abs(b.i - a.i), dy = Math.abs(b.j - a.j), sx = a.i < b.i ? 1 : -1, sy = a.j < b.j ? 1 : -1; let err = dx - dy;
+  for (;;) { out.push([x, y]); if (x === b.i && y === b.j) break; const e2 = 2 * err; if (e2 > -dy) { err -= dy; x += sx; } if (e2 < dx) { err += dx; y += sy; } }
+  return out;
+}
+
+/** Pulsar una celda con la herramienta de trampas: preparar una nueva o gestionar la que hay. */
+function gestionarTrampa(i, j) {
+  const m = mapaDe(canvas.scene); if (!m) return;
+  const t = (m.trampas ?? []).find(z => z.x === i && z.y === j);
+  if (!t && !abierta(celda(m, i, j))) return ui.notifications.info("Las trampas y los trucos van en un túnel o en una sala.");
+  const o = m.obra, quedan = o ? Math.max(0, o.total - o.gastadas) : null;
+  abrirTrampa({
+    trampa: t, gm: game.user.isGM, reglas: reglasOn(), quedan,
+    activar: async tr => {
+      if (!game.user.isGM) return ui.notifications.info("Solo el DJ tira las trampas; el jugador al cargo narra el resultado.");
+      game.modules.get(MOD).api.ejecutarTiradaCiclo(tr.tipo === "truco" ? "trick" : "trap", tr.nivel, `${tr.mecanismo}${tr.detonador ? ` · ${tr.detonador}` : ""}`);
+    },
+    alElegir: async (op, d, tr) => {
+      if (op === "poner") return pedir("trampa", { op, x: i, y: j, tipo: d.tipo, mecanismo: d.mecanismo, detonador: d.detonador, intencion: d.intencion, nota: d.nota, nivel: d.nivel });
+      if (op === "editar") return pedir("trampa", { op, id: tr.id, cambios: { mecanismo: d.mecanismo, detonador: d.detonador, intencion: d.intencion, nota: d.nota, nivel: d.nivel } });
+      if (op === "quitar") return pedir("trampa", { op, id: tr.id });
+      if (op === "descubrir") return pedir("trampa", { op, id: tr.id, valor: !tr.revelada });
+    }
+  });
+}
+
 function activarHerramienta(h) {
   herramienta = h;
   quitarOverlay();
@@ -466,25 +541,42 @@ function activarHerramienta(h) {
   overlay.addChild(zona, previa, rotulo);
   (canvas.interface ?? canvas.stage).addChild(overlay);
   const mapa = () => mapaDe(canvas.scene);
-  let ini = null, pintadas = new Set();
+  let ini = null, ultima = null, pintadas = new Set();
+  const pinta = (c) => { for (const [i, j] of (ultima ? linea(ultima, c) : [[c.i, c.j]])) pintadas.add(`${i},${j}`); ultima = c; };
+  const libre = () => forma === "libre" && herramienta === "sala";
+  const celdillas = (lista, color, alfa) => { for (const [i, j] of lista) previa.beginFill(color, alfa).drawRect(ox + i * S, oy + j * S, S, S).endFill(); };
 
   const dibujarPrevia = (b) => {
     previa.clear(); rotulo.text = "";
     const m = mapa(); if (!m) return;
-    if (herramienta === "sala") {
+    if (herramienta === "sala" && !libre()) {
       const a = ini ?? b, x = Math.min(a.i, b.i), y = Math.min(a.j, b.j), w = Math.abs(a.i - b.i) + 1, hh = Math.abs(a.j - b.j) + 1;
-      const aj = ajustarSala(m, { x, y, w, h: hh }, tipoSala), t = TIPOS_SALA[tipoSala];
-      const rect = aj ?? { x, y, w, h: hh }, v = aj ? validarSala(m, rect) : { ok: false, motivo: `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` };
+      const aj = ajustarSala(m, { x, y, w, h: hh }, tipoSala, { forma, giro }), t = TIPOS_SALA[tipoSala];
       const coste = costeSala(tipoSala), q = m.obra ? Math.max(0, m.obra.total - m.obra.gastadas) : null;
       const falta = reglasOn() && q !== null && coste > q;
-      const color = v.ok && !falta ? 0x6fe08a : 0xe0503a;
-      previa.lineStyle(3, color, 1).beginFill(color, 0.18).drawRect(ox + rect.x * S, oy + rect.y * S, rect.w * S, rect.h * S).endFill();
-      if (aj?.ajustada) previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + x * S, oy + y * S, w * S, hh * S);   // lo que marcaste, dentro de la sala ya ajustada
-      const info = !v.ok ? v.motivo : falta ? `faltan acciones (cuesta ${coste}, quedan ${q})` : `${t.nombre}${aj.ajustada ? " · ajustada al mínimo" : ""}${reglasOn() && coste ? ` · ${coste} acc.` : ""}`;
-      rotulo.text = `${rect.w}×${rect.h} · ${info}`; rotulo.x = ox + rect.x * S + 6; rotulo.y = oy + rect.y * S + 4;
+      const color = aj && !falta ? 0x6fe08a : 0xe0503a;
+      if (aj) {
+        celdillas(celdasForma(aj, forma, giro), color, 0.28);
+        previa.lineStyle(3, color, 1).drawRect(ox + aj.x * S, oy + aj.y * S, aj.w * S, aj.h * S);
+        if (aj.ajustada) previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + x * S, oy + y * S, w * S, hh * S);   // lo que marcaste, dentro de la sala ya ajustada
+      }
+      const info = !aj ? `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` : falta ? `faltan acciones (cuesta ${coste}, quedan ${q})` : `${t.nombre}${aj.ajustada ? " · ajustada al mínimo" : ""}${reglasOn() && coste ? ` · ${coste} acc.` : ""}`;
+      const r = aj ?? { x, y, w, h: hh }; rotulo.text = `${r.w}×${r.h} · ${info}`; rotulo.x = ox + r.x * S + 6; rotulo.y = oy + r.y * S + 4;
+    } else if (libre()) {
+      const lista = ini ? [...pintadas].map(k => k.split(",").map(Number)) : [[b.i, b.j]], t = TIPOS_SALA[tipoSala];
+      if (ini) {
+        const v = validarCeldas(m, lista), minimo = t.min[0] * t.min[1], ok = v.ok && lista.length >= minimo, color = ok ? 0x6fe08a : 0xe0503a;
+        celdillas(lista, color, 0.3);
+        rotulo.text = `${lista.length} celdas (mín. ${minimo}) · ${v.ok ? (ok ? t.nombre : `faltan ${minimo - lista.length}`) : v.motivo}`;
+        rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4;
+      } else previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
+    } else if (herramienta === "trampa") {
+      previa.lineStyle(2, 0xe0503a, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
+      const t = (m.trampas ?? []).find(z => z.x === b.i && z.y === b.j);
+      if (t) { rotulo.text = `${t.mecanismo}${t.detonador ? ` · ${t.detonador}` : ""} (nivel ${t.nivel})`; rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4; }
     } else {
       previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
-      for (const k of pintadas) { const [i, j] = k.split(",").map(Number); previa.beginFill(herramienta === "excavar" ? 0xc8921f : 0x7d1512, 0.4).drawRect(ox + i * S, oy + j * S, S, S).endFill(); }
+      celdillas([...pintadas].map(k => k.split(",").map(Number)), herramienta === "excavar" ? 0xc8921f : 0x7d1512, 0.4);
       if (herramienta === "excavar" && pintadas.size) {
         const n = [...pintadas].filter(k => { const [i, j] = k.split(",").map(Number); return celda(m, i, j) === "e"; }).length, coste = costeExcavar(n);
         rotulo.text = `${n} celdas${reglasOn() ? ` · ${coste} acc.` : ""}`; rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4;
@@ -495,8 +587,10 @@ function activarHerramienta(h) {
 
   zona.on("pointerdown", ev => {
     const c = lugar(ev);
-    if (herramienta === "sala") ini = c;
-    else if (herramienta === "excavar" || herramienta === "rellenar") { ini = c; pintadas = new Set([`${c.i},${c.j}`]); }
+    if (libre()) { ini = c; ultima = null; pintadas = new Set(); pinta(c); }
+    else if (herramienta === "sala") ini = c;
+    else if (herramienta === "excavar" || herramienta === "rellenar") { ini = c; ultima = null; pintadas = new Set(); pinta(c); }
+    else if (herramienta === "trampa") gestionarTrampa(c.i, c.j);
     else if (herramienta === "puerta") {
       // borde más cercano del punto pulsado; si es un muro, se prueba desde la celda abierta de al lado
       const cand = [["n", c.fy], ["s", 1 - c.fy], ["w", c.fx], ["e", 1 - c.fx]].sort((a, b) => a[1] - b[1]);
@@ -511,15 +605,16 @@ function activarHerramienta(h) {
   });
   zona.on("pointermove", ev => {
     const c = lugar(ev);
-    if (ini && (herramienta === "excavar" || herramienta === "rellenar")) pintadas.add(`${c.i},${c.j}`);
+    if (ini && (libre() || herramienta === "excavar" || herramienta === "rellenar")) pinta(c);
     dibujarPrevia(c);
   });
   const soltar = ev => {
     if (!ini) return;
     const c = lugar(ev);
-    if (herramienta === "sala") pedir("sala", { rect: { x: Math.min(ini.i, c.i), y: Math.min(ini.j, c.j), w: Math.abs(ini.i - c.i) + 1, h: Math.abs(ini.j - c.j) + 1 }, tipo: tipoSala });
+    if (libre()) pedir("sala", { forma: "libre", celdas: [...pintadas].map(k => k.split(",").map(Number)), tipo: tipoSala });
+    else if (herramienta === "sala") pedir("sala", { rect: { x: Math.min(ini.i, c.i), y: Math.min(ini.j, c.j), w: Math.abs(ini.i - c.i) + 1, h: Math.abs(ini.j - c.j) + 1 }, tipo: tipoSala, forma, giro });
     else if (pintadas.size) pedir("celdas", { modo: herramienta, celdas: [...pintadas].map(k => k.split(",").map(Number)) });
-    ini = null; pintadas = new Set(); previa.clear(); rotulo.text = "";
+    ini = null; ultima = null; pintadas = new Set(); previa.clear(); rotulo.text = "";
   };
   zona.on("pointerup", soltar); zona.on("pointerupoutside", soltar);
 }
@@ -529,16 +624,18 @@ function activarHerramienta(h) {
 const HERR = [
   ["excavar", "fa-hammer", "Excavar", "Arrastra sobre la tierra para abrir túneles. Un túnel largo (hasta 8 celdas) es un proyecto de nivel 1: cuesta 1 acción de descanso."],
   ["rellenar", "fa-fill-drip", "Rellenar", "Vuelve a cubrir de tierra un túnel. No cuesta acciones."],
-  ["sala", "fa-vector-square", "Sala", "Arrastra un rectángulo (o pulsa una celda) y la sala se construye sola, ajustada al espacio: si es menor que el mínimo de su tipo, crece hasta él. Los muebles se colocan hacia la puerta."],
+  ["sala", "fa-vector-square", "Sala", "Arrastra (o pulsa una celda) y la sala se construye sola, ajustada al espacio y con la forma elegida; con «Libre» la pintas celda a celda. Los muebles se colocan hacia la puerta."],
   ["puerta", "fa-door-closed", "Puerta", "Pulsa en el borde entre un túnel y una sala (o dos salas) para poner o quitar una puerta. Las salas se recolocan para mirar a la entrada."],
+  ["trampa", "fa-skull-crossbones", "Trampa", "Pulsa una celda para preparar una trampa o un truco (mecanismo, detonador y nivel del manual) o para gestionar la que hay."],
   ["quitarSala", "fa-eraser", "Quitar sala", "Pulsa dentro de una sala para demolerla. No devuelve acciones."]
 ];
 const NIVELES = { 0: "Base", 1: "Nivel 1", 2: "Nivel 2", 3: "Nivel 3" };
+const ICONO_FORMA = { rect: "▭", ovalo: "⬬", ele: "◣", cruz: "✚", libre: "✎" };
 
 export class ConstructorMR extends App {
   static DEFAULT_OPTIONS = {
     id: "mr-wo-constructor", tag: "div", classes: ["mrg", "mrg-ventana", "mrg-cons-app"],
-    window: { title: "Constructor de mazmorras", icon: "fa-solid fa-trowel-bricks", resizable: false }, position: { width: 360, height: "auto" }
+    window: { title: "Constructor de mazmorras", icon: "fa-solid fa-trowel-bricks", resizable: false }, position: { width: 380, height: "auto" }
   };
 
   async _renderHTML() {
@@ -549,13 +646,16 @@ export class ConstructorMR extends App {
     const r = resumen(m), reglas = reglasOn(), ctx = contextoReglas(m);
     const herr = HERR.map(([k, ic, t, ayuda]) => `<button type="button" class="mrg-cons-h ${herramienta === k ? "on" : ""}" data-herr="${k}" aria-pressed="${herramienta === k}" data-ayuda="${esc(t)}||${esc(ayuda)}"><i class="fa-solid ${ic}"></i><span>${t}</span></button>`).join("");
 
-    // tipos de sala: el de la temática primero; los que las reglas ahora mismo no permiten salen apagados con el motivo
+    // forma de la sala
+    const formas = herramienta === "sala" ? `<h4 class="mrg-seccion">Forma de la sala</h4><div class="mrg-cons-formas" role="group" aria-label="Forma de la sala">${Object.entries(FORMAS).map(([k, t]) => `<button type="button" class="mrg-cons-f ${forma === k ? "on" : ""}" data-forma="${k}" aria-pressed="${forma === k}" data-ayuda="${esc(t)}||${esc(k === "libre" ? "Pinta las celdas de la sala una a una, con la forma que quieras: tiene que ser de una sola pieza." : "Arrastra una caja y la sala toma esta forma dentro de ella.")}"><b aria-hidden="true">${ICONO_FORMA[k]}</b><span>${t}</span></button>`).join("")}${forma === "ele" ? `<button type="button" class="mrg-cons-f" data-girar data-ayuda="Girar||Gira la L un cuarto de vuelta."><b aria-hidden="true"><i class="fa-solid fa-rotate-right"></i></b><span>Girar</span></button>` : ""}</div>` : "";
+
+    // tipos de sala: el de la temática primero; los que las reglas ahora mismo no permiten salen marcados con el motivo
     const orden = Object.entries(TIPOS_SALA).sort(([ka, a], [kb, b]) => (kb === ctx.tema) - (ka === ctx.tema) || a.nivel - b.nivel);
     const tipos = orden.map(([k, v]) => {
       const rg = reglas ? reglasSala(m, k, { tema: ctx.tema, materiales: ctx.materiales }) : { ok: true };
       const coste = costeSala(k);
       const sub = `${NIVELES[v.nivel]} · ${v.min[0]}×${v.min[1]}${reglas && coste ? ` · ${coste} acc.` : ""}`;
-      return `<button type="button" class="mrg-cons-t ${tipoSala === k ? "on" : ""} ${rg.ok ? "" : "mrg-cons-t--no"}" data-tipo="${k}" aria-pressed="${tipoSala === k}" data-ayuda="${esc(v.nombre)}||${esc(v.nota + (rg.ok ? "" : " — " + rg.motivo))}"><img src="${RUTA}/rooms/room_${k}_iso.webp" alt="">${k === ctx.tema ? `<em class="mrg-cons-tema" title="Temática de tu mazmorra">★</em>` : ""}<span>${v.nombre}</span><small>${sub}</small></button>`;
+      return `<button type="button" class="mrg-cons-t ${tipoSala === k ? "on" : ""} ${rg.ok ? "" : "mrg-cons-t--no"}" data-tipo="${k}" aria-pressed="${tipoSala === k}" data-ayuda="${esc(v.nombre)}||${esc(v.nota + (rg.ok ? "" : " — " + rg.motivo))}"><img src="${RUTA}/rooms/room_${k}_iso.webp" alt="">${k === ctx.tema ? `<em class="mrg-cons-tema" title="Temática de tu mazmorra">★</em>` : ""}${rg.ok ? "" : `<em class="mrg-cons-cand" title="${esc(rg.motivo)}"><i class="fa-solid fa-lock"></i></em>`}<span>${v.nombre}</span><small>${sub}</small></button>`;
     }).join("");
     const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema, materiales: ctx.materiales }) : { ok: true };
 
@@ -563,7 +663,14 @@ export class ConstructorMR extends App {
     const o = m.obra, quedan = o ? Math.max(0, o.total - o.gastadas) : 0;
     const pips = o ? Array.from({ length: Math.min(o.total, 14) }, (_, i) => `<i class="${i < o.total - o.gastadas ? "on" : ""}"></i>`).join("") : "";
     const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Acciones de descanso</b><span>${quedan}/${o.total}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} de ${o.total}">${pips}</div>
-      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" data-ayuda="Esbirros pagados||Cada panda de esbirros a la que pagues 1 de oro hace una acción de descanso: súmala aquí."><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de descanso: una por PJ más la de los duendes. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase de acecho</button></div>` : ""}</section>` : "";
+      ${o.extra ? `<p class="mrg-nota">Incluye +${o.extra} extra concedidas por el DJ.</p>` : ""}
+      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Da acciones de descanso extra al grupo (esbirros pagados, una capacidad, una gracia…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de descanso: una por PJ más la de los duendes. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
+
+    // duendes constructores
+    const dens = m.duendes?.densidad ?? 1, nD = numDuendes(m, ctx.nivel);
+    const duendes = `<section class="mrg-cons-duendes"><div class="mrg-cons-obra-t"><b>Duendes constructores</b><span>≈ ${nD}</span></div>
+      <input type="range" min="0" max="2" step="0.25" value="${dens}" data-dens ${gm ? "" : "disabled"} aria-label="Densidad de duendes: ${dens} veces lo normal" ${gm ? "" : `title="Solo el DJ la regula"`}>
+      <p class="mrg-nota">Crecen con el nivel de la mazmorra (${ctx.nivel}), sus salas y túneles. Densidad ×${dens}.${gm ? "" : " La regula el DJ."} Cada navegador puede apagarlos en Ajustes.</p></section>`;
 
     // ficha de la mazmorra
     const dungeons = game.actors?.filter(a => a.type === "dungeon") ?? [];
@@ -577,22 +684,24 @@ export class ConstructorMR extends App {
 
     const guia = `<details class="mrg-cons-reglas"><summary><i class="fa-solid fa-scroll"></i> Reglas de construcción</summary>
       <ul>
-        <li><b>Todo es un proyecto de descanso</b> de la fase de acecho (manual, pág. 238): cada PJ tiene una acción; los duendes, otra; y pagando 1 de oro, cada panda de esbirros hace una más.</li>
+        <li><b>Todo es un proyecto de descanso</b> de la fase de acecho (manual, pág. 238): cada PJ tiene una acción; los duendes, otra; y pagando 1 de oro, cada panda de esbirros hace una más. El DJ puede conceder acciones extra.</li>
         <li><b>Nivel 1</b> = 1 tirada (túnel largo, sala menor). <b>Nivel 2</b> = reloj de 4 (guarida, prisión). <b>Nivel 3</b> = reloj de 8 y materiales de una incursión.</li>
-        <li>En el módulo: túnel de hasta ${TRAMO} celdas = ${COSTE_NIVEL[1]}; sala de nivel 1 = ${COSTE_NIVEL[1]}; nivel 2 = ${COSTE_NIVEL[2]}; nivel 3 = ${COSTE_NIVEL[3]}. Santuario y tesoro son la base: gratis y únicos.</li>
+        <li>En el módulo: túnel de hasta ${TRAMO} celdas = ${COSTE_NIVEL[1]}; sala de nivel 1 = ${COSTE_NIVEL[1]}; nivel 2 = ${COSTE_NIVEL[2]}; nivel 3 = ${COSTE_NIVEL[3]}; trampas y trucos, según su nivel (1, 2 o 4). Santuario y tesoro son la base: gratis y únicos.</li>
         <li>Las salas de nivel 3 son de la temática de tu mazmorra; solo puedes construir <b>una</b> de otra temática.</li>
-        <li>El manual no fija medidas («dibujad como os plazca»): los mínimos de cada sala son del módulo, para que quepa su mobiliario.</li>
+        <li>El manual no fija medidas («dibujad como os plazca»; el santuario suele ser de 5×5 o más): los mínimos de cada sala son del módulo y puedes darles la forma que quieras.</li>
         ${gm ? `<li class="mrg-nota">Apaga estas reglas en Ajustes → «El constructor sigue las reglas de obra».</li>` : ""}
       </ul></details>`;
 
     return `<div class="mrg-cons">
       <div class="mrg-cons-herr">${herr}</div>
       ${obra}
+      ${formas}
       <h4 class="mrg-seccion">Tipo de sala</h4><div class="mrg-cons-tipos">${tipos}</div>
-      <p class="mrg-nota"><b>${actual.nombre}</b> — ${actual.nota} Mínimo ${actual.min[0]}×${actual.min[1]}. ${rgActual.ok ? "" : `<span class="mrg-cons-no">${esc(rgActual.motivo)}</span>`}</p>
+      <p class="mrg-nota"><b>${actual.nombre}</b> — ${actual.nota} Mínimo ${actual.min[0]}×${actual.min[1]}${forma === "libre" ? ` (${actual.min[0] * actual.min[1]} celdas)` : ""}. ${rgActual.ok ? "" : `<span class="mrg-cons-no">${esc(rgActual.motivo)}</span>`}</p>
+      ${duendes}
       ${ficha}
       ${guia}
-      <p class="mrg-cons-res"><b>${r.salas}</b> salas · <b>${r.tunel}</b> túneles · <b>${r.puertas}</b> puertas</p>
+      <p class="mrg-cons-res"><b>${r.salas}</b> salas · <b>${r.tunel}</b> túneles · <b>${r.puertas}</b> puertas · <b>${(m.trampas ?? []).length}</b> trampas</p>
       ${gm ? `<div class="mrg-cons-col"><button type="button" class="mrg-btn" data-rehacer data-ayuda="Rehacer muros y luces||Vuelve a crear los muros, las puertas y las luces automáticos a partir del mapa."><i class="fa-solid fa-rotate"></i> Rehacer muros y luces</button></div>` : ""}
     </div>`;
   }
@@ -604,13 +713,17 @@ export class ConstructorMR extends App {
       const b = ev.target.closest("button"); if (!b) return;
       if (b.dataset.herr) { activarHerramienta(herramienta === b.dataset.herr ? null : b.dataset.herr); return this.render(); }
       if (b.dataset.tipo) { tipoSala = b.dataset.tipo; if (herramienta !== "sala") activarHerramienta("sala"); return this.render(); }
+      if (b.dataset.forma) { forma = b.dataset.forma; activarHerramienta("sala"); return this.render(); }
+      if ("girar" in b.dataset) { giro = (giro + 1) % 4; return this.render(); }
       if (b.dataset.obra) { await pedir("obra", { delta: Number(b.dataset.obra) }); return this.render(); }
       if ("obraNueva" in b.dataset) { await pedir("obra", { reiniciar: true }); return this.render(); }
+      if ("extra" in b.dataset) return abrirExtra((n, motivo) => pedir("obra", { delta: n, extra: true, motivo }));
       if ("nueva" in b.dataset) { await nuevaEscena(); return this.render(); }
       if ("convertir" in b.dataset) { await convertirEscena(); return this.render(); }
       if ("rehacer" in b.dataset) { await sincronizarEntorno(); ui.notifications.info("Muros, puertas y luces rehechos."); }
     };
     cont.querySelector("[data-actor]")?.addEventListener("change", async ev => { await pedir("actor", { id: ev.target.value }); this.render(); });
+    cont.querySelector("[data-dens]")?.addEventListener("change", async ev => { await pedir("duendes", { densidad: Number(ev.target.value) }); });
   }
 
   async close(opts) { activarHerramienta(null); return super.close(opts); }

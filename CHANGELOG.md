@@ -1,3 +1,17 @@
+## 2.7.0 (2026-11-08)
+
+Salas de cualquier forma, trampas del manual y más control del DJ. / Free-shape rooms, rulebook traps and more GM control.
+
+### Añadido / Added
+- **Salas de cualquier forma**: además del rectángulo, óvalo, en L (se puede girar), en cruz y **libre** (pintas las celdas una a una, de una sola pieza). La decoración, la alfombra, las antorchas y las luces se adaptan a la forma; si no llega al mínimo del tipo, crece sola. / **Free-shape rooms** (oval, L, cross, freehand); layout, carpet, torches and lights adapt.
+- **Trampas y trucos del manual** (herramienta «Trampa»): mecanismo y detonador de las tablas del manual (d12, con botón de azar) o escritos a mano, nivel 1-3 y nota; los trucos llevan método, detonador e intención. Dibujo propio de cada mecanismo con insignia de nivel; se pueden **activar** (tirada de trampa o de truco del manual en el chat), marcar como **descubiertas** o quitar. Cuestan acciones de descanso según su nivel. / **Traps and tricks** from the rulebook tables with art, level badge, roll and discovered state.
+- **Acciones extra del DJ**: botón «Conceder» (cuántas y por qué: esbirros pagados, capacidad de vocación, flashback, gracia…) que avisa en el chat y deja constancia en el panel. / **GM can grant extra rest actions**.
+- **Densidad de duendes regulable** desde el constructor (el DJ, de 0 a ×2) y ligada al nivel de la mazmorra, sus salas y sus túneles. / **Minion density** slider tied to dungeon level.
+- El panel marca las salas que las reglas no permiten ahora mismo (con el motivo) y recomienda el tamaño del santuario del manual (5×5 o más). / Locked room types explain why.
+
+### Corregido / Fixed
+- **Contraste del constructor** y sus ventanas en todos los modos (claro, oscuro, alto contraste y lectura limpia): el panel usaba un fondo que no seguía al modo de lectura y dejaba el texto claro sobre papel claro. / **Constructor contrast fixed in every display mode.**
+
 ## 2.6.0 (2026-11-08)
 
 Constructor de mazmorras. / Dungeon builder.

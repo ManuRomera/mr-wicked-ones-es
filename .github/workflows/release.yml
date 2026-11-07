@@ -71,6 +71,7 @@ jobs:
             js/experiencia.mjs \
             js/marcadores.mjs \
             js/mazmorra.mjs \
+            js/mazmorra-trampas.mjs \
             js/core/mazmorra.mjs \
             assets/wicked-isometric/terrain/earth_iso.webp \
             js/core/marcadores.mjs \

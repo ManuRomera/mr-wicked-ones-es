@@ -172,7 +172,10 @@ def emblema_sobre(suelo_im, ruta, margen=0.1):
 
 
 OBJETOS = ("brasero", "pilar", "estandarte", "estatua", "puerta_cerrada", "puerta_abierta",
-           "cofre", "oro", "yunque", "horno", "altar", "trono", "estanteria", "mesa", "jergon", "armero", "barril", "jaula")
+           "cofre", "oro", "yunque", "horno", "altar", "trono", "estanteria", "mesa", "jergon", "armero", "barril", "jaula",
+           # trampas del manual (pág. 198, en el orden de MECANISMOS) y marca de truco
+           "trampa_muro", "trampa_dardos", "trampa_pinchos", "trampa_roca", "trampa_sierra", "trampa_pendulo", "trampa_gas",
+           "trampa_calambre", "trampa_mangual", "trampa_barril", "trampa_pozo", "trampa_cuchillas", "truco_marca")
 
 
 def main():
@@ -192,6 +195,8 @@ def main():
     print("Objetos")
     for nombre in OBJETOS:
         ruta = RAW / f"objeto_{nombre}.png"
+        if not ruta.exists():                                           # las trampas se piden como trampa_<mecanismo>.png
+            ruta = RAW / f"{nombre}.png"
         if ruta.exists():
             guardar(recortar_magenta(ruta), SALIDA / "objetos" / f"{nombre}_iso.webp")
         else:

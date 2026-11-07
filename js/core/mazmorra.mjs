@@ -13,7 +13,7 @@
  * orientación: el manual no fija medidas («dibujad como os plazca»), son límites del módulo para que la sala quepa con su decoración.
  */
 export const TIPOS_SALA = {
-  santuario: { nombre: "Santuario", importante: true, nivel: 0, min: [3, 3], unica: true, nota: "El corazón de la mazmorra: trono, estandartes y alfombra hasta el fondo." },
+  santuario: { nombre: "Santuario", importante: true, nivel: 0, min: [3, 3], unica: true, nota: "El corazón de la mazmorra: trono, estandartes y alfombra hasta el fondo. El manual lo quiere grande, de 5×5 o más." },
   tesoro: { nombre: "Tesoro", importante: true, nivel: 0, min: [2, 2], unica: true, nota: "Tu botín. Cuanto más alto es el nivel de la mazmorra, más oro se amontona." },
   menor: { nombre: "Sala menor", importante: false, nivel: 1, min: [2, 2], nota: "Comedor, letrinas, jardín… Sube la moral: +1d en tu siguiente tirada de desastre." },
   guarida: { nombre: "Guarida de esbirros", importante: false, nivel: 2, min: [3, 3], nota: "Una panda de esbirros vive aquí: +1d al defenderla de invasores." },
@@ -39,13 +39,41 @@ export const abierta = c => c === "." || c === "r";
 /** Mapa nuevo: borde de roca y tierra virgen dentro. */
 export function crearMapa(w = 40, h = 28) {
   const t = Array.from({ length: h }, (_, y) => Array.from({ length: w }, (_, x) => (x === 0 || y === 0 || x === w - 1 || y === h - 1 ? "#" : "e")).join(""));
-  return { v: 2, w, h, t, salas: [], puertas: [], obra: { total: 3, gastadas: 0 }, actor: null };
+  return { v: 3, w, h, t, salas: [], puertas: [], trampas: [], obra: { total: 3, gastadas: 0, extra: 0 }, duendes: { densidad: 1 }, actor: null };
 }
 
 export const celda = (m, x, y) => (x < 0 || y < 0 || x >= m.w || y >= m.h ? "#" : m.t[y][x]);
 function poner(m, x, y, c) { if (x < 0 || y < 0 || x >= m.w || y >= m.h) return; m.t[y] = m.t[y].slice(0, x) + c + m.t[y].slice(x + 1); }
 
-export const salaEn = (m, x, y) => m.salas.find(s => x >= s.x && x < s.x + s.w && y >= s.y && y < s.y + s.h) ?? null;
+/** Las salas son rectángulos o, con `celdas`, cualquier forma (óvalo, L, cruz, libre). `x, y, w, h` es siempre su caja. */
+const _conj = new WeakMap();
+export function contiene(s, i, j) {
+  if (!s.celdas) return i >= s.x && i < s.x + s.w && j >= s.y && j < s.y + s.h;
+  let c = _conj.get(s);
+  if (!c || c.n !== s.celdas.length) { c = { n: s.celdas.length, set: new Set(s.celdas.map(([a, b]) => `${a},${b}`)) }; _conj.set(s, c); }
+  return c.set.has(`${i},${j}`);
+}
+export const celdasDe = s => s.celdas ?? Array.from({ length: s.w * s.h }, (_, n) => [s.x + (n % s.w), s.y + Math.floor(n / s.w)]);
+export const salaEn = (m, x, y) => m.salas.find(s => contiene(s, x, y)) ?? null;
+
+export const FORMAS = { rect: "Rectángulo", ovalo: "Óvalo", ele: "En L", cruz: "En cruz", libre: "Libre" };
+
+function miembroForma(f, u, v, w, h, giro) {
+  if (f === "ovalo") { const dx = (u + 0.5 - w / 2) / (w / 2), dy = (v + 0.5 - h / 2) / (h / 2); return dx * dx + dy * dy <= 1; }
+  if (f === "ele") {
+    const t = Math.max(1, Math.floor(Math.min(w, h) / 2)), izq = giro === 0 || giro === 1, abajo = giro === 0 || giro === 3;
+    return (izq ? u < t : u >= w - t) || (abajo ? v >= h - t : v < t);
+  }
+  if (f === "cruz") {
+    const tw = Math.max(1, Math.round(w / 3)), th = Math.max(1, Math.round(h / 3)), cx = Math.floor((w - tw) / 2), cy = Math.floor((h - th) / 2);
+    return (u >= cx && u < cx + tw) || (v >= cy && v < cy + th);
+  }
+  return true;
+}
+/** Celdas [u, v] de una forma dentro de una caja de w×h. */
+export const mascara = (forma, w, h, giro = 0) => { const out = []; for (let v = 0; v < h; v++) for (let u = 0; u < w; u++) if (miembroForma(forma, u, v, w, h, giro)) out.push([u, v]); return out; };
+/** Celdas absolutas de una caja con su forma. */
+export const celdasForma = (r, forma = "rect", giro = 0) => mascara(forma, r.w, r.h, giro).map(([u, v]) => [r.x + u, r.y + v]);
 
 export function excavar(m, x, y) {
   if (celda(m, x, y) !== "e") return false;
@@ -56,6 +84,7 @@ export function rellenar(m, x, y) {
   if (celda(m, x, y) !== ".") return false;
   poner(m, x, y, "e");
   m.puertas = m.puertas.filter(p => !(p.x === x && p.y === y) && !(p.x + DIRS[p.d][0] === x && p.y + DIRS[p.d][1] === y));
+  if (m.trampas) m.trampas = m.trampas.filter(t => !(t.x === x && t.y === y));
   return true;
 }
 
@@ -68,6 +97,19 @@ export function validarSala(m, r) {
   return { ok: true };
 }
 
+/** Lo mismo para una lista de celdas sueltas (formas libres): dentro del mapa, sin pisar otra sala y de una sola pieza. */
+export function validarCeldas(m, cels) {
+  if (!cels?.length) return { ok: false, motivo: "No hay celdas marcadas." };
+  const set = new Set(cels.map(([i, j]) => `${i},${j}`));
+  for (const [i, j] of cels) {
+    if (i < 1 || j < 1 || i >= m.w - 1 || j >= m.h - 1) return { ok: false, motivo: "Se sale del mapa o toca la roca base." };
+    if (celda(m, i, j) === "r") return { ok: false, motivo: "Ya hay otra sala aquí." };
+  }
+  const visto = new Set([`${cels[0][0]},${cels[0][1]}`]), cola = [cels[0]];
+  while (cola.length) { const [i, j] = cola.pop(); for (const [dx, dy] of Object.values(DIRS)) { const k = `${i + dx},${j + dy}`; if (set.has(k) && !visto.has(k)) { visto.add(k); cola.push([i + dx, j + dy]); } } }
+  return visto.size === set.size ? { ok: true } : { ok: false, motivo: "La sala tiene que ser de una sola pieza." };
+}
+
 /** ¿Cabe un `w`×`h` en el mínimo del tipo (en cualquier orientación)? */
 export function cabe(tipo, w, h) {
   const [a, b] = TIPOS_SALA[tipo]?.min ?? [1, 1];
@@ -75,20 +117,21 @@ export function cabe(tipo, w, h) {
 }
 
 /**
- * La sala se adapta al espacio marcado: si el rectángulo es menor que el mínimo del tipo, crece hacia la derecha y abajo
- * (o a la izquierda y arriba si no hay sitio) hasta el mínimo, en la orientación que menos obliga a crecer.
- * Devuelve el rectángulo final (con `ajustada: true` si cambió) o `null` si no hay espacio.
+ * La sala se adapta al espacio marcado: si es menor que el mínimo del tipo (en tamaño y, con forma, en celdas), crece hacia la
+ * derecha y abajo (o a la izquierda y arriba si no hay sitio) lo justo. Devuelve el rectángulo final (con `ajustada: true` si
+ * cambió) o `null` si no hay espacio.
  */
-export function ajustarSala(m, r, tipo) {
-  if (cabe(tipo, r.w, r.h)) return { x: r.x, y: r.y, w: r.w, h: r.h, ajustada: false };
+export function ajustarSala(m, r, tipo, { forma = "rect", giro = 0 } = {}) {
   const [a, b] = TIPOS_SALA[tipo]?.min ?? [1, 1];
-  const opciones = [[a, b], [b, a]].map(([mw, mh]) => [Math.max(r.w, mw), Math.max(r.h, mh)]).sort((p, q) => p[0] * p[1] - q[0] * q[1]);
-  for (const [w, h] of opciones) {
+  const vale = (w, h) => cabe(tipo, w, h) && (forma === "rect" || mascara(forma, w, h, giro).length >= a * b);
+  for (let s = 0; s <= 16; s++) for (let dw = s; dw >= 0; dw--) {
+    const w = r.w + dw, h = r.h + (s - dw);
+    if (!vale(w, h)) continue;
     const cand = [];
-    for (let dx = 0; dx <= w - r.w; dx++) for (let dy = 0; dy <= h - r.h; dy++) cand.push({ x: r.x - dx, y: r.y - dy, w, h, d: dx + dy });
+    for (let dx = 0; dx <= dw; dx++) for (let dy = 0; dy <= s - dw; dy++) cand.push({ x: r.x - dx, y: r.y - dy, w, h, d: dx + dy });
     cand.sort((p, q) => p.d - q.d);
-    const ok = cand.find(c => validarSala(m, c).ok);
-    if (ok) return { x: ok.x, y: ok.y, w: ok.w, h: ok.h, ajustada: true };
+    const ok = cand.find(c => validarCeldas(m, celdasForma(c, forma, giro)).ok);
+    if (ok) return { x: ok.x, y: ok.y, w: ok.w, h: ok.h, ajustada: s > 0 };
   }
   return null;
 }
@@ -121,18 +164,32 @@ export function puedeGastar(m, coste) {
 }
 export function gastar(m, coste) { if (m.obra && coste > 0) m.obra.gastadas = Math.min(m.obra.total, m.obra.gastadas + coste); }
 
-export function construirSala(m, r, tipo) {
-  const t = TIPOS_SALA[tipo];
+/**
+ * Construye una sala. `opts.forma`: rect, ovalo, ele (con `giro` 0-3), cruz (se ajustan a la caja `r`) o libre (`opts.celdas`,
+ * las celdas marcadas una a una: sin ajuste, pero de una sola pieza y con las celdas mínimas del tipo).
+ */
+export function construirSala(m, r, tipo, opts = {}) {
+  const t = TIPOS_SALA[tipo], forma = FORMAS[opts.forma] ? opts.forma : "rect", giro = opts.giro ?? 0;
   if (!t) return { ok: false, motivo: "Tipo de sala desconocido." };
-  const aj = ajustarSala(m, r, tipo);
-  if (!aj) return { ok: false, motivo: `${t.nombre} necesita al menos ${t.min[0]}×${t.min[1]} y aquí no hay sitio.` };
-  const rect = { x: aj.x, y: aj.y, w: aj.w, h: aj.h };
-  const v = validarSala(m, rect);
-  if (!v.ok) return v;
+  let rect, cels, ajustada = false;
+  if (forma === "libre") {
+    cels = (opts.celdas ?? []).map(([i, j]) => [i, j]);
+    const minimo = t.min[0] * t.min[1];
+    if (cels.length < minimo) return { ok: false, motivo: `${t.nombre} necesita al menos ${minimo} celdas (${t.min[0]}×${t.min[1]}).` };
+    const v = validarCeldas(m, cels); if (!v.ok) return v;
+    const xs = cels.map(c => c[0]), ys = cels.map(c => c[1]);
+    rect = { x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs) + 1, h: Math.max(...ys) - Math.min(...ys) + 1 };
+  } else {
+    const aj = ajustarSala(m, r, tipo, { forma, giro });
+    if (!aj) return { ok: false, motivo: `${t.nombre} necesita al menos ${t.min[0]}×${t.min[1]} y aquí no hay sitio.` };
+    rect = { x: aj.x, y: aj.y, w: aj.w, h: aj.h }; ajustada = aj.ajustada;
+    cels = celdasForma(rect, forma, giro);
+    const v = validarCeldas(m, cels); if (!v.ok) return v;
+  }
   const id = `s${(m.salas.reduce((a, s) => Math.max(a, Number(s.id.slice(1)) || 0), 0)) + 1}`;
-  for (let j = rect.y; j < rect.y + rect.h; j++) for (let i = rect.x; i < rect.x + rect.w; i++) poner(m, i, j, "r");
-  m.salas.push({ id, tipo, ...rect });
-  return { ok: true, id, rect, ajustada: aj.ajustada };
+  for (const [i, j] of cels) poner(m, i, j, "r");
+  m.salas.push({ id, tipo, ...rect, ...(forma === "rect" ? {} : { forma, celdas: cels }) });
+  return { ok: true, id, rect, ajustada, forma, celdas: cels.length };
 }
 
 /** Zona de una celda abierta: el id de su sala o «tunel». Los muros se levantan entre zonas distintas. */
@@ -162,7 +219,7 @@ export const hayPuerta = (m, x, y, d) => { const c = canon(x, y, d); return m.pu
 export function quitarSala(m, id) {
   const s = m.salas.find(z => z.id === id);
   if (!s) return false;
-  for (let j = s.y; j < s.y + s.h; j++) for (let i = s.x; i < s.x + s.w; i++) poner(m, i, j, ".");
+  for (const [i, j] of celdasDe(s)) poner(m, i, j, ".");
   m.salas = m.salas.filter(z => z.id !== id);
   m.puertas = m.puertas.filter(p => bordePuertaValido(m, p.x, p.y, p.d));
   return true;
@@ -205,7 +262,7 @@ const OPUESTO = { n: "s", s: "n", e: "w", w: "e" };
 
 /** Puertas de una sala → `[{x, y, lado}]`: (x, y) es la celda de dentro y `lado` el borde de la sala por el que se entra. */
 export function entradasDe(sala, puertas = []) {
-  const dentro = (i, j) => i >= sala.x && i < sala.x + sala.w && j >= sala.y && j < sala.y + sala.h;
+  const dentro = (i, j) => contiene(sala, i, j);
   const out = [];
   for (const p of puertas) {
     const [dx, dy] = DIRS[p.d], a = [p.x, p.y], b = [p.x + dx, p.y + dy], ia = dentro(...a), ib = dentro(...b);
@@ -234,10 +291,24 @@ export function decorar(sala, puertas = [], opts = {}) {
   const k = (i, j) => `${i},${j}`;
   const reservado = new Set(), ocupado = new Set();
   for (const e of entradas) { reservado.add(k(e.x, e.y)); const [dx, dy] = DIRS[OPUESTO[e.lado]]; reservado.add(k(e.x + dx, e.y + dy)); }
-  const dentro = (u, v) => u >= 0 && u < W && v >= 0 && v < D;
+  const dentro = (u, v) => u >= 0 && u < W && v >= 0 && v < D && contiene(sala, ...f(u, v));
   const libre = (u, v) => dentro(u, v) && !ocupado.has(k(...f(u, v))) && !reservado.has(k(...f(u, v)));
-  const poner = (t, u, v, extra = {}) => { if (!libre(u, v)) return false; const [i, j] = f(u, v); ocupado.add(k(i, j)); el.push({ tipo: t, x: i + 0.5, y: j + 0.5, ...extra }); return true; };
-  const u0 = Math.floor((W - 1) / 2), v0 = Math.floor((D - 1) / 2);
+  /** En una forma que no es rectángulo, lo que cae fuera se corre a la celda libre más cercana (los pilares no: se omiten). */
+  const cerca = (u, v) => {
+    let mejor = null, md = 9;
+    for (let dv = -2; dv <= 2; dv++) for (let du = -2; du <= 2; du++) { if (!libre(u + du, v + dv)) continue; const d = Math.abs(du) + Math.abs(dv) + (dv < 0 ? 0.5 : 0); if (d < md) { md = d; mejor = [u + du, v + dv]; } }
+    return md <= 3 ? mejor : null;
+  };
+  const poner = (t, u, v, extra = {}) => {
+    if (sala.celdas && t !== "pilar" && !dentro(u, v)) { const c = cerca(u, v); if (!c) return false; [u, v] = c; }
+    if (!libre(u, v)) return false;
+    const [i, j] = f(u, v); ocupado.add(k(i, j)); el.push({ tipo: t, x: i + 0.5, y: j + 0.5, ...extra }); return true;
+  };
+  let u0 = Math.floor((W - 1) / 2), v0 = Math.floor((D - 1) / 2);
+  if (sala.celdas) {   // el emblema va en la celda de la sala más cercana al centro de su caja
+    let md = Infinity;
+    for (let v = 0; v < D; v++) for (let u = 0; u < W; u++) if (dentro(u, v)) { const d = (u - (W - 1) / 2) ** 2 + (v - (D - 1) / 2) ** 2; if (d < md - 1e-9) { md = d; u0 = u; v0 = v; } }
+  }
   { const [i, j] = f(u0, v0); el.push({ tipo: "emblema", x: i + 0.5, y: j + 0.5 }); ocupado.add(k(i, j)); }
   const area = W * D, med = W >= 3 && D >= 3, grande = area > 15 || Math.max(W, D) >= 6;
 
@@ -245,7 +316,7 @@ export function decorar(sala, puertas = [], opts = {}) {
   const alfombra = (hasta) => {
     if (!(med && D - 1 - hasta >= 1)) return;
     const tramos = []; let ini = null;
-    for (let v = D - 1; v >= hasta; v--) { if (v === v0) { if (ini !== null) { tramos.push([ini, v + 1]); ini = null; } continue; } if (ini === null) ini = v; }
+    for (let v = D - 1; v >= hasta; v--) { if (v === v0 || !dentro(u0, v)) { if (ini !== null) { tramos.push([ini, v + 1]); ini = null; } continue; } if (ini === null) ini = v; }
     if (ini !== null) tramos.push([ini, hasta]);
     for (const [va, vb] of tramos) {
       const [i1, j1] = f(u0, va), [i2, j2] = f(u0, vb);
@@ -253,13 +324,17 @@ export function decorar(sala, puertas = [], opts = {}) {
       for (let v = Math.min(va, vb); v <= Math.max(va, vb); v++) ocupado.add(k(...f(u0, v)));
     }
   };
-  /** Antorchas en los muros laterales (a lo largo de la sala), de 4 en 4 celdas de profundidad. */
+  /** Antorchas en los muros laterales (a lo largo de la sala), de 4 en 4 celdas de profundidad, en la primera y la última celda de cada fila. */
   const antorchas = () => {
     if (D < 4) return;
-    for (let v = 1; v < D - 1; v += 3) for (const izq of [true, false]) {
-      const [i, j] = f(izq ? 0 : W - 1, v), l = lado(izq);
-      if (l === "s" || reservado.has(k(i, j))) continue;
-      el.push({ tipo: "antorcha", x: i + 0.5, y: j + 0.5, lado: l });
+    for (let v = 1; v < D - 1; v += 3) {
+      const fila = []; for (let u = 0; u < W; u++) if (dentro(u, v)) fila.push(u);
+      if (!fila.length) continue;
+      for (const [u, izq] of [[fila[0], true], [fila[fila.length - 1], false]]) {
+        const [i, j] = f(u, v), l = lado(izq);
+        if (l === "s" || reservado.has(k(i, j))) continue;
+        el.push({ tipo: "antorcha", x: i + 0.5, y: j + 0.5, lado: l });
+      }
     }
   };
   const esquinas = (t, lejos = true, cerca = true) => {
@@ -373,7 +448,8 @@ export function lucesDe(sala, puertas = [], opts = {}) {
   const { x, y, w, h } = sala, luces = [];
   if ((w >= 3 && h >= 3) || TIPOS_SALA[sala.tipo]?.importante) {
     const dim = Math.min(10, Math.max(3, Math.ceil(Math.hypot(w, h) / 2) + 1));
-    luces.push({ x: x + w / 2, y: y + h / 2, dim, bright: Math.max(1, Math.round(dim / 2)), color: "#ff8833", tipo: "sala" });
+    const cs = celdasDe(sala), cx = cs.reduce((a, c) => a + c[0] + 0.5, 0) / cs.length, cy = cs.reduce((a, c) => a + c[1] + 0.5, 0) / cs.length;
+    luces.push({ x: cx, y: cy, dim, bright: Math.max(1, Math.round(dim / 2)), color: "#ff8833", tipo: "sala" });
   }
   if (w >= 3 && h >= 3) for (const e of decorar(sala, puertas, opts)) {
     if (e.tipo === "brasero") luces.push({ x: e.x, y: e.y, dim: 2.5, bright: 1, color: "#ff9a3c", tipo: "brasero" });
@@ -384,6 +460,41 @@ export function lucesDe(sala, puertas = [], opts = {}) {
 
 /** Luces de las antorchas de los túneles (radio pequeño: solo alumbran su tramo). */
 export const lucesTunel = m => antorchasTunel(m).map(a => ({ x: a.x, y: a.y, dim: 3.5, bright: 1, color: "#ff9a3c", tipo: "antorcha" }));
+
+/** Mecanismos y detonadores de trampa del manual (pág. 198, d12 cada uno). Se puede escribir otro. */
+export const MECANISMOS = ["Muro aplastante", "Dardos", "Pinchos", "Roca", "Sierra", "Péndulo", "Gas", "Calambre", "Mangual", "Barril explosivo", "Pozo", "Suelo con cuchillas"];
+export const DETONADORES = ["Placa de presión", "Cordel", "Mágica", "Detección", "Ilusión", "Camuflaje", "Sonido", "Retirar un objeto", "Puerta falsa", "Centinela", "Puzle fallido", "Palanca falsa"];
+/** Las trampas y los trucos son proyectos de descanso como el resto: nivel 1 = 1 acción, 2 = 2, 3 = 4. */
+export const costeTrampa = nivel => COSTE_NIVEL[Math.min(3, Math.max(1, nivel | 0))] ?? 1;
+
+const limpia = (v, n) => String(v ?? "").trim().slice(0, n);
+
+/** Trampa (mecanismo + detonador) o truco (método + detonador + intención) en una celda abierta. Nacen ocultas. */
+export function ponerTrampa(m, t) {
+  if (!abierta(celda(m, t.x, t.y))) return { ok: false, motivo: "Una trampa va en un túnel o en una sala, no en la roca." };
+  m.trampas ??= [];
+  if (m.trampas.some(z => z.x === t.x && z.y === t.y)) return { ok: false, motivo: "Ya hay una trampa o un truco en esa celda." };
+  const tipo = t.tipo === "truco" ? "truco" : "trampa", nivel = Math.min(3, Math.max(1, t.nivel | 0 || 1));
+  const id = `t${m.trampas.reduce((a, z) => Math.max(a, Number(z.id.slice(1)) || 0), 0) + 1}`;
+  m.trampas.push({ id, tipo, x: t.x, y: t.y, nivel, mecanismo: limpia(t.mecanismo, 60), detonador: limpia(t.detonador, 60), intencion: limpia(t.intencion, 160), nota: limpia(t.nota, 200), revelada: false });
+  return { ok: true, id, nivel, coste: costeTrampa(nivel) };
+}
+export function editarTrampa(m, id, cambios) {
+  const t = m.trampas?.find(z => z.id === id); if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };
+  for (const k of ["mecanismo", "detonador", "intencion", "nota"]) if (k in cambios) t[k] = limpia(cambios[k], k === "nota" ? 200 : k === "intencion" ? 160 : 60);
+  if ("nivel" in cambios) t.nivel = Math.min(3, Math.max(1, cambios.nivel | 0 || 1));
+  if ("revelada" in cambios) t.revelada = Boolean(cambios.revelada);
+  return { ok: true };
+}
+export function quitarTrampa(m, id) { const n = m.trampas?.length ?? 0; m.trampas = (m.trampas ?? []).filter(z => z.id !== id); return m.trampas.length < n; }
+
+/** Cuántos duendes constructores recorren la mazmorra: crecen con su nivel, sus salas y sus túneles; `densidad` (0-2) la regula el DJ. */
+export function numDuendes(m, nivel = 0, densidad = m.duendes?.densidad ?? 1) {
+  const r = resumen(m);
+  if (!r.tunel && !r.salas) return 0;
+  const base = 1 + nivel * 2 + r.salas + Math.floor(r.tunel / 20);
+  return Math.max(0, Math.min(40, Math.round(base * densidad)));
+}
 
 /** Recuento rápido para el panel del constructor. */
 export function resumen(m) {

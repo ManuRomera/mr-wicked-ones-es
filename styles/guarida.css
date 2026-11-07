@@ -358,9 +358,9 @@ span.mrg-marc-seg { cursor: default; }
 .mrg-marc-pie .mrg-btn { width: auto; }
 
 /* ── v2.6 · Constructor de mazmorras ──────────────────────────────────────── */
-.application.mrg-ventana.mrg-cons-app .window-content { padding: .7rem .8rem 1rem; background: var(--g-fondo); color: var(--g-tinta); }
+.application.mrg-ventana.mrg-cons-app .window-content { padding: .7rem .8rem 1rem; background: var(--g-papel); color: var(--g-tinta); }
 .mrg-cons { display: grid; gap: .55rem; }
-.mrg-cons-herr { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; }
+.mrg-cons-herr { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; }
 .mrg-cons-h { appearance: none; cursor: pointer; width: auto; height: auto; display: grid; justify-items: center; gap: .15rem; padding: .45rem .1rem; color: var(--g-tinta); background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; font: 700 .7rem var(--g-texto); }
 .mrg-cons-h i { font-size: 1.15rem; color: var(--g-sangre); }
 .mrg-cons-h.on { background: var(--g-hierro); color: var(--g-hueso); border-color: var(--g-oro-vivo); box-shadow: 0 0 10px color-mix(in oklab, var(--g-oro-vivo) 45%, transparent); }
@@ -370,10 +370,34 @@ span.mrg-marc-seg { cursor: default; }
 .mrg-cons-t img { width: 2.6rem; height: 2.6rem; object-fit: cover; border: 0; border-radius: 4px; }
 .mrg-cons-t { position: relative; }
 .mrg-cons-t small { font: 600 .56rem var(--g-texto); opacity: .8; }
-.mrg-cons-t--no { opacity: .5; }
-.mrg-cons-tema { position: absolute; top: .1rem; right: .25rem; font-style: normal; font-size: .8rem; color: var(--g-oro-vivo); text-shadow: 0 0 3px #000; }
+.mrg-cons-t--no { border-style: dashed; }
+.mrg-cons-t--no img { filter: grayscale(.85) brightness(.8); }
+.mrg-cons-cand { position: absolute; top: .1rem; left: .25rem; font-style: normal; font-size: .7rem; color: var(--g-tinta-2); }
+.mrg-cons-formas { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.2rem, 1fr)); gap: .3rem; }
+.mrg-cons-f { appearance: none; cursor: pointer; width: auto; height: auto; display: grid; justify-items: center; gap: .1rem; padding: .3rem .1rem; color: var(--g-tinta); background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; font: 700 .66rem var(--g-texto); }
+.mrg-cons-f b { font-size: 1.25rem; line-height: 1; color: var(--g-sangre); }
+.mrg-cons-f.on { background: var(--g-hierro); color: var(--g-hueso); border-color: var(--g-oro-vivo); }
+.mrg-cons-f.on b { color: var(--g-oro-vivo); }
+.mrg-cons-duendes { display: grid; gap: .3rem; padding: .45rem .55rem; background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; }
+.mrg-cons-duendes input[type=range] { width: 100%; accent-color: var(--g-sangre); }
+.mrg-cons-duendes .mrg-nota { margin: 0; font-size: .74rem; }
+.application.mrg-ventana.mrg-trampa-app .window-content { padding: .7rem .8rem 1rem; background: var(--g-papel); color: var(--g-tinta); }
+.mrg-trampa { display: grid; gap: .6rem; }
+.mrg-trampa h5 { margin: 0 0 .3rem; font: 700 .8rem var(--g-texto); letter-spacing: .06em; text-transform: uppercase; color: var(--g-tinta-2); display: flex; align-items: center; gap: .4rem; }
+.mrg-trampa-sec { display: grid; gap: .3rem; }
+.mrg-trampa-chips { display: flex; flex-wrap: wrap; gap: .3rem; }
+.mrg-trampa-chips .mrg-chipbtn b { opacity: .7; margin-right: .15rem; }
+.mrg-trampa-niv { display: grid; gap: .3rem; }
+.mrg-trampa-niv .mrg-chipbtn { display: grid; gap: .1rem; text-align: left; justify-items: start; border-radius: 6px; }
+.mrg-trampa-niv small { font-weight: 500; opacity: .85; font-size: .72rem; }
+.mrg-trampa input[type=text] { width: 100%; }
+.mrg-trampa-pie { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.mrg-trampa-pie .mrg-btn { flex: 1 1 auto; width: auto; }
+.mrg-cons-tema { position: absolute; top: .15rem; right: .2rem; font-style: normal; font-size: .7rem; line-height: 1; padding: .12rem .2rem; border-radius: 999px; color: var(--g-oro-vivo); background: #1c1612; }
 .mrg-cons-t.on { border-color: var(--g-oro-vivo); background: var(--g-hierro); color: var(--g-hueso); }
 .mrg-cons-no { color: var(--g-sangre); font-weight: 700; }
+:root.mrg-oscuro .mrg-cons-no, :root.mrg-lectura .mrg-cons-no { color: var(--g-res-fallo, #ee5a4d); }
+:root.mrg-lectura .mrg :is(.mrg-seccion, .mrg-cons-f b, .mrg-cons-h i, .mrg-trampa h5) { color: var(--g-tinta); }
 .mrg-cons-obra { display: grid; gap: .3rem; padding: .45rem .55rem; background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; }
 .mrg-cons-obra-t { display: flex; justify-content: space-between; align-items: baseline; font-size: .8rem; }
 .mrg-cons-obra-b { display: flex; gap: .3rem; align-items: center; }

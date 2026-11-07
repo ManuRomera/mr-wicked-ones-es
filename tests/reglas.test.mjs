@@ -23,7 +23,8 @@ import {
 } from "../js/core/reglas.mjs";
 import {
   crearMapa, excavar, rellenar, construirSala, quitarSala, alternarPuerta, muros, decorar, lucesDe, celda, resumen, TIPOS_SALA, cabe, ajustarSala,
-  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, tipoDeTema, antorchasTunel, lucesTunel, entradasDe
+  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
+  mascara, celdasForma, validarCeldas, contiene, celdasDe, FORMAS, MECANISMOS, DETONADORES, ponerTrampa, editarTrampa, quitarTrampa, costeTrampa, numDuendes
 } from "../js/core/mazmorra.mjs";
 import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
 
@@ -324,4 +325,67 @@ test("Constructor: reglas de obra (acciones de descanso, temática y materiales)
   assert.ok(reglasSala(m, "forja", ctx).ok);
   assert.equal(tipoDeTema("Forge"), "forja"); assert.equal(tipoDeTema("Fortaleza"), "fortaleza"); assert.equal(tipoDeTema("Stronghold"), "fortaleza"); assert.equal(tipoDeTema("???"), null);
   assert.ok(Object.values(TIPOS_SALA).every(t => t.min.length === 2 && t.nombre));
+});
+
+test("Constructor: salas de cualquier forma (óvalo, L, cruz, libre) con su decoración", () => {
+  assert.equal(mascara("rect", 4, 3).length, 12);
+  assert.ok(mascara("ovalo", 5, 5).length < 25 && mascara("ovalo", 5, 5).length > 12);
+  assert.ok(!mascara("ovalo", 5, 5).some(([u, v]) => u === 0 && v === 0));           // las esquinas del óvalo quedan fuera
+  assert.equal(mascara("ele", 4, 4, 0).length, 12);                                   // 2 columnas + 2 filas solapadas
+  assert.ok(mascara("cruz", 6, 6).length < 36);
+  const m = crearMapa(30, 20);
+  const ov = construirSala(m, { x: 4, y: 4, w: 7, h: 6 }, "templo", { forma: "ovalo" });
+  assert.ok(ov.ok && ov.forma === "ovalo" && ov.celdas < 42);
+  const sala = m.salas[0];
+  assert.ok(contiene(sala, 7, 7) && !contiene(sala, 4, 4));                           // esquina fuera del óvalo
+  assert.equal(celda(m, 4, 4), "e");                                                 // sigue siendo tierra
+  const deco = decorar(sala);
+  assert.ok(deco.every(e => contiene(sala, Math.floor(e.x), Math.floor(e.y)) || e.tipo === "antorcha"));   // todo cae dentro de la sala
+  assert.ok(deco.some(e => e.tipo === "altar"));
+  // una forma que no llega al mínimo crece sola; en L y en cruz también
+  assert.ok(construirSala(m, { x: 14, y: 4, w: 3, h: 3 }, "forja", { forma: "ele", giro: 2 }).ok);
+  assert.ok(construirSala(m, { x: 20, y: 4, w: 5, h: 5 }, "enclave", { forma: "cruz" }).ok);
+  // libre: celdas sueltas, de una pieza y con el mínimo de celdas
+  const libre = [[5, 12], [6, 12], [7, 12], [7, 13], [7, 14], [8, 14], [9, 14]];
+  assert.equal(construirSala(m, null, "tesoro", { forma: "libre", celdas: [[5, 12], [6, 12], [7, 12], [9, 14]] }).ok, false);   // dos piezas
+  assert.equal(construirSala(m, null, "forja", { forma: "libre", celdas: libre.slice(0, 5) }).ok, false);                      // faltan celdas (12)
+  const l = construirSala(m, null, "tesoro", { forma: "libre", celdas: libre });
+  assert.ok(l.ok && m.salas.at(-1).celdas.length === 7);
+  assert.equal(validarCeldas(m, [[5, 12]]).ok, false);                               // ya es sala
+  // muros: la sala libre tiene muros por todo su contorno
+  assert.ok(muros(m).length > 8);
+  // quitar una sala con forma deja túnel solo en sus celdas
+  const antes = resumen(m).tunel;
+  assert.ok(quitarSala(m, l.id) && resumen(m).tunel === antes + 7);
+  assert.equal(celdasDe({ x: 1, y: 1, w: 2, h: 2 }).length, 4);
+  assert.deepEqual(Object.keys(FORMAS), ["rect", "ovalo", "ele", "cruz", "libre"]);
+  // la alfombra de una sala con forma no pisa celdas que no son de la sala
+  const cr = { x: 5, y: 5, w: 7, h: 7, tipo: "templo", forma: "cruz", celdas: celdasForma({ x: 5, y: 5, w: 7, h: 7 }, "cruz") };
+  assert.ok(decorar(cr).filter(e => e.tipo === "alfombra").every(e => contiene(cr, e.x, e.y)));
+});
+
+test("Constructor: trampas del manual, trucos y duendes según el nivel", () => {
+  assert.equal(MECANISMOS.length, 12); assert.equal(DETONADORES.length, 12);
+  const m = crearMapa(20, 14);
+  excavar(m, 4, 4); excavar(m, 5, 4);
+  assert.equal(ponerTrampa(m, { x: 9, y: 9, mecanismo: "Pinchos" }).ok, false);          // en roca/tierra no
+  const t = ponerTrampa(m, { x: 4, y: 4, mecanismo: "Péndulo", detonador: "Placa de presión", nivel: 2 });
+  assert.ok(t.ok && t.coste === 2 && m.trampas[0].tipo === "trampa" && m.trampas[0].revelada === false);
+  assert.equal(ponerTrampa(m, { x: 4, y: 4, mecanismo: "Gas" }).ok, false);              // una por celda
+  const tr = ponerTrampa(m, { x: 5, y: 4, tipo: "truco", mecanismo: "Cuerda con cascabeles", detonador: "Al pasar", intencion: "Alerta a los esbirros", nivel: 9 });
+  assert.ok(tr.ok && tr.nivel === 3 && tr.coste === 4);                                  // el nivel se acota a 1-3
+  assert.ok(editarTrampa(m, t.id, { nivel: 3, revelada: true, mecanismo: "Sierra" }).ok);
+  assert.ok(m.trampas[0].nivel === 3 && m.trampas[0].revelada && m.trampas[0].mecanismo === "Sierra");
+  assert.equal(costeTrampa(1), 1); assert.equal(costeTrampa(3), 4);
+  rellenar(m, 5, 4);                                                                      // al rellenar la celda, el truco desaparece
+  assert.equal(m.trampas.length, 1);
+  assert.ok(quitarTrampa(m, t.id) && m.trampas.length === 0);
+  // duendes: crecen con el nivel, las salas y la densidad; sin mazmorra no hay
+  const v = crearMapa(30, 20);
+  assert.equal(numDuendes(v, 3), 0);
+  for (let x = 3; x < 20; x++) excavar(v, x, 5);
+  construirSala(v, { x: 3, y: 8, w: 4, h: 4 }, "menor");
+  assert.ok(numDuendes(v, 4) > numDuendes(v, 0));
+  assert.ok(numDuendes(v, 2, 2) > numDuendes(v, 2, 1) && numDuendes(v, 2, 0) === 0);
+  assert.ok(numDuendes(v, 4, 2) <= 40);
 });
