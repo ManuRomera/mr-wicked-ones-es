@@ -4,7 +4,7 @@
     <div class="mrg-cab-datos">
       <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la mazmorra" aria-label="Nombre">
       <div class="mrg-cab-chips">
-        <a class="mrg-chipbtn item-add-popup" data-item-type="dungeon_theme" data-distinct="true"><i class="fa-solid fa-landmark"></i> {{#if mr.tema}}{{mr.tema.nombre}}{{else}}Elegir temática{{/if}}</a>
+        <a class="mrg-chipbtn" data-selector="dungeon_theme"><i class="fa-solid fa-landmark"></i> {{#if mr.tema}}{{mr.tema.nombre}}{{else}}Elegir temática{{/if}}</a>
       </div>
     </div>
   </header>
@@ -49,7 +49,7 @@
     <section class="tab mrg-panel" data-tab="salas">
       <div class="mrg-barra-rapida">
         <span class="mrg-nota">Las salas de nivel 3 que has construido. Si no son de la temática, cuentan como «flexibles».</span>
-        <a class="mrg-btn item-add-popup" data-item-type="tier3room"><i class="fa-solid fa-plus"></i> Añadir sala</a>
+        <a class="mrg-btn" data-selector="tier3room"><i class="fa-solid fa-plus"></i> Añadir sala</a>
       </div>
       <div class="mrg-lista">
         {{#each mr.salas}}

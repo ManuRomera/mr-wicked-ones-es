@@ -10697,7 +10697,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10721,7 +10721,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10745,7 +10745,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10769,7 +10769,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10793,7 +10793,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10817,7 +10817,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10841,7 +10841,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10865,7 +10865,7 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply",
+      "categoria": "gear",
       "contenido": true
      }
     },
@@ -10873,7 +10873,7 @@
    },
    {
     "_id": "1vA2sxVR4BURuWWX",
-    "name": "Mejunje [11] · Ácido corrosivo",
+    "name": "Ácido corrosivo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-01.webp",
     "system": {
@@ -10891,6 +10891,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "11",
+      "tabla": "11",
       "contenido": true
      }
     },
@@ -10898,7 +10899,7 @@
    },
    {
     "_id": "2FdlGT76qosEznzx",
-    "name": "Mejunje [12] · Aliento de dragón embotellado",
+    "name": "Aliento de dragón embotellado",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-02.webp",
     "system": {
@@ -10916,6 +10917,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "12",
+      "tabla": "12",
       "contenido": true
      }
     },
@@ -10923,7 +10925,7 @@
    },
    {
     "_id": "bzvXYiSZFRFT70sM",
-    "name": "Mejunje [13] · Bálsamo ignífugo",
+    "name": "Bálsamo ignífugo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-03.webp",
     "system": {
@@ -10941,6 +10943,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "13",
+      "tabla": "13",
       "contenido": true
      }
     },
@@ -10948,7 +10951,7 @@
    },
    {
     "_id": "6QYtg4AAPTir178t",
-    "name": "Mejunje [14] · Barniz de silencio",
+    "name": "Barniz de silencio",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-04.webp",
     "system": {
@@ -10966,6 +10969,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "14",
+      "tabla": "14",
       "contenido": true
      }
     },
@@ -10973,7 +10977,7 @@
    },
    {
     "_id": "6jFGR7WCYTunhSJZ",
-    "name": "Mejunje [15] · Bilis fétida nauseabunda",
+    "name": "Bilis fétida nauseabunda",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-05.webp",
     "system": {
@@ -10991,6 +10995,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "15",
+      "tabla": "15",
       "contenido": true
      }
     },
@@ -10998,7 +11003,7 @@
    },
    {
     "_id": "ksErKoeRgwLuDEFZ",
-    "name": "Mejunje [16] · Bomba de humo denso",
+    "name": "Bomba de humo denso",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-06.webp",
     "system": {
@@ -11016,6 +11021,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "16",
+      "tabla": "16",
       "contenido": true
      }
     },
@@ -11023,7 +11029,7 @@
    },
    {
     "_id": "mAJo1H38F3dz0mbZ",
-    "name": "Mejunje [21] · Bruma soporífera",
+    "name": "Bruma soporífera",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-07.webp",
     "system": {
@@ -11041,6 +11047,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "21",
+      "tabla": "21",
       "contenido": true
      }
     },
@@ -11048,7 +11055,7 @@
    },
    {
     "_id": "OOphrKDDLV0qSBfd",
-    "name": "Mejunje [22] · Catalizador de adrenalina",
+    "name": "Catalizador de adrenalina",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-08.webp",
     "system": {
@@ -11066,6 +11073,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "22",
+      "tabla": "22",
       "contenido": true
      }
     },
@@ -11073,7 +11081,7 @@
    },
    {
     "_id": "fCXPY5h23TRU8tP0",
-    "name": "Mejunje [23] · Cemento de fraguado instantáneo",
+    "name": "Cemento de fraguado instantáneo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-09.webp",
     "system": {
@@ -11091,6 +11099,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "23",
+      "tabla": "23",
       "contenido": true
      }
     },
@@ -11098,7 +11107,7 @@
    },
    {
     "_id": "eTmuDRhXrkD78qm9",
-    "name": "Mejunje [24] ·  Disolvente universal de piedra",
+    "name": "Disolvente universal de piedra",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-10.webp",
     "system": {
@@ -11116,6 +11125,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "24",
+      "tabla": "24",
       "contenido": true
      }
     },
@@ -11123,7 +11133,7 @@
    },
    {
     "_id": "SAx94NtjP7CK94K3",
-    "name": "Mejunje [25] · Elixir camaleónico",
+    "name": "Elixir camaleónico",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-11.webp",
     "system": {
@@ -11141,6 +11151,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "25",
+      "tabla": "25",
       "contenido": true
      }
     },
@@ -11148,7 +11159,7 @@
    },
    {
     "_id": "veM6IcMaX1vuPKaW",
-    "name": "Mejunje [26] · Esencia de terror",
+    "name": "Esencia de terror",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-12.webp",
     "system": {
@@ -11166,6 +11177,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "26",
+      "tabla": "26",
       "contenido": true
      }
     },
@@ -11173,7 +11185,7 @@
    },
    {
     "_id": "dbEDbdhHUKaFcl6q",
-    "name": "Mejunje [31] · Esporas de olvido",
+    "name": "Esporas de olvido",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-13.webp",
     "system": {
@@ -11191,6 +11203,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "31",
+      "tabla": "31",
       "contenido": true
      }
     },
@@ -11198,7 +11211,7 @@
    },
    {
     "_id": "m3wyTALBmEkk5cke",
-    "name": "Mejunje [32] · Extracto de branquias",
+    "name": "Extracto de branquias",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-14.webp",
     "system": {
@@ -11216,6 +11229,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "32",
+      "tabla": "32",
       "contenido": true
      }
     },
@@ -11223,7 +11237,7 @@
    },
    {
     "_id": "YCyUzYtO9z6Gqdad",
-    "name": "Mejunje [33] · Feromonas de furia ciega",
+    "name": "Feromonas de furia ciega",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-15.webp",
     "system": {
@@ -11241,6 +11255,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "33",
+      "tabla": "33",
       "contenido": true
      }
     },
@@ -11248,7 +11263,7 @@
    },
    {
     "_id": "3afw0Aml2ZZ9wHhC",
-    "name": "Mejunje [34] · Fuego alquímico",
+    "name": "Fuego alquímico",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-16.webp",
     "system": {
@@ -11266,6 +11281,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "34",
+      "tabla": "34",
       "contenido": true
      }
     },
@@ -11273,7 +11289,7 @@
    },
    {
     "_id": "SqjVplrjtJR6FyqA",
-    "name": "Mejunje [35] · Gas de la risa histérica",
+    "name": "Gas de la risa histérica",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-17.webp",
     "system": {
@@ -11291,6 +11307,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "35",
+      "tabla": "35",
       "contenido": true
      }
     },
@@ -11298,7 +11315,7 @@
    },
    {
     "_id": "qHEiHCYODTexeVNB",
-    "name": "Mejunje [36] · Gas lacrimógeno",
+    "name": "Gas lacrimógeno",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-18.webp",
     "system": {
@@ -11316,6 +11333,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "36",
+      "tabla": "36",
       "contenido": true
      }
     },
@@ -11323,7 +11341,7 @@
    },
    {
     "_id": "ViYpdYamKtavXVbc",
-    "name": "Mejunje [41] · Grasa ultra-resbaladiza",
+    "name": "Grasa ultra-resbaladiza",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-19.webp",
     "system": {
@@ -11341,6 +11359,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "41",
+      "tabla": "41",
       "contenido": true
      }
     },
@@ -11348,7 +11367,7 @@
    },
    {
     "_id": "orQeFfSf9yQh0Era",
-    "name": "Mejunje [42] · Hielo líquido instantáneo",
+    "name": "Hielo líquido instantáneo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-20.webp",
     "system": {
@@ -11366,6 +11385,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "42",
+      "tabla": "42",
       "contenido": true
      }
     },
@@ -11373,7 +11393,7 @@
    },
    {
     "_id": "krvIhJpyWZ7gWi2U",
-    "name": "Mejunje [43] · Luz líquida embotellada",
+    "name": "Luz líquida embotellada",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-21.webp",
     "system": {
@@ -11391,6 +11411,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "43",
+      "tabla": "43",
       "contenido": true
      }
     },
@@ -11398,7 +11419,7 @@
    },
    {
     "_id": "BmU6qCMEUzSIzk9X",
-    "name": "Mejunje [44] · Miel atrayente de alimañas",
+    "name": "Miel atrayente de alimañas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-22.webp",
     "system": {
@@ -11416,6 +11437,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "44",
+      "tabla": "44",
       "contenido": true
      }
     },
@@ -11423,7 +11445,7 @@
    },
    {
     "_id": "VSliOZixUt2JjPgA",
-    "name": "Mejunje [45] · Néctar de voz impostora",
+    "name": "Néctar de voz impostora",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-23.webp",
     "system": {
@@ -11441,6 +11463,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "45",
+      "tabla": "45",
       "contenido": true
      }
     },
@@ -11448,7 +11471,7 @@
    },
    {
     "_id": "6JaK3lim4nYRDvhp",
-    "name": "Mejunje [46] · Pegamento monstruoso",
+    "name": "Pegamento monstruoso",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-24.webp",
     "system": {
@@ -11466,6 +11489,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "46",
+      "tabla": "46",
       "contenido": true
      }
     },
@@ -11473,7 +11497,7 @@
    },
    {
     "_id": "S6zJ3rTGbx4qE8Cc",
-    "name": "Mejunje [51] · Píldora de fingir la muerte",
+    "name": "Píldora de fingir la muerte",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-25.webp",
     "system": {
@@ -11491,6 +11515,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "51",
+      "tabla": "51",
       "contenido": true
      }
     },
@@ -11498,7 +11523,7 @@
    },
    {
     "_id": "GqpIjQc1OfgV1d60",
-    "name": "Mejunje [52] · Polvo cegador de magnesio",
+    "name": "Polvo cegador de magnesio",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-26.webp",
     "system": {
@@ -11516,6 +11541,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "52",
+      "tabla": "52",
       "contenido": true
      }
     },
@@ -11523,7 +11549,7 @@
    },
    {
     "_id": "eQbPbLXJuh7zHd1h",
-    "name": "Mejunje [53] · Polvo de estornudos explosivos",
+    "name": "Polvo de estornudos explosivos",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-27.webp",
     "system": {
@@ -11541,6 +11567,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "53",
+      "tabla": "53",
       "contenido": true
      }
     },
@@ -11548,7 +11575,7 @@
    },
    {
     "_id": "fyE6lXmGWWtibJ27",
-    "name": "Mejunje [54] · Polvo de picor insoportable",
+    "name": "Polvo de picor insoportable",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-28.webp",
     "system": {
@@ -11566,6 +11593,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "54",
+      "tabla": "54",
       "contenido": true
      }
     },
@@ -11573,7 +11601,7 @@
    },
    {
     "_id": "GHw0xlO9ifpZYrMP",
-    "name": "Mejunje [55] · Polvo revelador de invisibilidad",
+    "name": "Polvo revelador de invisibilidad",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-29.webp",
     "system": {
@@ -11591,6 +11619,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "55",
+      "tabla": "55",
       "contenido": true
      }
     },
@@ -11598,7 +11627,7 @@
    },
    {
     "_id": "XgnDbTM1K30GnnxZ",
-    "name": "Mejunje [56] · Resina inflamable retardada",
+    "name": "Resina inflamable retardada",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-30.webp",
     "system": {
@@ -11616,6 +11645,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "56",
+      "tabla": "56",
       "contenido": true
      }
     },
@@ -11623,7 +11653,7 @@
    },
    {
     "_id": "Ulb64W9ah98tKrI4",
-    "name": "Mejunje [61] · Sales de reanimación brusca",
+    "name": "Sales de reanimación brusca",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-31.webp",
     "system": {
@@ -11641,6 +11671,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "61",
+      "tabla": "61",
       "contenido": true
      }
     },
@@ -11648,7 +11679,7 @@
    },
    {
     "_id": "kx1LmQo4sE0tVxwS",
-    "name": "Mejunje [62] · Sangre de troll coagulante",
+    "name": "Sangre de troll coagulante",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-32.webp",
     "system": {
@@ -11666,6 +11697,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "62",
+      "tabla": "62",
       "contenido": true
      }
     },
@@ -11673,7 +11705,7 @@
    },
    {
     "_id": "kbA400A9FNifWNnO",
-    "name": "Mejunje [63] · Suero de la verdad",
+    "name": "Suero de la verdad",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-33.webp",
     "system": {
@@ -11691,6 +11723,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "63",
+      "tabla": "63",
       "contenido": true
      }
     },
@@ -11698,7 +11731,7 @@
    },
    {
     "_id": "elvPPxxKqOQMIPHl",
-    "name": "Mejunje [64] · Tinta devoradora de pergamino",
+    "name": "Tinta devoradora de pergamino",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-34.webp",
     "system": {
@@ -11716,6 +11749,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "64",
+      "tabla": "64",
       "contenido": true
      }
     },
@@ -11723,7 +11757,7 @@
    },
    {
     "_id": "Xz7WOIDTbPy68u28",
-    "name": "Mejunje [65] · Veneno de sueño profundo",
+    "name": "Veneno de sueño profundo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-35.webp",
     "system": {
@@ -11741,6 +11775,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "65",
+      "tabla": "65",
       "contenido": true
      }
     },
@@ -11748,7 +11783,7 @@
    },
    {
     "_id": "N33aVf0YOJa6zIFc",
-    "name": "Mejunje [66] · Vial de nitroglicerina enana",
+    "name": "Vial de nitroglicerina enana",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-36.webp",
     "system": {
@@ -11766,6 +11801,7 @@
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
       "d66": "66",
+      "tabla": "66",
       "contenido": true
      }
     },
@@ -11773,7 +11809,7 @@
    },
    {
     "_id": "OALtRJmYu52dsMZT",
-    "name": "Artilugio [11] · Alas planeadoras plegables",
+    "name": "Alas planeadoras plegables",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-01.webp",
     "system": {
@@ -11791,6 +11827,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "11",
+      "tabla": "11",
       "contenido": true
      }
     },
@@ -11798,7 +11835,7 @@
    },
    {
     "_id": "L67TUCllFL1OywAc",
-    "name": "Artilugio [12] · Araña mecánica de cuerda",
+    "name": "Araña mecánica de cuerda",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-02.webp",
     "system": {
@@ -11816,6 +11853,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "12",
+      "tabla": "12",
       "contenido": true
      }
     },
@@ -11823,7 +11861,7 @@
    },
    {
     "_id": "G9z6eBR9SEEc8AXo",
-    "name": "Artilugio [13] · Arpón lanzacabos de resorte",
+    "name": "Arpón lanzacabos de resorte",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-03.webp",
     "system": {
@@ -11841,6 +11879,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "13",
+      "tabla": "13",
       "contenido": true
      }
     },
@@ -11848,7 +11887,7 @@
    },
    {
     "_id": "qs58ug6qnltDScc2",
-    "name": "Artilugio [14] · Ballesta de repetición",
+    "name": "Ballesta de repetición",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-04.webp",
     "system": {
@@ -11866,6 +11905,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "14",
+      "tabla": "14",
       "contenido": true
      }
     },
@@ -11873,7 +11913,7 @@
    },
    {
     "_id": "hJtRZdnmJhj13oq9",
-    "name": "Artilugio [15] · Bomba de relojería",
+    "name": "Bomba de relojería",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-05.webp",
     "system": {
@@ -11891,6 +11931,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "15",
+      "tabla": "15",
       "contenido": true
      }
     },
@@ -11898,7 +11939,7 @@
    },
    {
     "_id": "CVoCp0MU7soIEpZa",
-    "name": "Artilugio [16] · Botas con muelles",
+    "name": "Botas con muelles",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-06.webp",
     "system": {
@@ -11916,6 +11957,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "16",
+      "tabla": "16",
       "contenido": true
      }
     },
@@ -11923,7 +11965,7 @@
    },
    {
     "_id": "dXC77hOhr8fn1qME",
-    "name": "Artilugio [21] · Botas magnéticas",
+    "name": "Botas magnéticas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-07.webp",
     "system": {
@@ -11941,6 +11983,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "21",
+      "tabla": "21",
       "contenido": true
      }
     },
@@ -11948,7 +11991,7 @@
    },
    {
     "_id": "534hj4YJppncIVmM",
-    "name": "Artilugio [22] · Brazo extensible de pinza",
+    "name": "Brazo extensible de pinza",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-08.webp",
     "system": {
@@ -11966,6 +12009,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "22",
+      "tabla": "22",
       "contenido": true
      }
     },
@@ -11973,7 +12017,7 @@
    },
    {
     "_id": "cCTAqppzFeDI4SdO",
-    "name": "Artilugio [23] · Caja de música hipnótica",
+    "name": "Caja de música hipnótica",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-09.webp",
     "system": {
@@ -11991,6 +12035,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "23",
+      "tabla": "23",
       "contenido": true
      }
     },
@@ -11998,7 +12043,7 @@
    },
    {
     "_id": "B0XqKonelQlLl07R",
-    "name": "Artilugio [24] · Cañón de mano de metralla",
+    "name": "Cañón de mano de metralla",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-10.webp",
     "system": {
@@ -12016,6 +12061,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "24",
+      "tabla": "24",
       "contenido": true
      }
     },
@@ -12023,7 +12069,7 @@
    },
    {
     "_id": "8vz6ZC33YYqDSMlY",
-    "name": "Artilugio [25] · Casco con faro de lente",
+    "name": "Casco con faro de lente",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-11.webp",
     "system": {
@@ -12041,6 +12087,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "25",
+      "tabla": "25",
       "contenido": true
      }
     },
@@ -12048,7 +12095,7 @@
    },
    {
     "_id": "tR7WWsdj9Iksu1wb",
-    "name": "Artilugio [26] · Cinturón de descarga eléctrica",
+    "name": "Cinturón de descarga eléctrica",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-12.webp",
     "system": {
@@ -12066,6 +12113,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "26",
+      "tabla": "26",
       "contenido": true
      }
     },
@@ -12073,7 +12121,7 @@
    },
    {
     "_id": "I1UAEYWLUeBWe8dP",
-    "name": "Artilugio [31] · Cortador de vidrio y piedra con diamante",
+    "name": "Cortador de vidrio y piedra con diamante",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-13.webp",
     "system": {
@@ -12091,6 +12139,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "31",
+      "tabla": "31",
       "contenido": true
      }
     },
@@ -12098,7 +12147,7 @@
    },
    {
     "_id": "YXO0LomDcEQtc441",
-    "name": "Artilugio [32] · Escudo desplegable de trinchera",
+    "name": "Escudo desplegable de trinchera",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-14.webp",
     "system": {
@@ -12116,6 +12165,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "32",
+      "tabla": "32",
       "contenido": true
      }
     },
@@ -12123,7 +12173,7 @@
    },
    {
     "_id": "ORkIOwiFbaZyHeYq",
-    "name": "Artilugio [33] · Espejo periscópico telescópico",
+    "name": "Espejo periscópico telescópico",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-15.webp",
     "system": {
@@ -12141,6 +12191,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "33",
+      "tabla": "33",
       "contenido": true
      }
     },
@@ -12148,7 +12199,7 @@
    },
    {
     "_id": "c8RFPzcaVC1YscBN",
-    "name": "Artilugio [34] · Exoesqueleto de carga hidráulico",
+    "name": "Exoesqueleto de carga hidráulico",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-16.webp",
     "system": {
@@ -12166,6 +12217,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "34",
+      "tabla": "34",
       "contenido": true
      }
     },
@@ -12173,7 +12225,7 @@
    },
    {
     "_id": "ujMgVqzYzhHZvwMs",
-    "name": "Artilugio [35] · Fuelle lanzallamas",
+    "name": "Fuelle lanzallamas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-17.webp",
     "system": {
@@ -12191,6 +12243,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "35",
+      "tabla": "35",
       "contenido": true
      }
     },
@@ -12198,7 +12251,7 @@
    },
    {
     "_id": "udvdVbmpkzbyewrO",
-    "name": "Artilugio [36] · Ganzúa automática vibratoria",
+    "name": "Ganzúa automática vibratoria",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-18.webp",
     "system": {
@@ -12216,6 +12269,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "36",
+      "tabla": "36",
       "contenido": true
      }
     },
@@ -12223,7 +12277,7 @@
    },
    {
     "_id": "OFgjNxD49v7h7VlZ",
-    "name": "Artilugio [41] · Garra mecánica trituradora",
+    "name": "Garra mecánica trituradora",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-19.webp",
     "system": {
@@ -12241,6 +12295,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "41",
+      "tabla": "41",
       "contenido": true
      }
     },
@@ -12248,7 +12303,7 @@
    },
    {
     "_id": "kZ1dFYRgVPe3P1dP",
-    "name": "Artilugio [42] · Gafas de lentes múltiples",
+    "name": "Gafas de lentes múltiples",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-20.webp",
     "system": {
@@ -12266,6 +12321,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "42",
+      "tabla": "42",
       "contenido": true
      }
     },
@@ -12273,7 +12329,7 @@
    },
    {
     "_id": "RsfEhBXMsyxvdrhC",
-    "name": "Artilugio [43] · Granada de metralla y aturdimiento",
+    "name": "Granada de metralla y aturdimiento",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-21.webp",
     "system": {
@@ -12291,6 +12347,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "43",
+      "tabla": "43",
       "contenido": true
      }
     },
@@ -12298,7 +12355,7 @@
    },
    {
     "_id": "51jmw9qFjNFOC8LG",
-    "name": "Artilugio [44] · Imán de polaridad extrema",
+    "name": "Imán de polaridad extrema",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-22.webp",
     "system": {
@@ -12316,6 +12373,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "44",
+      "tabla": "44",
       "contenido": true
      }
     },
@@ -12323,7 +12381,7 @@
    },
    {
     "_id": "YVYaFj3mPVpWe88e",
-    "name": "Artilugio [45] · Lanza-redes de aire comprimido",
+    "name": "Lanza-redes de aire comprimido",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-23.webp",
     "system": {
@@ -12341,6 +12399,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "45",
+      "tabla": "45",
       "contenido": true
      }
     },
@@ -12348,7 +12407,7 @@
    },
    {
     "_id": "ixEs0Vpb0u7u5Rcb",
-    "name": "Artilugio [46] · Mina antipersona de resorte",
+    "name": "Mina antipersona de resorte",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-24.webp",
     "system": {
@@ -12366,6 +12425,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "46",
+      "tabla": "46",
       "contenido": true
      }
     },
@@ -12373,7 +12433,7 @@
    },
    {
     "_id": "dQBAD6Gqlil1meAv",
-    "name": "Artilugio [51] · Mochila cohete inestable",
+    "name": "Mochila cohete inestable",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-25.webp",
     "system": {
@@ -12391,6 +12451,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "51",
+      "tabla": "51",
       "contenido": true
      }
     },
@@ -12398,7 +12459,7 @@
    },
    {
     "_id": "SSZR8QAQDEG9tPKN",
-    "name": "Artilugio [52] · Muñeco señuelo inflable",
+    "name": "Muñeco señuelo inflable",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-26.webp",
     "system": {
@@ -12416,6 +12477,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "52",
+      "tabla": "52",
       "contenido": true
      }
     },
@@ -12423,7 +12485,7 @@
    },
    {
     "_id": "zvk3gY2yZIzzAKjz",
-    "name": "Artilugio [53] · Oído mecánico amplificador",
+    "name": "Oído mecánico amplificador",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-27.webp",
     "system": {
@@ -12441,6 +12503,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "53",
+      "tabla": "53",
       "contenido": true
      }
     },
@@ -12448,7 +12511,7 @@
    },
    {
     "_id": "azbLpLU9gAK47VMJ",
-    "name": "Artilugio [54] · Patines de ruedas con cuchillas",
+    "name": "Patines de ruedas con cuchillas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-28.webp",
     "system": {
@@ -12466,6 +12529,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "54",
+      "tabla": "54",
       "contenido": true
      }
     },
@@ -12473,7 +12537,7 @@
    },
    {
     "_id": "yglMX5MskcQ002eK",
-    "name": "Artilugio [55] · Paraguas blindado",
+    "name": "Paraguas blindado",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-29.webp",
     "system": {
@@ -12491,6 +12555,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "55",
+      "tabla": "55",
       "contenido": true
      }
     },
@@ -12498,7 +12563,7 @@
    },
    {
     "_id": "vMxx0MdB0h3hiV4e",
-    "name": "Artilugio [56] · Martillo neumático de bolsillo",
+    "name": "Martillo neumático de bolsillo",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-30.webp",
     "system": {
@@ -12516,6 +12581,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "56",
+      "tabla": "56",
       "contenido": true
      }
     },
@@ -12523,7 +12589,7 @@
    },
    {
     "_id": "Li7lSFjeoSqkxLOh",
-    "name": "Artilugio [61] · Reloj de sincronización con alarma",
+    "name": "Reloj de sincronización con alarma",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-31.webp",
     "system": {
@@ -12541,6 +12607,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "61",
+      "tabla": "61",
       "contenido": true
      }
     },
@@ -12548,7 +12615,7 @@
    },
    {
     "_id": "gVbbFpYsQC5j7I0L",
-    "name": "Artilugio [62] · Sierra circular de cuerda",
+    "name": "Sierra circular de cuerda",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-32.webp",
     "system": {
@@ -12566,6 +12633,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "62",
+      "tabla": "62",
       "contenido": true
      }
     },
@@ -12573,7 +12641,7 @@
    },
    {
     "_id": "cIPDkLqnmsUhOjcD",
-    "name": "Artilugio [63] · Sonda acústica de túneles",
+    "name": "Sonda acústica de túneles",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-33.webp",
     "system": {
@@ -12591,6 +12659,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "63",
+      "tabla": "63",
       "contenido": true
      }
     },
@@ -12598,7 +12667,7 @@
    },
    {
     "_id": "HIYfm2gOsL5VhyRY",
-    "name": "Artilugio [64] · Taladro silencioso de manivela",
+    "name": "Taladro silencioso de manivela",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-34.webp",
     "system": {
@@ -12616,6 +12685,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "64",
+      "tabla": "64",
       "contenido": true
      }
     },
@@ -12623,7 +12693,7 @@
    },
    {
     "_id": "OKd9vY8Q36yn8XI3",
-    "name": "Artilugio [65] · Trampa de cables automática",
+    "name": "Trampa de cables automática",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-35.webp",
     "system": {
@@ -12641,6 +12711,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "65",
+      "tabla": "65",
       "contenido": true
      }
     },
@@ -12648,7 +12719,7 @@
    },
    {
     "_id": "jCrP2nxzsT5af68U",
-    "name": "Artilugio [66] · Zancos telescópicos de combate",
+    "name": "Zancos telescópicos de combate",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-36.webp",
     "system": {
@@ -12666,6 +12737,7 @@
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
       "d66": "66",
+      "tabla": "66",
       "contenido": true
      }
     },
@@ -12673,7 +12745,7 @@
    },
    {
     "_id": "CY9B0kTcdiSJ4WvC",
-    "name": "Poción [11] · Poción de aliento de fuego",
+    "name": "Poción de aliento de fuego",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-01.webp",
     "system": {
@@ -12691,6 +12763,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "11",
+      "tabla": "11",
       "contenido": true
      }
     },
@@ -12698,7 +12771,7 @@
    },
    {
     "_id": "nr84ZrAoY6MmVXLT",
-    "name": "Poción [12] · Poción de alteración de aspecto",
+    "name": "Poción de alteración de aspecto",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-02.webp",
     "system": {
@@ -12716,6 +12789,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "12",
+      "tabla": "12",
       "contenido": true
      }
     },
@@ -12723,7 +12797,7 @@
    },
    {
     "_id": "HlqdW4Vc4l7P1iNW",
-    "name": "Poción [13] · Poción de amistad seductora",
+    "name": "Poción de amistad seductora",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-03.webp",
     "system": {
@@ -12741,6 +12815,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "13",
+      "tabla": "13",
       "contenido": true
      }
     },
@@ -12748,7 +12823,7 @@
    },
    {
     "_id": "AwQfdKucvYsjp349",
-    "name": "Poción [14] · Poción de caminar por las paredes",
+    "name": "Poción de caminar por las paredes",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-04.webp",
     "system": {
@@ -12766,6 +12841,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "14",
+      "tabla": "14",
       "contenido": true
      }
     },
@@ -12773,7 +12849,7 @@
    },
    {
     "_id": "8hFiEsCZx7qE7BCc",
-    "name": "Poción [15] · Poción de caminar sobre el agua",
+    "name": "Poción de caminar sobre el agua",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-05.webp",
     "system": {
@@ -12791,6 +12867,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "15",
+      "tabla": "15",
       "contenido": true
      }
     },
@@ -12798,7 +12875,7 @@
    },
    {
     "_id": "xXLbNRSNjPUxJjH5",
-    "name": "Poción [16] · Poción de clarividencia",
+    "name": "Poción de clarividencia",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-06.webp",
     "system": {
@@ -12816,6 +12893,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "16",
+      "tabla": "16",
       "contenido": true
      }
     },
@@ -12823,7 +12901,7 @@
    },
    {
     "_id": "MWF0H4caoaLxXjU2",
-    "name": "Poción [21] · Poción de comprensión de lenguas",
+    "name": "Poción de comprensión de lenguas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-07.webp",
     "system": {
@@ -12841,6 +12919,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "21",
+      "tabla": "21",
       "contenido": true
      }
     },
@@ -12848,7 +12927,7 @@
    },
    {
     "_id": "Beredt445dffebsg",
-    "name": "Poción [22] · Poción de crecimiento colosal",
+    "name": "Poción de crecimiento colosal",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-08.webp",
     "system": {
@@ -12866,6 +12945,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "22",
+      "tabla": "22",
       "contenido": true
      }
     },
@@ -12873,7 +12953,7 @@
    },
    {
     "_id": "XSaPwyPz8c43Z5R5",
-    "name": "Poción [23] · Poción de encogimiento",
+    "name": "Poción de encogimiento",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-09.webp",
     "system": {
@@ -12891,6 +12971,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "23",
+      "tabla": "23",
       "contenido": true
      }
     },
@@ -12898,7 +12979,7 @@
    },
    {
     "_id": "9ypNLdiaMMRUZQ5J",
-    "name": "Poción [24] · Poción de elasticidad gomosa",
+    "name": "Poción de elasticidad gomosa",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-10.webp",
     "system": {
@@ -12916,6 +12997,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "24",
+      "tabla": "24",
       "contenido": true
      }
     },
@@ -12923,7 +13005,7 @@
    },
    {
     "_id": "wBq65MIBtP6tlZ0P",
-    "name": "Poción [25] · Poción de escudo arcano",
+    "name": "Poción de escudo arcano",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-11.webp",
     "system": {
@@ -12941,6 +13023,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "25",
+      "tabla": "25",
       "contenido": true
      }
     },
@@ -12948,7 +13031,7 @@
    },
    {
     "_id": "VmkHZhdbLDTlvfxp",
-    "name": "Poción [26] · Poción de forma animal",
+    "name": "Poción de forma animal",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-12.webp",
     "system": {
@@ -12966,6 +13049,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "26",
+      "tabla": "26",
       "contenido": true
      }
     },
@@ -12973,7 +13057,7 @@
    },
    {
     "_id": "MPMdiz1FDZEXHAml",
-    "name": "Poción [31] · Poción de forma de sombra",
+    "name": "Poción de forma de sombra",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-13.webp",
     "system": {
@@ -12991,6 +13075,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "31",
+      "tabla": "31",
       "contenido": true
      }
     },
@@ -12998,7 +13083,7 @@
    },
    {
     "_id": "oQe2Um0Ks6KxqfWR",
-    "name": "Poción [32] · Poción de forma gaseosa",
+    "name": "Poción de forma gaseosa",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-14.webp",
     "system": {
@@ -13016,6 +13101,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "32",
+      "tabla": "32",
       "contenido": true
      }
     },
@@ -13023,7 +13109,7 @@
    },
    {
     "_id": "eLNZuhbql39ZnHvj",
-    "name": "Poción [33] · Poción de fuerza de gigante",
+    "name": "Poción de fuerza de gigante",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-15.webp",
     "system": {
@@ -13041,6 +13127,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "33",
+      "tabla": "33",
       "contenido": true
      }
     },
@@ -13048,7 +13135,7 @@
    },
    {
     "_id": "yznSZUEgN7RO25aS",
-    "name": "Poción [34] · Poción de hablar con los muertos",
+    "name": "Poción de hablar con los muertos",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-16.webp",
     "system": {
@@ -13066,6 +13153,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "34",
+      "tabla": "34",
       "contenido": true
      }
     },
@@ -13073,7 +13161,7 @@
    },
    {
     "_id": "Aue8Lo5vStkYshnd",
-    "name": "Poción [35] · Poción de hablar con las piedras",
+    "name": "Poción de hablar con las piedras",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-17.webp",
     "system": {
@@ -13091,6 +13179,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "35",
+      "tabla": "35",
       "contenido": true
      }
     },
@@ -13098,7 +13187,7 @@
    },
    {
     "_id": "1ELw4iCYZsljO3NW",
-    "name": "Poción [36] · Poción de heroísmo temerario",
+    "name": "Poción de heroísmo temerario",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-18.webp",
     "system": {
@@ -13116,6 +13205,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "36",
+      "tabla": "36",
       "contenido": true
      }
     },
@@ -13123,7 +13213,7 @@
    },
    {
     "_id": "c6SUfCil15r4VABo",
-    "name": "Poción [41] · Poción de imitación perfecta",
+    "name": "Poción de imitación perfecta",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-19.webp",
     "system": {
@@ -13141,6 +13231,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "41",
+      "tabla": "41",
       "contenido": true
      }
     },
@@ -13148,7 +13239,7 @@
    },
    {
     "_id": "njSaeMD2LkACg386",
-    "name": "Poción [42] · Poción de intangibilidad breve",
+    "name": "Poción de intangibilidad breve",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-20.webp",
     "system": {
@@ -13166,6 +13257,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "42",
+      "tabla": "42",
       "contenido": true
      }
     },
@@ -13173,7 +13265,7 @@
    },
    {
     "_id": "DDH1bC4kSlK93g6B",
-    "name": "Poción [43] · Poción de invisibilidad",
+    "name": "Poción de invisibilidad",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-21.webp",
     "system": {
@@ -13191,6 +13283,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "43",
+      "tabla": "43",
       "contenido": true
      }
     },
@@ -13198,7 +13291,7 @@
    },
    {
     "_id": "zVoYlLeUr0lwDQP8",
-    "name": "Poción [44] · Poción de lectura de mentes",
+    "name": "Poción de lectura de mentes",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-22.webp",
     "system": {
@@ -13216,6 +13309,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "44",
+      "tabla": "44",
       "contenido": true
      }
     },
@@ -13223,7 +13317,7 @@
    },
    {
     "_id": "ZNMkQkMshrDZJiik",
-    "name": "Poción [45] · Poción de levitación",
+    "name": "Poción de levitación",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-23.webp",
     "system": {
@@ -13241,6 +13335,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "45",
+      "tabla": "45",
       "contenido": true
      }
     },
@@ -13248,7 +13343,7 @@
    },
    {
     "_id": "J0KLT1O3tZMqD1fY",
-    "name": "Poción [46] · Poción de mirada hipnótica",
+    "name": "Poción de mirada hipnótica",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-24.webp",
     "system": {
@@ -13266,6 +13361,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "46",
+      "tabla": "46",
       "contenido": true
      }
     },
@@ -13273,7 +13369,7 @@
    },
    {
     "_id": "8S0fJLnBQJBe9P8I",
-    "name": "Poción [51] · Poción de paso sin rastro",
+    "name": "Poción de paso sin rastro",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-25.webp",
     "system": {
@@ -13291,6 +13387,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "51",
+      "tabla": "51",
       "contenido": true
      }
     },
@@ -13298,7 +13395,7 @@
    },
    {
     "_id": "vmkmUond1FUb8XWd",
-    "name": "Poción [52] · Poción de piel de corteza o piedra",
+    "name": "Poción de piel de corteza o piedra",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-26.webp",
     "system": {
@@ -13316,6 +13413,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "52",
+      "tabla": "52",
       "contenido": true
      }
     },
@@ -13323,7 +13421,7 @@
    },
    {
     "_id": "22rZBA1Jg1xak7p6",
-    "name": "Poción [53] · Poción de polimorfia monstruosa",
+    "name": "Poción de polimorfia monstruosa",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-27.webp",
     "system": {
@@ -13341,6 +13439,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "53",
+      "tabla": "53",
       "contenido": true
      }
     },
@@ -13348,7 +13447,7 @@
    },
    {
     "_id": "kMPSEza2v8fHg1ls",
-    "name": "Poción [54] · Poción de rapidez relámpago",
+    "name": "Poción de rapidez relámpago",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-28.webp",
     "system": {
@@ -13366,6 +13465,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "54",
+      "tabla": "54",
       "contenido": true
      }
     },
@@ -13373,7 +13473,7 @@
    },
    {
     "_id": "GdojLQD2oyZslaHD",
-    "name": "Poción [55] · Poción de regeneración",
+    "name": "Poción de regeneración",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-29.webp",
     "system": {
@@ -13391,6 +13491,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "55",
+      "tabla": "55",
       "contenido": true
      }
     },
@@ -13398,7 +13499,7 @@
    },
    {
     "_id": "p89D4R6fYTSXxLi2",
-    "name": "Poción [56] · Poción de resistencia elemental",
+    "name": "Poción de resistencia elemental",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-30.webp",
     "system": {
@@ -13416,6 +13517,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "56",
+      "tabla": "56",
       "contenido": true
      }
     },
@@ -13423,7 +13525,7 @@
    },
    {
     "_id": "2god65MS1x2G4YFY",
-    "name": "Poción [61] · Poción de respiración acuática y férrea",
+    "name": "Poción de respiración acuática y férrea",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-31.webp",
     "system": {
@@ -13441,6 +13543,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "61",
+      "tabla": "61",
       "contenido": true
      }
     },
@@ -13448,7 +13551,7 @@
    },
    {
     "_id": "63NSRdpxKKKMoSGH",
-    "name": "Poción [62] · Poción de salto prodigioso",
+    "name": "Poción de salto prodigioso",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-32.webp",
     "system": {
@@ -13466,6 +13569,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "62",
+      "tabla": "62",
       "contenido": true
      }
     },
@@ -13473,7 +13577,7 @@
    },
    {
     "_id": "1TvGiFwW5bIj4bjh",
-    "name": "Poción [63] · Poción de sangre ácida",
+    "name": "Poción de sangre ácida",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-33.webp",
     "system": {
@@ -13491,6 +13595,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "63",
+      "tabla": "63",
       "contenido": true
      }
     },
@@ -13498,7 +13603,7 @@
    },
    {
     "_id": "WqKpRPsTHc85FWA2",
-    "name": "Poción [64] · Poción de sueño lúcido compartido",
+    "name": "Poción de sueño lúcido compartido",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-34.webp",
     "system": {
@@ -13516,6 +13621,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "64",
+      "tabla": "64",
       "contenido": true
      }
     },
@@ -13523,7 +13629,7 @@
    },
    {
     "_id": "4KNrjoaCz1kaRNAJ",
-    "name": "Poción [65] · Poción de telequinesis",
+    "name": "Poción de telequinesis",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-35.webp",
     "system": {
@@ -13541,6 +13647,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "65",
+      "tabla": "65",
       "contenido": true
      }
     },
@@ -13548,7 +13655,7 @@
    },
    {
     "_id": "KZoCqOPLm8YqPBbO",
-    "name": "Poción [66] · Poción de visión en la oscuridad y rayos X",
+    "name": "Poción de visión en la oscuridad y rayos X",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-36.webp",
     "system": {
@@ -13566,6 +13673,7 @@
      "mr-wicked-ones-es": {
       "categoria": "pocion",
       "d66": "66",
+      "tabla": "66",
       "contenido": true
      }
     },
@@ -13573,7 +13681,7 @@
    },
    {
     "_id": "XyJnX4wU29TFduAT",
-    "name": "Objeto Mágico [11] · Amuleto de absorción de hechizos",
+    "name": "Amuleto de absorción de hechizos",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-01.webp",
     "system": {
@@ -13591,6 +13699,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "11",
+      "tabla": "11",
       "contenido": true
      }
     },
@@ -13598,7 +13707,7 @@
    },
    {
     "_id": "TmDHcweoFjSgCOlS",
-    "name": "Objeto Mágico [12] · Anillo de caída de pluma",
+    "name": "Anillo de caída de pluma",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-02.webp",
     "system": {
@@ -13616,6 +13725,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "12",
+      "tabla": "12",
       "contenido": true
      }
     },
@@ -13623,7 +13733,7 @@
    },
    {
     "_id": "TvbjafKuLzobiIrM",
-    "name": "Objeto Mágico [13] · Anillo de invisibilidad fugaz",
+    "name": "Anillo de invisibilidad fugaz",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-03.webp",
     "system": {
@@ -13641,6 +13751,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "13",
+      "tabla": "13",
       "contenido": true
      }
     },
@@ -13648,7 +13759,7 @@
    },
    {
     "_id": "ry6k7RaJt3myga69",
-    "name": "Objeto Mágico [14] · Anillo de mando sobre alimañas",
+    "name": "Anillo de mando sobre alimañas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-04.webp",
     "system": {
@@ -13666,6 +13777,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "14",
+      "tabla": "14",
       "contenido": true
      }
     },
@@ -13673,7 +13785,7 @@
    },
    {
     "_id": "ZLZZHB23EKZduUyX",
-    "name": "Objeto Mágico [15] · Anillo de carnero",
+    "name": "Anillo de carnero",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-05.webp",
     "system": {
@@ -13691,6 +13803,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "15",
+      "tabla": "15",
       "contenido": true
      }
     },
@@ -13698,7 +13811,7 @@
    },
    {
     "_id": "nUoIQ7fgST4lAB0K",
-    "name": "Objeto Mágico [16] · Anillo de teletransporte corto",
+    "name": "Anillo de teletransporte corto",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-06.webp",
     "system": {
@@ -13716,6 +13829,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "16",
+      "tabla": "16",
       "contenido": true
      }
     },
@@ -13723,7 +13837,7 @@
    },
    {
     "_id": "Vlf8SPZdP6rWTYNp",
-    "name": "Objeto Mágico [21] · Armadura sombría viviente",
+    "name": "Armadura sombría viviente",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-07.webp",
     "system": {
@@ -13741,6 +13855,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "21",
+      "tabla": "21",
       "contenido": true
      }
     },
@@ -13748,7 +13863,7 @@
    },
    {
     "_id": "xs27TfhpyvN8jPhg",
-    "name": "Objeto Mágico [22] · Bolsa de contención abisal",
+    "name": "Bolsa de contención abisal",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-08.webp",
     "system": {
@@ -13766,6 +13881,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "22",
+      "tabla": "22",
       "contenido": true
      }
     },
@@ -13773,7 +13889,7 @@
    },
    {
     "_id": "j2NwCfbCYhTosqqH",
-    "name": "Objeto Mágico [23] · Botas de zancada élfica saqueadas",
+    "name": "Botas de zancada élfica saqueadas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-09.webp",
     "system": {
@@ -13791,6 +13907,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "23",
+      "tabla": "23",
       "contenido": true
      }
     },
@@ -13798,7 +13915,7 @@
    },
    {
     "_id": "JpKvU9roSQRcqCZl",
-    "name": "Objeto Mágico [24] · Botas de levitación",
+    "name": "Botas de levitación",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-10.webp",
     "system": {
@@ -13816,6 +13933,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "24",
+      "tabla": "24",
       "contenido": true
      }
     },
@@ -13823,7 +13941,7 @@
    },
    {
     "_id": "UCNK9MDrKo4Ry25k",
-    "name": "Objeto Mágico [25] · Brazales de fuerza de ogro",
+    "name": "Brazales de fuerza de ogro",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-11.webp",
     "system": {
@@ -13841,6 +13959,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "25",
+      "tabla": "25",
       "contenido": true
      }
     },
@@ -13848,7 +13967,7 @@
    },
    {
     "_id": "s37w4eSBG2SqTOJc",
-    "name": "Objeto Mágico [26] · Capa de desplazamiento",
+    "name": "Capa de desplazamiento",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-12.webp",
     "system": {
@@ -13866,6 +13985,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "26",
+      "tabla": "26",
       "contenido": true
      }
     },
@@ -13873,7 +13993,7 @@
    },
    {
     "_id": "mYgu4FU3HNKoEzRV",
-    "name": "Objeto Mágico [31] · Capa de las sombras",
+    "name": "Capa de las sombras",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-13.webp",
     "system": {
@@ -13891,6 +14011,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "31",
+      "tabla": "31",
       "contenido": true
      }
     },
@@ -13898,7 +14019,7 @@
    },
    {
     "_id": "OiymWIJgbiIZRHr2",
-    "name": "Objeto Mágico [32] · Capa del murciélago",
+    "name": "Capa del murciélago",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-14.webp",
     "system": {
@@ -13916,6 +14037,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "32",
+      "tabla": "32",
       "contenido": true
      }
     },
@@ -13923,7 +14045,7 @@
    },
    {
     "_id": "wxXMDG126siIoBRK",
-    "name": "Objeto Mágico [33] · Campana de silencio sepulcral",
+    "name": "Campana de silencio sepulcral",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-15.webp",
     "system": {
@@ -13941,6 +14063,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "33",
+      "tabla": "33",
       "contenido": true
      }
     },
@@ -13948,7 +14071,7 @@
    },
    {
     "_id": "iItGUPFdvNJi8DXl",
-    "name": "Objeto Mágico [34] · Collar de bolas de fuego",
+    "name": "Collar de bolas de fuego",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-16.webp",
     "system": {
@@ -13966,6 +14089,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "34",
+      "tabla": "34",
       "contenido": true
      }
     },
@@ -13973,7 +14097,7 @@
    },
    {
     "_id": "jMkq5GJmQ1FikCnW",
-    "name": "Objeto Mágico [35] · Corona de terror",
+    "name": "Corona de terror",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-17.webp",
     "system": {
@@ -13991,6 +14115,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "35",
+      "tabla": "35",
       "contenido": true
      }
     },
@@ -13998,7 +14123,7 @@
    },
    {
     "_id": "738m6JWSY0EWYQty",
-    "name": "Objeto Mágico [36] · Cuerda de estrangulamiento animada",
+    "name": "Cuerda de estrangulamiento animada",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-18.webp",
     "system": {
@@ -14016,6 +14141,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "36",
+      "tabla": "36",
       "contenido": true
      }
     },
@@ -14023,7 +14149,7 @@
    },
    {
     "_id": "yltCZCHx1CBFESqS",
-    "name": "Objeto Mágico [41] · Daga buscacorazones",
+    "name": "Daga buscacorazones",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-19.webp",
     "system": {
@@ -14041,6 +14167,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "41",
+      "tabla": "41",
       "contenido": true
      }
     },
@@ -14048,7 +14175,7 @@
    },
    {
     "_id": "zqqouwrIM8ISuDyY",
-    "name": "Objeto Mágico [42] · Espejo atrapa-almas",
+    "name": "Espejo atrapa-almas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-20.webp",
     "system": {
@@ -14066,6 +14193,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "42",
+      "tabla": "42",
       "contenido": true
      }
     },
@@ -14073,7 +14201,7 @@
    },
    {
     "_id": "mo9JCyCOWsvSo4eW",
-    "name": "Objeto Mágico [43] · Espada vorpalina sedienta",
+    "name": "Espada vorpalina sedienta",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-21.webp",
     "system": {
@@ -14091,6 +14219,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "43",
+      "tabla": "43",
       "contenido": true
      }
     },
@@ -14098,7 +14227,7 @@
    },
    {
     "_id": "hqdrB5WCaAPpzXFz",
-    "name": "Objeto Mágico [44] · Escudo devorador de flechas",
+    "name": "Escudo devorador de flechas",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-22.webp",
     "system": {
@@ -14116,6 +14245,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "44",
+      "tabla": "44",
       "contenido": true
      }
     },
@@ -14123,7 +14253,7 @@
    },
    {
     "_id": "XgYHgBaMQKyCme14",
-    "name": "Objeto Mágico [45] · Estatuilla de montura de ónice",
+    "name": "Estatuilla de montura de ónice",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-23.webp",
     "system": {
@@ -14141,6 +14271,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "45",
+      "tabla": "45",
       "contenido": true
      }
     },
@@ -14148,7 +14279,7 @@
    },
    {
     "_id": "Mfcf5Q5ANfT35AjL",
-    "name": "Objeto Mágico [46] · Guanteletes atrapa-proyectiles",
+    "name": "Guanteletes atrapa-proyectiles",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-24.webp",
     "system": {
@@ -14166,6 +14297,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "46",
+      "tabla": "46",
       "contenido": true
      }
     },
@@ -14173,7 +14305,7 @@
    },
    {
     "_id": "cHWt5RK1y2VrO1wG",
-    "name": "Objeto Mágico [51] · Farol de revelación espectral",
+    "name": "Farol de revelación espectral",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-25.webp",
     "system": {
@@ -14191,6 +14323,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "51",
+      "tabla": "51",
       "contenido": true
      }
     },
@@ -14198,7 +14331,7 @@
    },
    {
     "_id": "ZRQecXlIPSWgkQD9",
-    "name": "Objeto Mágico [52] · Hacha de retorno sangriento",
+    "name": "Hacha de retorno sangriento",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-26.webp",
     "system": {
@@ -14216,6 +14349,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "52",
+      "tabla": "52",
       "contenido": true
      }
     },
@@ -14223,7 +14357,7 @@
    },
    {
     "_id": "s7XjksljyYx7AvDM",
-    "name": "Objeto Mágico [53] · Lentes de visión verdadera",
+    "name": "Lentes de visión verdadera",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-27.webp",
     "system": {
@@ -14241,6 +14375,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "53",
+      "tabla": "53",
       "contenido": true
      }
     },
@@ -14248,7 +14383,7 @@
    },
    {
     "_id": "rfPvFWuhBNIRKA6a",
-    "name": "Objeto Mágico [54] · Llave esqueleto maestra",
+    "name": "Llave esqueleto maestra",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-28.webp",
     "system": {
@@ -14266,6 +14401,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "54",
+      "tabla": "54",
       "contenido": true
      }
     },
@@ -14273,7 +14409,7 @@
    },
    {
     "_id": "dPwZhAlYPpHQYo06",
-    "name": "Objeto Mágico [55] · Manto de plumas de arpía",
+    "name": "Manto de plumas de arpía",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-29.webp",
     "system": {
@@ -14291,6 +14427,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "55",
+      "tabla": "55",
       "contenido": true
      }
     },
@@ -14298,7 +14435,7 @@
    },
    {
     "_id": "QqDPL35e5zMcN7g2",
-    "name": "Objeto Mágico [56] · Martillo de los temblores",
+    "name": "Martillo de los temblores",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-30.webp",
     "system": {
@@ -14316,6 +14453,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "56",
+      "tabla": "56",
       "contenido": true
      }
     },
@@ -14323,7 +14461,7 @@
    },
    {
     "_id": "P6ZjjtP5iXuWPzz6",
-    "name": "Objeto Mágico [61] · Máscara de los mil rostros",
+    "name": "Máscara de los mil rostros",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-31.webp",
     "system": {
@@ -14341,6 +14479,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "61",
+      "tabla": "61",
       "contenido": true
      }
     },
@@ -14348,7 +14487,7 @@
    },
    {
     "_id": "c50WmfW6QEXht1UF",
-    "name": "Objeto Mágico [62] · Orbe de tormentas y visiones",
+    "name": "Orbe de tormentas y visiones",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-32.webp",
     "system": {
@@ -14366,6 +14505,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "62",
+      "tabla": "62",
       "contenido": true
      }
     },
@@ -14373,7 +14513,7 @@
    },
    {
     "_id": "WwO2m11Me5n5ZOZN",
-    "name": "Objeto Mágico [63] · Piedras de comunicación lejana",
+    "name": "Piedras de comunicación lejana",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-33.webp",
     "system": {
@@ -14391,6 +14531,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "63",
+      "tabla": "63",
       "contenido": true
      }
     },
@@ -14398,7 +14539,7 @@
    },
    {
     "_id": "Wxx9caAzmdBgzOUf",
-    "name": "Objeto Mágico [64] · Túnica de ojos",
+    "name": "Túnica de ojos",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-34.webp",
     "system": {
@@ -14416,6 +14557,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "64",
+      "tabla": "64",
       "contenido": true
      }
     },
@@ -14423,7 +14565,7 @@
    },
    {
     "_id": "jQxOWD1VUcsAcB9Y",
-    "name": "Objeto Mágico [65] · Vara de inmovilización",
+    "name": "Vara de inmovilización",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-35.webp",
     "system": {
@@ -14441,6 +14583,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "65",
+      "tabla": "65",
       "contenido": true
      }
     },
@@ -14448,7 +14591,7 @@
    },
    {
     "_id": "2dJC33wUO2AvVtnm",
-    "name": "Objeto Mágico [66] · Vara de relámpagos",
+    "name": "Vara de relámpagos",
     "type": "gearsupply",
     "img": "modules/mr-wicked-ones-es/assets/iconos/magico-36.webp",
     "system": {
@@ -14466,6 +14609,7 @@
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
       "d66": "66",
+      "tabla": "66",
       "contenido": true
      }
     },
@@ -14489,6 +14633,7 @@
     "folder": "TYRtQKCRTxB5QnxB",
     "flags": {
      "mr-wicked-ones-es": {
+      "categoria": "proyecto",
       "contenido": true
      }
     }
@@ -14511,6 +14656,7 @@
     "folder": "TYRtQKCRTxB5QnxB",
     "flags": {
      "mr-wicked-ones-es": {
+      "categoria": "proyecto",
       "contenido": true
      }
     }
@@ -14533,6 +14679,7 @@
     "folder": "TYRtQKCRTxB5QnxB",
     "flags": {
      "mr-wicked-ones-es": {
+      "categoria": "proyecto",
       "contenido": true
      }
     }
@@ -14555,6 +14702,7 @@
     "folder": "TYRtQKCRTxB5QnxB",
     "flags": {
      "mr-wicked-ones-es": {
+      "categoria": "proyecto",
       "contenido": true
      }
     }

@@ -63,6 +63,12 @@ jobs:
             content/libretos.json \
             js/hoja-personaje.mjs \
             js/libretos.mjs \
+            js/selector.mjs \
+            js/creador.mjs \
+            js/dados.mjs \
+            js/ayuda.mjs \
+            templates/capacidad-compacta.hbs \
+            assets/dados/d6-6.png \
             js/tirada.mjs \
             js/tirada-dialogo.mjs \
             js/ajustes.mjs \

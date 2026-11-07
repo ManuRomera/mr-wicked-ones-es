@@ -57,6 +57,24 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 
 ## 🛠️ Mejoras de juego
 
+### Crear un monstruo paso a paso (o al azar)
+El **creador** sigue el orden del manual: raza, vocación, capacidad de vocación, reparto de acciones (3/2/2/1/1), impulso oscuro, juerga, equipo y suministros con su defensa, y nombre. Cada paso tiene su botón **«Al azar»** y hay un **«Todo al azar»** para tener un monstruo listo en diez segundos. Se abre desde el directorio de Actores («Crear monstruo»), desde la barra de la hoja (para rehacer un personaje) o con `api.abrirCreador()`.
+
+### Una hoja que no estorba
+Raza, vocación, impulso y juerga quedan **fijados** una vez elegidos; solo se pueden cambiar activando el **modo evolución** de la barra de la hoja, y las capacidades nuevas se ofrecen cuando llenas la EXP malvada. Las herramientas (compacta, libretos, evolución, aspecto, ayuda, creador) viven en una **barra flotante de cristal** que se muestra u oculta con la calavera. Cada capacidad dice **cómo se usa** (cuesta estrés, pasiva, tiene tirada…) y tiene su botón de uso; las **conmociones, reventado y desatado** salen en un panel de estados; la EXP de práctica solo aparece donde se puede ganar.
+
+### Heridas que se apuntan, y recuperación
+Un monstruo no tiene tres niveles de herida: sufre **conmociones** (leves, una por atributo), puede quedar **reventado** y, si recibe otra herida seria, **muere**. El panel de **Heridas** deja anotar qué te ha pasado en cada una (se borra sola al curarse), reventarse pone conmoción en todos los atributos, y la **recuperación** (botón de la barra de la hoja, o al pasar el ciclo a la fase 1) elimina estrés y heridas y regenera defensas y suministros. La barra de herramientas **aparece al acercar el cursor**.
+
+### Catálogo de objetos con buscador
+Añadir equipo, suministros, defensas, proyectos, labores, mejoras y aventureros abre un **catálogo** con búsqueda, categorías (armas y armaduras, mejunjes, artilugios, pociones, objetos mágicos…), orden alfabético y la descripción de cada objeto. Los nombres de los objetos ya no llevan prefijos de tabla.
+
+### Dados propios y Dice So Nice
+Caras de color de menos a más —con el emblema del Señor Oscuro en el 6— en las **tarjetas del chat** y, si tienes [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice), también en los **dados 3D** (ajuste «Dados de Wicked Ones»; cada jugador puede cambiarlos en su configuración de dados).
+
+### Ayuda al detener el cursor
+Si dejas el cursor **quieto dos segundos** sobre cualquier botón, casilla o dato de las hojas y las tarjetas, un globo explica qué es y cómo se usa (el retraso se ajusta de 0,5 a 5 s o se desactiva).
+
 ### Una hoja de monstruo pensada para jugar
 Cabecera y **constantes vitales siempre visibles**: el **Estrés** se marca pulsando sus casillas (y al llenarlo el personaje se desata), igual que los corazones oscuros, el oro, los suministros y la EXP. El resto, repartido en pestañas: **Acciones**, **Capacidades**, **Libreto**, **Equipo**, **Guarida** y **Notas**. Nada de una hoja enorme en una sola pestaña.
 
@@ -150,6 +168,12 @@ npm run datos && npm run build
 
 - **Everything in folders**: actors, items, scenes, journals and compendia, with this module's content separated from the system's.
 - **Redesigned character sheet**: vitals always visible (clickable stress track), tabs for Actions, Abilities, **Playbook**, Gear, Lair and Notes, and a real compact mode.
+- **Step-by-step character creator** following the rulebook order, with a *Random* button on every step and a one-click *Randomise everything*.
+- **Locked playbook choices** (race, calling, impulse, revelry) unless you switch on *evolution mode*; clear ability usage badges and use buttons; shock / bloodied / feral states panel; glass-style floating toolbar.
+- **Searchable item catalogue** (categories, alphabetical, descriptions) instead of the system's long dropdown, and **wound ± controls** for adventurers.
+- **Custom dice** (colour-scaled faces, Dark Lord emblem on the 6) in chat cards and in **Dice So Nice**.
+- **Wounds you can annotate** (shock → bloodied → dead), a **Recovery** button and prompt on cycle phase 1, and a toolbar that appears on hover.
+- **Hover help**: rest the cursor for two seconds on anything and a balloon explains it.
 - **Playbooks** for every calling and monster race (how to play it, abilities you can learn, example items), readable by players.
 - **Roller** inspired by generic FitD rollers (Position × Effect grid, Help / Go all out / dark pact / dark heart, live odds) and **monster-themed chat cards**.
 - **Full accessibility panel** (dark mode also on chat cards, high contrast, reading mode, text size, plain font, spacing, big buttons, less motion/effects, colour-blind marks) and a switch back to the original system look.

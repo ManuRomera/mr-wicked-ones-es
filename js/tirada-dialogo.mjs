@@ -31,7 +31,7 @@ export class TiradaMR extends App {
 
   /** @type {Actor|null} */
   actor = null;
-  e = { tipo: "accion", accion: null, ayuda: false, todo: false, pacto: false, corazon: false, extra: 0, posicion: "default", efecto: "default", mortal: false, dadosFortuna: 2 };
+  e = { tipo: "accion", accion: null, ayuda: false, todo: false, pacto: false, corazon: false, extra: 0, posicion: "default", efecto: "default", mortal: false, moral: false, dadosFortuna: 2 };
 
   constructor(actor, inicial = {}, options = {}) {
     super(options);
@@ -59,6 +59,7 @@ export class TiradaMR extends App {
     if (e.pacto) { total += 1; partes.push({ t: "Pacto oscuro +1d", d: 1 }); }
     const corazones = n(this.actor?.system?.dark_hearts?.value, 0);
     if (e.corazon && corazones > 0) { total += 1; partes.push({ t: "Corazón oscuro +1d", d: 1 }); }
+    if (e.moral && this.actor?.system?.morale) { total += 1; partes.push({ t: "Moral +1d", d: 1 }); }
     if (e.extra) { total += e.extra; partes.push({ t: `Otros ${e.extra > 0 ? "+" : ""}${e.extra}d`, d: e.extra }); }
     return { total: Math.max(0, total), partes };
   }
@@ -90,11 +91,12 @@ export class TiradaMR extends App {
 
     const btnCorazon = `<button type="button" class="mrg-btn" data-action="truco" data-valor="corazon" aria-pressed="${e.corazon && corazones > 0}" ${corazones ? "" : "disabled"} title="Gastas un corazón oscuro."><i class="fa-solid fa-heart"></i><span class="mrg-t">Corazón oscuro<small>+1d · ${corazones}</small></span></button>`;
     const btnPacto = `<button type="button" class="mrg-btn" data-action="truco" data-valor="pacto" aria-pressed="${e.pacto}" title="El DJ fija una consecuencia que ocurrirá pase lo que pase."><i class="fa-solid fa-file-signature"></i><span class="mrg-t">Pacto oscuro<small>+1d</small></span></button>`;
+    const btnMoral = this.actor?.type === "minion_pack" ? `<button type="button" class="mrg-btn" data-action="truco" data-valor="moral" aria-pressed="${e.moral && Boolean(actor?.system?.morale)}" ${actor?.system?.morale ? "" : "disabled"} data-ayuda="Moral||La manada gasta su punto de moral para añadir +1d."><i class="fa-solid fa-flag"></i><span class="mrg-t">Moral<small>+1d</small></span></button>` : "";
     const trucos = e.tipo === "accion" ? `
       <div class="mrg-trucos">
         <button type="button" class="mrg-btn" data-action="truco" data-valor="ayuda" aria-pressed="${e.ayuda}" title="Un aliado te echa una mano: +efecto, pero comparte la consecuencia."><i class="fa-solid fa-handshake-angle"></i><span class="mrg-t">Ayudar<small>+efecto</small></span></button>
         <button type="button" class="mrg-btn" data-action="truco" data-valor="todo" aria-pressed="${e.todo}" title="Prescindes de tu seguridad: +efecto, −situación."><i class="fa-solid fa-fire"></i><span class="mrg-t">Darlo todo<small>+efecto −situación</small></span></button>
-        ${btnPacto}${btnCorazon}
+        ${btnPacto}${btnCorazon}${btnMoral}
       </div>` : e.tipo === "resistencia" ? `
       <div class="mrg-trucos">
         <button type="button" class="mrg-btn" data-action="mortal" aria-pressed="${e.mortal}"><i class="fa-solid fa-skull-crossbones"></i><span class="mrg-t">Resistir la muerte<small>situación mortal</small></span></button>
@@ -167,7 +169,7 @@ export class TiradaMR extends App {
 
   async #lanzar() {
     const e = this.e;
-    const opts = { tipo: e.tipo, accion: e.accion, ayuda: e.ayuda, todo: e.todo, pacto: e.pacto, corazon: e.corazon, extra: e.extra, posicion: e.mortal && e.tipo === "resistencia" ? "deadly" : e.posicion, efecto: e.efecto };
+    const opts = { tipo: e.tipo, accion: e.accion, ayuda: e.ayuda, todo: e.todo, pacto: e.pacto, corazon: e.corazon, moral: e.moral, extra: e.extra, posicion: e.mortal && e.tipo === "resistencia" ? "deadly" : e.posicion, efecto: e.efecto };
     if (e.tipo === "fortuna") { opts.accion = null; opts.dadosBase = e.dadosFortuna; }
     await this.close();
     await tirar(this.actor, opts);

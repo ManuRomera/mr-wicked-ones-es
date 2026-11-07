@@ -1,0 +1,6 @@
+<div class="mrg-c-cap">
+  <button type="button" class="mrg-enlace mrg-c-cap-n" data-abrir="{{id}}" data-ayuda="{{nombre}}||{{desc}}">{{nombre}}</button>
+  <span class="mrg-chip mrg-uso mrg-uso--{{uso.k}}" data-ayuda="{{uso.titulo}}||{{uso.ayuda}}">{{uso.etiqueta}}</span>
+  {{#if uso.boton}}<button type="button" class="mrg-btn mrg-btn--suave" data-usar="{{id}}" data-ayuda="{{uso.titulo}}||{{uso.ayuda}}"><i class="fa-solid fa-hand-sparkles"></i> {{uso.boton}}</button>{{/if}}
+  {{#each checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}
+</div>

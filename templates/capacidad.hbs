@@ -4,9 +4,11 @@
     {{#if principal}}<span class="mrg-chip mrg-chip--sangre">Principal</span>{{/if}}
     {{#if externa}}<span class="mrg-chip">Externa</span>{{/if}}
     {{#if fuente}}<span class="mrg-chip">{{fuente}}</span>{{/if}}
+    {{#if uso}}<span class="mrg-chip mrg-uso mrg-uso--{{uso.k}}" data-ayuda="{{uso.titulo}}||{{uso.ayuda}}">{{uso.etiqueta}}</span>{{/if}}
     <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button>
   </header>
   {{#if desc}}<p>{{desc}}</p>{{/if}}
+  {{#if uso.boton}}<button type="button" class="mrg-btn {{#if uso.k}}mrg-btn--uso-{{uso.k}}{{/if}}" data-usar="{{id}}" data-ayuda="{{uso.titulo}}||{{uso.ayuda}}"><i class="fa-solid fa-hand-sparkles"></i> {{uso.boton}}</button>{{/if}}
   {{#if primigenia}}<p class="mrg-nota"><i class="fa-solid fa-circle-info"></i> Capacidad primigenia: sus detalles se editan en la ficha del objeto (pulsa su nombre).</p>{{/if}}
   {{#if tirada}}<button type="button" class="mrg-btn" data-fortuna="{{tirada.dados}}" data-titulo="{{nombre}}"><i class="fa-solid fa-dice"></i> Tirar {{tirada.nombre}} ({{tirada.dados}}d)</button>{{/if}}
   {{#each checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}

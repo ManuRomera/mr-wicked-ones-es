@@ -7,7 +7,7 @@
       <div class="mrg-cab-chips">
         <span class="mrg-chip"><i class="fa-solid fa-shield-halved"></i> {{mr.aventureros.length}} aventureros</span>
         <span class="mrg-chip"><i class="fa-solid fa-hand-holding-heart"></i> {{mr.ayudantes.length}} ayudantes</span>
-        <a class="mrg-btn item-add-popup" data-item-type="adventurer"><i class="fa-solid fa-plus"></i> Añadir</a>
+        <a class="mrg-btn" data-selector="adventurer"><i class="fa-solid fa-plus"></i> Añadir</a>
       </div>
     </div>
   </header>
@@ -26,6 +26,12 @@
           <div class="mrg-adv-fila">
             <div class="mrg-corazones" role="group" aria-label="Corazones">
               {{#each corazones}}<button type="button" class="mrg-corazon mrg-corazon--{{estado}}" data-corazon="{{j}}" data-item="{{../id}}" aria-label="Corazón {{j}}, {{#if estado}}herido{{else}}entero{{/if}}"></button>{{/each}}
+            </div>
+            <div class="mrg-herida" role="group" aria-label="Heridas de {{clase}}">
+              <button type="button" class="mrg-mini mrg-mini--mal" data-herida="1" data-item="{{id}}" data-ayuda="Herir medio corazón||Marca medio corazón de daño. Cuando no queda ninguno, el aventurero cae." aria-label="Herir medio corazón"><i class="fa-solid fa-droplet"></i> ½</button>
+              <button type="button" class="mrg-mini mrg-mini--bien" data-herida="-1" data-item="{{id}}" data-ayuda="Curar medio corazón||Quita medio corazón de daño." aria-label="Curar medio corazón"><i class="fa-solid fa-bandage"></i> ½</button>
+              <button type="button" class="mrg-mini" data-herida="0" data-item="{{id}}" data-ayuda="Curar del todo||Quita todas las heridas." aria-label="Curar del todo"{{#if entero}} disabled{{/if}}><i class="fa-solid fa-rotate-left"></i></button>
+              <span class="mrg-vida {{#if caido}}mrg-vida--caido{{/if}}">{{#if caido}}Caído{{else}}{{vida}}{{/if}}</span>
             </div>
             <div class="mrg-usos" role="group" aria-label="Movimientos gastados">
               {{#each usos}}<button type="button" class="mrg-pip" data-uso="{{../id}}" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Movimiento {{n}}"></button>{{/each}}
@@ -53,6 +59,12 @@
           <div class="mrg-adv-fila">
             <div class="mrg-corazones" role="group" aria-label="Corazón">
               {{#each corazones}}<button type="button" class="mrg-corazon mrg-corazon--{{estado}}" data-corazon="{{j}}" data-item="{{../id}}" aria-label="Corazón, {{#if estado}}herido{{else}}entero{{/if}}"></button>{{/each}}
+            </div>
+            <div class="mrg-herida" role="group" aria-label="Heridas de {{clase}}">
+              <button type="button" class="mrg-mini mrg-mini--mal" data-herida="1" data-item="{{id}}" data-ayuda="Herir medio corazón||Marca medio corazón de daño. Cuando no queda ninguno, el aventurero cae." aria-label="Herir medio corazón"><i class="fa-solid fa-droplet"></i> ½</button>
+              <button type="button" class="mrg-mini mrg-mini--bien" data-herida="-1" data-item="{{id}}" data-ayuda="Curar medio corazón||Quita medio corazón de daño." aria-label="Curar medio corazón"><i class="fa-solid fa-bandage"></i> ½</button>
+              <button type="button" class="mrg-mini" data-herida="0" data-item="{{id}}" data-ayuda="Curar del todo||Quita todas las heridas." aria-label="Curar del todo"{{#if entero}} disabled{{/if}}><i class="fa-solid fa-rotate-left"></i></button>
+              <span class="mrg-vida {{#if caido}}mrg-vida--caido{{/if}}">{{#if caido}}Caído{{else}}{{vida}}{{/if}}</span>
             </div>
             <div class="mrg-usos">{{#each usos}}<button type="button" class="mrg-pip" data-uso="{{../id}}" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Movimiento"></button>{{/each}}</div>
           </div>

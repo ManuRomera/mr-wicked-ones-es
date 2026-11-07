@@ -110,6 +110,8 @@ export async function tirar(actor, c = {}) {
   const corazones = n(actor?.system?.dark_hearts?.value, 0);
   const gastaCorazon = Boolean(c.corazon) && corazones > 0;
   if (gastaCorazon) { dados += 1; mods.push({ id: "corazon", txt: "Corazón oscuro: +1d", d: 1 }); }
+  const gastaMoral = Boolean(c.moral) && actor?.type === "minion_pack" && Boolean(actor.system?.morale);
+  if (gastaMoral) { dados += 1; mods.push({ id: "moral", txt: "Moral: +1d", d: 1 }); }
   if (n(c.extra, 0)) { dados += n(c.extra); mods.push({ id: "extra", txt: `Otros: ${n(c.extra) > 0 ? "+" : ""}${n(c.extra)}d`, d: n(c.extra) }); }
   dados = Math.max(0, dados);
 
@@ -135,6 +137,10 @@ export async function tirar(actor, c = {}) {
   const cambios = {};
   const titulo = c.titulo ?? (accion ? nombreAccion(accion) : nombreTipo(tipo));
 
+  if (gastaMoral) {
+    cambios["system.morale"] = false;
+    efectos.push({ icono: "fa-flag", txt: "La manada gasta su punto de moral." });
+  }
   if (gastaCorazon) {
     cambios["system.dark_hearts.value"] = corazones - 1;
     efectos.push({ icono: "fa-heart", txt: `Gastas un corazón oscuro (quedan ${corazones - 1}).` });

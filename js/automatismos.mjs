@@ -163,6 +163,62 @@ export async function gastarCorazonExtraDado(msg, actor) {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Heridas y recuperación                                                    */
+/* -------------------------------------------------------------------------- */
+
+const ATRS = ["brains", "muscles", "guts"];
+const FLAGS = `flags.${MOD}`;
+
+/**
+ * Recuperación (fase 1 del ciclo): se elimina todo el estrés, las conmociones y el estado reventado; se regeneran
+ * las defensas y los suministros, y termina el estado desatado. En una manada de esbirros se limpia «reventada».
+ */
+export async function recuperar(actor, { silencioso = false } = {}) {
+  if (!actor) return false;
+  if (actor.type === "minion_pack") { if (actor.system.bloodied) await actor.update({ "system.bloodied": false }); return true; }
+  if (actor.type !== "character") return false;
+  const cambios = { "system.stress.value": 0, "system.bloodied": false, "system.supply.value": 0, [`${FLAGS}.-=heridas`]: null };
+  for (const a of ATRS) cambios[`system.attributes.${a}.shocked`] = false;
+  await actor.update(cambios);
+  const defensas = actor.items.filter(i => i.type === "defense" && i.system.checked).map(i => ({ _id: i.id, "system.checked": false }));
+  if (defensas.length) await actor.updateEmbeddedDocuments("Item", defensas);
+  try { if (actor.statuses?.has?.("mr-feral")) await actor.toggleStatusEffect("mr-feral", { active: false }); } catch { /* sin estado */ }
+  if (!silencioso) ui.notifications.info(`${actor.name} se recupera: sin estrés ni heridas, con defensas y suministros renovados.`);
+  return true;
+}
+
+/** Recuperación de toda la mesa (monstruos y manadas). Solo la dirección. */
+export async function recuperarTodos() {
+  const lista = game.actors.filter(a => ["character", "minion_pack"].includes(a.type) && a.isOwner);
+  for (const a of lista) await recuperar(a, { silencioso: true });
+  const { htmlTarjetaSimple } = await import("./tirada.mjs");
+  await ChatMessage.create({
+    content: htmlTarjetaSimple({ tipo: "Fase de acecho", titulo: "Recuperación", subtitulo: `${lista.length} actores`, neutro: "azul",
+      cuerpo: "<p>Se elimina todo el estrés y se curan las heridas (conmociones y reventado). Defensas y suministros se regeneran.</p>" })
+  });
+  return lista.length;
+}
+
+/** Reventado ↔ conmociones: reventarse da conmoción en todos los atributos; al limpiarlas todas, se deja de estar reventado. */
+function acoplarHeridas(actor, cambios, userId) {
+  if (actor.type !== "character" || game.user.id !== userId || !game.settings.get(MOD, "autoAplicar")) return;
+  const g = k => foundry.utils.getProperty(cambios, k);
+  const sh = a => g(`system.attributes.${a}.shocked`);
+  if (g("system.bloodied") === true && !actor.system.bloodied) {
+    for (const a of ATRS) foundry.utils.setProperty(cambios, `system.attributes.${a}.shocked`, true);
+    ui.notifications.info(`${actor.name} queda reventado: conmoción en todos los atributos. Otra herida seria lo mata.`);
+  } else if (actor.system.bloodied && g("system.bloodied") === undefined && ATRS.some(a => sh(a) !== undefined)) {
+    if (ATRS.every(a => (sh(a) ?? actor.system.attributes[a].shocked) === false)) {
+      foundry.utils.setProperty(cambios, "system.bloodied", false);
+      foundry.utils.setProperty(cambios, `${FLAGS}.heridas.-=sangre`, null);
+      ui.notifications.info(`${actor.name} sale adelante: ya no está reventado.`);
+    }
+  }
+  if (g("system.bloodied") === false) foundry.utils.setProperty(cambios, `${FLAGS}.heridas.-=sangre`, null);
+  for (const a of ATRS) if (sh(a) === false) foundry.utils.setProperty(cambios, `${FLAGS}.heridas.-=${a}`, null); // la herida anotada se borra con la conmoción
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Registro                                                                  */
 /* -------------------------------------------------------------------------- */
 
@@ -172,5 +228,13 @@ export function registrarAutomatismos() {
     scope: "world", config: true, type: Boolean, default: true
   });
   CONFIG.statusEffects.push({ id: "mr-feral", name: "Desatado (feral)", img: "icons/svg/terror.svg" });
+  Hooks.on("preUpdateActor", (actor, cambios, _o, userId) => acoplarHeridas(actor, cambios, userId));
+  // Fase 1 del ciclo = recuperación: la dirección puede aplicarla a toda la mesa
+  Hooks.on("updateActor", async (actor, cambios, _o, userId) => {
+    if (actor.type !== "gm_sheet" || game.user.id !== userId || !game.user.isGM || !game.settings.get(MOD, "autoAplicar")) return;
+    if (foundry.utils.getProperty(cambios, "system.current_phase.value") !== 1) return;
+    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Fase de recuperación" }, content: "<p>Empieza la fase de acecho con la <strong>recuperación</strong>: se elimina todo el estrés, se curan las heridas y se regeneran defensas y suministros de todos los monstruos y manadas. ¿Aplicarlo ahora?</p>", rejectClose: false });
+    if (ok) await recuperarTodos();
+  });
   Hooks.on("createChatMessage", msg => { procesarTirada(msg).catch(e => console.error(`${MOD} | automatismos`, e)); });
 }

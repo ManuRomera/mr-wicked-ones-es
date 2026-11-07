@@ -32,7 +32,7 @@ function traducido(doc) {
 }
 
 /** Documentos de un compendio del sistema como objetos ligeros: { name, system, img, uuid, datos } (datos = lo que se crea en la hoja). */
-async function docsDe(pack) {
+export async function docsDe(pack) {
   if (_docs[pack]) return _docs[pack];
   const p = game.packs.get(`wicked-ones.${pack}`);
   _docs[pack] = p ? (await p.getDocuments()).map(d => { const o = traducido(d); return { name: o.name, system: o.system ?? {}, img: o.img, uuid: d.uuid, datos: o }; }) : [];
@@ -104,6 +104,11 @@ export async function htmlLibreto(e, actor = null) {
   const propiaR = actor ? claveRaza(razaDe(actor)?.name) : null;
   const modo = e.modo ?? "voc";
   const edita = Boolean(actor?.isOwner);
+  // Con la hoja en modo normal, raza, vocación e impulsos quedan fijados; solo se tocan al evolucionar (o si aún no hay nada elegido)
+  const evo = e.evolucion ?? true;
+  const aprende = edita && (e.puedeAprender ?? true);
+  const puedeCambiar = (tipo) => edita && (evo || !actor.items.some(i => i.type === tipo));
+  const candado = `<span class="mrg-chip" data-ayuda="Fijado||Para cambiarlo activa el modo evolución en la hoja (icono de la barra superior)."><i class="fa-solid fa-lock"></i> Fijado</span>`;
 
   const tabs = [["voc", "Vocación", "fa-hat-wizard"], ["raza", "Raza", "fa-dragon"], ["otros", "Impulsos y juergas", "fa-masks-theater"]]
     .map(([k, t, i]) => `<button type="button" class="mrg-btn ${modo === k ? "mrg-activo" : ""}" data-lib="modo" data-valor="${k}" aria-pressed="${modo === k}"><i class="fa-solid ${i}"></i> ${t}</button>`).join("");
@@ -117,16 +122,16 @@ export async function htmlLibreto(e, actor = null) {
     if (v) {
       const caps = v.capacidades.filter(h => h.system?.ability_group !== "group_core").map(h => {
         const tiene = tieneItem(actor, "specialability", h.name);
-        return `<article class="mrg-cap ${tiene ? "mrg-tiene" : ""}"><header><h5>${esc(h.name)}</h5>${tiene ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> La tienes</span>` : edita ? `<button type="button" class="mrg-btn" data-lib="anadir" data-uuid="${esc(h.uuid)}"><i class="fa-solid fa-plus"></i> Aprender</button>` : ""}</header><p>${esc(h.system?.description ?? "")}</p></article>`;
+        return `<article class="mrg-cap ${tiene ? "mrg-tiene" : ""}"><header><h5>${esc(h.name)}</h5>${tiene ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> La tienes</span>` : aprende ? `<button type="button" class="mrg-btn" data-lib="anadir" data-uuid="${esc(h.uuid)}"><i class="fa-solid fa-plus"></i> Aprender</button>` : edita ? `<span class="mrg-chip" data-ayuda="Aún no toca||Empiezas con una capacidad de vocación y ganas otra cuando llenas la EXP malvada (9 casillas). También puedes activar el modo evolución."><i class="fa-solid fa-lock"></i> Cuando llenes la EXP</span>` : ""}</header><p>${esc(h.system?.description ?? "")}</p></article>`;
       }).join("");
       const nucleo = v.capacidades.find(h => h.system?.ability_group === "group_core");
       const tieneNucleo = nucleo && tieneItem(actor, "specialability", nucleo.name);
       cuerpo = `<nav class="mrg-lib-chips" aria-label="Vocaciones">${chips}</nav>${cabExtra}
       <article class="mrg-lib-ficha">
         <header class="mrg-lib-cab"><h3 class="mrg-titulo">${esc(v.nombre)}</h3>${v.lema ? `<p class="mrg-lib-lema">${esc(v.lema)}</p>` : ""}
-          ${edita && v.docCalling && v.id !== propiaV ? `<button type="button" class="mrg-btn mrg-btn--sangre" data-lib="elegir-voc" data-id="${esc(v.id)}"><i class="fa-solid fa-crown"></i> Ser ${esc(v.nombre.toLowerCase())}</button>` : v.id === propiaV ? `<span class="mrg-chip mrg-chip--oro"><i class="fa-solid fa-star"></i> Tu vocación</span>` : ""}</header>
+          ${puedeCambiar("calling") && v.docCalling && v.id !== propiaV ? `<button type="button" class="mrg-btn mrg-btn--sangre" data-lib="elegir-voc" data-id="${esc(v.id)}"><i class="fa-solid fa-crown"></i> Ser ${esc(v.nombre.toLowerCase())}</button>` : edita && v.id !== propiaV && propiaV ? candado : v.id === propiaV ? `<span class="mrg-chip mrg-chip--oro"><i class="fa-solid fa-star"></i> Tu vocación</span>` : ""}</header>
         ${v.intro ? `<p class="mrg-lib-intro">${esc(v.intro)}</p>` : ""}
-        ${v.principal?.nombre ? `<section class="mrg-lib-principal"><h4>Capacidad principal · ${esc(v.principal.nombre)}</h4><p>${esc(v.principal.texto)}</p>${nucleo && edita && !tieneNucleo ? `<button type="button" class="mrg-btn" data-lib="anadir" data-uuid="${esc(nucleo.uuid)}"><i class="fa-solid fa-plus"></i> Tenerla en mi hoja</button>` : tieneNucleo ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> La tienes</span>` : ""}</section>` : ""}
+        ${v.principal?.nombre ? `<section class="mrg-lib-principal"><h4>Capacidad principal · ${esc(v.principal.nombre)}</h4><p>${esc(v.principal.texto)}</p>${nucleo && aprende && !tieneNucleo ? `<button type="button" class="mrg-btn" data-lib="anadir" data-uuid="${esc(nucleo.uuid)}"><i class="fa-solid fa-plus"></i> Tenerla en mi hoja</button>` : tieneNucleo ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> La tienes</span>` : ""}</section>` : ""}
         ${v.flashback ? `<p class="mrg-lib-flash"><i class="fa-solid fa-clock-rotate-left"></i> ${esc(v.flashback)}</p>` : ""}
         ${caps ? `<h4 class="mrg-seccion">Capacidades de vocación <small>empiezas con una y ganas otra al completar la EXP malvada</small></h4><div class="mrg-caps">${caps}</div>` : ""}
         ${v.objetos?.length ? `<h4 class="mrg-seccion">Objetos de ejemplo <small>cuatro de equipo y tres de suministro</small></h4><ul class="mrg-lib-objetos">${v.objetos.map(o => `<li>${esc(o)}</li>`).join("")}</ul>` : ""}
@@ -137,7 +142,7 @@ export async function htmlLibreto(e, actor = null) {
     const chips = rs.map(x => `<button type="button" class="mrg-chipbtn ${x.id === r?.id ? "mrg-sel" : ""}" data-lib="raza" data-valor="${esc(x.id)}" aria-pressed="${x.id === r?.id}">${x.id === propiaR ? "★ " : ""}${esc(x.nombre)}${x.primal ? " ✦" : ""}</button>`).join("");
     if (r) cuerpo = `<nav class="mrg-lib-chips" aria-label="Razas">${chips}</nav>
       <article class="mrg-lib-ficha"><header class="mrg-lib-cab"><h3 class="mrg-titulo">${esc(r.nombre)}</h3>
-        ${edita && r.doc && r.id !== propiaR ? `<button type="button" class="mrg-btn mrg-btn--sangre" data-lib="elegir-raza" data-id="${esc(r.id)}"><i class="fa-solid fa-crown"></i> Ser ${esc(r.nombre.toLowerCase())}</button>` : r.id === propiaR ? `<span class="mrg-chip mrg-chip--oro"><i class="fa-solid fa-star"></i> Tu raza</span>` : ""}</header>
+        ${puedeCambiar("monster_race") && r.doc && r.id !== propiaR ? `<button type="button" class="mrg-btn mrg-btn--sangre" data-lib="elegir-raza" data-id="${esc(r.id)}"><i class="fa-solid fa-crown"></i> Ser ${esc(r.nombre.toLowerCase())}</button>` : edita && r.id !== propiaR && propiaR ? candado : r.id === propiaR ? `<span class="mrg-chip mrg-chip--oro"><i class="fa-solid fa-star"></i> Tu raza</span>` : ""}</header>
         <p class="mrg-lib-intro">${esc(r.texto)}</p>
         ${r.dice?.length ? `<h4 class="mrg-seccion">Así habla <small>para interpretarlo</small></h4><ul class="mrg-lib-frases">${r.dice.map(f => `<li>«${esc(f)}»</li>`).join("")}</ul>` : ""}
         ${r.nombres?.length ? `<h4 class="mrg-seccion">Nombres habituales</h4><p class="mrg-lib-nombres">${r.nombres.map(nm => `<span class="mrg-chip">${esc(nm)}</span>`).join(" ")}</p>` : ""}
@@ -148,7 +153,7 @@ export async function htmlLibreto(e, actor = null) {
     const jue = await docsDe("revelry");
     const fila = (d, tipo) => {
       const tiene = tieneItem(actor, tipo, d.name);
-      return `<article class="mrg-cap ${tiene ? "mrg-tiene" : ""}"><header><h5>${esc(d.name)}</h5>${tiene ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> Elegido</span>` : edita ? `<button type="button" class="mrg-btn" data-lib="${tipo === "wickedimpulse" ? "anadir-unico-imp" : "anadir-unico-jue"}" data-uuid="${esc(d.uuid)}"><i class="fa-solid fa-check"></i> Elegir</button>` : ""}</header><p>${esc(d.system?.description ?? "")}</p></article>`;
+      return `<article class="mrg-cap ${tiene ? "mrg-tiene" : ""}"><header><h5>${esc(d.name)}</h5>${tiene ? `<span class="mrg-chip mrg-chip--verde"><i class="fa-solid fa-check"></i> Elegido</span>` : puedeCambiar(tipo) ? `<button type="button" class="mrg-btn" data-lib="${tipo === "wickedimpulse" ? "anadir-unico-imp" : "anadir-unico-jue"}" data-uuid="${esc(d.uuid)}"><i class="fa-solid fa-check"></i> Elegir</button>` : ""}</header><p>${esc(d.system?.description ?? "")}</p></article>`;
     };
     cuerpo = `<article class="mrg-lib-ficha">
       <h4 class="mrg-seccion">Impulsos oscuros <small>elegir uno da un corazón oscuro; satisfacerlo, otro</small></h4>
@@ -180,7 +185,12 @@ export async function clicLibreto(ev, actor, estado, refrescar) {
   else if (a === "raza") { estado.raza = t.dataset.valor; estado.modo = "raza"; }
   else if (a === "anadir") {
     const doc = buscarUuid(t.dataset.uuid);
-    if (doc && actor) { await actor.createEmbeddedDocuments("Item", [foundry.utils.deepClone(doc.datos)]); ui.notifications.info(`${actor.name} aprende «${doc.name}».`); }
+    if (doc && actor) {
+      await actor.createEmbeddedDocuments("Item", [foundry.utils.deepClone(doc.datos)]);
+      ui.notifications.info(`${actor.name} aprende «${doc.name}».`);
+      // Aprender con la EXP malvada llena la gasta
+      if (estado.xpLleno && !estado.evolucion) await actor.update({ "system.wickedxp.value": 0 });
+    }
   } else if (a === "elegir-voc") {
     const v = (await vocaciones()).find(x => x.id === t.dataset.id);
     if (v?.docCalling && actor) await reemplazar(actor, "calling", v.docCalling);
@@ -189,7 +199,7 @@ export async function clicLibreto(ev, actor, estado, refrescar) {
     if (r?.doc && actor) await reemplazar(actor, "monster_race", r.doc);
   } else if (a === "anadir-unico-imp" || a === "anadir-unico-jue") {
     const doc = buscarUuid(t.dataset.uuid);
-    if (doc && actor) { if (a === "anadir-unico-jue") await reemplazar(actor, "revelry", doc); else await actor.createEmbeddedDocuments("Item", [foundry.utils.deepClone(doc.datos)]); }
+    if (doc && actor) { await reemplazar(actor, a === "anadir-unico-jue" ? "revelry" : "wickedimpulse", doc); }
   }
   await refrescar();
 }

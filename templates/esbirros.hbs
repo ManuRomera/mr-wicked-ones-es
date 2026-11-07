@@ -10,13 +10,13 @@
           <option value="undead" {{#if mr.muerto}}selected{{/if}}>{{localize "FITD.Undead_MP"}}</option>
         </select>
         {{#if mr.muerto}}
-        <a class="mrg-chipbtn item-add-popup" data-item-type="awakened_type" data-distinct="true"><i class="fa-solid fa-ghost"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir tipo{{/if}}</a>
+        <a class="mrg-chipbtn" data-selector="awakened_type"><i class="fa-solid fa-ghost"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir tipo{{/if}}</a>
         <input class="mrg-input-chip" type="text" name="system.ua_job" value="{{mr.tipo}}" placeholder="Oficio" aria-label="Oficio">
         {{else}}
-        <a class="mrg-chipbtn item-add-popup" data-item-type="monster_race" data-distinct="true"><i class="fa-solid fa-dragon"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir raza{{/if}}</a>
-        <a class="mrg-chipbtn item-add-popup" data-item-type="minion_type" data-distinct="true"><i class="fa-solid fa-users"></i> {{#if mr.tipo}}{{mr.tipo}}{{else}}Elegir función{{/if}}</a>
+        <a class="mrg-chipbtn" data-selector="monster_race"><i class="fa-solid fa-dragon"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir raza{{/if}}</a>
+        <a class="mrg-chipbtn" data-selector="minion_type"><i class="fa-solid fa-users"></i> {{#if mr.tipo}}{{mr.tipo}}{{else}}Elegir función{{/if}}</a>
         {{/if}}
-        <a class="mrg-chipbtn item-add-popup" data-item-type="minionimpulse" data-distinct="true"><i class="fa-solid fa-fire"></i> {{#if mr.impulso}}{{mr.impulso}}{{else}}Elegir impulso{{/if}}</a>
+        <a class="mrg-chipbtn" data-selector="minionimpulse"><i class="fa-solid fa-fire"></i> {{#if mr.impulso}}{{mr.impulso}}{{else}}Elegir impulso{{/if}}</a>
       </div>
     </div>
   </header>
@@ -29,13 +29,13 @@
       </div>
     </div>
     <div class="mrg-vital">
-      <button type="button" class="mrg-interruptor {{#if mr.reventado}}mrg-on{{/if}}" data-toggle="system.bloodied" aria-pressed="{{mr.reventado}}">
+      <button type="button" class="mrg-interruptor {{#if mr.reventado}}mrg-on{{/if}}" data-toggle="system.bloodied" aria-pressed="{{mr.reventado}}" data-ayuda="Reventada||En lugar de recibir una conmoción, la manada queda reventada: −1d a todas sus tiradas hasta la fase de recuperación.">
         <i class="fa-solid fa-droplet"></i> <span><strong>{{#if mr.muerto}}Expuesta{{else}}Reventada{{/if}}</strong><small>{{#if mr.reventado}}−1d a todo{{else}}Entera{{/if}}</small></span>
       </button>
     </div>
     <div class="mrg-vital">
-      <button type="button" class="mrg-interruptor {{#if mr.moral}}mrg-on{{/if}}" data-toggle="system.morale" aria-pressed="{{mr.moral}}">
-        <i class="fa-solid fa-flag"></i> <span><strong>Moral</strong><small>{{#if mr.moral}}Rota: huyen{{else}}Firme{{/if}}</small></span>
+      <button type="button" class="mrg-interruptor {{#if mr.moral}}mrg-on{{/if}}" data-toggle="system.morale" aria-pressed="{{mr.moral}}" data-ayuda="Moral||Una manada solo puede tener un punto de moral a la vez. Se gana con tiradas de desastre o cuando el DJ lo concede, y se gasta para añadir +1d a una acción o tirada de fortuna.">
+        <i class="fa-solid fa-flag"></i> <span><strong>Moral</strong><small>{{#if mr.moral}}1 punto: gástalo para +1d{{else}}Sin punto de moral{{/if}}</small></span>
       </button>
     </div>
     <div class="mrg-vital">
@@ -71,7 +71,7 @@
     <section class="tab mrg-panel" data-tab="mejoras">
       <div class="mrg-barra-rapida">
         <span class="mrg-nota">Lo que sabe hacer esta manada.</span>
-        <a class="mrg-btn item-add-popup" data-item-type="minion_upgrade"><i class="fa-solid fa-plus"></i> Añadir mejora</a>
+        <a class="mrg-btn" data-selector="minion_upgrade"><i class="fa-solid fa-plus"></i> Añadir mejora</a>
       </div>
       {{#each mr.ruta}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
       {{#each mr.regulares}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}

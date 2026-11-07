@@ -119,6 +119,12 @@ def procesar_equipo(docs, fol):
             "magico" if n.startswith("Objeto M") else "proyecto" if d["type"] == "project" or n.startswith(("Ritual", "Proyecto")) else "eq"
         i = cont[g]; cont[g] += 1
         d["folder"] = f[g]["_id"]
+        # «Artilugio [11] · Alas planeadoras» → nombre limpio; la categoría y el nº de tabla pasan a las banderas
+        m = re.match(r"^([^\[·]+?)\s*\[(\d+)\]\s*·\s*(.+)$", n)
+        fl = d.setdefault("flags", {}).setdefault("mr-wicked-ones-es", {})
+        fl["categoria"] = {"magico": "reliquia", "eq": "gear", "proyecto": "proyecto"}.get(g, g)
+        if m:
+            d["name"] = m.group(3).strip(); fl["tabla"] = m.group(2)
         if g == "eq":
             k = list(M2.BASICAS)[i] if i < len(M2.BASICAS) else None
             if k:

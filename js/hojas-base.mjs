@@ -9,6 +9,7 @@
  *   data-num="system.x" data-delta="1"          paso +/− con data-min / data-max
  *   data-fase="n"                               fase del ciclo de juego (hoja del DJ)
  *   data-corazon="j" data-item="<id>"           corazón de un aventurero (marcas de herida)
+ *   data-herida="1|-1|0" data-item="<id>"        herir / curar medio corazón / curar del todo
  *   data-abrir / data-borrar="<id>"             abrir o quitar un objeto
  *   data-ir="pestaña"                           saltar de pestaña
  *   data-tirar="acción" · data-fortuna="dados"  tiradas
@@ -17,6 +18,7 @@ import { n } from "./core/reglas.mjs";
 import { abrirTirada } from "./tirada-dialogo.mjs";
 import { tirar } from "./tirada.mjs";
 import { aplicarEstresActor } from "./automatismos.mjs";
+import { abrirSelector } from "./selector.mjs";
 
 export const MOD = "mr-wicked-ones-es";
 export const L = (k, d = "") => { const v = game.i18n.localize(k); return v === k ? d : v; };
@@ -82,6 +84,7 @@ export function escuchasComunes(hoja, html) {
     if (ok) it.delete();
   });
   if (!hoja.isEditable) return;
+  html.find("[data-selector]").on("click", ev => abrirSelector(actor, ev.currentTarget.dataset.selector, { uso: ev.currentTarget.dataset.uso }));
 
   html.find("[data-pip]").on("click", async ev => {
     const b = ev.currentTarget, campo = b.dataset.pip, num = n(b.dataset.n);
@@ -124,6 +127,13 @@ export function escuchasComunes(hoja, html) {
     const nuevo = estado === 2 ? (total - j) * 2 : estado === 1 ? (total - j + 1) * 2 : (total - j) * 2 + 1;
     await it.update({ "system.heart_slashes": nuevo });
   });
+  html.find("[data-herida]").on("click", async ev => {
+    const b = ev.currentTarget, it = actor.items.get(b.dataset.item);
+    if (!it) return;
+    const total = (it.system.adventurer_type === "hireling" ? 1 : n(it.system.tier, 0) + 1) * 2;
+    const d = n(b.dataset.herida), actual = n(it.system.heart_slashes, 0);
+    await it.update({ "system.heart_slashes": d === 0 ? 0 : Math.min(total, Math.max(0, actual + d)) });
+  });
   html.find("[data-uso]").on("click", async ev => {
     const b = ev.currentTarget, it = actor.items.get(b.dataset.uso), num = n(b.dataset.n), actual = n(it?.system.moves_used, 0);
     await it?.update({ "system.moves_used": actual === num ? num - 1 : num });
@@ -139,9 +149,14 @@ export function escuchasComunes(hoja, html) {
     else if (t === "fortuna") actor.rollBasicPopup("fortune", 2, 6);
     else actor.rollAttributePopup("smash", null, "resistance");
   });
-  html.find("[data-fortuna]").on("click", ev => {
+  html.find("[data-fortuna]").on("click", async ev => {
     const b = ev.currentTarget;
-    tirar(actor, { tipo: "fortuna", dadosBase: n(b.dataset.fortuna, 1), titulo: b.dataset.titulo || undefined });
+    const o = { tipo: "fortuna", dadosBase: n(b.dataset.fortuna, 1), titulo: b.dataset.titulo || undefined };
+    if (actor.type === "minion_pack" && actor.system.morale) {
+      const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Moral" }, content: "<p>¿Gastar el punto de moral de la manada para añadir +1d?</p>", rejectClose: false });
+      if (ok) o.moral = true;
+    }
+    tirar(actor, o);
   });
   html.find("[data-asistente]").on("click", ev => game.modules.get(MOD)?.api?.abrirGenerador(ev.currentTarget.dataset.asistente));
   html.find("[data-select]").on("change", async ev => {

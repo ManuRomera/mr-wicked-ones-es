@@ -1,33 +1,46 @@
 /**
  * Hoja de personaje de MR- Wicked Ones («hoja de monstruo»).
- * Hereda la hoja del sistema (así conserva sus datos, arrastrar y soltar y la gestión de objetos) pero pinta una
- * plantilla propia con cabecera y constantes vitales siempre visibles, y el resto repartido en pestañas:
- * Acciones · Capacidades · Libreto · Equipo · Guarida · Notas. Incluye modo compacto (solo lo habitual).
- * Los tipos «despertado» (Unholy Alliance) se siguen mostrando con la hoja original del sistema.
+ * Hereda la hoja del sistema (conserva datos, arrastrar y soltar y la gestión de objetos) y pinta una plantilla propia:
+ * cabecera con barra de herramientas «de cristal», constantes vitales y estados siempre visibles, y pestañas
+ * Acciones · Capacidades · Libreto · Equipo · Guarida · Notas. Raza, vocación e impulso quedan fijados tras elegirse:
+ * solo se cambian en «modo evolución». La ficha compacta es un diseño propio (no una versión recortada).
+ * El despertado (Unholy Alliance) usa esta misma hoja con sus etiquetas (Anatomía, Secreciones/Trofeos, Conquista).
  */
 import { n } from "./core/reglas.mjs";
-import { ATRIBUTOS, nombreAccion, nombreAtributo } from "./tirada.mjs";
-import { abrirTirada } from "./tirada-dialogo.mjs";
-import { aplicarEstresActor } from "./automatismos.mjs";
+import { ATRIBUTOS, nombreAccion, nombreAtributo, htmlTarjetaSimple } from "./tirada.mjs";
+import { aplicarEstresActor, recuperar } from "./automatismos.mjs";
 import { htmlLibreto, clicLibreto, abrirLibretos, vocacionDe, razaDe } from "./libretos.mjs";
 import { abrirPanelAspecto } from "./ajustes.mjs";
+import { escuchasComunes, MOD, L, pips } from "./hojas-base.mjs";
 
-const MOD = "mr-wicked-ones-es";
-const L = (k, d = "") => { const v = game.i18n.localize(k); return v === k ? d : v; };
 const claveCompacta = id => `${MOD}.compacta.${id}`;
+const sn = s => String(s ?? "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 
 function hojaDelSistema() {
-  const reg = CONFIG.Actor?.sheetClasses?.character ?? {};
-  return Object.values(reg).map(r => r.cls).find(c => c?.name === "WickedActorSheet") ?? null;
+  return Object.values(CONFIG.Actor?.sheetClasses?.character ?? {}).map(r => r.cls).find(c => c?.name === "WickedActorSheet") ?? null;
 }
 
-const pips = (valor, max) => Array.from({ length: Math.max(0, n(max, 0)) }, (_, i) => ({ n: i + 1, on: i < n(valor, 0) }));
 const QUALITY = { mundane: "FITD.Mundane", valuable: "FITD.Valuable", powerful: "FITD.Powerful", tier1: "FITD.TierOne", tier2: "FITD.TierTwo", tier3: "FITD.TierThree" };
+
+/** Cómo se usa una capacidad, deducido de su texto (el manual no las clasifica, pero se reconocen por cómo están escritas). */
+export function clasificarUso(sy) {
+  const t = sn([sy.description, sy.supply_desc, sy.downtime_desc].join(" "));
+  const casillas = [1, 2].some(c => sy[`ability_checkbox_${c}_text`]) || sy.counter?.text;
+  if (/(sufre|sufrir|sufras|sufriendo|pagar?|gasta|gastar)\b[^.]{0,30}estres|estres para/.test(t)) {
+    return { k: "estres", etiqueta: "Cuesta Estrés", boton: "Usar · 1 Estrés", titulo: "Cuesta Estrés", ayuda: "Al usarla sufres 1 de Estrés. No lleva tirada propia: hace automático lo que una acción normal ya podría conseguir, o te deja intentar con una tirada lo que sin ella sería imposible." };
+  }
+  if (casillas) return { k: "marca", etiqueta: "Se marca", boton: "Usar", titulo: "Se marca", ayuda: "Tiene casillas: se marca al gastar un uso y se limpia al descansar. Usarla no cuesta Estrés." };
+  if (/\+1d|\+2d|ganas \+/.test(t)) return { k: "dados", etiqueta: "Da dados", titulo: "Da dados", ayuda: "Suma dados cuando se cumple la condición que describe. No hay que gastar nada: añádelos al montar la tirada (± dados en el lanzador)." };
+  if (/con un (exito|critico)|cuando (obtengas|saques|logres)/.test(t)) return { k: "resultado", etiqueta: "Tras un resultado", titulo: "Tras un resultado", ayuda: "Se activa sola cuando la tirada sale como indica el texto. No cuesta Estrés." };
+  return { k: "pasiva", etiqueta: "Pasiva", titulo: "Pasiva", ayuda: "Siempre está activa: no hay que tirar, gastar ni marcar nada." };
+}
 
 function crearClase(Base) {
   return class HojaPersonajeMR extends Base {
     #libreto = { modo: "voc" };
     #compacta = null;
+    #evolucion = false;
+    #dock = null;
 
     static get defaultOptions() {
       return foundry.utils.mergeObject(super.defaultOptions, {
@@ -46,29 +59,21 @@ function crearClase(Base) {
       }
       return this.#compacta;
     }
-
-    _getHeaderButtons() {
-      const b = super._getHeaderButtons();
-      b.unshift(
-        { label: this.compacta ? "Completa" : "Compacta", class: "mrg-btn-compacta", icon: this.compacta ? "fa-solid fa-expand" : "fa-solid fa-compress", onclick: () => this.#alternarCompacta() },
-        { label: "Libretos", class: "mrg-btn-libretos", icon: "fa-solid fa-book-skull", onclick: () => abrirLibretos(this.actor, this.#libreto) },
-        { label: "", class: "mrg-btn-aspecto", icon: "fa-solid fa-universal-access", onclick: () => abrirPanelAspecto() }
-      );
-      return b;
+    get dockAbierto() {
+      if (this.#dock === null) { try { this.#dock = localStorage.getItem(`${MOD}.dock`) === "1"; } catch { this.#dock = false; } }
+      return this.#dock;
     }
 
     #alternarCompacta() {
       this.#compacta = !this.compacta;
       try { localStorage.setItem(claveCompacta(this.actor.id), this.#compacta ? "1" : "0"); } catch { /* sin almacenamiento */ }
-      this.setPosition({ width: this.#compacta ? 460 : 800, height: this.#compacta ? 740 : 860 });
+      this.setPosition({ width: this.#compacta ? 480 : 800, height: this.#compacta ? 760 : 860 });
       this.render(true);
     }
 
     async getData(options) {
       const d = await super.getData(options);
-      const actor = this.actor;
-      const s = actor.system;
-      const items = actor.items.contents;
+      const actor = this.actor, s = actor.system, items = actor.items.contents;
       const por = t => items.filter(i => i.type === t);
       const sk = s.attributes ?? {};
       const despertado = s.pc_type === "awakened";
@@ -79,7 +84,7 @@ function crearClase(Base) {
         acciones: keys.map(k => {
           const v = n(sk[a]?.skills?.[k]?.value, 0), pr = n(sk[a]?.skills?.[k]?.practice, 0);
           return {
-            id: k, atrib: a, nombre: nombreAccion(k), desc: L(`FITD.Skills${k}Description`, ""), valor: v, practica: pr,
+            id: k, atrib: a, nombre: nombreAccion(k), desc: L(`FITD.Skills${k}Description`, ""), valor: v, practica: pr, sinPuntos: v === 0,
             dados: Math.max(0, v + (sk[a]?.shocked ? -1 : 0)),
             puntos: Array.from({ length: 3 }, (_, i) => ({ n: i + 1, on: i < v })),
             marcas: Array.from({ length: 3 }, (_, i) => ({ n: i + 1, on: i < pr }))
@@ -94,113 +99,134 @@ function crearClase(Base) {
         } : null;
         return {
           id: i.id, nombre: i.name, fuente: sy.source ?? "", desc: sy.description ?? "", principal: sy.ability_group === "group_core", externa: sy.ability_group === "group_ext",
-          primigenia: ["be_psi", "ds_eyes", "fs_face", "gm_path"].includes(sy.ability_type),
+          primigenia: ["be_psi", "ds_eyes", "fs_face", "gm_path"].includes(sy.ability_type), uso: clasificarUso(sy),
           bloques: [bloque("supply", "Suministro", sy.supply_desc), bloque("downtime", "Descanso", sy.downtime_desc)].filter(Boolean),
           checks: [1, 2].filter(c => sy[`ability_checkbox_${c}_text`]).map(c => ({ id: i.id, campo: `ability_checkbox_${c}_checked`, texto: sy[`ability_checkbox_${c}_text`], on: Boolean(sy[`ability_checkbox_${c}_checked`]) })),
           contador: sy.counter?.text ? { id: i.id, texto: sy.counter.text, valor: n(sy.counter.value, 0), max: n(sy.counter.max, 2), pips: pips(sy.counter.value, sy.counter.max) } : null
         };
       });
 
-      const equipo = por("gearsupply").map(i => ({
+      const equipoTodo = por("gearsupply").map(i => ({
         id: i.id, nombre: i.name, desc: i.system.description ?? "", tipo: i.system.gear_or_supply,
         calidad: L(QUALITY[i.system.quality_category] ?? "", ""), calidadClase: ["valuable", "tier2"].includes(i.system.quality_category) ? "mrg-chip--oro" : ["powerful", "tier3"].includes(i.system.quality_category) ? "mrg-chip--sangre" : "",
         ventajas: Object.values(i.system.edges ?? {}).filter(Boolean)
       }));
+      const equipo = equipoTodo.filter(e => e.tipo !== "supply"), suministros = equipoTodo.filter(e => e.tipo === "supply");
 
-      const lleno = n(s.stress?.value, 0) >= n(s.stress?.max, 6);
+      const estres = { valor: n(s.stress?.value, 0), max: n(s.stress?.max, 6) };
+      const lleno = estres.valor >= estres.max;
+      const xpLleno = n(s.wickedxp?.value, 0) >= n(s.wickedxp?.max, 9);
+      const puedeAprender = this.#evolucion || capsBrutas.length < 2 || xpLleno;
+      Object.assign(this.#libreto, { evolucion: this.#evolucion, puedeAprender, xpLleno });
+      const maxSum = n(s.supply?.max, 2), usadosSum = n(s.supply?.value, 0);
+      const raza = (despertado ? actor.items.find(i => i.type === "awakened_type") : razaDe(actor))?.name ?? "";
+      const voc = vocacionDe(actor)?.name ?? "";
+
       d.mr = {
-        compacta: this.compacta, editable: this.isEditable,
-        despertado,
-        raza: (despertado ? actor.items.find(i => i.type === "awakened_type") : razaDe(actor))?.name ?? "", vocacion: vocacionDe(actor)?.name ?? "",
+        compacta: this.compacta, evolucion: this.#evolucion, dockAbierto: this.dockAbierto, editable: this.isEditable, despertado,
+        raza, vocacion: voc, impulsos: por("wickedimpulse").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" })),
+        juerga: despertado ? null : por("revelry").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" }))[0] ?? null,
         etiquetas: {
           raza: despertado ? "tipo de despertado" : "raza", equipo: despertado ? "Anatomía" : "Equipo", guarida: despertado ? "Conquista" : "Guarida",
-          suministro: despertado ? (/sacr[ií]lego|defiler/i.test(vocacionDe(actor)?.name ?? "") ? "Trofeos" : "Secreciones") : "Suministros",
+          suministro: despertado ? (/sacr[ií]lego|defiler/i.test(voc) ? "Trofeos" : "Secreciones") : "Suministros",
           descanso: despertado ? "Movimiento de conquista" : "Acción de descanso"
         },
         movimientos: capsBrutas.filter(c => c.bloques.some(b => b.etiqueta === "Descanso")),
-        impulsos: por("wickedimpulse").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" })),
-        juerga: despertado ? null : por("revelry").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "" }))[0] ?? null,
         vitales: {
-          estres: { valor: n(s.stress?.value, 0), max: n(s.stress?.max, 6), pips: pips(s.stress?.value, s.stress?.max ?? 6), lleno },
+          estres: { ...estres, pips: pips(estres.valor, estres.max), lleno },
           corazones: { valor: n(s.dark_hearts?.value, 0), max: n(s.dark_hearts?.max, 2), pips: pips(s.dark_hearts?.value, s.dark_hearts?.max ?? 2) },
           oro: { valor: n(s.gold?.value, 0), max: n(s.gold?.max, 3), pips: pips(s.gold?.value, s.gold?.max ?? 3), visible: d.system?.has_gold !== false && !despertado },
-          suministro: { valor: n(s.supply?.value, 0), max: n(s.supply?.max, 2), pips: pips(s.supply?.value, s.supply?.max ?? 2) },
-          malvada: { valor: n(s.wickedxp?.value, 0), max: n(s.wickedxp?.max, 9), pips: pips(s.wickedxp?.value, s.wickedxp?.max ?? 9) },
-          osada: { valor: n(s.recklessxp?.value, 0), max: n(s.recklessxp?.max, 3), pips: pips(s.recklessxp?.value, s.recklessxp?.max ?? 3) },
-          reventado: Boolean(s.bloodied)
+          suministro: { usados: usadosSum, max: maxSum, quedan: Math.max(0, maxSum - usadosSum), pips: pips(usadosSum, maxSum) },
+          malvada: { valor: n(s.wickedxp?.value, 0), max: n(s.wickedxp?.max, 9), pips: pips(s.wickedxp?.value, s.wickedxp?.max ?? 9), lleno: xpLleno },
+          osada: { valor: n(s.recklessxp?.value, 0), max: n(s.recklessxp?.max, 3), pips: pips(s.recklessxp?.value, s.recklessxp?.max ?? 3) }
         },
-        atributos,
-        principales: capsBrutas.filter(c => c.principal),
-        otras: capsBrutas.filter(c => !c.principal),
-        cuentaCaps: capsBrutas.length,
+        estados: {
+          conmocion: atributos.map(a => ({ id: a.id, nombre: a.nombre, on: a.shocked, texto: actor.getFlag(MOD, "heridas")?.[a.id] ?? "" })),
+          reventadoTexto: actor.getFlag(MOD, "heridas")?.sangre ?? "",
+          muerto: Boolean(actor.getFlag(MOD, "muerto")),
+          golpe: n(s.dark_hearts?.value, 0),
+          hayConmocion: atributos.some(a => a.shocked),
+          reventado: Boolean(s.bloodied),
+          desatado: Boolean(actor.statuses?.has?.("mr-feral")) || lleno
+        },
+        atributos, principales: capsBrutas.filter(c => c.principal), otras: capsBrutas.filter(c => !c.principal), cuentaCaps: capsBrutas.length, puedeAprender, xpLleno,
         defensas: por("defense").map(i => ({ id: i.id, nombre: i.name, on: Boolean(i.system.checked) })),
-        equipo: equipo.filter(e => e.tipo !== "supply"), suministros: equipo.filter(e => e.tipo === "supply"),
+        equipo, suministros, cuentaEquipo: equipo.length, equipoLleno: equipo.length >= 4, equipoExcedido: equipo.length > 4,
         proyectos: por("project").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "", pips: pips(i.system.clock_progress, i.system.clock_size), valor: n(i.system.clock_progress, 0), max: n(i.system.clock_size, 4) })),
         labores: por("duty").map(i => ({ id: i.id, nombre: i.name, desc: i.system.description ?? "", tipo: i.system.type_custom || i.system.type || "", nivel: n(i.system.tier, 0) })),
         pandas: game.actors.filter(a => a.type === "minion_pack").map(a => ({ id: a.id, nombre: a.name, sel: a.id === s.minionpack })),
         descansoUsado: Boolean(s.downtime_action_used),
-        libretoHTML: await htmlLibreto(this.#libreto, actor)
+        libretoHTML: this.compacta ? "" : await htmlLibreto(this.#libreto, actor)
       };
       return d;
     }
 
     activateListeners(html) {
       super.activateListeners(html);
-      const actor = this.actor;
-      const root = html[0] ?? html;
+      escuchasComunes(this, html);
+      const actor = this.actor, root = html[0] ?? html;
 
       root.querySelector("[data-pestana-libreto]")?.addEventListener("click", ev => clicLibreto(ev, actor, this.#libreto, async () => { await this.render(false); }));
 
-      html.find("[data-ir]").on("click", ev => this._tabs?.[0]?.activate(ev.currentTarget.dataset.ir));
-      html.find("[data-abrir]").on("click", ev => actor.items.get(ev.currentTarget.dataset.abrir)?.sheet.render(true));
-      html.find("[data-borrar]").on("click", async ev => {
-        const it = actor.items.get(ev.currentTarget.dataset.borrar);
+      html.find("[data-dock]").on("click", async ev => {
+        const a = ev.currentTarget.dataset.dock;
+        if (a === "alternar") {
+          this.#dock = !this.dockAbierto;
+          try { localStorage.setItem(`${MOD}.dock`, this.#dock ? "1" : "0"); } catch { /* sin almacenamiento */ }
+          root.querySelector(".mrg-dock")?.classList.toggle("abierto", this.#dock);
+        } else if (a === "compacta") this.#alternarCompacta();
+        else if (a === "libretos") abrirLibretos(actor, this.#libreto);
+        else if (a === "aspecto") abrirPanelAspecto();
+        else if (a === "evolucion") { this.#evolucion = !this.#evolucion; if (this.#evolucion) ui.notifications.info("Modo evolución: ahora puedes cambiar raza, vocación, impulso y juerga, y aprender capacidades."); await this.render(false); }
+        else if (a === "ayuda") { const v = !game.settings.get(MOD, "ayudaActiva"); await game.settings.set(MOD, "ayudaActiva", v); ui.notifications.info(v ? "Ayuda al detener el cursor: activada." : "Ayuda al detener el cursor: desactivada."); }
+        else if (a === "recuperar") { const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Recuperación" }, content: `<p>Elimina todo el estrés de <strong>${foundry.utils.escapeHTML(actor.name)}</strong>, cura sus heridas (conmociones y reventado) y regenera defensas y suministros. ¿Aplicarlo?</p>`, rejectClose: false }); if (ok) await recuperar(actor); }
+        else if (a === "creador") game.modules.get(MOD)?.api?.abrirCreador?.(actor);
+      });
+
+      html.find("[data-ir-libreto]").on("click", async ev => {
+        this.#libreto.modo = ev.currentTarget.dataset.irLibreto;
+        await this.render(false);
+        this._tabs?.[0]?.activate("libreto");
+      });
+
+      html.find("[data-desatar]").on("click", async () => {
+        const activo = actor.statuses?.has?.("mr-feral");
+        try { await actor.toggleStatusEffect("mr-feral", { active: !activo }); } catch { /* sin estado */ }
+        await this.render(false);
+      });
+
+      html.find("[data-item-check][data-campo='checked']").on("change", async ev => {
+        const it = actor.items.get(ev.currentTarget.dataset.itemCheck);
+        if (it?.type !== "defense" || !ev.currentTarget.checked || !game.settings.get(MOD, "autoAplicar")) return;
+        await ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor }), flags: { [MOD]: { tarjeta: true } },
+          content: htmlTarjetaSimple({ tipo: "Defensa", titulo: it.name, subtitulo: `${actor.name} usa su defensa`, estado: "success", neutro: "azul",
+            cuerpo: "<p>Evita por completo la consecuencia, como un éxito en una tirada de resistencia: <strong>no genera Estrés</strong>. Describe qué ocurre y cómo te aprovechas.</p><p class=\"mrg-nota\">No podrá volver a usarla hasta la próxima recuperación.</p>" })
+        });
+      });
+      html.find("[data-usar]").on("click", async ev => {
+        const it = actor.items.get(ev.currentTarget.dataset.usar);
         if (!it) return;
-        const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Quitar" }, content: `<p>¿Quitar «${foundry.utils.escapeHTML(it.name)}» de ${foundry.utils.escapeHTML(actor.name)}?</p>`, rejectClose: false });
-        if (ok) it.delete();
+        const uso = clasificarUso(it.system);
+        if (uso.k === "estres") await aplicarEstresActor(actor, 1, { silencioso: true });
+        await ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor }), flags: { [MOD]: { tarjeta: true } },
+          content: htmlTarjetaSimple({ tipo: "Capacidad", titulo: it.name, subtitulo: `${actor.name}${uso.k === "estres" ? " · 1 de Estrés" : ""}`, cuerpo: `<p>${foundry.utils.escapeHTML(it.system.description ?? "")}</p>`, neutro: "sangre" })
+        });
       });
 
-      if (!this.isEditable) return;
+      html.find("[data-sacar]").on("click", async ev => {
+        const it = actor.items.get(ev.currentTarget.dataset.sacar);
+        const max = n(actor.system.supply?.max, 2), usados = n(actor.system.supply?.value, 0);
+        if (!it) return;
+        if (usados >= max) return ui.notifications.warn(`${actor.name} no tiene casillas de suministro libres: no lleva nada más.`);
+        await actor.update({ "system.supply.value": usados + 1 });
+        await ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor }), flags: { [MOD]: { tarjeta: true } },
+          content: htmlTarjetaSimple({ tipo: "Suministro", titulo: it.name, subtitulo: `${actor.name} saca algo de su inventario`, cuerpo: `<p>${foundry.utils.escapeHTML(it.system.description ?? "")}</p><p class="mrg-nota">Se tacha una casilla: quedan ${max - usados - 1} de ${max} hasta la próxima recuperación.</p>`, neutro: "azul" })
+        });
+      });
 
-      html.find("[data-pip]").on("click", async ev => {
-        const b = ev.currentTarget;
-        const campo = b.dataset.pip, num = n(b.dataset.n);
-        const actual = n(foundry.utils.getProperty(actor, campo), 0);
-        const nuevo = actual === num ? num - 1 : num;
-        if (campo === "system.stress.value" && nuevo > actual) return aplicarEstresActor(actor, nuevo - actual, { silencioso: true });
-        await actor.update({ [campo]: nuevo });
-      });
-      html.find("[data-toggle]").on("click", async ev => {
-        const campo = ev.currentTarget.dataset.toggle;
-        await actor.update({ [campo]: !foundry.utils.getProperty(actor, campo) });
-      });
-      html.find("[data-item-pip]").on("click", async ev => {
-        const b = ev.currentTarget, it = actor.items.get(b.dataset.itemPip);
-        const campo = b.dataset.campo, num = n(b.dataset.n), actual = n(foundry.utils.getProperty(it, campo), 0);
-        await it?.update({ [campo]: actual === num ? num - 1 : num });
-      });
-      html.find("[data-item-check]").on("change", async ev => {
-        const b = ev.currentTarget;
-        await actor.items.get(b.dataset.itemCheck)?.update({ [`system.${b.dataset.campo}`]: b.checked });
-      });
-      html.find("[data-practica]").on("click", async ev => {
-        const b = ev.currentTarget, a = b.dataset.atrib, k = b.dataset.accion, num = n(b.dataset.n);
-        const base = `system.attributes.${a}.skills.${k}`;
-        const actual = n(foundry.utils.getProperty(actor, `${base}.practice`), 0);
-        if (num === 3) return actor.update({ [`${base}.value`]: 1, [`${base}.practice`]: 0 });
-        await actor.update({ [`${base}.practice`]: actual === num ? num - 1 : num });
-      });
-      html.find("[data-tirar]").on("click", ev => {
-        const k = ev.currentTarget.dataset.tirar;
-        if (game.settings.get(MOD, "estiloTiradas") === "mr") abrirTirada(actor, { accion: k, tipo: ev.altKey ? "resistencia" : "accion" });
-        else actor.rollAttributePopup(k);
-      });
-      html.find("[data-tirada-tipo]").on("click", ev => {
-        const t = ev.currentTarget.dataset.tiradaTipo;
-        if (game.settings.get(MOD, "estiloTiradas") === "mr") abrirTirada(actor, { tipo: t });
-        else if (t === "fortuna") actor.rollBasicPopup("fortune", 2, 6);
-        else actor.rollAttributePopup("smash", null, "resistance");
-      });
       html.find("[data-panda]").on("change", async ev => { await actor.update({ "system.minionpack": ev.currentTarget.value }); });
       html.find("[data-abrir-panda]").on("click", () => game.actors.get(actor.system.minionpack)?.sheet.render(true));
     }

@@ -17,12 +17,13 @@ export const TINTAS = { suave: ["Hueso suave", "#e8e2d4"], papel: ["Papel", "#f2
 const CLASES = [
   ["a11yOscuro", "mrg-oscuro"], ["a11yContraste", "mrg-contraste"], ["a11yLegible", "mrg-sencilla"], ["a11yEspaciado", "mrg-espaciado"],
   ["a11yBotones", "mrg-botones"], ["a11ySinMovimiento", "mrg-sin-mov"], ["a11ySinEfectos", "mrg-sin-efectos"], ["a11yLectura", "mrg-lectura"],
-  ["a11yDaltonismo", "mrg-dalto"]
+  ["a11yDaltonismo", "mrg-dalto"], ["dadosPropios", "mrg-dados-img"]
 ];
 
 export const DEFECTOS = Object.freeze({
   estiloHojas: "mr", estiloTiradas: "mr", a11yOscuro: true, a11yContraste: false, a11yLegible: false, a11yEscala: 100, a11yEspaciado: false,
-  a11yBotones: false, a11ySinMovimiento: false, a11ySinEfectos: false, a11yLectura: false, a11yTinta: "suave", a11yDaltonismo: false
+  a11yBotones: false, a11ySinMovimiento: false, a11ySinEfectos: false, a11yLectura: false, a11yTinta: "suave", a11yDaltonismo: false,
+  ayudaActiva: true, ayudaRetraso: 2, dadosPropios: true
 });
 
 const leer = k => { try { return game.settings.get(MOD, k); } catch { return DEFECTOS[k]; } };
@@ -113,6 +114,12 @@ export class PanelAspecto extends App {
           <select data-aj="estiloTiradas">${opcion("estiloTiradas", "mr", "Estilo MR (diálogo y tarjetas nuevos)")}${opcion("estiloTiradas", "sistema", "Original del sistema")}</select></label>
         ${this.#recarga ? `<p class="mrg-aviso"><i class="fa-solid fa-rotate"></i> Este cambio necesita recargar. <button type="button" class="mrg-btn mrg-btn--sangre" data-action="recargar">Recargar ahora</button></p>` : `<p class="mrg-nota">Con «Original del sistema» se vuelve al aspecto de siempre; los automatismos de reglas siguen funcionando.</p>`}
         ${GRUPOS.map(g => `<h3 class="mrg-seccion">${esc(g.t)}</h3>${g.items.map(chk).join("")}`).join("")}
+        <h3 class="mrg-seccion">Dados</h3>
+        <label class="mrg-fila-ajuste"><input type="checkbox" data-aj="dadosPropios" ${leer("dadosPropios") ? "checked" : ""}><span><strong>Dados de Wicked Ones</strong><small>Caras de color de menos a más, con el emblema del Señor Oscuro en el 6: en las tarjetas del chat y en Dice So Nice (si lo tienes; con él, cada jugador puede cambiarlo en su configuración de dados).</small></span></label>
+        <h3 class="mrg-seccion">Ayuda</h3>
+        <label class="mrg-fila-ajuste"><input type="checkbox" data-aj="ayudaActiva" ${leer("ayudaActiva") ? "checked" : ""}><span><strong>Explicar al detener el cursor</strong><small>Si dejas el cursor quieto sobre algo, un globo explica qué es y cómo se usa.</small></span></label>
+        <label class="mrg-campo"><span class="mrg-etiqueta">Espera antes de explicar: <b data-etq="ayudaRetraso">${n(leer("ayudaRetraso"), 2)} s</b></span>
+          <input type="range" data-aj="ayudaRetraso" min="0.5" max="5" step="0.5" value="${n(leer("ayudaRetraso"), 2)}"></label>
         <h3 class="mrg-seccion">Tamaño y tinta</h3>
         <label class="mrg-campo"><span class="mrg-etiqueta">Tamaño de texto: <b data-escala>${n(leer("a11yEscala"), 100)}%</b></span>
           <input type="range" data-aj="a11yEscala" min="85" max="160" step="5" value="${n(leer("a11yEscala"), 100)}"></label>
@@ -137,6 +144,7 @@ export class PanelAspecto extends App {
         await game.settings.set(MOD, k, v);
         if (k === "estiloHojas" || k === "estiloTiradas") { this.#recarga = true; this.render(); }
         else if (k === "a11yEscala") { const b = content.querySelector("[data-escala]"); if (b) b.textContent = `${v}%`; }
+        else if (k === "ayudaRetraso") { const b = content.querySelector('[data-etq="ayudaRetraso"]'); if (b) b.textContent = `${v} s`; }
         else this.render();
       });
     });

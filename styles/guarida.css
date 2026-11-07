@@ -266,3 +266,22 @@
 .mrg-asist-nav-b, .mrg-tabla-b, .mrg-accion, .mrg-accion-tirar, .mrg-interruptor, .mrg-chipbtn, .mrg-conmocion, .mrg-celda { height: auto; }
 .mrg-asist-nav-b { min-height: 3.4rem; }
 .mrg-tabla-b { min-height: 3rem; }
+
+/* Globo de ayuda contextual */
+.mrg-ayuda { position: fixed; z-index: 100000; max-width: 22rem; padding: .55rem .75rem; display: grid; gap: .2rem; pointer-events: none;
+  background: var(--g-hierro); color: var(--g-hueso); border: 2px solid var(--g-sangre); border-radius: 6px; box-shadow: 0 8px 20px -6px rgb(0 0 0 / .7);
+  font: 500 calc(.9rem * var(--g-escala)) / 1.4 var(--g-texto); }
+.mrg-ayuda strong { font-family: var(--g-display); letter-spacing: .05em; text-transform: uppercase; color: var(--g-oro-vivo); font-weight: 400; font-size: 1.05em; }
+
+/* Dados propios: caras ilustradas (ajuste «Dados de Wicked Ones») */
+:root.mrg-dados-img .mrg-dado { background: #16141c center / 100% 100% no-repeat; border: 0; border-radius: 14%; padding: 0; box-shadow: 0 2px 0 #000, 0 0 0 1px #000; color: transparent; }
+:root.mrg-dados-img .mrg-dado > i { display: none; }
+:root.mrg-dados-img .mrg-dado[data-v="1"] { background-image: url("../assets/dados/d6-1.png"); }
+:root.mrg-dados-img .mrg-dado[data-v="2"] { background-image: url("../assets/dados/d6-2.png"); }
+:root.mrg-dados-img .mrg-dado[data-v="3"] { background-image: url("../assets/dados/d6-3.png"); }
+:root.mrg-dados-img .mrg-dado[data-v="4"] { background-image: url("../assets/dados/d6-4.png"); }
+:root.mrg-dados-img .mrg-dado[data-v="5"] { background-image: url("../assets/dados/d6-5.png"); }
+:root.mrg-dados-img .mrg-dado[data-v="6"] { background-image: url("../assets/dados/d6-6.png"); }
+:root.mrg-dados-img .mrg-dado.mrg-mejor { box-shadow: 0 2px 0 #000, 0 0 0 3px var(--g-oro-vivo); }
+:root.mrg-dados-img .mrg-dado.mrg-rojo { filter: saturate(1.15); }
+:root.mrg-dados-img .mrg-dado.mrg-mini { padding: 0; border-width: 0; }

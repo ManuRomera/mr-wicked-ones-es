@@ -110,9 +110,17 @@ async function modeloFaccionUA(actor) {
 /*  Grupo invasor                                                             */
 /* -------------------------------------------------------------------------- */
 
+/** Vida restante en medios corazones y su texto («2½ de 3»). */
+function vidaDe(i) {
+  const total = (i.system.adventurer_type === "hireling" ? 1 : n(i.system.tier, 0) + 1) * 2;
+  const r = Math.max(0, total - n(i.system.heart_slashes, 0));
+  const txt = v => `${Math.floor(v / 2)}${v % 2 ? "½" : ""}`;
+  return { vida: `${txt(r)} de ${txt(total)}`, caido: r === 0, entero: r === total };
+}
+
 async function modeloGrupo(actor) {
   const base = i => ({
-    id: i.id, nombre: i.name, tier: n(i.system.tier, 0), corazones: corazonesDe(i), img: i.img,
+    id: i.id, nombre: i.name, tier: n(i.system.tier, 0), corazones: corazonesDe(i), img: i.img, ...vidaDe(i),
     detalles: String(i.system.passive ?? "").split(/\s*\|\s*/).filter(Boolean).map(t => { const m = t.match(/^([^:]{2,16}):\s*(.*)$/s); return m ? { t: m[1], x: m[2] } : { x: t }; }),
     pos: [i.system.trait_pos_1_custom, i.system.trait_pos_2_custom].filter(Boolean), neg: [i.system.trait_neg_1_custom, i.system.trait_neg_2_custom].filter(Boolean),
     motivos: [i.system.motivation_1_custom, i.system.motivation_2_custom].filter(Boolean), usados: n(i.system.moves_used, 0)

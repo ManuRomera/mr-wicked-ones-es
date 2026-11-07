@@ -8,14 +8,17 @@ import { inicializarHooksChat, dialogoCiclo, ejecutarTiradaCiclo } from "./tirad
 import { GeneradorWickedOnes, tirarTablaPorClave } from "./generador.mjs";
 import { cargarLiterales, inicializarMejoras } from "./mejoras.mjs";
 import { registrarAjustes, aplicarAspecto, abrirPanelAspecto } from "./ajustes.mjs";
+import { registrarDados } from "./dados.mjs";
+import { abrirCreador } from "./creador.mjs";
 import { registrarTarjetas, tirar } from "./tirada.mjs";
 import { abrirTirada } from "./tirada-dialogo.mjs";
 import { registrarHojaPersonaje } from "./hoja-personaje.mjs";
 import { registrarHojasActores } from "./hojas-actores.mjs";
 import { abrirLibretos } from "./libretos.mjs";
+import { registrarAyuda } from "./ayuda.mjs";
 import { registrarCreditosMR } from "./mr-credits.mjs";
 import { registrarFicha } from "./ficha.mjs";
-import { registrarAutomatismos } from "./automatismos.mjs";
+import { registrarAutomatismos, recuperar, recuperarTodos } from "./automatismos.mjs";
 import { configurarInicio, arrancar, abrirAsistente, importarCampana, registrarMenus, reinstalarContenido, dialogoReinstalar } from "./inicio.mjs";
 import { registrarTutorial, ofrecerTutorial, empezarTutorial } from "./tutorial.mjs";
 import { organizarCompendios } from "./carpetas.mjs";
@@ -117,12 +120,16 @@ Hooks.once("init", () => {
   });
 
   registrarAjustes();
+  registrarDados();
 
   // Exponer API pública del módulo
   const mod = game.modules.get(MOD);
   if (mod) {
     mod.api = {
       abrirGenerador,
+      abrirCreador,
+      recuperar,
+      recuperarTodos,
       abrirMenuAccesibilidad: abrirPanelAspecto,
       abrirPanelAspecto,
       abrirTirada,
@@ -160,6 +167,17 @@ Hooks.on("renderSceneControls", (app, html) => {
   );
 });
 
+// Botón «Crear monstruo» en el directorio de Actores
+Hooks.on("renderActorDirectory", (app, html) => {
+  const raiz = html instanceof HTMLElement ? html : html?.[0];
+  const cab = raiz?.querySelector(".header-actions, .directory-header .action-buttons");
+  if (!cab || cab.querySelector(".mr-wo-crear")) return;
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "mr-wo-crear"; b.innerHTML = '<i class="fa-solid fa-skull"></i> Crear monstruo';
+  b.addEventListener("click", () => abrirCreador());
+  cab.append(b);
+});
+
 // Cambio automático a figura de cuerpo entero en escenas de imagen (para MR- Dirección)
 Hooks.on("preCreateToken", (tokenDoc, data) => {
   const escena = tokenDoc.parent;
@@ -182,7 +200,8 @@ Hooks.on("mrDireccion.ready", () => {
 Hooks.once("ready", async () => {
   await cargarLiterales();
   aplicarAspecto();
-  await foundry.applications.handlebars.loadTemplates([`modules/${MOD}/templates/capacidad.hbs`]);
+  registrarAyuda();
+  await foundry.applications.handlebars.loadTemplates([`modules/${MOD}/templates/capacidad.hbs`, `modules/${MOD}/templates/capacidad-compacta.hbs`]);
   await registrarHojaPersonaje();
   registrarHojasActores();
   parchearTiradasDelSistema();

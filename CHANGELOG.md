@@ -1,3 +1,33 @@
+## 2.2.0 (2026-11-07)
+
+Más claridad en la hoja, creador de personajes y dados propios. / Clearer sheet, character creator and custom dice.
+
+### Añadido / Added
+- **Creador de monstruos** paso a paso con «Al azar» en cada paso y «Todo al azar» (directorio de Actores, barra de la hoja, `api.abrirCreador()`). / **Step-by-step monster creator** with per-step *Random* and *Randomise everything*.
+- **Catálogo de objetos** con buscador, categorías y descripciones, en lugar del desplegable del sistema; los objetos pierden el prefijo de tabla («Artilugio [11] · …»). / **Searchable item catalogue** replacing the system dropdown; item names lose their table prefix.
+- **Dados propios** (caras de color y emblema del Señor Oscuro) en las tarjetas del chat y en **Dice So Nice** (ajuste «Dados de Wicked Ones»; se recomienda el módulo). / **Custom dice** in chat cards and Dice So Nice.
+- **Ayuda al detener el cursor** (2 s por defecto, ajustable) en todas las hojas, diálogos y tarjetas. / **Hover help** after 2 s (adjustable).
+- **Heridas de aventureros** con botones ½ para herir y curar, marcador de vida y estado «Caído». / **Adventurer wound controls** (±½ heart).
+- **Barra flotante de cristal** con iconos del juego para las herramientas de la hoja (antes, botones sueltos en la cabecera). / **Glass floating toolbar**.
+- **Panel de estados** (conmoción por atributo, reventado, desatado), **uso de capacidades** explicado (cuesta estrés, pasiva, con tirada, de suministro) con botón de uso, y guía «¿Cómo se usan las capacidades?». / **States panel** and **ability usage** badges and buttons.
+- **Heridas con anotación**: un monstruo no tiene tres niveles de herida (según el manual: conmoción por atributo → reventado → muerte); el panel permite **apuntar qué te ha pasado** en cada una, se borra sola cuando la herida desaparece, y avisa del golpe de gracia (+1d por corazón oscuro). / **Wounds with notes** (shock per attribute → bloodied → dead).
+- **Recuperación** (fase 1 del ciclo): botón en la barra de la hoja y aviso a la dirección al pasar el ciclo a la fase 1; quita estrés, conmociones y reventado, y regenera defensas y suministros. / **Recovery** button and prompt on cycle phase 1.
+- **Barra de cristal que aparece al acercar el cursor** (y se esconde al apartarlo, como la barra de tareas); la calavera la deja fija. / **Toolbar shows on hover**.
+- **Modo evolución**: raza, vocación, impulso y juerga quedan fijados; se desbloquean al evolucionar, y aprender una capacidad con la EXP malvada llena la gasta. / **Evolution mode** locks race, calling, impulse and revelry.
+
+### Automatismos / Automations
+- Reventarse da **conmoción en todos los atributos**; al limpiarlas todas se deja de estar reventado. / Bloodied ↔ shock coupling.
+- Tachar una **defensa** publica en el chat su efecto (evita la consecuencia, sin estrés). / Defence use card.
+- **Moral de las manadas**: +1d en acciones y tiradas de fortuna, y se gasta sola. / Minion morale +1d, auto-spent.
+
+### Cambiado / Changed
+- **Ficha compacta** rehecha: funciona desde cualquier pestaña y muestra acciones, capacidades con su botón de uso y equipo. / **Compact sheet** rebuilt; works from any tab.
+- La **EXP de práctica** solo se muestra en las acciones con 0 puntos (las únicas que pueden ganarla). / Practice XP only on 0-point actions.
+- En la hoja de esbirros, la **moral** se explica como en el manual: un punto que se gasta para +1d (máximo uno por manada). / Minion **morale** now matches the rulebook.
+
+### Corregido / Fixed
+- Se ocultan los cuatro objetos de relleno del sistema («Nuevo equipo 1…») del catálogo. / Placeholder system items hidden.
+
 ## 2.1.0 (2026-11-07)
 
 Rediseño completo de la interfaz: hojas, tiradas, tarjetas del chat, asistente, accesibilidad y libretos.

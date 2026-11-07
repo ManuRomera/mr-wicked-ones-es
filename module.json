@@ -2,7 +2,7 @@
   "id": "mr-wicked-ones-es",
   "title": "MR- Wicked Ones: Campaña, Compendios y Mejoras",
   "description": "Todo lo que le falta al sistema Wicked Ones en español, con la calidad MR-: campaña «El Valle Silencioso» con escenas ilustradas con su lectura y música (MR- Dirección), personajes, esbirros, 30 aventureros y 36 ayudantes, 48 facciones de 4 entornos, salas, trampas, criaturas y todo el equipo con arte propio, tablas y modo solitario, el libro en diarios y un generador. Mejoras: modo oscuro corregido, ficha compacta real, tiradas con las reglas del libro automatizadas (estrés, conmoción, práctica, desatado), todo ordenado en carpetas (compendios del sistema separados de los del módulo), asistente para importar todo al mundo y tutorial guiado.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "authors": [
     {
       "name": "Manu Romera",
@@ -43,6 +43,11 @@
         "type": "module",
         "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json",
         "reason": "Barra del Director de Juego: escenas, música, motivos, efectos, hitos y relojes."
+      },
+      {
+        "id": "dice-so-nice",
+        "type": "module",
+        "reason": "Dados 3D con las caras de Wicked Ones (1 apagado → 6 con el emblema del Señor Oscuro)."
       }
     ]
   },
