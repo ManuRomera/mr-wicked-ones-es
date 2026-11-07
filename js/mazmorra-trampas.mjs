@@ -97,7 +97,7 @@ export class ExtraMR extends App {
   constructor(alElegir) { super(); this.alElegir = alElegir; this.n = 1; this.motivo = ""; }
   async _renderHTML() {
     const razones = ["Esbirros pagados (1 de oro cada panda)", "Capacidad de vocación", "Un flashback", "Gracia del DJ"];
-    return `<div class="mrg-trampa"><p class="mrg-asist-intro">Cada PJ tiene una acción de descanso por fase de acecho, los duendes otra y cada panda de esbirros pagada (1 de oro) otra más. Aquí concedes las que quieras de más.</p>
+    return `<div class="mrg-trampa"><p class="mrg-asist-intro">Cada PJ tiene una acción de descanso por fase de acecho, los duendes otra y cada panda de esbirros pagada (1 de oro) otra más. Aquí regalas las que quieras de más: se guardan como créditos de obra, que no caducan al cambiar de fase.</p>
       <div class="mrg-trampa-sec"><h5>Cuántas</h5><div class="mrg-sino" role="group">${[1, 2, 3, 4, 5].map(k => `<button type="button" class="mrg-chipbtn ${this.n === k ? "mrg-sel" : ""}" data-n="${k}" aria-pressed="${this.n === k}">+${k}</button>`).join("")}</div></div>
       <div class="mrg-trampa-sec"><h5>Motivo</h5><div class="mrg-trampa-chips">${razones.map(r => `<button type="button" class="mrg-chipbtn ${this.motivo === r ? "mrg-sel" : ""}" data-motivo="${esc(r)}" aria-pressed="${this.motivo === r}">${esc(r)}</button>`).join("")}</div>
       <input type="text" data-txt placeholder="…o escribe otro" value="${esc(this.motivo)}" aria-label="Motivo"></div>

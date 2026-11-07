@@ -1,3 +1,18 @@
+## 2.8.0 (2026-11-08)
+
+Sonido, látigo, obra con los relojes de proyecto y luz en todas partes. / Sound, whip, build counts from project clocks and light everywhere.
+
+### Añadido / Added
+- **Efectos de sonido del constructor** (cavar, rellenar, construir una sala, demoler, puertas, preparar y activar trampas, descubrirlas, conceder acciones, avisos de error y látigo) y un **ambiente** mientras observas la mazmorra: zumbido de cueva, goteo, picos lejanos, antorchas que chisporrotean, ecos y duendes charlando (más a menudo cuantos más hay). Se sintetizan en el navegador (sin archivos), suenan en todas las mesas a la vez y se activan, desactivan y regulan de volumen desde el propio panel del constructor y desde Ajustes (cada navegador decide). / **Sound effects and ambience**, synthesized, toggleable and with volume control.
+- **Látigo** (herramienta nueva, como en *Dungeon Keeper*): pulsa en la mazmorra y suena el restallido con silbido, estallido y «¡ZAS!»; los duendes a 2,5 celdas a la redonda se azoran, corren y trabajan al doble de velocidad unos segundos y chillan. Lo ve y lo oye toda la mesa. / **Whip tool**: area effect that makes nearby minions work and run twice as fast.
+- **Lo que pueden hacer**: el panel muestra las acciones de obra (fase de acecho) y los **créditos**, que no caducan. Los **proyectos de las fichas** (relojes de 4, 6 u 8) valen acciones al llenarse: 2, 3 o 4; los que hablan de construir, excavar, salas, túneles o trampas se aplican solos y el resto los aplica el DJ. El DJ también puede **dar por hecho** un proyecto sin acabar o **conceder** créditos como quiera. / **Build allowance** with credits from filled project clocks; the GM can grant or waive.
+- Los rechazos de un jugador (por reglas o falta de acciones) le llegan a él con aviso y sonido. / Players now get the rejection message and sound.
+
+### Corregido / Fixed
+- **Las salas con forma no se ponían** si lo marcado tocaba otra sala o el borde del mapa: ahora se quedan con lo libre (recortadas, si llegan al mínimo de celdas) en vez de fallar; la vista previa lo muestra. / **Shaped rooms now trim to free space** instead of failing.
+- **Salas y pasillos a oscuras**: toda sala lleva su luz central (las pequeñas, un candil) y los pasillos cortos, los cruces y los codos reciben su antorcha de relleno hasta que no quede ninguna celda sin luz. / **Every room and corridor is now lit.**
+- La vista previa del látigo capturaba los pulsos del ratón; ahora las capas de ayuda nunca los reciben. / Whip preview no longer swallows clicks.
+
 ## 2.7.0 (2026-11-08)
 
 Salas de cualquier forma, trampas del manual y más control del DJ. / Free-shape rooms, rulebook traps and more GM control.

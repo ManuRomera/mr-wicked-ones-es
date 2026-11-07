@@ -23,7 +23,7 @@ import {
 } from "../js/core/reglas.mjs";
 import {
   crearMapa, excavar, rellenar, construirSala, quitarSala, alternarPuerta, muros, decorar, lucesDe, celda, resumen, TIPOS_SALA, cabe, ajustarSala,
-  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
+  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, quedanObra, creditoProyecto, esProyectoDeObra, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
   mascara, celdasForma, validarCeldas, contiene, celdasDe, FORMAS, MECANISMOS, DETONADORES, ponerTrampa, editarTrampa, quitarTrampa, costeTrampa, numDuendes
 } from "../js/core/mazmorra.mjs";
 import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
@@ -230,8 +230,14 @@ test("Constructor de mazmorras: excavar, salas que se ajustan, puertas, muros de
   const r = construirSala(m, { x: 6, y: 2, w: 3, h: 3 }, "forja");
   assert.ok(r.ok && r.ajustada);
   assert.deepEqual(r.rect, { x: 6, y: 2, w: 4, h: 3 });
-  assert.equal(construirSala(m, { x: 7, y: 3, w: 2, h: 2 }, "templo").ok, false);   // no se pisan
-  assert.equal(construirSala(m, { x: 0, y: 0, w: 2, h: 2 }, "templo").ok, false);   // ni se toca la roca base
+  // una sala marcada encima de otra no la pisa: se queda con lo que está libre (si llega al mínimo de celdas)
+  const encima = construirSala(structuredClone(m), { x: 7, y: 3, w: 4, h: 3 }, "templo");
+  assert.ok(encima.ok);
+  const ocupadas = new Set(celdasDe(m.salas[0]).map(c => c.join(",")));
+  const mm = structuredClone(m); const e2 = construirSala(mm, { x: 7, y: 3, w: 4, h: 3 }, "templo");
+  assert.ok(celdasDe(mm.salas.find(s => s.id === e2.id)).every(c => !ocupadas.has(c.join(","))));
+  const borde = structuredClone(m), rb = construirSala(borde, { x: 0, y: 0, w: 2, h: 2 }, "templo");   // y la roca base no se toca: se recorta
+  assert.ok(rb.ok && celdasDe(borde.salas.at(-1)).every(([i, j]) => i >= 1 && j >= 1));
   const p = alternarPuerta(m, 5, 3, "e");
   assert.ok(p.ok && p.puesta);
   assert.equal(muros(m).filter(s => s.puerta).length, 1);
@@ -279,7 +285,7 @@ test("Constructor: la decoración se orienta hacia la puerta y cambia con el tam
   // el tesoro acumula más oro cuanto mayor es el nivel de la mazmorra
   assert.ok(cuenta(decorar(sala(5, 5, "tesoro"), [], { nivel: 4 }), "oro") > cuenta(decorar(sala(5, 5, "tesoro"), [], { nivel: 0 }), "oro"));
   // luces: 2×2 normal no, 2×2 importante sí; 3×3 con braseros; los hornos de la forja también alumbran
-  assert.equal(lucesDe({ x: 1, y: 1, w: 2, h: 2, tipo: "enclave" }).length, 0);
+  assert.equal(lucesDe({ x: 1, y: 1, w: 2, h: 2, tipo: "enclave" }).length, 1);   // toda sala lleva su luz, aunque sea un candil
   assert.equal(lucesDe({ x: 1, y: 1, w: 2, h: 2, tipo: "santuario" }).length, 1);
   assert.equal(lucesDe(sala(3, 3)).length, 5);
   assert.ok(lucesDe(sala(10, 10))[0].dim <= 10 && lucesDe(sala(3, 3))[0].dim === 4);
@@ -297,7 +303,8 @@ test("Constructor: antorchas de pasillo según la orientación", () => {
   assert.ok(new Set(v.map(a => a.lado)).size >= 1);
   assert.equal(lucesTunel(m).length, t.length);
   const corto = crearMapa(10, 10); excavar(corto, 4, 4); excavar(corto, 5, 4);
-  assert.equal(antorchasTunel(corto).length, 0);           // un tramo de dos celdas no lleva antorchas
+  const cortas = antorchasTunel(corto);
+  assert.ok(cortas.length === 1 && cortas[0].relleno);       // un tramo corto lleva una sola antorcha de relleno, para que no quede a oscuras
 });
 
 test("Constructor: reglas de obra (acciones de descanso, temática y materiales)", () => {
@@ -312,6 +319,14 @@ test("Constructor: reglas de obra (acciones de descanso, temática y materiales)
   gastar(m, 2);
   assert.equal(puedeGastar(m, 2).ok, false);
   assert.ok(/te quedan 1/.test(puedeGastar(m, 2).motivo));
+  // los créditos (proyectos terminados y regalos del DJ) no caducan y se gastan después de las acciones de la fase
+  m.obra.creditos = 3;
+  assert.equal(quedanObra(m), 4); assert.ok(puedeGastar(m, 4).ok && !puedeGastar(m, 5).ok);
+  gastar(m, 3);
+  assert.deepEqual([m.obra.gastadas, m.obra.creditos, quedanObra(m)], [3, 1, 1]);
+  assert.equal(creditoProyecto(4), 2); assert.equal(creditoProyecto(8), 4);
+  assert.ok(esProyectoDeObra("Excavar el pasillo norte") && esProyectoDeObra("Construir una prisión") && !esProyectoDeObra("Elaborar una poción"));
+  m.obra.creditos = 0; m.obra.gastadas = 2;
   // única: solo un santuario
   assert.ok(construirSala(m, { x: 2, y: 2, w: 3, h: 3 }, "santuario").ok);
   assert.equal(reglasSala(m, "santuario").ok, false);
@@ -388,4 +403,23 @@ test("Constructor: trampas del manual, trucos y duendes según el nivel", () => 
   assert.ok(numDuendes(v, 4) > numDuendes(v, 0));
   assert.ok(numDuendes(v, 2, 2) > numDuendes(v, 2, 1) && numDuendes(v, 2, 0) === 0);
   assert.ok(numDuendes(v, 4, 2) <= 40);
+});
+
+test("Constructor: ninguna sala ni túnel se queda a oscuras, y las salas se recortan en vez de fallar", () => {
+  const m = crearMapa(40, 28);
+  for (let x = 3; x < 36; x++) excavar(m, x, 13);
+  for (let y = 5; y < 13; y++) excavar(m, 12, y);
+  excavar(m, 25, 14); excavar(m, 26, 14); excavar(m, 26, 15);                 // un codo corto
+  construirSala(m, { x: 8, y: 2, w: 9, h: 3 }, "santuario");
+  construirSala(m, { x: 20, y: 16, w: 2, h: 2 }, "menor");                    // sala pequeña
+  construirSala(m, { x: 30, y: 16, w: 5, h: 4 }, "enclave", { forma: "ovalo" });
+  const focos = [...m.salas.flatMap(s => lucesDe(s, m.puertas)), ...lucesTunel(m)];
+  const sinLuz = [];
+  for (let y = 0; y < m.h; y++) for (let x = 0; x < m.w; x++) if (celda(m, x, y) === "." || celda(m, x, y) === "r") if (!focos.some(l => Math.hypot(l.x - x - 0.5, l.y - y - 0.5) <= l.dim * 0.9)) sinLuz.push([x, y]);
+  assert.deepEqual(sinLuz, []);
+  assert.ok(m.salas.every(s => lucesDe(s, m.puertas).some(l => l.tipo === "sala")));   // toda sala lleva su luz central
+  // marcar una sala encima de otra ya no falla: se queda con lo libre
+  const r = construirSala(m, { x: 9, y: 2, w: 3, h: 4 }, "menor");
+  assert.ok(r.ok && r.recortada);
+  assert.ok(celdasDe(m.salas.at(-1)).every(([i, j]) => !contiene(m.salas[0], i, j)));
 });

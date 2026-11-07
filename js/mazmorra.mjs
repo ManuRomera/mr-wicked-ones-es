@@ -10,9 +10,10 @@
 import {
   TIPOS_SALA, COSTE_NIVEL, TRAMO, FORMAS, MECANISMOS, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
   validarCeldas, ajustarSala, celdasForma, reglasSala, costeSala, costeExcavar, costeTrampa, puedeGastar, gastar, tipoDeTema, muros, decorar,
-  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, resumen, abierta, DIRS
+  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, quedanObra, creditoProyecto, esProyectoDeObra, resumen, abierta, DIRS
 } from "./core/mazmorra.mjs";
 import { abrirTrampa, abrirExtra } from "./mazmorra-trampas.mjs";
+import { sonar, iniciarAmbiente, pararAmbiente, efectosOn, ambienteOn } from "./mazmorra-sonido.mjs";
 
 const MOD = "mr-wicked-ones-es";
 const FLAG = "mazmorra";
@@ -22,7 +23,8 @@ const App = foundry.applications?.api?.ApplicationV2;
 const ALTO = 0.34;   // altura de los bloques, en celdas
 
 let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario", forma = "rect", giro = 0;
-let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [];
+let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [], efectos = [], ultimoLatigo = 0;
+const RADIO_LATIGO = 2.5;   // celdas
 
 export const mapaDe = escena => escena?.getFlag(MOD, FLAG) ?? null;
 const geo = () => ({ S: canvas.grid.size, ox: canvas.dimensions.sceneRect.x, oy: canvas.dimensions.sceneRect.y });
@@ -208,29 +210,68 @@ function crearVasallos(m, S, ox, oy) {
     const [i, j] = mem && abierta(celda(m, mem.i, mem.j)) ? [mem.i, mem.j] : libres[Math.floor(Math.random() * libres.length)];
     const tipo = mem?.tipo ?? k % TIPOS_VASALLO.length, cont = figuraVasallo(TIPOS_VASALLO[tipo]);
     const esc0 = (S * 0.19) / 24; cont.scale.set(esc0); lienzo.addChild(cont);
-    const v = { cont, esc: esc0, tipo, x: i + 0.5, y: j + 0.5, vel: 0.45 + Math.random() * 0.5, fase: Math.random() * 6, ruta: [], estado: "trabaja", t: Math.random() * 2, jx: 0, jy: 0 };
+    const v = { cont, esc: esc0, tipo, x: i + 0.5, y: j + 0.5, vel: 0.45 + Math.random() * 0.5, fase: Math.random() * 6, ruta: [], estado: "trabaja", t: Math.random() * 2, jx: 0, jy: 0, azote: 0 };
     vasallos.push(v);
   }
 }
 
+/** Latigazo: los duendes en un radio de 2,5 celdas trabajan y corren más deprisa unos segundos. Cada navegador mueve sus propios duendes. */
+export function aplicarLatigo(px, py) {
+  if (!contenedor || !canvas?.ready) return;
+  const { S, ox, oy } = geo(), cx = (px - ox) / S, cy = (py - oy) / S, m = mapaDe(canvas.scene);
+  let n = 0;
+  for (const v of vasallos) if (Math.hypot(v.x - cx, v.y - cy) <= RADIO_LATIGO) { v.azote = 9; if (v.estado === "trabaja" && m) objetivo(m, v); n++; }
+  sonar("latigo"); if (n) sonar("chillidos", { n });
+  // el restallido: la tira del látigo, el estallido, el aro de la zona y el «¡ZAS!»
+  const c = new PIXI.Container(), g = new PIXI.Graphics(), aro = new PIXI.Graphics();
+  const lado = Math.random() < 0.5 ? -1 : 1, x0 = px + lado * S * 1.5, y0 = py - S * (0.9 + Math.random() * 0.5), kx = px + lado * S * 0.4, ky = py - S * 1.9;
+  const texto = new PIXI.Text("¡ZAS!", { fontSize: Math.round(S * 0.3), fill: 0xffe39a, stroke: 0x5a1409, strokeThickness: 5, fontWeight: "900" });
+  texto.anchor.set(0.5); texto.x = px; texto.y = py - S * 0.45; texto.alpha = 0;
+  c.addChild(aro, g, texto); c.zIndex = 1e7; contenedor.addChild(c);
+  const bez = t => [(1 - t) ** 2 * x0 + 2 * (1 - t) * t * kx + t * t * px, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * ky + t * t * py];
+  const rayos = Array.from({ length: 9 }, (_, i) => [i / 9 * Math.PI * 2 + Math.random() * 0.3, S * (0.18 + Math.random() * 0.2)]);
+  efectos.push({ c, t: 0, dur: 0.75, upd(t) {
+    g.clear();
+    const p = Math.min(1, t / 0.16);
+    if (t < 0.34) {                                                              // la tira se extiende y se recoge
+      const fin = t < 0.16 ? p : 1, ini = t < 0.2 ? 0 : (t - 0.2) / 0.14;
+      g.lineStyle(Math.max(1.5, S * 0.035 * (1 - ini)), 0x6b4a2a, 1 - ini * 0.6);
+      for (let k = ini; k <= fin; k += 0.04) { const [x, y] = bez(k); k === ini ? g.moveTo(x, y) : g.lineTo(x, y); }
+      g.lineStyle(0).beginFill(0xffd36b, 1 - ini).drawCircle(...bez(fin), S * 0.03).endFill();
+    }
+    if (t >= 0.14) {                                                             // el estallido y el aro
+      const q = (t - 0.14) / 0.61;
+      g.lineStyle(2.5, 0xfff2c0, 1 - q); for (const [an, lg] of rayos) g.moveTo(px + Math.cos(an) * lg * 0.3, py + Math.sin(an) * lg * 0.3).lineTo(px + Math.cos(an) * lg * (0.6 + q), py + Math.sin(an) * lg * (0.6 + q));
+      aro.clear().lineStyle(3, 0xffd36b, 0.55 * (1 - q)).drawCircle(px, py, S * RADIO_LATIGO * (0.15 + 0.85 * Math.min(1, q * 1.6)));
+      texto.alpha = Math.max(0, Math.min(1, (t - 0.14) / 0.08) * (1 - q * q)); texto.y = py - S * (0.45 + 0.35 * q);
+    }
+  } });
+  arrancarTicker();
+}
+
 function pasoVasallos(dt) {
+  efectos = efectos.filter(e => { e.t += dt; if (e.t >= e.dur) { e.c.destroy({ children: true }); return false; } e.upd(e.t); return true; });
   const m = mapaDe(canvas.scene); if (!m || !contenedor) return;
   const { S, ox, oy } = geo(), ahora = performance.now() / 1000;
   for (const v of vasallos) {
+    const k = v.azote > 0 ? 2.4 : 1, dtv = dt * k;                                // azotados: todo el doble de deprisa
+    if (v.azote > 0) v.azote = Math.max(0, v.azote - dt);
+    const tinte = v.azote > 0 ? 0xff9a88 : 0xffffff;
+    for (const h of v.cont.children) h.tint = tinte;
     if (v.estado === "trabaja") {
-      v.t -= dt; v.cont.pico.rotation = 0.35 + Math.sin(ahora * 11 + v.fase) * 0.9; v.cont.rotation = 0;
+      v.t -= dtv; v.cont.pico.rotation = 0.35 + Math.sin(ahora * 11 * k + v.fase) * 0.9; v.cont.rotation = 0;
       if (v.t <= 0) objetivo(m, v);
     } else {
       const sig = v.ruta[0];
       if (!sig) { v.estado = "trabaja"; v.t = 2 + Math.random() * 3; }
       else {
-        const tx = sig[0] + 0.5 + v.jx, ty = sig[1] + 0.5 + v.jy, dx = tx - v.x, dy = ty - v.y, d = Math.hypot(dx, dy), paso = v.vel * dt;
+        const tx = sig[0] + 0.5 + v.jx, ty = sig[1] + 0.5 + v.jy, dx = tx - v.x, dy = ty - v.y, d = Math.hypot(dx, dy), paso = v.vel * dtv;
         if (d <= paso) { v.x = tx; v.y = ty; v.ruta.shift(); } else { v.x += dx / d * paso; v.y += dy / d * paso; }
         if (Math.abs(dx) > 0.02) v.cont.scale.x = Math.sign(dx) * v.esc;
-        v.cont.pico.rotation = 0.35; v.cont.rotation = Math.sin(ahora * 14 + v.fase) * 0.13;
+        v.cont.pico.rotation = 0.35; v.cont.rotation = Math.sin(ahora * 14 * k + v.fase) * 0.13;
       }
     }
-    const salto = v.estado === "camina" ? Math.abs(Math.sin(ahora * 14 + v.fase)) * S * 0.015 : 0;
+    const salto = v.estado === "camina" ? Math.abs(Math.sin(ahora * 14 * k + v.fase)) * S * 0.015 : 0;
     v.cont.x = ox + v.x * S; v.cont.y = oy + v.y * S - salto; v.cont.zIndex = v.cont.y + S * 0.2;
   }
   vasalloMemoria = vasallos.map(v => ({ i: Math.floor(v.x), j: Math.floor(v.y), tipo: v.tipo }));
@@ -325,12 +366,15 @@ export function dibujar() {
 
   (canvas.primary ?? canvas.stage).addChild(contenedor);
   crearVasallos(m, S, ox, oy);
-  if (vasallos.length) arrancarTicker(); else pararTicker();
+  arrancarTicker();
 }
 
-function quitarContenedor() { pararTicker(); vasallos = []; if (contenedor) { contenedor.destroy({ children: true }); contenedor = null; } }
+function quitarContenedor() { pararTicker(); vasallos = []; efectos = []; if (contenedor) { contenedor.destroy({ children: true }); contenedor = null; } }
 
-function limpiar() { quitarContenedor(); quitarOverlay(); }
+function limpiar() { quitarContenedor(); quitarOverlay(); pararAmbiente(); }
+
+/** El ambiente suena solo mientras se mira una escena de mazmorra. */
+function arrancarAmbiente() { if (canvas?.ready && mapaDe(canvas.scene)) iniciarAmbiente(() => vasallos.length); else pararAmbiente(); }
 
 /* ------------------------------------------------------------------------------------------------ ficha de la mazmorra (reglas) */
 
@@ -347,12 +391,31 @@ function contextoReglas(m) {
   return { actor: a, nivel: Number(a.system.tier?.value) || 0, tema: tipoDeTema(tema?.name), temaNombre: tema?.name ?? "", materiales, salas3 };
 }
 
+/** Mensajes a los demás navegadores por el socket del módulo (sonidos, latigazos, rechazos). */
+const emitir = msg => { try { game.socket.emit(`module.${MOD}`, { escena: canvas.scene?.id, ...msg }); } catch { /* sin conexión */ } };
+/** Suena aquí y en todos los navegadores que miran esta escena. */
+const sonarATodos = (nombre, opciones) => { sonar(nombre, opciones); emitir({ t: "sonido", s: nombre, o: opciones }); };
+
+/** Proyectos de descanso de los PJ: su reloj lleno vale acciones de obra (nivel 2 = reloj de 4, nivel 3 = reloj de 8). */
+function proyectosDeObra() {
+  const out = [];
+  for (const a of game.actors ?? []) {
+    if (a.type !== "character") continue;
+    for (const it of a.items) {
+      if (it.type !== "project") continue;
+      const tam = Number(it.system.clock_size) || 4, prog = Math.min(tam, Number(it.system.clock_progress) || 0);
+      out.push({ actor: a.id, item: it.id, quien: a.name, nombre: it.name, tam, prog, completo: prog >= tam, cobrado: Boolean(it.getFlag(MOD, "cobrado")), cred: creditoProyecto(tam), deObra: esProyectoDeObra(it.name) });
+    }
+  }
+  return out.sort((x, y) => Number(y.completo && !y.cobrado) - Number(x.completo && !x.cobrado) || x.quien.localeCompare(y.quien));
+}
+
 /** Acciones de descanso de una fase de acecho: una por cada PJ más la de los duendes (los esbirros pagados suman más a mano). */
 const accionesPorDefecto = () => Math.max(2, (game.actors?.filter(a => a.type === "character" && a.hasPlayerOwner).length ?? 0) + 1);
 
 async function reiniciarObra(escena) {
   const m = foundry.utils.deepClone(mapaDe(escena)); if (!m) return;
-  m.obra = { total: accionesPorDefecto(), gastadas: 0, extra: 0 };
+  m.obra = { ...m.obra, total: accionesPorDefecto(), gastadas: 0 };   // los créditos (proyectos terminados y regalos) no caducan
   await escena.setFlag(MOD, FLAG, m);
   ChatMessage.create({ content: `<p><strong>Nueva fase de acecho.</strong> La mazmorra tiene ${m.obra.total} acciones de descanso para excavar y construir.</p>`, flags: { [MOD]: { tarjeta: true } } });
 }
@@ -408,7 +471,7 @@ export async function reescalarTokens(escena = canvas.scene) {
 
 /* ------------------------------------------------------------------------------------------------ acciones (las ejecuta el DJ) */
 
-const SOLO_DJ = new Set(["obra", "actor", "duendes"]);
+const SOLO_DJ = new Set(["obra", "actor", "duendes", "proyecto"]);
 
 async function aviso(texto) {
   try {
@@ -461,20 +524,35 @@ async function ejecutar(escena, accion, datos, usuario) {
       if (r.ok && t) texto = `${t.tipo === "truco" ? "Un truco" : "Una trampa"} (${esc(t.mecanismo)}) ${datos.valor ? "ha sido descubierta por los aventureros" : "vuelve a estar armada"}.`;
     }
   } else if (accion === "obra") {
-    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, extra: 0 };
-    if (datos.reiniciar) { await reiniciarObra(escena); return { ok: true }; }
+    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, creditos: 0, extra: 0, proyectos: 0 };
+    if (datos.reiniciar) { await reiniciarObra(escena); sonarATodos("extra"); return { ok: true }; }
     const d = Math.trunc(datos.delta ?? 0);
-    m.obra.total = Math.max(0, m.obra.total + d);
-    m.obra.gastadas = Math.min(m.obra.gastadas, m.obra.total);
-    if (datos.extra && d > 0) { m.obra.extra = (m.obra.extra ?? 0) + d; texto = `El DJ concede <strong>+${d}</strong> ${d === 1 ? "acción" : "acciones"} de descanso extra${datos.motivo ? `: ${esc(datos.motivo)}` : ""}.`; }
+    if (datos.extra) {   // lo que concede el DJ son créditos: no caducan al cambiar de fase
+      if (d > 0) { m.obra.creditos = (m.obra.creditos ?? 0) + d; m.obra.extra = (m.obra.extra ?? 0) + d; texto = `El DJ concede <strong>+${d}</strong> ${d === 1 ? "acción" : "acciones"} de obra${datos.motivo ? `: ${esc(datos.motivo)}` : ""}.`; }
+    } else {
+      m.obra.total = Math.max(0, m.obra.total + d);
+      m.obra.gastadas = Math.min(m.obra.gastadas, m.obra.total);
+    }
+  } else if (accion === "proyecto") {
+    const a = game.actors.get(datos.actor), it = a?.items.get(datos.item);
+    if (!it) return { ok: false, motivo: "Ese proyecto ya no existe." };
+    if (it.getFlag(MOD, "cobrado")) return { ok: false, motivo: "Ese proyecto ya se aplicó a la obra." };
+    const tam = Number(it.system.clock_size) || 4, hecho = (Number(it.system.clock_progress) || 0) >= tam, cred = creditoProyecto(tam);
+    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, creditos: 0, extra: 0, proyectos: 0 };
+    m.obra.creditos = (m.obra.creditos ?? 0) + cred; m.obra.proyectos = (m.obra.proyectos ?? 0) + cred;
+    await it.setFlag(MOD, "cobrado", true);
+    texto = hecho ? `${esc(a.name)} termina «${esc(it.name)}»: <strong>+${cred}</strong> acciones de obra.` : `El DJ da por hecho «${esc(it.name)}» de ${esc(a.name)}: <strong>+${cred}</strong> acciones de obra.`;
   } else if (accion === "duendes") m.duendes = { densidad: Math.min(2, Math.max(0, Number(datos.densidad) || 0)) };
   else if (accion === "actor") m.actor = datos.id || null;
   if (!r.ok) return r;
   await escena.setFlag(MOD, FLAG, m);
   await sincronizarEntorno(escena);
+  const SONIDO = { celdas: datos?.modo === "excavar" ? "cavar" : "rellenar", sala: "sala", quitarSala: "demoler", puerta: "puerta", proyecto: "extra", obra: datos?.extra ? "extra" : "clic" };
+  const sn = accion === "trampa" ? ({ poner: "trampa", descubrir: "descubierta" }[datos.op] ?? "clic") : SONIDO[accion];
+  if (sn) sonarATodos(sn);
   if (texto) {
-    const cuenta = reglas && m.obra && (["celdas", "sala", "obra"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
-    const resto = cuenta ? ` Quedan ${Math.max(0, m.obra.total - m.obra.gastadas)} de ${m.obra.total}.` : "";
+    const cuenta = reglas && m.obra && (["celdas", "sala", "obra", "proyecto"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
+    const resto = cuenta ? ` Quedan ${quedanObra(m)} acciones de obra.` : "";
     aviso(texto + resto);
   }
   return r;
@@ -488,7 +566,7 @@ export async function pedir(accion, datos) {
   if (!permitido()) return ui.notifications.warn("El DJ no permite construir a los jugadores.");
   if (game.user.isGM) {
     const r = await ejecutar(escena, accion, datos, game.user);
-    if (!r.ok && r.motivo) ui.notifications.warn(r.motivo);
+    if (!r.ok && r.motivo) { ui.notifications.warn(r.motivo); sonar("error"); }
     return r;
   }
   if (!game.users.activeGM) return ui.notifications.warn("No hay un DJ conectado que pueda levantar la obra.");
@@ -500,6 +578,14 @@ export async function pedir(accion, datos) {
 function quitarOverlay() { if (overlay) { overlay.destroy({ children: true }); overlay = null; } }
 
 const aCelda = p => { const { S, ox, oy } = geo(), u = (p.x - ox) / S, v = (p.y - oy) / S; return { i: Math.floor(u), j: Math.floor(v), fx: u - Math.floor(u), fy: v - Math.floor(v) }; };
+
+/** Un latigazo en el punto (px, py) del lienzo: suena y azota aquí y en todos los navegadores. */
+function latigazo(px, py) {
+  const ahora = performance.now(); if (ahora - ultimoLatigo < 350) return;
+  ultimoLatigo = ahora;
+  aplicarLatigo(px, py);
+  emitir({ t: "latigo", x: px, y: py });
+}
 
 /** Celdas por las que pasa una línea entre dos celdas (para que pintar rápido no deje huecos). */
 function linea(a, b) {
@@ -514,11 +600,12 @@ function gestionarTrampa(i, j) {
   const m = mapaDe(canvas.scene); if (!m) return;
   const t = (m.trampas ?? []).find(z => z.x === i && z.y === j);
   if (!t && !abierta(celda(m, i, j))) return ui.notifications.info("Las trampas y los trucos van en un túnel o en una sala.");
-  const o = m.obra, quedan = o ? Math.max(0, o.total - o.gastadas) : null;
+  const quedan = quedanObra(m);
   abrirTrampa({
     trampa: t, gm: game.user.isGM, reglas: reglasOn(), quedan,
     activar: async tr => {
       if (!game.user.isGM) return ui.notifications.info("Solo el DJ tira las trampas; el jugador al cargo narra el resultado.");
+      sonarATodos("trampaActiva");
       game.modules.get(MOD).api.ejecutarTiradaCiclo(tr.tipo === "truco" ? "trick" : "trap", tr.nivel, `${tr.mecanismo}${tr.detonador ? ` · ${tr.detonador}` : ""}`);
     },
     alElegir: async (op, d, tr) => {
@@ -538,10 +625,11 @@ function activarHerramienta(h) {
   overlay = new PIXI.Container(); overlay.eventMode = "static"; overlay.zIndex = 99999;
   const zona = new PIXI.Graphics(); zona.beginFill(0xffffff, 0.001).drawRect(d.x, d.y, d.width, d.height).endFill(); zona.eventMode = "static"; zona.cursor = "crosshair";
   const previa = new PIXI.Graphics(), rotulo = new PIXI.Text("", { fontSize: Math.round(S * 0.3), fill: 0xffffff, stroke: 0x000000, strokeThickness: 4, fontWeight: "800" });
+  previa.eventMode = "none"; rotulo.eventMode = "none";   // la vista previa nunca debe tragarse los pulsos (el círculo del látigo los capturaba)
   overlay.addChild(zona, previa, rotulo);
   (canvas.interface ?? canvas.stage).addChild(overlay);
   const mapa = () => mapaDe(canvas.scene);
-  let ini = null, ultima = null, pintadas = new Set();
+  let ini = null, ultima = null, pintadas = new Set(), punto = null;
   const pinta = (c) => { for (const [i, j] of (ultima ? linea(ultima, c) : [[c.i, c.j]])) pintadas.add(`${i},${j}`); ultima = c; };
   const libre = () => forma === "libre" && herramienta === "sala";
   const celdillas = (lista, color, alfa) => { for (const [i, j] of lista) previa.beginFill(color, alfa).drawRect(ox + i * S, oy + j * S, S, S).endFill(); };
@@ -552,15 +640,15 @@ function activarHerramienta(h) {
     if (herramienta === "sala" && !libre()) {
       const a = ini ?? b, x = Math.min(a.i, b.i), y = Math.min(a.j, b.j), w = Math.abs(a.i - b.i) + 1, hh = Math.abs(a.j - b.j) + 1;
       const aj = ajustarSala(m, { x, y, w, h: hh }, tipoSala, { forma, giro }), t = TIPOS_SALA[tipoSala];
-      const coste = costeSala(tipoSala), q = m.obra ? Math.max(0, m.obra.total - m.obra.gastadas) : null;
+      const coste = costeSala(tipoSala), q = quedanObra(m);
       const falta = reglasOn() && q !== null && coste > q;
       const color = aj && !falta ? 0x6fe08a : 0xe0503a;
       if (aj) {
-        celdillas(celdasForma(aj, forma, giro), color, 0.28);
+        celdillas(aj.celdas ?? celdasForma(aj, forma, giro), color, 0.28);
         previa.lineStyle(3, color, 1).drawRect(ox + aj.x * S, oy + aj.y * S, aj.w * S, aj.h * S);
         if (aj.ajustada) previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + x * S, oy + y * S, w * S, hh * S);   // lo que marcaste, dentro de la sala ya ajustada
       }
-      const info = !aj ? `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` : falta ? `faltan acciones (cuesta ${coste}, quedan ${q})` : `${t.nombre}${aj.ajustada ? " · ajustada al mínimo" : ""}${reglasOn() && coste ? ` · ${coste} acc.` : ""}`;
+      const info = !aj ? `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` : falta ? `faltan acciones (cuesta ${coste}, quedan ${q})` : `${t.nombre}${aj.recortada ? " · recortada por lo que ya hay" : aj.ajustada ? " · ajustada al mínimo" : ""}${reglasOn() && coste ? ` · ${coste} acc.` : ""}`;
       const r = aj ?? { x, y, w, h: hh }; rotulo.text = `${r.w}×${r.h} · ${info}`; rotulo.x = ox + r.x * S + 6; rotulo.y = oy + r.y * S + 4;
     } else if (libre()) {
       const lista = ini ? [...pintadas].map(k => k.split(",").map(Number)) : [[b.i, b.j]], t = TIPOS_SALA[tipoSala];
@@ -570,6 +658,8 @@ function activarHerramienta(h) {
         rotulo.text = `${lista.length} celdas (mín. ${minimo}) · ${v.ok ? (ok ? t.nombre : `faltan ${minimo - lista.length}`) : v.motivo}`;
         rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4;
       } else previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
+    } else if (herramienta === "latigo") {
+      if (punto) { previa.lineStyle(2, 0xffd36b, 0.75).drawCircle(punto.x, punto.y, S * RADIO_LATIGO).lineStyle(0).beginFill(0xffd36b, 0.12).drawCircle(punto.x, punto.y, S * RADIO_LATIGO).endFill(); }
     } else if (herramienta === "trampa") {
       previa.lineStyle(2, 0xe0503a, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
       const t = (m.trampas ?? []).find(z => z.x === b.i && z.y === b.j);
@@ -591,6 +681,7 @@ function activarHerramienta(h) {
     else if (herramienta === "sala") ini = c;
     else if (herramienta === "excavar" || herramienta === "rellenar") { ini = c; ultima = null; pintadas = new Set(); pinta(c); }
     else if (herramienta === "trampa") gestionarTrampa(c.i, c.j);
+    else if (herramienta === "latigo") { punto = ev.getLocalPosition(overlay); latigazo(punto.x, punto.y); }
     else if (herramienta === "puerta") {
       // borde más cercano del punto pulsado; si es un muro, se prueba desde la celda abierta de al lado
       const cand = [["n", c.fy], ["s", 1 - c.fy], ["w", c.fx], ["e", 1 - c.fx]].sort((a, b) => a[1] - b[1]);
@@ -604,7 +695,7 @@ function activarHerramienta(h) {
     dibujarPrevia(c);
   });
   zona.on("pointermove", ev => {
-    const c = lugar(ev);
+    const c = lugar(ev); punto = ev.getLocalPosition(overlay);
     if (ini && (libre() || herramienta === "excavar" || herramienta === "rellenar")) pinta(c);
     dibujarPrevia(c);
   });
@@ -627,6 +718,7 @@ const HERR = [
   ["sala", "fa-vector-square", "Sala", "Arrastra (o pulsa una celda) y la sala se construye sola, ajustada al espacio y con la forma elegida; con «Libre» la pintas celda a celda. Los muebles se colocan hacia la puerta."],
   ["puerta", "fa-door-closed", "Puerta", "Pulsa en el borde entre un túnel y una sala (o dos salas) para poner o quitar una puerta. Las salas se recolocan para mirar a la entrada."],
   ["trampa", "fa-skull-crossbones", "Trampa", "Pulsa una celda para preparar una trampa o un truco (mecanismo, detonador y nivel del manual) o para gestionar la que hay."],
+  ["latigo", "fa-burst", "Látigo", "Pulsa para dar un latigazo: los duendes en 2,5 celdas a la redonda trabajan y corren más deprisa unos segundos. Suena en todas las mesas."],
   ["quitarSala", "fa-eraser", "Quitar sala", "Pulsa dentro de una sala para demolerla. No devuelve acciones."]
 ];
 const NIVELES = { 0: "Base", 1: "Nivel 1", 2: "Nivel 2", 3: "Nivel 3" };
@@ -646,6 +738,10 @@ export class ConstructorMR extends App {
     const r = resumen(m), reglas = reglasOn(), ctx = contextoReglas(m);
     const herr = HERR.map(([k, ic, t, ayuda]) => `<button type="button" class="mrg-cons-h ${herramienta === k ? "on" : ""}" data-herr="${k}" aria-pressed="${herramienta === k}" data-ayuda="${esc(t)}||${esc(ayuda)}"><i class="fa-solid ${ic}"></i><span>${t}</span></button>`).join("");
 
+    // sonido (ajustes de este navegador)
+    const volumen = Number(game.settings.get(MOD, "mazmorraVolumen") ?? 0.6);
+    const snd = `<div class="mrg-cons-sonido" role="group" aria-label="Sonido de este navegador">${[["mazmorraSonido", efectosOn(), "fa-volume-high", "fa-volume-xmark", "Efectos", "Efectos de sonido del constructor: cavar, construir, puertas, trampas, látigo…"], ["mazmorraAmbiente", ambienteOn(), "fa-wind", "fa-wind", "Ambiente", "Ambiente de la mazmorra mientras la miras: goteo, picos lejanos, antorchas y duendes."]].map(([k, on, i1, i0, t, ay]) => `<button type="button" class="mrg-cons-snd ${on ? "on" : ""}" data-snd="${k}" aria-pressed="${on}" data-ayuda="${esc(t)}||${esc(ay + " Pulsa para " + (on ? "silenciarlos." : "activarlos."))}"><i class="fa-solid ${on ? i1 : i0}"></i> ${t}: ${on ? "sí" : "no"}</button>`).join("")}<input type="range" min="0" max="1" step="0.05" value="${volumen}" data-vol aria-label="Volumen de los sonidos del constructor"></div>`;
+
     // forma de la sala
     const formas = herramienta === "sala" ? `<h4 class="mrg-seccion">Forma de la sala</h4><div class="mrg-cons-formas" role="group" aria-label="Forma de la sala">${Object.entries(FORMAS).map(([k, t]) => `<button type="button" class="mrg-cons-f ${forma === k ? "on" : ""}" data-forma="${k}" aria-pressed="${forma === k}" data-ayuda="${esc(t)}||${esc(k === "libre" ? "Pinta las celdas de la sala una a una, con la forma que quieras: tiene que ser de una sola pieza." : "Arrastra una caja y la sala toma esta forma dentro de ella.")}"><b aria-hidden="true">${ICONO_FORMA[k]}</b><span>${t}</span></button>`).join("")}${forma === "ele" ? `<button type="button" class="mrg-cons-f" data-girar data-ayuda="Girar||Gira la L un cuarto de vuelta."><b aria-hidden="true"><i class="fa-solid fa-rotate-right"></i></b><span>Girar</span></button>` : ""}</div>` : "";
 
@@ -659,12 +755,16 @@ export class ConstructorMR extends App {
     }).join("");
     const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema, materiales: ctx.materiales }) : { ok: true };
 
-    // presupuesto de la fase de acecho
-    const o = m.obra, quedan = o ? Math.max(0, o.total - o.gastadas) : 0;
-    const pips = o ? Array.from({ length: Math.min(o.total, 14) }, (_, i) => `<i class="${i < o.total - o.gastadas ? "on" : ""}"></i>`).join("") : "";
-    const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Acciones de descanso</b><span>${quedan}/${o.total}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} de ${o.total}">${pips}</div>
-      ${o.extra ? `<p class="mrg-nota">Incluye +${o.extra} extra concedidas por el DJ.</p>` : ""}
-      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Da acciones de descanso extra al grupo (esbirros pagados, una capacidad, una gracia…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de descanso: una por PJ más la de los duendes. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
+    // presupuesto de obra: acciones de la fase + créditos (proyectos terminados y regalos del DJ)
+    const o = m.obra, quedan = quedanObra(m), faseQ = o ? Math.max(0, o.total - o.gastadas) : 0, cred = o?.creditos ?? 0;
+    const pips = o ? Array.from({ length: Math.min(faseQ + cred, 16) }, (_, i) => `<i class="${i < faseQ ? "on" : "cred"}"></i>`).join("") : "";
+    const proys = proyectosDeObra();
+    const filaProy = p => `<li class="${p.cobrado ? "hecho" : p.completo ? "listo" : ""}"><span class="mrg-cons-pq">${esc(p.quien)}</span> <b>${esc(p.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${p.prog} de ${p.tam}">${Array.from({ length: p.tam }, (_, i) => `<i class="${i < p.prog ? "on" : ""}"></i>`).join("")}</span>
+        ${p.cobrado ? `<em class="mrg-chip"><i class="fa-solid fa-check"></i> aplicado</em>` : gm ? `<button type="button" class="mrg-mini mrg-cons-aplicar" data-proy="${p.actor}|${p.item}" data-ayuda="${p.completo ? "Aplicar a la obra" : "Dar por hecho"}||${p.completo ? `Convierte el reloj lleno en +${p.cred} acciones de obra.` : `El reloj aún no está lleno: lo das por hecho igualmente y concedes +${p.cred} acciones de obra.`}">${p.completo ? `Aplicar +${p.cred}` : `Dar +${p.cred}`}</button>` : p.completo ? `<em class="mrg-chip">+${p.cred} al aplicarlo el DJ</em>` : ""}</li>`;
+    const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Lo que pueden hacer</b><span>${quedan} ${quedan === 1 ? "acción" : "acciones"}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} acciones de obra">${pips}</div>
+      <p class="mrg-nota">Fase de acecho: ${faseQ}/${o.total}. Créditos: ${cred}${o.proyectos || o.extra ? ` (proyectos terminados +${o.proyectos ?? 0}, concedidas por el DJ +${o.extra ?? 0})` : ""}. Los créditos no caducan.</p>
+      <details class="mrg-cons-proys" ${proys.some(p => !p.cobrado) ? "open" : ""}><summary><i class="fa-solid fa-hourglass-half"></i> Proyectos de las fichas (${proys.filter(p => p.completo && !p.cobrado).length} listos)</summary>${proys.length ? `<ul>${proys.map(filaProy).join("")}</ul>` : `<p class="mrg-nota">Ningún PJ tiene proyectos todavía. Un proyecto de nivel 2 (reloj de 4) vale 2 acciones; de nivel 3 (reloj de 8), 4. Los que hablan de construir, excavar, salas o trampas se aplican solos al llenarse el reloj.</p>`}</details>
+      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción de la fase"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción a la fase"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Regala créditos de obra al grupo (esbirros pagados, una capacidad, una gracia, un proyecto que quieras dar por hecho…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de la fase: una por PJ más la de los duendes. Los créditos se conservan. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
 
     // duendes constructores
     const dens = m.duendes?.densidad ?? 1, nD = numDuendes(m, ctx.nivel);
@@ -694,6 +794,7 @@ export class ConstructorMR extends App {
 
     return `<div class="mrg-cons">
       <div class="mrg-cons-herr">${herr}</div>
+      ${snd}
       ${obra}
       ${formas}
       <h4 class="mrg-seccion">Tipo de sala</h4><div class="mrg-cons-tipos">${tipos}</div>
@@ -711,7 +812,9 @@ export class ConstructorMR extends App {
     cont.onclick = async ev => {
       const fi = ev.target.closest("[data-ficha]"); if (fi) return game.actors.get(fi.dataset.ficha)?.sheet.render(true);
       const b = ev.target.closest("button"); if (!b) return;
-      if (b.dataset.herr) { activarHerramienta(herramienta === b.dataset.herr ? null : b.dataset.herr); return this.render(); }
+      if (b.dataset.snd) { const k = b.dataset.snd, on = !game.settings.get(MOD, k); await game.settings.set(MOD, k, on); if (on) sonar("clic"); return this.render(); }
+      if (b.dataset.proy) { const [actor, item] = b.dataset.proy.split("|"); await pedir("proyecto", { actor, item }); return this.render(); }
+      if (b.dataset.herr) { sonar("clic"); activarHerramienta(herramienta === b.dataset.herr ? null : b.dataset.herr); return this.render(); }
       if (b.dataset.tipo) { tipoSala = b.dataset.tipo; if (herramienta !== "sala") activarHerramienta("sala"); return this.render(); }
       if (b.dataset.forma) { forma = b.dataset.forma; activarHerramienta("sala"); return this.render(); }
       if ("girar" in b.dataset) { giro = (giro + 1) % 4; return this.render(); }
@@ -723,6 +826,7 @@ export class ConstructorMR extends App {
       if ("rehacer" in b.dataset) { await sincronizarEntorno(); ui.notifications.info("Muros, puertas y luces rehechos."); }
     };
     cont.querySelector("[data-actor]")?.addEventListener("change", async ev => { await pedir("actor", { id: ev.target.value }); this.render(); });
+    cont.querySelector("[data-vol]")?.addEventListener("change", async ev => { await game.settings.set(MOD, "mazmorraVolumen", Number(ev.target.value)); sonar("clic"); });
     cont.querySelector("[data-dens]")?.addEventListener("change", async ev => { await pedir("duendes", { densidad: Number(ev.target.value) }); });
   }
 
@@ -774,6 +878,18 @@ export function registrarMazmorra() {
     name: "Vasallos constructores en la mazmorra", hint: "Diminutos esbirros recorren las salas y túneles de tu mazmorra, cavando y trabajando. Solo es un adorno de este navegador.",
     scope: "client", config: true, type: Boolean, default: true, onChange: () => dibujar()
   });
+  game.settings.register(MOD, "mazmorraSonido", {
+    name: "Efectos de sonido del constructor", hint: "Cavar, construir, demoler, puertas, trampas, látigo y avisos. Cada navegador decide si los oye.",
+    scope: "client", config: true, type: Boolean, default: true
+  });
+  game.settings.register(MOD, "mazmorraAmbiente", {
+    name: "Ambiente sonoro de la mazmorra", hint: "Mientras miras una escena de mazmorra: zumbido de cueva, goteo, picos lejanos, antorchas y duendes charlando.",
+    scope: "client", config: true, type: Boolean, default: true, onChange: () => arrancarAmbiente()
+  });
+  game.settings.register(MOD, "mazmorraVolumen", {
+    name: "Volumen de los sonidos de la mazmorra", hint: "Se multiplica por el volumen de interfaz de Foundry.",
+    scope: "client", config: true, type: Number, range: { min: 0, max: 1, step: 0.05 }, default: 0.6, onChange: () => arrancarAmbiente()
+  });
   game.settings.register(MOD, "mazmorraEscalaTokens", {
     name: "Escala de los tokens en la mazmorra", hint: "Reduce el dibujo de los tokens en las escenas de mazmorra para que no tapen túneles ni salas. 1 = tamaño normal.",
     scope: "world", config: true, type: Number, range: { min: 0.3, max: 1, step: 0.05 }, default: 0.6, onChange: () => { if (soyDJ()) reescalarTokens(canvas.scene); }
@@ -782,13 +898,16 @@ export function registrarMazmorra() {
 
 export function iniciarMazmorra() {
   game.socket.on(`module.${MOD}`, async msg => {
+    if (msg?.t === "sonido") { if (msg.escena === canvas.scene?.id) sonar(msg.s, msg.o); return; }
+    if (msg?.t === "latigo") { if (msg.escena === canvas.scene?.id) aplicarLatigo(msg.x, msg.y); return; }
+    if (msg?.t === "rechazo") { if (msg.usuario === game.user.id) { ui.notifications.warn(msg.motivo); sonar("error"); } return; }
     if (msg?.t !== "mazmorra" || !soyDJ()) return;
     if (!game.settings.get(MOD, "mazmorraJugadores")) return;
     const usuario = game.users.get(msg.usuario);
     if (SOLO_DJ.has(msg.accion) && !usuario?.isGM) return;
     const escena = game.scenes.get(msg.escena); if (!escena) return;
     const r = await ejecutar(escena, msg.accion, msg.datos, usuario);
-    if (!r.ok && r.motivo) ui.notifications.warn(`${usuario?.name ?? "Un jugador"}: ${r.motivo}`);
+    if (!r.ok && r.motivo) { ui.notifications.warn(`${usuario?.name ?? "Un jugador"}: ${r.motivo}`); emitir({ t: "rechazo", usuario: msg.usuario, motivo: r.motivo }); }
   });
   const redibujar = () => { clearTimeout(pendiente); pendiente = setTimeout(() => dibujar(), 60); };
   Hooks.on("canvasReady", async () => { limpiar(); await cargarTexturas(); alCargar(); });
@@ -815,8 +934,15 @@ export function iniciarMazmorra() {
     if (soyDJ() && actor.type === "gm_sheet" && foundry.utils.getProperty(cambios, "system.current_phase.value") === 1 && reglasOn() && mapaDe(canvas.scene)?.obra) reiniciarObra(canvas.scene);
   });
   for (const h of ["createItem", "updateItem", "deleteItem"]) Hooks.on(h, alCambiarFicha);
+  Hooks.on("updateItem", (item, cambios) => {   // un reloj de proyecto que se llena y habla de obras se cobra solo
+    if (!soyDJ() || item.type !== "project" || !foundry.utils.hasProperty(cambios, "system.clock_progress")) return;
+    const tam = Number(item.system.clock_size) || 4;
+    if ((Number(item.system.clock_progress) || 0) < tam || item.getFlag(MOD, "cobrado") || !esProyectoDeObra(item.name)) return;
+    const m = mapaDe(canvas.scene); if (!m?.obra || !reglasOn()) return;
+    ejecutar(canvas.scene, "proyecto", { actor: item.parent.id, item: item.id }, game.user).catch(e => console.warn(`${MOD} | proyecto`, e));
+  });
   const alCargar = () => {
-    dibujar();
+    dibujar(); arrancarAmbiente();
     if (soyDJ() && mapaDe(canvas.scene)) { sincronizarEntorno(canvas.scene).catch(e => console.warn(`${MOD} | sincronizar`, e)); reescalarTokens(canvas.scene).catch(e => console.warn(`${MOD} | escala`, e)); }
   };
   if (canvas?.ready) cargarTexturas().then(alCargar);

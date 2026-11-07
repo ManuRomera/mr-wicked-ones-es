@@ -360,7 +360,7 @@ span.mrg-marc-seg { cursor: default; }
 /* ── v2.6 · Constructor de mazmorras ──────────────────────────────────────── */
 .application.mrg-ventana.mrg-cons-app .window-content { padding: .7rem .8rem 1rem; background: var(--g-papel); color: var(--g-tinta); }
 .mrg-cons { display: grid; gap: .55rem; }
-.mrg-cons-herr { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; }
+.mrg-cons-herr { display: grid; grid-template-columns: repeat(4, 1fr); gap: .3rem; }
 .mrg-cons-h { appearance: none; cursor: pointer; width: auto; height: auto; display: grid; justify-items: center; gap: .15rem; padding: .45rem .1rem; color: var(--g-tinta); background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; font: 700 .7rem var(--g-texto); }
 .mrg-cons-h i { font-size: 1.15rem; color: var(--g-sangre); }
 .mrg-cons-h.on { background: var(--g-hierro); color: var(--g-hueso); border-color: var(--g-oro-vivo); box-shadow: 0 0 10px color-mix(in oklab, var(--g-oro-vivo) 45%, transparent); }
@@ -413,3 +413,16 @@ span.mrg-marc-seg { cursor: default; }
 .mrg-cons-res { margin: 0; text-align: center; font-size: .9rem; }
 .mrg-cons-col { display: grid; gap: .4rem; }
 .mrg-cons-col .mrg-btn { width: 100%; }
+
+.mrg-cons-sonido { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+.mrg-cons-snd { appearance: none; cursor: pointer; width: auto; height: auto; display: inline-flex; align-items: center; gap: .35em; padding: .25em .6em; border-radius: 999px; font: 700 .72rem var(--g-texto); color: var(--g-tinta); background: var(--g-papel-2); border: 1px solid var(--g-linea); }
+.mrg-cons-snd.on { background: var(--g-hierro); color: var(--g-hueso); border-color: var(--g-oro-vivo); }
+.mrg-cons-sonido input[type=range] { flex: 1 1 5rem; min-width: 4rem; accent-color: var(--g-sangre); }
+.mrg-xp-mini i.cred { background: #2f8f9a; border-color: #0b3d44; }
+.mrg-cons-proys summary { cursor: pointer; font-weight: 700; font-size: .78rem; }
+.mrg-cons-proys ul { list-style: none; margin: .3rem 0 0; padding: 0; display: grid; gap: .3rem; }
+.mrg-cons-proys li { display: flex; flex-wrap: wrap; gap: .3rem .5rem; align-items: center; font-size: .76rem; padding: .25rem .4rem; border: 1px solid var(--g-linea); border-radius: 6px; }
+.mrg-cons-proys li.listo { border-color: var(--g-oro-vivo); }
+.mrg-cons-proys li.hecho { opacity: .75; }
+.mrg-cons-pq { color: var(--g-tinta-2); }
+.mrg-cons-aplicar { width: auto; flex: none; white-space: nowrap; padding: .1rem .5rem; font-weight: 700; margin-left: auto; }
