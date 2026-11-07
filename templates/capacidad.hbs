@@ -1,0 +1,23 @@
+<article class="mrg-cap {{#if principal}}mrg-cap--principal{{/if}}">
+  <header>
+    <h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+    {{#if principal}}<span class="mrg-chip mrg-chip--sangre">Principal</span>{{/if}}
+    {{#if externa}}<span class="mrg-chip">Externa</span>{{/if}}
+    {{#if fuente}}<span class="mrg-chip">{{fuente}}</span>{{/if}}
+    <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button>
+  </header>
+  {{#if desc}}<p>{{desc}}</p>{{/if}}
+  {{#if primigenia}}<p class="mrg-nota"><i class="fa-solid fa-circle-info"></i> Capacidad primigenia: sus detalles se editan en la ficha del objeto (pulsa su nombre).</p>{{/if}}
+  {{#if tirada}}<button type="button" class="mrg-btn" data-fortuna="{{tirada.dados}}" data-titulo="{{nombre}}"><i class="fa-solid fa-dice"></i> Tirar {{tirada.nombre}} ({{tirada.dados}}d)</button>{{/if}}
+  {{#each checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}
+  {{#each bloques}}
+  <div class="mrg-bloque"><span class="mrg-etiqueta">{{etiqueta}}</span><p>{{texto}}</p>
+    {{#each checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}
+  </div>
+  {{/each}}
+  {{#if contador}}
+  <div class="mrg-bloque"><span class="mrg-etiqueta">{{contador.texto}} · {{contador.valor}}/{{contador.max}}</span>
+    <div class="mrg-pips">{{#each contador.pips}}<button type="button" class="mrg-pip" data-item-pip="{{../contador.id}}" data-campo="system.counter.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{../contador.texto}} {{n}}"></button>{{/each}}</div>
+  </div>
+  {{/if}}
+</article>

@@ -1,0 +1,393 @@
+{
+ "vocaciones": [
+  {
+   "id": "artesano",
+   "nombre": "Artesano",
+   "pagina": 96,
+   "lema": "Artífices curiosos e inteligentes",
+   "intro": "Pasas horas en tu taller mezclando reactivos alquímicos y construyendo peligrosos artilugios con un despreocupado desprecio por tu propia seguridad. Jamás sales de la mazmorra sin tu bandolera, bien preparado para cualquier situación.",
+   "principal": {
+    "nombre": "Ingenio",
+    "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de creación, como mezclar mejunjes sobre la marcha para crear un potente efecto combinado, montar un artilugio temporal sencillo o ignorar la inestabilidad de creaciones científicas monstruosas."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un artesano, como sabotear estructuras, recolectar materiales o preparar un mejunje.",
+   "objetos": [
+    "Bolsa de herramientas",
+    "Lupa",
+    "Ballesta",
+    "Bolsa de piezas sueltas",
+    "Lámpara y aceite",
+    "Gafas de aviador",
+    "Mazo",
+    "Yesca y pedernal",
+    "Delantal de cuero",
+    "Bolsa de tela",
+    "Pala",
+    "Pico"
+   ]
+  },
+  {
+   "id": "bandido",
+   "nombre": "Bandido",
+   "pagina": 98,
+   "lema": "Guerreros astutos y valientes",
+   "intro": "Para ti, la batalla es pan comido. La emoción de superar a tus enemigos hace que el corazón te palpite. Tus movimientos son precisos y calculados, y tu conocimiento del campo de batalla te permite ver el panorama general en otras situaciones.",
+   "principal": {
+    "nombre": "Maestro del combate",
+    "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de atletismo, como lanzar un hacha a gran distancia, maniobrar casi en cualquier lugar del campo de batalla o enfrentarte a un grupo de enemigos en igualdad de condiciones."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un bandido, como dar órdenes a los esbirros, valorar la fuerza de un objetivo o disciplinar a los subordinados.",
+   "objetos": [
+    "Rodela",
+    "Brazales resistentes",
+    "Hachas gemelas",
+    "Jabalinas",
+    "Boleadoras",
+    "Abrojos de acero",
+    "Herramientas de cartografía",
+    "Cuerno de batalla",
+    "Mangual",
+    "Un puñado de antorchas",
+    "Daga curva",
+    "Armadura de cuero"
+   ]
+  },
+  {
+   "id": "bruto",
+   "nombre": "Bruto",
+   "pagina": 100,
+   "lema": "",
+   "intro": "Naciste para pelear, te encanta enfrentarte a tus enemigos y hacerlos trizas en brutales combates. Desde tu punto de vista, cuanto más sangriento sea, mejor. Tu confianza con un arma en la mano se manifiesta también fuera del combate, cuando lideras a otros, gritando órdenes como si esperaras que las obedecieran y rompiendo cabezas en caso de que no lo hagan.",
+   "principal": {
+    "nombre": "Cólera",
+    "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de fuerza, como arrojar una roca enorme, placar a un caballo en plena carga o enfrentarte en igualdad de condiciones a un enemigo mucho más grande que tú."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un bruto, como torturar a un prisionero, amenazar con usar la violencia o conseguir el arma idónea. Luchadores poderosos e intimidantes.",
+   "objetos": [
+    "Hacha de guerra",
+    "Armadura de pinchos",
+    "Casco con cuernos",
+    "Jarra de licor",
+    "Látigo con púas",
+    "Bolsa con aperitivos sabrosos",
+    "Herramientas de tortura",
+    "Tambores de guerra",
+    "Capa de piel",
+    "Cadenas resistentes",
+    "Pendientes de hueso",
+    "Hachas arrojadizas"
+   ]
+  },
+  {
+   "id": "cazador",
+   "nombre": "Cazador",
+   "pagina": 102,
+   "lema": "Rastreadores tenaces y despiadados",
+   "intro": "Te sientes como en casa corriendo con las bestias del bosque. Perseguir sin descanso a tu presa despierta al animal que llevas dentro. Y, sin embargo, no eres irracional, nunca te saltas una pista ni pierdes el rastro. Cuando, por fin, logras acorralar a tu objetivo, no dudas en acabar con él.",
+   "principal": {
+    "nombre": "La emoción de la caza",
+    "texto": "Puedes sufrir estrés para establecer una pequeña debilidad momentánea en tu presa. Obtienes +efecto cuando explotas esta debilidad en tu siguiente tirada para acecharla, atraparla o matarla. Si tienes éxito, ganarás un corazón oscuro."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un cazador, como preparar una trampa, explorar un lugar o cazar en busca de comida.",
+   "objetos": [
+    "Arco de cuerno",
+    "Cuchillo de desollar",
+    "Trampa para animales",
+    "Red contrapesada",
+    "Rollo de cuerda",
+    "Hachuela para talar",
+    "Aperitivos para el camino",
+    "Collar animal",
+    "Armadura de pieles",
+    "Equipo de pesca",
+    "Odre de agua",
+    "Silbatos animales"
+   ]
+  },
+  {
+   "id": "chaman",
+   "nombre": "Chamán",
+   "pagina": 104,
+   "lema": "Brujos vengativos y terroríficos",
+   "intro": "Comprendes el oscuro poder de la naturaleza y te sientes atraído por el mundo oculto de los espíritus. Podrías venerarlos y buscar su bendición, pero quizás prefieras esclavizarlos para tus propios fines. Sea como sea, los espíritus tienen voz y tú escuchas sus demenciales susurros de venganza.",
+   "principal": {
+    "nombre": "Brujería",
+    "texto": "Dominas una senda mágica, a elegir entre Adivinación, Control climático, Corazón salvaje, Espiritismo y Hemoteurgia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un chamán, como interactuar con animales o espíritus, elaborar un mejunje salvaje o sembrar el terror.",
+   "objetos": [
+    "Máscara espiritual",
+    "Porra con pinchos",
+    "Maza de hueso",
+    "Bolsa con serpientes",
+    "Amuleto de espinas",
+    "Pipa para fumar",
+    "Tabas y huesos",
+    "Bastón retorcido",
+    "Frasco de luciérnagas",
+    "Collar de dientes",
+    "Máscara vudú",
+    "Tocado de plumas"
+   ]
+  },
+  {
+   "id": "confabulador",
+   "nombre": "Confabulador",
+   "pagina": 106,
+   "lema": "",
+   "intro": "Eres el poder tras el trono, moviendo hilos, trazando intrincados planes y haciendo que los demás cumplan tus órdenes. Desde tu punto de vista, la venganza es un plato que se sirve frío. Decir que eres metódico no es más que un eufemismo: ejerces un control absoluto en todo momento.",
+   "principal": {
+    "nombre": "Tirar de los hilos",
+    "texto": "Puedes sufrir estrés para que un aliado recuerde tu voz en su cabeza, repitiendo así su tirada tras un fracaso. Si consigue un éxito, tú además ganas un corazón oscuro. ¿Qué comentario o consejo le diste con anterioridad?"
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un confabulador, como manipular a otros, establecer planes de contingencia o adquirir información.",
+   "objetos": [
+    "Odre de vino bueno",
+    "Daga oculta",
+    "Cerbatana y dardos",
+    "Máscara decorativa",
+    "Flauta de madera",
+    "Anillos llamativos",
+    "Grilletes de acero",
+    "Jabón y perfume",
+    "Dados trucados",
+    "Túnica con capucha",
+    "Utensilios de escritura",
+    "Peine y accesorios"
+   ]
+  },
+  {
+   "id": "fanatico",
+   "nombre": "Fanático",
+   "pagina": 108,
+   "lema": "Creyentes fervorosos y místicos",
+   "intro": "Prestas atención a las palabras de tu oscura deidad. Crees fervientemente en ellas, pues sabes que aquellos que lo veneran serán recompensados. Cuantos más creyentes consigas reclutar, más posibilidades tendrás de que tu deidad te recompense. La deidad te otorga poder, del cual procede tu inmensa convicción.",
+   "principal": {
+    "nombre": "Canalización",
+    "texto": "Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de los dominios de la deidad que elijas. Cada dios tiene dos dominios que actúan como sendas mágicas."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un fanático, como interrogar a los infieles, hacer sacrificios o dar órdenes a los seguidores.",
+   "objetos": [
+    "Daga ceremonial",
+    "Símbolo impío",
+    "Vestimentas",
+    "Hoz sencilla",
+    "Escrituras sagradas",
+    "Campana dorada",
+    "Vino impío",
+    "Caja de incienso",
+    "Pluma y pergamino",
+    "Herramientas de tortura",
+    "Aceite de unción",
+    "Velas de cera"
+   ]
+  },
+  {
+   "id": "hechicero",
+   "nombre": "Hechicero",
+   "pagina": 110,
+   "lema": "Magos ambiciosos y temerarios",
+   "intro": "Al extender la mano, aferras la magia arcana en bruto por el pescuezo para someterla a tu voluntad. Estás jugando con fuego, pero sabes que el verdadero poder es aquel que debe arrebatarse a los demás. En tu interior hay una profunda e insaciable sed de poder.",
+   "principal": {
+    "nombre": "Hechicería",
+    "texto": "Dominas una senda mágica de las siguientes: Encantamiento, Evocación, Fuerzas, Ilusión, Nigromancia y Piromancia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de un hechicero, como adquirir conocimientos arcanos, sellar pactos esotéricos o crear objetos mágicos.",
+   "objetos": [
+    "Bastón decorado",
+    "Grimorio de piel",
+    "Guadaña",
+    "Capa amplia",
+    "Bola de cristal",
+    "Calaveras humanas",
+    "Daga ceremonial",
+    "Bolsa de componentes",
+    "Túnica raída",
+    "Utensilios de invocación",
+    "Varita nudosa",
+    "Bolsa con gemas pequeñas"
+   ]
+  },
+  {
+   "id": "sombra",
+   "nombre": "Sombra",
+   "pagina": 112,
+   "lema": "Pícaros esquivos y sigilosos",
+   "intro": "Te sientes a gusto acechando entre las sombras, sin que te vean. Eres capaz de entrar y salir de cualquier lugar sin que te detecten. El factor sorpresa es tu mejor arma y, a menudo, encuentras la forma de escapar de las situaciones más complicadas.",
+   "principal": {
+    "nombre": "Merodeador",
+    "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de agilidad, como avanzar sin problemas entre la multitud, saltar con seguridad desde una torre alta u ocultarte a plena vista."
+   },
+   "flashback": "En tus flashbacks, puedes recordar cualquier actividad típica de una sombra, como robar algo valioso, mentir para crear una oportunidad o esconder objetos.",
+   "objetos": [
+    "Túnica oscura",
+    "Gancho de escalada",
+    "Cuchillos arrojadizos",
+    "Bomba de humo",
+    "Arco corto",
+    "Palanqueta y tenazas",
+    "Ganzúas",
+    "Garrote",
+    "Bolsa con piedras",
+    "Silbato estridente",
+    "Espejo pulido",
+    "Dagas gemelas"
+   ]
+  }
+ ],
+ "razas": [
+  {
+   "id": "goblin",
+   "nombre": "Goblin",
+   "pagina": 92,
+   "texto": "Los goblins son criaturas perversas de corta estatura. Tienen muy mal genio y no le caen bien a casi nadie, pero suelen quererse mucho a sí mismos. Son diligentes y decididos cuando trabajan en alguna tarea. Se enfadan con facilidad, pero se niegan a pelear en igualdad de condiciones.",
+   "dice": [
+    "Lo mío, es mío. Lo que es nuestro, también es mío.",
+    "Oye, no me mi… ¡Que no me mires!",
+    "Parece una pelea justa. Me largo de aquí."
+   ],
+   "nombres": [
+    "Flint",
+    "Griz",
+    "Kosk",
+    "Remmy",
+    "Riggz",
+    "Scratch",
+    "Shriek",
+    "Skezzy",
+    "Snark",
+    "Snully",
+    "Tix",
+    "Zazzo"
+   ]
+  },
+  {
+   "id": "demonio",
+   "nombre": "Demonio",
+   "pagina": 92,
+   "texto": "Los demonios son engendros menores del infierno que se las han ingeniado para escapar al mundo de los mortales. Suelen disfrutar del caos, sobre todo de las mentiras, ante las que creen que los mortales reaccionan de forma ridícula. Como son inmortales, la muerte solo es para ellos como volver a casa.",
+   "dice": [
+    "Es la muerte y ya está. No es la primera vez que me muero.",
+    "¿Para qué decir la verdad, si mentir es más divertido?",
+    "Qué hastío me da este mundo de mortales."
+   ],
+   "nombres": [
+    "Cerus",
+    "Chort",
+    "Gilgaroth",
+    "Kanzun",
+    "Jex",
+    "Ozrik",
+    "Nozak",
+    "Taku",
+    "Tereth",
+    "Velum",
+    "Xog"
+   ]
+  },
+  {
+   "id": "kobold",
+   "nombre": "Kóbold",
+   "pagina": 92,
+   "texto": "Los kóbolds son criaturas pequeñas y ruidosas. Su aspecto es una mezcla entre roedor, perro y lagarto. Son hiperactivos y agresivos, pero les cuesta mantener su atención centrada en algo durante mucho tiempo seguido. Normalmente prefieren trabajar en grupo y rara vez muestran un instinto de supervivencia muy alto.",
+   "dice": [
+    "¡Matadlos a todos antes de que escapen!",
+    "¡Oh, como brilla! ¡Me lo quedo!",
+    "¿Qué estaba haciendo? Ah, sí. Te estaba apuñalando."
+   ],
+   "nombres": [
+    "Bitey",
+    "Blek",
+    "Dimm",
+    "Drell",
+    "Frum",
+    "Gromp",
+    "Harf",
+    "Mungus",
+    "Muts",
+    "Retch",
+    "Skelk",
+    "Stitch",
+    "Snarl"
+   ]
+  },
+  {
+   "id": "serpido",
+   "nombre": "Sérpido",
+   "pagina": 92,
+   "texto": "Los sérpidos son criaturas parecidas a las serpientes; suelen reaccionar a la defensiva ante cualquier sorpresa y sienten la necesidad imperiosa de vigilar a todo aquel que les rodea. Tienen una memoria horrible, lo que les lleva a exagerar sus historias con el fin de rellenar las lagunas.",
+   "dice": [
+    "¿A dónde vais? ¿Cuánto tiempo vais a estar ahí?",
+    "Eran cuatro…, cinco... No, espera…, ¡había seis de ellos!",
+    "¡Qué susto! ¡No te me acerques así, tan en silencio!"
+   ],
+   "nombres": [
+    "Slale",
+    "Slank",
+    "Slark",
+    "Slassy",
+    "Slegra",
+    "Slezetra",
+    "Slimmik",
+    "Slinn",
+    "Slisgar",
+    "Slix",
+    "Sloan",
+    "Sloon",
+    "Slyte"
+   ]
+  },
+  {
+   "id": "osgo",
+   "nombre": "Osgo",
+   "pagina": 92,
+   "texto": "Los osgos son criaturas enormes y obstinadas, propensos a los ataques de cólera y cuyo intelecto no es especialmente destacable. Suelen verse a sí mismos como grandes líderes y creen que siempre deben estar al mando. Les gusta seguir a otros a combates peligrosos, pero es poco probable que se jueguen el pellejo por ellos.",
+   "dice": [
+    "Es imposible que muera yo primero. Métete ahí.",
+    "Ya lo he decidido. Atacamos.",
+    "¿Y quién demonios eres tú para darme órdenes?"
+   ],
+   "nombres": [
+    "Dukthur",
+    "Kremmik",
+    "Malog",
+    "Mogdor",
+    "Portoc",
+    "Raddit",
+    "Skryv",
+    "Ulrot",
+    "Vatch",
+    "Zoktoc",
+    "Zurzog"
+   ]
+  },
+  {
+   "id": "orco",
+   "nombre": "Orco",
+   "pagina": 92,
+   "texto": "Los orcos son criaturas directas y brutales. Son tercos e hipersensibles ante cualquier desprecio de los demás, por nimio que sea. Suelen abordar los problemas con lo primero que se les venga a la mente. Normalmente, los orcos ni siquiera disfrutan de su propia compañía.",
+   "dice": [
+    "Deja de lloriquear y súbete a la catapulta.",
+    "¿Qué miras, gusano?",
+    "Sangrar te viene bien. ¡Acostúmbrate!"
+   ],
+   "nombres": [
+    "Brig",
+    "Dradd",
+    "Forn",
+    "Gorr",
+    "Kirrz",
+    "Kros",
+    "Krugz",
+    "Rok",
+    "Strak",
+    "Thig",
+    "Throm",
+    "Tork",
+    "Yorg",
+    "Zil",
+    "Zug"
+   ]
+  }
+ ]
+}

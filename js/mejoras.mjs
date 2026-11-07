@@ -3,6 +3,8 @@
  * y corrección de bugs de plantillas de Wicked Ones y Babele.
  */
 
+import { abrirPanelAspecto } from "./ajustes.mjs";
+
 const MOD = "mr-wicked-ones-es";
 const n = (v, d = 0) => (Number.isFinite(Number(v)) ? Number(v) : d);
 
@@ -83,84 +85,6 @@ export function traducirNodoDOM(raiz) {
 }
 
 /**
- * Aplica las clases globales de accesibilidad y modo oscuro en document.body.
- */
-export function aplicarClasesAccesibilidad() {
-  const body = document.body;
-  if (!body) return;
-
-  // Si mr-mothership-es está activo, podemos sincronizar o respetar sus ajustes si existen
-  const moshActivo = game.modules.get("mr-mothership-es")?.active;
-  const leer = (claveMosh, clavePropia, def) => {
-    try {
-      if (moshActivo && game.settings.settings.has(`mr-mothership-es.${claveMosh}`)) {
-        return game.settings.get("mr-mothership-es", claveMosh);
-      }
-      return game.settings.get(MOD, clavePropia);
-    } catch {
-      return def;
-    }
-  };
-
-  const oscuro = leer("a11y-oscuro", "a11yOscuro", true);
-  const contraste = leer("a11y-contraste", "a11yContraste", false);
-  const legible = leer("a11y-legible", "a11yLegible", false);
-  const escala = n(leer("a11y-escala", "a11yEscala", 100), 100);
-
-  body.classList.toggle("mr-wo-oscuro", Boolean(oscuro));
-  body.classList.toggle("mr-wo-contraste", Boolean(contraste));
-  body.classList.toggle("mr-wo-legible", Boolean(legible));
-  body.style.setProperty("--mr-wo-escala", `${escala / 100}`);
-}
-
-/**
- * Abre un diálogo rápido de accesibilidad y modo oscuro al pulsar el botón fa-universal-access.
- */
-export function abrirMenuAccesibilidad() {
-  const oscuro = game.settings.get(MOD, "a11yOscuro");
-  const contraste = game.settings.get(MOD, "a11yContraste");
-  const legible = game.settings.get(MOD, "a11yLegible");
-  const escala = n(game.settings.get(MOD, "a11yEscala"), 100);
-
-  const DialogV1 = foundry.appv1?.api?.Dialog ?? Dialog;
-  new DialogV1({
-    title: "MR · Accesibilidad y Modo Oscuro",
-    content: `
-      <form class="mr-wo-form-dialogo">
-        <div class="form-group">
-          <label><input type="checkbox" name="oscuro" ${oscuro ? "checked" : ""} /> Modo oscuro en hojas y diálogos</label>
-        </div>
-        <div class="form-group">
-          <label><input type="checkbox" name="contraste" ${contraste ? "checked" : ""} /> Alto contraste de lectura</label>
-        </div>
-        <div class="form-group">
-          <label><input type="checkbox" name="legible" ${legible ? "checked" : ""} /> Tipografía de alta legibilidad</label>
-        </div>
-        <div class="form-group">
-          <label>Escala de texto (${escala} %):</label>
-          <input type="range" name="escala" min="90" max="125" step="5" value="${escala}" />
-        </div>
-      </form>
-    `,
-    buttons: {
-      guardar: {
-        icon: '<i class="fas fa-check"></i>',
-        label: "Aplicar",
-        callback: async jq => {
-          const root = jq instanceof HTMLElement ? jq : jq[0];
-          await game.settings.set(MOD, "a11yOscuro", Boolean(root.querySelector('[name="oscuro"]')?.checked));
-          await game.settings.set(MOD, "a11yContraste", Boolean(root.querySelector('[name="contraste"]')?.checked));
-          await game.settings.set(MOD, "a11yLegible", Boolean(root.querySelector('[name="legible"]')?.checked));
-          await game.settings.set(MOD, "a11yEscala", n(root.querySelector('[name="escala"]')?.value, 100));
-          aplicarClasesAccesibilidad();
-        }
-      }
-    },
-    default: "guardar"
-  }).render(true);
-}
-
-/**
  * Normaliza los tipos de tirada de las Labores (Duties) en español para que el botón de dado
  * de la hoja de personaje no falle cuando type_custom está traducido.
  */
@@ -192,6 +116,7 @@ function corregirBotonesLaboresEnFicha(app, raiz) {
  * Añade botones de cabecera (Accesibilidad, Ficha Resumida y Asistente MR) a las hojas de Wicked Ones.
  */
 function inyectarBotonesCabecera(app, raiz) {
+  if (app?.options?.classes?.includes("mrg-hoja")) return;
   const ventana = raiz.closest?.(".app.window-app") || raiz;
   const header = ventana?.querySelector?.(".window-header");
   if (!header || header.querySelector(".mr-wo-header-btn")) return;
@@ -216,7 +141,7 @@ function inyectarBotonesCabecera(app, raiz) {
   btnA11y.innerHTML = '<i class="fas fa-universal-access"></i>';
   btnA11y.addEventListener("click", ev => {
     ev.preventDefault();
-    abrirMenuAccesibilidad();
+    abrirPanelAspecto();
   });
 
   header.insertBefore(btnGen, closeBtn);

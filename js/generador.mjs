@@ -23,10 +23,10 @@ export class GeneradorWickedOnes extends BaseApp {
       resizable: true
     },
     position: {
-      width: 660,
-      height: 580
+      width: 900,
+      height: 700
     },
-    classes: ["mr-wo-ventana", "mr-wo-generador-app"],
+    classes: ["mrg", "mrg-ventana", "mrg-asistente"],
     actions: {
       cambiarPestana: GeneradorWickedOnes.#cambiarPestana,
       reclutarManada: GeneradorWickedOnes.#reclutarManada,
@@ -40,12 +40,12 @@ export class GeneradorWickedOnes extends BaseApp {
     }
   };
 
-  #pestana = "esbirros";
+  #pestana = "mesa";
 
   constructor(options = {}) {
     super(options);
     const mem = this.#leerMemoria();
-    this.#pestana = options.pestana || mem.pestana || "esbirros";
+    this.#pestana = { invasiones: "invasores", oraculos: "mesa" }[options.pestana ?? mem.pestana] ?? options.pestana ?? mem.pestana ?? "mesa";
   }
 
   #leerMemoria() {
@@ -66,6 +66,7 @@ export class GeneradorWickedOnes extends BaseApp {
   }
 
   establecerPestana(p) {
+    p = { invasiones: "invasores", oraculos: "mesa" }[p] ?? p;
     this.#pestana = p;
     this.#guardarMemoria({ pestana: p });
     if (this.rendered) this.render();
@@ -81,214 +82,89 @@ export class GeneradorWickedOnes extends BaseApp {
     const p = this.#pestana;
     const laboresPack = game.packs.get(`${MOD}.labores-es`);
     const laboresIdx = laboresPack ? Array.from(await laboresPack.getIndex({ fields: ["system.tier", "system.type_custom"] })) : [];
-
-    return `
-      <div class="mr-wo-gen-contenedor">
-        <nav class="mr-wo-gen-tabs">
-          <button type="button" class="mr-wo-tab-btn ${p === "esbirros" ? "activa" : ""}" data-action="cambiarPestana" data-tab="esbirros">
-            <i class="fas fa-users"></i> Manadas de Esbirros
-          </button>
-          <button type="button" class="mr-wo-tab-btn ${p === "guarida" ? "activa" : ""}" data-action="cambiarPestana" data-tab="guarida">
-            <i class="fas fa-fort-awesome"></i> Salas, Trampas y Criaturas
-          </button>
-          <button type="button" class="mr-wo-tab-btn ${p === "invasiones" ? "activa" : ""}" data-action="cambiarPestana" data-tab="invasiones">
-            <i class="fas fa-shield-halved"></i> Invasiones y Héroes
-          </button>
-          <button type="button" class="mr-wo-tab-btn ${p === "oraculos" ? "activa" : ""}" data-action="cambiarPestana" data-tab="oraculos">
-            <i class="fas fa-dice-d20"></i> Ciclo, Oráculos y Botín
-          </button>
-        </nav>
-
-        <section class="mr-wo-gen-cuerpo">
-          ${p === "esbirros" ? this.#htmlEsbirros() : ""}
-          ${p === "guarida" ? this.#htmlGuarida(laboresIdx) : ""}
-          ${p === "invasiones" ? this.#htmlInvasiones() : ""}
-          ${p === "oraculos" ? this.#htmlOraculos() : ""}
-        </section>
-      </div>
-    `;
+    const secciones = [
+      ["mesa", "La mesa", "fa-hourglass-half", "Ciclo de partida y oráculos"],
+      ["esbirros", "Esbirros", "fa-users", "Reclutar y mandar manadas"],
+      ["guarida", "Guarida", "fa-dungeon", "Salas, trampas y criaturas"],
+      ["invasores", "Invasores", "fa-shield-halved", "Aventureros que os atacan"],
+      ["tablas", "Tablas", "fa-dice-d20", "Generadores al azar"]
+    ];
+    const nav = secciones.map(([k, t, i, h]) => `<button type="button" class="mrg-asist-nav-b ${p === k ? "mrg-sel" : ""}" data-action="cambiarPestana" data-tab="${k}" aria-pressed="${p === k}"><i class="fa-solid ${i}"></i><span><strong>${t}</strong><small>${h}</small></span></button>`).join("");
+    const cuerpo = { mesa: () => this.#htmlMesa(), esbirros: () => this.#htmlEsbirros(), guarida: () => this.#htmlGuarida(laboresIdx), invasores: () => this.#htmlInvasiones(), tablas: () => this.#htmlTablas() }[p]?.() ?? "";
+    return `<div class="mrg-asist"><nav class="mrg-asist-nav" aria-label="Secciones">${nav}</nav><section class="mrg-asist-cuerpo">${cuerpo}</section></div>`;
   }
 
   _replaceHTML(result, content) {
     content.innerHTML = result;
   }
 
+  /** Tarjeta de herramienta: título, qué hace, controles y acciones. */
+  #tarjeta(icono, titulo, ayuda, controles, acciones) {
+    return `<article class="mrg-herr"><header><i class="fa-solid ${icono}" aria-hidden="true"></i><h3>${titulo}</h3></header><p class="mrg-nota">${ayuda}</p>${controles ? `<div class="mrg-herr-ctrl">${controles}</div>` : ""}<footer>${acciones}</footer></article>`;
+  }
+  #campo(etiqueta, control, ayuda = "") { return `<label class="mrg-campo"><span class="mrg-etiqueta">${etiqueta}</span>${control}${ayuda ? `<small class="mrg-nota">${ayuda}</small>` : ""}</label>`; }
+  #boton(accion, icono, texto, { tipo = "", datos = "", clase = "" } = {}) { return `<button type="button" class="mrg-btn ${tipo === "p" ? "mrg-btn--sangre" : ""} ${clase}" data-action="${accion}" ${datos}><i class="fa-solid ${icono}"></i> ${texto}</button>`; }
+
+  #htmlMesa() {
+    return `<h2 class="mrg-asist-t mrg-titulo">La mesa</h2>
+    ${this.#tarjeta("fa-biohazard", "Tirada de Desastre", "Al terminar la incursión: ¿cómo reacciona el mundo? El resultado indica cuánto avanzan los relojes de la mazmorra.", this.#campo("Reserva de dados", `<input type="number" id="mr-gen-ciclo-dados" value="2" min="0" max="6">`, "0 = tiras 2d y cuenta el menor"), `${this.#boton("lanzarCiclo", "fa-biohazard", "Tirar Desastre", { tipo: "p", datos: 'data-tipo="calamity"' })}${this.#boton("lanzarCiclo", "fa-bullhorn", "Tirar Represalia", { datos: 'data-tipo="blowback"' })}`)}
+    ${this.#tarjeta("fa-seedling", "Oráculo de dos semillas", "Dos palabras al azar para arrancar una idea cuando la historia se atasca (manual, pág. 316).", "", this.#boton("tirarOraculoSemillas", "fa-seedling", "Tirar el oráculo", { tipo: "p" }))}
+    ${this.#tarjeta("fa-skull", "Solitario: suceso en la guarida", "Qué le ocurre a la mazmorra mientras nadie la vigila.", "", this.#boton("tirarTablaCompendio", "fa-crown", "Tirar suceso (d12)", { tipo: "p", datos: 'data-tabla="solitario-gran-malo"' }))}`;
+  }
+
   #htmlEsbirros() {
-    const razas = ["Orco", "Goblin", "Kóbold", "Sérpido", "Demonio", "No-muerto", "Bugbear", "Hombres Rata"];
+    const razas = ["Orco", "Goblin", "Kóbold", "Sérpido", "Demonio", "No-muerto", "Osgo", "Hombres rata"];
     const oficios = [
-      ["Guardias y rompelíneas", "smash", "threaten"],
-      ["Arqueros y emboscadores", "finesse", "scan"],
-      ["Exploradores y asesinos", "skulk", "trick"],
-      ["Artificieros y tramperos", "tinker", "scan"],
-      ["Acólitos y chamanes", "invoke", "banter"],
-      ["Matones e intimidadores", "threaten", "smash"]
+      ["Guardias y rompelíneas", "smash", "threaten"], ["Arqueros y emboscadores", "finesse", "scan"], ["Exploradores y asesinos", "skulk", "trick"],
+      ["Artificieros y tramperos", "tinker", "scan"], ["Acólitos y chamanes", "invoke", "banter"], ["Matones e intimidadores", "threaten", "smash"]
     ];
-    return `
-      <div class="mr-wo-panel">
-        <h3><i class="fas fa-user-plus"></i> Reclutar Nueva Manada de Esbirros</h3>
-        <p class="mr-wo-ayuda">Crea un actor de Manada de Esbirros completo con su raza, función, puntos de acción iniciales e impulso, y vincúlalo opcionalmente a tu personaje.</p>
-        <div class="mr-wo-grid-2">
-          <label>Nombre de la manada:
-            <input type="text" id="mr-gen-manada-nombre" value="Garras del Paso" />
-          </label>
-          <label>Raza monstruosa:
-            <select id="mr-gen-manada-raza">
-              ${razas.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join("")}
-            </select>
-          </label>
-          <label>Especialidad y acciones (2 puntos c/u):
-            <select id="mr-gen-manada-oficio">
-              ${oficios.map(([nom, h1, h2]) => `<option value="${esc(nom)}" data-h1="${h1}" data-h2="${h2}">${esc(nom)}</option>`).join("")}
-            </select>
-          </label>
-          <label>Vincular al PJ activo:
-            <select id="mr-gen-manada-vincular">
-              <option value="1" selected>Sí, asignar al personaje seleccionado</option>
-              <option value="0">No, solo crear en el directorio</option>
-            </select>
-          </label>
-        </div>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-primario" data-action="reclutarManada">
-            <i class="fas fa-plus-circle"></i> Crear y Reclutar Manada
-          </button>
-        </div>
-        <hr/>
-        <h3><i class="fas fa-running"></i> Simulador de Incursión de Esbirros (Pág. 262)</h3>
-        <p class="mr-wo-ayuda">Envía a una manada a realizar una incursión secundaria y resuelve automáticamente el botín, bajas y represalia.</p>
-        <div class="mr-wo-grid-2">
-          <label>Reserva de dados de la manada (1D a 5D):
-            <input type="number" id="mr-gen-manada-dados" value="2" min="0" max="6" />
-          </label>
-          <label>Objetivo de la manada:
-            <input type="text" id="mr-gen-manada-objetivo" value="Saquear caravana en el Paso del Mercader" />
-          </label>
-        </div>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-secundario" data-action="simularEsbirros">
-            <i class="fas fa-dice"></i> Simular Incursión de Esbirros
-          </button>
-        </div>
-      </div>
-    `;
+    const controles = `<div class="mrg-rejilla-2">
+      ${this.#campo("Nombre de la manada", `<input type="text" id="mr-gen-manada-nombre" value="Garras del Paso">`)}
+      ${this.#campo("Raza", `<select id="mr-gen-manada-raza">${razas.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join("")}</select>`)}
+      ${this.#campo("Función", `<select id="mr-gen-manada-oficio">${oficios.map(([nom, h1, h2]) => `<option value="${esc(nom)}" data-h1="${h1}" data-h2="${h2}">${esc(nom)}</option>`).join("")}</select>`, "Dos acciones con 2 puntos")}
+      ${this.#campo("¿Vincular a tu personaje?", `<select id="mr-gen-manada-vincular"><option value="1" selected>Sí, al personaje seleccionado</option><option value="0">No, solo crear</option></select>`)}
+    </div>`;
+    const sim = `<div class="mrg-rejilla-2">${this.#campo("Dados de la manada", `<input type="number" id="mr-gen-manada-dados" value="2" min="0" max="6">`)}${this.#campo("Objetivo", `<input type="text" id="mr-gen-manada-objetivo" value="Saquear caravana en el Paso del Mercader">`)}</div>`;
+    return `<h2 class="mrg-asist-t mrg-titulo">Esbirros</h2>
+    ${this.#tarjeta("fa-user-plus", "Reclutar una manada", "Crea la manada con su raza, función, acciones iniciales e impulso, y la deja vinculada a tu personaje.", controles, this.#boton("reclutarManada", "fa-plus", "Crear y reclutar", { tipo: "p" }))}
+    ${this.#tarjeta("fa-person-running", "Incursión de esbirros", "Manda a la manada por su cuenta: se resuelve el botín, las bajas y la represalia (pág. 262).", sim, this.#boton("simularEsbirros", "fa-dice", "Simular la incursión", { tipo: "p" }))}`;
   }
 
   #htmlGuarida(laboresIdx) {
-    const opciones = laboresIdx
-      .sort((a, b) => a.name.localeCompare(b.name, "es"))
-      .map(it => `<option value="${esc(it._id)}">${esc(it.name)}</option>`)
-      .join("");
-    return `
-      <div class="mr-wo-panel">
-        <h3><i class="fas fa-hammer"></i> Añadir Sala, Trampa, Truco, Portón, Criatura o Hallazgo</h3>
-        <p class="mr-wo-ayuda">Selecciona cualquiera de las 130 labores oficiales traducidas (Salas N1 y N2, Trampas, Trucos, Portones, Criaturas N1–N3 y Hallazgos) para añadirla a tu ficha o a la Mazmorra.</p>
-        <div class="mr-wo-grid-1">
-          <label>Labor del compendio (${laboresIdx.length} disponibles):
-            <select id="mr-gen-labor-id">${opciones}</select>
-          </label>
-        </div>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-primario" data-action="anadirLabor" data-destino="pj">
-            <i class="fas fa-user-check"></i> Añadir a mi Personaje Activo
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="anadirLabor" data-destino="mazmorra">
-            <i class="fas fa-dungeon"></i> Añadir a la Hoja de Mazmorra
-          </button>
-        </div>
-        <hr/>
-        <h3><i class="fas fa-dragon"></i> Generador de Criatura de Guarida con Mutación (Pág. 373)</h3>
-        <p class="mr-wo-ayuda">Combina una especie base (d36) con un rasgo mutante (d20) y publícalo en el chat o añádelo como defensa.</p>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-primario" data-action="generarCriaturaMutante">
-            <i class="fas fa-paw"></i> Generar Criatura + Rasgo Mutante
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="generador-mazmorras-salas">
-            <i class="fas fa-compass"></i> Generar Sala de Mazmorra Aleatoria (d18)
-          </button>
-        </div>
-      </div>
-    `;
+    const porTipo = new Map();
+    for (const it of laboresIdx) {
+      const t = it.system?.type_custom || "Otras";
+      if (!porTipo.has(t)) porTipo.set(t, []);
+      porTipo.get(t).push(it);
+    }
+    const opciones = [...porTipo.entries()].sort((a, b) => a[0].localeCompare(b[0], "es")).map(([t, lista]) =>
+      `<optgroup label="${esc(t)} (${lista.length})">${lista.sort((a, b) => a.name.localeCompare(b.name, "es")).map(it => `<option value="${esc(it._id)}">${esc(it.name)}${it.system?.tier ? ` · N${it.system.tier}` : ""}</option>`).join("")}</optgroup>`).join("");
+    return `<h2 class="mrg-asist-t mrg-titulo">Guarida</h2>
+    ${this.#tarjeta("fa-hammer", "Añadir una labor", `Salas, trampas, trucos, portones, criaturas y hallazgos: ${laboresIdx.length} labores del libro, agrupadas por tipo.`, this.#campo("Labor", `<select id="mr-gen-labor-id">${opciones}</select>`), `${this.#boton("anadirLabor", "fa-user-check", "A mi personaje", { tipo: "p", datos: 'data-destino="pj"' })}${this.#boton("anadirLabor", "fa-dungeon", "A la hoja de la mazmorra", { datos: 'data-destino="mazmorra"' })}`)}
+    ${this.#tarjeta("fa-dragon", "Criatura con mutación", "Una especie base (d36) con un rasgo mutante (d20). Sale al chat (pág. 373).", "", this.#boton("generarCriaturaMutante", "fa-paw", "Generar criatura", { tipo: "p" }))}
+    ${this.#tarjeta("fa-compass", "Sala de mazmorra al azar", "Una sala nueva para tu guarida (d18).", "", this.#boton("tirarTablaCompendio", "fa-door-open", "Tirar sala", { tipo: "p", datos: 'data-tabla="generador-mazmorras-salas"' }))}`;
   }
 
   #htmlInvasiones() {
-    return `
-      <div class="mr-wo-panel">
-        <h3><i class="fas fa-shield-halved"></i> Generador de Grupos de Aventureros (Invasión)</h3>
-        <p class="mr-wo-ayuda">Crea un nuevo actor de Grupo Invasor (<code>party</code>) listo para entrar en vuestra mazmorra, con Aventureros de los niveles indicados (incluyendo sus 3 movimientos ofensivos y 3 defensivos en español) y sus Ayudantes.</p>
-        <div class="mr-wo-grid-2">
-          <label>Nombre de la expedición invasora:
-            <input type="text" id="mr-gen-inv-nombre" value="Expedición Castigadora del Valle" />
-          </label>
-          <label>Aventureros de Nivel 1:
-            <input type="number" id="mr-gen-inv-n1" value="2" min="0" max="5" />
-          </label>
-          <label>Aventureros de Nivel 2:
-            <input type="number" id="mr-gen-inv-n2" value="1" min="0" max="5" />
-          </label>
-          <label>Aventureros de Nivel 3:
-            <input type="number" id="mr-gen-inv-n3" value="0" min="0" max="4" />
-          </label>
-          <label>Ayudantes (Hirelings):
-            <input type="number" id="mr-gen-inv-ayu" value="2" min="0" max="6" />
-          </label>
-        </div>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-primario" data-action="generarGrupoInvasor">
-            <i class="fas fa-users-cog"></i> Generar Grupo Invasor Completo
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="botin-mayor">
-            <i class="fas fa-gem"></i> Tirar Botín de Aventureros Caídos
-          </button>
-        </div>
-      </div>
-    `;
+    const controles = `<div class="mrg-rejilla-2">
+      ${this.#campo("Nombre de la expedición", `<input type="text" id="mr-gen-inv-nombre" value="Expedición Castigadora del Valle">`)}
+      ${this.#campo("Ayudantes", `<input type="number" id="mr-gen-inv-ayu" value="2" min="0" max="6">`)}
+      ${this.#campo("Aventureros de nivel 1", `<input type="number" id="mr-gen-inv-n1" value="2" min="0" max="5">`)}
+      ${this.#campo("Aventureros de nivel 2", `<input type="number" id="mr-gen-inv-n2" value="1" min="0" max="5">`)}
+      ${this.#campo("Aventureros de nivel 3", `<input type="number" id="mr-gen-inv-n3" value="0" min="0" max="4">`)}
+    </div>`;
+    return `<h2 class="mrg-asist-t mrg-titulo">Invasores</h2>
+    ${this.#tarjeta("fa-users-gear", "Generar un grupo invasor", "Crea el grupo con aventureros de los niveles que pidas (con sus movimientos) y sus ayudantes, listo para entrar en vuestra mazmorra.", controles, this.#boton("generarGrupoInvasor", "fa-users-gear", "Generar el grupo", { tipo: "p" }))}
+    ${this.#tarjeta("fa-gem", "Botín de aventureros caídos", "Lo que llevaban encima los que no salieron de la mazmorra.", "", this.#boton("tirarTablaCompendio", "fa-gem", "Tirar botín", { tipo: "p", datos: 'data-tabla="botin-mayor"' }))}
+    ${this.#tarjeta("fa-user-shield", "Aventurero al azar", "Un aventurero de la lista (d30), por si necesitas uno sobre la marcha.", "", this.#boton("tirarTablaCompendio", "fa-user-shield", "Tirar aventurero", { tipo: "p", datos: 'data-tabla="aventureros-30"' }))}`;
   }
 
-  #htmlOraculos() {
-    return `
-      <div class="mr-wo-panel">
-        <h3><i class="fas fa-sync-alt"></i> Tiradas del Ciclo de Partida</h3>
-        <div class="mr-wo-fila-botones">
-          <button type="button" class="mr-wo-btn-primario" data-action="lanzarCiclo" data-tipo="calamity">
-            <i class="fas fa-biohazard"></i> Tirada de Desastre
-          </button>
-          <button type="button" class="mr-wo-btn-primario" data-action="lanzarCiclo" data-tipo="blowback">
-            <i class="fas fa-bullhorn"></i> Tirada de Represalia
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarOraculoSemillas">
-            <i class="fas fa-seedling"></i> Oráculo de Dos Semillas (Pág. 316)
-          </button>
-        </div>
-        <hr/>
-        <h3><i class="fas fa-scroll"></i> Generadores de Incursión, Solitario y Creaciones (d36)</h3>
-        <div class="mr-wo-grid-2">
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="incursion-objetivo">
-            <i class="fas fa-crosshairs"></i> Objetivo de Incursión (d18)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="incursion-complicacion">
-            <i class="fas fa-exclamation-triangle"></i> Giro de Incursión (d12)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="mejunjes-36">
-            <i class="fas fa-flask"></i> Mejunje Alquímico (d36)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="artilugios-36">
-            <i class="fas fa-cogs"></i> Artilugio Mecánico (d36)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="pociones-36">
-            <i class="fas fa-wine-bottle"></i> Poción de Brujería (d36)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="reliquias-36">
-            <i class="fas fa-ring"></i> Objeto Mágico / Reliquia (d36)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="solitario-gran-malo">
-            <i class="fas fa-crown"></i> Solitario: Suceso en la Guarida (d12)
-          </button>
-          <button type="button" class="mr-wo-btn-secundario" data-action="tirarTablaCompendio" data-tabla="aventureros-30">
-            <i class="fas fa-user-shield"></i> Aventurero Aleatorio (d30)
-          </button>
-        </div>
-      </div>
-    `;
+  #htmlTablas() {
+    const t = (clave, icono, titulo, dado) => `<button type="button" class="mrg-tabla-b" data-action="tirarTablaCompendio" data-tabla="${clave}"><i class="fa-solid ${icono}"></i><span>${titulo}</span><b class="mrg-chip">${dado}</b></button>`;
+    return `<h2 class="mrg-asist-t mrg-titulo">Tablas</h2>
+    <h3 class="mrg-seccion">Incursión</h3><div class="mrg-tablas">${t("incursion-objetivo", "fa-crosshairs", "Objetivo de la incursión", "d18")}${t("incursion-complicacion", "fa-triangle-exclamation", "Giro de la incursión", "d12")}</div>
+    <h3 class="mrg-seccion">Creaciones</h3><div class="mrg-tablas">${t("mejunjes-36", "fa-flask", "Mejunje alquímico", "d36")}${t("artilugios-36", "fa-gears", "Artilugio mecánico", "d36")}${t("pociones-36", "fa-wine-bottle", "Poción de brujería", "d36")}${t("reliquias-36", "fa-ring", "Objeto mágico o reliquia", "d36")}</div>
+    <h3 class="mrg-seccion">Guarida y héroes</h3><div class="mrg-tablas">${t("solitario-gran-malo", "fa-crown", "Suceso en la guarida", "d12")}${t("aventureros-30", "fa-user-shield", "Aventurero al azar", "d30")}</div>`;
   }
 
   static #cambiarPestana(ev, target) {
@@ -392,7 +268,7 @@ export class GeneradorWickedOnes extends BaseApp {
     await publicarTarjetaMR({
       titulo: "Criatura de Guarida Generada",
       subtitulo: "Especie (d36) + Rasgo Mutante (d20)",
-      estado: "success",
+      estado: null, tipo: "Generador",
       cuerpoHTML: `<p><strong>Especie:</strong> ${esc(r1)}</p><p><strong>Mutación:</strong> ${esc(r2)}</p>`
     });
   }
@@ -448,7 +324,7 @@ export class GeneradorWickedOnes extends BaseApp {
     await publicarTarjetaMR({
       titulo: "Oráculo · «Deja volar tu imaginación»",
       subtitulo: "Combinación de Primera y Segunda Semilla (pág. 316)",
-      estado: "critical",
+      estado: null, tipo: "Oráculo",
       cuerpoHTML: `<p style="font-size:1.1em;text-align:center;"><strong>${esc(r1)}</strong> &nbsp;+&nbsp; <strong>${esc(r2)}</strong></p>`
     });
   }
@@ -460,7 +336,8 @@ export class GeneradorWickedOnes extends BaseApp {
 
   static async #lanzarCiclo(ev, target) {
     const tipo = target.dataset.tipo || "calamity";
-    await ejecutarTiradaCiclo(tipo, 2);
+    const dados = n(this.element?.querySelector("#mr-gen-ciclo-dados")?.value, 2);
+    await ejecutarTiradaCiclo(tipo, dados);
   }
 }
 

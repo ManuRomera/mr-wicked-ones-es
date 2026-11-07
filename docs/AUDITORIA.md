@@ -55,3 +55,22 @@ python3 tools/audio.py            # música y efectos
 npm run datos                     # _data → _pack (carpetas, imágenes, escenas, lecturas, Dirección)
 npm test && npm run build         # tests y compendios + dist/module.zip
 ```
+
+## 5. Rediseño de la interfaz (v2.1.0)
+
+Hallazgos de la v2.0.0 y lo que cambia (07-nov-2026):
+
+| Área | Qué pasaba | Qué se hizo |
+|---|---|---|
+| **Tipografías** | Hojas del sistema con *Piedra* a 20 px en los campos (aspecto «condensado y pesado»), *Signika* en títulos y *Bitter* en el resto; tamaños sin criterio. | Dos familias (Blood Crow solo en títulos, Bitter para leer), mínimos de 0.78 rem y escala ajustable. `styles/guarida*.css`. |
+| **Hoja de personaje** | Una pestaña con casi todo; el Estrés era un reloj de PNG poco usable. | Hoja nueva con vitales siempre visibles, casillas pulsables y seis pestañas. |
+| **Libretos** | Una línea en un selector. | Vista completa de vocación y raza (manual + compendios), capacidades que se pueden aprender, impulsos y juergas. |
+| **Tiradas** | Desplegables del sistema; tarjetas poco legibles. | Lanzador con Situación × Efecto y trucos del manual; tarjeta con dados, veredicto y gravedad. |
+| **Accesibilidad** | Cuatro opciones sueltas; el modo oscuro no llegaba al chat. | Panel con diez opciones y vista previa; todo afecta a hojas, diálogos y tarjetas. |
+| **Asistente** | Pestañas con formularios largos y botones minúsculos. | Navegación lateral, tarjetas de herramienta y tablas con su dado. |
+| **Actualizaciones** | Reimportar sin resumen ni retirada de lo obsoleto. | Diálogo de reinstalación con recuento; marca `flags.mr-wicked-ones-es.contenido` en todo lo del módulo. |
+| **Cálculo de dados** | `getAttributeDiceToThrow()` del sistema lee `value[0]` (NaN si es número). | `reservaDe()` propia en `js/tirada.mjs`. |
+
+**Segunda vuelta (hojas):** manada de esbirros, mazmorra, facción (y UA), grupo invasor, panel del DJ, conquista y reloj tienen hoja MR (`js/hojas-base.mjs` + `js/hojas-actores.mjs` + `templates/*.hbs`), y el despertado usa la hoja de monstruo. También se corrigieron 33 referencias a imágenes de la v1 que no existían (`tools/ensamblar.py`, `REMAPEO`).
+
+**Pendiente / riesgos:** Foundry 14 sin probar; las hojas de objetos (capacidades, equipo…) del sistema solo cambian de tipografía y paleta; las capacidades primigenias (Devoramentes, Perdición, Robacaras, Auróvoro) se muestran como tarjeta y se editan en la ficha del objeto.

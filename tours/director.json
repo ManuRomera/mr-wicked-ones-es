@@ -1,9 +1,11 @@
 {
   "title": "Wicked Ones · Tutorial del Director de Juego",
-  "description": "Recorrido por todo lo que trae MR- Wicked Ones: compendios, carpetas, hoja de personaje y modo compacto, tiradas con automatismos, generador y escenas con lectura y música.",
+  "description": "Recorrido por todo lo que trae MR- Wicked Ones: compendios y carpetas, la hoja de monstruo y sus libretos, las tiradas con sus tarjetas, el asistente y generador, la accesibilidad y las escenas con lectura y música.",
   "display": true,
   "canBeResumed": true,
-  "suggestedNextTours": ["mr-wicked-ones-es.jugadores"],
+  "suggestedNextTours": [
+    "mr-wicked-ones-es.jugadores"
+  ],
   "steps": [
     {
       "id": "bienvenida",
@@ -41,17 +43,33 @@
     },
     {
       "id": "ficha",
-      "title": "La hoja de personaje",
-      "content": "Cada habilidad es una tirada: pulsa su nombre y elige posición y efecto. Los puntos negros ya se ven también con el <strong>modo oscuro</strong>, que puedes activar con el icono de accesibilidad de la cabecera.",
-      "selector": ".wicked-ones.sheet.actor",
-      "tooltipDirection": "LEFT"
+      "title": "La hoja de monstruo",
+      "content": "Arriba tienes siempre a la vista el <strong>Estrés</strong>, los <strong>corazones oscuros</strong>, el estado de <strong>reventado</strong>, el oro, los suministros y la EXP. Debajo, seis secciones: Acciones, Capacidades, <strong>Libreto</strong>, Equipo, Guarida y Notas. Nada de una hoja enorme en una sola pestaña.",
+      "selector": ".mrg-hoja-f, .wicked-ones.sheet.actor"
+    },
+    {
+      "id": "libretos",
+      "title": "Los libretos",
+      "content": "En <strong>Libreto</strong> cada jugador ve su vocación y su raza explicadas: cómo interpretarla, su capacidad principal, las capacidades que puede aprender (con botón para añadirlas a la hoja), los objetos de ejemplo y las frases típicas de cada raza. También están en la ventana <strong>Libretos</strong> de la cabecera.",
+      "selector": ".mrg-nav a[data-tab='libreto']"
     },
     {
       "id": "compacta",
-      "title": "Ficha compacta",
-      "content": "Este botón cambia a la <strong>ficha compacta</strong>: reúne en una sola vista lo habitual (retrato, EXP, estrés, habilidades) y deja capacidades, equipo y labores en secciones plegables que se pueden tener abiertas a la vez. La ventana recuerda su tamaño y posición en cada modo.",
-      "selector": ".mr-wo-compacta",
-      "tooltipDirection": "DOWN"
+      "title": "Modo compacto",
+      "content": "Este botón reduce la hoja a lo esencial (vitales, acciones y capacidades) para dejarla en un rincón de la pantalla durante la partida. Recuerda el tamaño y la posición de cada hoja.",
+      "selector": ".mrg-btn-compacta, .mr-wo-compacta"
+    },
+    {
+      "id": "tirada",
+      "title": "Tiradas con toque malote",
+      "content": "Al pulsar una acción se abre el lanzador: eliges la acción, los <strong>trucos del manual</strong> (Ayudar, Darlo todo, pacto oscuro, corazón oscuro), ves la <strong>probabilidad</strong> de cada resultado y tiras pulsando la casilla donde se cruzan <strong>Situación</strong> y <strong>Efecto</strong> —la que fija quien dirige.",
+      "selector": "#mr-wo-tirada"
+    },
+    {
+      "id": "chat",
+      "title": "Tarjetas del chat",
+      "content": "Cada tirada deja una tarjeta con los dados, el veredicto, la gravedad de la consecuencia según la situación y lo que se aplicó solo (conmoción, EXP de práctica, Estrés de las resistencias). Desde ella puedes <strong>Resistir</strong> o gastar un corazón oscuro, y se redibuja si cambia el resultado.",
+      "selector": "#chat"
     },
     {
       "id": "generador",
@@ -62,11 +80,15 @@
       "restricted": true
     },
     {
-      "id": "chat",
-      "title": "Tiradas que se resuelven solas",
-      "content": "Al tirar, la tarjeta del chat muestra el resultado y te ofrece lo que toca: <strong>Resistir</strong>, <strong>+Estrés</strong>, gastar un <strong>Corazón Oscuro</strong> y, en las fases de desastre y represalia, mover los <strong>relojes</strong> de la facción. Un clic y se aplica; no hay que apuntar nada a mano.",
-      "selector": "#chat",
-      "tooltipDirection": "LEFT"
+      "id": "aspecto",
+      "title": "Accesibilidad y aspecto",
+      "content": "Este botón (o Configuración → MR- Wicked Ones → Aspecto y accesibilidad) abre el panel con <strong>modo oscuro, alto contraste, lectura limpia, tamaño de texto, tipografía sencilla, espaciado, botones grandes, menos movimiento y efectos y marcas para daltonismo</strong>, con vista previa. Todo afecta también a las tarjetas del chat. Ahí mismo puedes volver a las hojas y tiradas originales del sistema.",
+      "selector": ".mrg-btn-aspecto, .mrg-hoja .header-button.mrg-btn-aspecto"
+    },
+    {
+      "id": "reinstalar",
+      "title": "Actualizar sin miedo",
+      "content": "Al instalar una versión nueva se te ofrece <strong>Reinstalar todo el contenido</strong>: restaura lo que es del módulo, añade lo nuevo y retira lo que ya no existe, sin tocar nada que no sea del módulo. También está en Configuración → MR- Wicked Ones."
     },
     {
       "id": "fin",

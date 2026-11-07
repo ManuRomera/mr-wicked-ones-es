@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Hojas originales del sistema (esbirros, mazmorra, facción, grupo, relojes, objetos…) con el lenguaje de La Guarida.
+   Solo se aplica con «Estilo de las hojas = MR» (html.mrg-hojas). REGLA: nunca font-family sobre button, i, a ni
+   .window-header (rompe los iconos de la ventana).
+   ========================================================================== */
+
+/* ---- Tipografía: Bitter para leer, Blood Crow solo para el nombre ---- */
+html.mrg-hojas .wicked-ones.sheet :is(input, textarea, select) {
+  font-family: var(--g-texto); font-size: calc(1rem * var(--g-escala)); font-weight: 600; letter-spacing: 0; text-transform: none; line-height: 1.4;
+}
+html.mrg-hojas .wicked-ones.sheet :is(.item-name, .item-name *, .item-block .item-name) {
+  font-family: var(--g-texto); font-weight: 800; font-size: calc(1.02rem * var(--g-escala)); letter-spacing: 0;
+}
+html.mrg-hojas .wicked-ones.sheet :is(h2, h3, h4, h5) { font-family: var(--g-texto); font-weight: 800; letter-spacing: .02em; }
+html.mrg-hojas .wicked-ones.sheet :is(td, th, p, li, label, .item-description) { font-size: calc(1rem * var(--g-escala)); line-height: 1.45; }
+html.mrg-hojas .wicked-ones.sheet :is(.item-description, p) { font-weight: 500; }
+html.mrg-hojas .wicked-ones.sheet input[name="name"],
+html.mrg-hojas .wicked-ones.sheet .large-name input {
+  font-family: var(--g-display); font-weight: 400; letter-spacing: .04em; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.1;
+}
+html.mrg-hojas .wicked-ones.sheet textarea { line-height: 1.55; min-height: 7rem; }
+
+/* ---- Cabecera de ventana y pestañas coherentes con la hoja nueva ---- */
+html.mrg-hojas .app.wicked-ones .window-header { background: var(--g-hierro); color: var(--g-hueso); border-bottom: 3px solid var(--g-sangre); }
+html.mrg-hojas .app.wicked-ones .window-header .window-title { font-family: var(--g-display); letter-spacing: .04em; }
+html.mrg-hojas .wicked-ones.sheet nav.tabs a.item { font-family: var(--g-texto); font-weight: 800; font-size: calc(.98rem * var(--g-escala)); }
+html.mrg-hojas .wicked-ones.sheet .tab { min-height: 8rem; }
+
+/* ---- Tema oscuro de las hojas originales: misma paleta que las hojas nuevas ---- */
+html.mrg-hojas body.mr-wo-oscuro {
+  --mr-wo-papel: var(--g-papel);
+  --mr-wo-papel-2: var(--g-papel-2);
+  --mr-wo-papel-3: color-mix(in oklab, var(--g-papel-2) 82%, #fff);
+  --mr-wo-tinta: var(--g-tinta);
+  --mr-wo-tinta-2: var(--g-tinta-2);
+  --mr-wo-oro: var(--g-oro);
+  --mr-wo-sangre: var(--g-sangre);
+  --mr-wo-linea: var(--g-linea);
+  --mr-wo-cinta: var(--g-sangre-fuerte);
+}
+html.mrg-hojas body.mr-wo-oscuro .wicked-ones.sheet .window-content { background: var(--g-papel); }
+
+/* Alto contraste y espaciado también en las hojas originales */
+html.mrg-contraste.mrg-hojas .wicked-ones.sheet :is(input, textarea, select) { border: 2px solid var(--g-tinta); }
+html.mrg-espaciado.mrg-hojas .wicked-ones.sheet :is(p, li, td, label, textarea) { line-height: 1.85; letter-spacing: .03em; word-spacing: .1em; }
+html.mrg-sencilla.mrg-hojas .wicked-ones.sheet input[name="name"] { font-family: var(--g-texto); font-weight: 800; letter-spacing: 0; }

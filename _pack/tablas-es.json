@@ -263,7 +263,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "incursion-objetivo"
+    "clave": "incursion-objetivo",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -448,7 +449,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "incursion-complicacion"
+    "clave": "incursion-complicacion",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -885,7 +887,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "aventureros-30"
+    "clave": "aventureros-30",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -1406,7 +1409,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "ayudantes-36"
+    "clave": "ayudantes-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -1927,7 +1931,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "criaturas-36"
+    "clave": "criaturas-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -2224,7 +2229,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "criaturas-mutacion"
+    "clave": "criaturas-mutacion",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -2745,7 +2751,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "mejunjes-36"
+    "clave": "mejunjes-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -3266,7 +3273,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "artilugios-36"
+    "clave": "artilugios-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -3787,7 +3795,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "pociones-36"
+    "clave": "pociones-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -4308,7 +4317,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "reliquias-36"
+    "clave": "reliquias-36",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -4829,7 +4839,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "oraculo-semilla-1"
+    "clave": "oraculo-semilla-1",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -5350,7 +5361,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "oraculo-semilla-2"
+    "clave": "oraculo-semilla-2",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -5535,7 +5547,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "solitario-gran-malo"
+    "clave": "solitario-gran-malo",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -5636,7 +5649,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "simulador-incursion-esbirros"
+    "clave": "simulador-incursion-esbirros",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -5905,7 +5919,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "generador-mazmorras-salas"
+    "clave": "generador-mazmorras-salas",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"
@@ -6090,7 +6105,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "clave": "botin-mayor"
+    "clave": "botin-mayor",
+    "contenido": true
    }
   },
   "folder": "5wUvj22M1d7dWTHR"

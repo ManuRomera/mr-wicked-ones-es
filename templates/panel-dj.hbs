@@ -1,0 +1,70 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja">
+    <img class="mrg-retrato" src="{{actor.img}}" onerror="this.onerror=null;this.src='icons/svg/mystery-man.svg'" data-edit="img" alt="{{actor.name}}" title="Cambiar imagen">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Panel del Director de Juego" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <span class="mrg-chip mrg-chip--sangre"><i class="fa-solid fa-hourglass-half"></i> Fase {{mr.fase}} · {{mr.fasePropia.nombre}}</span>
+        <button type="button" class="mrg-btn" data-asistente="mesa"><i class="fa-solid fa-dungeon"></i> Asistente</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mrg-nav tabs" aria-label="Secciones del panel">
+    <a class="item" data-tab="ciclo"><i class="fa-solid fa-rotate"></i> Ciclo de juego</a>
+    <a class="item" data-tab="invasiones"><i class="fa-solid fa-shield-halved"></i> Grandes invasiones <span class="mrg-cuenta">{{mr.invasiones.length}}</span></a>
+    <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
+  </nav>
+
+  <div class="mrg-cuerpo">
+    <section class="tab mrg-panel" data-tab="ciclo">
+      <div class="mrg-etapas">
+        {{#each mr.etapas}}
+        <article class="mrg-etapa {{#if activa}}mrg-etapa--activa{{/if}}">
+          <h4 class="mrg-titulo">{{nombre}}</h4>
+          {{#each fases}}
+          <button type="button" class="mrg-fase {{#if actual}}mrg-fase--actual{{/if}} {{#if hecha}}mrg-fase--hecha{{/if}}" data-fase="{{n}}" aria-pressed="{{actual}}"><b>{{n}}</b> {{nombre}}</button>
+          {{/each}}
+        </article>
+        {{/each}}
+      </div>
+
+      <article class="mrg-fase-actual">
+        <header>
+          <button type="button" class="mrg-btn" data-fase="{{mr.anterior}}"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+          <h3 class="mrg-titulo">{{mr.fase}}. {{mr.fasePropia.nombre}}</h3>
+          <button type="button" class="mrg-btn mrg-btn--sangre" data-fase="{{mr.siguiente}}">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+        </header>
+        <ul class="mrg-pasos">{{#each mr.fasePropia.pistas}}<li>{{{this}}}</li>{{/each}}</ul>
+        <footer>
+          <button type="button" class="mrg-btn" data-asistente="mesa"><i class="fa-solid fa-biohazard"></i> Tirada de desastre / represalia</button>
+          <button type="button" class="mrg-btn" data-asistente="tablas"><i class="fa-solid fa-dice-d20"></i> Tablas</button>
+        </footer>
+      </article>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="invasiones">
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Cuántos aventureros de cada nivel llegan en cada gran invasión.</span>
+        <a class="mrg-btn item-add-popup" data-item-type="invasion"><i class="fa-solid fa-plus"></i> Añadir invasión</a>
+      </div>
+      {{#if mr.invasiones.length}}
+      <table class="mrg-tabla">
+        <thead><tr><th>Invasión</th><th>N0</th><th>N1</th><th>N2</th><th>N3</th><th>N4</th><th>Ayud.</th><th></th></tr></thead>
+        <tbody>
+          {{#each mr.invasiones}}
+          <tr><td><button type="button" class="mrg-enlace" data-abrir="{{id}}">Invasión {{num}}</button></td>
+            {{#each niveles}}<td>{{this}}</td>{{/each}}<td>{{ayudantes}}</td>
+            <td><button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar invasión {{num}}"><i class="fa-solid fa-trash"></i></button></td></tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}<p class="mrg-vacio">Aún no has apuntado invasiones.</p>{{/if}}
+    </section>
+
+    <section class="tab mrg-panel" data-tab="notas">
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>

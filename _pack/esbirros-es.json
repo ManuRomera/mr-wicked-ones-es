@@ -151,7 +151,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-ulrot.webp",
-    "slug": "esb-ulrot"
+    "slug": "esb-ulrot",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"
@@ -308,7 +309,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-crag.webp",
-    "slug": "esb-crag"
+    "slug": "esb-crag",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"
@@ -465,7 +467,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-slem.webp",
-    "slug": "esb-slem"
+    "slug": "esb-slem",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"
@@ -622,7 +625,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-viska.webp",
-    "slug": "esb-viska"
+    "slug": "esb-viska",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"
@@ -779,7 +783,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-kaelen.webp",
-    "slug": "esb-kaelen"
+    "slug": "esb-kaelen",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"
@@ -936,7 +941,8 @@
    "mr-wicked-ones-es": {
     "tipo": "esbirros",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-zira.webp",
-    "slug": "esb-zira"
+    "slug": "esb-zira",
+    "contenido": true
    }
   },
   "folder": "umhaXEG2hmp5mnHe"

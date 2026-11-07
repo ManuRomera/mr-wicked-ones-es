@@ -71,5 +71,14 @@
   "MRWO.Settings.CompactaDefecto.Name": "Abrir las fichas en modo compacto",
   "MRWO.Settings.CompactaDefecto.Hint": "Las fichas de personaje y de esbirros se abren con la vista compacta (se puede alternar en cada ficha con el botón de la cabecera).",
   "MRWO.Settings.AutoAplicar.Name": "Aplicar las reglas automáticamente",
-  "MRWO.Settings.AutoAplicar.Hint": "Tras cada tirada se aplican solas las reglas del libro: estrés de las resistencias (fallo 3, parcial 2, éxito 1, crítico despeja 1), conmoción que se limpia, EXP de práctica y personaje desatado al llenar el Estrés."
+  "MRWO.Settings.AutoAplicar.Hint": "Tras cada tirada se aplican solas las reglas del libro: estrés de las resistencias (fallo 3, parcial 2, éxito 1, crítico despeja 1), conmoción que se limpia, EXP de práctica y personaje desatado al llenar el Estrés.",
+  "MRWO.Settings.EstiloHojas.Name": "Estilo de las hojas",
+  "MRWO.Settings.EstiloHojas.Hint": "Hojas rediseñadas de MR- (por defecto) o las hojas originales del sistema. Al cambiarlo se recarga la partida.",
+  "MRWO.Settings.EstiloTiradas.Name": "Estilo de las tiradas y las tarjetas de chat",
+  "MRWO.Settings.EstiloTiradas.Hint": "Diálogo de tirada y tarjetas de MR- (por defecto) o los originales del sistema. Al cambiarlo se recarga la partida.",
+  "MRWO.Settings.Estilo.MR": "Estilo MR-",
+  "MRWO.Settings.Estilo.Sistema": "Original del sistema",
+  "MRWO.Settings.Aspecto.Name": "Aspecto y accesibilidad",
+  "MRWO.Settings.Aspecto.Label": "Abrir el panel",
+  "MRWO.Settings.Aspecto.Hint": "Modo oscuro, alto contraste, lectura limpia, tamaño de texto, tipografía sencilla, espaciado, botones grandes, menos movimiento y efectos, y marcas para daltonismo, con vista previa."
 }

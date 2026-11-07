@@ -11,6 +11,7 @@ import hashlib, json, os, re, sys, unicodedata
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
+VERSION = json.load(open(Path(__file__).resolve().parent.parent / "module.json"))["version"]
 MOD = "mr-wicked-ones-es"
 D, OUT, A = BASE / "_data", BASE / "_pack", BASE / "assets"
 sys.path.insert(0, os.environ.get("MR_ARTE", str(BASE / "tools" / "arte")))
@@ -370,9 +371,35 @@ def direccion():
 
 
 # ------------------------------------------------------------------ main
+# Imágenes de la v1 que aún quedaban referenciadas (diarios, panel del DJ, grupos): se llevan al arte nuevo
+REMAPEO = {
+    "assets/escenas/portada.webp": "assets/escenas/esc-portada.webp", "assets/escenas/biblioteca-abadia.webp": "assets/escenas/esc-biblioteca-abadia.webp",
+    "assets/escenas/cloacas-dj.webp": "assets/escenas/mapa-cloacas.webp", "assets/escenas/cueva-mercaderes.webp": "assets/escenas/esc-cueva-mercaderes.webp",
+    "assets/escenas/defensa-mazmorra.webp": "assets/escenas/esc-defensa-mazmorra.webp", "assets/escenas/guerra-dj.webp": "assets/escenas/mapa-guerra.webp",
+    "assets/escenas/mares-dj.webp": "assets/escenas/mapa-mares.webp", "assets/escenas/mazmorra-1.webp": "assets/escenas/mapa-guarida-1.webp",
+    "assets/escenas/mazmorra-2.webp": "assets/escenas/mapa-guarida-2.webp", "assets/escenas/mazmorra-3.webp": "assets/escenas/mapa-guarida-3.webp",
+    "assets/escenas/ritual-luna-llena.webp": "assets/escenas/esc-ritual-luna-llena.webp", "assets/escenas/valle-dj.webp": "assets/escenas/mapa-valle.webp",
+    "assets/retratos/adv-archimago.webp": "assets/retratos/adv-mago-del-caos.webp", "assets/retratos/adv-arquera.webp": "assets/retratos/adv-arquero-arcano.webp",
+    "assets/retratos/adv-asesina.webp": "assets/retratos/adv-asesino.webp", "assets/retratos/adv-cleriga.webp": "assets/retratos/adv-clerigo.webp"
+}
+
+
+def reparar(x):
+    if isinstance(x, str):
+        for a, b in REMAPEO.items():
+            if a in x:
+                x = x.replace(a, b)
+        return x
+    if isinstance(x, list):
+        return [reparar(v) for v in x]
+    if isinstance(x, dict):
+        return {k: reparar(v) for k, v in x.items()}
+    return x
+
+
 def guardar(nombre, datos):
     OUT.mkdir(exist_ok=True)
-    (OUT / f"{nombre}.json").write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / f"{nombre}.json").write_text(json.dumps(reparar(datos), ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def main():
@@ -427,8 +454,12 @@ def main():
         "scenes": escenas, "actors": [a for k in ("personajes", "esbirros", "facciones", "grupos") for a in act[k]],
         "items": labores + equipo + aventureros, "tables": tablas, "journal": manual, "macros": macros, "playlists": pls,
         "folders": [f for t in ("Actor", "Item", "Scene", "JournalEntry", "RollTable", "Playlist", "Macro") for f in todas[t]],
-        "sort": 1000, "flags": {MOD: {"version": "2.0.0"}}}
+        "sort": 1000, "flags": {MOD: {"version": VERSION}}}
 
+    # Marca de contenido del módulo: permite reinstalar y retirar lo que una versión nueva ya no trae sin tocar lo ajeno
+    for campo in ("scenes", "actors", "items", "tables", "journal", "macros", "playlists", "folders"):
+        for d in aventura[campo]:
+            d.setdefault("flags", {}).setdefault(MOD, {})["contenido"] = True
     guardar("aventura-es", [aventura]); guardar("manual-es", manual); guardar("tablas-es", tablas)
     guardar("aventureros-es", aventureros); guardar("labores-es", labores); guardar("equipo-es", equipo)
     for k in ("personajes", "esbirros", "facciones", "grupos"):

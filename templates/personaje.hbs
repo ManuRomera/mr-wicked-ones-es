@@ -1,0 +1,203 @@
+<form class="{{cssClass}} mrg mrg-hoja-f {{#if mr.compacta}}mrg-compacta{{/if}}" autocomplete="off">
+
+  {{!-- Cabecera: siempre visible --}}
+  <header class="mrg-cab-hoja">
+    <img class="mrg-retrato" src="{{actor.img}}" onerror="this.onerror=null;this.src='icons/svg/mystery-man.svg'" data-edit="img" alt="{{actor.name}}" title="Cambiar imagen">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre del monstruo" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <select class="mrg-select-chip" name="system.pc_type" aria-label="Tipo de personaje"><option value="wicked_one" {{#unless mr.despertado}}selected{{/unless}}>{{localize "FITD.WickedOne"}}</option><option value="awakened" {{#if mr.despertado}}selected{{/if}}>{{localize "FITD.Awakened"}}</option></select>
+        {{#if mr.despertado}}<a class="mrg-chipbtn item-add-popup" data-item-type="awakened_type" data-distinct="true"><i class="fa-solid fa-ghost"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir tipo{{/if}}</a>
+        {{else}}<button type="button" class="mrg-chipbtn" data-ir="libreto" title="Ver la raza en el libreto"><i class="fa-solid fa-dragon"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Sin raza{{/if}}</button>{{/if}}
+        <button type="button" class="mrg-chipbtn" data-ir="libreto" title="Ver la vocación en el libreto"><i class="fa-solid fa-hat-wizard"></i> {{#if mr.vocacion}}{{mr.vocacion}}{{else}}Sin vocación{{/if}}</button>
+        {{#each mr.impulsos}}<span class="mrg-chip mrg-chip--sangre" title="{{desc}}"><i class="fa-solid fa-fire"></i> {{nombre}}</span>{{/each}}
+        {{#if mr.juerga}}<span class="mrg-chip mrg-chip--oro" title="{{mr.juerga.desc}}"><i class="fa-solid fa-beer-mug-empty"></i> {{mr.juerga.nombre}}</span>{{/if}}
+      </div>
+    </div>
+  </header>
+
+  {{!-- Constantes vitales: siempre visibles --}}
+  <section class="mrg-vitales" aria-label="Constantes vitales">
+    <div class="mrg-vital mrg-vital--estres {{#if mr.vitales.estres.lleno}}mrg-lleno{{/if}}">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">Estrés</span><b>{{mr.vitales.estres.valor}}/{{mr.vitales.estres.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Estrés">
+        {{#each mr.vitales.estres.pips}}<button type="button" class="mrg-pip" data-pip="system.stress.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Estrés {{n}}" title="Pulsa para marcar hasta aquí; vuelve a pulsar para bajar"></button>{{/each}}
+      </div>
+      {{#if mr.vitales.estres.lleno}}<p class="mrg-feral"><i class="fa-solid fa-skull"></i> ¡Desatado! Actúa por impulso, toma un corazón oscuro y vacía el estrés al descansar.</p>{{/if}}
+    </div>
+
+    <div class="mrg-vital">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">Corazones oscuros</span><b>{{mr.vitales.corazones.valor}}/{{mr.vitales.corazones.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Corazones oscuros">
+        {{#each mr.vitales.corazones.pips}}<button type="button" class="mrg-pip mrg-pip--corazon" data-pip="system.dark_hearts.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Corazón oscuro {{n}}"></button>{{/each}}
+      </div>
+    </div>
+
+    <div class="mrg-vital">
+      <button type="button" class="mrg-interruptor {{#if mr.vitales.reventado}}mrg-on{{/if}}" data-toggle="system.bloodied" aria-pressed="{{mr.vitales.reventado}}">
+        <i class="fa-solid fa-droplet"></i> <span><strong>Reventado</strong><small>{{#if mr.vitales.reventado}}Otra herida seria te mata{{else}}Sin heridas graves{{/if}}</small></span>
+      </button>
+    </div>
+
+    {{#if mr.vitales.oro.visible}}
+    <div class="mrg-vital">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">Oro</span><b>{{mr.vitales.oro.valor}}/{{mr.vitales.oro.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Oro">
+        {{#each mr.vitales.oro.pips}}<button type="button" class="mrg-pip mrg-pip--moneda" data-pip="system.gold.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Oro {{n}}"></button>{{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="mrg-vital">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">{{mr.etiquetas.suministro}}</span><b>{{mr.vitales.suministro.valor}}/{{mr.vitales.suministro.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Suministros">
+        {{#each mr.vitales.suministro.pips}}<button type="button" class="mrg-pip" data-pip="system.supply.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Suministro {{n}}"></button>{{/each}}
+      </div>
+    </div>
+
+    <div class="mrg-vital mrg-vital--xp">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">EXP malvada</span><b>{{mr.vitales.malvada.valor}}/{{mr.vitales.malvada.max}}</b></div>
+      <div class="mrg-seg mrg-seg--oro" role="group" aria-label="EXP malvada">
+        {{#each mr.vitales.malvada.pips}}<button type="button" data-pip="system.wickedxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP malvada {{n}}"></button>{{/each}}
+      </div>
+      <div class="mrg-vital-t mrg-sub"><span class="mrg-etiqueta">EXP osada</span><b>{{mr.vitales.osada.valor}}/{{mr.vitales.osada.max}}</b></div>
+      <div class="mrg-seg" role="group" aria-label="EXP osada">
+        {{#each mr.vitales.osada.pips}}<button type="button" data-pip="system.recklessxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP osada {{n}}"></button>{{/each}}
+      </div>
+    </div>
+  </section>
+
+  <nav class="mrg-nav tabs" aria-label="Secciones de la hoja">
+    <a class="item" data-tab="acciones"><i class="fa-solid fa-hand-fist"></i> Acciones</a>
+    <a class="item" data-tab="capacidades"><i class="fa-solid fa-skull"></i> Capacidades <span class="mrg-cuenta">{{mr.cuentaCaps}}</span></a>
+    <a class="item" data-tab="libreto"><i class="fa-solid fa-book-skull"></i> Libreto</a>
+    <a class="item" data-tab="equipo"><i class="fa-solid fa-toolbox"></i> {{mr.etiquetas.equipo}}</a>
+    <a class="item" data-tab="guarida"><i class="fa-solid fa-dungeon"></i> {{mr.etiquetas.guarida}}</a>
+    <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
+  </nav>
+
+  <div class="mrg-cuerpo">
+
+    {{!-- ACCIONES --}}
+    <section class="tab mrg-panel" data-tab="acciones">
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Pulsa una acción para tirar. Los puntos se editan pulsando.</span>
+        <button type="button" class="mrg-btn" data-tirada-tipo="resistencia"><i class="fa-solid fa-shield-halved"></i> Resistir</button>
+        <button type="button" class="mrg-btn" data-tirada-tipo="fortuna"><i class="fa-solid fa-dice"></i> Fortuna</button>
+      </div>
+      <div class="mrg-atributos">
+        {{#each mr.atributos}}
+        <article class="mrg-atributo {{#if shocked}}mrg-shock{{/if}}">
+          <header>
+            <h3 class="mrg-titulo">{{nombre}}</h3>
+            <button type="button" class="mrg-conmocion" data-toggle="system.attributes.{{id}}.shocked" aria-pressed="{{shocked}}" title="Conmoción: −1d en la siguiente tirada de este atributo"><i class="fa-solid fa-bolt"></i> Conmoción</button>
+          </header>
+          <p class="mrg-nota mrg-atr-desc">{{desc}}</p>
+          {{#each acciones}}
+          <div class="mrg-accion-fila">
+            <button type="button" class="mrg-accion-tirar" data-tirar="{{id}}" title="Tirar {{nombre}} ({{dados}}d)"><span class="mrg-accion-nombre">{{nombre}}</span><span class="mrg-accion-desc">{{desc}}</span></button>
+            <div class="mrg-valor" role="group" aria-label="Puntos de {{nombre}}">
+              {{#each puntos}}<button type="button" class="mrg-pip mrg-pip--punto" data-pip="system.attributes.{{../atrib}}.skills.{{../id}}.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{../nombre}} {{n}}"></button>{{/each}}
+            </div>
+            {{#unless valor}}
+            <div class="mrg-practica" role="group" aria-label="Práctica de {{nombre}}" title="EXP de práctica: a la tercera marca la acción sube a 1">
+              {{#each marcas}}<button type="button" class="mrg-marca {{#if on}}on{{/if}}" data-practica="1" data-atrib="{{../atrib}}" data-accion="{{../id}}" data-n="{{n}}" aria-label="Práctica {{n}}"></button>{{/each}}
+            </div>
+            {{/unless}}
+          </div>
+          {{/each}}
+        </article>
+        {{/each}}
+      </div>
+    </section>
+
+    {{!-- CAPACIDADES --}}
+    <section class="tab mrg-panel" data-tab="capacidades">
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Lo que sabes hacer. En el Libreto ves todas las de tu vocación.</span>
+        <button type="button" class="mrg-btn" data-ir="libreto"><i class="fa-solid fa-book-skull"></i> Aprender más</button>
+        <a class="mrg-btn item-add-popup" data-item-type="specialability"><i class="fa-solid fa-plus"></i> Del compendio</a>
+      </div>
+      {{#each mr.principales}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
+      {{#each mr.otras}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
+      {{#unless mr.cuentaCaps}}<p class="mrg-vacio">Aún no tienes capacidades. Ábrete el <strong>Libreto</strong> y elige las de tu vocación.</p>{{/unless}}
+    </section>
+
+    {{!-- LIBRETO --}}
+    <section class="tab mrg-panel" data-tab="libreto" data-pestana-libreto>
+      {{{mr.libretoHTML}}}
+    </section>
+
+    {{!-- EQUIPO --}}
+    <section class="tab mrg-panel" data-tab="equipo">
+      <h4 class="mrg-seccion">Defensas <a class="mrg-btn mrg-btn--suave item-add-popup" data-item-type="defense"><i class="fa-solid fa-plus"></i></a></h4>
+      <div class="mrg-defensas">
+        {{#each mr.defensas}}
+        <label class="mrg-defensa"><input type="checkbox" data-item-check="{{id}}" data-campo="checked" {{#if on}}checked{{/if}}><span>{{nombre}}</span><button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></label>
+        {{else}}<p class="mrg-nota">Sin defensas. Las da el equipo (armadura, escudo…) o las capacidades.</p>{{/each}}
+      </div>
+      <h4 class="mrg-seccion">{{mr.etiquetas.equipo}} <small>lo que siempre llevas encima</small> <a class="mrg-btn mrg-btn--suave item-add-popup" data-item-type="gearsupply"><i class="fa-solid fa-plus"></i></a></h4>
+      <div class="mrg-lista">
+        {{#each mr.equipo}}
+        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+          {{#if calidad}}<span class="mrg-chip {{calidadClase}}">{{calidad}}</span>{{/if}}{{#each ventajas}}<span class="mrg-chip">{{this}}</span>{{/each}}
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
+        {{else}}<p class="mrg-nota">Sin equipo. Elige cuatro objetos de ejemplo de tu vocación en el Libreto.</p>{{/each}}
+      </div>
+      <h4 class="mrg-seccion">Suministros <small>se gastan al usarlos</small> <a class="mrg-btn mrg-btn--suave item-add-popup" data-item-type="gearsupply"><i class="fa-solid fa-plus"></i></a></h4>
+      <div class="mrg-lista">
+        {{#each mr.suministros}}
+        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+          {{#if calidad}}<span class="mrg-chip {{calidadClase}}">{{calidad}}</span>{{/if}}
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
+        {{else}}<p class="mrg-nota">Sin suministros guardados.</p>{{/each}}
+      </div>
+    </section>
+
+    {{!-- GUARIDA --}}
+    <section class="tab mrg-panel" data-tab="guarida">
+      <div class="mrg-interruptor-fila">
+        <button type="button" class="mrg-interruptor {{#if mr.descansoUsado}}mrg-on{{/if}}" data-toggle="system.downtime_action_used" aria-pressed="{{mr.descansoUsado}}"><i class="fa-solid fa-bed"></i> <span><strong>{{mr.etiquetas.descanso}}</strong><small>{{#if mr.descansoUsado}}Ya la has usado{{else}}Disponible{{/if}}</small></span></button>
+      </div>
+      {{#if mr.despertado}}
+      <h4 class="mrg-seccion">Movimientos de conquista <small>un movimiento por fase de conquista</small></h4>
+      <div class="mrg-lista">
+        {{#each mr.movimientos}}<article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5></header>{{#each bloques}}{{#if texto}}<p>{{texto}}</p>{{/if}}{{/each}}</article>{{else}}<p class="mrg-nota">Ninguna de tus capacidades añade movimientos de conquista.</p>{{/each}}
+      </div>
+      {{else}}
+      <h4 class="mrg-seccion">Proyectos <small>relojes de varias sesiones</small> <a class="mrg-btn mrg-btn--suave item-add-popup" data-item-type="project"><i class="fa-solid fa-plus"></i></a></h4>
+      <div class="mrg-lista">
+        {{#each mr.proyectos}}
+        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5><b>{{valor}}/{{max}}</b>
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          <div class="mrg-pips">{{#each pips}}<button type="button" class="mrg-pip" data-item-pip="{{../id}}" data-campo="system.clock_progress" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Segmento {{n}}"></button>{{/each}}</div>
+          {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
+        {{else}}<p class="mrg-nota">Sin proyectos.</p>{{/each}}
+      </div>
+      <h4 class="mrg-seccion">Labores <small>lo que haces para la mazmorra</small> <a class="mrg-btn mrg-btn--suave item-add-popup" data-item-type="duty"><i class="fa-solid fa-plus"></i></a></h4>
+      <div class="mrg-lista">
+        {{#each mr.labores}}
+        <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>{{#if tipo}}<span class="mrg-chip">{{tipo}}</span>{{/if}}{{#if nivel}}<span class="mrg-chip mrg-chip--oro">Nivel {{nivel}}</span>{{/if}}
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
+        {{else}}<p class="mrg-nota">Sin labores.</p>{{/each}}
+      </div>
+      {{/if}}
+    </section>
+
+    {{!-- NOTAS --}}
+    <section class="tab mrg-panel" data-tab="notas">
+      <div class="mrg-campos">
+        <label class="mrg-campo"><span class="mrg-etiqueta">Aspecto</span><input type="text" name="system.look" value="{{system.look}}"></label>
+        <label class="mrg-campo"><span class="mrg-etiqueta">Amigo vil</span><input type="text" name="system.vilefriend" value="{{system.vilefriend}}" placeholder="Un monstruo de la región amistoso contigo"></label>
+        <label class="mrg-campo"><span class="mrg-etiqueta">Panda de esbirros</span>
+          <span class="mrg-fila"><select data-panda><option value="">— ninguna —</option>{{#each mr.pandas}}<option value="{{id}}" {{#if sel}}selected{{/if}}>{{nombre}}</option>{{/each}}</select>
+          <button type="button" class="mrg-btn" data-abrir-panda>Abrir</button></span></label>
+      </div>
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+
+  </div>
+</form>

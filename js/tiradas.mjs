@@ -27,33 +27,13 @@ export function actorActivo(speaker = null) {
 /**
  * Envía una tarjeta de chat con el estilo de Wicked Ones y botones de acción.
  */
-export async function publicarTarjetaMR({ titulo, subtitulo = "", estado = "success", dados = [], cuerpoHTML = "", botones = [], speaker = null }) {
-  const sp = speaker || ChatMessage.getSpeaker();
-  const etiquetasEstado = {
-    critical: "¡Éxito crítico!",
-    success: "Éxito completo",
-    mixed: "Éxito parcial",
-    failure: "Fallo"
-  };
-  const dadosHTML = dados.length
-    ? `<ol class="dice-rolls">${dados.map(d => `<li class="roll die d6 ${d === 6 ? "max" : d === 1 ? "min" : ""}">${n(d, 1)}</li>`).join("")}</ol>`
-    : "";
-  const btnsHTML = botones.length
-    ? `<div class="mr-wo-chat-acciones">${botones.map(b => `<button type="button" class="mr-wo-btn-chat" data-mr-accion="${esc(b.accion)}" ${b.actorId ? `data-actor-id="${esc(b.actorId)}"` : ""} ${b.valor !== undefined ? `data-valor="${esc(b.valor)}"` : ""} ${b.extra ? `data-extra="${esc(b.extra)}"` : ""}><i class="${esc(b.icono || "fas fa-dice")}"></i> ${esc(b.etiqueta)}</button>`).join("")}</div>`
-    : "";
-
-  const content = `
-    <div class="dice-tooltip wicked-roll-card mr-wo-tarjeta">
-      <div class="chat-label label-stripe1">${esc(titulo)}</div>
-      ${subtitulo ? `<div class="chat-label-small label-stripe2">${esc(subtitulo)}</div>` : ""}
-      <div class="die ${esc(estado)}">${esc(etiquetasEstado[estado] || estado)}</div>
-      ${dadosHTML}
-      <div class="description">${cuerpoHTML}</div>
-      ${btnsHTML}
-    </div>
-  `;
-
-  const msgData = { user: game.user.id, speaker: sp, content };
+export async function publicarTarjetaMR({ titulo, subtitulo = "", estado = null, dados = [], cuerpoHTML = "", botones = [], speaker = null, tipo = "Ciclo de partida" }) {
+  const { htmlTarjetaSimple } = await import("./tirada.mjs");
+  const content = htmlTarjetaSimple({
+    tipo, titulo, subtitulo, estado, caras: dados.map(d => n(d, 1)), cuerpo: cuerpoHTML,
+    botones: botones.map((b, i) => ({ ...b, sangre: i === 0 })), neutro: estado ? "azul" : "sangre"
+  });
+  const msgData = { user: game.user.id, speaker: speaker || ChatMessage.getSpeaker(), content, flags: { [MOD]: { tarjeta: true } } };
   aplicarModoMensaje(msgData);
   return ChatMessage.create(msgData);
 }
@@ -252,7 +232,7 @@ export function inicializarHooksChat() {
     }
 
     // Enlazar todos los botones .mr-wo-btn-chat presentes en el mensaje
-    html.querySelectorAll(".mr-wo-btn-chat").forEach(btn => {
+    html.querySelectorAll(".mr-wo-btn-chat, .mrg-card[data-tipo='simple'] [data-mr-accion]").forEach(btn => {
       if (btn.dataset.mrEnlazado) return;
       btn.dataset.mrEnlazado = "1";
       btn.addEventListener("click", ev => manejarClicBotonChat(ev, message));

@@ -1,0 +1,85 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja">
+    <img class="mrg-retrato" src="{{actor.img}}" onerror="this.onerror=null;this.src='icons/svg/mystery-man.svg'" data-edit="img" alt="{{actor.name}}" title="Cambiar imagen">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la manada" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <select class="mrg-select-chip" name="system.mp_type" aria-label="Clase de manada">
+          <option value="normal" {{#unless mr.muerto}}selected{{/unless}}>{{localize "FITD.Normal_MP"}}</option>
+          <option value="undead" {{#if mr.muerto}}selected{{/if}}>{{localize "FITD.Undead_MP"}}</option>
+        </select>
+        {{#if mr.muerto}}
+        <a class="mrg-chipbtn item-add-popup" data-item-type="awakened_type" data-distinct="true"><i class="fa-solid fa-ghost"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir tipo{{/if}}</a>
+        <input class="mrg-input-chip" type="text" name="system.ua_job" value="{{mr.tipo}}" placeholder="Oficio" aria-label="Oficio">
+        {{else}}
+        <a class="mrg-chipbtn item-add-popup" data-item-type="monster_race" data-distinct="true"><i class="fa-solid fa-dragon"></i> {{#if mr.raza}}{{mr.raza}}{{else}}Elegir raza{{/if}}</a>
+        <a class="mrg-chipbtn item-add-popup" data-item-type="minion_type" data-distinct="true"><i class="fa-solid fa-users"></i> {{#if mr.tipo}}{{mr.tipo}}{{else}}Elegir función{{/if}}</a>
+        {{/if}}
+        <a class="mrg-chipbtn item-add-popup" data-item-type="minionimpulse" data-distinct="true"><i class="fa-solid fa-fire"></i> {{#if mr.impulso}}{{mr.impulso}}{{else}}Elegir impulso{{/if}}</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="mrg-vitales" aria-label="Estado de la manada">
+    <div class="mrg-vital mrg-vital--estres">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">Cuántos son</span><b>{{mr.numero.valor}}/{{mr.numero.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Número de esbirros">
+        {{#each mr.numero.pips}}<button type="button" class="mrg-pip" data-pip="system.number.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{n}} esbirros"></button>{{/each}}
+      </div>
+    </div>
+    <div class="mrg-vital">
+      <button type="button" class="mrg-interruptor {{#if mr.reventado}}mrg-on{{/if}}" data-toggle="system.bloodied" aria-pressed="{{mr.reventado}}">
+        <i class="fa-solid fa-droplet"></i> <span><strong>{{#if mr.muerto}}Expuesta{{else}}Reventada{{/if}}</strong><small>{{#if mr.reventado}}−1d a todo{{else}}Entera{{/if}}</small></span>
+      </button>
+    </div>
+    <div class="mrg-vital">
+      <button type="button" class="mrg-interruptor {{#if mr.moral}}mrg-on{{/if}}" data-toggle="system.morale" aria-pressed="{{mr.moral}}">
+        <i class="fa-solid fa-flag"></i> <span><strong>Moral</strong><small>{{#if mr.moral}}Rota: huyen{{else}}Firme{{/if}}</small></span>
+      </button>
+    </div>
+    <div class="mrg-vital">
+      <button type="button" class="mrg-btn" data-fortuna="1" data-titulo="Tirada inicial"><i class="fa-solid fa-dice"></i> Tirada inicial <small>1d</small></button>
+    </div>
+  </section>
+
+  <div class="mrg-fijo">
+    <section class="mrg-panel--fijo">
+      <div class="mrg-atributos">
+        {{#each mr.atributos}}
+        <article class="mrg-atributo">
+          <header><h3 class="mrg-titulo">{{nombre}}</h3></header>
+          {{#each acciones}}
+          <div class="mrg-accion-fila">
+            <button type="button" class="mrg-accion-tirar" data-tirar="{{id}}" title="Tirar {{nombre}} ({{dados}}d)"><span class="mrg-accion-nombre">{{nombre}}</span><span class="mrg-accion-desc">{{desc}}</span></button>
+            <div class="mrg-valor" role="group" aria-label="Puntos de {{nombre}}">
+              {{#each puntos}}<button type="button" class="mrg-pip mrg-pip--punto" data-pip="system.attributes.{{../atrib}}.skills.{{../id}}.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{../nombre}} {{n}}"></button>{{/each}}
+            </div>
+          </div>
+          {{/each}}
+        </article>
+        {{/each}}
+      </div>
+    </section>
+  </div>
+
+  <nav class="mrg-nav tabs" aria-label="Secciones de la manada">
+    <a class="item" data-tab="mejoras"><i class="fa-solid fa-arrow-up-right-dots"></i> Mejoras <span class="mrg-cuenta">{{mr.cuenta}}</span></a>
+    <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
+  </nav>
+  <div class="mrg-cuerpo">
+    <section class="tab mrg-panel" data-tab="mejoras">
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Lo que sabe hacer esta manada.</span>
+        <a class="mrg-btn item-add-popup" data-item-type="minion_upgrade"><i class="fa-solid fa-plus"></i> Añadir mejora</a>
+      </div>
+      {{#each mr.ruta}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
+      {{#each mr.regulares}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
+      {{#each mr.externas}}{{> "modules/mr-wicked-ones-es/templates/capacidad.hbs"}}{{/each}}
+      {{#unless mr.cuenta}}<p class="mrg-vacio">Esta manada aún no tiene mejoras. Añade las que le correspondan por su función.</p>{{/unless}}
+    </section>
+    <section class="tab mrg-panel" data-tab="notas">
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>

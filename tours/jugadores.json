@@ -1,6 +1,6 @@
 {
   "title": "Wicked Ones · Tutorial para jugadoras y jugadores",
-  "description": "Cómo usar tu hoja de monstruo: habilidades, estrés, EXP, ficha compacta y las tarjetas del chat.",
+  "description": "Cómo usar tu hoja de monstruo: estrés y vitales, acciones, tiradas, libreto, modo compacto y las tarjetas del chat.",
   "display": true,
   "canBeResumed": true,
   "steps": [
@@ -12,37 +12,50 @@
     {
       "id": "ficha",
       "title": "Tu hoja",
-      "content": "Arriba están tu nombre, tu raza y tu vocación. Debajo, tus contadores de <strong>Oro</strong>, <strong>EXP Malvada</strong> y <strong>EXP Osada</strong> (haz clic en un diente para marcarlo; clic en el nombre del contador para vaciarlo).",
-      "selector": ".wicked-ones.sheet.actor",
-      "tooltipDirection": "LEFT"
-    },
-    {
-      "id": "habilidades",
-      "title": "Habilidades y tiradas",
-      "content": "Hay tres atributos —<strong>Sesos, Músculos y Agallas</strong>— con tres habilidades cada uno. Cada casilla marcada es un dado. Pulsa el nombre de la habilidad para tirar: eliges posición y efecto y se lanzan los dados.\nEl cuadrado de la izquierda del atributo es la <strong>conmoción</strong>: si lo marcas, tiras 1D menos.",
-      "selector": "#attributes",
-      "tooltipDirection": "LEFT"
+      "content": "Arriba, tu nombre, tu raza y vocación y tus <strong>constantes vitales</strong>, siempre visibles. Debajo, las secciones: Acciones, Capacidades, Libreto, Equipo, Guarida y Notas.",
+      "selector": ".mrg-hoja-f, .wicked-ones.sheet.actor"
     },
     {
       "id": "estres",
-      "title": "Estrés y defensas",
-      "content": "El reloj es tu <strong>estrés</strong> (6 casillas). Al resistir una consecuencia pagas estrés; si se llena, tu personaje se descontrola. Las <strong>defensas</strong> son las que ya has gastado y los <strong>impulsos oscuros</strong>, lo que te obsesiona.",
-      "selector": "#defenses-stress",
-      "tooltipDirection": "RIGHT"
+      "title": "El estrés se usa aquí",
+      "content": "Cada casilla del <strong>Estrés</strong> es una pulsación: toca la que quieras marcar hasta ahí; vuelve a tocar la última para bajarla. Al llenarlo tu monstruo se <strong>desata</strong>. Los corazones oscuros, el oro y los suministros funcionan igual.",
+      "selector": ".mrg-vital--estres, #defenses-stress"
+    },
+    {
+      "id": "acciones",
+      "title": "Acciones",
+      "content": "Tres atributos —<strong>Sesos, Músculos y Agallas</strong>— con tres acciones cada uno. Los círculos son tus puntos (pulsa para cambiarlos); si no tienes ninguno, los rombos cuentan tu práctica. Pulsa el nombre para tirar.",
+      "selector": ".mrg-atributos, #attributes"
+    },
+    {
+      "id": "tirada",
+      "title": "Tirar los dados",
+      "content": "Elige acción, suma los trucos que quieras (<strong>Ayudar, Darlo todo, pacto oscuro, corazón oscuro</strong>) y mira tus probabilidades. Tiras al pulsar la casilla de <strong>Situación × Efecto</strong> que te diga quien dirige. También sirve para <strong>Resistir</strong> una consecuencia.",
+      "selector": "#mr-wo-tirada"
+    },
+    {
+      "id": "libreto",
+      "title": "Tu libreto",
+      "content": "Aquí ves qué es tu vocación, cómo interpretarla, tu capacidad principal y todas las que puedes aprender (pulsa <strong>Aprender</strong> para añadirla). Y lo mismo con tu raza, tu impulso oscuro y tu juerga.",
+      "selector": ".mrg-nav a[data-tab='libreto']"
     },
     {
       "id": "compacta",
       "title": "Ficha compacta",
-      "content": "Pulsa este botón para reducir la hoja a lo esencial en una sola vista. Capacidades, equipo y labores quedan en secciones que se abren y se cierran; las descripciones largas se despliegan al pulsarlas. Vuelve a pulsarlo para ver la ficha completa.",
-      "selector": ".mr-wo-compacta",
-      "tooltipDirection": "DOWN"
+      "content": "Pulsa este botón para dejar la hoja en lo esencial y tenerla siempre a mano.",
+      "selector": ".mrg-btn-compacta, .mr-wo-compacta"
     },
     {
       "id": "chat",
       "title": "Las tarjetas del chat",
-      "content": "Tras cada tirada verás el resultado y botones para lo que toca hacer: <strong>Resistir</strong>, sumar <strong>+1 Estrés</strong> o gastar un <strong>Corazón Oscuro</strong> para añadir un dado. Basta un clic: la hoja se actualiza sola.",
-      "selector": "#chat",
-      "tooltipDirection": "LEFT"
+      "content": "Tras cada tirada ves los dados, el veredicto y la gravedad de la consecuencia. Con un fallo o un éxito parcial tienes el botón <strong>Resistir la consecuencia</strong> y puedes gastar un <strong>corazón oscuro</strong> para añadir un dado.",
+      "selector": "#chat"
+    },
+    {
+      "id": "aspecto",
+      "title": "Léelo a tu manera",
+      "content": "Con este botón abres el panel de <strong>accesibilidad</strong>: modo oscuro, contraste, tamaño de letra, botones grandes y más.",
+      "selector": ".mrg-btn-aspecto"
     },
     {
       "id": "fin",

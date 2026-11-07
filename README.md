@@ -57,25 +57,54 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 
 ## 🛠️ Mejoras de juego
 
-### Ficha compacta
-Reúne en una sola vista lo habitual —retrato, EXP, estrés, defensas y los tres atributos— y deja capacidades, equipo y labores en secciones plegables que se pueden tener abiertas a la vez. Recuerda tamaño, posición y secciones de cada ficha.
+### Una hoja de monstruo pensada para jugar
+Cabecera y **constantes vitales siempre visibles**: el **Estrés** se marca pulsando sus casillas (y al llenarlo el personaje se desata), igual que los corazones oscuros, el oro, los suministros y la EXP. El resto, repartido en pestañas: **Acciones**, **Capacidades**, **Libreto**, **Equipo**, **Guarida** y **Notas**. Nada de una hoja enorme en una sola pestaña.
 
-<p align="center"><img src="docs/img/compacta.webp" alt="Ficha compacta" width="70%"></p>
+<p align="center"><img src="docs/img/ficha.webp" alt="Hoja de monstruo" width="62%"> <img src="docs/img/compacta.webp" alt="Modo compacto" width="36%"></p>
 
-### Modo oscuro que se ve
-Los indicadores negros del sistema (casillas de habilidad, conmoción, reloj de estrés, corazones) se recolorean en oscuro. Se activa desde el icono de accesibilidad de la cabecera.
+El **modo compacto** deja solo lo habitual (vitales, acciones y capacidades) en un rincón de la pantalla; recuerda tamaño y posición de cada hoja.
 
-<p align="center"><img src="docs/img/oscuro.webp" alt="Modo oscuro" width="70%"></p>
+### Todas las hojas, rediseñadas
+Además de la de personaje, ahora tienen hoja propia: **manada de esbirros**, **mazmorra**, **facción** (y la de la Alianza Impía), **grupo invasor** (con corazones tachables y defensas), **panel del DJ** (el ciclo de juego de un vistazo con las pistas de cada fase), **conquista** y **reloj** (con su círculo). El **despertado** usa la misma hoja de monstruo, con su «Anatomía», «Secreciones/Trofeos» y pestaña de «Conquista».
+
+<p align="center"><img src="docs/img/hojas.webp" alt="Hojas de esbirros, mazmorra, grupo invasor y panel del DJ" width="100%"></p>
+
+### Libretos: qué eres y cómo interpretarlo
+Los jugadores ven su **vocación** y su **raza** explicadas —cómo interpretarlas, capacidad principal, pista de *flashback*, todas las capacidades que pueden aprender (con botón para añadirlas a la hoja), objetos de ejemplo, frases y nombres típicos— y los **impulsos oscuros** y **juergas**. Están en la pestaña *Libreto* de la hoja y en la ventana **Libretos** (cabecera de la hoja, o `api.abrirLibretos()`).
+
+<p align="center"><img src="docs/img/libreto.webp" alt="Libreto de vocación" width="62%"></p>
+
+### Tiradas con toque malote
+El clic en una acción abre un lanzador inspirado en los lanzadores FitD genéricos, integrado en el módulo: eliges la acción, los **trucos del manual** (*Ayudar*, *Darlo todo*, **pacto oscuro**, **corazón oscuro**), ves la **probabilidad** de fallo/parcial/éxito/crítico y tiras pulsando la casilla donde se cruzan **Situación** y **Efecto**. También sirve para **resistir** (no se puede con la acción que causó la consecuencia) y para tiradas de fortuna.
+
+<p align="center"><img src="docs/img/tirada.webp" alt="Lanzador de tiradas" width="48%"> <img src="docs/img/tarjetas.webp" alt="Tarjetas del chat" width="30%"></p>
+
+Las **tarjetas del chat** muestran los dados de hueso, el veredicto, la gravedad de la consecuencia según la situación y lo que se aplicó solo; desde ellas se puede **resistir** o **gastar un corazón oscuro** (la tarjeta se recalcula). También las del ciclo de partida, los oráculos y el «¡se desata!».
+
+### Accesibilidad completa
+Un panel con vista previa: **modo oscuro** (también en las tarjetas del chat), **alto contraste**, **lectura limpia** con tinta a elegir, **tamaño de texto** (85–160 %), **tipografía sencilla**, **espaciado amplio**, **botones grandes**, **menos movimiento** (respeta el del sistema operativo), **menos efectos** y **marcas para daltonismo**. Se abre desde Configuración o desde la cabecera de la hoja.
+
+<p align="center"><img src="docs/img/aspecto.webp" alt="Panel de aspecto y accesibilidad" width="62%"></p>
+
+<p align="center"><img src="docs/img/claro.webp" alt="Tema claro" width="62%"></p>
+
+### Todo es opcional
+En Configuración, **«Estilo de las hojas»** y **«Estilo de las tiradas y las tarjetas»** se pueden poner en *Original del sistema* para volver al aspecto de siempre (por defecto, MR). Los automatismos de reglas siguen funcionando en cualquier caso.
+
+### Asistente y generador
+Rehecho: cinco secciones (**La mesa**, **Esbirros**, **Guarida**, **Invasores**, **Tablas**) con tarjetas claras, labores agrupadas por tipo y tablas con su dado.
+
+<p align="center"><img src="docs/img/asistente.webp" alt="Asistente y generador" width="62%"></p>
 
 ### Reglas automatizadas
 Tras cada tirada se aplican solas las reglas del libro (se puede desactivar en Configuración):
 - **Resistencias**: fallo 3 de Estrés, parcial 2, éxito 1; el crítico despeja 1.
 - **Estrés lleno**: el personaje se **desata** y la tarjeta recuerda los pasos.
 - **Conmoción** que se limpia y **EXP de práctica** (tres marcas suben la acción a 1 punto).
-- **Corazón Oscuro**: un botón gasta uno, tira +1D y recalcula el resultado.
+- **Corazón oscuro**: se gasta desde la tarjeta o el lanzador, tira +1D y recalcula el resultado (y corrige el Estrés).
 
-### Asistente de instalación y tutorial
-Al activar el módulo en un mundo vacío, un asistente te deja **importar todo al mundo** o **solo ordenar los compendios**. Después, un **tutorial guiado** para dirección y para jugadores. Ambos se repiten desde Configuración.
+### Instalar, actualizar y reinstalar
+Al activar el módulo en un mundo vacío, un asistente te deja **importar todo al mundo** o **solo ordenar los compendios**. Al **actualizar**, se te ofrece **reinstalar todo el contenido**: restaura lo que es del módulo, añade lo nuevo y retira lo que ya no existe, **sin tocar nada que no sea del módulo** (también está en Configuración). Un **tutorial guiado** para dirección y para jugadores se repite cuando quieras.
 
 ## 📋 Requisitos
 
@@ -120,9 +149,12 @@ npm run datos && npm run build
 **MR- Wicked Ones** extends the [Wicked Ones](https://foundryvtt.com/packages/wicked-ones) system for Foundry VTT (v13) with a complete Spanish-language campaign (*El Valle Silencioso*), all-new art generated locally in the Wicked Ones style, and the usual MR- toolkit:
 
 - **Everything in folders**: actors, items, scenes, journals and compendia, with this module's content separated from the system's.
-- **Real compact sheet** (not a crop): header, counters, defences/stress, attributes and collapsible sections regrouped in one place; remembers size, position and open sections per sheet.
-- **Fixed dark mode** (black PNG indicators recoloured so they stay visible).
+- **Redesigned character sheet**: vitals always visible (clickable stress track), tabs for Actions, Abilities, **Playbook**, Gear, Lair and Notes, and a real compact mode.
+- **Playbooks** for every calling and monster race (how to play it, abilities you can learn, example items), readable by players.
+- **Roller** inspired by generic FitD rollers (Position × Effect grid, Help / Go all out / dark pact / dark heart, live odds) and **monster-themed chat cards**.
+- **Full accessibility panel** (dark mode also on chat cards, high contrast, reading mode, text size, plain font, spacing, big buttons, less motion/effects, colour-blind marks) and a switch back to the original system look.
 - **Scene reading + music + effects** for 21 scenes through [MR- Dirección](https://github.com/ManuRomera/mr-direccion); original synthesized soundtrack.
+- **Reinstall content** on update without touching anything that isn't the module's.
 - **Automations** verified against the *Wicked Ones* 1.4 rulebook (CC0): resistance stress, feral state, shock, practice XP, Dark Heart +1D; all optional.
 - **Guided tour** for the GM and for players, and an install wizard (import everything or just organise the compendia).
 

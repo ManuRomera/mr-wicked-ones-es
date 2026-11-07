@@ -226,7 +226,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-ulrot.webp",
-    "slug": "pj-ulrot"
+    "slug": "pj-ulrot",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"
@@ -458,7 +459,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-crag.webp",
-    "slug": "pj-crag"
+    "slug": "pj-crag",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"
@@ -690,7 +692,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-slem.webp",
-    "slug": "pj-slem"
+    "slug": "pj-slem",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"
@@ -922,7 +925,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-viska.webp",
-    "slug": "pj-viska"
+    "slug": "pj-viska",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"
@@ -1154,7 +1158,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-kaelen.webp",
-    "slug": "pj-kaelen"
+    "slug": "pj-kaelen",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"
@@ -1386,7 +1391,8 @@
    "mr-wicked-ones-es": {
     "tipo": "pj",
     "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-zira.webp",
-    "slug": "pj-zira"
+    "slug": "pj-zira",
+    "contenido": true
    }
   },
   "folder": "yC0RM3z2HA5dG30k"

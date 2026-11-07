@@ -1,3 +1,28 @@
+## 2.1.0 (2026-11-07)
+
+Rediseño completo de la interfaz: hojas, tiradas, tarjetas del chat, asistente, accesibilidad y libretos.
+
+### Añadido
+- **Hoja de monstruo** nueva (heredada de la del sistema): cabecera y constantes vitales siempre visibles (**Estrés usable pulsando casillas**, corazones, reventado, oro, suministros, EXP) y pestañas Acciones, Capacidades, **Libreto**, Equipo, Guarida y Notas; modo compacto real que recuerda su estado por hoja.
+- **Libretos** de vocaciones y razas (texto del manual + capacidades de los compendios, en castellano), con botón para aprender capacidades y elegir vocación, raza, impulso y juerga; ventana propia `Libretos`.
+- **Lanzador de tiradas** (Situación × Efecto, Ayudar, Darlo todo, pacto oscuro, corazón oscuro, probabilidades) integrado con las tiradas del módulo y con las hojas originales.
+- **Tarjetas de chat** rediseñadas y con datos estructurados (se redibujan, incluido el tema oscuro y claro); también para el ciclo de partida, los oráculos y «se desata».
+- **Panel de aspecto y accesibilidad** con vista previa: oscuro, contraste, lectura limpia, tamaño, tipografía sencilla, espaciado, botones grandes, menos movimiento y efectos, daltonismo.
+- Ajustes **«Estilo de las hojas»** y **«Estilo de las tiradas y las tarjetas»** (MR u original del sistema).
+- **Reinstalar todo el contenido** al actualizar (y desde Configuración): restaura lo del módulo, añade lo nuevo y retira lo obsoleto, sin tocar lo ajeno.
+
+- **Hojas nuevas** para manada de esbirros, mazmorra, facción, facción de la Alianza Impía, grupo invasor, panel del DJ (ciclo de juego con pistas por fase), conquista y reloj (círculo clicable); **el despertado** pasa a la hoja de monstruo (Anatomía, Secreciones/Trofeos, Conquista). Las notas usan el editor enriquecido del sistema.
+- `Reinstalar` deja las imágenes de la v2.0.0 que apuntaban a archivos inexistentes (retrato del panel del DJ, imágenes de diarios, retratos de grupos) en el arte nuevo.
+
+### Cambiado
+- **Asistente y generador** rehechos (cinco secciones, tarjetas, labores por tipo).
+- Las hojas originales del sistema (esbirros, mazmorra, facción, grupo, objetos) unifican su tipografía (adiós a *Piedra* a 20 px en los campos) y comparten la paleta del tema oscuro.
+- Tutoriales actualizados.
+
+### Corregido
+- El cálculo de dados del sistema (`value[0]`) daba `NaN` con valores numéricos: el módulo calcula la reserva por su cuenta.
+- La resistencia usa una acción, como dice el manual (y no la puntuación del atributo).
+
 # Cambios
 
 ## 2.0.0 (2026-11-07)

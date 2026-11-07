@@ -1,0 +1,70 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja">
+    <img class="mrg-retrato" src="{{actor.img}}" onerror="this.onerror=null;this.src='icons/svg/mystery-man.svg'" data-edit="img" alt="{{actor.name}}" title="Cambiar imagen">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre del grupo invasor" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <span class="mrg-chip"><i class="fa-solid fa-shield-halved"></i> {{mr.aventureros.length}} aventureros</span>
+        <span class="mrg-chip"><i class="fa-solid fa-hand-holding-heart"></i> {{mr.ayudantes.length}} ayudantes</span>
+        <a class="mrg-btn item-add-popup" data-item-type="adventurer"><i class="fa-solid fa-plus"></i> Añadir</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mrg-cuerpo">
+    <section class="mrg-panel">
+      <h4 class="mrg-seccion">Aventureros <small>los corazones se tachan pulsándolos; las defensas se gastan una a una</small></h4>
+      <div class="mrg-aventureros">
+        {{#each mr.aventureros}}
+        <article class="mrg-adv">
+          <header>
+            <span class="mrg-nivel" title="Nivel {{tier}}">N{{tier}}</span>
+            <h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{clase}}</button></h5>
+            <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{clase}}"><i class="fa-solid fa-trash"></i></button>
+          </header>
+          <div class="mrg-adv-fila">
+            <div class="mrg-corazones" role="group" aria-label="Corazones">
+              {{#each corazones}}<button type="button" class="mrg-corazon mrg-corazon--{{estado}}" data-corazon="{{j}}" data-item="{{../id}}" aria-label="Corazón {{j}}, {{#if estado}}herido{{else}}entero{{/if}}"></button>{{/each}}
+            </div>
+            <div class="mrg-usos" role="group" aria-label="Movimientos gastados">
+              {{#each usos}}<button type="button" class="mrg-pip" data-uso="{{../id}}" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Movimiento {{n}}"></button>{{/each}}
+              <button type="button" class="mrg-btn mrg-btn--suave" data-fortuna="{{tier}}" data-titulo="Defensa de {{clase}}" title="Tirada defensiva ({{tier}}d)"><i class="fa-solid fa-shield"></i></button>
+            </div>
+          </div>
+          {{#if detalles.length}}<ul class="mrg-adv-detalles">{{#each detalles}}<li>{{#if t}}<strong>{{t}}:</strong> {{/if}}{{x}}</li>{{/each}}</ul>{{/if}}
+          <div class="mrg-adv-chips">
+            {{#each pos}}<span class="mrg-chip mrg-chip--verde">{{this}}</span>{{/each}}
+            {{#each neg}}<span class="mrg-chip mrg-chip--sangre">{{this}}</span>{{/each}}
+            {{#each motivos}}<span class="mrg-chip mrg-chip--azul"><i class="fa-solid fa-bullseye"></i> {{this}}</span>{{/each}}
+          </div>
+        </article>
+        {{else}}<p class="mrg-vacio">Sin aventureros. Usa «Añadir» o genera un grupo desde el asistente.</p>{{/each}}
+      </div>
+
+      <h4 class="mrg-seccion">Ayudantes</h4>
+      <div class="mrg-aventureros mrg-aventureros--ayudantes">
+        {{#each mr.ayudantes}}
+        <article class="mrg-adv">
+          <header>
+            <h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{clase}}</button></h5>
+            <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{clase}}"><i class="fa-solid fa-trash"></i></button>
+          </header>
+          <div class="mrg-adv-fila">
+            <div class="mrg-corazones" role="group" aria-label="Corazón">
+              {{#each corazones}}<button type="button" class="mrg-corazon mrg-corazon--{{estado}}" data-corazon="{{j}}" data-item="{{../id}}" aria-label="Corazón, {{#if estado}}herido{{else}}entero{{/if}}"></button>{{/each}}
+            </div>
+            <div class="mrg-usos">{{#each usos}}<button type="button" class="mrg-pip" data-uso="{{../id}}" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Movimiento"></button>{{/each}}</div>
+          </div>
+          {{#if detalles.length}}<ul class="mrg-adv-detalles">{{#each detalles}}<li>{{#if t}}<strong>{{t}}:</strong> {{/if}}{{x}}</li>{{/each}}</ul>{{/if}}
+          <div class="mrg-adv-chips">
+            {{#each pos}}<span class="mrg-chip mrg-chip--verde">{{this}}</span>{{/each}}
+            {{#each neg}}<span class="mrg-chip mrg-chip--sangre">{{this}}</span>{{/each}}
+            {{#each motivos}}<span class="mrg-chip mrg-chip--azul">{{this}}</span>{{/each}}
+          </div>
+        </article>
+        {{else}}<p class="mrg-nota">Sin ayudantes.</p>{{/each}}
+      </div>
+    </section>
+  </div>
+</form>

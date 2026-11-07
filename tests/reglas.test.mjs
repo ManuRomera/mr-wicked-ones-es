@@ -18,7 +18,8 @@ import {
   evaluarDesastre,
   evaluarRepresalia,
   evaluarDefensaMazmorra,
-  simularIncursionEsbirros
+  simularIncursionEsbirros,
+  probabilidades
 } from "../js/core/reglas.mjs";
 
 test("Micro-utilidades puras (n, sig, acota)", () => {
@@ -147,4 +148,43 @@ test("EXP de práctica: tres marcas suben la acción sin puntos a 1", () => {
   assert.deepEqual(progresoPractica(0, 0), { valor: 0, practica: 1, sube: false });
   assert.deepEqual(progresoPractica(0, 2), { valor: 1, practica: 0, sube: true });
   assert.deepEqual(progresoPractica(2, 1), { valor: 2, practica: 1, sube: false });
+});
+
+test("Probabilidades de la reserva de dados suman 1 y coinciden con casos conocidos", () => {
+  for (const d of [0, 1, 2, 3, 4, 6]) {
+    const p = probabilidades(d);
+    assert.ok(Math.abs(p.critical + p.success + p.mixed + p.failure - 1) < 1e-9, `suma ${d}d`);
+  }
+  const u = probabilidades(1);
+  assert.equal(u.critical, 0);
+  assert.ok(Math.abs(u.success - 1 / 6) < 1e-9 && Math.abs(u.mixed - 2 / 6) < 1e-9 && Math.abs(u.failure - 0.5) < 1e-9);
+  assert.ok(Math.abs(probabilidades(2).critical - 1 / 36) < 1e-9);
+  assert.equal(probabilidades(0).critical, 0);
+});
+
+test("Libretos del manual: 9 vocaciones y 6 razas completas", async () => {
+  const d = JSON.parse(await fs.readFile(new URL("../content/libretos.json", import.meta.url), "utf8"));
+  assert.equal(d.vocaciones.length, 9);
+  for (const v of d.vocaciones) {
+    assert.ok(v.nombre && v.principal?.nombre && v.principal.texto.length > 30, `principal de ${v.nombre}`);
+    assert.ok(v.intro.length > 60, `intro de ${v.nombre}`);
+    assert.ok(v.flashback.startsWith("En tus flashbacks"), `flashback de ${v.nombre}`);
+    assert.ok(v.objetos.length >= 10, `objetos de ${v.nombre}`);
+  }
+  assert.equal(d.razas.length, 6);
+  for (const r of d.razas) assert.ok(r.texto.length > 60 && r.nombres.length >= 10 && r.dice.length >= 2, `raza ${r.nombre}`);
+});
+
+test("Estructura del módulo: estilos, módulos JS, plantillas y versiones coherentes", async () => {
+  const raiz = new URL("../", import.meta.url);
+  const m = JSON.parse(await fs.readFile(new URL("module.json", raiz), "utf8"));
+  const pkg = JSON.parse(await fs.readFile(new URL("package.json", raiz), "utf8"));
+  assert.equal(m.version, pkg.version);
+  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
+    await fs.access(new URL(f, raiz));
+  }
+  for (const tour of ["director", "jugadores"]) {
+    const j = JSON.parse(await fs.readFile(new URL(`tours/${tour}.json`, raiz), "utf8"));
+    assert.ok(j.steps.length >= 7 && j.steps.every(s => s.id && s.content), `tour ${tour}`);
+  }
 });

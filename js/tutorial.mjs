@@ -20,6 +20,14 @@ const abrirHoja = async () => {
   await esperar(600);
 };
 
+const cerrarTirada = () => foundry.applications.instances?.get?.("mr-wo-tirada")?.close?.();
+const abrirTiradaEjemplo = async () => {
+  const a = personaje();
+  if (!a) return;
+  game.modules.get(MOD)?.api?.abrirTirada(a, {});
+  await esperar(700);
+};
+
 /**
  * Preparación de cada paso (abrir ventana, activar pestaña de la barra lateral…). Clave: `<tour>.<id del paso>`.
  * Si falla, el tour sigue y el paso sale centrado.
@@ -30,13 +38,20 @@ const ANTES = {
   "director.escenas": async () => ui.sidebar?.changeTab?.("scenes", "primary"),
   "director.diarios": async () => ui.sidebar?.changeTab?.("journal", "primary"),
   "director.ficha": abrirHoja,
+  "director.libretos": async () => { await abrirHoja(); personaje()?.sheet?._tabs?.[0]?.activate?.("libreto"); await esperar(400); },
   "director.compacta": abrirHoja,
+  "director.tirada": abrirTiradaEjemplo,
+  "director.chat": async () => { cerrarTirada(); ui.sidebar?.changeTab?.("chat", "primary"); },
   "director.generador": async () => { game.modules.get(MOD)?.api?.abrirGenerador(); await esperar(700); },
-  "director.chat": async () => ui.sidebar?.changeTab?.("chat", "primary"),
+  "director.aspecto": async () => { await abrirHoja(); personaje()?.sheet?._tabs?.[0]?.activate?.("acciones"); },
   "jugadores.ficha": abrirHoja,
-  "jugadores.habilidades": abrirHoja,
+  "jugadores.estres": abrirHoja,
+  "jugadores.acciones": async () => { await abrirHoja(); personaje()?.sheet?._tabs?.[0]?.activate?.("acciones"); },
+  "jugadores.tirada": abrirTiradaEjemplo,
+  "jugadores.libreto": async () => { cerrarTirada(); await abrirHoja(); personaje()?.sheet?._tabs?.[0]?.activate?.("libreto"); await esperar(400); },
   "jugadores.compacta": abrirHoja,
-  "jugadores.chat": async () => ui.sidebar?.changeTab?.("chat", "primary")
+  "jugadores.chat": async () => { cerrarTirada(); ui.sidebar?.changeTab?.("chat", "primary"); },
+  "jugadores.aspecto": abrirHoja
 };
 
 class TourWO extends foundry.nue.Tour {

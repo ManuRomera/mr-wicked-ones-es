@@ -1,0 +1,32 @@
+<form class="{{cssClass}} mrg mrg-hoja-f mrg-reloj-f" autocomplete="off">
+  <header class="mrg-cab-hoja mrg-cab-hoja--sin-retrato">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="¿Qué se va llenando?" aria-label="Nombre del reloj">
+      <div class="mrg-cab-chips">
+        <label class="mrg-selector"><span class="mrg-etiqueta">Segmentos</span>
+          <select name="system.type" data-dtype="Number">{{#each mr.tipos}}<option value="{{v}}" {{#if sel}}selected{{/if}}>{{v}}</option>{{/each}}</select></label>
+        <label class="mrg-selector"><span class="mrg-etiqueta">Color</span>
+          <select name="system.style">{{#each mr.estilos}}<option value="{{v}}" {{#if sel}}selected{{/if}}>{{t}}</option>{{/each}}</select></label>
+      </div>
+    </div>
+  </header>
+
+  <div class="mrg-cuerpo">
+    <section class="mrg-panel">
+      <figure class="mrg-reloj {{#if mr.lleno}}mrg-reloj--lleno{{/if}}" style="--reloj: {{mr.color}}">
+        <svg viewBox="0 0 200 200" role="group" aria-label="Reloj de {{mr.total}} segmentos, {{mr.valor}} rellenos">
+          {{#each mr.segmentos}}
+          <path class="mrg-seg-reloj {{#if on}}on{{/if}}" d="{{d}}" data-pip="system.value" data-n="{{n}}" role="button" tabindex="0" aria-label="Segmento {{n}}"></path>
+          {{/each}}
+          <circle cx="100" cy="100" r="90" class="mrg-reloj-borde"></circle>
+        </svg>
+        <figcaption><b>{{mr.valor}}</b> / {{mr.total}}{{#if mr.lleno}} · ¡Lleno!{{/if}}</figcaption>
+      </figure>
+      <div class="mrg-barra-rapida">
+        <button type="button" class="mrg-btn" data-num="system.value" data-delta="-1" data-min="0" data-max="{{mr.total}}"><i class="fa-solid fa-minus"></i></button>
+        <button type="button" class="mrg-btn mrg-btn--sangre" data-num="system.value" data-delta="1" data-min="0" data-max="{{mr.total}}"><i class="fa-solid fa-plus"></i> Avanzar</button>
+      </div>
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.notes" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>

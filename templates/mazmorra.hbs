@@ -1,0 +1,82 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja mrg-cab-hoja--sin-retrato">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la mazmorra" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <a class="mrg-chipbtn item-add-popup" data-item-type="dungeon_theme" data-distinct="true"><i class="fa-solid fa-landmark"></i> {{#if mr.tema}}{{mr.tema.nombre}}{{else}}Elegir temática{{/if}}</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="mrg-vitales" aria-label="Nivel de la mazmorra">
+    <div class="mrg-vital mrg-vital--estres">
+      <div class="mrg-vital-t"><span class="mrg-etiqueta">Nivel de la mazmorra</span><b>{{mr.nivel.valor}}/{{mr.nivel.max}}</b></div>
+      <div class="mrg-pips" role="group" aria-label="Nivel">
+        {{#each mr.nivel.pips}}<button type="button" class="mrg-pip" data-pip="system.tier.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Nivel {{n}}"></button>{{/each}}
+      </div>
+    </div>
+    <div class="mrg-vital">
+      <button type="button" class="mrg-btn" data-fortuna="{{mr.nivel.valor}}" data-titulo="Nivel de la mazmorra"><i class="fa-solid fa-dice"></i> Tirada del nivel <small>{{mr.nivel.valor}}d</small></button>
+    </div>
+  </section>
+
+  <nav class="mrg-nav tabs" aria-label="Secciones de la mazmorra">
+    <a class="item" data-tab="descripcion"><i class="fa-solid fa-scroll"></i> Descripción</a>
+    <a class="item" data-tab="salas"><i class="fa-solid fa-door-open"></i> Salas de nivel 3 <span class="mrg-cuenta">{{mr.salas.length}}</span></a>
+    <a class="item" data-tab="plan"><i class="fa-solid fa-route"></i> Plan maestro</a>
+    <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
+  </nav>
+
+  <div class="mrg-cuerpo">
+    <section class="tab mrg-panel" data-tab="descripcion">
+      {{#if mr.tema}}
+      <article class="mrg-cap mrg-cap--principal">
+        <header><h5><button type="button" class="mrg-enlace" data-abrir="{{mr.tema.id}}">{{mr.tema.nombre}}</button></h5>{{#if mr.tema.especial}}<span class="mrg-chip mrg-chip--sangre">{{mr.tema.especial}}</span>{{/if}}
+          <button type="button" class="mrg-mini" data-borrar="{{mr.tema.id}}" aria-label="Quitar temática"><i class="fa-solid fa-trash"></i></button></header>
+        {{#if mr.tema.desc}}<p>{{mr.tema.desc}}</p>{{/if}}
+        {{#if mr.tema.texto}}<p>{{mr.tema.texto}}</p>{{/if}}
+        {{#each mr.tema.checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}
+      </article>
+      {{/if}}
+      <div class="mrg-campos mrg-campos--anchos">
+        {{#each mr.campos}}
+        <label class="mrg-campo"><span class="mrg-etiqueta">{{etiqueta}}</span><textarea name="system.{{k}}" rows="4" placeholder="{{pista}}">{{valor}}</textarea></label>
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="salas">
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Las salas de nivel 3 que has construido. Si no son de la temática, cuentan como «flexibles».</span>
+        <a class="mrg-btn item-add-popup" data-item-type="tier3room"><i class="fa-solid fa-plus"></i> Añadir sala</a>
+      </div>
+      <div class="mrg-lista">
+        {{#each mr.salas}}
+        <article class="mrg-objeto {{#if falta}}mrg-objeto--falta{{/if}}">
+          <header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+            {{#if tema}}<span class="mrg-chip">{{tema}}</span>{{/if}}{{#if flexible}}<span class="mrg-chip mrg-chip--oro">Flexible</span>{{/if}}
+            <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+          {{#if desc}}<p>{{desc}}</p>{{/if}}
+          {{#if requisitos}}<p class="mrg-nota"><strong>Requisitos:</strong> {{requisitos}}</p>{{/if}}
+          <label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="missing_materials" {{#if falta}}checked{{/if}}><span>Faltan materiales</span></label>
+          {{#each checks}}<label class="mrg-casilla"><input type="checkbox" data-item-check="{{id}}" data-campo="{{campo}}" {{#if on}}checked{{/if}}><span>{{texto}}</span></label>{{/each}}
+        </article>
+        {{else}}<p class="mrg-vacio">Aún no hay salas de nivel 3.</p>{{/each}}
+      </div>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="plan">
+      <p class="mrg-nota">Los seis pasos del plan maestro, uno por cada fase del plan para dominar el valle.</p>
+      <ol class="mrg-plan">
+        {{#each mr.plan}}
+        <li><span class="mrg-plan-n">{{num}}</span><label class="mrg-campo"><span class="mrg-etiqueta">{{etiqueta}}</span><textarea name="{{k}}" rows="2">{{valor}}</textarea></label></li>
+        {{/each}}
+      </ol>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="notas">
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>

@@ -77,7 +77,7 @@ const done = new Promise((res, rej) => {
   zip.on("error", rej);
 });
 
-for (const p of ["module.json", "js", "styles", "lang", "packs", "assets", "content", "compendium", "tours", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md"]) {
+for (const p of ["module.json", "js", "styles", "lang", "packs", "assets", "content", "compendium", "tours", "templates", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md"]) {
   try {
     const st = await fs.stat(p);
     if (st.isDirectory()) zip.directory(p, p);

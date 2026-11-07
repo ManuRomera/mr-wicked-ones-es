@@ -109,7 +109,8 @@
       "clave": "portada",
       "slug": "portada",
       "imagen": true,
-      "musica": "acecho"
+      "musica": "acecho",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -217,7 +218,8 @@
       "clave": "valle",
       "slug": "valle",
       "imagen": false,
-      "musica": "valle"
+      "musica": "valle",
+      "contenido": true
      }
     },
     "folder": "icCMElClmBONEq9P"
@@ -325,7 +327,8 @@
       "clave": "cueva-mercaderes",
       "slug": "cueva-mercaderes",
       "imagen": true,
-      "musica": "incursion"
+      "musica": "incursion",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -433,7 +436,8 @@
       "clave": "cueva-mercader-plano",
       "slug": "cueva-mercader-plano",
       "imagen": false,
-      "musica": "cueva"
+      "musica": "cueva",
+      "contenido": true
      }
     },
     "folder": "NcPNcetnI9W7GCnP"
@@ -541,7 +545,8 @@
       "clave": "guarida-1",
       "slug": "guarida-1",
       "imagen": false,
-      "musica": "acecho"
+      "musica": "acecho",
+      "contenido": true
      }
     },
     "folder": "NcPNcetnI9W7GCnP"
@@ -649,7 +654,8 @@
       "clave": "guarida-2",
       "slug": "guarida-2",
       "imagen": false,
-      "musica": "taller"
+      "musica": "taller",
+      "contenido": true
      }
     },
     "folder": "NcPNcetnI9W7GCnP"
@@ -757,7 +763,8 @@
       "clave": "guarida-3",
       "slug": "guarida-3",
       "imagen": false,
-      "musica": "invasion"
+      "musica": "invasion",
+      "contenido": true
      }
     },
     "folder": "NcPNcetnI9W7GCnP"
@@ -865,7 +872,8 @@
       "clave": "biblioteca-abadia",
       "slug": "biblioteca-abadia",
       "imagen": true,
-      "musica": "abadia"
+      "musica": "abadia",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -973,7 +981,8 @@
       "clave": "ritual-luna-llena",
       "slug": "ritual-luna-llena",
       "imagen": true,
-      "musica": "ritual"
+      "musica": "ritual",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -1081,7 +1090,8 @@
       "clave": "defensa-mazmorra",
       "slug": "defensa-mazmorra",
       "imagen": true,
-      "musica": "invasion"
+      "musica": "invasion",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -1189,7 +1199,8 @@
       "clave": "consejo-guerra",
       "slug": "consejo-guerra",
       "imagen": true,
-      "musica": "consejo"
+      "musica": "consejo",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -1297,7 +1308,8 @@
       "clave": "batalla-santuario",
       "slug": "batalla-santuario",
       "imagen": true,
-      "musica": "climax"
+      "musica": "climax",
+      "contenido": true
      }
     },
     "folder": "diwRbiKLcotxIaQ6"
@@ -1405,7 +1417,8 @@
       "clave": "cloacas",
       "slug": "cloacas",
       "imagen": false,
-      "musica": "cloacas"
+      "musica": "cloacas",
+      "contenido": true
      }
     },
     "folder": "icCMElClmBONEq9P"
@@ -1513,7 +1526,8 @@
       "clave": "mares",
       "slug": "mares",
       "imagen": false,
-      "musica": "mares"
+      "musica": "mares",
+      "contenido": true
      }
     },
     "folder": "icCMElClmBONEq9P"
@@ -1621,7 +1635,8 @@
       "clave": "guerra",
       "slug": "guerra",
       "imagen": false,
-      "musica": "guerra"
+      "musica": "guerra",
+      "contenido": true
      }
     },
     "folder": "icCMElClmBONEq9P"
@@ -1729,7 +1744,8 @@
       "clave": "sala-del-trono",
       "slug": "sala-del-trono",
       "imagen": true,
-      "musica": "consejo"
+      "musica": "consejo",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -1837,7 +1853,8 @@
       "clave": "excavacion",
       "slug": "excavacion",
       "imagen": true,
-      "musica": "excavacion"
+      "musica": "excavacion",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -1945,7 +1962,8 @@
       "clave": "taller-alquimia",
       "slug": "taller-alquimia",
       "imagen": true,
-      "musica": "taller"
+      "musica": "taller",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -2053,7 +2071,8 @@
       "clave": "cripta-hallazgo",
       "slug": "cripta-hallazgo",
       "imagen": true,
-      "musica": "cripta"
+      "musica": "cripta",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -2161,7 +2180,8 @@
       "clave": "banquete",
       "slug": "banquete",
       "imagen": true,
-      "musica": "banquete"
+      "musica": "banquete",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -2269,7 +2289,8 @@
       "clave": "incursion-aventureros",
       "slug": "incursion-aventureros",
       "imagen": true,
-      "musica": "incursion"
+      "musica": "incursion",
+      "contenido": true
      }
     },
     "folder": "fA3Ap91ZuwovCmkJ"
@@ -2503,7 +2524,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-ulrot.webp",
-      "slug": "pj-ulrot"
+      "slug": "pj-ulrot",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -2735,7 +2757,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-crag.webp",
-      "slug": "pj-crag"
+      "slug": "pj-crag",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -2967,7 +2990,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-slem.webp",
-      "slug": "pj-slem"
+      "slug": "pj-slem",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -3199,7 +3223,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-viska.webp",
-      "slug": "pj-viska"
+      "slug": "pj-viska",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -3431,7 +3456,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-kaelen.webp",
-      "slug": "pj-kaelen"
+      "slug": "pj-kaelen",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -3663,7 +3689,8 @@
      "mr-wicked-ones-es": {
       "tipo": "pj",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/pj-zira.webp",
-      "slug": "pj-zira"
+      "slug": "pj-zira",
+      "contenido": true
      }
     },
     "folder": "yC0RM3z2HA5dG30k"
@@ -3820,7 +3847,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-ulrot.webp",
-      "slug": "esb-ulrot"
+      "slug": "esb-ulrot",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -3977,7 +4005,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-crag.webp",
-      "slug": "esb-crag"
+      "slug": "esb-crag",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -4134,7 +4163,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-slem.webp",
-      "slug": "esb-slem"
+      "slug": "esb-slem",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -4291,7 +4321,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-viska.webp",
-      "slug": "esb-viska"
+      "slug": "esb-viska",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -4448,7 +4479,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-kaelen.webp",
-      "slug": "esb-kaelen"
+      "slug": "esb-kaelen",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -4605,7 +4637,8 @@
      "mr-wicked-ones-es": {
       "tipo": "esbirros",
       "figura": "modules/mr-wicked-ones-es/assets/figuras/esb-zira.webp",
-      "slug": "esb-zira"
+      "slug": "esb-zira",
+      "contenido": true
      }
     },
     "folder": "umhaXEG2hmp5mnHe"
@@ -4648,7 +4681,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4691,7 +4725,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4734,7 +4769,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4777,7 +4813,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4820,7 +4857,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4863,7 +4901,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4906,7 +4945,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4949,7 +4989,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -4992,7 +5033,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -5035,7 +5077,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -5078,7 +5121,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -5121,7 +5165,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Valle Silencioso",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "yzopOvJt75VypJXa"
@@ -5164,7 +5209,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5207,7 +5253,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5250,7 +5297,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5293,7 +5341,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5336,7 +5385,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5379,7 +5429,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5422,7 +5473,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5465,7 +5517,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5508,7 +5561,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5551,7 +5605,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5594,7 +5649,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5637,7 +5693,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Cloacas de la Gran Ciudad",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "mRRVEc63UxewhAe9"
@@ -5680,7 +5737,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5723,7 +5781,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5766,7 +5825,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5809,7 +5869,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5852,7 +5913,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5895,7 +5957,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5938,7 +6001,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -5981,7 +6045,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -6024,7 +6089,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -6067,7 +6133,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -6110,7 +6177,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -6153,7 +6221,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Mares Coloniales",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "DhHxbitg219PPPOP"
@@ -6196,7 +6265,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6239,7 +6309,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6282,7 +6353,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6325,7 +6397,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6368,7 +6441,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6411,7 +6485,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6454,7 +6529,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6497,7 +6573,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6540,7 +6617,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "light"
+      "bando": "light",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6583,7 +6661,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6626,7 +6705,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "neutral"
+      "bando": "neutral",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6669,7 +6749,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "entorno": "Zona de Guerra",
-      "bando": "dark"
+      "bando": "dark",
+      "contenido": true
      }
     },
     "folder": "9PyO37BeGgJwDcaj"
@@ -6720,7 +6801,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "tipo": "mazmorra"
+      "tipo": "mazmorra",
+      "contenido": true
      }
     },
     "folder": "kparm0JeHxb1mMW1"
@@ -6793,7 +6875,7 @@
       "_id": "M5T25ZZ0dmbylKhI",
       "name": "Hermana Valeria",
       "type": "adventurer",
-      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-cleriga.webp",
+      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-clerigo.webp",
       "system": {
        "adventurer_type": "adventurer",
        "adventurer_class": "FITD.ADV_CLASS.Cleric",
@@ -6955,7 +7037,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "tipo": "grupo_invasor",
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp",
+      "contenido": true
      }
     },
     "folder": "yRokJ4EFwfGttTka"
@@ -7028,7 +7111,7 @@
       "_id": "3FFB0LgVevs10644",
       "name": "Lyra Vientoveloz",
       "type": "adventurer",
-      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquera.webp",
+      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquero-arcano.webp",
       "system": {
        "adventurer_type": "adventurer",
        "adventurer_class": "FITD.ADV_CLASS.Spellbow",
@@ -7236,7 +7319,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "tipo": "grupo_invasor",
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp",
+      "contenido": true
      }
     },
     "folder": "yRokJ4EFwfGttTka"
@@ -7355,7 +7439,7 @@
       "_id": "XLV9QMQXpuv3PESE",
       "name": "Archimago Oakhaven",
       "type": "adventurer",
-      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-archimago.webp",
+      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-mago-del-caos.webp",
       "system": {
        "adventurer_type": "adventurer",
        "adventurer_class": "FITD.ADV_CLASS.Chaosmage",
@@ -7552,7 +7636,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "tipo": "grupo_invasor",
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp",
+      "contenido": true
      }
     },
     "folder": "yRokJ4EFwfGttTka"
@@ -7671,7 +7756,7 @@
       "_id": "8x55ohs8yqkppoBW",
       "name": "Vesper Cuchillo Negro",
       "type": "adventurer",
-      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesina.webp",
+      "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesino.webp",
       "system": {
        "adventurer_type": "adventurer",
        "adventurer_class": "FITD.ADV_CLASS.Assassin",
@@ -7787,7 +7872,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "tipo": "grupo_invasor",
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp",
+      "contenido": true
      }
     },
     "folder": "yRokJ4EFwfGttTka"
@@ -7796,7 +7882,7 @@
     "_id": "PPawS8q5D5fjmP20",
     "name": "Panel del DJ · Campaña El Valle Silencioso",
     "type": "gm_sheet",
-    "img": "modules/mr-wicked-ones-es/assets/escenas/portada.webp",
+    "img": "modules/mr-wicked-ones-es/assets/escenas/esc-portada.webp",
     "system": {
      "current_phase": {
       "value": 7,
@@ -7899,7 +7985,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "tipo": "panel_dj"
+      "tipo": "panel_dj",
+      "contenido": true
      }
     },
     "folder": "o5EaLfdwZSNBM7pG"
@@ -7919,7 +8006,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -7937,7 +8025,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -7955,7 +8044,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -7973,7 +8063,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -7991,7 +8082,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8009,7 +8101,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8027,7 +8120,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8045,7 +8139,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8063,7 +8158,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8081,7 +8177,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8099,7 +8196,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8117,7 +8215,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8135,7 +8234,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8153,7 +8253,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8171,7 +8272,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8189,7 +8291,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8207,7 +8310,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8225,7 +8329,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n1"
+      "subtipo": "sala_n1",
+      "contenido": true
      }
     },
     "folder": "LRD7Z9ruHDsWnriY"
@@ -8243,7 +8348,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8261,7 +8367,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8279,7 +8386,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8297,7 +8405,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8315,7 +8424,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8333,7 +8443,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8351,7 +8462,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8369,7 +8481,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8387,7 +8500,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8405,7 +8519,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8423,7 +8538,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8441,7 +8557,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8459,7 +8576,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8477,7 +8595,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8495,7 +8614,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8513,7 +8633,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8531,7 +8652,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8549,7 +8671,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "sala_n2"
+      "subtipo": "sala_n2",
+      "contenido": true
      }
     },
     "folder": "k7tVazkYOmcJYr7X"
@@ -8567,7 +8690,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8585,7 +8709,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8603,7 +8728,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8621,7 +8747,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8639,7 +8766,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8657,7 +8785,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8675,7 +8804,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8693,7 +8823,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8711,7 +8842,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8729,7 +8861,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "5pvwbHU4c8Ko1Lnr"
@@ -8747,7 +8880,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8765,7 +8899,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8783,7 +8918,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8801,7 +8937,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8819,7 +8956,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8837,7 +8975,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8855,7 +8994,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8873,7 +9013,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8891,7 +9032,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8909,7 +9051,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "trampa"
+      "subtipo": "trampa",
+      "contenido": true
      }
     },
     "folder": "LWLMmtdtqjLETE86"
@@ -8927,7 +9070,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -8945,7 +9089,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -8963,7 +9108,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -8981,7 +9127,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -8999,7 +9146,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9017,7 +9165,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9035,7 +9184,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9053,7 +9203,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9071,7 +9222,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9089,7 +9241,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9107,7 +9260,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9125,7 +9279,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9143,7 +9298,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9161,7 +9317,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "truco"
+      "subtipo": "truco",
+      "contenido": true
      }
     },
     "folder": "vbFAixwF9pHMiTF8"
@@ -9179,7 +9336,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9197,7 +9355,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9215,7 +9374,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9233,7 +9393,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9251,7 +9412,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9269,7 +9431,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "NmdynD90670vr4iU"
@@ -9287,7 +9450,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9305,7 +9469,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9323,7 +9488,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9341,7 +9507,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9359,7 +9526,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9377,7 +9545,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "porton"
+      "subtipo": "porton",
+      "contenido": true
      }
     },
     "folder": "ZW5vj2Om9zIkAeEb"
@@ -9395,7 +9564,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9413,7 +9583,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9431,7 +9602,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9449,7 +9621,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9467,7 +9640,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9485,7 +9659,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9503,7 +9678,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9521,7 +9697,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9539,7 +9716,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9557,7 +9735,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9575,7 +9754,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9593,7 +9773,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "LZfV1vwpxUI822xa"
@@ -9611,7 +9792,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9629,7 +9811,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9647,7 +9830,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9665,7 +9849,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9683,7 +9868,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9701,7 +9887,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9719,7 +9906,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9737,7 +9925,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9755,7 +9944,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9773,7 +9963,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9791,7 +9982,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9809,7 +10001,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "Lu2647mpY9A4ZF0z"
@@ -9827,7 +10020,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9845,7 +10039,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9863,7 +10058,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9881,7 +10077,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9899,7 +10096,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9917,7 +10115,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9935,7 +10134,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9953,7 +10153,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9971,7 +10172,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -9989,7 +10191,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -10007,7 +10210,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -10025,7 +10229,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "criatura"
+      "subtipo": "criatura",
+      "contenido": true
      }
     },
     "folder": "81jflr7aBxTbQNbY"
@@ -10043,7 +10248,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10061,7 +10267,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10079,7 +10286,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10097,7 +10305,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10115,7 +10324,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10133,7 +10343,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10151,7 +10362,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10169,7 +10381,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10187,7 +10400,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10205,7 +10419,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10223,7 +10438,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10241,7 +10457,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "subtipo": "hallazgo"
+      "subtipo": "hallazgo",
+      "contenido": true
      }
     },
     "folder": "04WlCVcyrC0XV2DM"
@@ -10264,7 +10481,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10287,7 +10505,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10310,7 +10529,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10333,7 +10553,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10356,7 +10577,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10379,7 +10601,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10402,7 +10625,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10425,7 +10649,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10448,7 +10673,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "gear"
+      "categoria": "gear",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10471,7 +10697,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10494,7 +10721,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10517,7 +10745,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10540,7 +10769,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10563,7 +10793,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10586,7 +10817,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10609,7 +10841,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10632,7 +10865,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "categoria": "supply"
+      "categoria": "supply",
+      "contenido": true
      }
     },
     "folder": "Td7vqk2HEbyY5LfT"
@@ -10656,7 +10890,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "11"
+      "d66": "11",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10680,7 +10915,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "12"
+      "d66": "12",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10704,7 +10940,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "13"
+      "d66": "13",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10728,7 +10965,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "14"
+      "d66": "14",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10752,7 +10990,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "15"
+      "d66": "15",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10776,7 +11015,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "16"
+      "d66": "16",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10800,7 +11040,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "21"
+      "d66": "21",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10824,7 +11065,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "22"
+      "d66": "22",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10848,7 +11090,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "23"
+      "d66": "23",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10872,7 +11115,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "24"
+      "d66": "24",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10896,7 +11140,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "25"
+      "d66": "25",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10920,7 +11165,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "26"
+      "d66": "26",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10944,7 +11190,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "31"
+      "d66": "31",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10968,7 +11215,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "32"
+      "d66": "32",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -10992,7 +11240,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "33"
+      "d66": "33",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11016,7 +11265,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "34"
+      "d66": "34",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11040,7 +11290,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "35"
+      "d66": "35",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11064,7 +11315,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "36"
+      "d66": "36",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11088,7 +11340,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "41"
+      "d66": "41",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11112,7 +11365,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "42"
+      "d66": "42",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11136,7 +11390,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "43"
+      "d66": "43",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11160,7 +11415,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "44"
+      "d66": "44",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11184,7 +11440,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "45"
+      "d66": "45",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11208,7 +11465,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "46"
+      "d66": "46",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11232,7 +11490,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "51"
+      "d66": "51",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11256,7 +11515,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "52"
+      "d66": "52",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11280,7 +11540,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "53"
+      "d66": "53",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11304,7 +11565,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "54"
+      "d66": "54",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11328,7 +11590,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "55"
+      "d66": "55",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11352,7 +11615,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "56"
+      "d66": "56",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11376,7 +11640,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "61"
+      "d66": "61",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11400,7 +11665,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "62"
+      "d66": "62",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11424,7 +11690,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "63"
+      "d66": "63",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11448,7 +11715,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "64"
+      "d66": "64",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11472,7 +11740,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "65"
+      "d66": "65",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11496,7 +11765,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "mejunje",
-      "d66": "66"
+      "d66": "66",
+      "contenido": true
      }
     },
     "folder": "QloDuXjZXIF5GCWG"
@@ -11520,7 +11790,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "11"
+      "d66": "11",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11544,7 +11815,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "12"
+      "d66": "12",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11568,7 +11840,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "13"
+      "d66": "13",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11592,7 +11865,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "14"
+      "d66": "14",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11616,7 +11890,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "15"
+      "d66": "15",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11640,7 +11915,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "16"
+      "d66": "16",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11664,7 +11940,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "21"
+      "d66": "21",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11688,7 +11965,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "22"
+      "d66": "22",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11712,7 +11990,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "23"
+      "d66": "23",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11736,7 +12015,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "24"
+      "d66": "24",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11760,7 +12040,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "25"
+      "d66": "25",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11784,7 +12065,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "26"
+      "d66": "26",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11808,7 +12090,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "31"
+      "d66": "31",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11832,7 +12115,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "32"
+      "d66": "32",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11856,7 +12140,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "33"
+      "d66": "33",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11880,7 +12165,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "34"
+      "d66": "34",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11904,7 +12190,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "35"
+      "d66": "35",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11928,7 +12215,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "36"
+      "d66": "36",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11952,7 +12240,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "41"
+      "d66": "41",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -11976,7 +12265,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "42"
+      "d66": "42",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12000,7 +12290,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "43"
+      "d66": "43",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12024,7 +12315,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "44"
+      "d66": "44",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12048,7 +12340,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "45"
+      "d66": "45",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12072,7 +12365,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "46"
+      "d66": "46",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12096,7 +12390,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "51"
+      "d66": "51",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12120,7 +12415,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "52"
+      "d66": "52",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12144,7 +12440,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "53"
+      "d66": "53",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12168,7 +12465,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "54"
+      "d66": "54",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12192,7 +12490,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "55"
+      "d66": "55",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12216,7 +12515,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "56"
+      "d66": "56",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12240,7 +12540,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "61"
+      "d66": "61",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12264,7 +12565,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "62"
+      "d66": "62",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12288,7 +12590,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "63"
+      "d66": "63",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12312,7 +12615,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "64"
+      "d66": "64",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12336,7 +12640,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "65"
+      "d66": "65",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12360,7 +12665,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "artilugio",
-      "d66": "66"
+      "d66": "66",
+      "contenido": true
      }
     },
     "folder": "tiXq1oEiMaeCZlQ5"
@@ -12384,7 +12690,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "11"
+      "d66": "11",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12408,7 +12715,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "12"
+      "d66": "12",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12432,7 +12740,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "13"
+      "d66": "13",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12456,7 +12765,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "14"
+      "d66": "14",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12480,7 +12790,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "15"
+      "d66": "15",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12504,7 +12815,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "16"
+      "d66": "16",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12528,7 +12840,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "21"
+      "d66": "21",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12552,7 +12865,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "22"
+      "d66": "22",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12576,7 +12890,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "23"
+      "d66": "23",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12600,7 +12915,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "24"
+      "d66": "24",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12624,7 +12940,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "25"
+      "d66": "25",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12648,7 +12965,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "26"
+      "d66": "26",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12672,7 +12990,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "31"
+      "d66": "31",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12696,7 +13015,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "32"
+      "d66": "32",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12720,7 +13040,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "33"
+      "d66": "33",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12744,7 +13065,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "34"
+      "d66": "34",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12768,7 +13090,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "35"
+      "d66": "35",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12792,7 +13115,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "36"
+      "d66": "36",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12816,7 +13140,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "41"
+      "d66": "41",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12840,7 +13165,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "42"
+      "d66": "42",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12864,7 +13190,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "43"
+      "d66": "43",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12888,7 +13215,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "44"
+      "d66": "44",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12912,7 +13240,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "45"
+      "d66": "45",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12936,7 +13265,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "46"
+      "d66": "46",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12960,7 +13290,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "51"
+      "d66": "51",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -12984,7 +13315,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "52"
+      "d66": "52",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13008,7 +13340,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "53"
+      "d66": "53",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13032,7 +13365,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "54"
+      "d66": "54",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13056,7 +13390,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "55"
+      "d66": "55",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13080,7 +13415,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "56"
+      "d66": "56",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13104,7 +13440,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "61"
+      "d66": "61",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13128,7 +13465,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "62"
+      "d66": "62",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13152,7 +13490,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "63"
+      "d66": "63",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13176,7 +13515,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "64"
+      "d66": "64",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13200,7 +13540,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "65"
+      "d66": "65",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13224,7 +13565,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "pocion",
-      "d66": "66"
+      "d66": "66",
+      "contenido": true
      }
     },
     "folder": "FPj1rT3jbxblG035"
@@ -13248,7 +13590,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "11"
+      "d66": "11",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13272,7 +13615,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "12"
+      "d66": "12",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13296,7 +13640,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "13"
+      "d66": "13",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13320,7 +13665,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "14"
+      "d66": "14",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13344,7 +13690,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "15"
+      "d66": "15",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13368,7 +13715,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "16"
+      "d66": "16",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13392,7 +13740,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "21"
+      "d66": "21",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13416,7 +13765,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "22"
+      "d66": "22",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13440,7 +13790,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "23"
+      "d66": "23",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13464,7 +13815,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "24"
+      "d66": "24",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13488,7 +13840,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "25"
+      "d66": "25",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13512,7 +13865,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "26"
+      "d66": "26",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13536,7 +13890,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "31"
+      "d66": "31",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13560,7 +13915,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "32"
+      "d66": "32",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13584,7 +13940,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "33"
+      "d66": "33",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13608,7 +13965,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "34"
+      "d66": "34",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13632,7 +13990,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "35"
+      "d66": "35",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13656,7 +14015,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "36"
+      "d66": "36",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13680,7 +14040,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "41"
+      "d66": "41",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13704,7 +14065,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "42"
+      "d66": "42",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13728,7 +14090,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "43"
+      "d66": "43",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13752,7 +14115,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "44"
+      "d66": "44",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13776,7 +14140,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "45"
+      "d66": "45",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13800,7 +14165,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "46"
+      "d66": "46",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13824,7 +14190,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "51"
+      "d66": "51",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13848,7 +14215,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "52"
+      "d66": "52",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13872,7 +14240,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "53"
+      "d66": "53",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13896,7 +14265,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "54"
+      "d66": "54",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13920,7 +14290,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "55"
+      "d66": "55",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13944,7 +14315,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "56"
+      "d66": "56",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13968,7 +14340,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "61"
+      "d66": "61",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -13992,7 +14365,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "62"
+      "d66": "62",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -14016,7 +14390,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "63"
+      "d66": "63",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -14040,7 +14415,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "64"
+      "d66": "64",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -14064,7 +14440,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "65"
+      "d66": "65",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -14088,7 +14465,8 @@
     "flags": {
      "mr-wicked-ones-es": {
       "categoria": "reliquia",
-      "d66": "66"
+      "d66": "66",
+      "contenido": true
      }
     },
     "folder": "VuAwlgPv6YxwXVGZ"
@@ -14108,7 +14486,12 @@
      "clock_progress": 0,
      "description": "Sumergir el Valle Silencioso en una noche de tres días usando la piel del hombre lobo y los tomos de la Abadía."
     },
-    "folder": "TYRtQKCRTxB5QnxB"
+    "folder": "TYRtQKCRTxB5QnxB",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "qWKOWrlxCjHCXzyk",
@@ -14125,7 +14508,12 @@
      "clock_progress": 0,
      "description": "Alimentar y encadenar a la hidra subterránea para que custodie la Cisterna del Arroyo Frío."
     },
-    "folder": "TYRtQKCRTxB5QnxB"
+    "folder": "TYRtQKCRTxB5QnxB",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "POVZC0VGgqHhDZv9",
@@ -14142,7 +14530,12 @@
      "clock_progress": 0,
      "description": "Excavar una galería oculta desde las Colinas de Piedra Blanca hasta las criptas exteriores de la capital."
     },
-    "folder": "TYRtQKCRTxB5QnxB"
+    "folder": "TYRtQKCRTxB5QnxB",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "9CSiiazHMeqGiBVE",
@@ -14159,7 +14552,12 @@
      "clock_progress": 0,
      "description": "Fortalecer el vínculo del Corazón de la Mazmorra para alcanzar el Nivel 2."
     },
-    "folder": "TYRtQKCRTxB5QnxB"
+    "folder": "TYRtQKCRTxB5QnxB",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "ZvTVeVA8zUqz7Rr1",
@@ -14204,7 +14602,8 @@
        "Recita un contraconjuro estudiado",
        "Se cubre tras su ayudante o compañero"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-academico.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-academico.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14252,7 +14651,8 @@
        "Neutraliza el veneno o ácido con un reactivo",
        "Bebe un elixir curativo de emergencia"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-alquimista.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-alquimista.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14300,7 +14700,8 @@
        "Desvía el golpe con su escudo ligero",
        "Trepa por el muro para ganar altura"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-amazona.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-amazona.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14348,7 +14749,8 @@
        "Desvía el ataque con su capa bordada",
        "Exige rendición con arrogancia desconcertante"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-aristocrata.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-aristocrata.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14396,7 +14798,8 @@
        "Deja un señuelo y rueda a la espalda del atacante",
        "Desvía la hoja con sus dagas gemelas"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-asesino.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-asesino.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14444,7 +14847,8 @@
        "Detiene el arma enemiga con sus propias manos",
        "Rompe la trampa a golpes brutos"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-barbaro.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-barbaro.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14492,7 +14896,8 @@
        "Finge caer herido con actuación dramática",
        "Un aliado inspirado interviene para protegerlo"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bardo.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bardo.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14540,7 +14945,8 @@
        "Cubre su retirada con el humo de la pólvora",
        "Bloquea con sable y daga de vela"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bucanero.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bucanero.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14588,7 +14994,8 @@
        "Protege al compañero herido bajo su pavés",
        "Mantiene la posición sin retroceder un palmo"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14636,7 +15043,8 @@
        "Su cuerpo parpadea entre planos al ser golpeado",
        "Convierte el proyectil en mariposas o humo"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-mago-del-caos.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-mago-del-caos.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14684,7 +15092,8 @@
        "Sana las heridas de un compañero en el acto",
        "Su símbolo sagrado repele el ataque"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-clerigo.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-clerigo.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14732,7 +15141,8 @@
        "Envuelve su cuerpo en niebla necrótica",
        "Desvía el golpe con su espadón rúnico"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-caballero-de-la-muerte.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-caballero-de-la-muerte.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14780,7 +15190,8 @@
        "Clava su escudo torre en el suelo",
        "Desvía la trampa con su armadura pesada"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14828,7 +15239,8 @@
        "Piel de corteza que detiene las cuchillas",
        "Se funde con la roca y el barro natural"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-druida.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-druida.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14876,7 +15288,8 @@
        "Parpadeo arcano fuera del área de efecto",
        "Absorbe la energía del golpe en su hoja"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-guerrero-sobrenatural.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-guerrero-sobrenatural.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14924,7 +15337,8 @@
        "Destello hipnótico que ciega al agresor",
        "Cambia su apariencia por la de un esbirro"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-ilusionista.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-ilusionista.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -14972,7 +15386,8 @@
        "Pronuncia un edicto que detiene en seco al atacante",
        "Sacrifica a un subordinado para mantener la misión"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15020,7 +15435,8 @@
        "Parada magistral y contraataque",
        "Se mantiene firme pese al dolor por su juramento"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-caballero.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-caballero.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15068,7 +15484,8 @@
        "Usa la pértiga para saltar sobre el foso o trampa",
        "Mantiene la distancia impidiendo que se acerquen"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-lancero.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-lancero.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15116,7 +15533,8 @@
        "Interrumpe la invocación antes de que se complete",
        "Resiste el efecto mental con férrea disciplina"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-cazador-de-magos.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-cazador-de-magos.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15164,7 +15582,8 @@
        "Cae de pie sin hacerse daño desde cualquier altura",
        "Medita un segundo ignorando el veneno o aturdimiento"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-monje.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-monje.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15212,7 +15631,8 @@
        "Rueda fuera del alcance dejando un abrojo bendito",
        "Corta el vínculo mágico de la trampa o reliquia"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-asesino-de-lo-oculto.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-asesino-de-lo-oculto.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15260,7 +15680,8 @@
        "Su bestia avisa del peligro un segundo antes",
        "Salta con agilidad montaraz sobre el obstáculo"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-guardabosques.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-guardabosques.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15308,7 +15729,8 @@
        "Se desliza por un hueco estrecho fuera de peligro",
        "Lanza un abrojo o cuerda para frenar al perseguidor"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15356,7 +15778,8 @@
        "Esquiva con piruetas imposibles de predecir",
        "Intercambia su posición con una silueta oscura"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bailarin-sombrio.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-bailarin-sombrio.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15404,7 +15827,8 @@
        "Activa la trampa a distancia con un proyectil",
        "Se escabulle entre las piernas de enemigos grandes"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-hondero.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-hondero.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15452,7 +15876,8 @@
        "Barrera de viento que desvía proyectiles y gases",
        "Se mantiene en la retaguardia fuera de alcance"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-arquero-arcano.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-arquero-arcano.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15500,7 +15925,8 @@
        "Resiste el golpe con una oración inquebrantable",
        "Escudo consagrado que refleja la magia oscura"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-templario.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-templario.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15548,7 +15974,8 @@
        "Bloquea el mecanismo de la trampa con una cuña de acero",
        "Repara el escudo o arma dañada en pleno combate"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-forjador-de-armas.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-forjador-de-armas.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15596,7 +16023,8 @@
        "Reacciona por puro instinto felino esquivando el golpe",
        "Se sacude las heridas con ferocidad animal"
       ],
-      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-salvaje.webp"
+      "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-salvaje.webp",
+      "contenido": true
      }
     },
     "folder": "W7iYYZxHzsTDS6cL"
@@ -15632,7 +16060,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "archer"
+      "ayudante": "archer",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15668,7 +16097,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "boatman"
+      "ayudante": "boatman",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15704,7 +16134,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "burglar"
+      "ayudante": "burglar",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15740,7 +16171,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "butcher"
+      "ayudante": "butcher",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15776,7 +16208,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "carpenter"
+      "ayudante": "carpenter",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15812,7 +16245,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "cartographer"
+      "ayudante": "cartographer",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15848,7 +16282,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "chronicler"
+      "ayudante": "chronicler",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15884,7 +16319,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "cook"
+      "ayudante": "cook",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15920,7 +16356,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "driver"
+      "ayudante": "driver",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15956,7 +16393,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "farmhand"
+      "ayudante": "farmhand",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -15992,7 +16430,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "fisherman"
+      "ayudante": "fisherman",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16028,7 +16467,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "footman"
+      "ayudante": "footman",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16064,7 +16504,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "footpad"
+      "ayudante": "footpad",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16100,7 +16541,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "forester"
+      "ayudante": "forester",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16136,7 +16578,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "guard"
+      "ayudante": "guard",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16172,7 +16615,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "guide"
+      "ayudante": "guide",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16208,7 +16652,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "inventor"
+      "ayudante": "inventor",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16244,7 +16689,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "linguist"
+      "ayudante": "linguist",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16280,7 +16726,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "locksmith"
+      "ayudante": "locksmith",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16316,7 +16763,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "lumberjack"
+      "ayudante": "lumberjack",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16352,7 +16800,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "mercenary"
+      "ayudante": "mercenary",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16388,7 +16837,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "messenger"
+      "ayudante": "messenger",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16424,7 +16874,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "miner"
+      "ayudante": "miner",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16460,7 +16911,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "pathfinder"
+      "ayudante": "pathfinder",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16496,7 +16948,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "priest"
+      "ayudante": "priest",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16532,7 +16985,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "ratcatcher"
+      "ayudante": "ratcatcher",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16568,7 +17022,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "rider"
+      "ayudante": "rider",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16604,7 +17059,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "sailor"
+      "ayudante": "sailor",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16640,7 +17096,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "sawbones"
+      "ayudante": "sawbones",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16676,7 +17133,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "scholar"
+      "ayudante": "scholar",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16712,7 +17170,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "scribe"
+      "ayudante": "scribe",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16748,7 +17207,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "singer"
+      "ayudante": "singer",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16784,7 +17244,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "spelunker"
+      "ayudante": "spelunker",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16820,7 +17281,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "swordsman"
+      "ayudante": "swordsman",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16856,7 +17318,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "trader"
+      "ayudante": "trader",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -16892,7 +17355,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "ayudante": "trapfinder"
+      "ayudante": "trapfinder",
+      "contenido": true
      }
     },
     "folder": "RnqB64WBgFtreQiU"
@@ -17163,7 +17627,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "incursion-objetivo"
+      "clave": "incursion-objetivo",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -17348,7 +17813,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "incursion-complicacion"
+      "clave": "incursion-complicacion",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -17785,7 +18251,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "aventureros-30"
+      "clave": "aventureros-30",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -18306,7 +18773,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "ayudantes-36"
+      "clave": "ayudantes-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -18827,7 +19295,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "criaturas-36"
+      "clave": "criaturas-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -19124,7 +19593,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "criaturas-mutacion"
+      "clave": "criaturas-mutacion",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -19645,7 +20115,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "mejunjes-36"
+      "clave": "mejunjes-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -20166,7 +20637,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "artilugios-36"
+      "clave": "artilugios-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -20687,7 +21159,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "pociones-36"
+      "clave": "pociones-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -21208,7 +21681,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "reliquias-36"
+      "clave": "reliquias-36",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -21729,7 +22203,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "oraculo-semilla-1"
+      "clave": "oraculo-semilla-1",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -22250,7 +22725,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "oraculo-semilla-2"
+      "clave": "oraculo-semilla-2",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -22435,7 +22911,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "solitario-gran-malo"
+      "clave": "solitario-gran-malo",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -22536,7 +23013,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "simulador-incursion-esbirros"
+      "clave": "simulador-incursion-esbirros",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -22805,7 +23283,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "generador-mazmorras-salas"
+      "clave": "generador-mazmorras-salas",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -22990,7 +23469,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "botin-mayor"
+      "clave": "botin-mayor",
+      "contenido": true
      }
     },
     "folder": "5wUvj22M1d7dWTHR"
@@ -23006,7 +23486,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "empieza-aqui"
+      "clave": "empieza-aqui",
+      "contenido": true
      }
     },
     "pages": [
@@ -23044,7 +23525,7 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/portada.webp\" alt=\"Portada\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Un lugar al que llamar hogar · Campaña oficial en el Valle Silencioso</h2>\n                <p>Esta campaña lista para jugar traslada a la mesa el arco completo de los ejemplos narrativos del manual de <strong>Wicked Ones (The Hills Press)</strong> protagonizados por <strong>Ulrot</strong> (Orco Bruto), <strong>Crag</strong> (Kóbold Chamán) y <strong>Slem</strong> (Sérpido Sombra), junto a tres compañeros adicionales listos para elegir (<strong>Viska</strong>, <strong>Kaelen</strong> y <strong>Zira</strong>).</p>\n                <blockquote><p><em>«Hartos de huir de los cruzados de Ciudad Floresta y de dormir bajo la lluvia en los riscos, habéis descubierto el lugar perfecto para fundar vuestra propia mazmorra: las Cuevas del Paso del Mercader, en las Colinas de Piedra Blanca. Solo hay un pequeño problema: una caravana armada del Gremio de Mercaderes las está usando como almacén fortificado…»</em></p></blockquote>\n                <h3>Estructura en 6 Hitos (Integrada con MR- Dirección)</h3>\n                <ol>\n                    <li><strong>Hito R1 · Incursión Inicial («Un lugar al que llamar hogar», pág. 37):</strong> Asalto a las Cuevas del Paso del Mercader para expulsar o aniquilar a los guardias del Gremio, quedarse con su botín inicial y despertar el <strong>Corazón de la Mazmorra</strong> en la Bóveda de Piedra Antigua.</li>\n                    <li><strong>Hito R2 · Fase de Guarida y Desastre («Construyendo el santuario», pág. 191):</strong> Primera fase de construcción: excavar salas de Nivel 1, tender trampas, reclutar esbirros y afrontar la primera tirada de Desastre y Represalia.</li>\n                    <li><strong>Hito R3 · Incursión II («Una biblioteca necesita libros», pág. 116):</strong> Infiltración o asalto nocturno contra la <strong>Abadía de Piedra Blanca</strong> para robar los códices prohibidos que Crag y Kaelen necesitan para su gran ritual.</li>\n                    <li><strong>Hito R4 · Incursión III («Piel de lobo para un ritual», pág. 165):</strong> Caza en el <strong>Bosque Susurrante</strong> para abatir al Gran Hombre Lobo antes de que los Cazadores de Plata o los Druidas del Círculo lo reclamen.</li>\n                    <li><strong>Hito R5 · Defensa de la Guarida («¡Matad a los intrusos!», pág. 229):</strong> ¡Invasión! La <em>Expedición de Piedra Blanca</em> (o los <em>Cazadores de la Luna de Plata</em>) penetra en vuestra mazmorra. Hora de activar trampas, trucos, portones y manadas.</li>\n                    <li><strong>Hito R6 · Clímax («La última luna llena», pág. 267 y 333):</strong> Con el ritual del Eclipse completado, la horda marcha sobre <strong>Ciudad Floresta</strong> mientras la vanguardia de campeones de la Luz lanza su asalto desesperado contra el Santuario.</li>\n                </ol>\n            "
+       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/esc-portada.webp\" alt=\"Portada\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Un lugar al que llamar hogar · Campaña oficial en el Valle Silencioso</h2>\n                <p>Esta campaña lista para jugar traslada a la mesa el arco completo de los ejemplos narrativos del manual de <strong>Wicked Ones (The Hills Press)</strong> protagonizados por <strong>Ulrot</strong> (Orco Bruto), <strong>Crag</strong> (Kóbold Chamán) y <strong>Slem</strong> (Sérpido Sombra), junto a tres compañeros adicionales listos para elegir (<strong>Viska</strong>, <strong>Kaelen</strong> y <strong>Zira</strong>).</p>\n                <blockquote><p><em>«Hartos de huir de los cruzados de Ciudad Floresta y de dormir bajo la lluvia en los riscos, habéis descubierto el lugar perfecto para fundar vuestra propia mazmorra: las Cuevas del Paso del Mercader, en las Colinas de Piedra Blanca. Solo hay un pequeño problema: una caravana armada del Gremio de Mercaderes las está usando como almacén fortificado…»</em></p></blockquote>\n                <h3>Estructura en 6 Hitos (Integrada con MR- Dirección)</h3>\n                <ol>\n                    <li><strong>Hito R1 · Incursión Inicial («Un lugar al que llamar hogar», pág. 37):</strong> Asalto a las Cuevas del Paso del Mercader para expulsar o aniquilar a los guardias del Gremio, quedarse con su botín inicial y despertar el <strong>Corazón de la Mazmorra</strong> en la Bóveda de Piedra Antigua.</li>\n                    <li><strong>Hito R2 · Fase de Guarida y Desastre («Construyendo el santuario», pág. 191):</strong> Primera fase de construcción: excavar salas de Nivel 1, tender trampas, reclutar esbirros y afrontar la primera tirada de Desastre y Represalia.</li>\n                    <li><strong>Hito R3 · Incursión II («Una biblioteca necesita libros», pág. 116):</strong> Infiltración o asalto nocturno contra la <strong>Abadía de Piedra Blanca</strong> para robar los códices prohibidos que Crag y Kaelen necesitan para su gran ritual.</li>\n                    <li><strong>Hito R4 · Incursión III («Piel de lobo para un ritual», pág. 165):</strong> Caza en el <strong>Bosque Susurrante</strong> para abatir al Gran Hombre Lobo antes de que los Cazadores de Plata o los Druidas del Círculo lo reclamen.</li>\n                    <li><strong>Hito R5 · Defensa de la Guarida («¡Matad a los intrusos!», pág. 229):</strong> ¡Invasión! La <em>Expedición de Piedra Blanca</em> (o los <em>Cazadores de la Luna de Plata</em>) penetra en vuestra mazmorra. Hora de activar trampas, trucos, portones y manadas.</li>\n                    <li><strong>Hito R6 · Clímax («La última luna llena», pág. 267 y 333):</strong> Con el ritual del Eclipse completado, la horda marcha sobre <strong>Ciudad Floresta</strong> mientras la vanguardia de campeones de la Luz lanza su asalto desesperado contra el Santuario.</li>\n                </ol>\n            "
       },
       "sort": 1000
      },
@@ -23058,7 +23539,7 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/cueva-mercaderes.webp\" alt=\"Cueva de los Mercaderes\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R1 · Un lugar al que llamar hogar (Pág. 37)</h2>\n                <p>Según las reglas de inicio rápido del manual, toda campaña de <em>Wicked Ones</em> arranca <strong>en mitad de la primera incursión</strong> para reclamar el emplazamiento de la mazmorra, sin necesidad de tirada de Implicación previa: los PJs ya están frente a la entrada (Posición <strong>Por defecto</strong>).</p>\n                <h3>Situación Táctica en las Cuevas del Paso del Mercader</h3>\n                <ul>\n                    <li><strong>1. Boca de la Cueva y Carromatos:</strong> Dos carromatos blindados forman un parapeto junto a una hoguera. Cuatro guardias del Gremio vigilan el camino con ballestas y lanzas.</li>\n                    <li><strong>2. Galería de los Guardias:</strong> El capataz <strong>Bram</strong> y seis guardias veteranos descansan junto a un <strong>cuerno de bronce de alarma</strong> (Reloj de 4 segmentos: <em>«¡Fuego de señales hacia Piedra Blanca!»</em>).</li>\n                    <li><strong>3. Depósito de Caravanas (Norte):</strong> Cajas de herramientas, barriles de licor, hierro forjado y un cofre con la paga (<strong>2 de Oro</strong> y <strong>2 Suministros</strong> para empezar la guarida). Accesible en sigilo por la <em>Grieta de humo</em> superior.</li>\n                    <li><strong>4. Cisterna del Arroyo Frío (Sur):</strong> Estanque subterráneo conectado al exterior por un sumidero sumergido. En el fondo acecha una <em>Serpiente constrictora albina</em> (Criatura N1) que puede ser domada o azuzada contra los guardias.</li>\n                    <li><strong>5. Bóveda de Piedra Antigua (Este):</strong> Cámara sellada tras un derrumbe parcial donde late una fisura de energía oscura perfecta para anclar el <strong>Corazón de la Mazmorra</strong>.</li>\n                </ul>\n            "
+       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/esc-cueva-mercaderes.webp\" alt=\"Cueva de los Mercaderes\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R1 · Un lugar al que llamar hogar (Pág. 37)</h2>\n                <p>Según las reglas de inicio rápido del manual, toda campaña de <em>Wicked Ones</em> arranca <strong>en mitad de la primera incursión</strong> para reclamar el emplazamiento de la mazmorra, sin necesidad de tirada de Implicación previa: los PJs ya están frente a la entrada (Posición <strong>Por defecto</strong>).</p>\n                <h3>Situación Táctica en las Cuevas del Paso del Mercader</h3>\n                <ul>\n                    <li><strong>1. Boca de la Cueva y Carromatos:</strong> Dos carromatos blindados forman un parapeto junto a una hoguera. Cuatro guardias del Gremio vigilan el camino con ballestas y lanzas.</li>\n                    <li><strong>2. Galería de los Guardias:</strong> El capataz <strong>Bram</strong> y seis guardias veteranos descansan junto a un <strong>cuerno de bronce de alarma</strong> (Reloj de 4 segmentos: <em>«¡Fuego de señales hacia Piedra Blanca!»</em>).</li>\n                    <li><strong>3. Depósito de Caravanas (Norte):</strong> Cajas de herramientas, barriles de licor, hierro forjado y un cofre con la paga (<strong>2 de Oro</strong> y <strong>2 Suministros</strong> para empezar la guarida). Accesible en sigilo por la <em>Grieta de humo</em> superior.</li>\n                    <li><strong>4. Cisterna del Arroyo Frío (Sur):</strong> Estanque subterráneo conectado al exterior por un sumidero sumergido. En el fondo acecha una <em>Serpiente constrictora albina</em> (Criatura N1) que puede ser domada o azuzada contra los guardias.</li>\n                    <li><strong>5. Bóveda de Piedra Antigua (Este):</strong> Cámara sellada tras un derrumbe parcial donde late una fisura de energía oscura perfecta para anclar el <strong>Corazón de la Mazmorra</strong>.</li>\n                </ul>\n            "
       },
       "sort": 2000
      },
@@ -23072,12 +23553,17 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/biblioteca-abadia.webp\" alt=\"Biblioteca de la Abadía\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R3 · Una biblioteca necesita libros (Pág. 116)</h2>\n                <p>Para desbloquear salas avanzadas y el <strong>Ritual del Eclipse de Sangre</strong>, los malvados necesitan los tomos encuadernados en hierro custodiados en el scriptorium de la <strong>Abadía de Piedra Blanca (Facción Nivel 2, Luz)</strong>.</p>\n                <ul>\n                    <li><strong>Enfoque de Asalto:</strong> Derribar el portón lateral del claustro y enfrentarse a los monjes guerreros antes de que tañan la gran campana.</li>\n                    <li><strong>Enfoque de Sigilo / Engaño:</strong> Escalar los contrafuertes góticos bajo la lluvia o infiltrarse con hábitos robados hasta el archivo prohibido.</li>\n                    <li><strong>Oposición:</strong> La <strong>Hermana Valeria</strong> (Clériga N1) y dos escuadras de guardias monásticos custodian el relicario.</li>\n                </ul>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/ritual-luna-llena.webp\" alt=\"Ritual de Luna Llena\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R4 · Piel de lobo para un ritual (Pág. 165)</h2>\n                <p>El segundo ingrediente del gran ritual exige desollar al <strong>Gran Hombre Lobo Alfa</strong> que aterroriza el Bosque Susurrante en noche de luna llena. Sin embargo, los <strong>Cazadores de Hombres Lobo de Plata (N2)</strong> también le han tendido una trampa esa misma noche.</p>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/defensa-mazmorra.webp\" alt=\"Defensa de la Mazmorra\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R5 · ¡Matad a los intrusos! (Pág. 229) y Hito R6 · La última luna llena (Pág. 333)</h2>\n                <p>Cuando los relojes de las facciones de la Luz se completan, los grupos de aventureros (disponibles en la carpeta de Actores listos para arrastrar con sus Corazones y 6 Movimientos) invaden vuestra mazmorra. Si los malvados defienden su Corazón y completan los 6 pasos de su Plan Maestro, desatan el asalto final sobre <strong>Ciudad Floresta</strong>.</p>\n            "
+       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/esc-biblioteca-abadia.webp\" alt=\"Biblioteca de la Abadía\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>Hito R3 · Una biblioteca necesita libros (Pág. 116)</h2>\n                <p>Para desbloquear salas avanzadas y el <strong>Ritual del Eclipse de Sangre</strong>, los malvados necesitan los tomos encuadernados en hierro custodiados en el scriptorium de la <strong>Abadía de Piedra Blanca (Facción Nivel 2, Luz)</strong>.</p>\n                <ul>\n                    <li><strong>Enfoque de Asalto:</strong> Derribar el portón lateral del claustro y enfrentarse a los monjes guerreros antes de que tañan la gran campana.</li>\n                    <li><strong>Enfoque de Sigilo / Engaño:</strong> Escalar los contrafuertes góticos bajo la lluvia o infiltrarse con hábitos robados hasta el archivo prohibido.</li>\n                    <li><strong>Oposición:</strong> La <strong>Hermana Valeria</strong> (Clériga N1) y dos escuadras de guardias monásticos custodian el relicario.</li>\n                </ul>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/esc-ritual-luna-llena.webp\" alt=\"Ritual de Luna Llena\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R4 · Piel de lobo para un ritual (Pág. 165)</h2>\n                <p>El segundo ingrediente del gran ritual exige desollar al <strong>Gran Hombre Lobo Alfa</strong> que aterroriza el Bosque Susurrante en noche de luna llena. Sin embargo, los <strong>Cazadores de Hombres Lobo de Plata (N2)</strong> también le han tendido una trampa esa misma noche.</p>\n                <hr/>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/esc-defensa-mazmorra.webp\" alt=\"Defensa de la Mazmorra\" style=\"width:100%;border-radius:8px;margin:12px 0;\" /></p>\n                <h2>Hito R5 · ¡Matad a los intrusos! (Pág. 229) y Hito R6 · La última luna llena (Pág. 333)</h2>\n                <p>Cuando los relojes de las facciones de la Luz se completan, los grupos de aventureros (disponibles en la carpeta de Actores listos para arrastrar con sus Corazones y 6 Movimientos) invaden vuestra mazmorra. Si los malvados defienden su Corazón y completan los 6 pasos de su Plan Maestro, desatan el asalto final sobre <strong>Ciudad Floresta</strong>.</p>\n            "
       },
       "sort": 3000
      }
     ],
-    "folder": "I5G8ciQKfL4tdFm2"
+    "folder": "I5G8ciQKfL4tdFm2",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "EYe3N8HD4R3kMDwF",
@@ -23112,7 +23598,12 @@
       "sort": 2000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "xknxRE6G33JQc60J",
@@ -23147,7 +23638,12 @@
       "sort": 2000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "83dkllPYER0o5tjB",
@@ -23163,7 +23659,7 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-1.webp\" alt=\"Ejemplo de Mazmorra\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>La Guarida de los Malvados (Págs. 173–223)</h2>\n                <p>La mazmorra es un personaje compartido por toda la mesa. Su poder se mide por su <strong>Nivel (Tier 1 a 3)</strong>:</p>\n                <ul>\n                    <li><strong>El Corazón de la Mazmorra:</strong> Es el nexo vital. Si los aventureros llegan hasta él y lo destruyen, la campaña termina o los malvados se ven obligados a huir.</li>\n                    <li><strong>Los Diablillos (Imps):</strong> Trabajadores incansables convocados por el Corazón que excavan túneles y muros básicos de forma gratuita entre fases.</li>\n                    <li><strong>Salas de Nivel 1 (18 tipos) y Nivel 2 (18 tipos):</strong> Otorgan narrativa y permisos de ficción para entrenar, forjar, destilar o encerrar cautivos (todas incluidas en el compendio <em>MR- Salas N1-N2, Trampas y Criaturas</em>).</li>\n                    <li><strong>Salas de Nivel 3 (Temas de Mazmorra):</strong> Cada tema de mazmorra desbloquea salas de Nivel 3 con beneficios mecánicos directos y casillas de uso especial.</li>\n                    <li><strong>Defensas (Trampas, Trucos, Portones y Criaturas):</strong> Durante una invasión, el DJ o los jugadores tiran los dados del <strong>Nivel de la Trampa/Portón/Criatura</strong> cuando los aventureros entran en contacto con ellos.</li>\n                </ul>\n            "
+       "content": "\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-guarida-1.webp\" alt=\"Ejemplo de Mazmorra\" style=\"width:100%;border-radius:8px;margin-bottom:12px;\" /></p>\n                <h2>La Guarida de los Malvados (Págs. 173–223)</h2>\n                <p>La mazmorra es un personaje compartido por toda la mesa. Su poder se mide por su <strong>Nivel (Tier 1 a 3)</strong>:</p>\n                <ul>\n                    <li><strong>El Corazón de la Mazmorra:</strong> Es el nexo vital. Si los aventureros llegan hasta él y lo destruyen, la campaña termina o los malvados se ven obligados a huir.</li>\n                    <li><strong>Los Diablillos (Imps):</strong> Trabajadores incansables convocados por el Corazón que excavan túneles y muros básicos de forma gratuita entre fases.</li>\n                    <li><strong>Salas de Nivel 1 (18 tipos) y Nivel 2 (18 tipos):</strong> Otorgan narrativa y permisos de ficción para entrenar, forjar, destilar o encerrar cautivos (todas incluidas en el compendio <em>MR- Salas N1-N2, Trampas y Criaturas</em>).</li>\n                    <li><strong>Salas de Nivel 3 (Temas de Mazmorra):</strong> Cada tema de mazmorra desbloquea salas de Nivel 3 con beneficios mecánicos directos y casillas de uso especial.</li>\n                    <li><strong>Defensas (Trampas, Trucos, Portones y Criaturas):</strong> Durante una invasión, el DJ o los jugadores tiran los dados del <strong>Nivel de la Trampa/Portón/Criatura</strong> cuando los aventureros entran en contacto con ellos.</li>\n                </ul>\n            "
       },
       "sort": 1000
      },
@@ -23177,12 +23673,17 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <h2>Ejemplos Oficiales de Diseño de Mazmorras (Págs. 214–219)</h2>\n                <p>El módulo incluye como escenas listas para activar los tres planos a doble página del manual:</p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-2.webp\" alt=\"Mazmorra 2\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mazmorra-3.webp\" alt=\"Mazmorra 3\" style=\"width:100%;border-radius:8px;\" /></p>\n            "
+       "content": "\n                <h2>Ejemplos Oficiales de Diseño de Mazmorras (Págs. 214–219)</h2>\n                <p>El módulo incluye como escenas listas para activar los tres planos a doble página del manual:</p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-guarida-2.webp\" alt=\"Mazmorra 2\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-guarida-3.webp\" alt=\"Mazmorra 3\" style=\"width:100%;border-radius:8px;\" /></p>\n            "
       },
       "sort": 2000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Jl6ZsDmgmXZlUsJS",
@@ -23198,7 +23699,7 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <h2>1. El Valle Silencioso (Págs. 288–291)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/valle-dj.webp\" alt=\"Valle Silencioso\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>El entorno clásico de fantasía pastoral lista para ser corrompida: caravanas mercantes, una abadía fortificada, druidas ancestrales y la amurallada <strong>Ciudad Floresta</strong>.</p>\n                <hr/>\n                <h2>2. Las Cloacas de la Gran Ciudad (Págs. 280–283)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/cloacas-dj.webp\" alt=\"Cloacas de la Gran Ciudad\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Campaña claustrofóbica bajo una metrópolis superpoblada: gremios de ladrones, inquisidores con lanzallamas, vampiros aristócratas y el alcantarillado profundo.</p>\n            "
+       "content": "\n                <h2>1. El Valle Silencioso (Págs. 288–291)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-valle.webp\" alt=\"Valle Silencioso\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>El entorno clásico de fantasía pastoral lista para ser corrompida: caravanas mercantes, una abadía fortificada, druidas ancestrales y la amurallada <strong>Ciudad Floresta</strong>.</p>\n                <hr/>\n                <h2>2. Las Cloacas de la Gran Ciudad (Págs. 280–283)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-cloacas.webp\" alt=\"Cloacas de la Gran Ciudad\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Campaña claustrofóbica bajo una metrópolis superpoblada: gremios de ladrones, inquisidores con lanzallamas, vampiros aristócratas y el alcantarillado profundo.</p>\n            "
       },
       "sort": 1000
      },
@@ -23212,12 +23713,17 @@
       },
       "text": {
        "format": 1,
-       "content": "\n                <h2>3. Los Mares Coloniales (Págs. 284–287)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mares-dj.webp\" alt=\"Mares Coloniales\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Archipiélago tropical de galeones del tesoro, fuertes costeros, piratas bucaneros, tribus isleñas y cultos abisales.</p>\n                <hr/>\n                <h2>4. La Zona de Guerra (Págs. 292–295)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/guerra-dj.webp\" alt=\"Zona de Guerra\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Frente devastado entre el Imperio Solar y la Horda del Cráneo de Hierro, lleno de trincheras, mercenarios, nigromantes e ingenieros de asedio.</p>\n            "
+       "content": "\n                <h2>3. Los Mares Coloniales (Págs. 284–287)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-mares.webp\" alt=\"Mares Coloniales\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Archipiélago tropical de galeones del tesoro, fuertes costeros, piratas bucaneros, tribus isleñas y cultos abisales.</p>\n                <hr/>\n                <h2>4. La Zona de Guerra (Págs. 292–295)</h2>\n                <p><img src=\"modules/mr-wicked-ones-es/assets/escenas/mapa-guerra.webp\" alt=\"Zona de Guerra\" style=\"width:100%;border-radius:8px;margin-bottom:10px;\" /></p>\n                <p>Frente devastado entre el Imperio Solar y la Horda del Cráneo de Hierro, lleno de trincheras, mercenarios, nigromantes e ingenieros de asedio.</p>\n            "
       },
       "sort": 2000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "QlAD2rqNQ5DRWgSy",
@@ -23238,7 +23744,12 @@
       "sort": 1000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "mOC0Rs0zWhFaGoCF",
@@ -23259,7 +23770,12 @@
       "sort": 1000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Q6Y3iHprnFrmGE0d",
@@ -23280,7 +23796,12 @@
       "sort": 1000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "aL06OtAMJ0KEBWYd",
@@ -23301,7 +23822,12 @@
       "sort": 1000
      }
     ],
-    "folder": "irSwnQU2ToR2KNXU"
+    "folder": "irSwnQU2ToR2KNXU",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Uz1jDpQziKNwmIam",
@@ -23322,7 +23848,12 @@
       "sort": 1000
      }
     ],
-    "folder": "I5G8ciQKfL4tdFm2"
+    "folder": "I5G8ciQKfL4tdFm2",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "1I3aZp2KO04P3qGL",
@@ -23712,7 +24243,8 @@
     },
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "lecturas"
+      "clave": "lecturas",
+      "contenido": true
      }
     },
     "folder": "I5G8ciQKfL4tdFm2"
@@ -23727,7 +24259,12 @@
     "scope": "global",
     "author": "0000000000000000",
     "command": "game.modules.get('mr-wicked-ones-es')?.api?.abrirGenerador();",
-    "folder": "yxxaf3qOh2JMZk1A"
+    "folder": "yxxaf3qOh2JMZk1A",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Oz1RG7OE17WTVrb3",
@@ -23737,7 +24274,12 @@
     "scope": "global",
     "author": "0000000000000000",
     "command": "game.modules.get('mr-wicked-ones-es')?.api?.dialogoCiclo('calamity');",
-    "folder": "yxxaf3qOh2JMZk1A"
+    "folder": "yxxaf3qOh2JMZk1A",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "R9SvvyBRrnydHAiu",
@@ -23747,7 +24289,12 @@
     "scope": "global",
     "author": "0000000000000000",
     "command": "game.modules.get('mr-wicked-ones-es')?.api?.dialogoCiclo('blowback');",
-    "folder": "yxxaf3qOh2JMZk1A"
+    "folder": "yxxaf3qOh2JMZk1A",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "YMC4NcAFNd0Mi1Y0",
@@ -23757,7 +24304,12 @@
     "scope": "global",
     "author": "0000000000000000",
     "command": "game.modules.get('mr-wicked-ones-es')?.api?.empezarTutorial();",
-    "folder": "yxxaf3qOh2JMZk1A"
+    "folder": "yxxaf3qOh2JMZk1A",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    }
   ],
   "playlists": [
@@ -24048,7 +24600,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "musica"
+      "clave": "musica",
+      "contenido": true
      }
     }
    },
@@ -24186,7 +24739,8 @@
     ],
     "flags": {
      "mr-wicked-ones-es": {
-      "clave": "sfx"
+      "clave": "sfx",
+      "contenido": true
      }
     }
    }
@@ -24201,7 +24755,11 @@
     "sort": 100,
     "color": "#5f7f3a",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "umhaXEG2hmp5mnHe",
@@ -24212,7 +24770,11 @@
     "sort": 200,
     "color": "#5f7f3a",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "yRokJ4EFwfGttTka",
@@ -24223,7 +24785,11 @@
     "sort": 300,
     "color": "#4d6a8c",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "kparm0JeHxb1mMW1",
@@ -24234,7 +24800,11 @@
     "sort": 400,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "o5EaLfdwZSNBM7pG",
@@ -24245,7 +24815,11 @@
     "sort": 500,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "mKJRbLBLrbGF2jLm",
@@ -24256,7 +24830,11 @@
     "sort": 600,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "yzopOvJt75VypJXa",
@@ -24267,7 +24845,11 @@
     "sort": 700,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "mRRVEc63UxewhAe9",
@@ -24278,7 +24860,11 @@
     "sort": 800,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "DhHxbitg219PPPOP",
@@ -24289,7 +24875,11 @@
     "sort": 900,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "9PyO37BeGgJwDcaj",
@@ -24300,7 +24890,11 @@
     "sort": 1000,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "3Cm5vo1S64bsBGXr",
@@ -24311,7 +24905,11 @@
     "sort": 100,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "LRD7Z9ruHDsWnriY",
@@ -24322,7 +24920,11 @@
     "sort": 200,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "k7tVazkYOmcJYr7X",
@@ -24333,7 +24935,11 @@
     "sort": 300,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "f8QEqNac8yNUa7BF",
@@ -24344,7 +24950,11 @@
     "sort": 400,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "5pvwbHU4c8Ko1Lnr",
@@ -24355,7 +24965,11 @@
     "sort": 500,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "LWLMmtdtqjLETE86",
@@ -24366,7 +24980,11 @@
     "sort": 600,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "vbFAixwF9pHMiTF8",
@@ -24377,7 +24995,11 @@
     "sort": 700,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "EFv7nFygpWZ6rjKf",
@@ -24388,7 +25010,11 @@
     "sort": 800,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "NmdynD90670vr4iU",
@@ -24399,7 +25025,11 @@
     "sort": 900,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "ZW5vj2Om9zIkAeEb",
@@ -24410,7 +25040,11 @@
     "sort": 1000,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "5M6SlpsbofH2xhrd",
@@ -24421,7 +25055,11 @@
     "sort": 1100,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "LZfV1vwpxUI822xa",
@@ -24432,7 +25070,11 @@
     "sort": 1200,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Lu2647mpY9A4ZF0z",
@@ -24443,7 +25085,11 @@
     "sort": 1300,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "81jflr7aBxTbQNbY",
@@ -24454,7 +25100,11 @@
     "sort": 1400,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "04WlCVcyrC0XV2DM",
@@ -24465,7 +25115,11 @@
     "sort": 1500,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "Td7vqk2HEbyY5LfT",
@@ -24476,7 +25130,11 @@
     "sort": 1600,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "QloDuXjZXIF5GCWG",
@@ -24487,7 +25145,11 @@
     "sort": 1700,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "tiXq1oEiMaeCZlQ5",
@@ -24498,7 +25160,11 @@
     "sort": 1800,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "FPj1rT3jbxblG035",
@@ -24509,7 +25175,11 @@
     "sort": 1900,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "VuAwlgPv6YxwXVGZ",
@@ -24520,7 +25190,11 @@
     "sort": 2000,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "TYRtQKCRTxB5QnxB",
@@ -24531,7 +25205,11 @@
     "sort": 2100,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "W7iYYZxHzsTDS6cL",
@@ -24542,7 +25220,11 @@
     "sort": 2200,
     "color": "#4d6a8c",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "RnqB64WBgFtreQiU",
@@ -24553,7 +25235,11 @@
     "sort": 2300,
     "color": "#6b6b6b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "diwRbiKLcotxIaQ6",
@@ -24564,7 +25250,11 @@
     "sort": 100,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "icCMElClmBONEq9P",
@@ -24575,7 +25265,11 @@
     "sort": 200,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "NcPNcetnI9W7GCnP",
@@ -24586,7 +25280,11 @@
     "sort": 300,
     "color": "#4d6a8c",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "fA3Ap91ZuwovCmkJ",
@@ -24597,7 +25295,11 @@
     "sort": 400,
     "color": "#5f7f3a",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "irSwnQU2ToR2KNXU",
@@ -24608,7 +25310,11 @@
     "sort": 100,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "I5G8ciQKfL4tdFm2",
@@ -24619,7 +25325,11 @@
     "sort": 200,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "5wUvj22M1d7dWTHR",
@@ -24630,7 +25340,11 @@
     "sort": 100,
     "color": "#8a6d3b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "XSZg5Q9fHUqKarq3",
@@ -24641,7 +25355,11 @@
     "sort": 100,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "VBlpBBJMLAPTcL7T",
@@ -24652,7 +25370,11 @@
     "sort": 200,
     "color": "#6b6b6b",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    },
    {
     "_id": "yxxaf3qOh2JMZk1A",
@@ -24663,13 +25385,17 @@
     "sort": 100,
     "color": "#a83228",
     "description": "",
-    "flags": {}
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
    }
   ],
   "sort": 1000,
   "flags": {
    "mr-wicked-ones-es": {
-    "version": "2.0.0"
+    "version": "2.1.0"
    }
   }
  }

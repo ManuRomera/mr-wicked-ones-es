@@ -1,0 +1,25 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja mrg-cab-hoja--sin-retrato">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la facción" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <button type="button" class="mrg-interruptor mrg-interruptor--chip {{#if mr.primaria}}mrg-on{{/if}}" data-toggle="system.is_primary" aria-pressed="{{mr.primaria}}"><i class="fa-solid fa-star"></i> <span><strong>Facción principal</strong></span></button>
+        <label class="mrg-selector"><span class="mrg-etiqueta">Dominio</span>
+          <select data-select="system.domain"><option value="">— ninguno —</option>{{#each mr.dominios}}<option value="{{v}}" {{#if sel}}selected{{/if}}>{{t}}</option>{{/each}}</select></label>
+      </div>
+    </div>
+  </header>
+
+  <div class="mrg-cuerpo">
+    <section class="mrg-panel">
+      <h4 class="mrg-seccion">Defensas</h4>
+      <div class="mrg-campos">
+        {{#each mr.defensas}}
+        <label class="mrg-campo"><span class="mrg-etiqueta">Defensa {{num}}</span><input type="text" name="{{k}}" value="{{valor}}"></label>
+        {{/each}}
+      </div>
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>

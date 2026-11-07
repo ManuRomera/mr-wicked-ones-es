@@ -196,7 +196,7 @@ export function registrarFicha() {
 
   Hooks.on("getActorSheetHeaderButtons", (app, botones) => {
     const actor = app.actor ?? app.document;
-    if (!actor || !TIPOS.has(actor.type)) return;
+    if (!actor || !TIPOS.has(actor.type) || app.options?.classes?.includes("mrg-hoja")) return;
     const compacta = esCompacta(actor);
     botones.unshift({
       label: "",
@@ -210,7 +210,7 @@ export function registrarFicha() {
   Hooks.on("renderActorSheet", (app, html) => {
     const raiz = html instanceof HTMLElement ? html : html?.[0];
     const actor = app.actor;
-    if (!raiz || !actor || !TIPOS.has(actor.type)) return;
+    if (!raiz || !actor || !TIPOS.has(actor.type) || app.options?.classes?.includes("mrg-hoja")) return;
     const ventana = raiz.closest(".window-app") ?? raiz.closest(".app") ?? raiz;
     ventana.classList.toggle("mr-ventana-compacta", esCompacta(actor));
     restaurarGeometria(app);

@@ -278,3 +278,16 @@ export function simularIncursionEsbirros(resultados, reservaDados = 2) {
     resumen: "Desastre: la manada es rechazada, regresa Malherida con las manos vacías y provoca +2 segmentos de represalia."
   };
 }
+
+/**
+ * Probabilidad exacta de cada resultado para una reserva de d6 (0 = tirar 2d y quedarse con el menor).
+ * @returns {{ critical: number, success: number, mixed: number, failure: number }} fracciones que suman 1
+ */
+export function probabilidades(dados) {
+  const d = Math.max(0, Math.floor(n(dados, 0)));
+  if (d === 0) return { critical: 0, success: 1 / 36, mixed: 8 / 36, failure: 27 / 36 };
+  const sinSeis = (5 / 6) ** d;
+  const unSeis = d * (1 / 6) * (5 / 6) ** (d - 1);
+  const fallo = 0.5 ** d;
+  return { critical: Math.max(0, 1 - sinSeis - unSeis), success: unSeis, mixed: sinSeis - fallo, failure: fallo };
+}

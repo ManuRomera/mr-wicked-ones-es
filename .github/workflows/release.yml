@@ -48,6 +48,28 @@ jobs:
             packs/grupos-es/CURRENT \
             packs/tablas-es/CURRENT \
             tours/director.json \
+            templates/personaje.hbs \
+            templates/esbirros.hbs \
+            templates/mazmorra.hbs \
+            templates/faccion.hbs \
+            templates/faccion-ua.hbs \
+            templates/grupo.hbs \
+            templates/panel-dj.hbs \
+            templates/conquista.hbs \
+            templates/reloj.hbs \
+            js/hojas-base.mjs \
+            js/hojas-actores.mjs \
+            templates/capacidad.hbs \
+            content/libretos.json \
+            js/hoja-personaje.mjs \
+            js/libretos.mjs \
+            js/tirada.mjs \
+            js/tirada-dialogo.mjs \
+            js/ajustes.mjs \
+            styles/guarida.css \
+            styles/guarida-hoja.css \
+            styles/guarida-tirada.css \
+            styles/guarida-sistema.css \
             tours/jugadores.json \
             js/ficha.mjs \
             js/automatismos.mjs \

@@ -56,21 +56,23 @@ export async function aplicarEstresActor(actor, delta, { silencioso = false } = 
 
 async function desatar(actor) {
   try { await actor.toggleStatusEffect("mr-feral", { active: true }); } catch { /* sin estado */ }
-  const botones = `
-    <div class="mr-wo-chat-acciones">
-      <button type="button" class="mr-wo-btn-chat" data-mr-accion="ganar-corazon" data-actor-id="${esc(actor.id)}"><i class="fas fa-heart"></i> Tomar un Corazón Oscuro</button>
-      <button type="button" class="mr-wo-btn-chat" data-mr-accion="marcar-osada" data-actor-id="${esc(actor.id)}"><i class="fas fa-bolt"></i> Marcar EXP Osada</button>
-    </div>`;
-  await ChatMessage.create({
-    speaker: ChatMessage.getSpeaker({ actor }),
-    content: `<div class="dice-tooltip mr-wo-tarjeta mr-wo-feral">
-      <div class="chat-label label-stripe1">¡${esc(actor.name)} se desata!</div>
-      <div class="description"><ol>
+  const { htmlTarjetaSimple } = await import("./tirada.mjs");
+  const cuerpo = `<ol class="mrg-pasos">
         <li>Se detiene la partida: ¿qué es lo más <em>impulsivo</em> que puede hacer ahora? Una idea por cabeza.</li>
         <li>Decide quién interpreta: la última palabra la tiene la jugadora.</li>
         <li>Actúa de inmediato; puede usar capacidades sin gastar Estrés en esa acción.</li>
         <li>Toma un Corazón Oscuro.</li></ol>
-        <p>Seguirá desatado hasta su próximo descanso: sin Estrés no tiene acceso a capacidades ni a resistencias.</p></div>${botones}</div>`
+        <p class="mrg-nota">Seguirá desatado hasta su próximo descanso: sin Estrés no tiene acceso a capacidades ni a resistencias.</p>`;
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: htmlTarjetaSimple({
+      tipo: "Estrés al límite", titulo: `¡${actor.name} se desata!`, subtitulo: "Feral", cuerpo, neutro: "sangre",
+      botones: [
+        { accion: "ganar-corazon", actorId: actor.id, icono: "fa-solid fa-heart", etiqueta: "Tomar un corazón oscuro", sangre: true },
+        { accion: "marcar-osada", actorId: actor.id, icono: "fa-solid fa-bolt", etiqueta: "Marcar EXP osada" }
+      ]
+    }),
+    flags: { [MOD]: { tarjeta: true } }
   });
 }
 

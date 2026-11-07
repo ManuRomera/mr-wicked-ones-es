@@ -45,7 +45,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "tipo": "mazmorra"
+    "tipo": "mazmorra",
+    "contenido": true
    }
   },
   "folder": "kparm0JeHxb1mMW1"
@@ -118,7 +119,7 @@
     "_id": "M5T25ZZ0dmbylKhI",
     "name": "Hermana Valeria",
     "type": "adventurer",
-    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-cleriga.webp",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-clerigo.webp",
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Cleric",
@@ -280,7 +281,8 @@
   "flags": {
    "mr-wicked-ones-es": {
     "tipo": "grupo_invasor",
-    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp"
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-defensor.webp",
+    "contenido": true
    }
   },
   "folder": "yRokJ4EFwfGttTka"
@@ -353,7 +355,7 @@
     "_id": "3FFB0LgVevs10644",
     "name": "Lyra Vientoveloz",
     "type": "adventurer",
-    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquera.webp",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-arquero-arcano.webp",
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Spellbow",
@@ -561,7 +563,8 @@
   "flags": {
    "mr-wicked-ones-es": {
     "tipo": "grupo_invasor",
-    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp"
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-explorador.webp",
+    "contenido": true
    }
   },
   "folder": "yRokJ4EFwfGttTka"
@@ -680,7 +683,7 @@
     "_id": "XLV9QMQXpuv3PESE",
     "name": "Archimago Oakhaven",
     "type": "adventurer",
-    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-archimago.webp",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-mago-del-caos.webp",
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Chaosmage",
@@ -877,7 +880,8 @@
   "flags": {
    "mr-wicked-ones-es": {
     "tipo": "grupo_invasor",
-    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp"
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-inquisidor.webp",
+    "contenido": true
    }
   },
   "folder": "yRokJ4EFwfGttTka"
@@ -996,7 +1000,7 @@
     "_id": "8x55ohs8yqkppoBW",
     "name": "Vesper Cuchillo Negro",
     "type": "adventurer",
-    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesina.webp",
+    "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesino.webp",
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Assassin",
@@ -1112,7 +1116,8 @@
   "flags": {
    "mr-wicked-ones-es": {
     "tipo": "grupo_invasor",
-    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp"
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-centurion.webp",
+    "contenido": true
    }
   },
   "folder": "yRokJ4EFwfGttTka"
@@ -1121,7 +1126,7 @@
   "_id": "PPawS8q5D5fjmP20",
   "name": "Panel del DJ · Campaña El Valle Silencioso",
   "type": "gm_sheet",
-  "img": "modules/mr-wicked-ones-es/assets/escenas/portada.webp",
+  "img": "modules/mr-wicked-ones-es/assets/escenas/esc-portada.webp",
   "system": {
    "current_phase": {
     "value": 7,
@@ -1224,7 +1229,8 @@
   ],
   "flags": {
    "mr-wicked-ones-es": {
-    "tipo": "panel_dj"
+    "tipo": "panel_dj",
+    "contenido": true
    }
   },
   "folder": "o5EaLfdwZSNBM7pG"

@@ -1,0 +1,74 @@
+<form class="{{cssClass}} mrg mrg-hoja-f" autocomplete="off">
+
+  <header class="mrg-cab-hoja mrg-cab-hoja--sin-retrato">
+    <div class="mrg-cab-datos">
+      <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la conquista" aria-label="Nombre">
+      <div class="mrg-cab-chips">
+        <span class="mrg-chip mrg-chip--azul"><i class="fa-solid fa-fire-flame-simple"></i> Vela {{mr.vela.valor}}/{{mr.vela.max}}</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mrg-nav tabs" aria-label="Secciones de la conquista">
+    <a class="item" data-tab="dominios"><i class="fa-solid fa-chess-rook"></i> Dominios</a>
+    <a class="item" data-tab="vela"><i class="fa-solid fa-fire-flame-simple"></i> Vela</a>
+    <a class="item" data-tab="descripcion"><i class="fa-solid fa-scroll"></i> Descripción</a>
+    <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
+  </nav>
+
+  <div class="mrg-cuerpo">
+    <section class="tab mrg-panel" data-tab="dominios">
+      {{#each mr.dominios}}
+      <article class="mrg-dominio">
+        <header>
+          <h3 class="mrg-titulo">{{nombre}}</h3>
+          <div class="mrg-pips" role="group" aria-label="Valor de {{nombre}}">
+            {{#each pips}}<button type="button" class="mrg-pip" data-pip="system.{{../id}}_value.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="{{../nombre}} {{n}}"></button>{{/each}}
+          </div>
+          <button type="button" class="mrg-chipbtn {{#if empoderado}}mrg-sel{{/if}}" data-toggle="system.{{id}}_empowered" aria-pressed="{{empoderado}}"><i class="fa-solid fa-bolt"></i> Empoderado</button>
+          <button type="button" class="mrg-chipbtn {{#if amenazado}}mrg-sel{{/if}}" data-toggle="system.{{id}}_threatened" aria-pressed="{{amenazado}}"><i class="fa-solid fa-triangle-exclamation"></i> Amenazado</button>
+        </header>
+        <label class="mrg-campo"><span class="mrg-etiqueta">Descripción</span><textarea name="system.{{id}}_txt" rows="3">{{texto}}</textarea></label>
+        <div class="mrg-lista">
+          {{#each habilidades}}
+          <article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>{{#if nucleo}}<span class="mrg-chip mrg-chip--sangre">Núcleo</span>{{/if}}
+            <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>
+            {{#if desc}}<p>{{desc}}</p>{{/if}}</article>
+          {{/each}}
+        </div>
+      </article>
+      {{/each}}
+      <div class="mrg-barra-rapida"><a class="mrg-btn item-add-popup" data-item-type="conquest_ability"><i class="fa-solid fa-plus"></i> Añadir habilidad de conquista</a></div>
+      {{#if mr.sinDominio.length}}
+      <h4 class="mrg-seccion">Sin dominio</h4>
+      <div class="mrg-lista">
+        {{#each mr.sinDominio}}<article class="mrg-objeto"><header><h5><button type="button" class="mrg-enlace" data-abrir="{{id}}">{{nombre}}</button></h5>
+          <button type="button" class="mrg-mini" data-borrar="{{id}}" aria-label="Quitar {{nombre}}"><i class="fa-solid fa-trash"></i></button></header>{{#if desc}}<p>{{desc}}</p>{{/if}}</article>{{/each}}
+      </div>
+      {{/if}}
+    </section>
+
+    <section class="tab mrg-panel" data-tab="vela">
+      <h4 class="mrg-seccion">Vela de la conquista <small>{{mr.vela.valor}} de {{mr.vela.max}}</small></h4>
+      <div class="mrg-pips mrg-pips--grandes" role="group" aria-label="Progreso de la vela">
+        {{#each mr.vela.pips}}<button type="button" class="mrg-pip" data-pip="system.candle_progress.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="Segmento {{n}}"></button>{{/each}}
+      </div>
+      <div class="mrg-barra-rapida">
+        <button type="button" class="mrg-btn" data-num="system.candle_progress.value" data-delta="-1" data-min="0" data-max="{{mr.vela.max}}"><i class="fa-solid fa-minus"></i> Apagar un poco</button>
+        <button type="button" class="mrg-btn mrg-btn--sangre" data-num="system.candle_progress.value" data-delta="1" data-min="0" data-max="{{mr.vela.max}}"><i class="fa-solid fa-plus"></i> Avanzar</button>
+      </div>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="descripcion">
+      <div class="mrg-campos mrg-campos--anchos">
+        {{#each mr.textos}}
+        <label class="mrg-campo"><span class="mrg-etiqueta">{{etiqueta}}</span><textarea name="{{k}}" rows="4">{{valor}}</textarea></label>
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="tab mrg-panel" data-tab="notas">
+      <div class="mrg-editor"><span class="mrg-etiqueta">Notas</span>{{editor notes target="system.description" button=true owner=owner editable=editable}}</div>
+    </section>
+  </div>
+</form>
