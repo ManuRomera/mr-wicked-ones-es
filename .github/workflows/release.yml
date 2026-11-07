@@ -70,6 +70,9 @@ jobs:
             js/heridas.mjs \
             js/experiencia.mjs \
             js/marcadores.mjs \
+            js/mazmorra.mjs \
+            js/core/mazmorra.mjs \
+            assets/wicked-isometric/terrain/earth_iso.webp \
             js/core/marcadores.mjs \
             templates/capacidad-compacta.hbs \
             assets/dados/d6-6.png \

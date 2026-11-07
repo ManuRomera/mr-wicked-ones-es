@@ -12,6 +12,7 @@
  *   data-herida="1|-1|0" data-item="<id>"        herir / curar medio corazón / curar del todo
  *   data-abrir / data-borrar="<id>"             abrir o quitar un objeto
  *   data-ir="pestaña"                           saltar de pestaña
+ *   data-constructor                            abre el constructor de mazmorras
  *   data-tirar="acción" · data-fortuna="dados"  tiradas
  */
 import { n } from "./core/reglas.mjs";
@@ -83,6 +84,7 @@ export function escuchasComunes(hoja, html) {
     const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: "Quitar" }, content: `<p>¿Quitar «${esc(it.name)}» de ${esc(actor.name)}?</p>`, rejectClose: false });
     if (ok) it.delete();
   });
+  html.find("[data-constructor]").on("click", async () => (await import("./mazmorra.mjs")).abrirConstructor());
   if (!hoja.isEditable) return;
   html.find("[data-selector]").on("click", ev => abrirSelector(actor, ev.currentTarget.dataset.selector, { uso: ev.currentTarget.dataset.uso }));
 

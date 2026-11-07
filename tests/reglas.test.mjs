@@ -21,6 +21,10 @@ import {
   simularIncursionEsbirros,
   probabilidades
 } from "../js/core/reglas.mjs";
+import {
+  crearMapa, excavar, rellenar, construirSala, quitarSala, alternarPuerta, muros, decorar, lucesDe, celda, resumen, TIPOS_SALA, cabe, ajustarSala,
+  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, tipoDeTema, antorchasTunel, lucesTunel, entradasDe
+} from "../js/core/mazmorra.mjs";
 import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
 
 test("Micro-utilidades puras (n, sig, acota)", () => {
@@ -181,7 +185,7 @@ test("Estructura del módulo: estilos, módulos JS, plantillas y versiones coher
   const m = JSON.parse(await fs.readFile(new URL("module.json", raiz), "utf8"));
   const pkg = JSON.parse(await fs.readFile(new URL("package.json", raiz), "utf8"));
   assert.equal(m.version, pkg.version);
-  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "js/heridas.mjs", "js/experiencia.mjs", "js/marcadores.mjs", "js/core/marcadores.mjs", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
+  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "js/heridas.mjs", "js/experiencia.mjs", "js/marcadores.mjs", "js/core/marcadores.mjs", "js/mazmorra.mjs", "js/core/mazmorra.mjs", "assets/wicked-isometric/terrain/earth_iso.webp", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
     await fs.access(new URL(f, raiz));
   }
   for (const tour of ["director", "jugadores"]) {
@@ -208,4 +212,116 @@ test("Marcadores: relojes, avisos con frase, hitos públicos y fusión por id (c
   assert.deepEqual(m.clocks[0].phrases, ["a", "b"]);
   assert.deepEqual(unirPorId([{ id: "a", v: 1 }], [{ id: "a", v: 2 }, { id: "b", v: 3 }]), [{ id: "a", v: 2 }, { id: "b", v: 3 }]);
   assert.deepEqual(milestonesProgress([{ id: "a" }, { id: "b" }], { a: true }), { done: 1, total: 2 });
+});
+
+test("Constructor de mazmorras: excavar, salas que se ajustan, puertas, muros de Foundry", () => {
+  const m = crearMapa(20, 14);
+  assert.equal(celda(m, 0, 0), "#");
+  assert.equal(excavar(m, 0, 0), false);            // la roca base no se excava
+  assert.equal(excavar(m, 5, 5), true);
+  assert.equal(rellenar(m, 5, 5), true);
+  // un túnel de 3 celdas: muros por todos los lados (2 largos arriba/abajo + 2 tapas)
+  for (const x of [3, 4, 5]) excavar(m, x, 3);
+  const w = muros(m);
+  assert.equal(w.length, 4);
+  assert.ok(w.every(s => !s.puerta));
+  // una forja marcada de 3×3 se ajusta sola a su mínimo (4×3) hacia la derecha y abajo
+  const r = construirSala(m, { x: 6, y: 2, w: 3, h: 3 }, "forja");
+  assert.ok(r.ok && r.ajustada);
+  assert.deepEqual(r.rect, { x: 6, y: 2, w: 4, h: 3 });
+  assert.equal(construirSala(m, { x: 7, y: 3, w: 2, h: 2 }, "templo").ok, false);   // no se pisan
+  assert.equal(construirSala(m, { x: 0, y: 0, w: 2, h: 2 }, "templo").ok, false);   // ni se toca la roca base
+  const p = alternarPuerta(m, 5, 3, "e");
+  assert.ok(p.ok && p.puesta);
+  assert.equal(muros(m).filter(s => s.puerta).length, 1);
+  assert.equal(alternarPuerta(m, 3, 3, "e").ok, false);                                // túnel con túnel: sin puerta
+  assert.equal(alternarPuerta(m, 5, 3, "e").puesta, false);                             // se quita
+  assert.ok(quitarSala(m, r.id));
+  assert.equal(resumen(m).salas, 0);
+  // un clic suelto (1×1) crea la sala mínima; si no hay sitio, avisa
+  const n = crearMapa(8, 8);
+  const unaCelda = construirSala(n, { x: 6, y: 6, w: 1, h: 1 }, "santuario");
+  assert.ok(unaCelda.ok && unaCelda.rect.w === 3 && unaCelda.rect.h === 3);             // crece hacia la izquierda/arriba porque a la derecha está la roca
+  assert.equal(construirSala(crearMapa(4, 4), { x: 1, y: 1, w: 1, h: 1 }, "templo").ok, false);
+  assert.ok(cabe("templo", 3, 4) && cabe("templo", 4, 3) && !cabe("templo", 3, 3));
+  assert.equal(ajustarSala(crearMapa(10, 10), { x: 2, y: 2, w: 6, h: 6 }, "templo").ajustada, false);
+});
+
+test("Constructor: la decoración se orienta hacia la puerta y cambia con el tamaño", () => {
+  const sala = (w, h, tipo = "santuario") => ({ x: 5, y: 5, w, h, tipo });
+  const cuenta = (e, t) => e.filter(z => z.tipo === t).length;
+  const sinPuerta = (w, h, tipo) => decorar(sala(w, h, tipo));
+  assert.equal(sinPuerta(3, 3)[0].tipo, "emblema");
+  assert.equal(cuenta(sinPuerta(3, 3), "brasero"), 4);
+  assert.equal(cuenta(sinPuerta(3, 3), "pilar"), 0);
+  assert.ok(cuenta(sinPuerta(6, 5), "pilar") > 0);
+  assert.equal(cuenta(sinPuerta(8, 8), "estatua"), 2);
+  assert.equal(cuenta(sinPuerta(4, 3), "pilar"), 0);   // 12 celdas: aún no es grande
+  // la alfombra sigue el eje de la entrada: puerta al sur → vertical; puerta al oeste → horizontal
+  const alf = (puertas, w, h) => decorar(sala(w, h), puertas).filter(e => e.tipo === "alfombra");
+  const sur = alf([{ x: 7, y: 8, d: "n" }], 5, 5), oeste = alf([{ x: 5, y: 7, d: "w" }], 7, 5);
+  assert.ok(sur.length && sur.every(e => e.eje === "v" && e.w === 1));
+  assert.ok(oeste.length && oeste.every(e => e.eje === "h" && e.h === 1));
+  // sin puerta, una sala más ancha que alta se alarga en horizontal y una más alta que ancha en vertical
+  assert.ok(decorar(sala(9, 4)).filter(e => e.tipo === "alfombra").every(e => e.eje === "h"));
+  assert.ok(decorar(sala(4, 9)).filter(e => e.tipo === "alfombra").every(e => e.eje === "v"));
+  // el trono queda en el muro opuesto a la puerta, y la entrada nunca se tapa con muebles
+  const conPuerta = decorar(sala(5, 5), [{ x: 7, y: 5, d: "n" }]);   // puerta en el borde norte
+  const trono = conPuerta.find(e => e.tipo === "trono");
+  assert.equal(Math.floor(trono.y), 9);
+  assert.ok(!conPuerta.some(e => !["emblema", "alfombra", "antorcha"].includes(e.tipo) && Math.floor(e.x) === 7 && Math.floor(e.y) === 5));
+  assert.deepEqual(entradasDe(sala(5, 5), [{ x: 7, y: 5, d: "n" }]), [{ x: 7, y: 5, lado: "n" }]);
+  // cada tipo se compone con sus piezas
+  const tiene = (tipo, w, h, t) => cuenta(decorar(sala(w, h, tipo)), t) > 0;
+  assert.ok(tiene("forja", 5, 4, "yunque") && tiene("forja", 5, 4, "horno"));
+  assert.ok(tiene("templo", 5, 4, "altar") && tiene("tesoro", 3, 3, "cofre") && tiene("prision", 5, 3, "jaula") && tiene("guarida", 4, 4, "jergon"));
+  // el tesoro acumula más oro cuanto mayor es el nivel de la mazmorra
+  assert.ok(cuenta(decorar(sala(5, 5, "tesoro"), [], { nivel: 4 }), "oro") > cuenta(decorar(sala(5, 5, "tesoro"), [], { nivel: 0 }), "oro"));
+  // luces: 2×2 normal no, 2×2 importante sí; 3×3 con braseros; los hornos de la forja también alumbran
+  assert.equal(lucesDe({ x: 1, y: 1, w: 2, h: 2, tipo: "enclave" }).length, 0);
+  assert.equal(lucesDe({ x: 1, y: 1, w: 2, h: 2, tipo: "santuario" }).length, 1);
+  assert.equal(lucesDe(sala(3, 3)).length, 5);
+  assert.ok(lucesDe(sala(10, 10))[0].dim <= 10 && lucesDe(sala(3, 3))[0].dim === 4);
+  assert.ok(lucesDe(sala(5, 4, "forja")).some(l => l.tipo === "horno"));
+});
+
+test("Constructor: antorchas de pasillo según la orientación", () => {
+  const m = crearMapa(20, 14);
+  for (let x = 2; x <= 12; x++) excavar(m, x, 3);          // pasillo horizontal de 11 celdas
+  for (let y = 6; y <= 12; y++) excavar(m, 15, y);         // pasillo vertical de 7 celdas
+  const t = antorchasTunel(m);
+  const h = t.filter(a => a.eje === "h"), v = t.filter(a => a.eje === "v");
+  assert.ok(h.length >= 2 && h.every(a => a.lado === "n" && a.y === 3.5));
+  assert.ok(v.length >= 1 && v.every(a => (a.lado === "w" || a.lado === "e") && a.x === 15.5));
+  assert.ok(new Set(v.map(a => a.lado)).size >= 1);
+  assert.equal(lucesTunel(m).length, t.length);
+  const corto = crearMapa(10, 10); excavar(corto, 4, 4); excavar(corto, 5, 4);
+  assert.equal(antorchasTunel(corto).length, 0);           // un tramo de dos celdas no lleva antorchas
+});
+
+test("Constructor: reglas de obra (acciones de descanso, temática y materiales)", () => {
+  assert.equal(costeSala("santuario"), 0);
+  assert.equal(costeSala("menor"), 1);
+  assert.equal(costeSala("prision"), 2);
+  assert.equal(costeSala("forja"), 4);
+  assert.equal(costeExcavar(0), 0); assert.equal(costeExcavar(8), 1); assert.equal(costeExcavar(9), 2);
+  const m = crearMapa(30, 20);
+  assert.equal(m.obra.total, 3);
+  assert.ok(puedeGastar(m, 3).ok && !puedeGastar(m, 4).ok);
+  gastar(m, 2);
+  assert.equal(puedeGastar(m, 2).ok, false);
+  assert.ok(/te quedan 1/.test(puedeGastar(m, 2).motivo));
+  // única: solo un santuario
+  assert.ok(construirSala(m, { x: 2, y: 2, w: 3, h: 3 }, "santuario").ok);
+  assert.equal(reglasSala(m, "santuario").ok, false);
+  // nivel 3: de la temática sí (con materiales), de otra solo una
+  const ctx = { tema: "forja", materiales: { forja: true, templo: true, fortaleza: true, enclave: false } };
+  assert.ok(reglasSala(m, "forja", ctx).ok);
+  assert.equal(reglasSala(m, "enclave", ctx).ok, false);                    // faltan materiales
+  assert.ok(reglasSala(m, "templo", ctx).ok);
+  assert.ok(construirSala(m, { x: 8, y: 2, w: 4, h: 3 }, "templo").ok);
+  assert.equal(reglasSala(m, "fortaleza", ctx).ok, false);                  // ya hay una de otra temática
+  assert.ok(reglasSala(m, "forja", ctx).ok);
+  assert.equal(tipoDeTema("Forge"), "forja"); assert.equal(tipoDeTema("Fortaleza"), "fortaleza"); assert.equal(tipoDeTema("Stronghold"), "fortaleza"); assert.equal(tipoDeTema("???"), null);
+  assert.ok(Object.values(TIPOS_SALA).every(t => t.min.length === 2 && t.nombre));
 });

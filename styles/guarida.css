@@ -356,3 +356,36 @@ span.mrg-marc-seg { cursor: default; }
 .mrg-marc-edit textarea { width: 100%; }
 .mrg-marc-edit summary { cursor: pointer; font-weight: 700; }
 .mrg-marc-pie .mrg-btn { width: auto; }
+
+/* ── v2.6 · Constructor de mazmorras ──────────────────────────────────────── */
+.application.mrg-ventana.mrg-cons-app .window-content { padding: .7rem .8rem 1rem; background: var(--g-fondo); color: var(--g-tinta); }
+.mrg-cons { display: grid; gap: .55rem; }
+.mrg-cons-herr { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; }
+.mrg-cons-h { appearance: none; cursor: pointer; width: auto; height: auto; display: grid; justify-items: center; gap: .15rem; padding: .45rem .1rem; color: var(--g-tinta); background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; font: 700 .7rem var(--g-texto); }
+.mrg-cons-h i { font-size: 1.15rem; color: var(--g-sangre); }
+.mrg-cons-h.on { background: var(--g-hierro); color: var(--g-hueso); border-color: var(--g-oro-vivo); box-shadow: 0 0 10px color-mix(in oklab, var(--g-oro-vivo) 45%, transparent); }
+.mrg-cons-h.on i { color: var(--g-oro-vivo); }
+.mrg-cons-tipos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; }
+.mrg-cons-t { appearance: none; cursor: pointer; width: auto; height: auto; display: grid; justify-items: center; gap: .15rem; padding: .25rem; color: var(--g-tinta); background: transparent; border: 2px solid var(--g-linea); border-radius: 6px; font: 700 .62rem var(--g-texto); }
+.mrg-cons-t img { width: 2.6rem; height: 2.6rem; object-fit: cover; border: 0; border-radius: 4px; }
+.mrg-cons-t { position: relative; }
+.mrg-cons-t small { font: 600 .56rem var(--g-texto); opacity: .8; }
+.mrg-cons-t--no { opacity: .5; }
+.mrg-cons-tema { position: absolute; top: .1rem; right: .25rem; font-style: normal; font-size: .8rem; color: var(--g-oro-vivo); text-shadow: 0 0 3px #000; }
+.mrg-cons-t.on { border-color: var(--g-oro-vivo); background: var(--g-hierro); color: var(--g-hueso); }
+.mrg-cons-no { color: var(--g-sangre); font-weight: 700; }
+.mrg-cons-obra { display: grid; gap: .3rem; padding: .45rem .55rem; background: var(--g-papel-2); border: 2px solid var(--g-linea); border-radius: 6px; }
+.mrg-cons-obra-t { display: flex; justify-content: space-between; align-items: baseline; font-size: .8rem; }
+.mrg-cons-obra-b { display: flex; gap: .3rem; align-items: center; }
+.mrg-cons-obra-b .mrg-btn { flex: 1; width: auto; }
+.mrg-cons-ficha { display: grid; gap: .3rem; font-size: .78rem; padding: .45rem .55rem; border: 2px dashed var(--g-linea); border-radius: 6px; }
+.mrg-cons-ficha select { width: 100%; }
+.mrg-cons-l3 { list-style: none; margin: 0; padding: 0; display: grid; gap: .15rem; }
+.mrg-cons-l3 .ok i { color: #3f8f4a; }
+.mrg-cons-l3 .falta { opacity: .85; }
+.mrg-cons-reglas { font-size: .76rem; }
+.mrg-cons-reglas summary { cursor: pointer; font-weight: 700; }
+.mrg-cons-reglas ul { margin: .35rem 0 0; padding-left: 1rem; display: grid; gap: .25rem; }
+.mrg-cons-res { margin: 0; text-align: center; font-size: .9rem; }
+.mrg-cons-col { display: grid; gap: .4rem; }
+.mrg-cons-col .mrg-btn { width: 100%; }

@@ -5,6 +5,7 @@
       <input class="mrg-nombre" type="text" name="name" value="{{actor.name}}" placeholder="Nombre de la mazmorra" aria-label="Nombre">
       <div class="mrg-cab-chips">
         <a class="mrg-chipbtn" data-selector="dungeon_theme"><i class="fa-solid fa-landmark"></i> {{#if mr.tema}}{{mr.tema.nombre}}{{else}}Elegir temática{{/if}}</a>
+        <a class="mrg-chipbtn" data-constructor data-ayuda="Constructor de mazmorras||Abre el constructor para excavar y construir salas en la escena: usa el nivel, la temática y las salas de nivel 3 de esta ficha."><i class="fa-solid fa-trowel-bricks"></i> Constructor</a>
       </div>
     </div>
   </header>

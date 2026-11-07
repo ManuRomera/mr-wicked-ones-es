@@ -1,3 +1,21 @@
+## 2.6.0 (2026-11-08)
+
+Constructor de mazmorras. / Dungeon builder.
+
+### Añadido / Added
+- **Constructor de mazmorras** (botón en la barra de escena): excavar túneles, construir salas arrastrando un rectángulo, poner puertas, rellenar y demoler. Dibujo en vista 3/4 tipo *Dungeon Keeper* con **decoración que cambia según las dimensiones** de la sala (brasero, braseros y estandartes desde 3×3, pilares, antorchas, alfombra y estatua en salas grandes). / **Dungeon builder** with size-dependent decoration.
+- **Foundry hace lo suyo**: muros y puertas nativos (`Wall`, con visión y puertas que se abren) y **luces con animación de antorcha** en salas de 3×3 o más y en las importantes (santuario, tesoro, forja). Los dibujos son discretos y **no se animan**: solo parpadea la luz, con un radio que cubre la sala según su tamaño (los braseros dan un resplandor pequeño). / **Native walls, doors and torch lights**; only the light flickers, with a radius scaled to the room.
+- **Los jugadores también construyen** (ajuste «Los jugadores pueden construir la mazmorra»): sus órdenes viajan por socket al DJ. / Players can build via the GM (socket).
+- **Gráficos nuevos** en `assets/wicked-isometric/`: terreno (roca, tierra, túnel), suelos y emblemas de las siete salas, brasero, pilar, estandarte, estatua y puertas. Se regeneran con `tools/mazmorra_assets.py`. / New art set.
+- «Nueva escena de mazmorra» o «Usar esta escena» desde el propio constructor. / One-click scene setup.
+- **Cada sala, con su plano y orientada a la puerta**: diez tipos (santuario, tesoro, sala menor, guarida de esbirros, prisión y las temáticas enclave, escondrijo, forja, fortaleza y templo) con arte nuevo (cofre, oro, yunque, horno, altar, trono, estantería, mesa, jergón, armero, barril, jaula). El fondo de la sala es siempre el muro opuesto a la puerta; **la alfombra va por el eje de la entrada** (vertical u horizontal, y sin puerta se alarga con la sala) y deja libre el emblema. El tesoro amontona más oro según el nivel de la ficha. / **Per-room layouts turned toward the door**; carpets follow the entrance axis; treasure grows with dungeon level.
+- **La sala se adapta sola**: arrastras (o pulsas una celda) y se crea ajustada al espacio; si es menor que el mínimo de su tipo crece hasta él hacia donde haya sitio. La vista previa muestra el resultado, el coste y el motivo si no cabe. / **Rooms auto-fit** to the dragged area up to a per-type minimum.
+- **Antorchas en los pasillos**, de frente en los horizontales y de perfil en los verticales, cada una con su luz de antorcha. / **Corridor torches** drawn front-on or side-on by direction, each with its light.
+- **Vasallos constructores**: esbirros diminutos que recorren salas y túneles picando y trabajando (más cuanto mayor es la mazmorra). Ajuste de cliente. / **Minion workers** wandering the dungeon (client setting).
+- **Tokens a la escala de la mazmorra**: los tokens de las escenas de mazmorra se reducen solos (ajuste, 0,6 por defecto). / **Token scale** setting for dungeon scenes.
+- **Reglas del manual** (ajuste «El constructor sigue las reglas de obra»): acciones de descanso por fase de acecho (una por PJ más los duendes; +1 por panda de esbirros pagada), nivel 1 = 1, nivel 2 = 2, nivel 3 = 4; salas de nivel 3 con temática y materiales de la ficha de la mazmorra (solo una de otra temática); santuario y tesoro únicos y gratis. «Nueva fase de acecho» repone las acciones (y se hace sola al pasar el panel del DJ a la fase 1). Cada obra deja una tarjeta en el chat. / **Rulebook rules**: rest-action budget, level costs, level-3 rooms need theme and materials; chat card per build.
+- **Integrado con la ficha de la mazmorra**: el panel muestra su nivel, temática y salas de nivel 3 (con o sin materiales), y la ficha tiene un botón «Constructor». / **Linked to the dungeon sheet**, with a Constructor button.
+
 ## 2.5.1 (2026-11-07)
 
 Arreglos de la 2.5.0. / Fixes for 2.5.0.
