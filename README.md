@@ -60,6 +60,11 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 ### Crear un monstruo paso a paso (o al azar)
 El **creador** sigue el orden del manual: raza, vocación, capacidad de vocación, reparto de acciones (3/2/2/1/1), impulso oscuro, juerga, equipo y suministros con su defensa, y nombre. Cada paso tiene su botón **«Al azar»** y hay un **«Todo al azar»** para tener un monstruo listo en diez segundos. Se abre desde el directorio de Actores («Crear monstruo»), desde la barra de la hoja (para rehacer un personaje) o con `api.abrirCreador()`.
 
+### Hitos y relojes de la campaña, sin depender de nada más
+Una píldora **«Marcadores»** (arrastrable; **Alt+M**) abre un panel con los **hitos** de la campaña y los **relojes**. El DJ lo ve todo y avanza los relojes casilla a casilla; la mesa solo ve lo público. Desde **«Gestionar hitos y relojes»** (o el panel del DJ) se **añaden, editan y quitan**: hitos **públicos o secretos**, relojes **visibles u ocultos**, **aviso a la mesa** al avanzar con una **frase de sabor por casilla** (o propia con Mayús + clic). Con [MR- Dirección](https://github.com/ManuRomera/mr-direccion) activo, este control **sustituye al suyo y comparte sus datos** (lee y escribe sus hitos, relojes y progreso), así que ambos módulos siempre ven lo mismo.
+
+<p align="center"><img src="docs/img/marcadores.webp" alt="Panel de hitos y relojes y ventana para gestionarlos" width="70%"></p>
+
 ### Experiencia: hitos al final de la sesión
 Entre las dos barras de EXP hay un botón **«Fin de sesión»** (también se abre pulsando el nombre de cada barra). Una ventana pregunta, con **Sí / No**, los desencadenantes del manual —plan maestro, escena de otra persona, actuar como un monstruo, uso creativo del equipo— y si interpretaste un desate o un reventado; al anotarlos suben solas la EXP malvada y la osada. La pestaña **Gastar** explica qué desbloquea cada barra al llenarse (una capacidad de vocación, un punto de acción) y cómo funciona la práctica.
 
@@ -186,6 +191,7 @@ npm run datos && npm run build
 - **Custom dice** (colour-scaled faces, Dark Lord emblem on the 6) in chat cards and in **Dice So Nice**.
 - **Wounds you can annotate** (shock → bloodied → dead), a **Recovery** button and prompt on cycle phase 1, and a toolbar that appears on hover.
 - **GM-only assistant** (whispered rolls with a *Show to players* button and explanations), **box-free sheet** with the toolbar in the window bar (shows on hover) and a wounds window.
+- **Native milestones & clocks control** (draggable pill, GM manager with public/secret milestones, hidden/visible clocks, announcements with flavour phrases); it replaces MR- Dirección's and shares its data when that module is active.
 - **Session XP window** (yes/no milestones, spending guide).
 - **Hover help**: rest the cursor for two seconds on anything and a balloon explains it.
 - **Playbooks** for every calling and monster race (how to play it, abilities you can learn, example items), readable by players.

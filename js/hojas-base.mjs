@@ -158,6 +158,7 @@ export function escuchasComunes(hoja, html) {
     }
     tirar(actor, o);
   });
+  html.find("[data-marcadores]").on("click", () => game.modules.get(MOD)?.api?.abrirMarcadores());
   html.find("[data-asistente]").on("click", ev => game.modules.get(MOD)?.api?.abrirGenerador(ev.currentTarget.dataset.asistente));
   html.find("[data-select]").on("change", async ev => {
     const el = ev.currentTarget;

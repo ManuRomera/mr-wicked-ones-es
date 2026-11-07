@@ -303,3 +303,56 @@
 .mrg-arrastrable span { display: grid; flex: 1; }
 .mrg-arrastrable small { opacity: .75; font-size: .8em; }
 .mrg-arrastrable:active { cursor: grabbing; }
+
+/* ── v2.5 · Hitos y relojes nativos ───────────────────────────────────────── */
+:root.mrg-marc-propios #mr-direccion-badge, :root.mrg-marc-propios #mr-direccion-panel { display: none !important; }
+.mrg-marc-pastilla { position: fixed; z-index: 60; display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .8rem; overflow: hidden; cursor: grab; touch-action: none;
+  color: var(--g-hueso); background: var(--g-hierro); border: 2px solid var(--g-sangre); border-radius: 999px; font: 800 .82rem var(--g-texto); letter-spacing: .04em; box-shadow: var(--g-sombra); }
+.mrg-marc-pastilla i { color: var(--g-oro-vivo); }
+.mrg-marc-pastilla b { color: var(--g-oro-vivo); }
+.mrg-marc-pastilla em { position: absolute; left: 0; bottom: 0; height: 3px; width: var(--p, 0%); background: var(--g-sangre); }
+.mrg-marc-pastilla:hover { border-color: var(--g-oro-vivo); }
+.mrg-marc-panel { position: fixed; z-index: 61; width: 20rem; max-height: 70vh; overflow: auto; padding: .7rem .8rem; display: grid; gap: .5rem; align-content: start;
+  color: var(--g-tinta); background: var(--g-papel); border: 2px solid var(--g-hierro); border-top: 4px solid var(--g-sangre); border-radius: var(--g-radio); box-shadow: 0 12px 30px -8px rgb(0 0 0 / .7); font-family: var(--g-texto); }
+.mrg-marc-panel[hidden] { display: none; }
+.mrg-marc-panel h3 { margin: .3rem 0 0; font: 400 1.15rem var(--g-display); border: 0; }
+.mrg-marc-panel h4 { margin: 0; display: flex; justify-content: space-between; align-items: center; gap: .4rem; font: 800 .92rem var(--g-texto); border: 0; }
+.mrg-marc-panel ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .15rem; }
+.mrg-marc-panel li { display: flex; align-items: center; gap: .3rem; padding: .15rem 0; font-size: .9rem; }
+.mrg-marc-hito { flex: 1; display: flex; gap: .4rem; cursor: pointer; }
+.mrg-marc-panel li.hecho .mrg-marc-hito span:last-child { text-decoration: line-through; opacity: .7; }
+.mrg-marc-panel li.hecho .mrg-marc-punto { color: var(--g-oro); }
+.mrg-marc-panel li.secreto { font-style: italic; }
+.mrg-marc-fila { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 3px; }
+.mrg-marc-seg { appearance: none; width: auto; height: 1.3rem; padding: 0; border: 2px solid var(--g-hierro); border-radius: 3px; background: var(--g-papel-2); cursor: pointer; transform: skewX(-12deg); }
+span.mrg-marc-seg { cursor: default; }
+.mrg-marc-seg.on { background: var(--g-sangre-fuerte); border-color: #000; }
+.mrg-marc-herr { display: inline-flex; gap: .2rem; }
+.mrg-marc-mini { appearance: none; cursor: pointer; width: 1.6rem; height: 1.6rem; padding: 0; display: inline-grid; place-items: center; color: var(--g-tinta-2); background: transparent; border: 1px solid var(--g-linea); border-radius: 4px; font-size: .8rem; }
+.mrg-marc-mini.on { color: var(--g-oro-vivo); border-color: var(--g-oro); }
+.mrg-marc-mini:hover { background: var(--g-papel-2); }
+.mrg-marc-pie { margin: 0; font-size: .78rem; }
+#mr-wo-toasts { position: fixed; z-index: 90; top: 5.5rem; left: 50%; transform: translateX(-50%); display: grid; gap: .5rem; width: min(26rem, 92vw); pointer-events: none; }
+.mrg-toast { pointer-events: auto; cursor: pointer; padding: .7rem .9rem; display: grid; gap: .4rem; color: var(--g-hueso); background: var(--g-hierro); border: 2px solid var(--g-sangre); border-left-width: 6px; border-radius: var(--g-radio); box-shadow: 0 12px 30px -8px rgb(0 0 0 / .8); font-family: var(--g-texto); transition: opacity .4s, transform .4s; }
+.mrg-toast.sale { opacity: 0; transform: translateY(-8px); }
+.mrg-toast.lleno { border-color: var(--g-oro-vivo); }
+.mrg-toast-cab { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+.mrg-toast-cab span { font: 800 .7rem var(--g-texto); text-transform: uppercase; letter-spacing: .12em; color: var(--g-oro-vivo); }
+.mrg-toast-cab b { flex: 1; font: 400 1.15rem var(--g-display); }
+.mrg-toast-seg { display: flex; gap: 3px; }
+.mrg-toast-seg i { flex: 1; height: .8rem; border: 2px solid #000; background: #2a211c; transform: skewX(-12deg); }
+.mrg-toast-seg i.on { background: var(--g-sangre-fuerte); }
+.mrg-toast-seg i.nuevo { background: var(--g-oro-vivo); }
+.mrg-toast p { margin: 0; font-style: italic; }
+.mrg-marc-app .window-content { padding: .8rem 1rem 1rem; background: var(--g-fondo); color: var(--g-tinta); }
+.mrg-marc-v { display: grid; gap: .5rem; }
+.mrg-marc-edit { display: grid; gap: .35rem; padding: .5rem 0 .6rem; border-bottom: 1px solid var(--g-linea); }
+.mrg-marc-edit > header { display: flex; align-items: center; gap: .5rem; }
+.mrg-marc-edit > header input[type="text"] { flex: 1; }
+.mrg-marc-edit input.estrecho { width: 4.2rem; flex: none; }
+.mrg-marc-opts { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; font-size: .9rem; }
+.mrg-marc-opts label { display: inline-flex; align-items: center; gap: .35rem; }
+.mrg-marc-opts .mrg-btn { width: auto; }
+.mrg-marc-edit textarea { width: 100%; }
+.mrg-marc-edit summary { cursor: pointer; font-weight: 700; }
+.mrg-marc-pie .mrg-btn { width: auto; }

@@ -1,3 +1,15 @@
+## 2.5.0 (2026-11-07)
+
+Control nativo de hitos y relojes, y arreglos de la experiencia. / Native milestones & clocks control and XP fixes.
+
+### Añadido / Added
+- **Hitos y relojes nativos** (píldora «Marcadores», Alt+M): panel con todos los hitos y relojes, ventana para **añadir, editar y quitar**, hitos públicos o secretos, relojes visibles u ocultos, **aviso a la mesa** con frase de sabor por casilla (o propia con Mayús + clic) y botón en el panel del DJ. Funciona **sin MR- Dirección**; con él activo **sustituye a su control y comparte sus datos** (hitos, relojes y progreso), y los avisos los sigue emitiendo MR- Dirección. Ajuste «Control de hitos y relojes del módulo» para volver al de MR- Dirección. / **Native milestones & clocks**; with MR- Dirección active it replaces its control and shares its data.
+
+### Corregido / Fixed
+- **Gastar experiencia**: al elegir una capacidad desde la ventana de experiencia la EXP malvada no se vaciaba; ahora sí (y avisa). / Learning an ability from the XP window now spends the XP.
+- **Anotar experiencia** muestra un aviso con el resultado y, si falla algo, el error en pantalla. / The XP window now reports the result and any error.
+- El libreto abierto aparte solo ofrece aprender capacidades cuando toca (EXP completa, evolución o aún sin las dos iniciales). / Standalone playbook only offers learning when allowed.
+
 ## 2.4.0 (2026-11-07)
 
 Experiencia por hitos, hoja de guarida arreglada y capturas nuevas. / Milestone XP, fixed dungeon sheet and fresh screenshots.

@@ -106,7 +106,9 @@ export async function htmlLibreto(e, actor = null) {
   const edita = Boolean(actor?.isOwner);
   // Con la hoja en modo normal, raza, vocación e impulsos quedan fijados; solo se tocan al evolucionar (o si aún no hay nada elegido)
   const evo = e.evolucion ?? true;
-  const aprende = edita && (e.puedeAprender ?? true);
+  const xpA = actor?.system?.wickedxp;
+  const puede = e.puedeAprender ?? (!actor || evo || actor.items.filter(i => i.type === "specialability").length < 2 || Number(xpA?.value ?? 0) >= Number(xpA?.max ?? 9));
+  const aprende = edita && puede;
   const puedeCambiar = (tipo) => edita && (evo || !actor.items.some(i => i.type === tipo));
   const candado = `<span class="mrg-chip" data-ayuda="Fijado||Para cambiarlo activa el modo evolución en la hoja (icono de la barra superior)."><i class="fa-solid fa-lock"></i> Fijado</span>`;
 
@@ -189,7 +191,8 @@ export async function clicLibreto(ev, actor, estado, refrescar) {
       await actor.createEmbeddedDocuments("Item", [foundry.utils.deepClone(doc.datos)]);
       ui.notifications.info(`${actor.name} aprende «${doc.name}».`);
       // Aprender con la EXP malvada llena la gasta
-      if (estado.xpLleno && !estado.evolucion) await actor.update({ "system.wickedxp.value": 0 });
+      const xp = actor.system?.wickedxp, lleno = Number(xp?.value ?? 0) >= Number(xp?.max ?? 9);
+      if (lleno && !estado.evolucion) { await actor.update({ "system.wickedxp.value": 0 }); ui.notifications.info(`${actor.name} gasta su EXP malvada: vuelve a 0.`); }
     }
   } else if (a === "elegir-voc") {
     const v = (await vocaciones()).find(x => x.id === t.dataset.id);

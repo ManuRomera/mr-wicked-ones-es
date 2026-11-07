@@ -81,8 +81,8 @@ export class ExperienciaMR extends App {
       if (!b || b.disabled) return;
       if (b.dataset.pestana) { this.pestana = b.dataset.pestana; return this.render(); }
       if (b.dataset.resp) { const [k, v] = b.dataset.resp.split(":"); this.resp[k] = this.resp[k] === (v === "1") ? undefined : v === "1"; return this.render(); }
-      if ("aplicar" in b.dataset) return this.#aplicar();
-      if (b.dataset.gasto === "malvada") { abrirLibretos(this.actor, { modo: "voc" }); return this.close(); }
+      if ("aplicar" in b.dataset) { try { return await this.#aplicar(); } catch (err) { console.error("mr-wicked-ones-es | experiencia", err); return ui.notifications.error(`No se pudo anotar la experiencia: ${err.message}`); } }
+      if (b.dataset.gasto === "malvada") { abrirLibretos(this.actor, { modo: "voc", puedeAprender: true, xpLleno: true }); return this.close(); }
       if (b.dataset.gasto === "osada") { await subirAccionPorOsada(this.actor); return this.render(); }
     };
     cont.querySelectorAll("[data-nota]").forEach(i => i.addEventListener("input", () => { this.notas[i.dataset.nota] = i.value; }));
@@ -100,6 +100,7 @@ export class ExperienciaMR extends App {
       content: htmlTarjetaSimple({ tipo: "Experiencia", titulo: this.actor.name, subtitulo: `EXP malvada +${si.length}${this.resp.osada === true ? " · EXP osada +1" : ""}`, neutro: "azul",
         cuerpo: `${notas ? `<ul>${notas}</ul>` : ""}<p class="mrg-nota">Malvada ${m}/${x.mMax} · Osada ${o}/${x.oMax}${m >= x.mMax ? " · ¡puede aprender una capacidad!" : ""}</p>` })
     });
+    ui.notifications.info(`${this.actor.name}: EXP malvada ${m}/${x.mMax}, EXP osada ${o}/${x.oMax}.`);
     this.resp = {}; this.notas = {};
     this.pestana = (m >= x.mMax || o >= x.oMax) ? "gastar" : "ganar";
     this.render();

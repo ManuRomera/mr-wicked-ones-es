@@ -17,13 +17,13 @@ export const TINTAS = { suave: ["Hueso suave", "#e8e2d4"], papel: ["Papel", "#f2
 const CLASES = [
   ["a11yOscuro", "mrg-oscuro"], ["a11yContraste", "mrg-contraste"], ["a11yLegible", "mrg-sencilla"], ["a11yEspaciado", "mrg-espaciado"],
   ["a11yBotones", "mrg-botones"], ["a11ySinMovimiento", "mrg-sin-mov"], ["a11ySinEfectos", "mrg-sin-efectos"], ["a11yLectura", "mrg-lectura"],
-  ["a11yDaltonismo", "mrg-dalto"], ["dadosPropios", "mrg-dados-img"], ["barraAuto", "mrg-barra-auto"]
+  ["a11yDaltonismo", "mrg-dalto"], ["dadosPropios", "mrg-dados-img"], ["barraAuto", "mrg-barra-auto"], ["marcadoresPropios", "mrg-marc-propios"]
 ];
 
 export const DEFECTOS = Object.freeze({
   estiloHojas: "mr", estiloTiradas: "mr", a11yOscuro: true, a11yContraste: false, a11yLegible: false, a11yEscala: 100, a11yEspaciado: false,
   a11yBotones: false, a11ySinMovimiento: false, a11ySinEfectos: false, a11yLectura: false, a11yTinta: "suave", a11yDaltonismo: false,
-  ayudaActiva: true, ayudaRetraso: 2, dadosPropios: true, barraAuto: true
+  ayudaActiva: true, ayudaRetraso: 2, dadosPropios: true, barraAuto: true, marcadoresPropios: true
 });
 
 const leer = k => { try { return game.settings.get(MOD, k); } catch { return DEFECTOS[k]; } };
@@ -114,6 +114,8 @@ export class PanelAspecto extends App {
           <select data-aj="estiloTiradas">${opcion("estiloTiradas", "mr", "Estilo MR (diálogo y tarjetas nuevos)")}${opcion("estiloTiradas", "sistema", "Original del sistema")}</select></label>
         ${this.#recarga ? `<p class="mrg-aviso"><i class="fa-solid fa-rotate"></i> Este cambio necesita recargar. <button type="button" class="mrg-btn mrg-btn--sangre" data-action="recargar">Recargar ahora</button></p>` : `<p class="mrg-nota">Con «Original del sistema» se vuelve al aspecto de siempre; los automatismos de reglas siguen funcionando.</p>`}
         ${GRUPOS.map(g => `<h3 class="mrg-seccion">${esc(g.t)}</h3>${g.items.map(chk).join("")}`).join("")}
+        <h3 class="mrg-seccion">Hitos y relojes</h3>
+        <label class="mrg-fila-ajuste"><input type="checkbox" data-aj="marcadoresPropios" ${leer("marcadoresPropios") ? "checked" : ""}><span><strong>Control de hitos y relojes del módulo</strong><small>Una píldora «Marcadores» con los hitos de la campaña y los relojes (Alt+M). Con MR- Dirección activo sustituye a la suya y comparte sus datos; si lo desactivas, vuelve a verse la de MR- Dirección.</small></span></label>
         <h3 class="mrg-seccion">Barra de la ventana</h3>
         <label class="mrg-fila-ajuste"><input type="checkbox" data-aj="barraAuto" ${leer("barraAuto") ? "checked" : ""}><span><strong>Esconder la barra de la hoja</strong><small>La barra con los iconos (compacta, libretos, heridas…) se esconde y aparece al acercar el cursor a la parte de arriba de la hoja, para verla más limpia.</small></span></label>
         <h3 class="mrg-seccion">Dados</h3>

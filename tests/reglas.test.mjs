@@ -21,6 +21,7 @@ import {
   simularIncursionEsbirros,
   probabilidades
 } from "../js/core/reglas.mjs";
+import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
 
 test("Micro-utilidades puras (n, sig, acota)", () => {
   assert.equal(n("4", 0), 4);
@@ -180,11 +181,31 @@ test("Estructura del módulo: estilos, módulos JS, plantillas y versiones coher
   const m = JSON.parse(await fs.readFile(new URL("module.json", raiz), "utf8"));
   const pkg = JSON.parse(await fs.readFile(new URL("package.json", raiz), "utf8"));
   assert.equal(m.version, pkg.version);
-  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "js/heridas.mjs", "js/experiencia.mjs", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
+  for (const f of [...m.styles, ...m.esmodules, "templates/personaje.hbs", "templates/capacidad.hbs", "templates/capacidad-compacta.hbs", "js/selector.mjs", "js/creador.mjs", "js/dados.mjs", "js/ayuda.mjs", "js/heridas.mjs", "js/experiencia.mjs", "js/marcadores.mjs", "js/core/marcadores.mjs", "assets/dados/d6-6.png", ...["esbirros", "mazmorra", "faccion", "faccion-ua", "grupo", "panel-dj", "conquista", "reloj"].map(x => `templates/${x}.hbs`), "js/hojas-base.mjs", "js/hojas-actores.mjs", "content/libretos.json", "tours/director.json", "tours/jugadores.json"]) {
     await fs.access(new URL(f, raiz));
   }
   for (const tour of ["director", "jugadores"]) {
     const j = JSON.parse(await fs.readFile(new URL(`tours/${tour}.json`, raiz), "utf8"));
     assert.ok(j.steps.length >= 7 && j.steps.every(s => s.id && s.content), `tour ${tour}`);
   }
+});
+
+test("Marcadores: relojes, avisos con frase, hitos públicos y fusión por id (compatibles con MR- Dirección)", () => {
+  assert.equal(clockAfterClick(2, 2, 6), 3);      // sube hasta la casilla pulsada
+  assert.equal(clockAfterClick(3, 2, 6), 2);      // pulsar la última llena, baja
+  assert.deepEqual(clockState([{ id: "a", segments: 4 }], { a: 9 }), { a: 4 });
+  const c = { id: "a", label: "Alarma", segments: 4, announce: true, phrases: ["Uno", "Dos", "Tres", "Cuatro"] };
+  assert.equal(clockEvent(c, 1, 2, { now: 1 }).phrase, "Dos");
+  assert.equal(clockEvent(c, 2, 1), null);        // solo avisa al subir
+  assert.equal(clockEvent({ ...c, announce: false }, 0, 1), null);
+  assert.equal(clockEvent({ ...c, announce: false }, 0, 1, { phrase: "Propia", force: true }).phrase, "Propia");
+  assert.equal(phraseFor(["Siempre"], 3), "Siempre");
+  assert.deepEqual(publicMilestones([{ id: "x" }, { id: "y", public: false }]).map(h => h.id), ["x"]);
+  assert.deepEqual(publicClocks([{ id: "x", public: true }, { id: "y" }]).map(h => h.id), ["x"]);
+  const m = normalizarMarcadores({ milestones: [{ id: "h1" }, { id: "h1", label: "dup" }, null], clocks: [{ id: "r", segments: 99, phrases: "a\nb" }] });
+  assert.equal(m.milestones.length, 1);
+  assert.equal(m.clocks[0].segments, 12);
+  assert.deepEqual(m.clocks[0].phrases, ["a", "b"]);
+  assert.deepEqual(unirPorId([{ id: "a", v: 1 }], [{ id: "a", v: 2 }, { id: "b", v: 3 }]), [{ id: "a", v: 2 }, { id: "b", v: 3 }]);
+  assert.deepEqual(milestonesProgress([{ id: "a" }, { id: "b" }], { a: true }), { done: 1, total: 2 });
 });

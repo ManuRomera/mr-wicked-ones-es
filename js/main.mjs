@@ -12,6 +12,7 @@ import { registrarDados } from "./dados.mjs";
 import { abrirCreador } from "./creador.mjs";
 import { registrarHeridas } from "./heridas.mjs";
 import { registrarExperiencia } from "./experiencia.mjs";
+import { registrarMarcadores, iniciarMarcadores, abrirMarcadores, alternarPanel as alternarMarcadores } from "./marcadores.mjs";
 import { registrarTarjetas, tirar } from "./tirada.mjs";
 import { abrirTirada } from "./tirada-dialogo.mjs";
 import { registrarHojaPersonaje } from "./hoja-personaje.mjs";
@@ -125,6 +126,7 @@ Hooks.once("init", () => {
   registrarDados();
   registrarHeridas();
   registrarExperiencia();
+  registrarMarcadores();
 
   // Exponer API pública del módulo
   const mod = game.modules.get(MOD);
@@ -132,6 +134,8 @@ Hooks.once("init", () => {
     mod.api = {
       abrirGenerador,
       abrirCreador,
+      abrirMarcadores,
+      alternarMarcadores,
       recuperar,
       recuperarTodos,
       abrirMenuAccesibilidad: abrirPanelAspecto,
@@ -202,6 +206,7 @@ Hooks.on("mrDireccion.ready", () => {
 });
 
 Hooks.once("ready", async () => {
+  iniciarMarcadores().catch(e => console.error(`${MOD} | marcadores`, e));
   await cargarLiterales();
   aplicarAspecto();
   registrarAyuda();
