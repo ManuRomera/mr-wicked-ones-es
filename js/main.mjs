@@ -11,6 +11,7 @@ import { registrarAjustes, aplicarAspecto, abrirPanelAspecto } from "./ajustes.m
 import { registrarDados } from "./dados.mjs";
 import { abrirCreador } from "./creador.mjs";
 import { registrarHeridas } from "./heridas.mjs";
+import { registrarExperiencia } from "./experiencia.mjs";
 import { registrarTarjetas, tirar } from "./tirada.mjs";
 import { abrirTirada } from "./tirada-dialogo.mjs";
 import { registrarHojaPersonaje } from "./hoja-personaje.mjs";
@@ -123,6 +124,7 @@ Hooks.once("init", () => {
   registrarAjustes();
   registrarDados();
   registrarHeridas();
+  registrarExperiencia();
 
   // Exponer API pública del módulo
   const mod = game.modules.get(MOD);

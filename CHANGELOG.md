@@ -1,3 +1,14 @@
+## 2.4.0 (2026-11-07)
+
+Experiencia por hitos, hoja de guarida arreglada y capturas nuevas. / Milestone XP, fixed dungeon sheet and fresh screenshots.
+
+### Añadido / Added
+- **Ventana de experiencia** (botón «Fin de sesión» entre las barras de EXP): preguntas Sí/No de los desencadenantes de EXP malvada y de EXP osada, con nota opcional; anota las EXP y deja un mensaje en el chat. La pestaña **Gastar** explica qué desbloquea cada barra y cómo funciona la práctica. / **XP window** with yes/no milestones and a *Spend* guide.
+
+### Corregido / Fixed
+- **Hojas sin retrato (mazmorra, facción, grupo, DJ, conquista, reloj)**: el título se cortaba y la temática ocupaba una columna estrecha por culpa de la cabecera nueva. / Portrait-less sheets header layout.
+- Capturas del README rehechas con la versión actual, sin la barra de Dirección y con los dados del módulo en Dice So Nice y un éxito crítico. / README screenshots redone.
+
 ## 2.3.1 (2026-11-07)
 
 Arreglos de la 2.3.0. / Fixes for 2.3.0.

@@ -12,6 +12,7 @@ import { aplicarEstresActor, recuperar } from "./automatismos.mjs";
 import { htmlLibreto, clicLibreto, abrirLibretos, vocacionDe, razaDe } from "./libretos.mjs";
 import { abrirPanelAspecto } from "./ajustes.mjs";
 import { abrirHeridas } from "./heridas.mjs";
+import { abrirExperiencia } from "./experiencia.mjs";
 import { escuchasComunes, MOD, L, pips } from "./hojas-base.mjs";
 
 const claveCompacta = id => `${MOD}.compacta.${id}`;
@@ -223,6 +224,7 @@ function crearClase(Base) {
       root.querySelector("[data-pestana-libreto]")?.addEventListener("click", ev => clicLibreto(ev, actor, this.#libreto, async () => { await this.render(false); }));
 
       html.find("[data-heridas]").on("click", () => abrirHeridas(actor));
+      html.find("[data-xp]").on("click", () => abrirExperiencia(actor));
       html.find("[data-abrir-actor]").on("click", ev => game.actors.get(ev.currentTarget.dataset.abrirActor)?.sheet.render(true));
       html.find("[data-ir-libreto]").on("click", async ev => {
         this.#libreto.modo = ev.currentTarget.dataset.irLibreto;

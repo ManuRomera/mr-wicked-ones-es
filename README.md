@@ -60,6 +60,11 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 ### Crear un monstruo paso a paso (o al azar)
 El **creador** sigue el orden del manual: raza, vocación, capacidad de vocación, reparto de acciones (3/2/2/1/1), impulso oscuro, juerga, equipo y suministros con su defensa, y nombre. Cada paso tiene su botón **«Al azar»** y hay un **«Todo al azar»** para tener un monstruo listo en diez segundos. Se abre desde el directorio de Actores («Crear monstruo»), desde la barra de la hoja (para rehacer un personaje) o con `api.abrirCreador()`.
 
+### Experiencia: hitos al final de la sesión
+Entre las dos barras de EXP hay un botón **«Fin de sesión»** (también se abre pulsando el nombre de cada barra). Una ventana pregunta, con **Sí / No**, los desencadenantes del manual —plan maestro, escena de otra persona, actuar como un monstruo, uso creativo del equipo— y si interpretaste un desate o un reventado; al anotarlos suben solas la EXP malvada y la osada. La pestaña **Gastar** explica qué desbloquea cada barra al llenarse (una capacidad de vocación, un punto de acción) y cómo funciona la práctica.
+
+<p align="center"><img src="docs/img/experiencia.webp" alt="Ventana de experiencia" width="40%"></p>
+
 ### Una hoja que no estorba
 Raza, vocación, impulso y juerga quedan **fijados** una vez elegidos; solo se pueden cambiar activando el **modo evolución** de la barra de la hoja, y las capacidades nuevas se ofrecen cuando llenas la EXP malvada. Las herramientas (compacta, libretos, evolución, aspecto, ayuda, creador) viven en una **barra flotante de cristal** que se muestra u oculta con la calavera. Cada capacidad dice **cómo se usa** (cuesta estrés, pasiva, tiene tirada…) y tiene su botón de uso; las **conmociones, reventado y desatado** salen en un panel de estados; la EXP de práctica solo aparece donde se puede ganar.
 
@@ -100,7 +105,9 @@ Los jugadores ven su **vocación** y su **raza** explicadas —cómo interpretar
 ### Tiradas con toque malote
 El clic en una acción abre un lanzador inspirado en los lanzadores FitD genéricos, integrado en el módulo: eliges la acción, los **trucos del manual** (*Ayudar*, *Darlo todo*, **pacto oscuro**, **corazón oscuro**), ves la **probabilidad** de fallo/parcial/éxito/crítico y tiras pulsando la casilla donde se cruzan **Situación** y **Efecto**. También sirve para **resistir** (no se puede con la acción que causó la consecuencia) y para tiradas de fortuna.
 
-<p align="center"><img src="docs/img/tirada.webp" alt="Lanzador de tiradas" width="48%"> <img src="docs/img/tarjetas.webp" alt="Tarjetas del chat" width="30%"></p>
+<p align="center"><img src="docs/img/tirada.webp" alt="Lanzador de tiradas" width="48%"> </p>
+
+<p align="center"><img src="docs/img/tarjetas.webp" alt="Tirada con un éxito crítico: dados del módulo en Dice So Nice y tarjeta del chat" width="78%"></p>
 
 Las **tarjetas del chat** muestran los dados de hueso, el veredicto, la gravedad de la consecuencia según la situación y lo que se aplicó solo; desde ellas se puede **resistir** o **gastar un corazón oscuro** (la tarjeta se recalcula). También las del ciclo de partida, los oráculos y el «¡se desata!».
 
@@ -179,6 +186,7 @@ npm run datos && npm run build
 - **Custom dice** (colour-scaled faces, Dark Lord emblem on the 6) in chat cards and in **Dice So Nice**.
 - **Wounds you can annotate** (shock → bloodied → dead), a **Recovery** button and prompt on cycle phase 1, and a toolbar that appears on hover.
 - **GM-only assistant** (whispered rolls with a *Show to players* button and explanations), **box-free sheet** with the toolbar in the window bar (shows on hover) and a wounds window.
+- **Session XP window** (yes/no milestones, spending guide).
 - **Hover help**: rest the cursor for two seconds on anything and a balloon explains it.
 - **Playbooks** for every calling and monster race (how to play it, abilities you can learn, example items), readable by players.
 - **Roller** inspired by generic FitD rollers (Position × Effect grid, Help / Go all out / dark pact / dark heart, live odds) and **monster-themed chat cards**.

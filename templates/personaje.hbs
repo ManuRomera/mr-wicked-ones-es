@@ -114,11 +114,12 @@
 
   <section class="mrg-xp" aria-label="Experiencia">
     <div class="mrg-xp-b">
-      <span class="mrg-etiqueta" data-ayuda="EXP malvada||Al completarla aprendes una capacidad nueva de tu vocación. Se gana al cumplir lo que marca tu hoja (impulso, hazañas malvadas).">EXP malvada <b>{{mr.vitales.malvada.valor}}/{{mr.vitales.malvada.max}}</b></span>
+      <span class="mrg-etiqueta" data-xp="1" data-ayuda="EXP malvada||Al completarla aprendes una capacidad nueva de tu vocación. Se gana al cumplir lo que marca tu hoja (impulso, hazañas malvadas).">EXP malvada <b>{{mr.vitales.malvada.valor}}/{{mr.vitales.malvada.max}}</b></span>
       <div class="mrg-seg mrg-seg--oro" role="group" aria-label="EXP malvada">{{#each mr.vitales.malvada.pips}}<button type="button" data-pip="system.wickedxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP malvada {{n}}"></button>{{/each}}</div>
     </div>
+    <button type="button" class="mrg-xp-ir" data-xp="1" data-ayuda="Experiencia||Abre la ventana del final de sesión: responde a los desencadenantes (sí o no) y se anotan las EXP. También explica en qué se gasta la experiencia cuando se llenan las barras."><i class="fa-solid fa-star"></i><span>Fin de sesión</span></button>
     <div class="mrg-xp-b mrg-xp-b--osada">
-      <span class="mrg-etiqueta" data-ayuda="EXP osada||Se gana al desatarte o quedar reventado interpretándolo (máximo 1 por sesión). Al completarla subes un punto de acción (máximo 3 por acción).">EXP osada <b>{{mr.vitales.osada.valor}}/{{mr.vitales.osada.max}}</b></span>
+      <span class="mrg-etiqueta" data-xp="1" data-ayuda="EXP osada||Se gana al desatarte o quedar reventado interpretándolo (máximo 1 por sesión). Al completarla subes un punto de acción (máximo 3 por acción).">EXP osada <b>{{mr.vitales.osada.valor}}/{{mr.vitales.osada.max}}</b></span>
       <div class="mrg-seg" role="group" aria-label="EXP osada">{{#each mr.vitales.osada.pips}}<button type="button" data-pip="system.recklessxp.value" data-n="{{n}}" aria-pressed="{{on}}" aria-label="EXP osada {{n}}"></button>{{/each}}</div>
     </div>
   </section>

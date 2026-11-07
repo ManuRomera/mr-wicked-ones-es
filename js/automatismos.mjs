@@ -221,7 +221,7 @@ function acoplarHeridas(actor, cambios, userId) {
 }
 
 /** EXP osada completa (3): se vacía y sube un punto en una acción a elegir (máximo 3 puntos por acción). */
-async function subirAccionPorOsada(actor) {
+export async function subirAccionPorOsada(actor) {
   const { ATRIBUTOS, nombreAccion } = await import("./tirada.mjs");
   const opciones = Object.entries(ATRIBUTOS).flatMap(([at, acs]) => acs.map(a => ({ at, a, v: n(actor.system.attributes?.[at]?.skills?.[a]?.value, 0) }))).filter(o => o.v < 3);
   if (!opciones.length) return;
