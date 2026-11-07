@@ -1,3 +1,15 @@
+## 2.5.1 (2026-11-07)
+
+Arreglos de la 2.5.0. / Fixes for 2.5.0.
+
+### Corregido / Fixed
+- **«Anotar experiencia» no respondía** cuando la ventana era pequeña: el asa de redimensionar de la esquina tapaba el botón. Ahora el botón ocupa **todo el ancho** de la ventana y queda lejos del asa; las ventanas pequeñas recuperan su relleno. / **XP button** covered by the resize handle: now full width.
+- **Texto de la pestaña seleccionada ilegible** por el resplandor del núcleo de Foundry; se quita. / Selected-tab glow removed.
+- El pie del **creador de monstruos** también se aparta del asa de la esquina. / Creator footer clear of the resize handle.
+
+### Cambiado / Changed
+- **Hitos y relojes más simples**: el propio panel lleva un **+** para añadir un reloj o un hito (con un diálogo mínimo) y una **papelera** en cada uno (pide confirmación); ya no hace falta abrir la gestión. También se pueden quitar los de la campaña y recuperarlos desde la ventana de gestión. / Add and delete directly from the panel; campaign ones can be removed and restored.
+
 ## 2.5.0 (2026-11-07)
 
 Control nativo de hitos y relojes, y arreglos de la experiencia. / Native milestones & clocks control and XP fixes.

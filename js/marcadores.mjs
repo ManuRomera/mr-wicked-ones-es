@@ -39,11 +39,12 @@ export function definiciones() {
   const p = propias();
   let m = { milestones: unirPorId(base.milestones, p.milestones), clocks: unirPorId(base.clocks, p.clocks) };
   if (dirActivo()) { const d = defsDireccion(); m = { milestones: unirPorId(m.milestones, d.milestones), clocks: unirPorId(m.clocks, d.clocks) }; }
-  return m;
+  const q = quitados();
+  return { milestones: m.milestones.filter(x => !q.includes(x.id)), clocks: m.clocks.filter(x => !q.includes(x.id)) };
 }
 
-/** ¿Viene con la campaña? (se puede editar pero no quitar). */
-const esDeCampania = (tipo, id) => base[tipo].some(x => x.id === id);
+/** Ids quitados por el DJ (también valen para lo que trae la campaña, que así deja de verse sin borrarse del módulo). */
+const quitados = () => { const q = game.settings.get(MOD, "marcadoresQuitados"); return Array.isArray(q) ? q : []; };
 
 async function parchear(clave, id, valor, evento = null) {
   const cur = estado();
@@ -85,6 +86,7 @@ async function guardarDef(tipo, def) {
 }
 
 async function borrarDef(tipo, id) {
+  if (!quitados().includes(id)) await game.settings.set(MOD, "marcadoresQuitados", [...quitados(), id]);
   const quitar = m => { m[tipo] = m[tipo].filter(x => x.id !== id); return m; };
   await game.settings.set(MOD, "marcadoresDef", quitar(propias()));
   if (dirActivo()) {
@@ -95,6 +97,27 @@ async function borrarDef(tipo, id) {
   const cur = estado(), sig = { ...cur, milestones: { ...cur.milestones }, clocks: { ...cur.clocks } };
   delete sig[tipo][id];
   await game.settings.set(...ajusteEstado(), sig);
+}
+
+/** Alta rápida con un diálogo mínimo (desde el panel). */
+async function altaRapida(tipo) {
+  const reloj = tipo === "clocks";
+  const campos = reloj
+    ? `<label>Nombre<input type="text" name="nombre" autofocus placeholder="Alarma en el valle"></label><label>Casillas<select name="seg">${[4, 6, 8, 10, 12].map(n => `<option ${n === 6 ? "selected" : ""}>${n}</option>`).join("")}</select></label><label><input type="checkbox" name="pub"> Visible para los jugadores</label>`
+    : `<label>Hito<input type="text" name="nombre" autofocus placeholder="Reclamar las cuevas"></label><label><input type="checkbox" name="pub" checked> Se revela a la mesa al lograrse</label>`;
+  const r = await foundry.applications.api.DialogV2.prompt({
+    window: { title: reloj ? "Nuevo reloj" : "Nuevo hito" },
+    content: `<div style="display:grid;gap:.6rem">${campos}</div>`,
+    ok: { label: "Añadir", callback: (_e, b) => { const f = b.form.elements; return { nombre: f.nombre.value.trim(), seg: Number(f.seg?.value ?? 6), pub: f.pub.checked }; } }, rejectClose: false
+  });
+  if (!r?.nombre) return;
+  const id = (reloj ? "r" : "h") + Date.now().toString(36);
+  await guardarDef(tipo, reloj ? { id, label: r.nombre, segments: r.seg, public: r.pub, announce: false, phrases: [] } : { id, label: r.nombre, public: r.pub });
+}
+
+async function quitarConfirmado(tipo, id) {
+  const def = definiciones()[tipo].find(x => x.id === id);
+  if (await foundry.applications.api.DialogV2.confirm({ window: { title: "Quitar" }, content: `<p>¿Quitar «${esc(def?.label ?? id)}»? Dejará de verse y se borra su progreso.</p>`, rejectClose: false })) await borrarDef(tipo, id);
 }
 
 async function cambiarMarca(tipo, id, cambio) {
@@ -167,6 +190,8 @@ function crearElementos() {
     if (ev.target.closest("[data-reiniciar-pos]")) { ev.preventDefault(); await game.settings.set(MOD, "marcadoresPos", null); colocar(); return; }
     if (!game.user.isGM) return;
     if (ev.target.closest("[data-gestionar]")) return abrirMarcadores();
+    const alta = ev.target.closest("[data-alta]"); if (alta) return altaRapida(alta.dataset.alta);
+    const quita = ev.target.closest("[data-quitar]"); if (quita) { const [t, i] = quita.dataset.quitar.split(":"); return quitarConfirmado(t, i); }
     const fl = ev.target.closest("[data-marca]");
     if (fl) return cambiarMarca(fl.dataset.marca, fl.dataset.id, { [fl.dataset.clave]: fl.getAttribute("aria-pressed") !== "true" });
     const seg = ev.target.closest("[data-seg]");
@@ -196,16 +221,17 @@ export function pintar() {
   const htmlRelojes = relojes.map(c => {
     const n = cs[c.id], pub = c.public === true, avisa = c.announce === true;
     const segs = Array.from({ length: c.segments }, (_, i) => gm ? `<button type="button" class="mrg-marc-seg ${i < n ? "on" : ""}" data-reloj="${esc(c.id)}" data-seg="${i}" aria-label="Casilla ${i + 1}" aria-pressed="${i < n}"></button>` : `<span class="mrg-marc-seg ${i < n ? "on" : ""}"></span>`).join("");
-    const herr = gm ? `<span class="mrg-marc-herr">${boton("clocks", c.id, "public", pub, pub ? "Visible para los jugadores" : "Oculto para los jugadores", pub ? "eye" : "eye-slash")}${boton("clocks", c.id, "announce", avisa, avisa ? "Avisa a la mesa al avanzar" : "No avisa al avanzar", "bullhorn")}</span>` : "";
+    const herr = gm ? `<span class="mrg-marc-herr">${boton("clocks", c.id, "public", pub, pub ? "Visible para los jugadores" : "Oculto para los jugadores", pub ? "eye" : "eye-slash")}${boton("clocks", c.id, "announce", avisa, avisa ? "Avisa a la mesa al avanzar" : "No avisa al avanzar", "bullhorn")}<button type="button" class="mrg-marc-mini" data-quitar="clocks:${esc(c.id)}" aria-label="Quitar el reloj" data-ayuda="Quitar||Quita este reloj (pide confirmación)."><i class="fa-solid fa-trash"></i></button></span>` : "";
     return `<div class="mrg-marc-reloj"><h4><span>${esc(c.label)}</span>${herr}</h4><div class="mrg-marc-fila" style="--n:${c.segments}">${segs}</div><p class="mrg-nota"><b>${n}/${c.segments}</b></p></div>`;
   }).join("");
   const itemHito = h => {
     const hecho = hs[h.id], secreto = h.public === false, rotulo = esc(hecho || gm ? h.label : "???");
     const punto = `<span class="mrg-marc-punto" aria-hidden="true">${hecho ? "✦" : "·"}</span><span>${rotulo}</span>`;
-    return gm ? `<li class="${hecho ? "hecho" : ""} ${secreto ? "secreto" : ""}"><span class="mrg-marc-hito" data-hito="${esc(h.id)}" role="button" tabindex="0" aria-pressed="${!!hecho}">${punto}</span>${boton("milestones", h.id, "public", !secreto, secreto ? "Secreto: la mesa no lo ve" : "Se revela a la mesa al lograrse", secreto ? "eye-slash" : "eye")}</li>` : `<li class="${hecho ? "hecho" : ""}">${punto}</li>`;
+    return gm ? `<li class="${hecho ? "hecho" : ""} ${secreto ? "secreto" : ""}"><span class="mrg-marc-hito" data-hito="${esc(h.id)}" role="button" tabindex="0" aria-pressed="${!!hecho}">${punto}</span>${boton("milestones", h.id, "public", !secreto, secreto ? "Secreto: la mesa no lo ve" : "Se revela a la mesa al lograrse", secreto ? "eye-slash" : "eye")}<button type="button" class="mrg-marc-mini" data-quitar="milestones:${esc(h.id)}" aria-label="Quitar el hito" data-ayuda="Quitar||Quita este hito (pide confirmación)."><i class="fa-solid fa-trash"></i></button></li>` : `<li class="${hecho ? "hecho" : ""}">${punto}</li>`;
   };
-  panel.innerHTML = `${gm && relojes.length ? `<p class="mrg-nota">Pulsa una casilla para avanzar el reloj. Con Mayús, avisas a la mesa con una frase propia.</p>` : ""}${htmlRelojes}
-    ${hitos.length ? `<h3>Hitos</h3><p class="mrg-nota">${gm ? "Pulsa un hito para marcarlo al lograrlo. El ojo decide si la mesa lo ve." : "Los hitos que vais logrando."}</p><ol>${hitos.map(itemHito).join("")}</ol>` : ""}
+  const mas = tipo => gm ? `<button type="button" class="mrg-marc-mini" data-alta="${tipo}" aria-label="${tipo === "clocks" ? "Añadir un reloj" : "Añadir un hito"}" data-ayuda="Añadir||${tipo === "clocks" ? "Añade un reloj nuevo." : "Añade un hito nuevo."}"><i class="fa-solid fa-plus"></i></button>` : "";
+  panel.innerHTML = `${gm || relojes.length ? `<h3 class="mrg-marc-tit">Relojes ${mas("clocks")}</h3>` : ""}${gm && relojes.length ? `<p class="mrg-nota">Pulsa una casilla para avanzar el reloj. Con Mayús, avisas a la mesa con una frase propia.</p>` : ""}${htmlRelojes}
+    ${hitos.length || gm ? `<h3 class="mrg-marc-tit">Hitos ${mas("milestones")}</h3>` : ""}${hitos.length ? `<p class="mrg-nota">${gm ? "Pulsa un hito para marcarlo al lograrlo. El ojo decide si la mesa lo ve." : "Los hitos que vais logrando."}</p><ol>${hitos.map(itemHito).join("")}</ol>` : ""}
     ${!hitos.length && !relojes.length ? `<p class="mrg-nota">Todavía no hay marcadores.</p>` : ""}
     ${gm ? `<button type="button" class="mrg-btn mrg-btn--suave" data-gestionar><i class="fa-solid fa-pen-ruler"></i> Gestionar hitos y relojes</button>` : ""}
     <p class="mrg-nota mrg-marc-pie">Arrastra la píldora para moverla. <a href="#" data-reiniciar-pos>Colocarla en su sitio</a></p>`;
@@ -223,9 +249,7 @@ export class MarcadoresMR extends App {
   async _renderHTML() {
     const d = definiciones(), e = estado();
     const hs = milestonesState(d.milestones, e.milestones), cs = clockState(d.clocks, e.clocks);
-    const borra = (tipo, id) => esDeCampania(tipo, id)
-      ? `<span class="mrg-chip" data-ayuda="De la campaña||Viene con el módulo: puedes editarlo pero no quitarlo.">Campaña</span>`
-      : `<button type="button" class="mrg-mini" data-borrar="${tipo}:${esc(id)}" aria-label="Quitar" data-ayuda="Quitar"><i class="fa-solid fa-trash"></i></button>`;
+    const borra = (tipo, id) => `<button type="button" class="mrg-mini" data-borrar="${tipo}:${esc(id)}" aria-label="Quitar" data-ayuda="Quitar||Quita este marcador (pide confirmación)."><i class="fa-solid fa-trash"></i></button>`;
     const relojes = d.clocks.map(c => `<article class="mrg-marc-edit" data-tipo="clocks" data-id="${esc(c.id)}">
         <header><input type="text" data-campo="label" value="${esc(c.label)}" aria-label="Nombre del reloj"><input type="number" class="estrecho" data-campo="segments" min="2" max="12" value="${c.segments}" aria-label="Casillas" data-ayuda="Casillas||De 2 a 12.">${borra("clocks", c.id)}</header>
         <div class="mrg-marc-opts"><label><input type="checkbox" data-campo="public" ${c.public ? "checked" : ""}> Visible para los jugadores</label><label><input type="checkbox" data-campo="announce" ${c.announce ? "checked" : ""}> Avisar a la mesa al avanzar</label>
@@ -237,7 +261,7 @@ export class MarcadoresMR extends App {
     return `<div class="mrg-marc-v"><p class="mrg-asist-intro">Los <strong>hitos</strong> son metas de la campaña que se marcan al lograrlas; los <strong>relojes</strong> miden amenazas o proyectos que avanzan casilla a casilla. Los jugadores solo ven lo público.${dirActivo() ? " <strong>MR- Dirección está activo:</strong> se comparten sus datos." : ""}</p>
       <h3 class="mrg-seccion">Relojes <button type="button" class="mrg-btn mrg-btn--suave" data-nuevo="clocks"><i class="fa-solid fa-plus"></i> Nuevo reloj</button></h3>${relojes || `<p class="mrg-nota">Sin relojes.</p>`}
       <h3 class="mrg-seccion">Hitos <button type="button" class="mrg-btn mrg-btn--suave" data-nuevo="milestones"><i class="fa-solid fa-plus"></i> Nuevo hito</button></h3>${hitos || `<p class="mrg-nota">Sin hitos.</p>`}
-      <p class="mrg-marc-pie"><button type="button" class="mrg-btn" data-reiniciar><i class="fa-solid fa-rotate-left"></i> Reiniciar todo el progreso</button></p></div>`;
+      <p class="mrg-marc-pie"><button type="button" class="mrg-btn" data-reiniciar><i class="fa-solid fa-rotate-left"></i> Reiniciar todo el progreso</button>${quitados().length ? ` <button type="button" class="mrg-btn" data-recuperar><i class="fa-solid fa-clock-rotate-left"></i> Recuperar los quitados (${quitados().length})</button>` : ""}</p></div>`;
   }
 
   _replaceHTML(res, cont) {
@@ -251,9 +275,10 @@ export class MarcadoresMR extends App {
       }
       if (b.dataset.borrar) {
         const [tipo, id] = b.dataset.borrar.split(":");
-        if (await foundry.applications.api.DialogV2.confirm({ window: { title: "Quitar" }, content: "<p>¿Quitar este marcador? No se puede deshacer.</p>", rejectClose: false })) { await borrarDef(tipo, id); this.render(); }
+        if (await foundry.applications.api.DialogV2.confirm({ window: { title: "Quitar" }, content: "<p>¿Quitar este marcador? Dejará de verse y se borra su progreso (puedes recuperarlo desde esta ventana).</p>", rejectClose: false })) { await borrarDef(tipo, id); this.render(); }
         return;
       }
+      if ("recuperar" in b.dataset) { await game.settings.set(MOD, "marcadoresQuitados", []); return this.render(); }
       if (b.dataset.poner) { await parchear("clocks", b.dataset.poner, 0); return this.render(); }
       if ("reiniciar" in b.dataset) {
         if (await foundry.applications.api.DialogV2.confirm({ window: { title: "Reiniciar" }, content: "<p>Se vacían todos los relojes y se desmarcan todos los hitos. ¿Seguir?</p>", rejectClose: false })) { await game.settings.set(...ajusteEstado(), { milestones: {}, clocks: {} }); this.render(); }
@@ -287,6 +312,7 @@ export function abrirMarcadores() {
 export function registrarMarcadores() {
   game.settings.register(MOD, "marcadoresDef", { scope: "world", config: false, type: Object, default: { milestones: [], clocks: [] }, onChange: () => pintar() });
   game.settings.register(MOD, "marcadoresEstado", { scope: "world", config: false, type: Object, default: { milestones: {}, clocks: {} }, onChange: () => pintar() });
+  game.settings.register(MOD, "marcadoresQuitados", { scope: "world", config: false, type: Array, default: [], onChange: () => pintar() });
   game.settings.register(MOD, "marcadoresPos", { scope: "client", config: false, type: Object, default: null });
   const ALT = foundry.helpers?.interaction?.KeyboardManager?.MODIFIER_KEYS?.ALT ?? "Alt";
   game.keybindings.register(MOD, "marcadores", { name: "Mostrar u ocultar los hitos y relojes", editable: [{ key: "KeyM", modifiers: [ALT] }], onDown: () => { alternarPanel(); return true; } });

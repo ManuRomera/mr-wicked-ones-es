@@ -572,3 +572,17 @@ button.mrg-estado { cursor: pointer; }
 .mrg-xp-pie { display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap; padding-top: .4rem; }
 .mrg-xp-pie .mrg-btn { width: auto; }
 .mrg-xp-pie .mrg-btn:disabled { opacity: .4; cursor: default; }
+
+/* ── v2.5.1 ───────────────────────────────────────────────────────────────── */
+/* La pestaña activa no lleva el resplandor del núcleo: ensucia el texto */
+.mrg-nav a.item, .mrg-nav a.item:hover, .mrg-nav a.item.active { text-shadow: none; box-shadow: none; }
+/* Botón de anotar experiencia a todo el ancho (y fuera del asa de redimensionar de la ventana) */
+.mrg-xp-app .window-content { padding-bottom: 1.8rem; }
+.mrg-xp-pie { display: grid; justify-content: stretch; gap: .5rem; padding-bottom: .4rem; }
+.mrg-xp-pie .mrg-btn { width: 100%; justify-content: center; padding: .6rem 1rem; font-size: 1.05rem; }
+/* Pie del creador: lejos del asa de la esquina */
+.mrg-crea > main > footer { padding-right: 2rem; padding-bottom: 1rem; }
+.mrg-marc-tit { display: flex; align-items: center; justify-content: space-between; margin: .3rem 0 0; }
+.mrg-marc-tit .mrg-marc-mini { font-size: .9rem; }
+/* Relleno de las ventanas pequeñas (el estilo general de .mrg-ventana lo dejaba a cero) */
+.application.mrg-ventana.mrg-xp-app .window-content, .application.mrg-ventana.mrg-heridas-app .window-content, .application.mrg-ventana.mrg-marc-app .window-content { padding: .8rem 1rem 1.8rem; }
