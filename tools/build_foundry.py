@@ -9,11 +9,7 @@ Usa fid(key) con SHA-256 -> Base62 de 16 caracteres según las reglas de arquite
 import os
 import json
 import hashlib
-from datos_reglas import (
-    SALAS_N1, SALAS_N2, TRAMPAS, TRUCOS, PORTONES, CRIATURAS, HALLAZGOS,
-    ARMAS_Y_EQUIPO, SUMINISTROS, MEJUNJES_36, ARTILUGIOS_36, POCIONES_36, OBJETOS_MAGICOS_36,
-    AVENTUREROS_30, AYUDANTES_36, ENTORNOS_FACCIONES,
-)
+import re
 
 BASE_DIR = "/Volumes/Datos_Dock/FoundryVTT/Data/modules/mr-wicked-ones-es"
 DATA_DIR = os.path.join(BASE_DIR, "_data")
@@ -48,207 +44,122 @@ def guardar_json(ruta, datos):
 # 1. PACK: labores-es (Salas N1/N2, Trampas, Trucos, Portones, Criaturas, Hallazgos)
 # ---------------------------------------------------------------------------
 def construir_labores():
+    """Labores del capítulo 4 del manual, literales (tools/tablas_manual.py → labores_manual.json)."""
+    LAB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "labores_manual.json"), encoding="utf-8"))
+    ICONO = {"Room": "Icon.5_70", "Trap": "Icon.1_04", "Trick": "Icon.6_25", "Lock": "Icon.5_85", "Creature": "Icon.3_37", "Discovery": "Icon.5_16"}
+    CUSTOM = {"Room": "Sala", "Trap": "Trampa", "Trick": "Truco", "Lock": "Portón", "Creature": "Criatura", "Discovery": "Descubrimiento"}
     items = []
 
-    for nom, desc in SALAS_N1:
+    def labor(clave, nombre, tipo, nivel, parrafos, subtipo, **flags):
         items.append({
-            "_id": fid(f"duty:sala1:{nom}"),
-            "name": f"Sala N1 · {nom}",
+            "_id": fid(f"duty:{clave}"),
+            "name": nombre,
             "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
-            "system": {
-                "tier": 1,
-                "type": "FITD.DUTY_TYPE.Room",
-                "type_custom": "Sala",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "sala_n1"}},
+            "img": f"systems/wicked-ones/styles/assets/icons/{ICONO[tipo]}.png",
+            "system": {"tier": nivel, "type": f"FITD.DUTY_TYPE.{tipo}", "type_custom": CUSTOM[tipo],
+                       "description": "".join(f"<p>{x}</p>" for x in parrafos if x)},
+            "flags": {MOD: {"subtipo": subtipo, **flags}},
         })
 
-    for nom, desc in SALAS_N2:
-        items.append({
-            "_id": fid(f"duty:sala2:{nom}"),
-            "name": f"Sala N2 · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.5_70.png",
-            "system": {
-                "tier": 2,
-                "type": "FITD.DUTY_TYPE.Room",
-                "type_custom": "Sala",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "sala_n2"}},
-        })
+    def lista(clave):
+        return " – ".join(f[2] for f in TM[clave]["filas"]).lower()
 
-    for nom, niv, desc in TRAMPAS:
-        items.append({
-            "_id": fid(f"duty:trampa:{nom}"),
-            "name": f"Trampa N{niv} · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
-            "system": {
-                "tier": niv,
-                "type": "FITD.DUTY_TYPE.Trap",
-                "type_custom": "Trampa",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "trampa"}},
-        })
+    def frase_nivel(texto, n):
+        return next(f for f in re.split(r"(?<=\.) ", texto) if f"nivel {n} " in f and "1 a nivel 3" not in f)
 
-    for nom, niv, desc in TRUCOS:
-        items.append({
-            "_id": fid(f"duty:truco:{nom}"),
-            "name": f"Truco · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
-            "system": {
-                "tier": niv,
-                "type": "FITD.DUTY_TYPE.Trick",
-                "type_custom": "Truco",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "truco"}},
-        })
+    for nivel, clave in ((1, "salas_n1"), (2, "salas_n2")):
+        for x in LAB[clave]:
+            labor(f"sala{nivel}:{x['nombre']}", f"Sala N{nivel} · {x['nombre']}", "Room", nivel, [x["texto"]], f"sala_n{nivel}")
+    for x in LAB["salas_n3"]:
+        labor(f"sala3:{x['nombre']}", f"Sala N3 · {x['nombre']} ({x['tema']})", "Room", 3, [x["texto"], f"<em>{x['materiales']}</em>"], "sala_n3", tema=x["tema"])
 
-    for nom, niv, desc in PORTONES:
-        items.append({
-            "_id": fid(f"duty:porton:{nom}"),
-            "name": f"Portón N{niv} · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.5_85.png",
-            "system": {
-                "tier": niv,
-                "type": "FITD.DUTY_TYPE.Lock",
-                "type_custom": "Cerradura",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "porton"}},
-        })
+    T, P, C, K = LAB["trampas"], LAB["portones"], LAB["criaturas"], LAB["trucos"]
+    for n in (1, 2, 3):
+        labor(f"trampa:{n}", f"Trampa N{n}", "Trap", n, [frase_nivel(T["niveles"], n), T["intro"], T["tirada"],
+              f"<strong>Mecanismos:</strong> {lista('trampa-mecanismo')}.", f"<strong>Detonadores:</strong> {lista('trampa-detonador')}."], "trampa")
+        labor(f"porton:{n}", f"Portón N{n}", "Lock", n, [frase_nivel(P["niveles"], n), P["intro"], P["construir"],
+              f"<strong>Materiales:</strong> {lista('porton-material')}.", f"<strong>Cierres:</strong> {lista('porton-cierre')}."], "porton")
+    for x in K["ejemplos"]:
+        labor(f"truco:{x['nombre']}", f"Truco · {x['nombre']}", "Trick", 1, [x["texto"], K["niveles"], K["tirada"], K["limite"]], "truco")
 
-    for nom, niv, desc in CRIATURAS:
-        items.append({
-            "_id": fid(f"duty:criatura:{nom}"),
-            "name": f"Criatura N{niv} · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.3_37.png",
-            "system": {
-                "tier": niv,
-                "type": "FITD.DUTY_TYPE.Creature",
-                "type_custom": "Criatura",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "criatura"}},
-        })
+    for f in TM["criaturas"]["filas"]:
+        nom = f[2]
+        rasgos = C["ejemplos"].get(nom)
+        labor(f"criatura:{nom}", f"Criatura · {nom}", "Creature", 1, [
+            f"<strong>Rasgos de ejemplo:</strong> {rasgos}." if rasgos else f"<strong>Elige dos rasgos:</strong> {lista('rasgos-criaturas')}.",
+            "Las criaturas se clasifican de acuerdo a un nivel, que va de 1 a 4. Una guarida solo atraerá a criaturas del nivel que tenía la mazmorra en el momento en el que se añadió.", C["crear"], C["tirada"]], "criatura", d66=d66_de(f[0]))
 
-    for nom, niv, desc in HALLAZGOS:
-        items.append({
-            "_id": fid(f"duty:hallazgo:{nom}"),
-            "name": f"Hallazgo · {nom}",
-            "type": "duty",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.5_16.png",
-            "system": {
-                "tier": niv,
-                "type": "FITD.DUTY_TYPE.Discovery",
-                "type_custom": "Descubrimiento",
-                "description": desc,
-            },
-            "flags": {MOD: {"subtipo": "hallazgo"}},
-        })
-
+    for clave, res in (("descubrimientos-exito", "éxito"), ("descubrimientos-parcial", "parcial"), ("descubrimientos-fracaso", "fracaso")):
+        for f in TM[clave]["filas"]:
+            corto = re.split(r"[.,(:;]", f[2])[0].strip()
+            corto = corto if len(corto) <= 60 else corto[:57].rsplit(" ", 1)[0] + "…"
+            labor(f"desc:{clave}:{f[0]}", f"Descubrimiento ({res}) [{d66_de(f[0])}] · {corto}", "Discovery", 1, [f[2], f"Tabla «{TM[clave]['nombre']}» (pág. {TM[clave]['pagina']})."], "descubrimiento", resultado=res, d66=d66_de(f[0]))
     return items
 
 
 # ---------------------------------------------------------------------------
 # 2. PACK: equipo-es (Armas, Armaduras, Suministros, 36 Mejunjes, 36 Artilugios, 36 Pociones, 36 Objetos Mágicos)
 # ---------------------------------------------------------------------------
+# Tablas y objetos del manual, extraídos literalmente por tools/tablas_manual.py (nada inventado)
+MANUAL = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "tablas_manual.json"), encoding="utf-8"))
+TM = {t["clave"]: t for t in MANUAL}
+
+
+def d66_de(i):
+    return f"{(i - 1) // 6 + 1}{(i - 1) % 6 + 1}"
+
+
 def construir_equipo():
     items = []
 
-    for nom, gos, qual, utype, uses, edges, desc in ARMAS_Y_EQUIPO + SUMINISTROS:
-        edges_dict = {str(i): v for i, v in enumerate(edges)}
-        items.append({
-            "_id": fid(f"eq:base:{nom}"),
-            "name": nom,
-            "type": "gearsupply",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
-            "system": {
-                "gear_or_supply": gos,
-                "quality_category": qual,
-                "use_type": utype,
-                "uses_left": uses,
-                "edges": edges_dict,
-                "description": desc,
-            },
-            "flags": {MOD: {"categoria": gos}},
-        })
+    # Objetos mundanos: los 108 de «Objetos al azar» (pág. 358), tres por fila de la d66
+    for fila in TM["objetos-azar"]["filas"]:
+        d66 = d66_de(fila[0])
+        for col, nom in enumerate(fila[2].split(" · "), start=1):
+            items.append({
+                "_id": fid(f"eq:objeto:{d66}:{col}"),
+                "name": nom,
+                "type": "gearsupply",
+                "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+                "system": {
+                    "gear_or_supply": "gear",
+                    "quality_category": "mundane",
+                    "use_type": "unlimited",
+                    "uses_left": 4,
+                    "edges": {},
+                    "description": f"Objeto de la tabla «Objetos al azar» del manual (pág. {TM['objetos-azar']['pagina']}, d66 {d66}). Llévalo como equipo o, si tiene usos limitados, como suministro (pág. 70).",
+                },
+                "flags": {MOD: {"categoria": "objeto", "d66": d66, "tabla": d66, "columna": col}},
+            })
 
-    for d66, nom, desc in MEJUNJES_36:
-        items.append({
-            "_id": fid(f"eq:mejunje:{d66}"),
-            "name": f"Mejunje [{d66}] · {nom}",
-            "type": "gearsupply",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.4_48.png",
-            "system": {
-                "gear_or_supply": "supply",
-                "quality_category": "valuable",
-                "use_type": "limited",
-                "uses_left": 1,
-                "edges": {"0": "Mejunje alquímico", "1": f"d66: {d66}"},
-                "description": desc,
-            },
-            "flags": {MOD: {"categoria": "mejunje", "d66": d66}},
-        })
-
-    for d66, nom, desc in ARTILUGIOS_36:
-        items.append({
-            "_id": fid(f"eq:artilugio:{d66}"),
-            "name": f"Artilugio [{d66}] · {nom}",
-            "type": "gearsupply",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
-            "system": {
-                "gear_or_supply": "gear",
-                "quality_category": "valuable",
-                "use_type": "unlimited",
-                "uses_left": 1,
-                "edges": {"0": "Artilugio mecánico", "1": f"d66: {d66}"},
-                "description": desc,
-            },
-            "flags": {MOD: {"categoria": "artilugio", "d66": d66}},
-        })
-
-    for d66, nom, desc in POCIONES_36:
-        items.append({
-            "_id": fid(f"eq:pocion:{d66}"),
-            "name": f"Poción [{d66}] · {nom}",
-            "type": "gearsupply",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
-            "system": {
-                "gear_or_supply": "supply",
-                "quality_category": "valuable",
-                "use_type": "limited",
-                "uses_left": 1,
-                "edges": {"0": "Poción bruja", "1": f"d66: {d66}"},
-                "description": desc,
-            },
-            "flags": {MOD: {"categoria": "pocion", "d66": d66}},
-        })
-
-    for d66, nom, desc in OBJETOS_MAGICOS_36:
-        items.append({
-            "_id": fid(f"eq:reliquia:{d66}"),
-            "name": f"Objeto Mágico [{d66}] · {nom}",
-            "type": "gearsupply",
-            "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
-            "system": {
-                "gear_or_supply": "gear",
-                "quality_category": "powerful",
-                "use_type": "unlimited",
-                "uses_left": 1,
-                "edges": {"0": "Reliquia mágica", "1": f"d66: {d66}"},
-                "description": desc,
-            },
-            "flags": {MOD: {"categoria": "reliquia", "d66": d66}},
-        })
+    # Mejunjes, artilugios, pociones y objetos mágicos: las d66 del manual (decenas 1-2 nivel 1, 3-4 nivel 2, 5-6 nivel 3)
+    CREACIONES = [
+        ("mejunjes", "mejunje", "Mejunje", "supply", "valuable", "limited", "Icon.4_48.png"),
+        ("artilugios", "artilugio", "Artilugio", "gear", "valuable", "unlimited", "Icon.7_96.png"),
+        ("pociones", "pocion", "Poción", "supply", "valuable", "limited", "Icon.5_34.png"),
+        ("objetos-magicos", "reliquia", "Objeto mágico", "gear", "powerful", "unlimited", "Icon.1_66.png"),
+    ]
+    for clave, cat, etiqueta, gos, qual, uso, icono in CREACIONES:
+        t = TM[clave]
+        for fila in t["filas"]:
+            d66 = d66_de(fila[0])
+            nivel = 1 if fila[0] <= 12 else 2 if fila[0] <= 24 else 3
+            nom, _, desc = fila[2].partition(": ")
+            items.append({
+                "_id": fid(f"eq:{cat}:{d66}"),
+                "name": f"{etiqueta} [{d66}] · {nom.strip()}",
+                "type": "gearsupply",
+                "img": f"systems/wicked-ones/styles/assets/icons/{icono}",
+                "system": {
+                    "gear_or_supply": gos,
+                    "quality_category": qual,
+                    "use_type": uso,
+                    "uses_left": 1,
+                    "edges": {"0": f"{etiqueta} de nivel {nivel}", "1": f"d66: {d66}"},
+                    "description": f"{desc.strip()} (Nivel {nivel} · d66 {d66} · manual, pág. {t['pagina']}.)",
+                },
+                "flags": {MOD: {"categoria": cat, "d66": d66, "tabla": d66, "nivel": nivel}},
+            })
 
     proyectos = [
         ("Ritual: Eclipse de Sangre sobre el Valle", 8, "Sumergir el Valle Silencioso en una noche de tres días usando la piel del hombre lobo y los tomos de la Abadía."),
@@ -290,93 +201,99 @@ MAPA_RETRATOS_ADV = {
 }
 
 
-def construir_aventureros():
-    items = []
+ADV_MANUAL = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "aventureros_manual.json"), encoding="utf-8"))
+# claves del sistema (FITD.ADV_*) por su nombre en español (traducción base wicked-ones-esp)
+CLASES = {"Sabio": "Academic", "Alquimista": "Alchemist", "Amazona": "Amazon", "Aristócrata": "Aristocrat", "Asesino": "Assassin", "Bárbaro": "Barbarian", "Bardo": "Bard",
+          "Bucanero": "Buccaneer", "Centurión": "Centurion", "Mago del caos": "ChaosMage", "Clérigo": "Cleric", "Caballero de la muerte": "DeathKnight", "Guardián": "Defender",
+          "Druida": "Druid", "Guerrero arcano": "EldritchWarrior", "Ilusionista": "Illusionist", "Inquisidor": "Inquisitor", "Caballero": "Knight", "Lancero": "Lancer",
+          "Cazabrujas": "MageHunter", "Monje": "Monk", "Asesino sagrado": "OccultSlayer", "Guardabosques": "Ranger", "Explorador": "Scout", "Bailarín sombrío": "Shadowdancer",
+          "Hondero": "Slinger", "Arquero arcano": "Spellbow", "Templario": "Templar", "Armero": "Weaponsmith", "Salvaje": "Wildling"}
+RASGOS = {"astuto": "Clever", "confiado": "Confident", "generoso": "Generous", "servicial": "Helpful", "honesto": "Honest", "optimista": "Optimistic", "perseverante": "Persistent",
+          "firme": "Steady", "descarado": "Brash", "arrogante": "Cocky", "mentiroso": "Dishonest", "lerdo": "Dumb", "codicioso": "Greedy", "impaciente": "Impatient",
+          "indeciso": "Indecisive", "terco": "Stubborn"}
+MOTIVOS = {"desafíos": "Challenge", "exploración": "Exploration", "justicia": "Justice", "reputación": "Respect", "riquezas": "Riches", "emoción": "Thrills", "venganza": "Vengeance"}
+OFICIOS = {"Arquero": "Archer", "Barquero": "Boatman", "Ratero": "Burglar", "Carnicero": "Butcher", "Carpintero": "Carpenter", "Cartógrafo": "Cartographer", "Cronista": "Chronicler",
+           "Cocinero": "Cook", "Conductor": "Driver", "Labrador": "Farmhand", "Pescador": "Fisherman", "Infante": "Footman", "Salteador": "Footpad", "Montaraz": "Forester",
+           "Guardia": "Guard", "Guía": "Guide", "Inventor": "Inventor", "Lingüista": "Linguist", "Cerrajero": "Locksmith", "Leñador": "Lumberjack", "Mercenario": "Mercenary",
+           "Mensajero": "Messenger", "Minero": "Miner", "Batidor": "Pathfinder", "Sacerdote": "Priest", "Cazarratas": "RatCatcher", "Jinete": "Rider", "Marinero": "Sailor",
+           "Matasanos": "Sawbones", "Erudito": "Scholar", "Escriba": "Scribe", "Cantante": "Singer", "Espeleólogo": "Spelunker", "Espadachín": "Swordsman", "Mercader": "Trader",
+           "Trampero": "Trapfinder"}
 
-    for (clave, nom_es, mot_k, mot_es, pos_k, pos_es, neg_k, neg_es, pasiva, mov_of, mov_def) in AVENTUREROS_30:
-        slug_img = MAPA_RETRATOS_ADV.get(clave)
+
+def masculino(r):
+    r = r.lower()
+    return {"honesta": "honesto", "terca": "terco"}.get(r, r)
+
+
+def construir_aventureros():
+    """Los 30 aventureros de ejemplo del manual (pág. 320-329) y los 36 ayudantes (pág. 318, solo el oficio)."""
+    items = []
+    for a in ADV_MANUAL:
+        nom = a["nombre"]
+        clave = CLASES[nom]
+        slug_img = MAPA_RETRATOS_ADV.get(clave.lower())
         img = f"modules/{MOD}/assets/retratos/{slug_img}.webp" if slug_img else "systems/wicked-ones/styles/assets/icons/Icon.1_05.png"
-        desc_movs = (
-            f"Pasiva: {pasiva}\n"
-            f"Movimientos ofensivos:\n"
-            f"• {mov_of[0]}\n• {mov_of[1]}\n• {mov_of[2]}\n"
-            f"Movimientos defensivos:\n"
-            f"• {mov_def[0]}\n• {mov_def[1]}\n• {mov_def[2]}"
-        )
+        pos, neg = (masculino(r) for r in a["rasgos"])
+        of, de = a["ofensivos"], a["defensivos"]
         items.append({
-            "_id": fid(f"adv:clase:{clave}"),
-            "name": nom_es,
+            "_id": fid(f"adv:clase:{clave.lower()}"),
+            "name": nom,
             "type": "adventurer",
             "img": img,
             "system": {
                 "adventurer_type": "adventurer",
-                "adventurer_class": f"FITD.ADV_CLASS.{clave.capitalize()}",
-                "adventurer_class_custom": nom_es,
+                "adventurer_class": f"FITD.ADV_CLASS.{clave}",
+                "adventurer_class_custom": nom,
                 "hireling_type": "",
                 "hireling_type_custom": "",
                 "tier": 1,
                 "heart_slashes": 0,
                 "moves_used": 0,
-                "passive": f"{pasiva} | Ofensivos: {', '.join(mov_of)} | Defensivos: {', '.join(mov_def)}",
-                "trait_pos_1": f"FITD.ADV_TRAIT.{pos_k.capitalize()}",
-                "trait_pos_1_custom": pos_es,
+                "passive": f"{a['pasiva']} | Ofensivos: {', '.join(of)} | Defensivos: {', '.join(de)}",
+                "trait_pos_1": f"FITD.ADV_TRAIT.{RASGOS[pos]}",
+                "trait_pos_1_custom": a["rasgos"][0],
                 "trait_pos_2": "",
                 "trait_pos_2_custom": "",
-                "trait_neg_1": f"FITD.ADV_TRAIT.{neg_k.capitalize()}",
-                "trait_neg_1_custom": neg_es,
+                "trait_neg_1": f"FITD.ADV_TRAIT.{RASGOS[neg]}",
+                "trait_neg_1_custom": a["rasgos"][1].capitalize(),
                 "trait_neg_2": "",
                 "trait_neg_2_custom": "",
-                "motivation_1": f"FITD.ADV_MOTIVE.{mot_k.capitalize()}",
-                "motivation_1_custom": mot_es,
+                "motivation_1": f"FITD.ADV_MOTIVE.{MOTIVOS[a['motivacion']]}",
+                "motivation_1_custom": a["motivacion"].capitalize(),
                 "motivation_2": "",
                 "motivation_2_custom": "",
-                "description": desc_movs,
+                "description": "Pasiva: " + a["pasiva"] + "\nMovimientos ofensivos:\n" + "\n".join(f"• {m}" for m in of) + "\nMovimientos defensivos:\n" + "\n".join(f"• {m}" for m in de) + "\n(Aventureros de ejemplo, manual pág. 320.)",
             },
-            "flags": {
-                MOD: {
-                    "clase": clave,
-                    "pasivaCorto": pasiva,
-                    "ofensivos": mov_of,
-                    "defensivos": mov_def,
-                }
-            },
+            "flags": {MOD: {"clase": clave.lower(), "pasivaCorto": a["pasiva"], "ofensivos": of, "defensivos": de}},
         })
 
-    for clave, nom_es, pasiva in AYUDANTES_36:
+    for fila in TM["ayudantes"]["filas"]:
+        nom = fila[2]
+        clave = OFICIOS[nom]
         items.append({
-            "_id": fid(f"adv:ayudante:{clave}"),
-            "name": f"Ayudante · {nom_es}",
+            "_id": fid(f"adv:ayudante:{clave.lower()}"),
+            "name": f"Ayudante · {nom}",
             "type": "adventurer",
             "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
             "system": {
                 "adventurer_type": "hireling",
                 "adventurer_class": "",
                 "adventurer_class_custom": "",
-                "hireling_type": f"FITD.ADV_TYPE.{clave.capitalize()}",
-                "hireling_type_custom": nom_es,
+                "hireling_type": f"FITD.ADV_TYPE.{clave}",
+                "hireling_type_custom": nom,
                 "tier": 0,
                 "heart_slashes": 0,
                 "moves_used": 0,
-                "passive": pasiva,
-                "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-                "trait_pos_1_custom": "Servicial",
-                "trait_pos_2": "",
-                "trait_pos_2_custom": "",
-                "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-                "trait_neg_1_custom": "Impaciente",
-                "trait_neg_2": "",
-                "trait_neg_2_custom": "",
-                "motivation_1": "FITD.ADV_MOTIVE.Riches",
-                "motivation_1_custom": "Riquezas",
-                "motivation_2": "",
-                "motivation_2_custom": "",
-                "description": pasiva,
+                "passive": "",
+                "trait_pos_1": "", "trait_pos_1_custom": "", "trait_pos_2": "", "trait_pos_2_custom": "",
+                "trait_neg_1": "", "trait_neg_1_custom": "", "trait_neg_2": "", "trait_neg_2_custom": "",
+                "motivation_1": "", "motivation_1_custom": "", "motivation_2": "", "motivation_2_custom": "",
+                "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú.",
             },
-            "flags": {MOD: {"ayudante": clave}},
+            "flags": {MOD: {"ayudante": clave.lower()}},
         })
 
     return items
-
 
 # ---------------------------------------------------------------------------
 # 4. PACK: facciones-es (48 Facciones de los 4 Entornos, 6 PJs, 6 Manadas, 2 Mazmorras, 4 Grupos, 1 Hoja DJ)
@@ -419,21 +336,23 @@ def crear_atributos_actor(vals):
 def construir_actores():
     actores = []
 
-    # 4.1 Las 48 Facciones de los 4 entornos oficiales
-    for entorno, lista in ENTORNOS_FACCIONES.items():
-        for nom, niv, bando, c1_max, c1_txt, c2_max, c2_txt, desc in lista:
-            aid = fid(f"actor:faccion:{entorno}:{nom}")
+    # 4.1 Las facciones de ejemplo de los 4 entornos del manual (cap. 6), leídas de los mapas por tools/tablas_manual.py
+    FAC = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "facciones_manual.json"), encoding="utf-8"))
+    for entorno, lista in FAC.items():
+        for f in lista:
+            nom, niv, bando = f["nombre"], f["nivel"], f["bando"]
+            relojes = f["relojes"] + [{"segmentos": 4, "texto": ""}] * (2 - len(f["relojes"]))
             actores.append({
-                "_id": aid,
+                "_id": fid(f"actor:faccion:{entorno}:{nom}"),
                 "name": f"[{entorno}] {nom}",
                 "type": "faction",
                 "img": "systems/wicked-ones/styles/assets/default-images/faction.webp",
                 "system": {
                     "category": bando,
                     "tier": {"value": niv, "min": 0, "max": 4},
-                    "clock1": {"value": 0, "min": 0, "max": c1_max, "text": c1_txt},
-                    "clock2": {"value": 0, "min": 0, "max": c2_max, "text": c2_txt},
-                    "description": f"<p><strong>Entorno:</strong> {entorno}</p><p>{desc}</p>",
+                    "clock1": {"value": 0, "min": 0, "max": relojes[0]["segmentos"], "text": relojes[0]["texto"]},
+                    "clock2": {"value": 0, "min": 0, "max": relojes[1]["segmentos"], "text": relojes[1]["texto"]},
+                    "description": f"<p><strong>Entorno:</strong> {entorno} (pág. {f['pagina']})</p><ul>" + "".join(f"<li>{r}</li>" for r in f["rasgos"]) + "</ul>",
                 },
                 "prototypeToken": {
                     "name": nom,
@@ -447,26 +366,27 @@ def construir_actores():
 
     # 4.2 Las 6 Manadas de Esbirros pregeneradas
     manadas_cfg = [
-        ("esbirros-ulrot", "Machacadores de Ulrot", "Orco", "Guardias y rompelíneas", "Hachas melladas, escudos de hierro y armaduras saqueadas.",
-         {"smash": 2, "threaten": 2, "scan": 1, "finesse": 1},
-         "Acorazados", "Una vez por escena pueden absorber un impacto mortal sin perder integrantes."),
-        ("esbirros-crag", "Acechadores Escamosos de Crag", "Kóbold", "Chamanes y tramperos de túnel", "Jabalinas con plumas, máscaras de hueso y bolsas de componentes.",
-         {"invoke": 2, "tinker": 2, "skulk": 1, "trick": 1},
-         "Iniciados en Senda Arcana", "Pueden asistir en rituales y canalizar chispas de piromancia en combate."),
-        ("esbirros-slem", "Merodeadores Sombríos de Slem", "Sérpido", "Exploradores y asesinos nocturnos", "Capas oscuras, dagas envenenadas y cerbatanas silenciosas.",
-         {"skulk": 2, "finesse": 2, "scan": 1, "trick": 1},
-         "Sigilosos", "Se mueven en silencio absoluto por sombras y conductos estrechos."),
-        ("esbirros-viska", "Chapuceros de Viska", "Goblin", "Ingenieros, minadores y artificieros", "Gafas de latón, llaves inglesas, picos y barriles de pólvora.",
-         {"tinker": 2, "trick": 2, "scan": 1, "skulk": 1},
-         "Constructores incansables", "Otorgan ventaja al excavar salas o montar trampas en la guarida."),
-        ("esbirros-kaelen", "Acólitos de Ceniza de Kaelen", "Demonio", "Cultistas y guardias del santuario", "Túnicas carmesíes, incensarios ardientes y espadas curvas.",
-         {"invoke": 2, "banter": 2, "threaten": 1, "smash": 1},
-         "Fanáticos devotos", "Nunca sufren rotura de moral mientras su señor esté presente."),
-        ("esbirros-zira", "Susurradores del Velo de Zira", "Devoramentes", "Espías e infiltrados en la superficie", "Disfraces de peregrinos, lentes oscuras y dagas ocultas.",
-         {"trick": 2, "banter": 2, "scan": 1, "skulk": 1},
-         "Infiltrados", "Pueden caminar por los pueblos de la superficie haciéndose pasar por viajeros."),
+        ("esbirros-ulrot", "Machacadores de Ulrot", "Orco", "Matones", "Hachas melladas, escudos de hierro y armaduras saqueadas.",
+         {"smash": 2, "threaten": 1, "scan": 1},
+         "Equipados", "Los esbirros obtienen una defensa a tu elección gracias a su equipo."),
+        ("esbirros-crag", "Acechadores Escamosos de Crag", "Kóbold", "Brujos", "Jabalinas con plumas, máscaras de hueso y bolsas de componentes.",
+         {"invoke": 2, "tinker": 1, "skulk": 1},
+         "Adeptos", "Una vez por ciclo de juego, la panda de esbirros puede lanzar un conjuro de nivel 2. Tiran con -1d, como es normal, pero no sufren estrés."),
+        ("esbirros-slem", "Merodeadores Sombríos de Slem", "Sérpido", "Asesinos", "Capas oscuras, dagas envenenadas y cerbatanas silenciosas.",
+         {"skulk": 2, "finesse": 1, "scan": 1},
+         "Pertrechados", "Los esbirros tienen un espacio más de suministro que se puede utilizar para acceder a cualquier cosa de la que tengas suministro."),
+        ("esbirros-viska", "Chapuceros de Viska", "Goblin", "Ingenieros", "Gafas de latón, llaves inglesas, picos y barriles de pólvora.",
+         {"tinker": 2, "trick": 1, "scan": 1},
+         "Adiestrados", "Los esbirros tiran +1d a un tipo específico de proyecto de descanso: construir, contactar, elaborar, fabricar, preparar, reclutar o torturar."),
+        ("esbirros-kaelen", "Acólitos de Ceniza de Kaelen", "Demonio", "Acólitos", "Túnicas carmesíes, incensarios ardientes y espadas curvas.",
+         {"invoke": 2, "banter": 1, "threaten": 1},
+         "Mentalidad (fanático)", "Los esbirros tienen una ventaja mental que puede servir como ajuste de circunstancias a la situación y el efecto: valiente, leal o fanático (podéis inventaros otras)."),
+        ("esbirros-zira", "Susurradores del Velo de Zira", "Devoramentes", "Estafadores", "Disfraces de peregrinos, lentes oscuras y dagas ocultas.",
+         {"trick": 2, "banter": 1, "scan": 1},
+         "Don de lenguas", "Los esbirros saben hablar la lengua de la luz, aunque con un acento muy marcado."),
     ]
 
+    IMPULSO_MANADA = {"esbirros-ulrot": "Agresivos", "esbirros-crag": "Supersticiosos", "esbirros-slem": "Codiciosos", "esbirros-viska": "Inestables", "esbirros-kaelen": "Adictos", "esbirros-zira": "Desleales"}
     for slug, nom, raza, oficio, aspecto, habs, mej_nom, mej_desc in manadas_cfg:
         mid = fid(f"actor:manada:{slug}")
         actores.append({
@@ -512,7 +432,7 @@ def construir_actores():
                     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
                     "system": {
                         "upgrade_type": "regular",
-                        "upgrade_checkbox_text": "Usado en esta fase",
+                        "upgrade_checkbox_text": "",
                         "upgrade_checkbox_checked": False,
                         "upgrade_checkbox_2_text": "",
                         "upgrade_checkbox_2_checked": False,
@@ -523,10 +443,10 @@ def construir_actores():
                 },
                 {
                     "_id": fid(f"item:{slug}:impulso"),
-                    "name": "Armar escándalo y saquear",
+                    "name": IMPULSO_MANADA[slug],
                     "type": "minionimpulse",
                     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
-                    "system": {"is_for_ua": False, "description": "Celebran cada victoria con estrépito y disputas por el botín."},
+                    "system": {"is_for_ua": False, "description": f"Impulso oscuro de la panda: {IMPULSO_MANADA[slug].lower()} (lista del manual, pág. 194)."},
                 },
             ],
             "flags": {
@@ -537,53 +457,56 @@ def construir_actores():
             },
         })
 
+    VOC = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "vocaciones_manual.json"), encoding="utf-8"))
     # 4.3 Los 6 Personajes Jugadores (PJs) pregenerados (liderados por el trío icónico del libro: Ulrot, Crag y Slem)
     pjs_cfg = [
         ("pj-ulrot", "Ulrot", "Orco", "Bruto", "Cicatrices de guerra, hombreras de hueso y un enorme mandoble dentado",
          "Grash (el carnicero del campamento)", "esbirros-ulrot",
-         {"smash": 2, "threaten": 2, "finesse": 1, "scan": 1, "skulk": 1},
+         {"smash": 3, "threaten": 2, "scan": 2, "finesse": 1, "skulk": 1},
          "Festín de carne asada y cerveza robada",
          "Aplastar a los arrogantes campeones de la Luz",
-         "Fuerza imparable", "Tus golpes cuerpo a cuerpo destrozan escudos, puertas y armaduras con facilidad aterradora.",
-         "Mandoble quebrantahuesos", "Armadura de placas abolladas"),
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Hacha de guerra", "Armadura de pinchos"),
         ("pj-crag", "Crag", "Kóbold", "Chamán", "Escamas rojizas, corona de cuernos y un báculo coronado por un cráneo humeante",
          "Vex (la anciana guardiana de los huevos)", "esbirros-crag",
-         {"invoke": 2, "trick": 2, "scan": 1, "tinker": 1, "banter": 1},
+         {"invoke": 3, "trick": 2, "scan": 2, "tinker": 1, "banter": 1},
          "Danza extática alrededor de la hoguera ritual",
          "Demostrar que las artes oscuras dominan el Valle Silencioso",
-         "Canalizador de Gorlag", "Dominas los rituales de sangre y la senda de piromancia, canalizando el poder de los Dioses Oscuros.",
-         "Báculo de canalización rúnica", "Bolsa de fetiches y pergaminos"),
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Bastón retorcido", "Máscara espiritual"),
         ("pj-slem", "Slem", "Sérpido", "Sombra", "Ojos verticales dorados, capucha de cuero negro y un par de dagas curvas goteantes",
          "Naga-Sss (traficante de venenos)", "esbirros-slem",
-         {"skulk": 2, "finesse": 2, "trick": 1, "scan": 1, "threaten": 1},
+         {"skulk": 3, "finesse": 2, "trick": 2, "scan": 1, "threaten": 1},
          "Acechar desde las vigas altas y coleccionar llaves robadas",
          "Infiltrarse en las fortalezas más vigiladas sin ser visto",
-         "Uno con las sombras", "Puedes desaparecer de la vista en cualquier rincón oscuro y atacar desde ángulos imposibles.",
-         "Dagas gemelas envenenadas", "Herramientas de ladrón y ganzúas"),
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Dagas gemelas", "Ganzúas"),
         ("pj-viska", "Viska", "Goblin", "Artesana", "Dedos manchados de hollín, gafas de aumento triples y un cinturón lleno de engranajes",
          "Tock (su autómata de cuerda medio loco)", "esbirros-viska",
-         {"tinker": 2, "scan": 2, "trick": 1, "skulk": 1, "finesse": 1},
+         {"tinker": 3, "scan": 2, "trick": 2, "skulk": 1, "finesse": 1},
          "Probar explosivos e inventos ruidosos en el taller",
          "Convertir la mazmorra en una máquina mortal perfecta",
-         "Mente maestra de artilugios", "Comienzas cada fase con suministros para fabricar mejunjes alquímicos y artilugios mecánicos.",
-         "Ballesta de repetición", "Caja de herramientas de maestro"),
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Ballesta", "Bolsa de herramientas"),
         ("pj-kaelen", "Kaelen", "Demonio", "Hechicero", "Cuernos curvados hacia atrás, ojos como brasas y túnica ribeteada en oro negro",
          "Malphas (un diablillo mensajero del Abismo)", "esbirros-kaelen",
-         {"invoke": 2, "threaten": 2, "banter": 1, "scan": 1, "smash": 1},
+         {"invoke": 3, "threaten": 2, "banter": 2, "scan": 1, "smash": 1},
          "Deleitarse con el miedo de los prisioneros y beber vino especiado",
-         "Someter las almas de la Abadía de Piedra Blanca",
-         "Hechicería abisal", "Desatas fuego negro, telequinesis e ilusiones aterradoras canalizando tu propia sangre demoníaca.",
-         "Orbe de obsidiana ardiente", "Túnica de escamas infernales"),
+         "Someter las almas de la Abadía del Corazón Valiente",
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Bola de cristal", "Túnica raída"),
         ("pj-zira", "Zira", "Devoramentes", "Confabuladora", "Tentáculos faciales violáceos ocultos tras una máscara de plata y capa de terciopelo",
          "Hermano Tomás (un monje corrupto de Piedra Blanca)", "esbirros-zira",
-         {"banter": 2, "trick": 2, "scan": 2, "invoke": 1},
+         {"banter": 3, "trick": 2, "scan": 2, "invoke": 1, "skulk": 1},
          "Saborear los recuerdos y secretos extraídos de mentes cautivas",
          "Enfrentar a las facciones de la Luz entre sí mediante intrigas",
-         "Red de marionetas", "Siempre tienes un contacto sobornado o coaccionado dentro de la facción objetivo de la incursión.",
-         "Bastón estoque oculto", "Disfraces y sellos falsificados"),
+         None, None,  # capacidad principal de la vocación (vocaciones_manual.json)
+         "Daga oculta", "Máscara decorativa"),
     ]
 
     for (slug, nom, raza, voc, look, amigo, slug_manada, habs, juerga, impulso, hab_nom, hab_desc, eq1, eq2) in pjs_cfg:
+        vm = VOC[{"Artesana": "Artesano", "Confabuladora": "Confabulador"}.get(voc, voc)]
+        hab_nom, hab_desc = vm["capacidad"], vm["texto"] + " (Capacidad principal, manual cap. 2.)"
         pid = fid(f"actor:pj:{slug}")
         mid = fid(f"actor:manada:{slug_manada}")
         actores.append({
@@ -715,7 +638,7 @@ def construir_actores():
             "imps": "Diablillos tiznados de hollín que acarrean piedras y chillan cuando huelen intrusos.",
             "master_plan": {
                 "step1": "1. Tomar las Cuevas del Paso del Mercader y despertar el Corazón («Un lugar al que llamar hogar»).",
-                "step2": "2. Saquear los grimorios prohibidos de la Abadía de Piedra Blanca («Una biblioteca necesita libros»).",
+                "step2": "2. Saquear los grimorios prohibidos de la Abadía del Corazón Valiente («Una biblioteca necesita libros»).",
                 "step3": "3. Capturar la piel del Gran Hombre Lobo del Bosque Susurrante («Piel de lobo para un ritual»).",
                 "step4": "4. Repeler la invasión de los héroes del valle en nuestra guarida («¡Matad a los intrusos!»).",
                 "step5": "5. Completar el Ritual del Eclipse sobre las Colinas («Bajo la luna llena»).",
@@ -767,7 +690,7 @@ def construir_actores():
 
     grupos_cfg = [
         ("party-piedra-blanca", "Expedición de Piedra Blanca (Invasión N1)", "adv-defensor",
-         "Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía de Piedra Blanca para recuperar la mercancía robada y tantear vuestras defensas.",
+         "Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía del Corazón Valiente para recuperar la mercancía robada y tantear vuestras defensas.",
          [
              clonar_adv("defender", 1, "Alric de Piedra Blanca"),
              clonar_adv("cleric", 1, "Hermana Valeria"),
@@ -847,7 +770,7 @@ def construir_actores():
                 "<ul>"
                 "<li><strong>Hito R1:</strong> Reclamar la cueva y forjar el Corazón de la Mazmorra.</li>"
                 "<li><strong>Hito R2:</strong> Primera Fase de Guarida (excavar salas N1, colocar trampas y reclutar).</li>"
-                "<li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía de Piedra Blanca).</li>"
+                "<li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía del Corazón Valiente).</li>"
                 "<li><strong>Hito R4:</strong> Incursión III «Piel de lobo para un ritual» (Bosque Susurrante).</li>"
                 "<li><strong>Hito R5:</strong> Invasión «¡Matad a los intrusos!» (Defensa de la mazmorra).</li>"
                 "<li><strong>Hito R6:</strong> Clímax «La última luna llena» (Eclipse y asalto a Ciudad Floresta).</li>"
@@ -864,7 +787,7 @@ def construir_actores():
             },
             {
                 "_id": fid("gmsheet:clock:inquisicion"),
-                "name": "Sospecha de la Abadía de Piedra Blanca",
+                "name": "Sospecha de la Abadía del Corazón Valiente",
                 "type": "project",
                 "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
                 "system": {"clock_sizes": [4, 6, 8], "clock_size": 6, "clock_progress": 0, "description": "Avanza con las represalias mágicas o incursiones contra lugares sagrados."},
@@ -937,245 +860,13 @@ def crear_tabla(clave, nombre, descripcion, filas, formula=None):
 
 
 def construir_tablas():
+    """Todas las tablas aleatorias del manual (pág. 247-373), literales. Las d66 llevan su número delante: «[11] …»."""
     tablas = []
-
-    tablas.append(crear_tabla(
-        "incursion-objetivo",
-        "01 · Generador de Incursiones: Objetivo y Botín (d36)",
-        "Tira para generar un objetivo de incursión en el entorno y su recompensa principal.",
-        [
-            "Caravana de impuestos fuertemente escoltada (2 de Oro + Suministros)",
-            "Almacén de suministros del Gremio (1 de Oro + 3 Suministros compartidos)",
-            "Biblioteca o archivo monástico (Grimorios + +2 segmentos a un Ritual)",
-            "Prisión o convoy de cautivos (Esclavos o reclutas para una nueva Manada)",
-            "Torre de un mago o alquimista solitario (1 Objeto Mágico o 3 Pociones)",
-            "Santuario consagrado de la Luz (Profanarlo otorga 1 Corazón Oscuro y +1 XP Malvada)",
-            "Mina de hierro o cobre en activo (Materiales para construir una Sala de Nivel 3)",
-            "Campamento de cazadores o montaraces (Capturar bestias de guarida y mapas)",
-            "Posada fortificada en un cruce de caminos (1 de Oro + información sobre facciones)",
-            "Taller de un maestro armero o inventor (2 Artilugios o Armas Valiosas)",
-            "Cripta antigua recién descubierta por eruditos (Reliquia antigua + huesos para nigromancia)",
-            "Granja o destilería próspera (Provisiones para un gran festín: reduce estrés de la horda)",
-            "Embajada o mansión de un aristócrata (Rehenes nobles por rescate de 2 de Oro)",
-            "Puesto de guardia fronterizo (Debilita en −1 el reloj de invasión de una facción de la Luz)",
-            "Círculo druídico o claro sagrado (Ingredientes raros para brujería y rituales)",
-            "Barco mercante o barcaza fluvial (2 de Oro + cañones o pólvora negra)",
-            "Campamento de una banda rival de la Oscuridad (Someterlos o arrebatarles su tributo)",
-            "Cámara del tesoro de un recaudador corrupto (3 de Oro, pero muy vigilada)",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "incursion-complicacion",
-        "02 · Generador de Incursiones: Giro y Oposición (d18)",
-        "Tira para descubrir qué complicación inesperada aguarda durante la incursión.",
-        [
-            "Un aventurero errante de Nivel 2 se aloja casualmente en el lugar.",
-            "Otra facción (neutral u oscura) está atacando o robando el objetivo al mismo tiempo.",
-            "El botín real es una trampa tendida para emboscar a los monstruos.",
-            "Una tormenta violenta, niebla mágica o incendio complica la huida.",
-            "El objetivo está protegido por guardias con perros de presa y alarmas conectadas.",
-            "El botín es mucho más pesado, frágil o ruidoso de transportar de lo previsto.",
-            "Un traidor o espía ha avisado de vuestra llegada; la posición inicial baja un paso.",
-            "En el sótano del lugar hay una criatura peligrosa encadenada lista para soltarse.",
-            "Los defensores cuentan con suministros alquímicos (fuego líquido y bombas de humo).",
-            "Un clérigo o inquisidor ha sellado las entradas principales con glifos de alarma.",
-            "Los civiles del lugar han formado una milicia desesperada y conocen el terreno.",
-            "Hay un prisionero o desertor que ofrece un trato tentador si lo liberáis en silencio.",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "aventureros-30",
-        "03 · Generador de Invasión: Aventureros (d30)",
-        "Genera uno de los 30 Aventureros oficiales con sus rasgos, pasiva y 6 movimientos.",
-        [
-            f"{nom_es} — Pasiva: {pasiva} | Rasgos: +{pos_es}, −{neg_es} | Motivación: {mot_es} | Ofensivos: {', '.join(mov_of)} | Defensivos: {', '.join(mov_def)}"
-            for (_, nom_es, _, mot_es, _, pos_es, _, neg_es, pasiva, mov_of, mov_def) in AVENTUREROS_30
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "ayudantes-36",
-        "04 · Generador de Invasión: Ayudantes (d36)",
-        "Genera uno de los 36 Ayudantes oficiales que acompañan a los grupos invasores.",
-        [f"{nom_es} — {pasiva}" for (_, nom_es, pasiva) in AYUDANTES_36]
-    ))
-
-    tablas.append(crear_tabla(
-        "criaturas-36",
-        "05 · Generador de Criaturas de Guarida (d36)",
-        "Genera una criatura para habitar o defender la mazmorra (Niveles 1 a 3).",
-        [f"[Nivel {niv}] {nom} — {desc}" for (nom, niv, desc) in CRIATURAS]
-    ))
-
-    tablas.append(crear_tabla(
-        "criaturas-mutacion",
-        "06 · Rasgo Mutante o Especial de Criatura (d20)",
-        "Añade un giro único o mutación a cualquier criatura de la mazmorra (p. 373).",
-        [
-            "1. Alada: Puede volar por bóvedas altas y abalanzarse sobre la retaguardia.",
-            "2. Anfibia / Acuática: Respira bajo el agua y embosca desde cisternas y canales.",
-            "3. Acorazada: Placas de quitina o escamas pétreas que reducen el efecto de las armas.",
-            "4. Bioluminiscente / Hipnótica: Sus patrones de luz desorientan y embelesan.",
-            "5. Camuflada: Se funde con la roca o las sombras hasta el instante de atacar.",
-            "6. Ciega con ecolocalización: Inmune a ilusiones visuales, ceguera y oscuridad total.",
-            "7. Corrosiva: Su saliva o sangre disuelve el metal y la madera.",
-            "8. Dos cabezas: Actúa y vigila en dos direcciones a la vez; difícil de flanquear.",
-            "9. Eléctrica: Descarga arcos voltaicos al contacto o a través del agua.",
-            "10. Enjambre divisible: Al ser herida se separa en múltiples criaturas menores.",
-            "11. Escupefuego: Exhala un cono de llamas o bilis incendiaria.",
-            "12. Espectral / Fase: Puede atravesar muros o volverse intangible brevemente.",
-            "13. Espinas proyectables: Lanza púas o agujas óseas a distancia.",
-            "14. Grito aterrador: Su alarido hiela la sangre y alerta a las salas vecinas.",
-            "15. Magnética: Atrae o repele las armas y armaduras de hierro de los aventureros.",
-            "16. Parásita / Esporal: Infecta a los heridos con esporas o larvas debilitantes.",
-            "17. Pegajosa / Telarañas: Inmoviliza a sus presas con filamentos o baba adhesiva.",
-            "18. Psíquica / Telépata: Susurra terrores en la mente y detecta intrusos a través de muros.",
-            "19. Regeneradora: Cura sus heridas salvo que reciba fuego o ácido.",
-            "20. Venenosa: Su mordisco o aguijón inyecta una potente toxina paralizante.",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "mejunjes-36",
-        "07 · Tabla de Mejunjes Alquímicos (d36)",
-        "Tira para obtener un mejunje alquímico aleatorio (p. 131).",
-        [f"[{d66}] {nom}: {desc}" for (d66, nom, desc) in MEJUNJES_36]
-    ))
-
-    tablas.append(crear_tabla(
-        "artilugios-36",
-        "08 · Tabla de Artilugios Mecánicos (d36)",
-        "Tira para obtener un artilugio mecánico aleatorio (p. 133).",
-        [f"[{d66}] {nom}: {desc}" for (d66, nom, desc) in ARTILUGIOS_36]
-    ))
-
-    tablas.append(crear_tabla(
-        "pociones-36",
-        "09 · Tabla de Pociones de Brujería (d36)",
-        "Tira para obtener una poción mágica aleatoria (p. 141).",
-        [f"[{d66}] {nom}: {desc}" for (d66, nom, desc) in POCIONES_36]
-    ))
-
-    tablas.append(crear_tabla(
-        "reliquias-36",
-        "10 · Tabla de Objetos Mágicos y Reliquias (d36)",
-        "Tira para obtener un objeto mágico o reliquia aleatoria (p. 143).",
-        [f"[{d66}] {nom}: {desc}" for (d66, nom, desc) in OBJETOS_MAGICOS_36]
-    ))
-
-    semillas_1 = [
-        "11. Traición", "12. Emboscada", "13. Secreto", "14. Riqueza", "15. Fuego", "16. Sombra",
-        "21. Sangre", "22. Reliquia", "23. Prisionero", "24. Plaga", "25. Juramento", "26. Tormenta",
-        "31. Ruinas", "32. Bestia", "33. Fanatismo", "34. Espejismo", "35. Hambre", "36. Veneno",
-        "41. Cisma", "42. Profecía", "43. Asedio", "44. Contrabando", "45. Maldición", "46. Mina",
-        "51. Huida", "52. Venganza", "53. Experimento", "54. Tributo", "55. Eclipse", "56. Infiltración",
-        "61. Rebelión", "62. Sacrificio", "63. Demonio", "64. Desastre", "65. Alianza", "66. Tesoro",
-    ]
-    semillas_2 = [
-        "11. Mercaderes", "12. Sacerdotes", "13. Guardia", "14. Nobleza", "15. Ladrones", "16. Magos",
-        "21. Campesinos", "22. Mercenarios", "23. Druidas", "24. Cazadores", "25. Mineros", "26. Piratas",
-        "31. Ancianos", "32. Huérfanos / Pueblo", "33. Inquisidor", "34. Héroe caído", "35. Monstruo rival", "36. Espíritu",
-        "41. Puente / Paso", "42. Torre", "43. Templo", "44. Caravana", "45. Cueva", "46. Bosque",
-        "51. Pantano", "52. Puerto / Río", "53. Cripta", "54. Biblioteca", "55. Prisión", "56. Mercado",
-        "61. Corazón Oscuro", "62. Dios Oscuro", "63. Artefacto", "64. Mapa antiguo", "65. Llave maestra", "66. Trono",
-    ]
-    tablas.append(crear_tabla(
-        "oraculo-semilla-1",
-        "11 · Deja volar tu imaginación: Primera Semilla (d36)",
-        "Oráculo de inspiración abierta para improvisar giros, rumores y escenas (p. 316).",
-        semillas_1
-    ))
-    tablas.append(crear_tabla(
-        "oraculo-semilla-2",
-        "12 · Deja volar tu imaginación: Segunda Semilla (d36)",
-        "Combínala con la Primera Semilla para responder preguntas abiertas o crear PNJs (p. 316).",
-        semillas_2
-    ))
-
-    tablas.append(crear_tabla(
-        "solitario-gran-malo",
-        "13 · Modo Solitario («El Gran Malo Malvado»): Acciones de Esbirros y Guarida (d12)",
-        "Oráculo del modo solitario para determinar qué hacen tus lugartenientes y qué ocurre en la mazmorra (pp. 362-367).",
-        [
-            "1. Un lugarteniente reclama más oro o comida para su manada; amenaza con disturbios.",
-            "2. Tus excavadores topan con un Hallazgo inesperado en las profundidades.",
-            "3. Una patrulla de exploradores de la Luz es avistada cerca de la entrada exterior.",
-            "4. Dos manadas de esbirros se pelean en el foso; una queda Malherida pero gana experiencia.",
-            "5. Un emisario de una facción Oscura o Neutral llega con una propuesta de alianza o comercio.",
-            "6. Tus artesanos completan un avance gratuito (+1 segmento) en un proyecto o trampa.",
-            "7. Un prisionero intenta escapar o revela la ubicación de un botín valioso por su vida.",
-            "8. El Corazón de la Mazmorra pulsa con energía: obtienes +1d en tu próximo ritual o canalización.",
-            "9. Una criatura salvaje de la caverna se instala en una galería vacía.",
-            "10. Rumores en la superficie: una facción de la Luz avanza +1 segmento en su reloj.",
-            "11. Tus esbirros traen un botín menor (1 Suministro) de una correría nocturna.",
-            "12. Silencio tenso: los aventureros preparan una incursión inminente contra tu guarida.",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "simulador-incursion-esbirros",
-        "14 · Resolución Rápida de Incursión de Esbirros (d6)",
-        "Tira según el nivel de la manada enviada para resolver una incursión secundaria sin jugarla entera (p. 262).",
-        [
-            "1 · Fracaso desastroso: La manada vuelve Malherida, sin botín y genera +2 de Represalia.",
-            "2 · Retirada costosa: Consiguen solo la mitad del objetivo, vuelven Malheridos y generan +1 de Represalia.",
-            "3 · Éxito ruidoso: Logran el objetivo principal, pero vuelven Malheridos y dejan rastro (+1 de Represalia).",
-            "4 · Éxito estándar: Cumplen la misión y traen el botín esperado con bajas menores.",
-            "5 · Éxito limpio: Cumplen la misión sin sufrir daños ni levantar sospechas adicionales.",
-            "6 · Triunfo rotundo: Cumplen la misión, traen un botín extra (+1 Suministro o Mejunje) y amedrentan al enemigo.",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "generador-mazmorras-salas",
-        "15 · Generador de Mazmorras: Salas, Trampas y Criaturas (d18)",
-        "Tira para poblar rápidamente una sección de mazmorra o una guarida rival (p. 372).",
-        [
-            "1. Cuerpo de guardia con barricada y una manada de esbirros alerta.",
-            "2. Pasillo largo con Trampa de foso de estacas y arqueros al fondo.",
-            "3. Almacén de suministros custodiado por una Criatura de Nivel 1.",
-            "4. Cruce engañoso con un Truco (puerta falsa o pasillo giratorio) y una emboscada.",
-            "5. Celdas de prisioneros con un Portón reforzado y un carcelero bruto.",
-            "6. Laboratorio o taller con reactivos volátiles (1 Mejunje + 1 Artilugio).",
-            "7. Santuario oscuro con un altar activo y acólitos canalizando.",
-            "8. Gruta natural inundada con una Criatura acuática o ácida al acecho.",
-            "9. Sala de banquetes o dormitorios donde los esbirros están de juerga.",
-            "10. Cripta antigua con esqueletos reanimados y una trampa de gas.",
-            "11. Puente estrecho sobre una sima con cuchillas o cuerdas cortables.",
-            "12. Cámara de tortura o trofeos con pistas sobre las debilidades de la región.",
-            "13. Criadero de bestias con una Criatura de Nivel 2 hambrienta.",
-            "14. Biblioteca prohibida protegida por runas explosivas y un hechicero.",
-            "15. Hallazgo subterráneo (veta de oro o fuente mágica) disputado por alimañas.",
-            "16. Sala del consejo o guerra con el mapa táctico de la zona.",
-            "17. Bóveda del tesoro tras un Portón de Nivel 2 y una trampa letal.",
-            "18. Cámara del Corazón de la Mazmorra custodiada por el líder y su guardia de élite.",
-        ]
-    ))
-
-    tablas.append(crear_tabla(
-        "botin-mayor",
-        "16 · Tabla de Botín Mayor de Aventureros Caídos (d12)",
-        "Qué llevan encima los héroes derrotados en vuestra mazmorra cuando registráis sus cadáveres.",
-        [
-            "1. Bolsa de monedas de oro del reino (1 de Oro) y raciones de viaje.",
-            "2. Arma de factura magistral (Valiosa) con el blasón de su orden.",
-            "3. Dos viales de Pociones curativas o de resistencia elemental.",
-            "4. Mapa anotado con los puntos débiles de una facción de la Luz (+1d en la próxima incursión).",
-            "5. Armadura de placas o cota de malla élfica adaptable (Equipo Valioso).",
-            "6. Estuche de alquimista con 2 Mejunjes listos para usar.",
-            "7. Sello oficial o salvoconducto que permite infiltrarse en Ciudad Floresta.",
-            "8. Artilugio de ingeniería enana (ballesta de repetición o ganzúa mecánica).",
-            "9. Reliquia sagrada que puede ser profanada en el Santuario por +2 segmentos de Ritual.",
-            "10. Diario personal que revela quién contrató la expedición y dónde guarda su tesoro.",
-            "11. Objeto Mágico poderoso (tira en la tabla de Objetos Mágicos d36).",
-            "12. Cofre de paga de la expedición (2 de Oro) y un prisionero importante con vida.",
-        ]
-    ))
-
+    for t in MANUAL:
+        filas = [(f"[{d66_de(f[0])}] " if t["d66"] else "") + f[2] for f in t["filas"]]
+        desc = f"{t['descripcion']} (Manual, pág. {t['pagina']}.)".strip()
+        tablas.append(crear_tabla(t["clave"], t["nombre"], desc, filas, t["formula"]))
     return tablas
-
 
 # ---------------------------------------------------------------------------
 # 6. PACK: manual-es (10 Diarios Multipágina: Manual Completo The Hills Press + Guía de Campaña)
@@ -1201,36 +892,36 @@ def construir_manual():
         "pages": [
             crear_pagina_texto("01", 1, "Bienvenida y Resumen de la Campaña", f"""
                 <p><img src="modules/{MOD}/assets/escenas/portada.webp" alt="Portada" style="width:100%;border-radius:8px;margin-bottom:12px;" /></p>
-                <h2>Un lugar al que llamar hogar · Campaña oficial en el Valle Silencioso</h2>
-                <p>Esta campaña lista para jugar traslada a la mesa el arco completo de los ejemplos narrativos del manual de <strong>Wicked Ones (The Hills Press)</strong> protagonizados por <strong>Ulrot</strong> (Orco Bruto), <strong>Crag</strong> (Kóbold Chamán) y <strong>Slem</strong> (Sérpido Sombra), junto a tres compañeros adicionales listos para elegir (<strong>Viska</strong>, <strong>Kaelen</strong> y <strong>Zira</strong>).</p>
+                <h2>Un lugar al que llamar hogar · Campaña del módulo en el Valle Silencioso</h2>
+                <p>Esta campaña lista para jugar es una adaptación propia del módulo, inspirada en los ejemplos de juego del manual de <strong>Wicked Ones (The Hills Press)</strong> protagonizados por <strong>Ulrot</strong> (Orco Bruto), <strong>Crag</strong> (Kóbold Chamán) y <strong>Slem</strong> (Sérpido Sombra), junto a tres compañeros adicionales listos para elegir (<strong>Viska</strong>, <strong>Kaelen</strong> y <strong>Zira</strong>).</p>
                 <blockquote><p><em>«Hartos de huir de los cruzados de Ciudad Floresta y de dormir bajo la lluvia en los riscos, habéis descubierto el lugar perfecto para fundar vuestra propia mazmorra: las Cuevas del Paso del Mercader, en las Colinas de Piedra Blanca. Solo hay un pequeño problema: una caravana armada del Gremio de Mercaderes las está usando como almacén fortificado…»</em></p></blockquote>
                 <h3>Estructura en 6 Hitos (Integrada con MR- Dirección)</h3>
                 <ol>
-                    <li><strong>Hito R1 · Incursión Inicial («Un lugar al que llamar hogar», pág. 37):</strong> Asalto a las Cuevas del Paso del Mercader para expulsar o aniquilar a los guardias del Gremio, quedarse con su botín inicial y despertar el <strong>Corazón de la Mazmorra</strong> en la Bóveda de Piedra Antigua.</li>
-                    <li><strong>Hito R2 · Fase de Guarida y Desastre («Construyendo el santuario», pág. 191):</strong> Primera fase de construcción: excavar salas de Nivel 1, tender trampas, reclutar esbirros y afrontar la primera tirada de Desastre y Represalia.</li>
-                    <li><strong>Hito R3 · Incursión II («Una biblioteca necesita libros», pág. 116):</strong> Infiltración o asalto nocturno contra la <strong>Abadía de Piedra Blanca</strong> para robar los códices prohibidos que Crag y Kaelen necesitan para su gran ritual.</li>
-                    <li><strong>Hito R4 · Incursión III («Piel de lobo para un ritual», pág. 165):</strong> Caza en el <strong>Bosque Susurrante</strong> para abatir al Gran Hombre Lobo antes de que los Cazadores de Plata o los Druidas del Círculo lo reclamen.</li>
-                    <li><strong>Hito R5 · Defensa de la Guarida («¡Matad a los intrusos!», pág. 229):</strong> ¡Invasión! La <em>Expedición de Piedra Blanca</em> (o los <em>Cazadores de la Luna de Plata</em>) penetra en vuestra mazmorra. Hora de activar trampas, trucos, portones y manadas.</li>
-                    <li><strong>Hito R6 · Clímax («La última luna llena», pág. 267 y 333):</strong> Con el ritual del Eclipse completado, la horda marcha sobre <strong>Ciudad Floresta</strong> mientras la vanguardia de campeones de la Luz lanza su asalto desesperado contra el Santuario.</li>
+                    <li><strong>Hito R1 · Incursión Inicial («Un lugar al que llamar hogar», ejemplo de la pág. 16):</strong> Asalto a las Cuevas del Paso del Mercader para expulsar o aniquilar a los guardias del Gremio, quedarse con su botín inicial y despertar el <strong>Corazón de la Mazmorra</strong> en la Bóveda de Piedra Antigua.</li>
+                    <li><strong>Hito R2 · Fase de Guarida y Desastre (acecho y desastre, págs. 234-249):</strong> Primera fase de construcción: excavar salas de Nivel 1, tender trampas, reclutar esbirros y afrontar la primera tirada de Desastre y Represalia.</li>
+                    <li><strong>Hito R3 · Incursión II («Una biblioteca necesita libros», pág. 82):</strong> Infiltración o asalto nocturno contra la <strong>Abadía del Corazón Valiente</strong> para robar los códices prohibidos que Crag y Kaelen necesitan para su gran ritual.</li>
+                    <li><strong>Hito R4 · Incursión III («Piel de lobo para un ritual», pág. 112):</strong> Caza en el <strong>Bosque Susurrante</strong> para abatir al Gran Hombre Lobo antes de que la familia de cazadores del ejemplo lo reclame.</li>
+                    <li><strong>Hito R5 · Defensa de la Guarida («¡Matad a los intrusos!», pág. 228):</strong> ¡Invasión! Un grupo de aventureros de la Abadía (como el monje, el templario y la inquisidora del ejemplo) penetra en vuestra mazmorra. Hora de activar trampas, trucos, portones y manadas.</li>
+                    <li><strong>Hito R6 · Clímax («La última luna llena», pág. 332):</strong> Con el ritual del Eclipse completado, la horda marcha sobre <strong>Ciudad Floresta</strong> mientras la vanguardia de campeones de la Luz lanza su asalto desesperado contra el Santuario.</li>
                 </ol>
             """),
             crear_pagina_texto("01", 2, "Hito R1 · Un lugar al que llamar hogar (Incursión Inicial)", f"""
                 <p><img src="modules/{MOD}/assets/escenas/cueva-mercaderes.webp" alt="Cueva de los Mercaderes" style="width:100%;border-radius:8px;margin-bottom:12px;" /></p>
-                <h2>Hito R1 · Un lugar al que llamar hogar (Pág. 37)</h2>
-                <p>Según las reglas de inicio rápido del manual, toda campaña de <em>Wicked Ones</em> arranca <strong>en mitad de la primera incursión</strong> para reclamar el emplazamiento de la mazmorra, sin necesidad de tirada de Implicación previa: los PJs ya están frente a la entrada (Posición <strong>Por defecto</strong>).</p>
+                <h2>Hito R1 · Un lugar al que llamar hogar (ejemplo de la pág. 16)</h2>
+                <p>La guía de la sesión 1 (pág. 308) arranca con los PJ huyendo bajo la lluvia en busca de un refugio, y el ejemplo de juego de la pág. 16 empieza cuando están a punto de asaltar una cueva donde acampan unos mercaderes. Este hito lo convierte en la primera incursión.</p>
                 <h3>Situación Táctica en las Cuevas del Paso del Mercader</h3>
                 <ul>
                     <li><strong>1. Boca de la Cueva y Carromatos:</strong> Dos carromatos blindados forman un parapeto junto a una hoguera. Cuatro guardias del Gremio vigilan el camino con ballestas y lanzas.</li>
                     <li><strong>2. Galería de los Guardias:</strong> El capataz <strong>Bram</strong> y seis guardias veteranos descansan junto a un <strong>cuerno de bronce de alarma</strong> (Reloj de 4 segmentos: <em>«¡Fuego de señales hacia Piedra Blanca!»</em>).</li>
                     <li><strong>3. Depósito de Caravanas (Norte):</strong> Cajas de herramientas, barriles de licor, hierro forjado y un cofre con la paga (<strong>2 de Oro</strong> y <strong>2 Suministros</strong> para empezar la guarida). Accesible en sigilo por la <em>Grieta de humo</em> superior.</li>
-                    <li><strong>4. Cisterna del Arroyo Frío (Sur):</strong> Estanque subterráneo conectado al exterior por un sumidero sumergido. En el fondo acecha una <em>Serpiente constrictora albina</em> (Criatura N1) que puede ser domada o azuzada contra los guardias.</li>
+                    <li><strong>4. Cisterna del Arroyo Frío (Sur):</strong> Estanque subterráneo conectado al exterior por un sumidero sumergido. En el fondo acecha una <em>serpiente gigante</em> (criatura de nivel 1) que puede ser domada o azuzada contra los guardias.</li>
                     <li><strong>5. Bóveda de Piedra Antigua (Este):</strong> Cámara sellada tras un derrumbe parcial donde late una fisura de energía oscura perfecta para anclar el <strong>Corazón de la Mazmorra</strong>.</li>
                 </ul>
             """),
             crear_pagina_texto("01", 3, "Hitos R2 a R6 · El ascenso de la Oscuridad", f"""
                 <p><img src="modules/{MOD}/assets/escenas/biblioteca-abadia.webp" alt="Biblioteca de la Abadía" style="width:100%;border-radius:8px;margin-bottom:12px;" /></p>
-                <h2>Hito R3 · Una biblioteca necesita libros (Pág. 116)</h2>
-                <p>Para desbloquear salas avanzadas y el <strong>Ritual del Eclipse de Sangre</strong>, los malvados necesitan los tomos encuadernados en hierro custodiados en el scriptorium de la <strong>Abadía de Piedra Blanca (Facción Nivel 2, Luz)</strong>.</p>
+                <h2>Hito R3 · Una biblioteca necesita libros (ejemplo de la pág. 82)</h2>
+                <p>Para desbloquear salas avanzadas y el <strong>Ritual del Eclipse de Sangre</strong>, los malvados necesitan los tomos encuadernados en hierro custodiados en el scriptorium de la <strong>Abadía del Corazón Valiente (facción de nivel 2, luz; Valle Silencioso, pág. 286)</strong>.</p>
                 <ul>
                     <li><strong>Enfoque de Asalto:</strong> Derribar el portón lateral del claustro y enfrentarse a los monjes guerreros antes de que tañan la gran campana.</li>
                     <li><strong>Enfoque de Sigilo / Engaño:</strong> Escalar los contrafuertes góticos bajo la lluvia o infiltrarse con hábitos robados hasta el archivo prohibido.</li>
@@ -1238,268 +929,202 @@ def construir_manual():
                 </ul>
                 <hr/>
                 <p><img src="modules/{MOD}/assets/escenas/ritual-luna-llena.webp" alt="Ritual de Luna Llena" style="width:100%;border-radius:8px;margin:12px 0;" /></p>
-                <h2>Hito R4 · Piel de lobo para un ritual (Pág. 165)</h2>
-                <p>El segundo ingrediente del gran ritual exige desollar al <strong>Gran Hombre Lobo Alfa</strong> que aterroriza el Bosque Susurrante en noche de luna llena. Sin embargo, los <strong>Cazadores de Hombres Lobo de Plata (N2)</strong> también le han tendido una trampa esa misma noche.</p>
+                <h2>Hito R4 · Piel de lobo para un ritual (ejemplo de la pág. 112)</h2>
+                <p>El segundo ingrediente del gran ritual exige desollar al <strong>Gran Hombre Lobo Alfa</strong> que aterroriza el Bosque Susurrante en noche de luna llena. Sin embargo, la famosa familia de cazadores del ejemplo del libro también le han tendido una trampa esa misma noche.</p>
                 <hr/>
                 <p><img src="modules/{MOD}/assets/escenas/defensa-mazmorra.webp" alt="Defensa de la Mazmorra" style="width:100%;border-radius:8px;margin:12px 0;" /></p>
-                <h2>Hito R5 · ¡Matad a los intrusos! (Pág. 229) y Hito R6 · La última luna llena (Pág. 333)</h2>
-                <p>Cuando los relojes de las facciones de la Luz se completan, los grupos de aventureros (disponibles en la carpeta de Actores listos para arrastrar con sus Corazones y 6 Movimientos) invaden vuestra mazmorra. Si los malvados defienden su Corazón y completan los 6 pasos de su Plan Maestro, desatan el asalto final sobre <strong>Ciudad Floresta</strong>.</p>
+                <h2>Hito R5 · ¡Matad a los intrusos! (ejemplo de la pág. 228) y Hito R6 · La última luna llena (ejemplo de la pág. 332)</h2>
+                <p>Cuando los relojes de las facciones de la Luz se completan, los grupos de aventureros (disponibles en la carpeta de Actores listos para arrastrar con sus Corazones y 6 Movimientos) invaden vuestra mazmorra. Si los malvados defienden su Corazón y avanzan su plan maestro (pág. 174), desatan el asalto final sobre <strong>Ciudad Floresta</strong>.</p>
             """),
         ],
     })
 
-    # Diario 02: Reglas Fundamentales, Ciclo de Partida y Automatización en Chat
+    # Diarios 02-09: índice fiel del manual (nombres y páginas del libro impreso) + qué automatiza el módulo.
+    # Nada de reglas resumidas de memoria: lo que no está aquí, se consulta en el libro.
+    LAB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "labores_manual.json"), encoding="utf-8"))
+    FAC = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos", "facciones_manual.json"), encoding="utf-8"))
+
     diarios.append({
         "_id": fid("journal:02-reglas-y-ciclo"),
-        "name": "02 · Manual: Ciclo de Partida, Tiradas y Automatización",
+        "name": "02 · Manual: Ciclo de juego, situación y efecto",
         "pages": [
-            crear_pagina_texto("02", 1, "Las 4 Fases del Ciclo de Partida", """
-                <h2>El Ciclo de Partida en Wicked Ones</h2>
-                <p>El juego alterna entre cuatro fases claramente diferenciadas que puedes seguir paso a paso en la <strong>Hoja del DJ (Panel del DJ)</strong>:</p>
+            crear_pagina_texto("02", 1, "Las cuatro fases del ciclo", """
+                <h2>Resumen del ciclo (pág. 232)</h2>
+                <p>El juego progresa a través de cuatro fases: <strong>acecho, desastre, incursión y represalias</strong>. Son fijas, pero no hay que obligarse a seguirlas si hay una escena que queráis interpretar.</p>
                 <ol>
-                    <li><strong>Fase de Acecho (Guarida / Tiempo Libre):</strong>
-                        <ul>
-                            <li>Los jugadores eligen y resuelven su <strong>Acción de Tiempo Libre</strong> (Reclutar, Construir, Fabricar, Investigar, Entrenar, Juerga o Proyecto a largo plazo) y pueden <em>Arriesgarse</em> (+1 acción a cambio de +1 dado en la tirada de Desastre).</li>
-                            <li>Se realizan las labores de excavación, salas de Nivel 1-3, defensas y mejoras de la mazmorra.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Fase de Desastre (Lógica de Mazmorra):</strong>
-                        <ul>
-                            <li>El DJ tira por <strong>Desastre (Calamity)</strong> lanzando tantos dados como la Inmundicia/Tamaño más los dados por <em>Arriesgarse</em>.</li>
-                            <li>Si hay grupos de aventureros capturados o invasiones pendientes, se resuelven en el interior de la guarida.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Fase de Incursión (Raiding):</strong>
-                        <ul>
-                            <li>Los malvados salen a la superficie para golpear a una facción del entorno: eligen objetivo, enfoque y realizan la <strong>Tirada de Implicación</strong>.</li>
-                            <li>Usa flashbacks, trabajo en equipo, esbirros y Corazones Oscuros para superar los obstáculos y volver con Oro, Suministros y cautivos.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Fase de Represalia (Blowback):</strong>
-                        <ul>
-                            <li>Se hace la <strong>Tirada de Represalia</strong> (2d por defecto) para ver cuánto ruido ha hecho la incursión.</li>
-                            <li>Los relojes de las facciones del entorno avanzan y se comprueba si se desencadena una Invasión.</li>
-                        </ul>
-                    </li>
+                    <li><strong>Acecho (pág. 234):</strong> contáis el botín, celebráis una juerga y pasáis un descanso con proyectos para mejorar la mazmorra.</li>
+                    <li><strong>Desastre (pág. 244):</strong> al final de cada acecho el DJ hace una tirada de desastre (lógica de la mazmorra, tipos y tablas en las págs. 245-249).</li>
+                    <li><strong>Incursión (pág. 250):</strong> elegís propósito, objetivo, plan y detalles; el DJ hace la tirada de implicación y empezáis en plena acción.</li>
+                    <li><strong>Represalias (pág. 264):</strong> al final de cada incursión el DJ hace la tirada de represalia (tipos y tablas en las págs. 268-271).</li>
                 </ol>
+                <p>El panel del DJ y las tarjetas de chat del módulo tiran desastre, implicación, represalia y defensas con las tablas del libro.</p>
             """),
-            crear_pagina_texto("02", 2, "Posición, Efecto, Resistencia y Corazones Oscuros", """
-                <h2>Posición y Efecto</h2>
-                <p>En <em>Wicked Ones</em> no es necesario negociar posición y efecto en cada tirada salvo que cambien respecto al estándar:</p>
+            crear_pagina_texto("02", 2, "Situación y efecto", """
+                <h2>Situación y efecto (pág. 36)</h2>
+                <p>La <strong>situación</strong> mide lo graves que serán las consecuencias si fallas una tirada de acción; el <strong>efecto</strong>, el impacto si tienes éxito. Solo las tiradas de acción tienen situación y efecto, y la estándar se da por supuesta.</p>
                 <ul>
-                    <li><strong>Posición Por defecto:</strong> Situación normal de riesgo equilibrado (consecuencia estándar: 2 de Estrés o quedar Malherido si ya no puedes asumir estrés).</li>
-                    <li><strong>Posición Dominante:</strong> Llevas toda la ventaja (consecuencia menor: 1 de Estrés o pérdida de oportunidad).</li>
-                    <li><strong>Posición Funesta (Dire):</strong> Estás en clara desventaja (consecuencia grave: 3 de Estrés, quedar Malherido + Conmocionado o perder un esbirro).</li>
-                    <li><strong>Posición Mortal (Deadly):</strong> Si fallas o sacas éxito parcial y decides resistir, debes hacer una <strong>Tirada de Resistir la Muerte</strong> (con 1-3 mueres; con 4-5 sobrevives pero quedas fuera de combate y Malherido).</li>
+                    <li><strong>Situación:</strong> ventajosa · estándar · nefasta · mortal (un éxito parcial o un fracaso acaba con tu muerte).</li>
+                    <li><strong>Efecto:</strong> potente · estándar · débil · nulo.</li>
                 </ul>
-                <h3>Automatización MR- en las Tarjetas de Chat</h3>
-                <p>Este módulo añade botones interactivos en las tarjetas de tirada del chat para agilizar la mesa sin quitar nunca la decisión narrativa:</p>
-                <ul>
-                    <li><strong>Resistir consecuencia:</strong> Lanza la tirada de resistencia con el atributo elegido o aplica el coste de estrés calculado.</li>
-                    <li><strong>Gastar Corazón Oscuro:</strong> Permite invocar un flashback gratuito, potenciar al máximo el efecto o activar habilidades especiales de vocación.</li>
-                    <li><strong>Abrir Asistente / Generador MR:</strong> Accesible desde los controles de escena o la cabecera de las fichas para generar incursiones, invasores, salas o tirar en los oráculos.</li>
-                </ul>
+                <p>Los modificadores «+/− situación» y «+/− efecto» son circunstancias que tienden hacia ese grado, no cambios automáticos. Resistencia, estrés y muerte: capítulo 1 del manual; el diálogo de tirada del módulo aplica sus costes.</p>
             """),
         ],
     })
 
-    # Diario 03: Las Artes Oscuras y los 13 Dioses Oscuros
-    html_dioses = []
-    dioses_info = [
-        ("gorlag", "Gorlag, el Señor de la Matanza", "Guerra, sangre, furia berseker y conquista brutal.", "Sacrificar a un guerrero digno en combate singular o bañarse en la sangre de los caídos.", "Desatar una furia imparable, quebrar muros y armas, o invocar sabuesos de sangre."),
-        ("iziza", "Iziza, la Reina de los Enjambres", "Insectos, plagas, venenos, telarañas y mutación quitinosa.", "Alimentar al nido con carne fresca o infectar un asentamiento de la superficie.", "Invocar nubes de insectos devoradores, segregar veneno letal o caminar por techos y muros."),
-        ("melkahar", "Melkahar, el Corazón de la Fragua Ardiente", "Fuego, magma, ceniza, metal fundido y destrucción volcánica.", "Arrojar tesoros de oro o prisioneros vivos a una fisura de lava o gran horno.", "Tormentas de fuego, fundir el acero enemigo o revestir a la horda en piel de magma."),
-        ("gimosha", "Gimosha, el Silencio de la Cripta", "No-muertos, huesos, frío sepulcral y nigromancia.", "Profanar cementerios sagrados y entregar cadáveres intactos al osario.", "Alzar legiones de esqueletos, drenar la vida con un toque o hablar con los espíritus antiguos."),
-        ("dalgeth", "Dalgeth, el Tejedor de Mentiras", "Engaño, ilusiones, traición, secretos y paranoia.", "Sembrar la discordia hasta que dos aliados de la Luz se destruyan entre sí.", "Disfraces perfectos, invisibilidad masiva o volver locos de sospecha a los defensores."),
-        ("nezame", "Nezame, la Dama de las Sombras", "Oscuridad, noche eterna, sigilo, robo y asesinatos silenciosos.", "Apagar las luces sagradas de un templo o robar la joya más vigilada sin dejar rastro.", "Teletransportarse entre sombras, apagar toda luz en kilómetros o estrangular con penumbra sólida."),
-        ("melawa", "Melawa, la Madre del Cieno y la Podredumbre", "Ácido, hongos, esporas, pantanos y decadencia orgánica.", "Corromper los manantiales y cosechas de la superficie con lodo fúngico.", "Lluvia ácida, levantar colosos de barro y micelio o disolver portones de piedra."),
-        ("shabaz", "Shabaz, el Ojo de la Tormenta", "Relámpagos, huracanes, trueno y furia de los cielos.", "Atar ofrendas en la cumbre más alta durante una tempestad eléctrica.", "Descargar rayos devastadores, volar sobre vientos huracanados o derribar torres."),
-        ("labisha", "Labisha, la Señora del Dolor Exquisito", "Tortura, terror, pesadillas, cadenas y sumisión.", "Quebrar la fe de un campeón de la Luz sin matarlo.", "Paralizar de pavor a un ejército, infligir dolor psíquico a distancia o atar con cadenas espectrales."),
-        ("talazar", "Talazar, el Arquitecto del Laberinto", "Piedra, trampas, geometría imposible y secretos subterráneos.", "Construir un complejo de trampas que acabe con un grupo entero sin intervención directa.", "Remodelar pasillos en el acto, abrir fosos bajo los pies o animar estatuas de piedra."),
-        ("crevis", "Crevis, el Hambre Insaciable", "Gula, canibalismo, bestias salvajes y caza implacable.", "Celebrar un festín monstruoso con las reservas de toda una aldea.", "Otorgar fauces y garras de depredador alfa, regenerar heridas devorando o atraer monstruos."),
-        ("vahoona", "Vahoona, el Susurro del Vacío", "Locura, estrellas oscuras, gravedad, portales y aberraciones.", "Contemplar el abismo cósmico y destruir obras de conocimiento racional.", "Alterar la gravedad, abrir grietas dimensionales o quebrar la mente de los eruditos."),
-        ("zaheen", "Zaheen, el Príncipe de la Avaricia", "Oro, contratos de sangre, corrupción, sobornos y reliquias.", "Acumular un tesoro legendario y comprar el alma de un gobernante justo.", "Convertir la carne en oro, maldecir las monedas robadas o someter mediante pactos irrompibles."),
+    dioses = [
+        ("gorlag", "Gorlag, el Emperador Bendito", "dios de la Conquista y la Tiranía", "La familia imperial"),
+        ("iziza", "Iziza, la Dulce Cortesana", "diosa de la Seducción y la Mentira", "La familia imperial"),
+        ("melkahar", "Melkahar, el Príncipe Pútrido", "dios de la Pestilencia y la Descomposición", "La familia imperial"),
+        ("gimosha", "Gimosha, la Llama de los Celos", "diosa de la Codicia y la Envidia", "La familia imperial"),
+        ("dalgeth", "Dalgeth, la Inconformidad Quejumbrosa", "diosa de la Astucia y la Traición", "La familia imperial"),
+        ("nezame", "Nezame, el Hedonista Jubiloso", "dios del Placer y la Satisfacción", "La familia imperial"),
+        ("melawa", "Melawa, la Guardiana de los Secretos", "diosa del Conocimiento y el Engaño", "La familia imperial"),
+        ("shabaz", "Shabaz, el Destructor Inmoral", "dios de la Tempestad y de la Ruina", "Los salvajes"),
+        ("labisha", "Labisha, la Carnívora", "diosa de la Matanza y la Brutalidad", "Los salvajes"),
+        ("talazar", "Talazar, el Acechador Implacable", "dios de la Venganza y de la Caza", "Los salvajes"),
+        ("crevis", "Crevis, el Desgraciado Tembloroso", "dios de la Cobardía y el Sufrimiento", "Los salvajes"),
+        ("vahoona", "Vahoona, la Aulladora Nocturna", "diosa de las Pesadillas y del Crepúsculo", "Los salvajes"),
+        ("zaheen", "Zaheen, el Bailarín Demente", "dios del Azar y del Caos", "Los salvajes"),
     ]
-    for slug_d, nom_d, dom_d, ofr_d, mil_d in dioses_info:
-        html_dioses.append(f"""
-            <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px;padding:10px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;">
-                <img src="modules/{MOD}/assets/dioses/{slug_d}.webp" alt="{nom_d}" style="width:96px;height:96px;object-fit:cover;border-radius:6px;flex-shrink:0;" />
-                <div>
-                    <h3 style="margin:0 0 4px 0;">{nom_d}</h3>
-                    <p style="margin:2px 0;"><strong>Dominios:</strong> {dom_d}</p>
-                    <p style="margin:2px 0;"><strong>Ofrenda predilecta:</strong> {ofr_d}</p>
-                    <p style="margin:2px 0;"><strong>Milagros de Canalización:</strong> {mil_d}</p>
-                </div>
-            </div>
-        """)
-
+    html_dioses = "".join(f"""
+            <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px;padding:8px;border:1px solid rgba(196,154,69,0.35);border-radius:8px;">
+                <img src="modules/{MOD}/assets/dioses/{slug}.webp" alt="{nom}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;flex-shrink:0;" />
+                <div><h3 style="margin:0 0 4px 0;">{nom}</h3><p style="margin:0;">{dom} · <em>{grupo}</em></p></div>
+            </div>""" for slug, nom, dom, grupo in dioses)
     diarios.append({
         "_id": fid("journal:03-artes-oscuras-dioses"),
-        "name": "03 · Manual: Las Artes Oscuras, Invocación y los 13 Dioses",
+        "name": "03 · Manual: Artes oscuras y dioses oscuros",
         "pages": [
-            crear_pagina_texto("03", 1, "Las 9 Sendas de Conjuros, Brujería y Hechicería", """
-                <h2>Las Artes Oscuras (Págs. 129–171)</h2>
-                <p>Cuando un personaje o manada usa la acción <strong>Invocar</strong> o fabrica creaciones arcanas, recurre a una de las ramas de las Artes Oscuras:</p>
+            crear_pagina_texto("03", 1, "Disciplinas y sendas mágicas", """
+                <h2>Artes oscuras (capítulo 3)</h2>
                 <ul>
-                    <li><strong>Alquimia y Artificiería (Págs. 130–133):</strong> Permite destilar los <strong>36 Mejunjes</strong> y ensamblar los <strong>36 Artilugios</strong> (todos disponibles como objetos arrastrables en el compendio <em>MR- Equipo</em> y en sus tablas d36).</li>
-                    <li><strong>Las 9 Sendas de Conjuros (Págs. 136–139):</strong>
-                        <ol>
-                            <li><strong>Piromancia:</strong> Fuego, humo, calor y explosiones ígneas.</li>
-                            <li><strong>Criomancia:</strong> Hielo, escarcha, entumecimiento y muros helados.</li>
-                            <li><strong>Electromancia:</strong> Relámpagos, magnetismo y sobrecargas nerviosas.</li>
-                            <li><strong>Geomancia:</strong> Roca, barro, temblores, fosos y piel de piedra.</li>
-                            <li><strong>Umbramancia:</strong> Sombras sólidas, ceguera, silencio y paso oscuro.</li>
-                            <li><strong>Biomancia:</strong> Mutación corporal, garras, venenos, curación grotesca y plagas.</li>
-                            <li><strong>Ilusionismo:</strong> Espejismos, duplicados, disfraces y sonidos falsos.</li>
-                            <li><strong> Gravitomancia / Cinética:</strong> Empujones telequinéticos, levitación y aplastamiento.</li>
-                            <li><strong>Nigromancia:</strong> Hablar con cadáveres, reanimar huesos y drenar vigor.</li>
-                        </ol>
-                    </li>
-                    <li><strong>Brujería y Pociones (Págs. 140–141):</strong> Elaboración de las <strong>36 Pociones Mágicas</strong> y fetiches de maldición simpática.</li>
-                    <li><strong>Rituales y Objetos Mágicos (Págs. 142–143):</strong> Proyectos de reloj de 4, 6 u 8 segmentos capaces de alterar toda la región o forjar las <strong>36 Reliquias Mágicas</strong>.</li>
+                    <li><strong>Leyes de la magia ritual (pág. 132)</strong> y <strong>objetos mágicos (pág. 134)</strong>.</li>
+                    <li><strong>Brujería (pág. 136):</strong> adivinación, control climático, corazón salvaje, espiritismo y hemoteurgia.</li>
+                    <li><strong>Canalización (pág. 142):</strong> invocas a un dios oscuro que te deja ejercer una fracción de su poder; cada dios tiene un título y dos dominios que forman tu senda.</li>
+                    <li><strong>Hechicería (pág. 156):</strong> encantamiento, evocación, fuerzas, ilusión, nigromancia y piromancia.</li>
                 </ul>
+                <p>Las d66 de mejunjes, artilugios, pociones y objetos mágicos del libro están en el compendio de equipo y en las tablas del módulo.</p>
             """),
-            crear_pagina_texto("03", 2, "Panteón de los 13 Dioses Oscuros (Canalización)", f"""
-                <h2>Los 13 Dioses Oscuros (Págs. 145–157)</h2>
-                <p>Los Chamanes, Fanáticos y acólitos que practican la <strong>Canalización</strong> suplican favores a estas trece entidades primordiales:</p>
-                {"".join(html_dioses)}
+            crear_pagina_texto("03", 2, "Los dioses oscuros (pág. 142)", f"""
+                <h2>Los dioses oscuros</h2>
+                <p>El libro advierte que sus descripciones son ambiguas a propósito: son sugerencias, no ambientación. Habladlo con el DJ y dejad que se desarrolle en la partida.</p>
+                {html_dioses}
             """),
         ],
     })
 
-    # Diario 04: Construcción de Mazmorras, Salas N1-N3, Trampas y Criaturas
+    salas_n3 = {}
+    for x in LAB["salas_n3"]:
+        salas_n3.setdefault(x["tema"], []).append(x["nombre"])
     diarios.append({
         "_id": fid("journal:04-construccion-mazmorra"),
-        "name": "04 · Manual: Construcción de la Mazmorra, Salas y Defensas",
+        "name": "04 · Manual: La mazmorra",
         "pages": [
-            crear_pagina_texto("04", 1, "El Corazón, los Diablillos y el Nivel de la Mazmorra", f"""
-                <p><img src="modules/{MOD}/assets/escenas/mazmorra-1.webp" alt="Ejemplo de Mazmorra" style="width:100%;border-radius:8px;margin-bottom:12px;" /></p>
-                <h2>La Guarida de los Malvados (Págs. 173–223)</h2>
-                <p>La mazmorra es un personaje compartido por toda la mesa. Su poder se mide por su <strong>Nivel (Tier 1 a 3)</strong>:</p>
+            crear_pagina_texto("04", 1, "Creación, habitantes y diseño", f"""
+                <p><img src="modules/{MOD}/assets/escenas/mazmorra-1.webp" alt="Ejemplo de mazmorra" style="width:100%;border-radius:8px;margin-bottom:12px;" /></p>
+                <h2>Mazmorras (capítulo 4)</h2>
                 <ul>
-                    <li><strong>El Corazón de la Mazmorra:</strong> Es el nexo vital. Si los aventureros llegan hasta él y lo destruyen, la campaña termina o los malvados se ven obligados a huir.</li>
-                    <li><strong>Los Diablillos (Imps):</strong> Trabajadores incansables convocados por el Corazón que excavan túneles y muros básicos de forma gratuita entre fases.</li>
-                    <li><strong>Salas de Nivel 1 (18 tipos) y Nivel 2 (18 tipos):</strong> Otorgan narrativa y permisos de ficción para entrenar, forjar, destilar o encerrar cautivos (todas incluidas en el compendio <em>MR- Salas N1-N2, Trampas y Criaturas</em>).</li>
-                    <li><strong>Salas de Nivel 3 (Temas de Mazmorra):</strong> Cada tema de mazmorra desbloquea salas de Nivel 3 con beneficios mecánicos directos y casillas de uso especial.</li>
-                    <li><strong>Defensas (Trampas, Trucos, Portones y Criaturas):</strong> Durante una invasión, el DJ o los jugadores tiran los dados del <strong>Nivel de la Trampa/Portón/Criatura</strong> cuando los aventureros entran en contacto con ellos.</li>
+                    <li><strong>Creación de mazmorras (pág. 170):</strong> temática (enclave, escondrijo, forja, fortaleza o templo, págs. 176-185), atmósfera, duendes (pág. 187) y el resto de pasos.</li>
+                    <li><strong>Habitantes (pág. 186):</strong> duendes, criaturas (nivel 1 a 4, pág. 188) y esbirros (pág. 192).</li>
+                    <li><strong>Diseño (pág. 196):</strong> salas y estructuras (pág. 197), trampas (pág. 198), trucos (pág. 200), portones (pág. 201) y el santuario (pág. 202).</li>
+                    <li><strong>Descubrimientos (pág. 204)</strong>, <strong>guía de dibujo (pág. 210)</strong> y <strong>defender la mazmorra (pág. 218)</strong>.</li>
                 </ul>
+                <p>El compendio de labores trae las {len(LAB['salas_n1'])} salas de nivel 1, las {len(LAB['salas_n2'])} de nivel 2, las {len(LAB['salas_n3'])} de nivel 3, trampas, portones, los {len(LAB['trucos']['ejemplos'])} trucos de ejemplo, las criaturas de la d66 y los descubrimientos, con el texto del libro.</p>
+                <h3>Salas de nivel 3 por temática</h3>
+                <ul>{"".join(f"<li><strong>{t}:</strong> {', '.join(n)}</li>" for t, n in salas_n3.items())}</ul>
             """),
-            crear_pagina_texto("04", 2, "Planos de Mazmorras de Ejemplo del Libro", f"""
-                <h2>Ejemplos Oficiales de Diseño de Mazmorras (Págs. 214–219)</h2>
-                <p>El módulo incluye como escenas listas para activar los tres planos a doble página del manual:</p>
+            crear_pagina_texto("04", 2, "Mazmorras de ejemplo", f"""
+                <h2>Planos de mazmorra del libro</h2>
                 <p><img src="modules/{MOD}/assets/escenas/mazmorra-2.webp" alt="Mazmorra 2" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
                 <p><img src="modules/{MOD}/assets/escenas/mazmorra-3.webp" alt="Mazmorra 3" style="width:100%;border-radius:8px;" /></p>
             """),
         ],
     })
 
-    # Diario 05: Los 4 Entornos Oficiales y sus 48 Facciones
+    BANDO = {"light": "luz", "neutral": "neutral", "dark": "oscura"}
+    PAGS = {"Cloacas de la Gran Ciudad": ("cloacas", "278"), "Mares coloniales": ("mares", "282"), "Valle Silencioso": ("valle", "286"), "Zona de guerra": ("guerra", "290")}
+    paginas_ent = []
+    for i, (ent, lista) in enumerate(FAC.items(), start=1):
+        img, pag = PAGS[ent]
+        filas = ""
+        for f in lista:
+            relojes = "<br/>".join(f"{c['texto']} ({c['segmentos']})" for c in f["relojes"])
+            filas += f"<tr><td><strong>{f['nombre']}</strong></td><td>{f['nivel']}</td><td>{BANDO[f['bando']]}</td><td>{'; '.join(f['rasgos'])}</td><td>{relojes}</td></tr>"
+        paginas_ent.append(crear_pagina_texto("05", i, ent, f"""
+                <h2>{ent} (pág. {pag})</h2>
+                <p><img src="modules/{MOD}/assets/escenas/{img}-dj.webp" alt="{ent}" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
+                <table border="1" style="width:100%;border-collapse:collapse;font-size:0.9em;">
+                    <thead><tr><th>Facción</th><th>Nivel</th><th>Bando</th><th>Rasgos</th><th>Relojes (segmentos)</th></tr></thead>
+                    <tbody>{filas}</tbody>
+                </table>
+            """))
     diarios.append({
         "_id": fid("journal:05-entornos-y-facciones"),
-        "name": "05 · Manual: Los 4 Entornos Oficiales y sus 48 Facciones",
-        "pages": [
-            crear_pagina_texto("05", 1, "1. El Valle Silencioso y 2. Las Cloacas de la Gran Ciudad", f"""
-                <h2>1. El Valle Silencioso (Págs. 288–291)</h2>
-                <p><img src="modules/{MOD}/assets/escenas/valle-dj.webp" alt="Valle Silencioso" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
-                <p>El entorno clásico de fantasía pastoral lista para ser corrompida: caravanas mercantes, una abadía fortificada, druidas ancestrales y la amurallada <strong>Ciudad Floresta</strong>.</p>
-                <hr/>
-                <h2>2. Las Cloacas de la Gran Ciudad (Págs. 280–283)</h2>
-                <p><img src="modules/{MOD}/assets/escenas/cloacas-dj.webp" alt="Cloacas de la Gran Ciudad" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
-                <p>Campaña claustrofóbica bajo una metrópolis superpoblada: gremios de ladrones, inquisidores con lanzallamas, vampiros aristócratas y el alcantarillado profundo.</p>
-            """),
-            crear_pagina_texto("05", 2, "3. Los Mares Coloniales y 4. La Zona de Guerra", f"""
-                <h2>3. Los Mares Coloniales (Págs. 284–287)</h2>
-                <p><img src="modules/{MOD}/assets/escenas/mares-dj.webp" alt="Mares Coloniales" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
-                <p>Archipiélago tropical de galeones del tesoro, fuertes costeros, piratas bucaneros, tribus isleñas y cultos abisales.</p>
-                <hr/>
-                <h2>4. La Zona de Guerra (Págs. 292–295)</h2>
-                <p><img src="modules/{MOD}/assets/escenas/guerra-dj.webp" alt="Zona de Guerra" style="width:100%;border-radius:8px;margin-bottom:10px;" /></p>
-                <p>Frente devastado entre el Imperio Solar y la Horda del Cráneo de Hierro, lleno de trincheras, mercenarios, nigromantes e ingenieros de asedio.</p>
-            """),
-        ],
+        "name": f"05 · Manual: Los 4 entornos y sus {sum(len(v) for v in FAC.values())} facciones de ejemplo",
+        "pages": paginas_ent,
     })
 
-    # Diario 06: Los 30 Aventureros (con sus 6 Movimientos) y 36 Ayudantes
-    filas_adv_html = []
-    for (_, nom_es, _, mot_es, _, pos_es, _, neg_es, pasiva, mov_of, mov_def) in AVENTUREROS_30:
-        filas_adv_html.append(f"""
+    filas_adv = "".join(f"""
             <tr>
-                <td><strong>{nom_es}</strong><br/><small>+{pos_es} / −{neg_es}<br/>Motivación: {mot_es}</small></td>
-                <td>{pasiva}</td>
-                <td>• {mov_of[0]}<br/>• {mov_of[1]}<br/>• {mov_of[2]}</td>
-                <td>• {mov_def[0]}<br/>• {mov_def[1]}<br/>• {mov_def[2]}</td>
-            </tr>
-        """)
+                <td><strong>{a['nombre']}</strong><br/><small>{a['rasgos'][0]}, {a['rasgos'][1]}<br/>Motivación: {a['motivacion']}</small></td>
+                <td>{a['pasiva']}</td>
+                <td>{'<br/>'.join('• ' + m for m in a['ofensivos'])}</td>
+                <td>{'<br/>'.join('• ' + m for m in a['defensivos'])}</td>
+            </tr>""" for a in ADV_MANUAL)
     diarios.append({
         "_id": fid("journal:06-aventureros-y-movimientos"),
-        "name": "06 · Manual: Los 30 Aventureros (con sus 6 Movimientos) y Ayudantes",
+        "name": "06 · Manual: Aventureros de ejemplo y ayudantes",
         "pages": [
-            crear_pagina_texto("06", 1, "Referencia Completa de los 30 Aventureros (Págs. 320–331)", f"""
-                <h2>Los 30 Aventureros y sus Movimientos Ofensivos y Defensivos</h2>
-                <p>Cuando un aventurero actúa o gasta una casilla de <strong>Movimiento</strong> en la hoja de grupo, usa uno de sus movimientos característicos:</p>
+            crear_pagina_texto("06", 1, "Los 30 aventureros de ejemplo (pág. 320)", f"""
+                <h2>Aventureros de ejemplo</h2>
+                <p>Clase y nivel (pág. 314), corazones (pág. 316), habilidad pasiva (pág. 316), movimientos (pág. 317), rasgos y motivaciones (pág. 318) y ayudantes (pág. 318).</p>
                 <table border="1" style="width:100%;border-collapse:collapse;font-size:0.9em;">
-                    <thead>
-                        <tr>
-                            <th>Clase y Rasgos</th>
-                            <th>Pasiva</th>
-                            <th>3 Movimientos Ofensivos</th>
-                            <th>3 Movimientos Defensivos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {"".join(filas_adv_html)}
-                    </tbody>
+                    <thead><tr><th>Clase</th><th>Pasiva</th><th>Movimientos ofensivos</th><th>Movimientos defensivos</th></tr></thead>
+                    <tbody>{filas_adv}</tbody>
                 </table>
             """),
         ],
     })
 
-    # Diario 07: Monstruos Primigenios
     diarios.append({
         "_id": fid("journal:07-monstruos-primigenios"),
-        "name": "07 · Expansión: Monstruos Primigenios (Devoramentes, Buscafatums, Robarrostros, Acaparador)",
+        "name": "07 · Hasta el fondo: Monstruos ancestrales",
         "pages": [
-            crear_pagina_texto("07", 1, "Jugar como un Monstruo Primigenio (Págs. 336–347)", """
-                <h2>Monstruos Primigenios</h2>
-                <p>En lugar de elegir una raza monstruosa y una vocación normal, un jugador puede encarnar a uno de los cuatro <strong>Monstruos Primigenios</strong>:</p>
+            crear_pagina_texto("07", 1, "Monstruos ancestrales (pág. 336)", """
+                <h2>Monstruos ancestrales</h2>
+                <p>En lugar de la capacidad principal de una vocación y una segunda capacidad inicial, hacen varios cambios fundamentales en sus mecánicas y tienen rasgos únicos. Todos los jugadores deben estar de acuerdo para que haya uno en la partida.</p>
                 <ul>
-                    <li><strong>Devoramentes (Braineater):</strong> Señor psiónico con tentáculos faciales que no usa la acción <em>Invocar</em> normal, sino sus propias <strong>Disciplinas Psiónicas</strong> (Telepatía, Telequinesis, Piroquinesis, Proyección Astral y Dominación) y se alimenta de cerebros.</li>
-                    <li><strong>Buscafatums (Doomseeker):</strong> Aberración esférica flotante con un gran ojo central antimagia y <strong>9 Rayos Oculares</strong> personalizables (Hechizar, Muerte, Miedo, Nulidad, Parálisis, Telequinesis, Tiempo, Transmutación y Visión).</li>
-                    <li><strong>Robarrostros (Facestealer):</strong> Cambiaformas infiltrado capaz de coleccionar hasta varias <strong>Caras</strong> con sus recuerdos y talentos robados a víctimas de la superficie.</li>
-                    <li><strong>Acaparador de Oro (Goldmonger / Dragón):</strong> Sierpe dracónica obsesionada con hacer crecer su tesoro y su propio tamaño a través de tres <strong>Sendas de Crecimiento</strong> (Guarida, Aliento Elemental y Escamas/Cuerpo) y la tirada especial de <strong>Letargo (Slumber)</strong>.</li>
+                    <li><strong>Auróvoros (pág. 338):</strong> tiranos codiciosos que crecen junto a su tesoro.</li>
+                    <li><strong>Devoramentes (pág. 342):</strong> voraces maestros psiónicos con cuatro disciplinas psiónicas.</li>
+                    <li><strong>Perdición (pág. 344):</strong> aberraciones paranoicas que flotan y tienen nueve ojos con rayos.</li>
+                    <li><strong>Robacaras (pág. 346):</strong> impostores perversos que cambian de forma.</li>
                 </ul>
             """),
         ],
     })
 
-    # Diario 08: Los Errantes y Los Valientes
     diarios.append({
         "_id": fid("journal:08-errantes-y-valientes"),
-        "name": "08 · Expansión: «Los Errantes» y «Los Valientes» (Modos Alternativos)",
+        "name": "08 · Hasta el fondo: Los errantes y Los valientes",
         "pages": [
-            crear_pagina_texto("08", 1, "Los Errantes (Sin Mazmorra) y Los Valientes (Héroes FitD)", """
-                <h2>Los Errantes (Wandering Ones, Págs. 354–357)</h2>
-                <p>En este modo alternativo, los personajes no tienen una mazmorra fija ni fase de guarida: son una banda de monstruos nómadas o mercenarios que viajan de región en región realizando incursiones, acampando al raso y huyendo de la justicia de la Luz.</p>
-                <hr/>
-                <h2>Los Valientes (Valiant Ones, Págs. 358–361)</h2>
-                <p>Invierte por completo la premisa del juego: los jugadores interpretan a los <strong>héroes de la Luz</strong> (usando las vocaciones recontextualizadas: el Bruto es el Campeón, el Chamán es el Clérigo, la Sombra es el Pícaro, el Hechicero es el Mago...) que defienden un asentamiento fronterizo y realizan expediciones contra las guaridas del mal.</p>
+            crear_pagina_texto("08", 1, "Modalidades sin mazmorra", """
+                <h2>Los errantes (pág. 348)</h2>
+                <p>Un juego sin mazmorra: viajáis por la superficie. El pacto (pág. 349) sustituye a la mazmorra y sus capacidades a las salas; relojes de descanso y de facción (pág. 349) y viajar por el mundo (pág. 350).</p>
+                <h2>Los valientes (pág. 351)</h2>
+                <p>Jugáis desde el otro lado, como aventureros y héroes. Se basa en Los errantes y trae nuevas vocaciones.</p>
             """),
         ],
     })
 
-    # Diario 09: Modo Solitario («El Gran Malo Malvado») y Generador de Mazmorras
     diarios.append({
         "_id": fid("journal:09-solitario-y-generador"),
-        "name": "09 · Expansión: Modo Solitario («El Gran Malo Malvado») y Generador de Mazmorras",
+        "name": "09 · Hasta el fondo: El gran malo malvado y generador de mazmorras",
         "pages": [
-            crear_pagina_texto("09", 1, "El Gran Malo Malvado (Big Bad Wicked One, Págs. 362–373)", """
-                <h2>Jugar en Solitario: El Gran Malo Malvado</h2>
-                <p>En el modo solitario encarnas al único señor supremo de la mazmorra rodeado de lugartenientes (manadas de esbirros con personalidad propia):</p>
-                <ul>
-                    <li><strong>Tus Lugartenientes:</strong> Comienzas con dos o tres manadas de esbirros que actúan como tus capitanes. Puedes enviarlos a realizar incursiones usando el <strong>Simulador de Incursión de Esbirros</strong> del Generador MR o liderar tú mismo los asaltos clave.</li>
-                    <li><strong>Oráculos de Dos Semillas:</strong> Cuando tengas una pregunta abierta, pulsa el botón <strong>Oráculo de Semillas</strong> en el Asistente MR para combinar la <em>Primera Semilla</em> y la <em>Segunda Semilla</em>.</li>
-                    <li><strong>Generador de Mazmorras:</strong> Si necesitas explorar una mazmorra rival (o jugar como <em>Los Valientes</em>), usa la tabla 15 o el botón del Asistente MR para generar salas, trampas, trucos y criaturas al vuelo.</li>
-                </ul>
+            crear_pagina_texto("09", 1, "Juego en solitario (pág. 352)", """
+                <h2>El gran malo malvado</h2>
+                <p>Partidas en solitario o de un PJ y un DJ: llevas a un único líder con varias pandas de esbirros. Haz incursiones o simúlalas con el generador de incursiones, y deja que las tiradas de fortuna respondan a tus preguntas. El asistente del módulo trae el generador de incursiones, la incursión de esbirros, las semillas y las tablas de desastre y represalia en solitario.</p>
+                <h2>Generador de mazmorras (pág. 371)</h2>
+                <p>Elige una temática (o tírala), sigue la creación normal de la pág. 170 y, por cada nivel adicional, tira un descubrimiento y añade salas. Las tablas están en el asistente y en el compendio de tablas.</p>
             """),
         ],
     })
@@ -1661,14 +1286,14 @@ def construir_direccion():
         "milestones": [
             {"id": "R1", "label": "R1 · Reclamar las Cuevas del Paso del Mercader", "done": False},
             {"id": "R2", "label": "R2 · Despertar el Corazón y excavar la Guarida", "done": False},
-            {"id": "R3", "label": "R3 · Saquear los grimorios de la Abadía de Piedra Blanca", "done": False},
+            {"id": "R3", "label": "R3 · Saquear los grimorios de la Abadía del Corazón Valiente", "done": False},
             {"id": "R4", "label": "R4 · Cazar al Gran Hombre Lobo del Bosque Susurrante", "done": False},
             {"id": "R5", "label": "R5 · Aniquilar a la Expedición Invasora en la Mazmorra", "done": False},
             {"id": "R6", "label": "R6 · Completar el Eclipse y asaltar Ciudad Floresta", "done": False},
         ],
         "clocks": [
             {"id": "alarma_gremio", "name": "Alarma en las Colinas de Piedra Blanca", "value": 0, "max": 4},
-            {"id": "sospecha_abadia", "name": "Sospecha de la Abadía de Piedra Blanca", "value": 0, "max": 6},
+            {"id": "sospecha_abadia", "name": "Sospecha de la Abadía del Corazón Valiente", "value": 0, "max": 6},
             {"id": "cruzada_floresta", "name": "Cruzada de Ciudad Floresta", "value": 0, "max": 8},
             {"id": "ritual_eclipse", "name": "Plan Maestro: El Eclipse de la Última Luna", "value": 0, "max": 8},
         ],
@@ -1703,32 +1328,18 @@ def construir_babele():
 
     # 2. Enriquecer wicked-ones.adventurer.json con todos los campos que muestra party-sheet.html + los 6 movimientos
     entries_adv = {}
-    for (clave, nom_es, _, mot_es, _, pos_es, _, neg_es, pasiva, mov_of, mov_def) in AVENTUREROS_30:
-        # Nombre en inglés en el compendio original
-        mapa_en = {
-            "academic": "Academic", "alchemist": "Alchemist", "amazon": "Amazon", "aristocrat": "Aristocrat",
-            "assassin": "Assassin", "barbarian": "Barbarian", "bard": "Bard", "buccaneer": "Buccaneer",
-            "centurion": "Centurion", "chaosmage": "Chaos Mage", "cleric": "Cleric", "deathknight": "Death Knight",
-            "defender": "Defender", "druid": "Druid", "eldritchwarrior": "Eldritch Warrior", "illusionist": "Illusionist",
-            "inquisitor": "Inquisitor", "knight": "Knight", "lancer": "Lancer", "magehunter": "Mage Hunter",
-            "monk": "Monk", "occultslayer": "Occult Slayer", "ranger": "Ranger", "scout": "Scout",
-            "shadowdancer": "Shadowdancer", "slinger": "Slinger", "spellbow": "Spellbow", "templar": "Templar",
-            "weaponsmith": "Weaponsmith", "wildling": "Wildling",
-        }
-        nom_en = mapa_en[clave]
+    for adv in ADV_MANUAL:
+        nom_en = re.sub(r"(?<!^)([A-Z])", r" \1", CLASES[adv["nombre"]])
+        of, de = adv["ofensivos"], adv["defensivos"]
         entries_adv[nom_en] = {
-            "id": nom_es,
-            "name": nom_es,
-            "adventurer_class_custom": nom_es,
-            "trait_pos_1_custom": pos_es,
-            "trait_neg_1_custom": neg_es,
-            "motivation_1_custom": mot_es,
-            "passive": f"{pasiva} (Ofensivos: {', '.join(mov_of)} · Defensivos: {', '.join(mov_def)})",
-            "description": (
-                f"Pasiva: {pasiva}\n"
-                f"Movimientos ofensivos: {', '.join(mov_of)}\n"
-                f"Movimientos defensivos: {', '.join(mov_def)}"
-            ),
+            "id": adv["nombre"],
+            "name": adv["nombre"],
+            "adventurer_class_custom": adv["nombre"],
+            "trait_pos_1_custom": adv["rasgos"][0],
+            "trait_neg_1_custom": adv["rasgos"][1].capitalize(),
+            "motivation_1_custom": adv["motivacion"].capitalize(),
+            "passive": f"{adv['pasiva']} (Ofensivos: {', '.join(of)} · Defensivos: {', '.join(de)})",
+            "description": f"Pasiva: {adv['pasiva']}\nMovimientos ofensivos: {', '.join(of)}\nMovimientos defensivos: {', '.join(de)}",
         }
 
     babele_adv = {

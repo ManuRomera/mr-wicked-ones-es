@@ -105,6 +105,9 @@ SUELOS = {
     "menor": dict(a="#3a2c1e", b="#6a5136", tipo="tablones", hueco="#150f09"),
     "guarida": dict(a="#2c2a1a", b="#55502c", tipo="tablones", hueco="#100f08"),
     "prision": dict(a="#1c2024", b="#3d444c", tipo="losas", hueco="#07090b"),
+    "tortura": dict(a="#2a1414", b="#5a2a24", tipo="losas", hueco="#0c0505"),
+    "escalera": dict(a="#26242a", b="#4d4a52", tipo="tablones", hueco="#09080b"),
+    "guardia": dict(a="#22262c", b="#4a5260", tipo="losas", hueco="#0a0c0e"),
 }
 
 

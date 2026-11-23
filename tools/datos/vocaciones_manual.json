@@ -1,0 +1,164 @@
+{
+ "Artesano": {
+  "capacidad": "Ingenio",
+  "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de creación, como mezclar mejunjes sobre la marcha para crear un potente efecto combinado, montar un artilugio temporal sencillo o ignorar la inestabilidad de creaciones científicas monstruosas.",
+  "objetos": [
+   "Bolsa de herramientas",
+   "Lupa",
+   "Ballesta",
+   "Bolsa de piezas sueltas",
+   "Lámpara y aceite",
+   "Gafas de aviador",
+   "Mazo",
+   "Yesca y pedernal",
+   "Delantal de cuero",
+   "Bolsa de tela",
+   "Pala",
+   "Pico"
+  ]
+ },
+ "Bandido": {
+  "capacidad": "Maestro del combate",
+  "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de atletismo, como lanzar un hacha a gran distancia, maniobrar casi en cualquier lugar del campo de batalla o enfrentarte a un grupo de enemigos en igualdad de condiciones.",
+  "objetos": [
+   "Rodela",
+   "Brazales resistentes",
+   "Hachas gemelas",
+   "Jabalinas",
+   "Boleadoras",
+   "Abrojos de acero",
+   "Herramientas de cartografía",
+   "Cuerno de batalla",
+   "Mangual",
+   "Un puñado de antorchas",
+   "Daga curva",
+   "Armadura de cuero"
+  ]
+ },
+ "Bruto": {
+  "capacidad": "Cólera",
+  "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de fuerza, como arrojar una roca enorme, placar a un caballo en plena carga o enfrentarte en igualdad de condiciones a un enemigo mucho más grande que tú.",
+  "objetos": [
+   "Hacha de guerra",
+   "Armadura de pinchos",
+   "Casco con cuernos",
+   "Jarra de licor",
+   "Látigo con púas",
+   "Bolsa con aperitivos sabrosos",
+   "Herramientas de tortura",
+   "Tambores de guerra",
+   "Capa de piel",
+   "Cadenas resistentes",
+   "Pendientes de hueso",
+   "Hachas arrojadizas"
+  ]
+ },
+ "Cazador": {
+  "capacidad": "La emoción de la caza",
+  "texto": "Puedes sufrir estrés para establecer una pequeña debilidad momentánea en tu presa. Obtienes +efecto cuando explotas esta debilidad en tu siguiente tirada para acecharla, atraparla o matarla. Si tienes éxito, ganarás un corazón oscuro.",
+  "objetos": [
+   "Arco de cuerno",
+   "Cuchillo de desollar",
+   "Trampa para animales",
+   "Red contrapesada",
+   "Rollo de cuerda",
+   "Hachuela para talar",
+   "Aperitivos para el camino",
+   "Collar animal",
+   "Armadura de pieles",
+   "Equipo de pesca",
+   "Odre de agua",
+   "Silbatos animales"
+  ]
+ },
+ "Chamán": {
+  "capacidad": "Brujería",
+  "texto": "Dominas una senda mágica, a elegir entre Adivinación, Control climático, Corazón salvaje, Espiritismo y Hemoteurgia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda.",
+  "objetos": [
+   "Máscara espiritual",
+   "Porra con pinchos",
+   "Maza de hueso",
+   "Bolsa con serpientes",
+   "Amuleto de espinas",
+   "Pipa para fumar",
+   "Tabas y huesos",
+   "Bastón retorcido",
+   "Frasco de luciérnagas",
+   "Collar de dientes",
+   "Máscara vudú",
+   "Tocado de plumas"
+  ]
+ },
+ "Confabulador": {
+  "capacidad": "Tirar de los hilos",
+  "texto": "Puedes sufrir estrés para que un aliado recuerde tu voz en su cabeza, repitiendo así su tirada tras un fracaso. Si consigue un éxito, tú además ganas un corazón oscuro. ¿Qué comentario o consejo le diste con anterioridad?",
+  "objetos": [
+   "Odre de vino bueno",
+   "Daga oculta",
+   "Cerbatana y dardos",
+   "Máscara decorativa",
+   "Flauta de madera",
+   "Anillos llamativos",
+   "Grilletes de acero",
+   "Jabón y perfume",
+   "Dados trucados",
+   "Túnica con capucha",
+   "Utensilios de escritura",
+   "Peine y accesorios"
+  ]
+ },
+ "Fanático": {
+  "capacidad": "Canalización",
+  "texto": "Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de los dominios de la deidad que elijas. Cada dios tiene dos dominios que actúan como sendas mágicas.",
+  "objetos": [
+   "Daga ceremonial",
+   "Símbolo impío",
+   "Vestimentas",
+   "Hoz sencilla",
+   "Escrituras sagradas",
+   "Campana dorada",
+   "Vino impío",
+   "Caja de incienso",
+   "Pluma y pergamino",
+   "Herramientas de tortura",
+   "Aceite de unción",
+   "Velas de cera"
+  ]
+ },
+ "Hechicero": {
+  "capacidad": "Hechicería",
+  "texto": "Dominas una senda mágica de las siguientes: Encantamiento, Evocación, Fuerzas, Ilusión, Nigromancia y Piromancia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda.",
+  "objetos": [
+   "Bastón decorado",
+   "Grimorio de piel",
+   "Guadaña",
+   "Capa amplia",
+   "Bola de cristal",
+   "Calaveras humanas",
+   "Daga ceremonial",
+   "Bolsa de componentes",
+   "Túnica raída",
+   "Utensilios de invocación",
+   "Varita nudosa",
+   "Bolsa con gemas pequeñas"
+  ]
+ },
+ "Sombra": {
+  "capacidad": "Merodeador",
+  "texto": "Puedes sufrir estrés para llevar a cabo una proeza increíble de agilidad, como avanzar sin problemas entre la multitud, saltar con seguridad desde una torre alta u ocultarte a plena vista.",
+  "objetos": [
+   "Túnica oscura",
+   "Gancho de escalada",
+   "Cuchillos arrojadizos",
+   "Bomba de humo",
+   "Arco corto",
+   "Palanqueta y tenazas",
+   "Ganzúas",
+   "Garrote",
+   "Bolsa con piedras",
+   "Silbato estridente",
+   "Espejo pulido",
+   "Dagas gemelas"
+  ]
+ }
+}

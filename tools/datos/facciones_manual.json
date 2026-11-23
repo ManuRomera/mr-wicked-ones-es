@@ -1,0 +1,1312 @@
+{
+ "Cloacas de la Gran Ciudad": [
+  {
+   "nombre": "Almirantazgo",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Controlan a la armada y los muelles",
+    "Reclutan a gente de Villa Miseria",
+    "El almirante es de Villafango"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Reclutar a civiles de Villa Miseria"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Descubrir la existencia de las sirenas"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Villa Miseria",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Fieles devotos de la Prosperidad",
+    "Explotados por el templo",
+    "Gente honesta y trabajadora"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Pagar el diezmo"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Día de adorar al príncipe"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Barón Orejaspicudas",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Tribu de rátidos en las alcantarillas",
+    "Montan en caimanes de las alcantarillas",
+    "Cazadores expertos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Expandir su territorio (+nivel)"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Alimentar a los caimanes"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Isla de los pixis",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Festivales con hogueras",
+    "Luces parpadeantes en los árboles",
+    "Les fascina la gente"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Atraer a un pescador"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Mudarse a los árboles de la ciudad"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Bandas de Villafango",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Cinco bandas constantemente en guerra",
+    "Poca lealtad a la «mejor» banda",
+    "Quieren exterminar a los rátidos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Nueva banda asume el poder"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Traen bienes de contrabando para los nobles"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Fincas de nobles",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Varias familias de nobles menores",
+    "Celosos de los Mentwick",
+    "Seguidores de la Leal Prosperidad"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Contratar guardias decentes (+nivel)"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Desafiar a los Mentwick"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Barón Granmuela",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Tribu de rátidos de las alcantarillas",
+    "Viven en botes de alcantarilla",
+    "Guerreros poderosos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Destrozar la estatua"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Unirse a los Orejaspicudas"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Mansión Mentwick",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Aventurero retirado y su familia",
+    "Muy rico",
+    "Chantajea al príncipe"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Casarse con la realeza"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Chantajear a las sirenas"
+    }
+   ],
+   "pagina": 280
+  },
+  {
+   "nombre": "Secta de la Prosperidad",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Liderados por el profeta",
+    "Predican sobre la prosperidad verdadera",
+    "Se oponen directamente al templo"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Secuestrar al sumo sacerdote"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Expandir la fe"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Banco de sirenas",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Se cree que son un mito",
+    "El príncipe tiene una amante sirena",
+    "Quieren detener la contaminación del agua"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Convencer al príncipe para que les ayude"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Ritual de purificación"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Guardia Real",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Influencia muy reducida",
+    "Acompañan al príncipe",
+    "Se les soborna con facilidad"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Amenazar al Colegio"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Amenazar a los Metwick"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "La Familia real",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Liderada por el príncipe",
+    "Pertenecen a una secta secreta",
+    "No se fían de la Guardia Real"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Reducir el poder del templo (-nivel)"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Destruir a los Mentwick"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Templo de la Prosperidad",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Sacerdotes muy corruptos",
+    "Quieren gobernar la ciudad",
+    "Rechazados por su diosa"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Perseguir a un hereje"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Incriminar al archimago"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Guardia de la ciudad",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Leal al Templo de la Prosperidad",
+    "Limpian la ciudad de morralla",
+    "Patrullan por dentro de las murallas"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Destrozar a los cabecillas de Villafango"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Revelar el chantaje"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Barón Colalarga",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Tribu de rátidos de las alcantarillas",
+    "Contactos con el profeta",
+    "Nadan a través de las alcantarillas"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Convertirse a la Prosperidad"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Unirse al culto"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Barón Bigotes",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Tribu de rátidos de las alcantarillas",
+    "Practican magia extraña",
+    "Odiados por todos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Capturar a una sirena"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Asaltar el Colegio Arcano"
+    }
+   ],
+   "pagina": 281
+  },
+  {
+   "nombre": "Colegio Arcano",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "En contra del templo",
+    "Muy en contra de los rátidos",
+    "Leales al príncipe"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Exponer a la Guardia Real"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Exterminar a los Bigotes"
+    }
+   ],
+   "pagina": 281
+  }
+ ],
+ "Mares coloniales": [
+  {
+   "nombre": "Nueva Greylon",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Civiles piadosos",
+    "Leales al fuerte",
+    "Predican su religión"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Construir defensas (+nivel)"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Llegada de la Armada"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Fuerte Desembarco",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Nueva presencia en la región",
+    "Muy expansionistas",
+    "El comandante está loco"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Declarar la guerra a Puerto Brisabundante"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Destruir a los goblins isleños"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Goblins isleños",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "Bosque lleno de trampas",
+    "Montan sobre simios gigantes",
+    "Piel camaleónica"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Trasladarse a otra isla"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Secuestrar a civiles de Nueva Greylon"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Arpías",
+   "nivel": 1,
+   "bando": "dark",
+   "rasgos": [
+    "Adoran a Iziza",
+    "Cantan melodías bonitas",
+    "Odian los intrusos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Provocar un naufragio"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Atacar a los escupefuego"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Piratas",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Varios capitanes pirata",
+    "Colaboran entre sí de vez en cuando",
+    "Atacan la flota del tesoro"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Fundar una ciudad pirata"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Secuestrar a una figura importante"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Puerto Brisabundante",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Poder regional, ciudad más antigua",
+    "La gobernadora está en su lecho de muerte",
+    "Quieren evitar la guerra"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Elegir a un nuevo gobernador"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Arrestar a un capitán pirata"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Flota del Tesoro",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Presionan para conseguir más oro",
+    "Protegen las vías marítimas",
+    "Exigen oro a los nativos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Saquear a los isleños"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Enviar un barco del tesoro"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Escupefuego",
+   "nivel": 3,
+   "bando": "dark",
+   "rasgos": [
+    "Kóbolds que adoran a Shabaz",
+    "Prenden fuego a asentamientos",
+    "El volcán es su fuente de poder"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Asaltar Nueva Greylon"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Erupción (+nivel)"
+    }
+   ],
+   "pagina": 284
+  },
+  {
+   "nombre": "Príncipe Cóndor",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Líder empoderado con magia",
+    "Hostil hacia los forasteros",
+    "Odia a los colonizadores"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Expandir su territorio (+nivel)"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Devorar civiles"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Reino de tritones",
+   "nivel": 4,
+   "bando": "neutral",
+   "rasgos": [
+    "Suelen alimentarse de marineros",
+    "Se consideran héroes",
+    "Entienden la lengua oscura"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Atraer un barco"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Pelear con el leviatán"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Gnomos isleños",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Adoradores del sol",
+    "Practican brujería",
+    "Secta apocalíptica"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Aplacar a los tritones"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Ritual del eterno atardecer"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Finca Gaviota",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Explorador original de esta zona",
+    "Capitán pirata jubilado",
+    "Tiene una máquina voladora"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Convertirse en el gobernador de Brisabundante"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Conseguir apoyos (+nivel)"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Seres de los bosques",
+   "nivel": 2,
+   "bando": "neutral",
+   "rasgos": [
+    "Criaturas faéricas misteriosas",
+    "Viven en las copas de los árboles",
+    "Odian a los intrusos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Destruir a los orcos isleños"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Despertar al dragón del viento"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Orcos isleños",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "Enemigos de los seres de los bosques",
+    "Adoran a Talazar",
+    "Guerreros feroces, pero lerdos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Cacería de hadas"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Cacería de tritones"
+    }
+   ],
+   "pagina": 285
+  },
+  {
+   "nombre": "Puerto Bonanza",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Ciudad caótica dedicada al juego",
+    "Alcalde muy corrupto",
+    "Desobedecen a Puerto Brisabundante"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Paz con los piratas"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Desertar a Nueva Greylon"
+    }
+   ],
+   "pagina": 285
+  }
+ ],
+ "Valle Silencioso": [
+  {
+   "nombre": "Goblins del Kolmillo",
+   "nivel": 1,
+   "bando": "dark",
+   "rasgos": [
+    "Caníbales hambrientos",
+    "Fanáticos que adoran a Labisha",
+    "Fosos trampa en los bosques"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Comerse a los gnomos del bosque"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Secuestrar al sacerdote de la ciudad"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Gnomos del bosque",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "Asaltan para conseguir chucherías",
+    "Increíblemente codiciosos",
+    "Terriblemente egoístas"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Poner trampas en el bosque (+nivel)"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Invocar al espíritu del bosque"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Guarnición",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Tropas del lejano barón",
+    "No les quieren en Ciudad Floresta",
+    "Intentan expandir la baronía"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Incriminar al alcalde"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Provocar una crisis"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Granjeros",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Pobres y oprimidos",
+    "Presionados por el clero",
+    "Intenciones secretas de revelarse"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Construir un templo al dios de la cosecha"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Negarse a trabajar"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Clero de la ciudad",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Quieren cambiar al alcalde",
+    "Tienen el respaldo de los lugareños",
+    "Gobernados en secreto por un demonio"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Cacería de brujas"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Colaborar con la guarnición"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Abadía del Corazón Valiente",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Enanos cerveceros",
+    "Monjes guerreros",
+    "Ven venir los problemas"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Destruir el camino del acantilado"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Refuerzos (+nivel)"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Ciudad Floresta",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Gobernada por un alcalde poderoso",
+    "Guardias leales y fuertes",
+    "Quiere seguir independiente"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Eliminar a los goblins"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Solicitar la retirada de tropas"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "Cónclave élfico",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Las demás facciones jamás les han visto",
+    "Ven venir los problemas",
+    "Quieren evitar una guerra"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Contactar con el Transbordador"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Contactar con los granjeros"
+    }
+   ],
+   "pagina": 288
+  },
+  {
+   "nombre": "El Transbordador",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Dirigido por unos antiguos aventureros",
+    "Construido para facilitar el comercio",
+    "Enfurecieron al alcalde de Ciudad Floresta"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Hacer un trato con la guarnición"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Controlar a las hadas del río"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Horda de osgos",
+   "nivel": 4,
+   "bando": "dark",
+   "rasgos": [
+    "Huyeron de la conquista del barón",
+    "Ocupan las ruinas del castillo",
+    "Acechan en las profundidades del bosque"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Desertores (-nivel)"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Asalto a través del río"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Ciudad subterránea",
+   "nivel": 2,
+   "bando": "neutral",
+   "rasgos": [
+    "Ciudad de gnomos bajo unas ruinas",
+    "Situada en cuevas profundas",
+    "Mezcla de facciones de la luz y de la oscuridad"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Aliarse con los gnomos del bosque"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Aliarse con las tribus de sátiros"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Tribus de sátiros",
+   "nivel": 3,
+   "bando": "neutral",
+   "rasgos": [
+    "Viven en el bosque embrujado",
+    "Sirven a un antiguo ent",
+    "Extremadamente caprichosos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Destruir el transbordador"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Hundir un barco comercial"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Ciudad fluvial",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Gobernada por una familia de mercaderes",
+    "Centro de comercio tradicional",
+    "Les daña el transbordador"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Pagar el tributo a los ettins"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Enviar al sur sus botes mercantes"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Ettins de montaña",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "Liderados por un poderoso fanático",
+    "Adoran a Nezame",
+    "Distantes, pero codiciosos"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Acelerar el ritual de inundación"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Exigir un tributo"
+    }
+   ],
+   "pagina": 289
+  },
+  {
+   "nombre": "Torre de la hechicera",
+   "nivel": 3,
+   "bando": "dark",
+   "rasgos": [
+    "Quiere que le devuelvan su castillo",
+    "Torre llena de sirvientes",
+    "Está formando un ejército"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Crear gólem de carne"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Esclavizar espíritus del bosque"
+    }
+   ],
+   "pagina": 289
+  }
+ ],
+ "Zona de guerra": [
+  {
+   "nombre": "Bosque de las dríades",
+   "nivel": 2,
+   "bando": "neutral",
+   "rasgos": [
+    "Aguas curativas en el centro",
+    "Solo pueden entrar los puros",
+    "Muy poco fiables"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Protecciones más potentes"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Abandonar la región"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Clan de las Cascadas",
+   "nivel": 1,
+   "bando": "neutral",
+   "rasgos": [
+    "El clan consta de unos diez gigantes",
+    "El doble de altos que un humano",
+    "Muy celosos de su intimidad"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Alimentar a los minotauros"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Tirar piedras a los piratas"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Ciudad comercial",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Gobernada por comerciantes medianos",
+    "Al oeste hay un reino mediano",
+    "Son completamente neutrales"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Abastecer a los enanos"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Abastecer a los señores de los caballos"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Rocahogar",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Gran reino enano",
+    "Necesitan comerciar con el este",
+    "Artillería colosal con mucho alcance"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Bombardeo"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Ordenar un asalto al otro lado del río"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Monstruos piratas",
+   "nivel": 3,
+   "bando": "dark",
+   "rasgos": [
+    "Consejo de capitanes pirata",
+    "Comerciar con bienes robados",
+    "Muy difíciles de expulsar"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Encender la antorcha de Gimosha"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Festival de Gimosha"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Saqueadores trol",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "Nuevos en la zona",
+    "Vinieron desde las montañas",
+    "Buscan botín de guerra"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Asaltar el aviario de los enanos"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Llegan más troles"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Ciudad fantasma",
+   "nivel": 1,
+   "bando": "dark",
+   "rasgos": [
+    "Ciudad arrasada por la guerra",
+    "Embrujada con fantasmas de enanos",
+    "Escondite de un nigromante"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Aterrorizar a Ciudad comercial"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Acosar la vía comercial"
+    }
+   ],
+   "pagina": 292
+  },
+  {
+   "nombre": "Fuerte Punto",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Capitán mercenario poderoso",
+    "Contratados por los Señores de los Caballos",
+    "Muy brutales"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Secuestrar al sargento"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Prolongar la guerra"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Búnkeres enanos",
+   "nivel": 3,
+   "bando": "light",
+   "rasgos": [
+    "Liderados por un sargento veterano",
+    "Extensa red de túneles defensivos",
+    "Defienden una retirada"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Retirarse del frente"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Solicitar nuevas tropas"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Aviario de los enanos",
+   "nivel": 2,
+   "bando": "light",
+   "rasgos": [
+    "Criadero de grifos como monturas",
+    "Laboratorios de alquimia para fabricar bombas",
+    "Más preocupados de los troles"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Secuestrar a un elfo lunar"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Cartografiar la ribera este"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Señores de los Caballos",
+   "nivel": 4,
+   "bando": "light",
+   "rasgos": [
+    "Jinetes humanos",
+    "Caballería poderosa",
+    "Autosuficientes"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Atacar a los minotauros"
+    },
+    {
+     "segmentos": 8,
+     "texto": "Destruir los puentes"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Campamento de minotauros",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "En su día fueron mercenarios",
+    "Se oponen a los Señores de los Caballos",
+    "Se están muriendo de hambre"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Enviar un mensajero a los enanos"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Saquear comida"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Desierto de alimañas",
+   "nivel": 2,
+   "bando": "dark",
+   "rasgos": [
+    "Tribus apenas agrupadas",
+    "Varias razas de monstruos",
+    "Consideran las ruinas su hogar"
+   ],
+   "relojes": [
+    {
+     "segmentos": 4,
+     "texto": "Destruir los puentes"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Invitar a los minotauros"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Guardabosques enanos",
+   "nivel": 1,
+   "bando": "light",
+   "rasgos": [
+    "Hace poco que empezaron a explotar el bosque",
+    "Bosque lleno de trampas",
+    "Defensas estáticas resistentes"
+   ],
+   "relojes": [
+    {
+     "segmentos": 6,
+     "texto": "Alimentar la maquinaria de guerra"
+    },
+    {
+     "segmentos": 4,
+     "texto": "Llegada de más guardabosques (+nivel)"
+    }
+   ],
+   "pagina": 293
+  },
+  {
+   "nombre": "Elfos lunares",
+   "nivel": 4,
+   "bando": "neutral",
+   "rasgos": [
+    "Magia natural poderosa",
+    "Hablan su propia lengua",
+    "Cansados de la guerra"
+   ],
+   "relojes": [
+    {
+     "segmentos": 8,
+     "texto": "Ritual de inundación"
+    },
+    {
+     "segmentos": 6,
+     "texto": "Detener la explotación forestal"
+    }
+   ],
+   "pagina": 293
+  }
+ ]
+}

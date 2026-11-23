@@ -227,7 +227,7 @@ ESCENAS = [
  ("guarida-3", "03c · La Guarida (nivel 3)", "mapa-guarida-3", "tactico", "tactico", "invasion",
   "Una fortaleza bajo la montaña: salón del trono, círculo ritual, foso de arena y pasillos que se retuercen sobre sí mismos. Los héroes que lleguen hasta aquí no volverán a contar nada."),
  ("biblioteca-abadia", "04 · Hito R3: Una biblioteca necesita libros", "esc-biblioteca-abadia", "imagen", "campana", "abadia",
-  "Estanterías hasta el techo, velas que no deberían estar encendidas y un monje que duerme sobre un atril. Cada tomo prohibido de la Abadía de Piedra Blanca es una página arrancada de vuestro futuro. Silencio: ahora, a robar."),
+  "Estanterías hasta el techo, velas que no deberían estar encendidas y un monje que duerme sobre un atril. Cada tomo prohibido de la Abadía del Corazón Valiente es una página arrancada de vuestro futuro. Silencio: ahora, a robar."),
  ("ritual-luna-llena", "05 · Hito R4: Piel de lobo para un ritual", "esc-ritual-luna-llena", "imagen", "campana", "ritual",
   "La luna llena cuelga como un ojo enorme sobre el claro. En el altar de piedra, la piel del Gran Hombre Lobo aún humea. Las llamas se vuelven verdes. El chamán canta. El demonio sonríe. Algo, muy abajo, contesta."),
  ("defensa-mazmorra", "06 · Hito R5: ¡Matad a los intrusos!", "esc-defensa-mazmorra", "imagen", "campana", "invasion",
@@ -357,7 +357,7 @@ def direccion():
             "ambient": None, "figures": figs, "handouts": [], "notes": "", "thumb": ruta(f"assets/thumbs/{img}.webp"),
             "stage": {"mode": "none"} if tipo != "imagen" else {"eye": 0.5, "anchors": [[0.3, 0.88], [0.5, 0.9], [0.7, 0.88]]},
         })
-    hitos = ["R1 · Reclamar las Cuevas del Paso del Mercader", "R2 · Despertar el Corazón y excavar la Guarida", "R3 · Saquear los grimorios de la Abadía de Piedra Blanca",
+    hitos = ["R1 · Reclamar las Cuevas del Paso del Mercader", "R2 · Despertar el Corazón y excavar la Guarida", "R3 · Saquear los grimorios de la Abadía del Corazón Valiente",
              "R4 · Cazar al Gran Hombre Lobo del Bosque Susurrante", "R5 · Aniquilar a la Expedición Invasora en la Mazmorra", "R6 · Completar el Eclipse y asaltar Ciudad Floresta"]
     return {
         "schema": 1, "id": MOD, "title": "Wicked Ones · El Valle Silencioso", "version": "2.0.0", "author": "Manu Romera", "license": "MIT", "settings": {
@@ -455,7 +455,7 @@ def main():
     aventura = {
         "_id": fid("adventure:valle-silencioso"), "name": "MR- Wicked Ones: El Valle Silencioso («Un lugar al que llamar hogar»)",
         "img": ruta("assets/escenas/esc-portada.webp"),
-        "caption": "Campaña lista para jugar + cuatro entornos, 48 facciones, aventureros, mazmorra y manual, todo en carpetas.",
+        "caption": "Campaña lista para jugar + cuatro entornos, 62 facciones, aventureros, mazmorra y manual, todo en carpetas.",
         "description": "<p>Importa al mundo toda la campaña de <strong>Wicked Ones</strong>: escenas con lectura y música, personajes, esbirros, aventureros rivales, facciones, objetos, tablas y el libro por capítulos, ordenados en carpetas.</p>",
         "scenes": escenas, "actors": [a for k in ("personajes", "esbirros", "facciones", "grupos") for a in act[k]],
         "items": labores + equipo + aventureros, "tables": tablas, "journal": manual, "macros": macros, "playlists": pls,

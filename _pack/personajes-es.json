@@ -58,7 +58,7 @@
      "skills": {
       "scan": {
        "label": "FITD.SkillsScan",
-       "value": 1,
+       "value": 2,
        "practice": 0
       },
       "tinker": {
@@ -89,7 +89,7 @@
       },
       "smash": {
        "label": "FITD.SkillsSmash",
-       "value": 2,
+       "value": 3,
        "practice": 0
       }
      }
@@ -179,19 +179,19 @@
    },
    {
     "_id": "EFTTLSVmzfmAovP4",
-    "name": "Fuerza imparable",
+    "name": "Cólera",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Bruto",
-     "description": "Tus golpes cuerpo a cuerpo destrozan escudos, puertas y armaduras con facilidad aterradora."
+     "description": "Puedes sufrir estrés para llevar a cabo una proeza increíble de fuerza, como arrojar una roca enorme, placar a un caballo en plena carga o enfrentarte en igualdad de condiciones a un enemigo mucho más grande que tú. (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "Y3ZZclpfCEoDiTLO",
-    "name": "Mandoble quebrantahuesos",
+    "name": "Hacha de guerra",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -202,12 +202,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Mandoble quebrantahuesos"
+     "description": "Hacha de guerra"
     }
    },
    {
     "_id": "48HXKp1ibetXGCGp",
-    "name": "Armadura de placas abolladas",
+    "name": "Armadura de pinchos",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -218,7 +218,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Armadura de placas abolladas"
+     "description": "Armadura de pinchos"
     }
    }
   ],
@@ -291,7 +291,7 @@
      "skills": {
       "scan": {
        "label": "FITD.SkillsScan",
-       "value": 1,
+       "value": 2,
        "practice": 0
       },
       "tinker": {
@@ -353,7 +353,7 @@
       },
       "invoke": {
        "label": "FITD.SkillsInvoke",
-       "value": 2,
+       "value": 3,
        "practice": 0
       }
      }
@@ -412,19 +412,19 @@
    },
    {
     "_id": "GvBvdDfHFc9qa4gC",
-    "name": "Canalizador de Gorlag",
+    "name": "Brujería",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Chamán",
-     "description": "Dominas los rituales de sangre y la senda de piromancia, canalizando el poder de los Dioses Oscuros."
+     "description": "Dominas una senda mágica, a elegir entre Adivinación, Control climático, Corazón salvaje, Espiritismo y Hemoteurgia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda. (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "pfeZO2mqQMMxk5uM",
-    "name": "Báculo de canalización rúnica",
+    "name": "Bastón retorcido",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -435,12 +435,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Báculo de canalización rúnica"
+     "description": "Bastón retorcido"
     }
    },
    {
     "_id": "4amMYE9lwQzYYqz1",
-    "name": "Bolsa de fetiches y pergaminos",
+    "name": "Máscara espiritual",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -451,7 +451,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Bolsa de fetiches y pergaminos"
+     "description": "Máscara espiritual"
     }
    }
   ],
@@ -534,7 +534,7 @@
       },
       "trick": {
        "label": "FITD.SkillsTrick",
-       "value": 1,
+       "value": 2,
        "practice": 0
       }
      }
@@ -550,7 +550,7 @@
       },
       "skulk": {
        "label": "FITD.SkillsSkulk",
-       "value": 2,
+       "value": 3,
        "practice": 0
       },
       "smash": {
@@ -645,19 +645,19 @@
    },
    {
     "_id": "vMH1SJDdlarhzGJN",
-    "name": "Uno con las sombras",
+    "name": "Merodeador",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Sombra",
-     "description": "Puedes desaparecer de la vista en cualquier rincón oscuro y atacar desde ángulos imposibles."
+     "description": "Puedes sufrir estrés para llevar a cabo una proeza increíble de agilidad, como avanzar sin problemas entre la multitud, saltar con seguridad desde una torre alta u ocultarte a plena vista. (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "EvAlhC5PNl6Ym5CY",
-    "name": "Dagas gemelas envenenadas",
+    "name": "Dagas gemelas",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -668,12 +668,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Dagas gemelas envenenadas"
+     "description": "Dagas gemelas"
     }
    },
    {
     "_id": "cP2hyFwVSGgAA1ML",
-    "name": "Herramientas de ladrón y ganzúas",
+    "name": "Ganzúas",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -684,7 +684,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Herramientas de ladrón y ganzúas"
+     "description": "Ganzúas"
     }
    }
   ],
@@ -762,12 +762,12 @@
       },
       "tinker": {
        "label": "FITD.SkillsTinker",
-       "value": 2,
+       "value": 3,
        "practice": 0
       },
       "trick": {
        "label": "FITD.SkillsTrick",
-       "value": 1,
+       "value": 2,
        "practice": 0
       }
      }
@@ -878,19 +878,19 @@
    },
    {
     "_id": "4xOq494BGsoxbCKP",
-    "name": "Mente maestra de artilugios",
+    "name": "Ingenio",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Artesana",
-     "description": "Comienzas cada fase con suministros para fabricar mejunjes alquímicos y artilugios mecánicos."
+     "description": "Puedes sufrir estrés para llevar a cabo una proeza increíble de creación, como mezclar mejunjes sobre la marcha para crear un potente efecto combinado, montar un artilugio temporal sencillo o ignorar la inestabilidad de creaciones científicas monstruosas. (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "98x7xEUVd5gkBZIK",
-    "name": "Ballesta de repetición",
+    "name": "Ballesta",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -901,12 +901,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Ballesta de repetición"
+     "description": "Ballesta"
     }
    },
    {
     "_id": "Vk1IZwQPY7fKRbYY",
-    "name": "Caja de herramientas de maestro",
+    "name": "Bolsa de herramientas",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -917,7 +917,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Caja de herramientas de maestro"
+     "description": "Bolsa de herramientas"
     }
    }
   ],
@@ -1032,7 +1032,7 @@
      "skills": {
       "banter": {
        "label": "FITD.SkillsBanter",
-       "value": 1,
+       "value": 2,
        "practice": 0
       },
       "threaten": {
@@ -1052,7 +1052,7 @@
       },
       "invoke": {
        "label": "FITD.SkillsInvoke",
-       "value": 2,
+       "value": 3,
        "practice": 0
       }
      }
@@ -1101,29 +1101,29 @@
    },
    {
     "_id": "w6qkJuGF7ZcmXu1p",
-    "name": "Someter las almas de la Abadía de Piedra Blanca",
+    "name": "Someter las almas de la Abadía del Corazón Valiente",
     "type": "wickedimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
     "system": {
      "is_for_ua": false,
-     "description": "Someter las almas de la Abadía de Piedra Blanca"
+     "description": "Someter las almas de la Abadía del Corazón Valiente"
     }
    },
    {
     "_id": "rGNEq9E27QcJB951",
-    "name": "Hechicería abisal",
+    "name": "Hechicería",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Hechicero",
-     "description": "Desatas fuego negro, telequinesis e ilusiones aterradoras canalizando tu propia sangre demoníaca."
+     "description": "Dominas una senda mágica de las siguientes: Encantamiento, Evocación, Fuerzas, Ilusión, Nigromancia y Piromancia. Puedes sufrir estrés para Invocar conjuros de nivel 2 y 3 de tu senda. (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "EkI8lHhDwbociDC6",
-    "name": "Orbe de obsidiana ardiente",
+    "name": "Bola de cristal",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -1134,12 +1134,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Orbe de obsidiana ardiente"
+     "description": "Bola de cristal"
     }
    },
    {
     "_id": "bpJ2hAqTXsv26UpG",
-    "name": "Túnica de escamas infernales",
+    "name": "Túnica raída",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -1150,7 +1150,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Túnica de escamas infernales"
+     "description": "Túnica raída"
     }
    }
   ],
@@ -1249,7 +1249,7 @@
       },
       "skulk": {
        "label": "FITD.SkillsSkulk",
-       "value": 0,
+       "value": 1,
        "practice": 0
       },
       "smash": {
@@ -1265,7 +1265,7 @@
      "skills": {
       "banter": {
        "label": "FITD.SkillsBanter",
-       "value": 2,
+       "value": 3,
        "practice": 0
       },
       "threaten": {
@@ -1344,19 +1344,19 @@
    },
    {
     "_id": "mAizG5vVe8nscfHd",
-    "name": "Red de marionetas",
+    "name": "Tirar de los hilos",
     "type": "specialability",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.5_34.png",
     "system": {
      "ability_type": "basic",
      "ability_group": "group_core",
      "source": "Confabuladora",
-     "description": "Siempre tienes un contacto sobornado o coaccionado dentro de la facción objetivo de la incursión."
+     "description": "Puedes sufrir estrés para que un aliado recuerde tu voz en su cabeza, repitiendo así su tirada tras un fracaso. Si consigue un éxito, tú además ganas un corazón oscuro. ¿Qué comentario o consejo le diste con anterioridad? (Capacidad principal, manual cap. 2.)"
     }
    },
    {
     "_id": "OopNJk6m3fSXXzLN",
-    "name": "Bastón estoque oculto",
+    "name": "Daga oculta",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -1367,12 +1367,12 @@
      "edges": {
       "0": "Personal"
      },
-     "description": "Bastón estoque oculto"
+     "description": "Daga oculta"
     }
    },
    {
     "_id": "Ouz0tBNXoADtjPOd",
-    "name": "Disfraces y sellos falsificados",
+    "name": "Máscara decorativa",
     "type": "gearsupply",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
     "system": {
@@ -1383,7 +1383,7 @@
      "edges": {
       "0": "Útil"
      },
-     "description": "Disfraces y sellos falsificados"
+     "description": "Máscara decorativa"
     }
    }
   ],

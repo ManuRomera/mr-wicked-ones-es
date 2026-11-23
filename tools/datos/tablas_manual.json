@@ -1,0 +1,5382 @@
+[
+ {
+  "clave": "incursion-plan",
+  "nombre": "Generador de incursiones: plan de incursión (1d)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Primero se tira el plan y luego se establecen las condiciones del objetivo.",
+  "filas": [
+   [
+    1,
+    1,
+    "Asalto"
+   ],
+   [
+    2,
+    2,
+    "Emboscada"
+   ],
+   [
+    3,
+    3,
+    "Engaño"
+   ],
+   [
+    4,
+    4,
+    "Golpe"
+   ],
+   [
+    5,
+    5,
+    "Negociación"
+   ],
+   [
+    6,
+    6,
+    "Sigilo"
+   ]
+  ]
+ },
+ {
+  "clave": "incursion-nivel",
+  "nombre": "Generador de incursiones: nivel del objetivo (2d)",
+  "formula": "2d6kh",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Se tiran 2d y cuenta el más alto.",
+  "filas": [
+   [
+    1,
+    1,
+    "Nivel de mazmorra +1"
+   ],
+   [
+    2,
+    2,
+    "Nivel de mazmorra +1"
+   ],
+   [
+    3,
+    3,
+    "Nivel de mazmorra +1"
+   ],
+   [
+    4,
+    4,
+    "Nivel de mazmorra"
+   ],
+   [
+    5,
+    5,
+    "Nivel de mazmorra"
+   ],
+   [
+    6,
+    6,
+    "¡Incursión de preparación y saqueo!"
+   ]
+  ]
+ },
+ {
+  "clave": "incursion-estado",
+  "nombre": "Generador de incursiones: estado del objetivo (2d)",
+  "formula": "2d6kh",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Se tiran 2d y cuenta el más alto.",
+  "filas": [
+   [
+    1,
+    1,
+    "Tira 1d en la tabla de aventureros."
+   ],
+   [
+    2,
+    2,
+    "Están al tanto de tu presencia."
+   ],
+   [
+    3,
+    3,
+    "Es una terrible elección para este plan."
+   ],
+   [
+    4,
+    4,
+    "Tira 2d en la tabla de aventureros."
+   ],
+   [
+    5,
+    5,
+    "Un botín enorme."
+   ],
+   [
+    6,
+    6,
+    "Es perfecto para este plan."
+   ]
+  ]
+ },
+ {
+  "clave": "incursion-aventureros",
+  "nombre": "Generador de incursiones: aventureros",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Esta tirada depende de la tabla «Estado del objetivo» (1d o 2d).",
+  "filas": [
+   [
+    1,
+    1,
+    "Sí, hay un grupo en la zona."
+   ],
+   [
+    2,
+    2,
+    "Sí, hay dos en la zona."
+   ],
+   [
+    3,
+    3,
+    "Sí, hay uno en la zona."
+   ],
+   [
+    4,
+    4,
+    "Puede que aparezcan algunos."
+   ],
+   [
+    5,
+    5,
+    "Puede que aparezca uno."
+   ],
+   [
+    6,
+    6,
+    "No hay ninguno cerca."
+   ]
+  ]
+ },
+ {
+  "clave": "incursion-caos",
+  "nombre": "Generador de incursiones: un poco de caos (1d)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Determina una semilla y después tira 1d.",
+  "filas": [
+   [
+    1,
+    1,
+    "Aparece un grupo rival que persigue el mismo objetivo."
+   ],
+   [
+    2,
+    2,
+    "Proporciona una gran ayuda directa al objetivo."
+   ],
+   [
+    3,
+    3,
+    "Te entorpece directamente."
+   ],
+   [
+    4,
+    4,
+    "Es un grupo neutral que viajan por la zona."
+   ],
+   [
+    5,
+    5,
+    "Un desastre natural sucede a la vez."
+   ],
+   [
+    6,
+    6,
+    "Una entidad solícita está dispuesta a ayudarte."
+   ]
+  ]
+ },
+ {
+  "clave": "esbirros-exito",
+  "nombre": "Incursión de esbirros: éxito o fracaso",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Se tira la reserva de la implicación (cuenta el dado más alto). 4+ para cumplir con el objetivo.",
+  "filas": [
+   [
+    1,
+    1,
+    "Aniquilados (-2d)"
+   ],
+   [
+    2,
+    2,
+    "Por los pelos (-1d)"
+   ],
+   [
+    3,
+    3,
+    "Retirada rápida"
+   ],
+   [
+    4,
+    4,
+    "Victoria pírrica (-2d)"
+   ],
+   [
+    5,
+    5,
+    "Un poco caótico, pero ya está hecho (-1d)"
+   ],
+   [
+    6,
+    6,
+    "Ejecución perfecta (+1d)"
+   ]
+  ]
+ },
+ {
+  "clave": "esbirros-consecuencias",
+  "nombre": "Incursión de esbirros: consecuencias",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Ajusta el número de dados según los resultados de la 1.ª tabla.",
+  "filas": [
+   [
+    1,
+    1,
+    "2 Devastadoras, 1 Molesta"
+   ],
+   [
+    2,
+    2,
+    "1 Devastadora, 2 Frustrantes"
+   ],
+   [
+    3,
+    3,
+    "3 Frustrantes"
+   ],
+   [
+    4,
+    4,
+    "1 Frustrante"
+   ],
+   [
+    5,
+    5,
+    "2 Molestas"
+   ],
+   [
+    6,
+    6,
+    "¡No hay consecuencias!"
+   ]
+  ]
+ },
+ {
+  "clave": "esbirros-botin",
+  "nombre": "Incursión de esbirros: botín y moral",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 354,
+  "descripcion": "Añade botín de base si la incursión salió bien.",
+  "filas": [
+   [
+    1,
+    1,
+    "Los esbirros pierden moral"
+   ],
+   [
+    2,
+    2,
+    "-1d al botín"
+   ],
+   [
+    3,
+    3,
+    "Los esbirros ganan moral"
+   ],
+   [
+    4,
+    4,
+    "+1d al botín"
+   ],
+   [
+    5,
+    5,
+    "+1d al botín y ganan moral"
+   ],
+   [
+    6,
+    6,
+    "+2d al botín y ganan moral"
+   ]
+  ]
+ },
+ {
+  "clave": "aventureros",
+  "nombre": "Generador de invasiones: aventureros (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 355,
+  "descripcion": "En general, una invasión grave son tres aventureros del nivel de la mazmorra.",
+  "filas": [
+   [
+    1,
+    1,
+    "Un malvado"
+   ],
+   [
+    2,
+    2,
+    "Un mal inenarrable"
+   ],
+   [
+    3,
+    3,
+    "Un ser sobrenatural"
+   ],
+   [
+    4,
+    4,
+    "Turba de campesinos"
+   ],
+   [
+    5,
+    5,
+    "Un animal poderoso"
+   ],
+   [
+    6,
+    6,
+    "Dos ayudantes"
+   ],
+   [
+    7,
+    7,
+    "Alquimista"
+   ],
+   [
+    8,
+    8,
+    "Amazona"
+   ],
+   [
+    9,
+    9,
+    "Aristócrata"
+   ],
+   [
+    10,
+    10,
+    "Armero"
+   ],
+   [
+    11,
+    11,
+    "Arquero arcano"
+   ],
+   [
+    12,
+    12,
+    "Asesino"
+   ],
+   [
+    13,
+    13,
+    "Asesino sagrado"
+   ],
+   [
+    14,
+    14,
+    "Bailarín sombrío"
+   ],
+   [
+    15,
+    15,
+    "Bárbaro"
+   ],
+   [
+    16,
+    16,
+    "Bardo"
+   ],
+   [
+    17,
+    17,
+    "Bucanero"
+   ],
+   [
+    18,
+    18,
+    "Caballero"
+   ],
+   [
+    19,
+    19,
+    "Caballero de la Muerte"
+   ],
+   [
+    20,
+    20,
+    "Cazabrujas"
+   ],
+   [
+    21,
+    21,
+    "Centurión"
+   ],
+   [
+    22,
+    22,
+    "Clérigo"
+   ],
+   [
+    23,
+    23,
+    "Druida"
+   ],
+   [
+    24,
+    24,
+    "Explorador"
+   ],
+   [
+    25,
+    25,
+    "Guardabosque"
+   ],
+   [
+    26,
+    26,
+    "Guardián"
+   ],
+   [
+    27,
+    27,
+    "Guerrero arcano"
+   ],
+   [
+    28,
+    28,
+    "Hondero"
+   ],
+   [
+    29,
+    29,
+    "Ilusionista"
+   ],
+   [
+    30,
+    30,
+    "Inquisidor"
+   ],
+   [
+    31,
+    31,
+    "Lancero"
+   ],
+   [
+    32,
+    32,
+    "Mago del caos"
+   ],
+   [
+    33,
+    33,
+    "Monje"
+   ],
+   [
+    34,
+    34,
+    "Sabio"
+   ],
+   [
+    35,
+    35,
+    "Salvaje"
+   ],
+   [
+    36,
+    36,
+    "Templario"
+   ]
+  ]
+ },
+ {
+  "clave": "ayudantes",
+  "nombre": "Generador de invasiones: ayudantes (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 355,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Arquero"
+   ],
+   [
+    2,
+    2,
+    "Barquero"
+   ],
+   [
+    3,
+    3,
+    "Batidor"
+   ],
+   [
+    4,
+    4,
+    "Cantante"
+   ],
+   [
+    5,
+    5,
+    "Carnicero"
+   ],
+   [
+    6,
+    6,
+    "Carpintero"
+   ],
+   [
+    7,
+    7,
+    "Cartógrafo"
+   ],
+   [
+    8,
+    8,
+    "Cazarratas"
+   ],
+   [
+    9,
+    9,
+    "Cerrajero"
+   ],
+   [
+    10,
+    10,
+    "Cocinero"
+   ],
+   [
+    11,
+    11,
+    "Conductor"
+   ],
+   [
+    12,
+    12,
+    "Cronista"
+   ],
+   [
+    13,
+    13,
+    "Erudito"
+   ],
+   [
+    14,
+    14,
+    "Escriba"
+   ],
+   [
+    15,
+    15,
+    "Espadachín"
+   ],
+   [
+    16,
+    16,
+    "Espeleólogo"
+   ],
+   [
+    17,
+    17,
+    "Guardia"
+   ],
+   [
+    18,
+    18,
+    "Guía"
+   ],
+   [
+    19,
+    19,
+    "Infante"
+   ],
+   [
+    20,
+    20,
+    "Inventor"
+   ],
+   [
+    21,
+    21,
+    "Jinete"
+   ],
+   [
+    22,
+    22,
+    "Labrador"
+   ],
+   [
+    23,
+    23,
+    "Leñador"
+   ],
+   [
+    24,
+    24,
+    "Lingüista"
+   ],
+   [
+    25,
+    25,
+    "Marinero"
+   ],
+   [
+    26,
+    26,
+    "Matasanos"
+   ],
+   [
+    27,
+    27,
+    "Mensajero"
+   ],
+   [
+    28,
+    28,
+    "Mercader"
+   ],
+   [
+    29,
+    29,
+    "Mercenario"
+   ],
+   [
+    30,
+    30,
+    "Minero"
+   ],
+   [
+    31,
+    31,
+    "Montaraz"
+   ],
+   [
+    32,
+    32,
+    "Pescador"
+   ],
+   [
+    33,
+    33,
+    "Ratero"
+   ],
+   [
+    34,
+    34,
+    "Sacerdote"
+   ],
+   [
+    35,
+    35,
+    "Salteador"
+   ],
+   [
+    36,
+    36,
+    "Trampero"
+   ]
+  ]
+ },
+ {
+  "clave": "semilla-1",
+  "nombre": "Deja volar tu imaginación: primera semilla (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 356,
+  "descripcion": "Tira en la primera tabla, luego en la segunda y junta los términos.",
+  "filas": [
+   [
+    1,
+    1,
+    "Recuerdo"
+   ],
+   [
+    2,
+    2,
+    "Patrulla"
+   ],
+   [
+    3,
+    3,
+    "Taller"
+   ],
+   [
+    4,
+    4,
+    "Vigía"
+   ],
+   [
+    5,
+    5,
+    "Hiedra"
+   ],
+   [
+    6,
+    6,
+    "Sanguijuela"
+   ],
+   [
+    7,
+    7,
+    "Vegetación"
+   ],
+   [
+    8,
+    8,
+    "Premio"
+   ],
+   [
+    9,
+    9,
+    "Hongo"
+   ],
+   [
+    10,
+    10,
+    "Destino"
+   ],
+   [
+    11,
+    11,
+    "Espina"
+   ],
+   [
+    12,
+    12,
+    "Presencia"
+   ],
+   [
+    13,
+    13,
+    "Juicio"
+   ],
+   [
+    14,
+    14,
+    "Celebración"
+   ],
+   [
+    15,
+    15,
+    "Torre"
+   ],
+   [
+    16,
+    16,
+    "Consejo"
+   ],
+   [
+    17,
+    17,
+    "Grieta"
+   ],
+   [
+    18,
+    18,
+    "Secreto"
+   ],
+   [
+    19,
+    19,
+    "Enfermedad"
+   ],
+   [
+    20,
+    20,
+    "Garra"
+   ],
+   [
+    21,
+    21,
+    "Artesano"
+   ],
+   [
+    22,
+    22,
+    "Cántico"
+   ],
+   [
+    23,
+    23,
+    "Pared"
+   ],
+   [
+    24,
+    24,
+    "Gobernante"
+   ],
+   [
+    25,
+    25,
+    "Traición"
+   ],
+   [
+    26,
+    26,
+    "Cosecha"
+   ],
+   [
+    27,
+    27,
+    "Sombra"
+   ],
+   [
+    28,
+    28,
+    "Actuación"
+   ],
+   [
+    29,
+    29,
+    "Onda"
+   ],
+   [
+    30,
+    30,
+    "Joya"
+   ],
+   [
+    31,
+    31,
+    "Teatro"
+   ],
+   [
+    32,
+    32,
+    "Dientes"
+   ],
+   [
+    33,
+    33,
+    "Maleza"
+   ],
+   [
+    34,
+    34,
+    "Concurso"
+   ],
+   [
+    35,
+    35,
+    "Cabaña"
+   ],
+   [
+    36,
+    36,
+    "Erudito"
+   ]
+  ]
+ },
+ {
+  "clave": "semilla-2",
+  "nombre": "Deja volar tu imaginación: segunda semilla (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 356,
+  "descripcion": "Tira en la primera tabla, luego en la segunda y junta los términos.",
+  "filas": [
+   [
+    1,
+    1,
+    "Depredador"
+   ],
+   [
+    2,
+    2,
+    "Alegre"
+   ],
+   [
+    3,
+    3,
+    "Ilusorio"
+   ],
+   [
+    4,
+    4,
+    "Fresco"
+   ],
+   [
+    5,
+    5,
+    "Húmedo"
+   ],
+   [
+    6,
+    6,
+    "Salvaje"
+   ],
+   [
+    7,
+    7,
+    "Etéreo"
+   ],
+   [
+    8,
+    8,
+    "Silencioso"
+   ],
+   [
+    9,
+    9,
+    "Espantoso"
+   ],
+   [
+    10,
+    10,
+    "Antiguo"
+   ],
+   [
+    11,
+    11,
+    "Susurrante"
+   ],
+   [
+    12,
+    12,
+    "Errante"
+   ],
+   [
+    13,
+    13,
+    "Solícito"
+   ],
+   [
+    14,
+    14,
+    "Ardiente"
+   ],
+   [
+    15,
+    15,
+    "Oculto"
+   ],
+   [
+    16,
+    16,
+    "Iluminado por la luna"
+   ],
+   [
+    17,
+    17,
+    "Sutil"
+   ],
+   [
+    18,
+    18,
+    "Sofisticado"
+   ],
+   [
+    19,
+    19,
+    "Anodino"
+   ],
+   [
+    20,
+    20,
+    "Ominoso"
+   ],
+   [
+    21,
+    21,
+    "Valiente"
+   ],
+   [
+    22,
+    22,
+    "Brillante"
+   ],
+   [
+    23,
+    23,
+    "Marchito"
+   ],
+   [
+    24,
+    24,
+    "Olvidado"
+   ],
+   [
+    25,
+    25,
+    "Falso"
+   ],
+   [
+    26,
+    26,
+    "Solitario"
+   ],
+   [
+    27,
+    27,
+    "Vigilante"
+   ],
+   [
+    28,
+    28,
+    "Honesto"
+   ],
+   [
+    29,
+    29,
+    "Lujoso"
+   ],
+   [
+    30,
+    30,
+    "Infestado"
+   ],
+   [
+    31,
+    31,
+    "Bendito"
+   ],
+   [
+    32,
+    32,
+    "Humeante"
+   ],
+   [
+    33,
+    33,
+    "Roto"
+   ],
+   [
+    34,
+    34,
+    "Arcano"
+   ],
+   [
+    35,
+    35,
+    "Resplandeciente"
+   ],
+   [
+    36,
+    36,
+    "Imparable"
+   ]
+  ]
+ },
+ {
+  "clave": "pactos-oscuros",
+  "nombre": "Ejemplos de pactos oscuros (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 357,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Se pierde o se rompe una pieza de tu equipo o suministro, como al romperse un escudo o perder un látigo."
+   ],
+   [
+    2,
+    2,
+    "Un aliado pierde algo importante para él, como su foco de magia o un amigo vil."
+   ],
+   [
+    3,
+    3,
+    "Haces un ruido enorme, como si saltaras y aterrizaras en un techo de metal."
+   ],
+   [
+    4,
+    4,
+    "Ves algo que te hace cuestionarte la realidad, como el fantasma de otro PJ muerto."
+   ],
+   [
+    5,
+    5,
+    "Uno de tus enemigos se escapa y buscará venganza más adelante."
+   ],
+   [
+    6,
+    6,
+    "Tus duendes descubren algo dentro de la mazmorra. Haz una tirada de descubrimiento con 1d."
+   ],
+   [
+    7,
+    7,
+    "El suelo cede bajo tus pies o pierdes el equilibrio, dejándote vendido."
+   ],
+   [
+    8,
+    8,
+    "Tu cuerpo cambia de manera temporal o permanente, por ejemplo, perdiendo un dedo o desarrollando cola."
+   ],
+   [
+    9,
+    9,
+    "Tienes problemas para comunicarte con tus aliados. Por ejemplo, los mandas en la dirección equivocada."
+   ],
+   [
+    10,
+    10,
+    "La verdadera amenaza no es la que crees que es, como una tribu de goblins que también ataca tu objetivo."
+   ],
+   [
+    11,
+    11,
+    "Uno o dos aventureros entran en escena, por ejemplo, un bárbaro borracho y un bardo que salen tambaleándose de una taberna."
+   ],
+   [
+    12,
+    12,
+    "El suelo a vuestros pies es inestable y se derrumba, arrastrando a todos consigo."
+   ],
+   [
+    13,
+    13,
+    "Una de tus heridas empieza a supurar. No sanarás tu estado de reventado durante la siguiente fase de recuperación."
+   ],
+   [
+    14,
+    14,
+    "Llegan refuerzos para socorrer a tu objetivo, como una patrulla de guardacaminos que se acerca al galope para ayudar."
+   ],
+   [
+    15,
+    15,
+    "Lo que vayas a intentar no volverá a funcionar; será como si un campo antimagia se activara justo después."
+   ],
+   [
+    16,
+    16,
+    "Tu acción también afectará a uno de tus aliados, por ejemplo, lanzándolo por los aires al estallar una bola de fuego."
+   ],
+   [
+    17,
+    17,
+    "Se acerca una catástrofe natural, como una tormenta eléctrica o un terremoto. Inicia un reloj de cuatro segmentos."
+   ],
+   [
+    18,
+    18,
+    "Haces el ridículo. Pierdes estatus con tus aliados, tus esbirros o incluso el enemigo."
+   ],
+   [
+    19,
+    19,
+    "Tu amigo vil se enfada mucho contigo y corta el contacto contigo hasta que te disculpes."
+   ],
+   [
+    20,
+    20,
+    "Te separas de tus aliados, por ejemplo, al seguir a un grupo de pixis al interior del bosque."
+   ],
+   [
+    21,
+    21,
+    "Estás completamente agotado, así que asumes una conmoción en los tres atributos tras tu tirada."
+   ],
+   [
+    22,
+    22,
+    "Te conviertes en el centro de atención y quien te esté mirando espera una acción de respuesta inmediata."
+   ],
+   [
+    23,
+    23,
+    "Te expones a un peligro del entorno, como un incendio o un desprendimiento de rocas."
+   ],
+   [
+    24,
+    24,
+    "Tu mayor secreto sale a la luz, por ejemplo, al caerse un documento que muestra los pasos de vuestro plan maestro."
+   ],
+   [
+    25,
+    25,
+    "Te ves obligado a elegir entre dos opciones terribles. Por ejemplo, solo puedes salvar a tus esbirros o a tu huargo."
+   ],
+   [
+    26,
+    26,
+    "Un aliado cae en una trampa que no estaba a la vista, por ejemplo, al pisar una cuerda y quedar colgado de un árbol."
+   ],
+   [
+    27,
+    27,
+    "Un PNJ cerca de ti recibe un golpe y fallece, como el sacerdote que estabas arrastrando para torturarlo."
+   ],
+   [
+    28,
+    28,
+    "La naturaleza ayuda a tus enemigos. Por ejemplo, una manada de lobos acude en auxilio del granjero al que estás persiguiendo."
+   ],
+   [
+    29,
+    29,
+    "La situación cambia al entrar en juego la magia, por ejemplo, al llamar la atención de un dios."
+   ],
+   [
+    30,
+    30,
+    "Debes elegir entre dos cosas que quieres conservar, como el botín o el prisionero."
+   ],
+   [
+    31,
+    31,
+    "Se llena por completo un reloj. Por ejemplo, el de los perros de caza que te persiguen por el campo, o el de un barco hundiéndose."
+   ],
+   [
+    32,
+    32,
+    "Quedas cegado, sordo o impedido de alguna forma, por ejemplo, cuando tu conjuro de trueno también te ensordece a ti."
+   ],
+   [
+    33,
+    33,
+    "Un desconocido es testigo de la situación, como el jefe orco que te ve entrar a robar en sus terrenos de caza."
+   ],
+   [
+    34,
+    34,
+    "Aparece un viejo enemigo, como un aventurero que creías haber matado antes."
+   ],
+   [
+    35,
+    35,
+    "Os quedáis sin objetivos en esta zona; por ejemplo, el barón ordena el cese del tránsito mercantil por ese camino."
+   ],
+   [
+    36,
+    36,
+    "Un grupo de aventureros está a punto de aparecer. Inicia un reloj de 4 segmentos."
+   ]
+  ]
+ },
+ {
+  "clave": "objetos-azar",
+  "nombre": "Objetos al azar (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 358,
+  "descripcion": "Cada fila trae tres objetos: elige uno o tira 1d6 (1-2, 3-4, 5-6) para escoger la columna.",
+  "filas": [
+   [
+    1,
+    1,
+    "Daga ceremonial · Bolsa de herramientas · Máscara espiritual"
+   ],
+   [
+    2,
+    2,
+    "Vestimentas · Ballesta · Maza de hueso"
+   ],
+   [
+    3,
+    3,
+    "Escrituras sagradas · Lámpara y aceite · Amuleto de espinas"
+   ],
+   [
+    4,
+    4,
+    "Vino impío · Mazo · Tabas y huesos"
+   ],
+   [
+    5,
+    5,
+    "Pluma y pergamino · Delantal de cuero · Frasco de luciérnagas"
+   ],
+   [
+    6,
+    6,
+    "Aceite de unción · Pala · Máscara vudú"
+   ],
+   [
+    7,
+    7,
+    "Símbolo impío · Lupa · Porra con pinchos"
+   ],
+   [
+    8,
+    8,
+    "Hoz sencilla · Bolsa de piezas sueltas · Bolsa de serpientes"
+   ],
+   [
+    9,
+    9,
+    "Campana dorada · Gafas de aviador · Pipa para fumar"
+   ],
+   [
+    10,
+    10,
+    "Caja de incienso · Yesca y pedernal · Bastón retorcido"
+   ],
+   [
+    11,
+    11,
+    "Herramientas de tortura · Bolsa de tela · Collar de dientes"
+   ],
+   [
+    12,
+    12,
+    "Velas de cera · Pico · Tocado de plumas"
+   ],
+   [
+    13,
+    13,
+    "Hacha de guerra · Arco de cuerno · Túnica oscura"
+   ],
+   [
+    14,
+    14,
+    "Casco con cuernos · Trampa para animales · Cuchillos arrojadizos"
+   ],
+   [
+    15,
+    15,
+    "Látigo con púas · Rollo de cuerda · Arco corto"
+   ],
+   [
+    16,
+    16,
+    "Herramientas de tortura · Aperitivos para el camino · Ganzúas"
+   ],
+   [
+    17,
+    17,
+    "Capa de piel · Armadura de pieles · Bolsa con piedras"
+   ],
+   [
+    18,
+    18,
+    "Pendientes de hueso · Odre de agua · Espejo pulido"
+   ],
+   [
+    19,
+    19,
+    "Armadura de pinchos · Cuchillo para desollar · Gancho de escalada"
+   ],
+   [
+    20,
+    20,
+    "Jarra de licor · Red contrapesada · Bomba de humo"
+   ],
+   [
+    21,
+    21,
+    "Bolsa de aperitivos sabrosos · Hachuela para talar · Palanqueta y tenazas"
+   ],
+   [
+    22,
+    22,
+    "Tambores de guerra · Collar de animales · Garrote"
+   ],
+   [
+    23,
+    23,
+    "Cadenas resistentes · Equipo de pesca · Silbato estridente"
+   ],
+   [
+    24,
+    24,
+    "Hachas arrojadizas · Silbatos animales · Dagas gemelas"
+   ],
+   [
+    25,
+    25,
+    "Odre de vino bueno · Bastón decorado · Rodela"
+   ],
+   [
+    26,
+    26,
+    "Cerbatana y dardos · Guadaña · Hachas gemelas"
+   ],
+   [
+    27,
+    27,
+    "Flauta de madera · Bola de cristal · Boleadoras"
+   ],
+   [
+    28,
+    28,
+    "Grilletes de acero · Daga ceremonial · Herramientas de cartografía"
+   ],
+   [
+    29,
+    29,
+    "Dados trucados · Túnica raída · Mangual"
+   ],
+   [
+    30,
+    30,
+    "Utensilios de escritura · Varita nudosa · Daga curva"
+   ],
+   [
+    31,
+    31,
+    "Daga oculta · Grimorio de piel · Brazales resistentes"
+   ],
+   [
+    32,
+    32,
+    "Máscara decorativa · Capa amplia · Jabalinas"
+   ],
+   [
+    33,
+    33,
+    "Anillos llamativos · Calaveras humanas · Abrojos de acero"
+   ],
+   [
+    34,
+    34,
+    "Jabón y perfume · Bolsa de componentes · Cuerno de batalla"
+   ],
+   [
+    35,
+    35,
+    "Túnica con capucha · Utensilios de invocación · Un puñado de antorchas"
+   ],
+   [
+    36,
+    36,
+    "Peine y accesorios · Bolsa con gemas pequeñas · Armadura de cuero"
+   ]
+  ]
+ },
+ {
+  "clave": "botin-importante",
+  "nombre": "Ejemplos de botín importante (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 359,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Un gallinero con un gallo enorme y furioso en su interior."
+   ],
+   [
+    2,
+    2,
+    "Un carro lleno de cerveza. ¿Cómo lo trasladáis hasta casa?"
+   ],
+   [
+    3,
+    3,
+    "Prendas sagradas e incienso, pero varios sacerdotes se interponen en vuestro camino."
+   ],
+   [
+    4,
+    4,
+    "Una vidriera preciosa que parece imposible de desmontar sin romperla."
+   ],
+   [
+    5,
+    5,
+    "Un armario lleno de prendas excelentes, pero está cerrado con magia."
+   ],
+   [
+    6,
+    6,
+    "Unos tapices que cuelgan del techo. ¿Cómo llegáis ahí arriba?"
+   ],
+   [
+    7,
+    7,
+    "Una bandera gigante en el asta. Los arqueros enemigos pueden verte a simple vista."
+   ],
+   [
+    8,
+    8,
+    "Túnicas de mago y una varita. El pseudodragón del mago vigila la sala."
+   ],
+   [
+    9,
+    9,
+    "Unas joyas que cuelgan del cuello del príncipe mientras él camina por las calles acompañado de sus guardias."
+   ],
+   [
+    10,
+    10,
+    "Un monedero cuelga del cinturón de un mercader, que es un aventurero retirado."
+   ],
+   [
+    11,
+    11,
+    "Cuadros en las paredes, pero hay demasiados y es difícil saber cuáles son valiosos."
+   ],
+   [
+    12,
+    12,
+    "Un cofre lleno de gemas, cerrado con un conjuro cegador."
+   ],
+   [
+    13,
+    13,
+    "Unas conchas cubiertas de oro sobre los estantes más altos del templo de la diosa del mar. Están pegadas."
+   ],
+   [
+    14,
+    14,
+    "Una bolsa abandonada con una runa que brilla dibujada. La bolsa está vacía, salvo por el compartimento secreto."
+   ],
+   [
+    15,
+    15,
+    "Una estatua de un general grandioso y conquistador. ¿Cómo la bajáis del pedestal?"
+   ],
+   [
+    16,
+    16,
+    "Un gran cristal, increíblemente frágil al tacto y al sonido."
+   ],
+   [
+    17,
+    17,
+    "Varias cabras en su corral, más malas que el hambre."
+   ],
+   [
+    18,
+    18,
+    "Un atlas antiguo vinculado a su gólem guardián."
+   ],
+   [
+    19,
+    19,
+    "Un telescopio y otros utensilios de astronomía. ¿Quién sabe cuáles de estas cosas son valiosas?"
+   ],
+   [
+    20,
+    20,
+    "Una espada molona que cuelga de la pared. Está embrujada: cobra vida y lucha."
+   ],
+   [
+    21,
+    21,
+    "Una armadura en un estante, pero es pesada y sus piezas están pegadas entre sí."
+   ],
+   [
+    22,
+    22,
+    "Montones y montones de ruedas de queso. No hay una forma sencilla de transportarlas."
+   ],
+   [
+    23,
+    23,
+    "Una enorme alfombra muy lujosa. Encima de ella hay muchos muebles pesados."
+   ],
+   [
+    24,
+    24,
+    "Un arpa grande y dorada, pero muy pesada."
+   ],
+   [
+    25,
+    25,
+    "La mejor cubertería que habéis visto en una cocina abarrotada."
+   ],
+   [
+    26,
+    26,
+    "Un carro lleno de productos destinados al mercado. Una de las ruedas está rota."
+   ],
+   [
+    27,
+    27,
+    "Un barril de cerveza buena que empieza a filtrarse."
+   ],
+   [
+    28,
+    28,
+    "Grandes cantidades de tinte sobre un gran montón de polvo."
+   ],
+   [
+    29,
+    29,
+    "Una colcha de buena calidad, pero la abuela que la cosió es peligrosa con su alfiler."
+   ],
+   [
+    30,
+    30,
+    "Unos pájaros cantores en una jaula; son muy ruidosos y llaman la atención."
+   ],
+   [
+    31,
+    31,
+    "Un jardín lleno de flores exóticas. Algunas de las plantas tienen espinas venenosas."
+   ],
+   [
+    32,
+    32,
+    "La estatua de una gárgola. ¿Cómo la separáis de la pared?"
+   ],
+   [
+    33,
+    33,
+    "Un fantástico tocado ceremonial. Está protegido por el fantasma de su antiguo dueño."
+   ],
+   [
+    34,
+    34,
+    "Un árbol increíble florece en un caldero. Los pixis lo vigilan."
+   ],
+   [
+    35,
+    35,
+    "Una campana enorme, pero tenéis que bajarla de su torre."
+   ],
+   [
+    36,
+    36,
+    "Una pila de libros. El dueño la defenderá con su vida."
+   ]
+  ]
+ },
+ {
+  "clave": "objetos-magicos",
+  "nombre": "Ejemplos de objetos mágicos (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 360,
+  "descripcion": "Las decenas del 1 al 2 son de nivel 1; del 3 al 4, de nivel 2; del 5 al 6, de nivel 3.",
+  "filas": [
+   [
+    1,
+    1,
+    "Bolsa de la suerte: Metes la mano y sacas un objeto mundano, pero a la bolsa le gusta hacerte trastadas."
+   ],
+   [
+    2,
+    2,
+    "Túnica fluctuante: Desciendes despacio desde un lugar alto, pero no tienes ningún control sobre la caída."
+   ],
+   [
+    3,
+    3,
+    "Anillo de ascuas: Despide ascuas y prende fuego a todo lo que sea inflamable, pero te quema al usarlo."
+   ],
+   [
+    4,
+    4,
+    "Marioneta: Ejecuta cualquier orden sencilla que le pidas, pero empieza a deambular después de cumplirla."
+   ],
+   [
+    5,
+    5,
+    "Botas de paso acuático: Caminas sobre el agua, pero tienes que estar moviéndote todo el tiempo para no hundirte."
+   ],
+   [
+    6,
+    6,
+    "Laúd arácnido: Atrae a las arañas a la zona en la que lo tocas, pero las arañas se muestran hostiles hacia ti."
+   ],
+   [
+    7,
+    7,
+    "Botas saltarinas: No sufres daño al caer, pero rebotas en una dirección aleatoria."
+   ],
+   [
+    8,
+    8,
+    "Escudo captador: Puede atrapar enemigos, pero le dan miedo las hachas."
+   ],
+   [
+    9,
+    9,
+    "Casco de visión: Potencia mucho tu visión, pero no puedes oír muy bien cuando lo llevas puesto."
+   ],
+   [
+    10,
+    10,
+    "Cerradura viperina: Se puede colocar sobre una puerta para bloquearla de inmediato, pero al retirarla, te muerde."
+   ],
+   [
+    11,
+    11,
+    "Joya rastreadora: Te permite saber cuál es su ubicación en todo momento, pero acabas reventado si se rompe."
+   ],
+   [
+    12,
+    12,
+    "Frasco de almas: Puede transportar una única alma, pero el alma se pondrá a hacer ruido en el peor momento."
+   ],
+   [
+    13,
+    13,
+    "Flechas desplazadoras: Al golpear a alguien, lo teletransporta a otro lugar cercano, pero se determina completamente al azar."
+   ],
+   [
+    14,
+    14,
+    "Armadura inamovible: Te vuelves casi inamovible, pero no puedes correr si la llevas puesta."
+   ],
+   [
+    15,
+    15,
+    "Calavera desagradecida: Intentará morder y engancharse en cualquier cosa contra la que la hayas lanzado, pero siempre está buscando un dueño mejor que tú."
+   ],
+   [
+    16,
+    16,
+    "Botella sin fondo: Contiene una cantidad inmensa de líquido, pero este se desborda al abrirla."
+   ],
+   [
+    17,
+    17,
+    "Bolsa voraz: Destruye cualquier material inerte que se introduzca en su interior, pero tiene mucha hambre."
+   ],
+   [
+    18,
+    18,
+    "Gorra alarma: Te informa si alguien puede verte, pero es sumamente paranoica con la idea de que la detecten."
+   ],
+   [
+    19,
+    19,
+    "Maza atronadora: Derriba a cualquiera con la que lo golpees, pero hace mucho ruido."
+   ],
+   [
+    20,
+    20,
+    "Caja de música: Todos los que están cerca se pondrán a bailar, pero solo reproduce una única canción."
+   ],
+   [
+    21,
+    21,
+    "Ojo de Melawa: Revela mentiras e ilusiones, pero emite un destello cegador al hacerlo."
+   ],
+   [
+    22,
+    22,
+    "Moneda maldita: Quien la encuentre se volverá más codicioso según vaya pasando el tiempo, pero la moneda intenta que la gasten."
+   ],
+   [
+    23,
+    23,
+    "Botas de instatransporte: Te teletransportan una distancia corta, pero después quedas desorientado."
+   ],
+   [
+    24,
+    24,
+    "Piedra sanguínea: Cura una herida, pero necesita que la sumerjan en sangre cada vez más poderosa tras cada uso."
+   ],
+   [
+    25,
+    25,
+    "Diente de auróvoros: Las víctimas se convierten en estatuas de oro, pero pueden regresar a la vida en momentos aleatorios."
+   ],
+   [
+    26,
+    26,
+    "Escudo de óxido: Oxida toda arma que lo toque, pero poco a poco se va desmoronando."
+   ],
+   [
+    27,
+    27,
+    "Pellejo animal: Te convierte en un teriántropo durante la luna llena, pero se trata de una bestia casi inofensiva."
+   ],
+   [
+    28,
+    28,
+    "Espejo maldito: Envía los pensamientos de cualquiera que se refleje a su creador, pero poco a poco te va quitando tu cordura."
+   ],
+   [
+    29,
+    29,
+    "Anillo de estasis: Te sumerge en un estado de estasis en el que eres visible pero incorpóreo durante unos instantes, pero no ves nada."
+   ],
+   [
+    30,
+    30,
+    "Libro del aquelarre: Puedes lanzar un conjuro de nivel 1, 2 o 3, pero a cambio de un precio cada vez mayor."
+   ],
+   [
+    31,
+    31,
+    "Destilería mental: Absorbe los recuerdos de la mente de otras personas, pero les va enloqueciendo en el proceso."
+   ],
+   [
+    32,
+    32,
+    "Toga de invisibilidad: Te vuelve completamente invisible, pero sin más equipo que la propia prenda."
+   ],
+   [
+    33,
+    33,
+    "Cubo del conocimiento: Responde a casi cualquier pregunta que le hagas con un sí o no, pero no se puede volver a utilizar durante un ciclo."
+   ],
+   [
+    34,
+    34,
+    "Hacha de cosecha: Te imbuye con una enorme sensación de poder cuando amputas una extremidad, pero siempre exige más."
+   ],
+   [
+    35,
+    35,
+    "Orbe de la tormenta: Puedes conjurar una gran tormenta en la región, pero no determinar después hacia dónde se desplaza."
+   ],
+   [
+    36,
+    36,
+    "Bastón marchito: Las plantas que se encuentren en una zona grande se marchitan, pero te deja con una sensación de agotamiento."
+   ]
+  ]
+ },
+ {
+  "clave": "pociones",
+  "nombre": "Ejemplos de pociones (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 361,
+  "descripcion": "Las decenas del 1 al 2 son de nivel 1; del 3 al 4, de nivel 2; del 5 al 6, de nivel 3.",
+  "filas": [
+   [
+    1,
+    1,
+    "Pez globo: Te hace flotar en el agua, pero solo puedes moverte con la corriente."
+   ],
+   [
+    2,
+    2,
+    "Pegajoso: Hace que dos cosas se adhieran entre sí, pero es difícil de aplicar."
+   ],
+   [
+    3,
+    3,
+    "Luciérnaga: Tu abdomen emite una luz parpadeante, pero atraes bichos."
+   ],
+   [
+    4,
+    4,
+    "Mentiroso: Te impide decir la verdad, pero tampoco puedes identificar cuándo te están mintiendo."
+   ],
+   [
+    5,
+    5,
+    "Visiones revueltas: Te muestra dos visiones falsas del futuro y una verdadera, pero te da un gran dolor de cabeza."
+   ],
+   [
+    6,
+    6,
+    "Cobardía: Cualquiera que sea rociado con esta poción se verá obligado a huir, pero al volver, regresará más envalentonado."
+   ],
+   [
+    7,
+    7,
+    "Forma ilusoria: Te da el aspecto de otro ser de tu misma raza, pero solo por delante."
+   ],
+   [
+    8,
+    8,
+    "Resbalosidad: Convierte una zona en terreno muy resbaladizo, pero el frasco que contiene la poción también es muy resbaladizo."
+   ],
+   [
+    9,
+    9,
+    "Ceguera: Ciega al objetivo, pero es sumamente difícil de aplicar sin que te afecte a ti."
+   ],
+   [
+    10,
+    10,
+    "Vozarrón: Puedes proyectar tu voz en grandes distancias, pero acabas afónico."
+   ],
+   [
+    11,
+    11,
+    "Fuerza: Te hace ser igual de fuerte que un oso, pero después te quedas sin energías."
+   ],
+   [
+    12,
+    12,
+    "Velocidad: Te hace ser igual de rápido que un caballo, pero su efecto dura muy poco tiempo."
+   ],
+   [
+    13,
+    13,
+    "Terror: Crea una ilusión de pesadilla allí donde se derrame la poción…, ¡pero es tu propia pesadilla!"
+   ],
+   [
+    14,
+    14,
+    "Aliento flamígero: Escupes fuego como un dragón, pero quema tu equipo."
+   ],
+   [
+    15,
+    15,
+    "Patas de araña: Te proporciona patas de araña con las que puedes trepar por las paredes, pero también un hambre atroz."
+   ],
+   [
+    16,
+    16,
+    "Portáltil: Al romperla en una pared, crea de forma instantánea un agujero, pero desaparece enseguida."
+   ],
+   [
+    17,
+    17,
+    "Turbo: Duplica tu velocidad, pero es muy, muy difícil parar."
+   ],
+   [
+    18,
+    18,
+    "Parpadeo: Te protege de las flechas, pero al usar esta defensa, te teletransportas a un lugar aleatorio que esté cerca."
+   ],
+   [
+    19,
+    19,
+    "Brebaje de Dalgeth: Quien beba esta poción creerá que todo lo que oye es falso, pero después del efecto, se percatará de lo sucedido."
+   ],
+   [
+    20,
+    20,
+    "Climavidencia: Puedes establecer un hecho sobre el clima, pero enfureces a las criaturas salvajes cercanas."
+   ],
+   [
+    21,
+    21,
+    "Veleta: Quien beba esta poción reconsiderará su objetivo actual, pero todo el mundo desconfía de ti mientras lleves encima este mejunje."
+   ],
+   [
+    22,
+    22,
+    "Mechamagia: Atrae la magia hacia la redoma y la contiene en su interior, pero la magia contenida es sumamente inestable."
+   ],
+   [
+    23,
+    23,
+    "Mollera férrea: Te proporciona una defensa contra los encantamientos, pero quedas vulnerable tras usar la defensa."
+   ],
+   [
+    24,
+    24,
+    "Mandíbula de serpiente: Puedes engullir cualquier cosa de hasta tu mismo tamaño sin que te resulte incómodo, pero sabe a rayos."
+   ],
+   [
+    25,
+    25,
+    "Invisibilidad: Te vuelves completamente invisible, pero quedas a la vista durante un instante cada vez que tocas algo."
+   ],
+   [
+    26,
+    26,
+    "Don de lenguas: Puedes hablar con fluidez cualquier idioma durante un rato, pero no lo entiendes."
+   ],
+   [
+    27,
+    27,
+    "Tamaño rata: Te encoge hasta que adquieres el tamaño de una rata, pero hueles a presa."
+   ],
+   [
+    28,
+    28,
+    "Mímico: Te convierte en la versión carnívora de cualquier objeto, pero solo te puedes hacer una idea vaga de lo que dura el efecto."
+   ],
+   [
+    29,
+    29,
+    "Audiobicho: Entiendes cualquier idioma durante un rato, pero no puedes hablarlo."
+   ],
+   [
+    30,
+    30,
+    "Sombra libre: Tu sombra se separa de ti y se convierte en un esbirro independiente, pero no querrá volver a ser parte de ti."
+   ],
+   [
+    31,
+    31,
+    "Forma animal: Te convierte en un animal, pero sufres un impulso oscuro que encaje con dicho animal durante la transformación."
+   ],
+   [
+    32,
+    32,
+    "Curación rápida: Anula la conmoción en Músculos y la condición de reventado, pero te impone una conmoción en Sesos."
+   ],
+   [
+    33,
+    33,
+    "Maldición lunar: Convierte a alguien en hombre lobo durante una luna llena, pero los lobos son hostiles hacia ti mientras lleves la poción encima."
+   ],
+   [
+    34,
+    34,
+    "Especialidad: Otorga 3d en una sola acción durante un periodo corto, pero tiras -1d a las demás acciones mientras dure el efecto."
+   ],
+   [
+    35,
+    35,
+    "Intangible: Levitas y te desplazas a través de las paredes, pero el efecto no desaparece hasta la siguiente fase de recuperación."
+   ],
+   [
+    36,
+    36,
+    "Piel férrea: Tu piel se vuelve tan resistente como el acero, pero te mueves muy lentamente."
+   ]
+  ]
+ },
+ {
+  "clave": "artilugios",
+  "nombre": "Ejemplos de artilugios (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 362,
+  "descripcion": "Las decenas del 1 al 2 son de nivel 1; del 3 al 4, de nivel 2; del 5 al 6, de nivel 3.",
+  "filas": [
+   [
+    1,
+    1,
+    "Encendedor: Prende fuego sin problemas a cualquier material inflamable, pero se rompe con facilidad."
+   ],
+   [
+    2,
+    2,
+    "Máscara antigás: Ignora los efectos de los gases, pero apenas puedes ver nada cuando la llevas puesta."
+   ],
+   [
+    3,
+    3,
+    "Telemonóculo: Ves objetos lejanos como si estuvieran cerca, pero te desorienta."
+   ],
+   [
+    4,
+    4,
+    "Ballesta de carga rápida: Nunca será necesario hacer una pausa para recargar, pero a veces erra al apuntar."
+   ],
+   [
+    5,
+    5,
+    "Yelmo cirio: Ilumina el camino que hay ante ti, pero te gotea cera sobre la cara."
+   ],
+   [
+    6,
+    6,
+    "Lanzacuerdas: Arroja una cuerda volando a una gran distancia, pero necesita tiempo para recogerla."
+   ],
+   [
+    7,
+    7,
+    "Tubo de buceo: Te permite respirar bajo el agua, pero también te pueden detectar con facilidad."
+   ],
+   [
+    8,
+    8,
+    "Daga-muelle oculta: Te coloca instantáneamente una daga en la mano, pero se dispara sola en momentos aleatorios."
+   ],
+   [
+    9,
+    9,
+    "Lanzamejunjes: Dispara un mejunje a larga distancia, pero es molesto y aparatoso llevar este artilugio encima."
+   ],
+   [
+    10,
+    10,
+    "Cepo: Se cierra sobre el pie de cualquier persona que lo pise, pero es muy peligroso recogerlo."
+   ],
+   [
+    11,
+    11,
+    "Espejo esquinero: Puedes ver lo que hay al otro lado de cada esquina, pero se rompe fácilmente."
+   ],
+   [
+    12,
+    12,
+    "Silbato agudo: Solo lo oyen los perros y bestias parecidas, pero te da dolor de cabeza."
+   ],
+   [
+    13,
+    13,
+    "Paracaídas: Ralentiza tu caída, pero incluso así te das un buen golpe contra el suelo."
+   ],
+   [
+    14,
+    14,
+    "Electrovara: Al golpear a alguien con ella, lo aturde, pero también te aturde a ti."
+   ],
+   [
+    15,
+    15,
+    "Trampolín portátil: Te permite saltar a una altura mayor de la que normalmente podrías alcanzar, pero es difícil desmontarlo."
+   ],
+   [
+    16,
+    16,
+    "Antorcha de soldadura: Suelda metal con su ardiente llama, pero te salpica con chispas."
+   ],
+   [
+    17,
+    17,
+    "Globo de huida: Te levanta por el aire, pero es casi imposible de controlar."
+   ],
+   [
+    18,
+    18,
+    "Botas con muelles: Te permiten dar un gran salto, pero lleva bastante tiempo reintroducir los muelles dentro."
+   ],
+   [
+    19,
+    19,
+    "Planeador: Te deja controlar tu descenso, pero es sumamente terrorífico."
+   ],
+   [
+    20,
+    20,
+    "Taladro excavador: Atraviesa rápidamente algunos tipos de roca, pero supone -1d a las tiradas de desastre si lo utilizas en vuestra mazmorra."
+   ],
+   [
+    21,
+    21,
+    "Guantes pegajosos: Te permiten escalar una pared, pero solo son fiables si los empleas para subir."
+   ],
+   [
+    22,
+    22,
+    "Birrueda: Te permite moverte con gran rapidez sobre una superficie llana, pero sus frenos no funcionan."
+   ],
+   [
+    23,
+    23,
+    "Electroimán: Un potente imán de metal, pero te da un calambrazo enorme cuando lo apagas."
+   ],
+   [
+    24,
+    24,
+    "Garra retráctil: Se engancha en cualquier superficie a la que se apunte, pero se retrae muy lentamente."
+   ],
+   [
+    25,
+    25,
+    "Mochila propulsora: Puedes surcar el cielo a grandes velocidades, pero se puede apagar en cualquier momento."
+   ],
+   [
+    26,
+    26,
+    "Gafas de visión nocturna: Te permiten ver en la oscuridad, pero te ciegan si miras directamente a cualquier fuente de luz."
+   ],
+   [
+    27,
+    27,
+    "Motosierra: Corta madera y carne como si fueran mantequilla, pero manejarla es muy peligroso."
+   ],
+   [
+    28,
+    28,
+    "Botas propulsoras: Durante un breve instante, te permiten moverte a una velocidad asombrosa, pero siempre acabas fuera de ellas al aterrizar."
+   ],
+   [
+    29,
+    29,
+    "Lanzallamas: Lanza chorros de fuego ardiente, pero el tanque de combustible es muy vulnerable y su capacidad es limitada."
+   ],
+   [
+    30,
+    30,
+    "Respirador de agua: Puedes respirar bajo el agua, pero tu visión está muy limitada."
+   ],
+   [
+    31,
+    31,
+    "Autoganzúa: Te permite tirar una cantidad de dados equivalente al nivel del artilugio contra cualquier cerradura, pero es muy ruidosa."
+   ],
+   [
+    32,
+    32,
+    "Mochila catapulta: Puede arrojar piedras bastante grandes, pero ocupa un espacio adicional de equipo o suministros."
+   ],
+   [
+    33,
+    33,
+    "Sirviente mecánico: Puede hacer una tarea específica para la que esté programado, pero se oxida rápidamente."
+   ],
+   [
+    34,
+    34,
+    "Óculo láser: Dispara un rayo láser desde uno de tus ojos, pero mientras se recarga sufres conmoción en SESOS."
+   ],
+   [
+    35,
+    35,
+    "Miembro robótico: Reemplaza un miembro amputado, pero parece tener vida propia."
+   ],
+   [
+    36,
+    36,
+    "Vara explosiva: Reduce a escombros cualquier cosa que esté a distancia corta, pero también daña a los aliados cercanos."
+   ]
+  ]
+ },
+ {
+  "clave": "mejunjes",
+  "nombre": "Ejemplos de mejunjes (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 363,
+  "descripcion": "Las decenas del 1 al 2 son de nivel 1; del 3 al 4, de nivel 2; del 5 al 6, de nivel 3.",
+  "filas": [
+   [
+    1,
+    1,
+    "Vara luminosa: Ilumina una zona como si fuera una antorcha, pero la luz es de un color aleatorio."
+   ],
+   [
+    2,
+    2,
+    "Bomba fétida: Inunda la estancia con un hedor terrible que provoca arcadas, pero su recipiente gotea."
+   ],
+   [
+    3,
+    3,
+    "Cenizas de rinitis: La persona que las inhala empieza a estornudar sin parar, pero cuesta mucho aplicarlas."
+   ],
+   [
+    4,
+    4,
+    "Polvos picapica: Provoca un gran picor al contactar con la piel pero se dispersa fácilmente con un soplo de viento."
+   ],
+   [
+    5,
+    5,
+    "Danzallamas: Dispara una hilera de chispas en una línea irregular que después estallan, pero a veces regresa como un bumerán."
+   ],
+   [
+    6,
+    6,
+    "Pastillas ojipláticas: Te mantienen despierto durante una noche, pero provocan alucinaciones."
+   ],
+   [
+    7,
+    7,
+    "Rompeampollas: Causa que las ampollas de la piel se abran, pero huele fatal."
+   ],
+   [
+    8,
+    8,
+    "Aceite ígneo: Prende al entrar en contacto con alguna chispa, pero hacen falta un par de intentos."
+   ],
+   [
+    9,
+    9,
+    "Agua negra: Llena un cuerpo de agua de tinta oscura, pero también pringa las manos de esa misma sustancia."
+   ],
+   [
+    10,
+    10,
+    "Analgésico: Puede ignorar los efectos de una conmoción en MÚSCULOS, pero no elimina la conmoción al hacer la tirada."
+   ],
+   [
+    11,
+    11,
+    "Imán de bestias: Atrae a una especie concreta de animal, si está por la zona, pero se te queda pegado su olor."
+   ],
+   [
+    12,
+    12,
+    "Aullador: Emite un intenso alarido al entrar en contacto con la luz, pero a veces grita en momentos aleatorios."
+   ],
+   [
+    13,
+    13,
+    "Derritepiedras: Disuelve rápidamente grandes secciones de roca, pero genera una barbaridad de humo."
+   ],
+   [
+    14,
+    14,
+    "Bomba de brea: Al arrojarla, cubre el destino con pegajosa brea, pero deja un rastro al lanzarla."
+   ],
+   [
+    15,
+    15,
+    "Rompenervios: Paraliza a una víctima temporalmente, pero el objetivo ignorará todo el daño que se le inflija después."
+   ],
+   [
+    16,
+    16,
+    "Roca relámpago: Emite una luz cegadora al arrojarla contra una superficie dura, pero quema al tacto."
+   ],
+   [
+    17,
+    17,
+    "Empanada mental: No sufres una conmoción en SESOS, pero sí -2d por el shock a los otros atributos."
+   ],
+   [
+    18,
+    18,
+    "Lanzaesquirlas de metal: Lanza esquirlas de metal en todas direcciones, pero tiene un gatillo muy sensible."
+   ],
+   [
+    19,
+    19,
+    "Bomba de fuego: Explota al entrar en contacto con algo y estalla en una bola de fuego, pero tiene una mecha muy corta."
+   ],
+   [
+    20,
+    20,
+    "Rapidormir: Duerme a alguien al instante, pero solo durante unos momentos."
+   ],
+   [
+    21,
+    21,
+    "Manos pegajosas: Te permite escalar muros como una araña, pero los objetos normales se te pegan a las manos."
+   ],
+   [
+    22,
+    22,
+    "Amigador: Si se rocía sobre la cara de alguien, su actitud hacia ti será amistosa, pero hostil hacia tus aliados."
+   ],
+   [
+    23,
+    23,
+    "Linimento terrorífico: Causa alucinaciones terribles, pero a veces despierta la ira del afectado."
+   ],
+   [
+    24,
+    24,
+    "Estallido emocional: Provoca que alguien actúe según su emoción más intensa, pero es contagioso."
+   ],
+   [
+    25,
+    25,
+    "Furia embotellada: Te impide morir hasta que se pasa el efecto, pero no puedes resistir la muerte."
+   ],
+   [
+    26,
+    26,
+    "Domaluces: Causa que alguien se vuelva completamente invisible, pero provoca también una ceguera parcial."
+   ],
+   [
+    27,
+    27,
+    "Congelación instantánea: Cubre toda la zona de hielo, pero la botella es sumamente frágil."
+   ],
+   [
+    28,
+    28,
+    "Zumo cadavérico: Reanima un cadáver reciente y lo convierte en una máquina de matar, pero se desmorona con gran rapidez."
+   ],
+   [
+    29,
+    29,
+    "Paro cardíaco: Aparentas haber muerto, pero, al despertar, sufres una conmoción en AGALLAS."
+   ],
+   [
+    30,
+    30,
+    "Esencia nocturna: Inunda una zona grande con una oscuridad semejante a la noche sin luna, pero también provoca un frío helador."
+   ],
+   [
+    31,
+    31,
+    "Óxido instantáneo: Puede oxidar rápidamente cualquier trozo de metal, pero su recipiente es difícil de abrir."
+   ],
+   [
+    32,
+    32,
+    "Bumbum: Crea una explosión lo suficientemente grande como para destruir una casa, pero la explosión se retrasa un tiempo indeterminado."
+   ],
+   [
+    33,
+    33,
+    "Antorcha antigravitatoria: Invierte la gravedad durante el tiempo que esté ardiendo, pero te mueves con lentitud por la zona."
+   ],
+   [
+    34,
+    34,
+    "Imanizador: Provoca que cualquier metal bañado con la sustancia adquiera un fuerte magnetismo, pero dicha peculiaridad se activa en momentos aleatorios."
+   ],
+   [
+    35,
+    35,
+    "Piedra antimagia: Anula los efectos mágicos de la zona, pero también hace que los efectos de la ciencia monstruosa fallen."
+   ],
+   [
+    36,
+    36,
+    "Abalorio sísmico: La tierra lo absorbe con facilidad y provoca un terremoto, pero se activa solo al agitarlo."
+   ]
+  ]
+ },
+ {
+  "clave": "represalias-leves",
+  "nombre": "Represalias leves (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 364,
+  "descripcion": "Es mejor que las invasiones las decida el DJ, sin hacer tiradas.",
+  "filas": [
+   [
+    1,
+    1,
+    "Encontráis un altar en honor de un dios caído. Un PJ ya lo ha tocado y los demás están obligados también a hacerlo."
+   ],
+   [
+    2,
+    2,
+    "Encontráis un ciervo muerto, con una flecha clavada. La herida es reciente y se oye llegar a los cazadores."
+   ],
+   [
+    3,
+    3,
+    "Escucháis un trueno bajo y, de repente, os halláis en medio de una estampida de animales."
+   ],
+   [
+    4,
+    4,
+    "Un aventurero os acecha a escondidas, esperando el mejor momento para atacaros."
+   ],
+   [
+    5,
+    5,
+    "La tierra cede y uno o más PJ caéis en una cueva."
+   ],
+   [
+    6,
+    6,
+    "Veis a un prisionero humano perseguido por varios guardias en el bosque. Van hacia la mazmorra."
+   ],
+   [
+    7,
+    7,
+    "Mientras subís por un terraplén irregular, uno o dos PJ pierden una pieza de equipo."
+   ],
+   [
+    8,
+    8,
+    "Veis los restos de una batalla, con varios cadáveres dispersos a vuestro alrededor. Es la trampa de un astuto nigromante."
+   ],
+   [
+    9,
+    9,
+    "A partir de hoy, jinetes acompañados de perros patrullan los caminos de esta zona."
+   ],
+   [
+    10,
+    10,
+    "Un PNJ de una facción oscura deja una nota exigiendo oro, o revelará la ubicación de vuestra mazmorra."
+   ],
+   [
+    11,
+    11,
+    "Os quedáis atascados en el pantano, mientras varios cocodrilos se mueven lentamente hacia vosotros."
+   ],
+   [
+    12,
+    12,
+    "Una tormenta retrasa vuestro regreso a la mazmorra. Tenéis -1d en vuestra próxima acción de descanso."
+   ],
+   [
+    13,
+    13,
+    "Uno de vuestros esbirros pisa una trampa para osos de regreso a la mazmorra que lo mata o deja reventado."
+   ],
+   [
+    14,
+    14,
+    "Os lleva mucho tiempo volver a casa. Todos los relojes de las facciones avanzan un segmento."
+   ],
+   [
+    15,
+    15,
+    "Una facción vecina de la que habéis asaltado inicia un nuevo reloj de cuatro segmentos: «Defensas mejoradas»."
+   ],
+   [
+    16,
+    16,
+    "Veis pasar a un dragón joven volando por encima de vuestras cabezas. Vuela en círculos, pues cree haber visto algo entre los arbustos."
+   ],
+   [
+    17,
+    17,
+    "Un unicornio aparece delante de vosotros y golpea la tierra con las patas. Habéis entrado en su territorio."
+   ],
+   [
+    18,
+    18,
+    "A mitad del camino de regreso a casa, uno de vosotros se da cuenta de que se ha olvidado una pieza de equipo importante en la incursión."
+   ],
+   [
+    19,
+    19,
+    "Un alud de barro bloquea vuestro camino. Tendréis que viajar a través del territorio de unos troles."
+   ],
+   [
+    20,
+    20,
+    "Un grupo de granjeros os persigue con antorchas y horcas."
+   ],
+   [
+    21,
+    21,
+    "Las defensas de las facciones de la luz de la zona aumentan, por lo que debéis restar -1d a vuestras tiradas de implicación en planes de asalto y golpe."
+   ],
+   [
+    22,
+    22,
+    "Os topáis con dos crías de oso negro; cuando os percatáis de que la madre está a su izquierda ya es demasiado tarde."
+   ],
+   [
+    23,
+    23,
+    "Un PJ al azar cae en una trampa al regresar a la mazmorra. Sufre el estado reventado (o muere si ya lo tenía)."
+   ],
+   [
+    24,
+    24,
+    "Oís el sonido de unos perros ladrando mientras siguen vuestro rastro. Iniciad un reloj de cuatro segmentos: «Acorralados»."
+   ],
+   [
+    25,
+    25,
+    "Un rastreador ha detectado vuestra mazmorra y huye de vuelta a la civilización. Capturadle o tendréis que afrontar una invasión."
+   ],
+   [
+    26,
+    26,
+    "Las tiradas de botín de las próximas incursiones contra las facciones de esta zona tienen -1d."
+   ],
+   [
+    27,
+    27,
+    "Un jinete de grifo vuela en círculos sobre vosotros, intentando encontrar la ubicación de vuestra mazmorra."
+   ],
+   [
+    28,
+    28,
+    "Cada PJ tiene que pagar el precio al esforzarse por volver a casa a través de una tormenta."
+   ],
+   [
+    29,
+    29,
+    "Os encontráis con un par de sátiros que os invitan a una fiesta. Estáis obligados a seguirles."
+   ],
+   [
+    30,
+    30,
+    "Una trampa de tronco colgante golpea a uno de vosotros y lo arroja al río."
+   ],
+   [
+    31,
+    31,
+    "Una panda de esbirros, a la que dabais por muerta, desbarata vuestro próximo plan de incursión para vengarse."
+   ],
+   [
+    32,
+    32,
+    "Uno de los PJ se ha separado del grupo y un puma le acecha."
+   ],
+   [
+    33,
+    33,
+    "Despertáis atrapados en unas gruesas enredaderas. Varias hadas se están llevando vuestro botín."
+   ],
+   [
+    34,
+    34,
+    "Os encontráis con una bruja malvada que os ofrece una entrada secreta a la fortaleza. No es una trampa, pero tampoco os fiais de ella."
+   ],
+   [
+    35,
+    35,
+    "Un famoso grupo de aventureros llega a la región y va dejando señales de advertencia para vosotros."
+   ],
+   [
+    36,
+    36,
+    "Una panda de esbirros no consigue salir de la incursión y es capturada."
+   ]
+  ]
+ },
+ {
+  "clave": "represalias-graves",
+  "nombre": "Represalias graves (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 365,
+  "descripcion": "Es mejor que las invasiones las decida el DJ, sin hacer tiradas.",
+  "filas": [
+   [
+    1,
+    1,
+    "Unos jinetes con perros os acorralan en un barranco. No hay una salida obvia."
+   ],
+   [
+    2,
+    2,
+    "Una facción oscura se ha hartado de que os coléis en sus terrenos de caza y decide atacaros durante vuestra próxima incursión."
+   ],
+   [
+    3,
+    3,
+    "Un bardo muy carismático ha convencido a un gran número de mercenarios para unirse a él e invadiros."
+   ],
+   [
+    4,
+    4,
+    "Un sacerdote conduce a una turba furiosa hacia vuestra mazmorra con la intención de librar al mundo de vuestras maldades."
+   ],
+   [
+    5,
+    5,
+    "Las facciones de una zona determinada del entorno se alían, por lo cual tenéis -1d en todas las tiradas de represalia asociadas."
+   ],
+   [
+    6,
+    6,
+    "Un escuadrón de soldados (entre diez y veinte ayudantes) se dirige a vuestra mazmorra para limpiarla."
+   ],
+   [
+    7,
+    7,
+    "Los exploradores de la zona han capturado a uno de vosotros mientras volvíais a casa y están a punto de ahorcarlo."
+   ],
+   [
+    8,
+    8,
+    "Un paladín se interpone en vuestro camino y desenvaina su espada. Su amigo, el pícaro, espera entre los arbustos."
+   ],
+   [
+    9,
+    9,
+    "Un pequeño ejército ha levantado un campamento en torno a la entrada de vuestra mazmorra, pero aún no la ha visto."
+   ],
+   [
+    10,
+    10,
+    "Hay un gran número de exploradores cerca de vuestra mazmorra. Sufrís -1d en las tiradas de implicación de las incursiones."
+   ],
+   [
+    11,
+    11,
+    "A uno o dos de vosotros os han encarcelado en un pequeño cuartel fronterizo. Sois el cebo de la trampa."
+   ],
+   [
+    12,
+    12,
+    "Un emisario de una facción oscura aparece con un ultimátum: juradles vasallaje u os invadirán."
+   ],
+   [
+    13,
+    13,
+    "Unos pixis y hadas del bosque os confunden y os separan para después acabar con vosotros uno a uno."
+   ],
+   [
+    14,
+    14,
+    "La facción que acabáis de atacar se motiva y completa todos los relojes que tenía."
+   ],
+   [
+    15,
+    15,
+    "Las embarcaciones del río tienen mejores defensas y llevan arqueros para vigilar la ribera."
+   ],
+   [
+    16,
+    16,
+    "Una de vuestras facciones aliadas sufre un ataque y baja un nivel. Acuden rogándoos ayuda."
+   ],
+   [
+    17,
+    17,
+    "Vuestra alianza con una facción se rompe, ya que se han visto perjudicados de alguna forma por vuestra última incursión."
+   ],
+   [
+    18,
+    18,
+    "La facción que acabáis de atacar completa un reloj, ya que están muy motivados para actuar."
+   ],
+   [
+    19,
+    19,
+    "Unos aventureros llegan a vuestra mazmorra antes que vosotros y se encuentran ya en el santuario cuando vosotros llegáis a la entrada."
+   ],
+   [
+    20,
+    20,
+    "Llegáis a la entrada de la mazmorra y veis a un escuadrón de soldados acampando fuera."
+   ],
+   [
+    21,
+    21,
+    "Un aventurero que creíais muerto os planta cara en medio del camino. Es más poderoso que antes."
+   ],
+   [
+    22,
+    22,
+    "Nada más entrar en el bosque de una dríade, acabáis atrapados entre unas enredaderas y envenenados."
+   ],
+   [
+    23,
+    23,
+    "Todos caéis en una trampa y os despertáis atados a unos palos, listos para que unos caníbales os asen."
+   ],
+   [
+    24,
+    24,
+    "El objetivo y sus vecinos aumentan sus defensas, por lo que vuestras tiradas de implicación contra ellos tienen -1d."
+   ],
+   [
+    25,
+    25,
+    "Un dragón alineado con la luz abrasa la arboleda donde os escondíais, posándose después en busca de un aperitivo."
+   ],
+   [
+    26,
+    26,
+    "Una facción se da cuenta de vuestras intenciones de asaltarla. Llama a sus aliados y sube 1 nivel."
+   ],
+   [
+    27,
+    27,
+    "A un antiguo druida y su pantera compañera no les hace ninguna gracia que irrumpáis en su territorio."
+   ],
+   [
+    28,
+    28,
+    "Vuestra próxima incursión es increíblemente fácil, ya que los guardias se dispersan y empiezan a huir. No hay nada cerrado… Después, todo cambia."
+   ],
+   [
+    29,
+    29,
+    "Os adentráis en el claro de un bosque e interrumpís un duelo de magos. Los dos contendientes os ven y se giran para atacaros."
+   ],
+   [
+    30,
+    30,
+    "Una tormenta os destroza y os deja agotados. Perdéis la siguiente fase de recuperación."
+   ],
+   [
+    31,
+    31,
+    "Un adivino predice vuestra próxima incursión. La tirada de implicación es de 0d, sin importar lo que ocurra."
+   ],
+   [
+    32,
+    32,
+    "Un grifo cae en picado hacia donde estáis y atrapa a uno de vosotros, guiándoos así hacia su nido."
+   ],
+   [
+    33,
+    33,
+    "Paráis para descansar y contar vuestro botín bajo un enorme ent."
+   ],
+   [
+    34,
+    34,
+    "Oís gruñidos en el bosque. A vuestro alrededor, una manada de lobos os observa, pues sois su próxima comida."
+   ],
+   [
+    35,
+    35,
+    "¡Emboscada! Durante la próxima incursión, unos carros os estarán esperando, llenos de arqueros."
+   ],
+   [
+    36,
+    36,
+    "Los fantasmas de unos aventureros muertos os atormentan durante la siguiente incursión."
+   ]
+  ]
+ },
+ {
+  "clave": "desastres-leves",
+  "nombre": "Desastres leves (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 366,
+  "descripcion": "Es mejor que las invasiones las decida el DJ, sin hacer tiradas.",
+  "filas": [
+   [
+    1,
+    1,
+    "Aparecen unos pueblerinos con horcas dispuestos a despacharos. No están muy preparados."
+   ],
+   [
+    2,
+    2,
+    "Un solitario aventurero, a la cabeza de unos cuantos ayudantes, explora vuestra mazmorra."
+   ],
+   [
+    3,
+    3,
+    "Una sala o dos se inundan hasta la altura de la cadera. Perdéis los beneficios de estas salas durante un ciclo."
+   ],
+   [
+    4,
+    4,
+    "Un lobo agresivo vaga hasta vuestra mazmorra, buscando un lugar para dormir."
+   ],
+   [
+    5,
+    5,
+    "Los duendes rompen uno de los objetos más importantes de la mazmorra mientras lo transportan."
+   ],
+   [
+    6,
+    6,
+    "Un hedor terrible invade vuestra mazmorra y disminuye la productividad hasta que encontréis su origen."
+   ],
+   [
+    7,
+    7,
+    "Una de las salas de la mazmorra se vuelve inestable, de tal modo que debéis pagar el precio para usarla."
+   ],
+   [
+    8,
+    8,
+    "Unas zarzas de hiedra venenosa invade la entrada. No os daréis cuenta hasta que vayáis de incursión."
+   ],
+   [
+    9,
+    9,
+    "Una facción oscura llega a la mazmorra, exigiendo una audiencia de inmediato."
+   ],
+   [
+    10,
+    10,
+    "El sonido de los escarabajos copulando os impide dormir. Todo el mundo sufre conmoción en sesos."
+   ],
+   [
+    11,
+    11,
+    "Unas plantas carnívoras emergen del techo de un pasillo muy transitado, buscando alimento."
+   ],
+   [
+    12,
+    12,
+    "Un pequeño incendio retrasa el reloj de un proyecto dos segmentos."
+   ],
+   [
+    13,
+    13,
+    "Vuestros duendes cavan un túnel entre dos zonas delicadas al azar y las conectan entre sí."
+   ],
+   [
+    14,
+    14,
+    "Unos esbirros conflictivos rompen una sala de la mazmorra; es necesario hacer reparaciones antes de volver a usarla (proyecto de nivel 1)."
+   ],
+   [
+    15,
+    15,
+    "Una criatura devora a una gran cantidad de duendes. Perdéis la acción de descanso de los duendes durante la siguiente fase de acecho."
+   ],
+   [
+    16,
+    16,
+    "Como los duendes no paran de caer en una trampa, esta se rompe y pierde un nivel."
+   ],
+   [
+    17,
+    17,
+    "Una facción oscura que ha sido vuestra aliada o neutral hacia vosotros se vuelve hostil."
+   ],
+   [
+    18,
+    18,
+    "Un duende escribe la solución a uno de vuestros trucos en la pared para que no se le olvide cómo evitarlo. El truco pierde un nivel."
+   ],
+   [
+    19,
+    19,
+    "Un pequeño terremoto rompe una poción o mejunje del inventario de un PJ y le afecta de inmediato."
+   ],
+   [
+    20,
+    20,
+    "Una panda de esbirros decide que ya han tenido suficiente y deserta."
+   ],
+   [
+    21,
+    21,
+    "Una panda de esbirros pierde una de sus mejoras por culpa de un accidente (o actividades, como apostar)."
+   ],
+   [
+    22,
+    22,
+    "Una panda de esbirros se marchó de la mazmorra y asaltó una pequeña granja. Resolved inmediatamente una represalia menor."
+   ],
+   [
+    23,
+    23,
+    "Un PJ cae sobre un pozo de líquido o se queda colgando en un agujero, desde un saliente. Comenzad un reloj de 4 segmentos: «Muerte»."
+   ],
+   [
+    24,
+    24,
+    "Dos pandas de esbirros empiezan a pelearse. Si no hacéis nada, se matarán."
+   ],
+   [
+    25,
+    25,
+    "En uno de vuestros túneles se abren agujeros en el suelo, lo que resulta peligroso."
+   ],
+   [
+    26,
+    26,
+    "Un puente u otra estructura simple se derrumba y causa el estado reventado a una panda de esbirros."
+   ],
+   [
+    27,
+    27,
+    "Una emboscada aguarda cerca en la entrada de la mazmorra para cuando salgáis en vuestra siguiente incursión."
+   ],
+   [
+    28,
+    28,
+    "Uno de vuestros portones se rompe por completo; no os dais cuenta hasta la siguiente invasión."
+   ],
+   [
+    29,
+    29,
+    "Una de vuestras criaturas deambula por los pasillos hasta que encuentra a otra criatura o a algún esbirro y lo devora."
+   ],
+   [
+    30,
+    30,
+    "Una pared se derrumba y entierra a uno de los malvados. Iniciad un reloj de cuatro segmentos: «Asfixia»."
+   ],
+   [
+    31,
+    31,
+    "Un solitario ladrón enano excava un túnel directamente hasta vuestro santuario mientras estáis todos durmiendo."
+   ],
+   [
+    32,
+    32,
+    "Uno de los duendes os revela que un par de pandas de esbirros planean saquear el tesoro."
+   ],
+   [
+    33,
+    33,
+    "Una panda de esbirros traiciona a un PJ y le tiende una emboscada en una situación sumamente vulnerable."
+   ],
+   [
+    34,
+    34,
+    "Una facción oscura exige que les devolváis los esbirros que les pertenecen."
+   ],
+   [
+    35,
+    35,
+    "El techo de un túnel se derrumba y bloquea por completo un pasadizo."
+   ],
+   [
+    36,
+    36,
+    "Unos temblores provocan que la guarida de una criatura colapse. La guarida y la criatura pierden un nivel."
+   ]
+  ]
+ },
+ {
+  "clave": "desastres-graves",
+  "nombre": "Desastres graves (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 367,
+  "descripcion": "Es mejor que las invasiones las decida el DJ, sin hacer tiradas.",
+  "filas": [
+   [
+    1,
+    1,
+    "La reina araña y sus crías se infiltran a través de un nuevo agujero en la pared. ¿Se puede negociar con ella?"
+   ],
+   [
+    2,
+    2,
+    "Un enorme oso entra en la mazmorra, buscando un nuevo hogar."
+   ],
+   [
+    3,
+    3,
+    "Un hechicero muy poderoso y su gólem protector se teletransportan a un punto al azar del primer nivel de la mazmorra."
+   ],
+   [
+    4,
+    4,
+    "Vuestros duendes y esbirros se arman y van hacia el santuario. ¡Es una revuelta!"
+   ],
+   [
+    5,
+    5,
+    "Se filtra gas inflamable en vuestra mazmorra. Su olor es bastante notorio. Iniciad un reloj de seis segmentos: «¡Bum!»."
+   ],
+   [
+    6,
+    6,
+    "Los duendes os informan de que un par de pandas de esbirros se han marchado de la mazmorra con una cantidad de vuestro tesoro equivalente a un nivel."
+   ],
+   [
+    7,
+    7,
+    "Unos temblores abren una segunda entrada a vuestra mazmorra y destruyen muchas de vuestras defensas."
+   ],
+   [
+    8,
+    8,
+    "Unos esbirros traicioneros se marchan con gran parte de vuestro tesoro, lo suficiente como para que la mazmorra baje un nivel."
+   ],
+   [
+    9,
+    9,
+    "Una criatura hambrienta se abalanza sobre un PJ y lo deja reventado. Después, busca el siguiente plato."
+   ],
+   [
+    10,
+    10,
+    "Unas larvas se desplazan por debajo de las paredes de vuestra mazmorra mientras inician su metamorfosis en escarabajos."
+   ],
+   [
+    11,
+    11,
+    "Moho tóxico con consciencia propia se infiltra en vuestra mazmorra y causa alucinaciones graves. Se le debe alimentar."
+   ],
+   [
+    12,
+    12,
+    "Se abre un portal en vuestro santuario y varios ladrones arcanos se cuelan en la sala mientras dormís."
+   ],
+   [
+    13,
+    13,
+    "Un liche con una horda de esqueletos aparece en la entrada de la mazmorra."
+   ],
+   [
+    14,
+    14,
+    "Todas las facciones comprueban de inmediato sus relojes, ya que habéis estado demasiado tiempo en vuestra mazmorra."
+   ],
+   [
+    15,
+    15,
+    "Los planes de la facción más problemática dan sus frutos, motivada por la presencia de vuestra mazmorra."
+   ],
+   [
+    16,
+    16,
+    "Un fantasma posee a un PJ, ya sea intencionadamente o por venganza. ¿A quién debe atormentar el personaje?"
+   ],
+   [
+    17,
+    17,
+    "Las lluvias torrenciales inundan temporalmente la mazmorra. No se puede detener la inundación, solo soportarla."
+   ],
+   [
+    18,
+    18,
+    "Los esbirros, de fiesta, han destruido por completo una de las salas de nivel 2. Y la fiesta sigue."
+   ],
+   [
+    19,
+    19,
+    "Una facción oscura llega hasta vosotros buscando ayuda con un problema que os queda demasiado grande."
+   ],
+   [
+    20,
+    20,
+    "Los habitantes de la mazmorra están aburridos y exigen que los entretengan, o de lo contrario, se rebelarán."
+   ],
+   [
+    21,
+    21,
+    "Un rey de las ratas gigantesco irrumpe en la mazmorra y circula por ella a toda velocidad."
+   ],
+   [
+    22,
+    22,
+    "Se infiltra en la mazmorra un ladrón muy hábil (de nivel 4 con 6 movimientos); conoce bien la mazmorra y cuenta con un pergamino de teletransporte."
+   ],
+   [
+    23,
+    23,
+    "Una hechicera se topó con un par de pandas de vuestros esbirros en el exterior. Tras dominarlos, viene a invadir la mazmorra."
+   ],
+   [
+    24,
+    24,
+    "Unos ingenieros gnomos atraviesan una pared con su máquina de excavar túneles, dispuestos a luchar."
+   ],
+   [
+    25,
+    25,
+    "Comienza un incendio que destruye una sala de nivel 1 o 2 y amenaza con expandirse rápidamente por toda la mazmorra."
+   ],
+   [
+    26,
+    26,
+    "La criatura más grande de la mazmorra devora a la segunda más grande; eso no detiene su cacería."
+   ],
+   [
+    27,
+    27,
+    "Otro grupo de malvados se dirige a saquear vuestra mazmorra junto a sus esbirros."
+   ],
+   [
+    28,
+    28,
+    "Una gran facción oscura rodea la entrada y exige una cantidad de tesoro equivalente a un nivel como tributo."
+   ],
+   [
+    29,
+    29,
+    "Un demonio mayor aparece en vuestro santuario entre llamas de azufre y exige ponerse al cargo."
+   ],
+   [
+    30,
+    30,
+    "Un adivino, con el conocimiento de los mecanismos de vuestra mazmorra, lidera un ataque contra vosotros."
+   ],
+   [
+    31,
+    31,
+    "Una de las salas de nivel 3 de la mazmorra queda destruida, por lo que será necesario reunir más materiales y construirla de nuevo."
+   ],
+   [
+    32,
+    32,
+    "Un par de pandas de esbirros secuestran a un PJ; tienen una lista de exigencias."
+   ],
+   [
+    33,
+    33,
+    "Los habitantes de la mazmorra están famélicos. Tendréis que emprender una incursión por comida o afrontar la muerte por inanición."
+   ],
+   [
+    34,
+    34,
+    "Se abre un agujero en la pared y un río de lava empieza a fluir por vuestra mazmorra."
+   ],
+   [
+    35,
+    35,
+    "Un suministro compartido o regular que tengáis se echa a perder, lo roban, o se agota."
+   ],
+   [
+    36,
+    36,
+    "Una gran manada de chacales persigue a una panda de esbirros hasta vuestra mazmorra."
+   ]
+  ]
+ },
+ {
+  "clave": "descubrimientos-exito",
+  "nombre": "Descubrimientos con éxito (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 368,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Los restos del santuario de una antigua mazmorra, con una pequeña cantidad de oro. Todos hacéis una tirada de botín de 3d."
+   ],
+   [
+    2,
+    2,
+    "Una sala que perteneció a un templo profanado al dios de la cantería (una sala de templo al azar de nivel 3)."
+   ],
+   [
+    3,
+    3,
+    "Una sala perfectamente esférica, en cuyo centro flota un artefacto antigravitatorio que gira con gran rapidez."
+   ],
+   [
+    4,
+    4,
+    "Un largo túnel que conduce fuera del mapa hasta otra mazmorra cercana, cuyos integrantes están dispuestos a colaborar con vosotros."
+   ],
+   [
+    5,
+    5,
+    "Una gran colonia de murciélagos; criaturas que os ofrecen un suministro regular de guano (criatura)."
+   ],
+   [
+    6,
+    6,
+    "Un gigantesco depósito de armas antiguas que os provee un suministro compartido de armas, además de una enorme catapulta."
+   ],
+   [
+    7,
+    7,
+    "Los restos de un nido de ciempiés, con varios ejemplares gigantes (criatura)."
+   ],
+   [
+    8,
+    8,
+    "Esta sala perteneció a un viejo gnomo inventor (una sala de forja al azar de nivel 3)."
+   ],
+   [
+    9,
+    9,
+    "Un largo túnel que conduce fuera del mapa, hasta las cercanías de un cónclave de elfos oscuros que tratan con secretos mágicos."
+   ],
+   [
+    10,
+    10,
+    "Un lago de aguas negras, hogar de hadas oscuras, capaz de curar el estado reventado una vez por ciclo."
+   ],
+   [
+    11,
+    11,
+    "Una sala anodina con una entrada y tres salidas. Cada salida os teletransporta a un lugar diferente de la mazmorra."
+   ],
+   [
+    12,
+    12,
+    "Una cueva natural, ideal como guarida para esbirros, que ofrece un suministro regular de comida (sala de nivel 2)."
+   ],
+   [
+    13,
+    13,
+    "Un río de lava que fluye por la mazmorra y protege a la perfección una zona que antes era delicada."
+   ],
+   [
+    14,
+    14,
+    "Una sala que solía pertenecer a una antigua base revolucionaria (una sala de escondrijo al azar de nivel 3) ."
+   ],
+   [
+    15,
+    15,
+    "Un antiguo embarcadero fluvial aún con unos cuantos botes. El río conecta con varias facciones oscuras subterráneas que se encuentran lejos."
+   ],
+   [
+    16,
+    16,
+    "Cualquiera con un buen corazón que se ahogue en esta laguna resucitará como un necrófago, una criatura de nivel 2 bajo vuestro control."
+   ],
+   [
+    17,
+    17,
+    "Un pozo de limo que escupe algunos duendes de limo. Vuestros duendes ganan +1d durante su acción de descanso."
+   ],
+   [
+    18,
+    18,
+    "Esta celda contiene a un antiguo vampiro; está dispuesto a aliarse con vosotros si lo liberáis."
+   ],
+   [
+    19,
+    19,
+    "Una pequeña colonia minera enana se encuentra al otro lado de una delgada pared, al extremo de este túnel, completamente ignorantes de ello."
+   ],
+   [
+    20,
+    20,
+    "Esta sala perteneció a una antigua fortaleza enana (una sala de fortaleza al azar de nivel 3)."
+   ],
+   [
+    21,
+    21,
+    "Una caverna grande y muy fría, con afilados témpanos de hielo colgando del techo."
+   ],
+   [
+    22,
+    22,
+    "Unas antiguas criptas llenas de muertos. Podéis reclutar zombis prescindibles como esbirros de forma gratuita en esta sala."
+   ],
+   [
+    23,
+    23,
+    "Una estatua de un dios olvidado. Cualquier PJ que empiece a adorarlo obtiene un espacio adicional para corazones oscuros."
+   ],
+   [
+    24,
+    24,
+    "Una colección enterrada de pociones que os otorga tres suministros compartidos, cada uno de una poción al azar."
+   ],
+   [
+    25,
+    25,
+    "Un portal de una sola dirección que va desde la mazmorra hasta una ubicación oculta y muy importante del entorno."
+   ],
+   [
+    26,
+    26,
+    "Un túnel, convenientemente colocado, que conduce a una pequeña laguna llena de cráneos pulidos (una sala menor de nivel 1)."
+   ],
+   [
+    27,
+    27,
+    "Una antigua cámara de tortura con un ser celestial inmortal atrapado en el potro (una sala de nivel 2)."
+   ],
+   [
+    28,
+    28,
+    "Un portal de dos direcciones que va desde la mazmorra a una ubicación neutral y oculta del entorno."
+   ],
+   [
+    29,
+    29,
+    "Una cámara mágica; todas las heridas aquí sufridas se curan inmediatamente al abandonarla."
+   ],
+   [
+    30,
+    30,
+    "Esta sala perteneció a un aquelarre extinto hace tiempo (una sala de enclave al azar de nivel 3)."
+   ],
+   [
+    31,
+    31,
+    "El Orbe de las Tormentas, un objeto mágico de nivel 3, descansa sobre un pedestal en el centro de esta cámara subterránea."
+   ],
+   [
+    32,
+    32,
+    "Una pila de gemas yace tras un antiguo trono. Cada PJ consigue 2 oro."
+   ],
+   [
+    33,
+    33,
+    "Hay un cofre en el centro de la sala. Sin embargo, al acercaros, el mímico sonríe."
+   ],
+   [
+    34,
+    34,
+    "La guarida de una serpiente enorme e inteligente que parece amistosa."
+   ],
+   [
+    35,
+    35,
+    "Esta cueva parece haber sido antaño un taller, pero explotó; aún se conserva un artefacto al azar de nivel 3."
+   ],
+   [
+    36,
+    36,
+    "Una sala con una colección de libros que os permiten determinar tres hechos secretos sobre la historia de la región."
+   ]
+  ]
+ },
+ {
+  "clave": "descubrimientos-parcial",
+  "nombre": "Descubrimientos con éxito parcial (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 369,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Unos deliciosos hongos brillantes decoran las paredes de este túnel, que os proporciona un suministro regular."
+   ],
+   [
+    2,
+    2,
+    "Un lago de ácido burbujeante llena el aire de la caverna con gases venenosos."
+   ],
+   [
+    3,
+    3,
+    "Una corriente rápida choca contra las enormes rocas puntiagudas que conforman un puente no muy fiable."
+   ],
+   [
+    4,
+    4,
+    "Este alijo enterrado, abandonado por bandidos, supone un suministro compartido de licor y tabaco."
+   ],
+   [
+    5,
+    5,
+    "Un pequeño arroyo de sangre pura borbotea de la pared, desciende por un túnel y desaparece por otra pared."
+   ],
+   [
+    6,
+    6,
+    "Esta caverna está llena de hongos sintientes que se alimentan de magia, por lo que en esta zona, la magia es muy débil."
+   ],
+   [
+    7,
+    7,
+    "Un serpenteante río subterráneo lleno de enormes salamandras agresivas."
+   ],
+   [
+    8,
+    8,
+    "Una caverna con un techo muy alto, cuyo eco es tan poderoso que tiembla toda vuestra mazmorra."
+   ],
+   [
+    9,
+    9,
+    "Un lago con un gran remolino que teletransporta a cualquiera que absorba a un lugar aleatorio de la mazmorra."
+   ],
+   [
+    10,
+    10,
+    "Las ruinas de un antiguo naufragio con piratas zombi en su interior. No pueden abandonar los restos del barco."
+   ],
+   [
+    11,
+    11,
+    "Una caverna llena de cristales que brillan con luz cegadora."
+   ],
+   [
+    12,
+    12,
+    "Una antigua prisión con dos de sus cerraduras oxidadas. Hay esqueletos de gigantes en sus celdas."
+   ],
+   [
+    13,
+    13,
+    "La forma de esta sala es un cuadrado perfecto. De su techo cuelgan decenas de esferas mágicas brillantes."
+   ],
+   [
+    14,
+    14,
+    "Un antiguo invernadero gnomo con iluminación artificial y todo, que os ofrece un suministro regular de zanahorias."
+   ],
+   [
+    15,
+    15,
+    "Una sala redonda cuyas paredes son magnéticas. Resulta increíblemente difícil moverse en su interior llevando algo metálico."
+   ],
+   [
+    16,
+    16,
+    "A través de este sinuoso y largo túnel, oís los susurros demenciales de quien lo construyó."
+   ],
+   [
+    17,
+    17,
+    "Un pequeño sistema de túneles cuyo eco confunde a quien se encuentre en su interior."
+   ],
+   [
+    18,
+    18,
+    "Unos antiguos túneles de criptas con muchas tumbas; algunas de ellas profanadas y saqueadas."
+   ],
+   [
+    19,
+    19,
+    "Una corriente lenta con un punto de pesca perfecto que os ofrece un suministro regular de peces cavernarios."
+   ],
+   [
+    20,
+    20,
+    "Un antiguo almacén, mayormente hundido bajo el agua. Hay cajas viejas y barriles flotando."
+   ],
+   [
+    21,
+    21,
+    "Una pequeña caverna con un techo muy alto que está erosionado por el géiser del centro de la sala."
+   ],
+   [
+    22,
+    22,
+    "Un río de lava comienza en un lugar del mapa y va hacia el otro extremo. Unos comerciantes magmins lo usan como ruta comercial."
+   ],
+   [
+    23,
+    23,
+    "Una segunda entrada a vuestra mazmorra; da a una zona relativamente segura."
+   ],
+   [
+    24,
+    24,
+    "En el centro de esta gran caverna hay un enorme agujero. De él surge un aire gélido y nieve."
+   ],
+   [
+    25,
+    25,
+    "Un conjunto de túneles llenos de espejos rotos a lo largo de las paredes; confunden a todo el que entre."
+   ],
+   [
+    26,
+    26,
+    "Un suministro compartido de bolsas llenas de ópalo se encuentran dispersas por el suelo de este túnel retorcido."
+   ],
+   [
+    27,
+    27,
+    "Una pequeña caverna con un jardín natural creado gracias a la luz del sol que penetra por un agujero en el techo."
+   ],
+   [
+    28,
+    28,
+    "Una cascada de barro desciende por el lateral de una gran caverna y termina en el límite del mapa."
+   ],
+   [
+    29,
+    29,
+    "Una gran cascada acaba en un lago; crea arcoíris en el aire gracias a la luz."
+   ],
+   [
+    30,
+    30,
+    "Una sala sencilla, de forma cuadrada, con una oscuridad mágica tan densa que ninguna luz puede penetrarla."
+   ],
+   [
+    31,
+    31,
+    "Es una caverna llena de estalactitas; su goteo forma charcos de lodo brillante."
+   ],
+   [
+    32,
+    32,
+    "Una zigzagueante cueva llena de agujeros en las paredes por los que sale humo."
+   ],
+   [
+    33,
+    33,
+    "Un agujero profundo y oscuro con una pequeña luz brillante al fondo."
+   ],
+   [
+    34,
+    34,
+    "Un laberinto de túneles donde falta su minotauro, muerto hace mucho tiempo."
+   ],
+   [
+    35,
+    35,
+    "Un portal de dos direcciones lleva a una zona oculta y prácticamente inútil de la región."
+   ],
+   [
+    36,
+    36,
+    "Los gases que surgen desde las profundidades a través de un agujero han prendido una eterna llama de color azul brillante."
+   ]
+  ]
+ },
+ {
+  "clave": "descubrimientos-fracaso",
+  "nombre": "Descubrimientos con fracaso (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 370,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Un tipo de moho agresivo deteriora rápidamente cualquier comida que traigáis a esta sala."
+   ],
+   [
+    2,
+    2,
+    "Es una pequeña cueva circular con un agujero en su techo que lleva directamente a la superficie."
+   ],
+   [
+    3,
+    3,
+    "Varios pixis cavernarios viven en una serie de agujeros de las paredes de este conjunto de pequeños túneles; roban a los seres malvados."
+   ],
+   [
+    4,
+    4,
+    "Un río ancho con una corriente demasiado poderosa como para cruzarlo a nado limita la expansión de vuestra mazmorra."
+   ],
+   [
+    5,
+    5,
+    "El almacén de un antiguo gnomo inventor que alberga un enorme autómata hostil."
+   ],
+   [
+    6,
+    6,
+    "Este antiguo santuario solía pertenecer a una catedral a la que ningún ser de corazón malvado puede entrar."
+   ],
+   [
+    7,
+    7,
+    "En el centro de esta sala hay un gran bloque de hielo que se está derritiendo rápidamente y en cuyo interior se encuentra una heroica hechicera."
+   ],
+   [
+    8,
+    8,
+    "Un pozo de alquitrán que emite hedores asquerosos ocupa un lugar muy inconveniente de vuestra mazmorra."
+   ],
+   [
+    9,
+    9,
+    "Este gran agujero en la pared emite grandes cantidades de humo que invade vuestra mazmorra."
+   ],
+   [
+    10,
+    10,
+    "Un túnel natural que conecta entre sí dos o tres zonas delicadas."
+   ],
+   [
+    11,
+    11,
+    "En este río vive un caimán cavernario gigante; atrapa ocasionalmente a quienes se acercan demasiado."
+   ],
+   [
+    12,
+    12,
+    "Este túnel lleva a la entrada de una colonia de hormigas gigantes que se están preparando para invadir vuestra mazmorra."
+   ],
+   [
+    13,
+    13,
+    "Una celda enterrada con un diablo atrapado; exige que le cedáis el control de la mazmorra."
+   ],
+   [
+    14,
+    14,
+    "Un túnel con un agujero en el centro de la pared del fondo; de vez en cuando surgen gusanos carnívoros."
+   ],
+   [
+    15,
+    15,
+    "Un pasadizo lleno de estatuas heroicas que, si se profanan, pueden cobrar vida y atacaros o unirse a una invasión."
+   ],
+   [
+    16,
+    16,
+    "Esta cámara acoge a una reliquia sagrada inteligente, que alertará a los miembros de su fe que se encuentren cerca."
+   ],
+   [
+    17,
+    17,
+    "Un barril explosivo, que se encuentra en este antiguo almacén, estalla y destruye varios túneles y paredes de la mazmorra."
+   ],
+   [
+    18,
+    18,
+    "De cuando en cuando, elementales de magma surgen de este río de lava y corretean por la mazmorra, prendiéndole fuego a sus contenidos."
+   ],
+   [
+    19,
+    19,
+    "Este túnel conduce a una base rebelde subterránea, liderada por la hija ilegítima del señor de la zona."
+   ],
+   [
+    20,
+    20,
+    "Una estatua mágica de un dios olvidado; causa el estado reventado a todo el que entre en la sala y tenga corazón maligno."
+   ],
+   [
+    21,
+    21,
+    "Este portal, de una sola dirección, conduce a vuestra mazmorra desde una zona bien protegida que hay al otro lado."
+   ],
+   [
+    22,
+    22,
+    "Un altar de vigor; permite a un aventurero recuperar uno de sus movimientos usados, pero solo una vez por ciclo. Es muy inestable si se intenta destruir."
+   ],
+   [
+    23,
+    23,
+    "El campamento de unos enanos oscuros; es el puesto de avanzada de un asentamiento aún más grande."
+   ],
+   [
+    24,
+    24,
+    "Una fisura cuyos lados rozan lentamente entre sí. Cualquier movimiento causa terremotos."
+   ],
+   [
+    25,
+    25,
+    "Un lago salobre lleno de tiburones cavernarios que bloquea la expansión de la mazmorra."
+   ],
+   [
+    26,
+    26,
+    "Una compleja red de conductos conecta varios puntos delicados de la mazmorra."
+   ],
+   [
+    27,
+    27,
+    "El laboratorio oculto y la mina de cobre de un inventor gnomo, llenos de constructos aún funcionales"
+   ],
+   [
+    28,
+    28,
+    "Un altar curativo, capaz de recuperar un corazón perdido a un único aventurero, pero solo una vez por ciclo. Es muy inestable si se intenta destruir."
+   ],
+   [
+    29,
+    29,
+    "Una caverna sinuosa, llena de hongos cuyas esporas venenosas de vez en cuando se expanden por la mazmorra."
+   ],
+   [
+    30,
+    30,
+    "Un gran pozo de cieno que se alimenta de cadáveres; es muy inestable si pasa hambre durante bastante tiempo."
+   ],
+   [
+    31,
+    31,
+    "Un agujero gigante del que surgen potentes vientos que surcan la mazmorra."
+   ],
+   [
+    32,
+    32,
+    "Un cristal hostil y capaz de controlar mentes yace sobre unos cojines y alfombras fantásticas."
+   ],
+   [
+    33,
+    33,
+    "Un túnel lleno de hongos que emiten esporas alucinógenas."
+   ],
+   [
+    34,
+    34,
+    "Se abre una segunda entrada a vuestra mazmorra, pero la ubicación es horrible."
+   ],
+   [
+    35,
+    35,
+    "Un enorme pozo de limo que escupe bolas de limo a cualquiera que lo cruce."
+   ],
+   [
+    36,
+    36,
+    "El nido de una araña gigante; se alimentará de vuestros esbirros si no se le aplaca."
+   ]
+  ]
+ },
+ {
+  "clave": "desastre-aleatorio",
+  "nombre": "Desastre aleatorio (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 247,
+  "descripcion": "La categoría del desastre (pág. 247).",
+  "filas": [
+   [
+    1,
+    1,
+    "Invasión de la mazmorra."
+   ],
+   [
+    2,
+    2,
+    "Invasión de la mazmorra."
+   ],
+   [
+    3,
+    3,
+    "Problema con los habitantes."
+   ],
+   [
+    4,
+    4,
+    "Problema con los habitantes."
+   ],
+   [
+    5,
+    5,
+    "Poblema estructural."
+   ],
+   [
+    6,
+    6,
+    "Interferencia del exterior."
+   ]
+  ]
+ },
+ {
+  "clave": "represalia-aleatoria",
+  "nombre": "Represalias aleatorias (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 268,
+  "descripcion": "La categoría de la represalia (pág. 268).",
+  "filas": [
+   [
+    1,
+    1,
+    "Invasión de la mazmorra."
+   ],
+   [
+    2,
+    2,
+    "Invasión de la mazmorra."
+   ],
+   [
+    3,
+    3,
+    "Invasión de la mazmorra."
+   ],
+   [
+    4,
+    4,
+    "Problemas durante el viaje."
+   ],
+   [
+    5,
+    5,
+    "Entorno/Facciones"
+   ],
+   [
+    6,
+    6,
+    "Emboscada/Secuestro."
+   ]
+  ]
+ },
+ {
+  "clave": "solo-desastre",
+  "nombre": "Partidas en solitario: desastre aleatorio (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 353,
+  "descripcion": "Variante de El gran malo malvado (pág. 353).",
+  "filas": [
+   [
+    1,
+    1,
+    "Invasión de la mazmorra"
+   ],
+   [
+    2,
+    2,
+    "Invasión de la mazmorra"
+   ],
+   [
+    3,
+    3,
+    "Problema con los habitantes de la mazmorra o un desastre al azar"
+   ],
+   [
+    4,
+    4,
+    "Problema con los habitantes de la mazmorra o un desastre al azar"
+   ],
+   [
+    5,
+    5,
+    "Problemas estructurales o un desastre al azar"
+   ],
+   [
+    6,
+    6,
+    "Interferencia del exterior o un desastre al azar"
+   ]
+  ]
+ },
+ {
+  "clave": "solo-represalia",
+  "nombre": "Partidas en solitario: represalia aleatoria (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 353,
+  "descripcion": "Variante de El gran malo malvado (pág. 353).",
+  "filas": [
+   [
+    1,
+    1,
+    "Invasión de la mazmorra"
+   ],
+   [
+    2,
+    2,
+    "Invasión de la mazmorra"
+   ],
+   [
+    3,
+    3,
+    "Invasión de la mazmorra"
+   ],
+   [
+    4,
+    4,
+    "Problemas durante el viaje o represalia al azar"
+   ],
+   [
+    5,
+    5,
+    "Entorno/Facciones o represalia al azar"
+   ],
+   [
+    6,
+    6,
+    "Emboscada/Secuestro o represalia al azar"
+   ]
+  ]
+ },
+ {
+  "clave": "rasgos-duendes",
+  "nombre": "Generador de mazmorras: rasgos de los duendes (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Ingeniosos"
+   ],
+   [
+    2,
+    2,
+    "Cobardes"
+   ],
+   [
+    3,
+    3,
+    "Crueles"
+   ],
+   [
+    4,
+    4,
+    "Serviciales"
+   ],
+   [
+    5,
+    5,
+    "Ruidosos"
+   ],
+   [
+    6,
+    6,
+    "Problemáticos"
+   ],
+   [
+    7,
+    7,
+    "Irritantes"
+   ],
+   [
+    8,
+    8,
+    "Chalados"
+   ],
+   [
+    9,
+    9,
+    "Estúpidos"
+   ],
+   [
+    10,
+    10,
+    "Ariscos"
+   ],
+   [
+    11,
+    11,
+    "Incansables"
+   ],
+   [
+    12,
+    12,
+    "Vagos"
+   ]
+  ]
+ },
+ {
+  "clave": "tematica",
+  "nombre": "Generador de mazmorras: temática de la mazmorra (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Enclave"
+   ],
+   [
+    2,
+    2,
+    "Escondrijo"
+   ],
+   [
+    3,
+    3,
+    "Forja"
+   ],
+   [
+    4,
+    4,
+    "Fortaleza"
+   ],
+   [
+    5,
+    5,
+    "Templo"
+   ],
+   [
+    6,
+    6,
+    "Sin función principal"
+   ]
+  ]
+ },
+ {
+  "clave": "iluminacion",
+  "nombre": "Generador de mazmorras: iluminación (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Antorchas en las paredes"
+   ],
+   [
+    2,
+    2,
+    "Ríos de lava"
+   ],
+   [
+    3,
+    3,
+    "Iluminación mágica"
+   ],
+   [
+    4,
+    4,
+    "Hongos luminosos"
+   ],
+   [
+    5,
+    5,
+    "Duendes con lámparas"
+   ],
+   [
+    6,
+    6,
+    "Luciérnagas gigantes"
+   ]
+  ]
+ },
+ {
+  "clave": "rasgos-sala",
+  "nombre": "Generador de mazmorras: rasgos de la sala (1d20)",
+  "formula": "1d20",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Luminosa"
+   ],
+   [
+    2,
+    2,
+    "Abarrotada"
+   ],
+   [
+    3,
+    3,
+    "Fría"
+   ],
+   [
+    4,
+    4,
+    "Confusa"
+   ],
+   [
+    5,
+    5,
+    "Destruida"
+   ],
+   [
+    6,
+    6,
+    "Húmeda"
+   ],
+   [
+    7,
+    7,
+    "Mal iluminada"
+   ],
+   [
+    8,
+    8,
+    "Con eco"
+   ],
+   [
+    9,
+    9,
+    "Inundada"
+   ],
+   [
+    10,
+    10,
+    "Calurosa"
+   ],
+   [
+    11,
+    11,
+    "Infestada"
+   ],
+   [
+    12,
+    12,
+    "Con vegetación"
+   ],
+   [
+    13,
+    13,
+    "Ruidosa"
+   ],
+   [
+    14,
+    14,
+    "Silenciosa"
+   ],
+   [
+    15,
+    15,
+    "Cambiante"
+   ],
+   [
+    16,
+    16,
+    "Resbaladiza"
+   ],
+   [
+    17,
+    17,
+    "Inclinada"
+   ],
+   [
+    18,
+    18,
+    "Apestosa"
+   ],
+   [
+    19,
+    19,
+    "Escalofriante"
+   ],
+   [
+    20,
+    20,
+    "Ventosa"
+   ]
+  ]
+ },
+ {
+  "clave": "suelos-paredes",
+  "nombre": "Generador de mazmorras: suelos y paredes (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Piedra fría y húmeda"
+   ],
+   [
+    2,
+    2,
+    "Barro y raíces"
+   ],
+   [
+    3,
+    3,
+    "Obsidiana cálida"
+   ],
+   [
+    4,
+    4,
+    "Ladrillos mohosos"
+   ],
+   [
+    5,
+    5,
+    "Tierra sucia y madera"
+   ],
+   [
+    6,
+    6,
+    "Hielo y roca"
+   ]
+  ]
+ },
+ {
+  "clave": "olor",
+  "nombre": "Generador de mazmorras: olor (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 371,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Agua fétida"
+   ],
+   [
+    2,
+    2,
+    "Incienso insoportable"
+   ],
+   [
+    3,
+    3,
+    "Carne podrida"
+   ],
+   [
+    4,
+    4,
+    "Azufre"
+   ],
+   [
+    5,
+    5,
+    "Grasa y humo"
+   ],
+   [
+    6,
+    6,
+    "Nada"
+   ]
+  ]
+ },
+ {
+  "clave": "salas-n2",
+  "nombre": "Generador de mazmorras: salas de nivel 2 (1d6)",
+  "formula": "1d6",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Puesto de guardia"
+   ],
+   [
+    2,
+    2,
+    "Guarida de esbirro"
+   ],
+   [
+    3,
+    3,
+    "Prisión"
+   ],
+   [
+    4,
+    4,
+    "Cámara de tortura"
+   ],
+   [
+    5,
+    5,
+    "Dos salas de nivel 1"
+   ],
+   [
+    6,
+    6,
+    "Descubrimiento (2d). Tira otra vez."
+   ]
+  ]
+ },
+ {
+  "clave": "razas-esbirros",
+  "nombre": "Generador de mazmorras: razas de los esbirros (1d8)",
+  "formula": "1d8",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Demonio"
+   ],
+   [
+    2,
+    2,
+    "Gnoll"
+   ],
+   [
+    3,
+    3,
+    "Goblin"
+   ],
+   [
+    4,
+    4,
+    "Hobgoblin"
+   ],
+   [
+    5,
+    5,
+    "Kóbold"
+   ],
+   [
+    6,
+    6,
+    "Orco"
+   ],
+   [
+    7,
+    7,
+    "Osgo"
+   ],
+   [
+    8,
+    8,
+    "Sérpido"
+   ]
+  ]
+ },
+ {
+  "clave": "impulsos-esbirros",
+  "nombre": "Generador de mazmorras: impulsos de los esbirros (1d8)",
+  "formula": "1d8",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Adictos"
+   ],
+   [
+    2,
+    2,
+    "Agresivos"
+   ],
+   [
+    3,
+    3,
+    "Codiciosos"
+   ],
+   [
+    4,
+    4,
+    "Desleales"
+   ],
+   [
+    5,
+    5,
+    "Impacientes"
+   ],
+   [
+    6,
+    6,
+    "Inestables"
+   ],
+   [
+    7,
+    7,
+    "Perezosos"
+   ],
+   [
+    8,
+    8,
+    "Supersticiosos"
+   ]
+  ]
+ },
+ {
+  "clave": "mejoras-esbirros",
+  "nombre": "Generador de mazmorras: mejoras de los esbirros (1d8)",
+  "formula": "1d8",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Adeptos"
+   ],
+   [
+    2,
+    2,
+    "Adiestrados"
+   ],
+   [
+    3,
+    3,
+    "Don de lenguas"
+   ],
+   [
+    4,
+    4,
+    "Equipados"
+   ],
+   [
+    5,
+    5,
+    "Mentalidad"
+   ],
+   [
+    6,
+    6,
+    "Pertrechados"
+   ],
+   [
+    7,
+    7,
+    "Prescindibles"
+   ],
+   [
+    8,
+    8,
+    "Versátiles"
+   ]
+  ]
+ },
+ {
+  "clave": "salas-n1",
+  "nombre": "Generador de mazmorras: salas de nivel 1 (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Conducto"
+   ],
+   [
+    2,
+    2,
+    "Fuente (menor)"
+   ],
+   [
+    3,
+    3,
+    "Sala de trofeos (menor)"
+   ],
+   [
+    4,
+    4,
+    "Letrinas (menor)"
+   ],
+   [
+    5,
+    5,
+    "Túnel largo"
+   ],
+   [
+    6,
+    6,
+    "Comedor (menor)"
+   ],
+   [
+    7,
+    7,
+    "Sauna (menor)"
+   ],
+   [
+    8,
+    8,
+    "Pasaje secreto"
+   ],
+   [
+    9,
+    9,
+    "Construcción"
+   ],
+   [
+    10,
+    10,
+    "Pozo (menor)"
+   ],
+   [
+    11,
+    11,
+    "Ventana"
+   ],
+   [
+    12,
+    12,
+    "Descubrimiento (1d). Tira otra vez."
+   ]
+  ]
+ },
+ {
+  "clave": "salas-n3",
+  "nombre": "Generador de mazmorras: salas de nivel 3 (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Academia"
+   ],
+   [
+    2,
+    2,
+    "Antecámara"
+   ],
+   [
+    3,
+    3,
+    "Arsenal"
+   ],
+   [
+    4,
+    4,
+    "Barracones"
+   ],
+   [
+    5,
+    5,
+    "Biblioteca"
+   ],
+   [
+    6,
+    6,
+    "Cámara de pruebas"
+   ],
+   [
+    7,
+    7,
+    "Círculo de augurios"
+   ],
+   [
+    8,
+    8,
+    "Crisol"
+   ],
+   [
+    9,
+    9,
+    "Cuadra"
+   ],
+   [
+    10,
+    10,
+    "Cubil de engendros"
+   ],
+   [
+    11,
+    11,
+    "Descubrimiento (1d)"
+   ],
+   [
+    12,
+    12,
+    "Descubrimiento (3d) Tira otra vez."
+   ],
+   [
+    13,
+    13,
+    "Dojo"
+   ],
+   [
+    14,
+    14,
+    "Dormitorio"
+   ],
+   [
+    15,
+    15,
+    "Fábrica"
+   ],
+   [
+    16,
+    16,
+    "Foso de combate"
+   ],
+   [
+    17,
+    17,
+    "Fuente de clarividencia"
+   ],
+   [
+    18,
+    18,
+    "Galería"
+   ],
+   [
+    19,
+    19,
+    "Garito de juego"
+   ],
+   [
+    20,
+    20,
+    "Hangar"
+   ],
+   [
+    21,
+    21,
+    "Herrería"
+   ],
+   [
+    22,
+    22,
+    "Invernadero"
+   ],
+   [
+    23,
+    23,
+    "Laboratorio de alquimia"
+   ],
+   [
+    24,
+    24,
+    "Laboratorio de pociones"
+   ],
+   [
+    25,
+    25,
+    "Nido"
+   ],
+   [
+    26,
+    26,
+    "Pira fúnebre"
+   ],
+   [
+    27,
+    27,
+    "Pista de obstáculos"
+   ],
+   [
+    28,
+    28,
+    "Relicario"
+   ],
+   [
+    29,
+    29,
+    "Sala de la guerra"
+   ],
+   [
+    30,
+    30,
+    "Sala de penitencias"
+   ],
+   [
+    31,
+    31,
+    "Sala de planificación"
+   ],
+   [
+    32,
+    32,
+    "Salón gremial"
+   ],
+   [
+    33,
+    33,
+    "Scriptorium"
+   ],
+   [
+    34,
+    34,
+    "Taberna"
+   ],
+   [
+    35,
+    35,
+    "Taller"
+   ],
+   [
+    36,
+    36,
+    "Tambores de guerra"
+   ]
+  ]
+ },
+ {
+  "clave": "trabajos-esbirros",
+  "nombre": "Generador de mazmorras: trabajos de los esbirros (1d20)",
+  "formula": "1d20",
+  "d66": false,
+  "pagina": 372,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Acólitos"
+   ],
+   [
+    2,
+    2,
+    "Alquimistas"
+   ],
+   [
+    3,
+    3,
+    "Asesinos"
+   ],
+   [
+    4,
+    4,
+    "Brujos"
+   ],
+   [
+    5,
+    5,
+    "Bufones"
+   ],
+   [
+    6,
+    6,
+    "Conductores"
+   ],
+   [
+    7,
+    7,
+    "Estafadores"
+   ],
+   [
+    8,
+    8,
+    "Exploradores"
+   ],
+   [
+    9,
+    9,
+    "Guardaespaldas"
+   ],
+   [
+    10,
+    10,
+    "Ingenieros"
+   ],
+   [
+    11,
+    11,
+    "Ladrones"
+   ],
+   [
+    12,
+    12,
+    "Magos"
+   ],
+   [
+    13,
+    13,
+    "Matones"
+   ],
+   [
+    14,
+    14,
+    "Mensajeros"
+   ],
+   [
+    15,
+    15,
+    "Mineros"
+   ],
+   [
+    16,
+    16,
+    "Obreros"
+   ],
+   [
+    17,
+    17,
+    "Sacerdotes"
+   ],
+   [
+    18,
+    18,
+    "Saqueadores"
+   ],
+   [
+    19,
+    19,
+    "Tramperos"
+   ],
+   [
+    20,
+    20,
+    "Zapadores"
+   ]
+  ]
+ },
+ {
+  "clave": "trampa-mecanismo",
+  "nombre": "Generador de mazmorras: mecanismo de la trampa (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 373,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Muro aplastante"
+   ],
+   [
+    2,
+    2,
+    "Dardos"
+   ],
+   [
+    3,
+    3,
+    "Pinchos"
+   ],
+   [
+    4,
+    4,
+    "Roca"
+   ],
+   [
+    5,
+    5,
+    "Sierra"
+   ],
+   [
+    6,
+    6,
+    "Péndulo"
+   ],
+   [
+    7,
+    7,
+    "Gas"
+   ],
+   [
+    8,
+    8,
+    "Calambre"
+   ],
+   [
+    9,
+    9,
+    "Mangual"
+   ],
+   [
+    10,
+    10,
+    "Barril explosivo"
+   ],
+   [
+    11,
+    11,
+    "Pozo"
+   ],
+   [
+    12,
+    12,
+    "Suelo con cuchillas"
+   ]
+  ]
+ },
+ {
+  "clave": "porton-cierre",
+  "nombre": "Generador de mazmorras: mecanismo de cierre (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 373,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Arcano"
+   ],
+   [
+    2,
+    2,
+    "Barra"
+   ],
+   [
+    3,
+    3,
+    "Candado"
+   ],
+   [
+    4,
+    4,
+    "Cerradura de aro"
+   ],
+   [
+    5,
+    5,
+    "Cerrojo"
+   ],
+   [
+    6,
+    6,
+    "Contraseña"
+   ],
+   [
+    7,
+    7,
+    "Muescas"
+   ],
+   [
+    8,
+    8,
+    "Objeto pesado"
+   ],
+   [
+    9,
+    9,
+    "Placa de presión"
+   ],
+   [
+    10,
+    10,
+    "Polea"
+   ],
+   [
+    11,
+    11,
+    "Rompecabezas"
+   ],
+   [
+    12,
+    12,
+    "Temporizador"
+   ]
+  ]
+ },
+ {
+  "clave": "trampa-detonador",
+  "nombre": "Generador de mazmorras: detonador de la trampa (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 373,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Placa de presión"
+   ],
+   [
+    2,
+    2,
+    "Cordel"
+   ],
+   [
+    3,
+    3,
+    "Mágica"
+   ],
+   [
+    4,
+    4,
+    "Detección"
+   ],
+   [
+    5,
+    5,
+    "Ilusión"
+   ],
+   [
+    6,
+    6,
+    "Camuflaje"
+   ],
+   [
+    7,
+    7,
+    "Sonido"
+   ],
+   [
+    8,
+    8,
+    "Retirar un objeto"
+   ],
+   [
+    9,
+    9,
+    "Puerta falsa"
+   ],
+   [
+    10,
+    10,
+    "Centinela"
+   ],
+   [
+    11,
+    11,
+    "Puzle fallido"
+   ],
+   [
+    12,
+    12,
+    "Palanca falsa"
+   ]
+  ]
+ },
+ {
+  "clave": "porton-material",
+  "nombre": "Generador de mazmorras: material de la puerta (1d12)",
+  "formula": "1d12",
+  "d66": false,
+  "pagina": 373,
+  "descripcion": "",
+  "filas": [
+   [
+    1,
+    1,
+    "Barrotes"
+   ],
+   [
+    2,
+    2,
+    "Hueso"
+   ],
+   [
+    3,
+    3,
+    "Mecánica"
+   ],
+   [
+    4,
+    4,
+    "Cristal"
+   ],
+   [
+    5,
+    5,
+    "Gelatina"
+   ],
+   [
+    6,
+    6,
+    "Cuero"
+   ],
+   [
+    7,
+    7,
+    "Hielo"
+   ],
+   [
+    8,
+    8,
+    "Hierro"
+   ],
+   [
+    9,
+    9,
+    "Campo mágico"
+   ],
+   [
+    10,
+    10,
+    "Raíces"
+   ],
+   [
+    11,
+    11,
+    "Piedra"
+   ],
+   [
+    12,
+    12,
+    "Madera"
+   ]
+  ]
+ },
+ {
+  "clave": "criaturas",
+  "nombre": "Generador de mazmorras: criatura (d66)",
+  "formula": "1d36",
+  "d66": true,
+  "pagina": 373,
+  "descripcion": "Puede ser una sola criatura, un grupo o una horda.",
+  "filas": [
+   [
+    1,
+    1,
+    "Araña gigante"
+   ],
+   [
+    2,
+    2,
+    "Bandada de murciélagos"
+   ],
+   [
+    3,
+    3,
+    "Serpiente gigante"
+   ],
+   [
+    4,
+    4,
+    "Esqueleto"
+   ],
+   [
+    5,
+    5,
+    "Fantasma"
+   ],
+   [
+    6,
+    6,
+    "Sombra"
+   ],
+   [
+    7,
+    7,
+    "Cubo gelatinoso"
+   ],
+   [
+    8,
+    8,
+    "Escorpión gigante"
+   ],
+   [
+    9,
+    9,
+    "Rata gigante"
+   ],
+   [
+    10,
+    10,
+    "Basilisco"
+   ],
+   [
+    11,
+    11,
+    "Zombi"
+   ],
+   [
+    12,
+    12,
+    "Gárgola"
+   ],
+   [
+    13,
+    13,
+    "Mímico"
+   ],
+   [
+    14,
+    14,
+    "Elemental de fuego"
+   ],
+   [
+    15,
+    15,
+    "Elemental de agua"
+   ],
+   [
+    16,
+    16,
+    "Elemental de tierra"
+   ],
+   [
+    17,
+    17,
+    "Elemental de aire"
+   ],
+   [
+    18,
+    18,
+    "Trol de las cavernas"
+   ],
+   [
+    19,
+    19,
+    "Necrófago"
+   ],
+   [
+    20,
+    20,
+    "Serpiente de lava"
+   ],
+   [
+    21,
+    21,
+    "Monstruo de lodo"
+   ],
+   [
+    22,
+    22,
+    "Guerrero mecánico"
+   ],
+   [
+    23,
+    23,
+    "Monstruo oxidante"
+   ],
+   [
+    24,
+    24,
+    "Ciempiés gigante"
+   ],
+   [
+    25,
+    25,
+    "Ettercap"
+   ],
+   [
+    26,
+    26,
+    "Cieno"
+   ],
+   [
+    27,
+    27,
+    "Micónido"
+   ],
+   [
+    28,
+    28,
+    "Minotauro"
+   ],
+   [
+    29,
+    29,
+    "Mantoscuro"
+   ],
+   [
+    30,
+    30,
+    "Grick"
+   ],
+   [
+    31,
+    31,
+    "Carroñero reptante"
+   ],
+   [
+    32,
+    32,
+    "Huargo"
+   ],
+   [
+    33,
+    33,
+    "Estirge"
+   ],
+   [
+    34,
+    34,
+    "Quásit"
+   ],
+   [
+    35,
+    35,
+    "Limo"
+   ],
+   [
+    36,
+    36,
+    "Gorgona"
+   ]
+  ]
+ },
+ {
+  "clave": "rasgos-criaturas",
+  "nombre": "Generador de mazmorras: rasgos de las criaturas (1d20, dos por criatura)",
+  "formula": "1d20",
+  "d66": false,
+  "pagina": 373,
+  "descripcion": "Dos por criatura.",
+  "filas": [
+   [
+    1,
+    1,
+    "Astuta"
+   ],
+   [
+    2,
+    2,
+    "Corrupta"
+   ],
+   [
+    3,
+    3,
+    "Corrosiva"
+   ],
+   [
+    4,
+    4,
+    "Infecciosa"
+   ],
+   [
+    5,
+    5,
+    "Incorpórea"
+   ],
+   [
+    6,
+    6,
+    "Ardiente"
+   ],
+   [
+    7,
+    7,
+    "Heladora"
+   ],
+   [
+    8,
+    8,
+    "Mágica"
+   ],
+   [
+    9,
+    9,
+    "Viscosa"
+   ],
+   [
+    10,
+    10,
+    "Sigilosa"
+   ],
+   [
+    11,
+    11,
+    "Fuerte"
+   ],
+   [
+    12,
+    12,
+    "Horda"
+   ],
+   [
+    13,
+    13,
+    "Terrorífica"
+   ],
+   [
+    14,
+    14,
+    "Incansable"
+   ],
+   [
+    15,
+    15,
+    "Venenosa"
+   ],
+   [
+    16,
+    16,
+    "Ácida"
+   ],
+   [
+    17,
+    17,
+    "Asustadiza"
+   ],
+   [
+    18,
+    18,
+    "Mecánica"
+   ],
+   [
+    19,
+    19,
+    "Ruidosa"
+   ],
+   [
+    20,
+    20,
+    "Telepática"
+   ]
+  ]
+ }
+]

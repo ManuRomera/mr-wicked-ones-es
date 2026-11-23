@@ -31,7 +31,7 @@ export class TiradaMR extends App {
 
   /** @type {Actor|null} */
   actor = null;
-  e = { tipo: "accion", accion: null, ayuda: false, todo: false, pacto: false, corazon: false, extra: 0, posicion: "default", efecto: "default", mortal: false, moral: false, dadosFortuna: 2 };
+  e = { tipo: "accion", accion: null, ayuda: false, todo: false, equipo: false, pacto: false, corazon: false, extra: 0, posicion: "default", efecto: "default", mortal: false, moral: false, dadosFortuna: 2 };
 
   constructor(actor, inicial = {}, options = {}) {
     super(options);
@@ -96,6 +96,7 @@ export class TiradaMR extends App {
       <div class="mrg-trucos">
         <button type="button" class="mrg-btn" data-action="truco" data-valor="ayuda" aria-pressed="${e.ayuda}" title="Un aliado te echa una mano: +efecto, pero comparte la consecuencia."><i class="fa-solid fa-handshake-angle"></i><span class="mrg-t">Ayudar<small>+efecto</small></span></button>
         <button type="button" class="mrg-btn" data-action="truco" data-valor="todo" aria-pressed="${e.todo}" title="Prescindes de tu seguridad: +efecto, −situación."><i class="fa-solid fa-fire"></i><span class="mrg-t">Darlo todo<small>+efecto −situación</small></span></button>
+        <button type="button" class="mrg-btn" data-action="truco" data-valor="equipo" aria-pressed="${e.equipo}" data-ayuda="Trabajo en equipo||Cada PJ implicado tira con la misma acción y el grupo usa el mejor resultado individual. Quien saque un éxito parcial o un fracaso sufre estrés (pág. 63)."><i class="fa-solid fa-people-group"></i><span class="mrg-t">Trabajo en equipo<small>mejor resultado</small></span></button>
         ${btnPacto}${btnCorazon}${btnMoral}
       </div>` : e.tipo === "resistencia" ? `
       <div class="mrg-trucos">
@@ -125,7 +126,7 @@ export class TiradaMR extends App {
         <div class="mrg-pie"><button type="button" class="mrg-btn mrg-btn--sangre mrg-grande" data-action="tirar"><i class="fa-solid fa-dice"></i> Tirar</button></div>`;
     } else if (e.tipo === "resistencia") {
       cuerpo = `<h5 class="mrg-etiqueta">¿Con qué te resistes?</h5><div class="mrg-acciones">${colAcciones}</div>${trucos}${resumen}
-        <p class="mrg-nota mrg-regla">Fallo: 3 de Estrés · parcial: 2 · éxito: 1 · crítico: despejas 1.${e.mortal ? " <strong>Resistir la muerte</strong> no cuesta Estrés: decide si sobrevives." : ""}</p>
+        <p class="mrg-nota mrg-regla">Fracaso: 3 de estrés · parcial: 2 · éxito: 1 · crítico: recuperas 1.${e.mortal ? " <strong>Resistirse a la muerte</strong> cuesta lo mismo, pero con un parcial la consecuencia sigue siendo devastadora y con un fracaso sigues muriendo (golpe de gracia si te quedan corazones oscuros)." : ""}</p>
         <div class="mrg-pie"><button type="button" class="mrg-btn mrg-btn--sangre mrg-grande" data-action="tirar"><i class="fa-solid fa-shield-halved"></i> Resistir</button></div>`;
     } else {
       const efs = EFECTOS.slice().reverse();
@@ -169,7 +170,7 @@ export class TiradaMR extends App {
 
   async #lanzar() {
     const e = this.e;
-    const opts = { tipo: e.tipo, accion: e.accion, ayuda: e.ayuda, todo: e.todo, pacto: e.pacto, corazon: e.corazon, moral: e.moral, extra: e.extra, posicion: e.mortal && e.tipo === "resistencia" ? "deadly" : e.posicion, efecto: e.efecto };
+    const opts = { tipo: e.tipo, accion: e.accion, ayuda: e.ayuda, todo: e.todo, equipo: e.equipo, pacto: e.pacto, corazon: e.corazon, moral: e.moral, extra: e.extra, posicion: e.mortal && e.tipo === "resistencia" ? "deadly" : e.posicion, efecto: e.efecto };
     if (e.tipo === "fortuna") { opts.accion = null; opts.dadosBase = e.dadosFortuna; }
     await this.close();
     await tirar(this.actor, opts);

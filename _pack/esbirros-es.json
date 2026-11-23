@@ -6,7 +6,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-ulrot.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Guardias y rompelíneas",
+   "ua_job": "Matones",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -43,7 +43,7 @@
      "skills": {
       "finesse": {
        "label": "FITD.SkillsFinesse",
-       "value": 1,
+       "value": 0,
        "practice": 0
       },
       "skulk": {
@@ -69,7 +69,7 @@
       },
       "threaten": {
        "label": "FITD.SkillsThreaten",
-       "value": 2,
+       "value": 1,
        "practice": 0
       },
       "horrify": {
@@ -90,7 +90,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Orco · <strong>Función:</strong> Guardias y rompelíneas</p><p><strong>Equipo y aspecto:</strong> Hachas melladas, escudos de hierro y armaduras saqueadas.</p>"
+   "description": "<p><strong>Raza:</strong> Orco · <strong>Función:</strong> Matones</p><p><strong>Equipo y aspecto:</strong> Hachas melladas, escudos de hierro y armaduras saqueadas.</p>"
   },
   "prototypeToken": {
    "name": "Machacadores de Ulrot",
@@ -113,7 +113,7 @@
    },
    {
     "_id": "NqCPASiRgZSCnFc2",
-    "name": "Guardias y rompelíneas",
+    "name": "Matones",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -122,28 +122,28 @@
    },
    {
     "_id": "bcqEKGAzD7fNNELX",
-    "name": "Acorazados",
+    "name": "Equipados",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Una vez por escena pueden absorber un impacto mortal sin perder integrantes."
+     "description": "Los esbirros obtienen una defensa a tu elección gracias a su equipo."
     }
    },
    {
     "_id": "2B8G83lYjT6J9PGB",
-    "name": "Armar escándalo y saquear",
+    "name": "Agresivos",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: agresivos (lista del manual, pág. 194)."
     }
    }
   ],
@@ -164,7 +164,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-crag.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Chamanes y tramperos de túnel",
+   "ua_job": "Brujos",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -185,12 +185,12 @@
       },
       "tinker": {
        "label": "FITD.SkillsTinker",
-       "value": 2,
+       "value": 1,
        "practice": 0
       },
       "trick": {
        "label": "FITD.SkillsTrick",
-       "value": 1,
+       "value": 0,
        "practice": 0
       }
      }
@@ -248,7 +248,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Kóbold · <strong>Función:</strong> Chamanes y tramperos de túnel</p><p><strong>Equipo y aspecto:</strong> Jabalinas con plumas, máscaras de hueso y bolsas de componentes.</p>"
+   "description": "<p><strong>Raza:</strong> Kóbold · <strong>Función:</strong> Brujos</p><p><strong>Equipo y aspecto:</strong> Jabalinas con plumas, máscaras de hueso y bolsas de componentes.</p>"
   },
   "prototypeToken": {
    "name": "Acechadores Escamosos de Crag",
@@ -271,7 +271,7 @@
    },
    {
     "_id": "KkPIhNJ8jc1rXTt2",
-    "name": "Chamanes y tramperos de túnel",
+    "name": "Brujos",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -280,28 +280,28 @@
    },
    {
     "_id": "DNh6lGWAAjfXbvG6",
-    "name": "Iniciados en Senda Arcana",
+    "name": "Adeptos",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Pueden asistir en rituales y canalizar chispas de piromancia en combate."
+     "description": "Una vez por ciclo de juego, la panda de esbirros puede lanzar un conjuro de nivel 2. Tiran con -1d, como es normal, pero no sufren estrés."
     }
    },
    {
     "_id": "t43q116pckPLoaod",
-    "name": "Armar escándalo y saquear",
+    "name": "Supersticiosos",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: supersticiosos (lista del manual, pág. 194)."
     }
    }
   ],
@@ -322,7 +322,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-slem.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Exploradores y asesinos nocturnos",
+   "ua_job": "Asesinos",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -348,7 +348,7 @@
       },
       "trick": {
        "label": "FITD.SkillsTrick",
-       "value": 1,
+       "value": 0,
        "practice": 0
       }
      }
@@ -359,7 +359,7 @@
      "skills": {
       "finesse": {
        "label": "FITD.SkillsFinesse",
-       "value": 2,
+       "value": 1,
        "practice": 0
       },
       "skulk": {
@@ -406,7 +406,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Sérpido · <strong>Función:</strong> Exploradores y asesinos nocturnos</p><p><strong>Equipo y aspecto:</strong> Capas oscuras, dagas envenenadas y cerbatanas silenciosas.</p>"
+   "description": "<p><strong>Raza:</strong> Sérpido · <strong>Función:</strong> Asesinos</p><p><strong>Equipo y aspecto:</strong> Capas oscuras, dagas envenenadas y cerbatanas silenciosas.</p>"
   },
   "prototypeToken": {
    "name": "Merodeadores Sombríos de Slem",
@@ -429,7 +429,7 @@
    },
    {
     "_id": "PKfbHAXcTS0ZMwfA",
-    "name": "Exploradores y asesinos nocturnos",
+    "name": "Asesinos",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -438,28 +438,28 @@
    },
    {
     "_id": "irCIUM4KutHABIRN",
-    "name": "Sigilosos",
+    "name": "Pertrechados",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Se mueven en silencio absoluto por sombras y conductos estrechos."
+     "description": "Los esbirros tienen un espacio más de suministro que se puede utilizar para acceder a cualquier cosa de la que tengas suministro."
     }
    },
    {
     "_id": "42DuBjP1dtTCGEkg",
-    "name": "Armar escándalo y saquear",
+    "name": "Codiciosos",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: codiciosos (lista del manual, pág. 194)."
     }
    }
   ],
@@ -480,7 +480,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-viska.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Ingenieros, minadores y artificieros",
+   "ua_job": "Ingenieros",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -506,7 +506,7 @@
       },
       "trick": {
        "label": "FITD.SkillsTrick",
-       "value": 2,
+       "value": 1,
        "practice": 0
       }
      }
@@ -522,7 +522,7 @@
       },
       "skulk": {
        "label": "FITD.SkillsSkulk",
-       "value": 1,
+       "value": 0,
        "practice": 0
       },
       "smash": {
@@ -564,7 +564,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Goblin · <strong>Función:</strong> Ingenieros, minadores y artificieros</p><p><strong>Equipo y aspecto:</strong> Gafas de latón, llaves inglesas, picos y barriles de pólvora.</p>"
+   "description": "<p><strong>Raza:</strong> Goblin · <strong>Función:</strong> Ingenieros</p><p><strong>Equipo y aspecto:</strong> Gafas de latón, llaves inglesas, picos y barriles de pólvora.</p>"
   },
   "prototypeToken": {
    "name": "Chapuceros de Viska",
@@ -587,7 +587,7 @@
    },
    {
     "_id": "6xT7OLYZgUibkBhB",
-    "name": "Ingenieros, minadores y artificieros",
+    "name": "Ingenieros",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -596,28 +596,28 @@
    },
    {
     "_id": "Kip5E4YSi5h74plA",
-    "name": "Constructores incansables",
+    "name": "Adiestrados",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Otorgan ventaja al excavar salas o montar trampas en la guarida."
+     "description": "Los esbirros tiran +1d a un tipo específico de proyecto de descanso: construir, contactar, elaborar, fabricar, preparar, reclutar o torturar."
     }
    },
    {
     "_id": "Az2dkHJo8TUTPGhv",
-    "name": "Armar escándalo y saquear",
+    "name": "Inestables",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: inestables (lista del manual, pág. 194)."
     }
    }
   ],
@@ -638,7 +638,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-kaelen.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Cultistas y guardias del santuario",
+   "ua_job": "Acólitos",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -685,7 +685,7 @@
       },
       "smash": {
        "label": "FITD.SkillsSmash",
-       "value": 1,
+       "value": 0,
        "practice": 0
       }
      }
@@ -696,7 +696,7 @@
      "skills": {
       "banter": {
        "label": "FITD.SkillsBanter",
-       "value": 2,
+       "value": 1,
        "practice": 0
       },
       "threaten": {
@@ -722,7 +722,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Demonio · <strong>Función:</strong> Cultistas y guardias del santuario</p><p><strong>Equipo y aspecto:</strong> Túnicas carmesíes, incensarios ardientes y espadas curvas.</p>"
+   "description": "<p><strong>Raza:</strong> Demonio · <strong>Función:</strong> Acólitos</p><p><strong>Equipo y aspecto:</strong> Túnicas carmesíes, incensarios ardientes y espadas curvas.</p>"
   },
   "prototypeToken": {
    "name": "Acólitos de Ceniza de Kaelen",
@@ -745,7 +745,7 @@
    },
    {
     "_id": "VMeKHbl0RETCakOX",
-    "name": "Cultistas y guardias del santuario",
+    "name": "Acólitos",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -754,28 +754,28 @@
    },
    {
     "_id": "4fnL4zDmdtpQUKuO",
-    "name": "Fanáticos devotos",
+    "name": "Mentalidad (fanático)",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Nunca sufren rotura de moral mientras su señor esté presente."
+     "description": "Los esbirros tienen una ventaja mental que puede servir como ajuste de circunstancias a la situación y el efecto: valiente, leal o fanático (podéis inventaros otras)."
     }
    },
    {
     "_id": "2BjdjhrTPctWutnY",
-    "name": "Armar escándalo y saquear",
+    "name": "Adictos",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: adictos (lista del manual, pág. 194)."
     }
    }
   ],
@@ -796,7 +796,7 @@
   "img": "modules/mr-wicked-ones-es/assets/retratos/esb-zira.webp",
   "system": {
    "mp_type": "normal",
-   "ua_job": "Espías e infiltrados en la superficie",
+   "ua_job": "Estafadores",
    "bloodied": false,
    "morale": false,
    "number": {
@@ -838,7 +838,7 @@
       },
       "skulk": {
        "label": "FITD.SkillsSkulk",
-       "value": 1,
+       "value": 0,
        "practice": 0
       },
       "smash": {
@@ -854,7 +854,7 @@
      "skills": {
       "banter": {
        "label": "FITD.SkillsBanter",
-       "value": 2,
+       "value": 1,
        "practice": 0
       },
       "threaten": {
@@ -880,7 +880,7 @@
      }
     }
    },
-   "description": "<p><strong>Raza:</strong> Devoramentes · <strong>Función:</strong> Espías e infiltrados en la superficie</p><p><strong>Equipo y aspecto:</strong> Disfraces de peregrinos, lentes oscuras y dagas ocultas.</p>"
+   "description": "<p><strong>Raza:</strong> Devoramentes · <strong>Función:</strong> Estafadores</p><p><strong>Equipo y aspecto:</strong> Disfraces de peregrinos, lentes oscuras y dagas ocultas.</p>"
   },
   "prototypeToken": {
    "name": "Susurradores del Velo de Zira",
@@ -903,7 +903,7 @@
    },
    {
     "_id": "iMCKf2BtYAMN44JW",
-    "name": "Espías e infiltrados en la superficie",
+    "name": "Estafadores",
     "type": "minion_type",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
     "system": {
@@ -912,28 +912,28 @@
    },
    {
     "_id": "JoBaufjRclBMeIP4",
-    "name": "Infiltrados",
+    "name": "Don de lenguas",
     "type": "minion_upgrade",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_96.png",
     "system": {
      "upgrade_type": "regular",
-     "upgrade_checkbox_text": "Usado en esta fase",
+     "upgrade_checkbox_text": "",
      "upgrade_checkbox_checked": false,
      "upgrade_checkbox_2_text": "",
      "upgrade_checkbox_2_checked": false,
      "is_for_wo": true,
      "is_for_ua": true,
-     "description": "Pueden caminar por los pueblos de la superficie haciéndose pasar por viajeros."
+     "description": "Los esbirros saben hablar la lengua de la luz, aunque con un acento muy marcado."
     }
    },
    {
     "_id": "JlzxcOjdm8lsfvjJ",
-    "name": "Armar escándalo y saquear",
+    "name": "Desleales",
     "type": "minionimpulse",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.2_29.png",
     "system": {
      "is_for_ua": false,
-     "description": "Celebran cada victoria con estrépito y disputas por el botín."
+     "description": "Impulso oscuro de la panda: desleales (lista del manual, pág. 194)."
     }
    }
   ],

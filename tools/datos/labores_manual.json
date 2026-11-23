@@ -1,0 +1,329 @@
+{
+ "salas_n1": [
+  {
+   "nombre": "Conducto",
+   "texto": "Un pequeño pasadizo que permite a las criaturas más pequeñas pasar con bastante rapidez, pero es demasiado estrecho para las labores rutinarias de la mazmorra."
+  },
+  {
+   "nombre": "Construcción",
+   "texto": "Un puente, una escalera, cuerda, balancín, ascensor de poleas, o cualquier otra estructura similar que permita el paso seguro de un lugar a otro."
+  },
+  {
+   "nombre": "Túnel largo",
+   "texto": "Un pasadizo largo y sencillo que sirve para conectar zonas de la mazmorra."
+  },
+  {
+   "nombre": "Sala menor",
+   "texto": "Una sala sencilla construida para complacer a vuestros esbirros y darle más sabor a vuestra mazmorra, como un comedor, letrinas, un pasillo lleno de cráneos o un jardín. Al construir una sala menor, la moral de los esbirros aumenta y ganáis +1d en vuestra siguiente tirada de desastre. Elegid dos rasgos ambientales para la sala: abarrotada, apestosa, calurosa, con eco, destruida, escalofriante, fría, luminosa, mal iluminada, ruidosa o silenciosa."
+  },
+  {
+   "nombre": "Pasaje secreto",
+   "texto": "Un pasadizo oculto capaz de pasar desapercibido, a no ser que se acabe de usar."
+  },
+  {
+   "nombre": "Ventana",
+   "texto": "Un agujero en la pared entre cavernas, salas o túneles."
+  }
+ ],
+ "salas_n2": [
+  {
+   "nombre": "Cámara de tortura",
+   "texto": "Obtenéis +situación o +efecto (a vuestra elección) al torturar."
+  },
+  {
+   "nombre": "Escalera",
+   "texto": "Añade otro nivel a vuestra mazmorra, manteniéndose el santuario abajo del todo. La escalera lo conecta con el resto de la mazmorra."
+  },
+  {
+   "nombre": "Guarida de esbirros",
+   "texto": "Asignad una única panda de esbirros a esta sala. Su moral aumenta en cada recuperación y ganan +1d al defender la sala de invasores. Proporcionad a esta sala dos rasgos ambientales de los indicados en la entrada de sala menor."
+  },
+  {
+   "nombre": "Prisión",
+   "texto": "Una sala con cuatro celdas capaces de encerrar prisioneros, que no pueden escapar sin una oportunidad previa. Si los invasores entran en la prisión, haced una tirada de fortuna con un número de dados igual al nivel de la mazmorra para determinar si logran liberar a los prisioneros y se unen a los invasores."
+  },
+  {
+   "nombre": "Puesto de guardia",
+   "texto": "Asignad una única panda de esbirros a esta sala. Siempre pueden comenzar la fase de defensa de la mazmorra en este lugar, independientemente de su tirada de ubicación inicial."
+  }
+ ],
+ "salas_n3": [
+  {
+   "nombre": "Academia",
+   "tema": "Enclave",
+   "texto": "Los monstruos jóvenes acuden a estudiar y aprender sobre los secretos arcanos. Podéis reclutar esbirros en esta sala. Su acción primaria es Invocar y cuentan con la mejora adeptos de forma gratuita. Esta sala también actúa como una criatura con un nivel igual al de la mazmorra.",
+   "materiales": "Podría necesitar bolas de cristal, túnicas o varitas."
+  },
+  {
+   "nombre": "Biblioteca",
+   "tema": "Enclave",
+   "texto": "Los libros son clave para comprender el mundo. Una vez por cada ciclo de juego, la mazmorra puede establecer un hecho sobre la historia, culturas o conocimiento arcano del mundo. También podéis retroceder mediante un flashback para utilizarla de nuevo mientras estéis fuera de la mazmorra.",
+   "materiales": "Podría necesitar una pila de libros, grandes estanterías o un bibliotecario."
+  },
+  {
+   "nombre": "Crisol",
+   "tema": "Enclave",
+   "texto": "El poder místico de esta sala hechiza objetos. Durante cada fase de descanso, puede fabricar un objeto mágico de nivel 1 o avanzar dos segmentos de un reloj de creación de objeto mágico. Aún debéis cumplir los requisitos especiales de los objetos de nivel 2 y 3.",
+   "materiales": "Podría necesitar un núcleo de esencia, una bestia mítica o ayudantes mágicos."
+  },
+  {
+   "nombre": "Cubil de los engendros",
+   "tema": "Enclave",
+   "texto": "En esta sala se invocan o se crían esbirros con el fin de reemplazar con facilidad vuestras bajas. Una vez en cada defensa de la mazmorra, esta cámara creará una copia de una panda de esbirros muertos. También podéis aplicar la mejora prescindibles a los esbirros de forma gratuita.",
+   "materiales": "Podría necesitar limo místico, recipientes de vidrio o semillas mágicas."
+  },
+  {
+   "nombre": "Fuente de clarividencia",
+   "tema": "Enclave",
+   "texto": "El estanque muestra escenas lejanas. Una vez por ciclo, la mazmorra puede establecer un hecho sobre la actividad reciente de un PNJ. También podéis retroceder una vez mediante un flashback para utilizar esta sala mientras estéis fuera de la mazmorra. ¿Qué pregunta u objeto le ofreces al estanque para guiar su mirada?",
+   "materiales": "Podría necesitar agua maldita, losas con mosaicos o una estatuilla central."
+  },
+  {
+   "nombre": "Invernadero",
+   "tema": "Enclave",
+   "texto": "Este jardín de plantas carnívoras devorará a todo ser vivo. Alimentadlas para cosechar una de las siguientes opciones: un suministro compartido basado en plantas, ingredientes especiales para pociones o unas pocas dosis de un mejunje. Cuanto mayor sea el nivel, mejor será la cosecha. Esta sala es también una trampa igual al nivel de la mazmorra.",
+   "materiales": "Podría necesitar plantas extrañas, fertilizante y luz solar artificial."
+  },
+  {
+   "nombre": "Laboratorio de pociones",
+   "tema": "Enclave",
+   "texto": "Vuestros duendes han aprendido a elaborar pociones. La mazmorra elige una única senda mágica y os brinda un suministro regular de todas las pociones de nivel 1 y de nivel 2 relacionadas.",
+   "materiales": "Podría necesitar un equipo de destilación, ingredientes especiales o un caldero gigante."
+  },
+  {
+   "nombre": "Arsenal",
+   "tema": "Escondrijo",
+   "texto": "Siempre os equipáis bien antes de salir de la mazmorra. Tenéis un espacio adicional de suministro, así como un suministro regular de los siguientes mejunjes y equipo: armas arrojadizas, bombas de brea, bombas de humo, cepos, equipo de escalada, rocas relámpago y varas luminosas.",
+   "materiales": "Podría necesitar un montón de mejunjes, cajas con piezas de equipo o uniformes."
+  },
+  {
+   "nombre": "Dojo",
+   "tema": "Escondrijo",
+   "texto": "El maestro del dojo os estrena infatigablemente hasta convertiros en un equipo. Cuando trabajáis en equipo, sufrís estrés solo con un fracaso y podéis usar seises de uno o más participantes distintos a la hora de determinar si el resultado es un crítico. La sala también actúa como una criatura con un nivel igual al de la mazmorra.",
+   "materiales": "Solo necesita un maestro para entrenaros, al que tendréis que derrotar o impresionar."
+  },
+  {
+   "nombre": "Garito de juego",
+   "tema": "Escondrijo",
+   "texto": "Montáis un pequeño antro para atraer monstruos de fuera de la mazmorra. Podéis reclutar esbirros en esta sala, que siempre tendrán Engañar como acción primaria y empezarán de forma gratuita con la mejora pertrechados. La sala también actúa como una criatura con un nivel igual al de la mazmorra",
+   "materiales": "Podría necesitar mesas de juego, iluminación lujosa o cigarros."
+  },
+  {
+   "nombre": "Nido",
+   "tema": "Escondrijo",
+   "texto": "A vuestro servicio se encuentran murciélagos, cuervos u otras pequeñas bestias aladas. Cada vez que planeáis una incursión, la mazmorra puede establecer un hecho sobre el objetivo que vuestras bestias hayan observado desde el cielo. También podéis hacer un flashback durante la incursión para utilizar una vez esta sala mientras estáis fuera de la mazmorra.",
+   "materiales": "Podría necesitar jaulas, bestias aladas o comida para mascotas."
+  },
+  {
+   "nombre": "Pista de obstáculos",
+   "tema": "Escondrijo",
+   "texto": "En esta sala, los esbirros entrenan duro para perfeccionar sus habilidades. Al reclutarlos, podéis añadir una acción primaria adicional, pero debe ser entre Acechar, Afinar o Examinar. La sala también actúa como un truco igual al nivel de la mazmorra, que debe describirse al construir la sala.",
+   "materiales": "Podría necesitar rollos de alambre, grandes pinchos o barriles de alquitrán."
+  },
+  {
+   "nombre": "Sala de planificación",
+   "tema": "Escondrijo",
+   "texto": "Planeáis vuestras incursiones con gran detalle. Ganáis +1d en las tiradas de implicación en planes de engaño, negociación y sigilo. Con un éxito, ganáis un corazón oscuro.",
+   "materiales": "Una sala de estrategia puede necesitar mapas, instrumentos de medición o aperitivos."
+  },
+  {
+   "nombre": "Taberna",
+   "tema": "Escondrijo",
+   "texto": "Tenéis una bulliciosa taberna con una barra, estantes de alcohol, un fuego crepitante y la ocasional trifulca. La moral de vuestros esbirros aumenta durante la recuperación y ganan +1d cuando luchan contra invasores en esta estancia. También llegan otros monstruos errantes de vez en cuando.",
+   "materiales": "Podría necesitar un camarero, un bardo y mucho alcohol."
+  },
+  {
+   "nombre": "Cámara de pruebas",
+   "tema": "Forja",
+   "texto": "Sois capaces de potenciar aún más vuestra ciencia monstruosa, pero a cambio de un precio. Podéis pagar el precio relacionado con vuestras pruebas para realizar una de las siguientes acciones: eliminar la inestabilidad de un objeto, aumentar la escala, alcance o duración de un mejunje o añadir +1d al próximo uso de un objeto específico.",
+   "materiales": "Podría necesitar una enorme puerta de acero, un sistema de poleas o engranajes."
+  },
+  {
+   "nombre": "Fábrica",
+   "tema": "Forja",
+   "texto": "Vuestros duendes sudan la gota gorda en la fábrica. En cada fase de descanso, pueden fabricar un artilugio de nivel 1 o avanzar dos segmentos del reloj de progreso de fabricación de un artilugio.",
+   "materiales": "Podría necesitar refuerzos de metal para una caldera, montañas de carbón o acero puro."
+  },
+  {
+   "nombre": "Galería",
+   "tema": "Forja",
+   "texto": "Excaváis una mina que os otorga un suministro regular de una única sustancia no preciosa. Además, también halláis un descubrimiento que se aleja de la mina. Ganáis +1d en esta tirada de descubrimiento y en todas las futuras.",
+   "materiales": "Podría necesitar equipo de minería, muchas vías férreas o varias vagonetas."
+  },
+  {
+   "nombre": "Hangar",
+   "tema": "Forja",
+   "texto": "La mazmorra tiene un vehículo increíble: un submarino, un dirigible o un automóvil de vapor. Describid el vehículo y dadle dos ventajas: acorazado, ágil, camuflado, fiable o rápido. Después, elegid un defecto: desvencijado, lento, llamativo, torpe o ruidoso. En cada recuperación, los duendes reparan o reconstruyen el vehículo por completo.",
+   "materiales": "Podría necesitar piezas de vehículos, barriles de combustible o pintura molona."
+  },
+  {
+   "nombre": "Laboratorio de alquimia",
+   "tema": "Forja",
+   "texto": "Vuestros duendes se esfuerzan mucho a la hora de mezclar sustancias. Tenéis un suministro regular de todos los mejunjes de nivel 1.",
+   "materiales": "Podría necesitar un equipo de alquimia, cofres llenos de sustancias o recetas."
+  },
+  {
+   "nombre": "Salón gremial",
+   "tema": "Forja",
+   "texto": "Dejáis que los esbirros se agrupen para mejorar sus condiciones de trabajo y de vida. La verdad es que ignoráis sus exigencias, pero la ilusión de tener un cierto control sobre sus vidas reduce sus protestas. La mazmorra gana +1d en sus tiradas de desastre.",
+   "materiales": "Podría necesitar bancos, una mesa larga o utensilios de escritura."
+  },
+  {
+   "nombre": "Taller",
+   "tema": "Forja",
+   "texto": "Tenéis un taller muy bien amueblado donde vuestros duendes y esbirros pueden trabajar. Ganan +1d en los proyectos de construcción y fabricación.",
+   "materiales": "Podría necesitar herramientas de artesanía, delantales de cuero o barriles llenos de clavos."
+  },
+  {
+   "nombre": "Barracones",
+   "tema": "Fortaleza",
+   "texto": "Nuevos reclutas acuden en bandada a vuestra mazmorra. Podéis reclutar esbirros en esta sala: su acción primaria es Destrozar y disponen de la mejora mentalidad (leal) de forma gratuita. La sala también actúa como una criatura con un nivel igual al de la mazmorra.",
+   "materiales": "Podrían necesitar armas, armaduras o una gran cantidad de raciones."
+  },
+  {
+   "nombre": "Cuadra",
+   "tema": "Fortaleza",
+   "texto": "Tenéis monturas y una zona segura donde acogerlas. Describidlas y dadles dos ventajas: acorazada, acuática, mágica, rápida, terrorífica o voladora. Esta sala también actúa como una criatura con un nivel igual al de la mazmorra.",
+   "materiales": "Podría necesitar las monturas, su comida o equipo de equitación."
+  },
+  {
+   "nombre": "Foso de combate",
+   "tema": "Fortaleza",
+   "texto": "Colocad a dos oponentes a vuestra elección en el foso: cada PJ elige quién cree que ganará. Haced una tirada de fortuna por cada luchador; el perdedor muere. Si hay empate, ambos sobreviven. Cuando el luchador elegido gana, el PJ que lo ha apoyado gana un corazón oscuro.",
+   "materiales": "Podría necesitar armas exóticas, animales peligrosos o un árbitro."
+  },
+  {
+   "nombre": "Herrería",
+   "tema": "Fortaleza",
+   "texto": "Disponéis de un suministro regular de armas mundanas, como hachas, arcos y hachas de mano. Vuestros esbirros ganan +1d al fabricar objetos o al añadir ventajas.",
+   "materiales": "Podría necesitar un yunque, herramientas de herrería o un gran montón de carbón."
+  },
+  {
+   "nombre": "Pira funeraria",
+   "tema": "Fortaleza",
+   "texto": "Vuestra cultura guerrera honra a los muertos: quemáis sus cadáveres a modo de despedida cuando marchan al más allá. Cuando los esbirros mueren en combate, la moral de cualquier otro esbirro que sea testigo de ello aumenta y realizará una acción en la próxima fase de descanso sin pedir oro a cambio.",
+   "materiales": "Podría necesitar incienso, madera especial o los tabardos de los enemigos asesinados."
+  },
+  {
+   "nombre": "Sala de guerra",
+   "tema": "Fortaleza",
+   "texto": "En la guerra, una buena estrategia es clave. Ganáis +1d en las tiradas de implicación de los planes de asalto, emboscada y golpe. Con un éxito, ganáis un corazón oscuro.",
+   "materiales": "Podría necesitar mapas, libros sobre la guerra o información sobre vuestros enemigos."
+  },
+  {
+   "nombre": "Tambores de guerra",
+   "tema": "Fortaleza",
+   "texto": "Un ritmo constante resuena por vuestra mazmorra, capaz de mantener a todo el mundo concentrado en sus labores. Cada jugador puede rellenar un segmento de un reloj de proyecto una vez por cada descanso, pero cada segmento debe pertenecer a un reloj distinto. Vuestros duendes también ganan +1d en su acción de descanso.",
+   "materiales": "Podría necesitar montones de cuero, grandes tambores de madera o cuernos enormes."
+  },
+  {
+   "nombre": "Altar",
+   "tema": "Templo",
+   "texto": "Podéis realizar sacrificios en el altar, pagando el precio para obtener una de las siguientes bendiciones oscuras: ganas +1d en una única tirada con un objeto de este ciclo, ganas +1d en tu siguiente tirada de resistencia o tu próximo fracaso se convierte en un éxito parcial. Cada vez que solicitéis una bendición, el sacrificio debe ser diferente.",
+   "materiales": "Podría necesitar incienso, estatuas o iconos específicos de los dominios de vuestro dios."
+  },
+  {
+   "nombre": "Antecámara",
+   "tema": "Templo",
+   "texto": "Entre la escalera y el santuario del último nivel hay una sala impresionante que glorifica vuestras hazañas en el nombre de vuestro dios oscuro. Los aventureros se pararán en ella para investigar, lo que os otorga un corazón oscuro y +1d a la tirada de implicación del combate final en el santuario.",
+   "materiales": "Podría necesitar cráneos, los estandartes de unos enemigos dignos o un artista."
+  },
+  {
+   "nombre": "Círculo de augurios",
+   "tema": "Templo",
+   "texto": "Podéis hacer un flashback para recordar el tiempo que habéis pasado en el círculo estudiando los augurios sobre acontecimientos futuros. Podéis establecer un hecho en el presente sobre la siguiente acción que lleve a cabo un PNJ. ¿Qué presagio os mostró el círculo y cómo se manifiesta en el presente?",
+   "materiales": "Podría necesitar un mosaico, un gran espejo o inciensos exóticos."
+  },
+  {
+   "nombre": "Dormitorio",
+   "tema": "Templo",
+   "texto": "Nuevos sectarios llegan en gran número para servir a vuestro dios. Podéis reclutar esbirros en esta estancia. Como acción primaria, siempre tendrán la acción preferida de vuestro dios, que se elige al construir la sala, y comienzan con la ventaja mentalidad (fanático) de forma gratuita. La estancia también actúa como una criatura con un nivel igual al de la mazmorra.",
+   "materiales": "Podrían necesitar muebles, accesorios o el primer grupo de sectarios."
+  },
+  {
+   "nombre": "Relicario",
+   "tema": "Templo",
+   "texto": "Esta sala corrompe y amplifica la magia de hasta tres objetos de impacto impío que se encuentren dentro. Al introducir un objeto en esta estancia, se conjura de inmediato un ritual de nivel 2 que provoca en la mazmorra un efecto persistente relacionado con el objeto en cuestión.",
+   "materiales": "No necesita materiales especiales, más allá de los objetos que se coloquen en su interior."
+  },
+  {
+   "nombre": "Sala de penitencias",
+   "tema": "Templo",
+   "texto": "Vuestros esbirros temen el castigo más que la muerte y nunca os traicionarán. Cuando luchan a muerte, ignoran la penalización por estar reventados.",
+   "materiales": "Podría necesitar esposas, látigos o brea."
+  },
+  {
+   "nombre": "Scriptorium",
+   "tema": "Templo",
+   "texto": "Vuestras hazañas se registran en un evangelio impío, por lo que, al construir la sala, ganáis inmediatamente una cantidad de experiencia malvada igual a vuestro actual nivel de mazmorra. Además, conseguís un nuevo desencadenante de experiencia malvada: ¿Se percató tu dios de tus acciones? Cada PJ debe demostrar su propia valía para obtener esta experiencia.",
+   "materiales": "Podría necesitar mesas, utensilios de escritura o cuero para encuadernar."
+  }
+ ],
+ "trampas": {
+  "intro": "Las trampas son defensas estáticas, bien ocultas, destinadas a sorprender y destrozar a cualquier aventurero incauto que deambule por vuestros pasadizos. Cada trampa consta de un mecanismo y un detonador, que describen respectivamente lo que hace y lo que la activa. El jugador al cargo de la trampa narra los resultados de la tirada de trampa. Las tiradas de trampa infligen daño como si se estuviese avanzando los segmentos de un reloj, y cada avance inflige medio corazón de daño.",
+  "niveles": "Las trampas se clasifican de nivel 1 a nivel 3, en función de lo mortíferas que sean y la cantidad de esfuerzo dedicado a su creación. Una trampa de nivel 1 es fácil de evitar, como una aguja envenenada enganchada en el pomo de una puerta. Las trampas de nivel 2 son mortíferas, como una gigantesca cuchilla oscilante unida a una placa de presión. Las trampas de nivel 3 son las más letales de todas y pueden afectar a varios aventureros, como un cable trampa que libera una enorme bola de roca rodante.",
+  "tirada": "Tira un número de dados igual al nivel de la trampa para determinar lo efectiva que es contra los intrusos que la han activado. Fracaso: Los aventureros consiguen desactivar o evitar la trampa. Éxito parcial: El DJ elige a un aventurero al que has herido. Éxito: Hieres a un aventurero de tu elección. Tira otra vez. Crítico: Hieres a dos aventureros de tu elección. Tira otra vez. No puedes herir al mismo aventurero dos veces seguidas, a menos que esté solo."
+ },
+ "trucos": {
+  "intro": "Los trucos son formas sutiles de conseguir que los aventureros hagan lo que vosotros queráis o de crear situaciones defensivas ventajosas. No reducen los corazones de los aventureros, sino que os permiten jugar con sus mentes. Cada truco consiste en un método que debe describir cómo engaña a los aventureros, un detonador que describe cuándo se activa y una intención que describe lo qué ocurre cuando funciona.",
+  "tirada": "Cuando los aventureros se hallan frente a un truco, el jugador al cargo del truco tira un número de dados igual a su nivel como una tirada de fortuna y narra lo que ocurre según el resultado. El DJ puede intervenir para aumentar o disminuir la eficacia para que coincida mejor con el resultado si es necesario.",
+  "niveles": "Los trucos se clasifican de nivel 1 a nivel 3 en función de la probabilidad de que funcionen. Cuanto más probable es que funcione, más alto es su nivel. El jugador que crea el truco decide su nivel en base al esfuerzo empleado en la construcción.",
+  "limite": "Un truco nunca puede conducir a un aventurero hasta una situación de la que no pueda escapar. Cuando haya pasado cierto tiempo, siempre lo acaba superando de algún modo y sigue adelante. Este tipo de trucos os hacen ganar tiempo o crean ventajas temporales. Recordad que los aventureros son increíblemente astutos e incluso si están atrapados en un pozo o encadenados a una pared, con tiempo es probable que encuentren una salida. Tampoco podéis engañar a un aventurero para que huya de la mazmorra.",
+  "ejemplos": [
+   {
+    "nombre": "Cuerda de advertencia",
+    "texto": "Una cuerda con trozos de metal atados que tintinea al pisarla (cuerda de advertencia: al pasar junto a ella, alerta a todos los esbirros)."
+   },
+   {
+    "nombre": "Charco de agua",
+    "texto": "Un charco de agua que engaña a los aventureros para que se quiten la armadura pesada (charco de agua: al pasar por él, perder la armadura)."
+   },
+   {
+    "nombre": "Un prisionero atado",
+    "texto": "Un prisionero atado que grita pidiendo ayuda, atrayendo a los aventureros hacia su posición (un prisionero atado: otro intruso oye el ruido y sigue el sonido de forma imprudente)."
+   },
+   {
+    "nombre": "Dédalo",
+    "texto": "Un laberinto sinuoso que divide al grupo de aventureros (dédalo: al entrar en él, se divide el grupo)."
+   },
+   {
+    "nombre": "Una estatua",
+    "texto": "Una estatua que agarra a los intrusos, permitiendo a los duendes arrebatarles una poción (una estatua: al examinarla, gasta un movimiento del aventurero)."
+   },
+   {
+    "nombre": "Viento",
+    "texto": "Ráfaga de viento repentina que apaga las antorchas (viento: al entrar en el pasillo, hay que avanzar entre la oscuridad)."
+   },
+   {
+    "nombre": "Musgo brillante",
+    "texto": "Un tipo de musgo brillante en una caverna que ensucia a los aventureros (musgo brillante: al avanzar por la caverna, provoca que los aventureros brillen)."
+   },
+   {
+    "nombre": "Paisaje hipnótico",
+    "texto": "Una cascada deslumbrante que distrae a los aventureros mientras los esbirros se acercan sigilosamente (paisaje hipnótico: al pararse a mirarla, los intrusos descuidan la espalda)."
+   }
+  ]
+ },
+ "portones": {
+  "intro": "Los portones sirven para ganar tiempo mientras estáis defendiendo la mazmorra, ya sea para establecer las defensas adecuadas, maniobrar por la mazmorra o iniciar una rápida retirada. También sirven para alejar a los aventureros de las zonas delicadas. Conviene recordar que los portones no mantendrán alejados a los aventureros para siempre: con el tiempo y la determinación suficiente, podrán abrirse paso a través de cualquier obstáculo que encuentren en su camino. Los invasores, al no poder atravesar un portón, se van por otro camino hasta que no haya más rutas aparte de la que está bloqueada. En ese momento, deshacen sus pasos y se topan de nuevo con el portón. Cada vez que se encuentren con él, tendréis que hacer una tirada de portón, que se describe en la sección de exploración. Los portones pueden alertar a los esbirros cercanos, darles tiempo para tender emboscadas o mantener a salvo zonas delicadas.",
+  "niveles": "Los portones se clasifican de nivel 1 a nivel 3 en función de lo difícil que sea atravesarlos y el jugador determina su nivel en el momento de construirlo en base al esfuerzo invertido. Los portones de nivel 1 son los más simples y tienen una eficacia limitada: por ejemplo, una barra de madera que mantiene cerrada una puerta. Los portones de nivel 2 son sencillos y eficaces para impedir el paso, como una puerta con un candado. Los portones de nivel 3 son complejos y formidables, como un enorme rastrillo de acero con un sistema de poleas y clave mecánica.",
+  "construir": "Al construir un portón, primero elegís el material del que está hecha la puerta. Podéis escoger uno de entre los siguientes o inventaros otro:"
+ },
+ "criaturas": {
+  "intro": "Las criaturas son bestias sin inteligencia que usan vuestra mazmorra como refugio. No se encuentran bajo vuestro control directo, aunque lucharán contra los invasores para defender sus guaridas. Sin embargo, un malvado astuto o un esbirro podría engañarlos o incitarlos a hacer algo por ellos. En general, son neutrales hacia los otros moradores de la mazmorra, pero un mal resultado en una tirada de desastre podría provocar un conflicto con ellos. Los monstruos que pasan cerca de sus guaridas o a través de ellas no suelen encontrar obstáculos. Las criaturas se clasifican de acuerdo a un nivel, que va de 1 a 4, en base a lo letales que son. Una criatura puede ser una sola bestia o un grupo de bestias más pequeñas. Cuando un invasor pase cerca de la entrada de una guarida o se desplace a través de ella, la criatura se enfrentará con él para defender su hogar.",
+  "tirada": "Tira un número de dados igual al nivel de la criatura para determinar lo que ocurre con los aventureros que amenazan la guarida. Las criaturas eliminan los corazones de los aventureros, con intención de matarlos. Fracaso: La criatura muere o huye para siempre de la mazmorra. Éxito parcial: Hieres a un aventurero a elección del DJ y la criatura queda inconsciente. Éxito: Hieres a un aventurero a tu elección. Tira otra vez. Crítico: Hieres a dos aventureros a tu elección. Tira otra vez. No puedes herir al mismo aventurero dos veces seguidas salvo que esté solo.",
+  "crear": "Cuando una criatura llega a vuestra mazmorra, decidís qué clase de monstruo es: escogéis su tipo, cuántos hay y elegís dos rasgos que ayudan a saber cómo se comporta. Al construir una nueva guarida, un jugador debe apuntarlo en la sección de labores de mazmorra de su hoja de personaje y así se convierte en el responsable de narrar cómo es la criatura de dicha guarida, o de saber cuándo viene una nueva criatura a la mazmorra. Una única criatura puede representar un enjambre de insectos, una manada de bestias, o cualquier otro grupo de seres. Su impacto total es igual a su nivel, por lo que cuanto mayor sea el nivel de la criatura, mayor será el grupo o más poderosa será la criatura por sí sola.",
+  "ejemplos": {
+   "Bandada de murciélagos": "horda y terrorífica",
+   "Basilisco": "fuerte y terrorífica",
+   "Escorpión gigante": "fuerte y venenosa",
+   "Esqueleto": "corrupta e incansable",
+   "Fantasma": "incorpórea y heladora",
+   "Guerrero mecánico": "astuta e incansable",
+   "Horda de zombis": "horda y terrorífica",
+   "Monstruo de lodo": "corrosiva y viscosa",
+   "Serpiente de lava": "ardiente y fuerte",
+   "Tortuga mordedora gigante": "fuerte y sigilosa"
+  }
+ }
+}

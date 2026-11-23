@@ -41,36 +41,30 @@ export function evaluarTirada(resultados, reservaSolicitada = 1) {
 }
 
 /**
- * Calcula las consecuencias sugeridas y el coste de resistencia según la posición en Wicked Ones.
- * En Wicked Ones, resistir una consecuencia en Posición Por defecto o Funesta requiere tirar Resistencia
- * (con 6: 0 de Estrés; con 4-5: 1 de Estrés; con 1-3: 2 de Estrés o marcar Conmocionado), y en Posición Mortal
- * convierte la tirada en Resistir la Muerte.
+ * Tirada de resistencia (manual, pág. 50-52): fallo 3 de estrés y resistes en parte; parcial 2 y en parte; éxito 1 y del todo;
+ * crítico recuperas 1 y del todo. Resistirse a la muerte (situación mortal) cuesta el mismo estrés, pero con un éxito parcial la
+ * consecuencia baja un nivel y sigue siendo devastadora, y con un fracaso sigues muriendo (golpe de gracia si tienes corazones oscuros).
  * @param {"dominant"|"default"|"dire"|"deadly"} posicion
  * @param {"critical"|"success"|"mixed"|"failure"} estadoResistencia
- * @returns {{ estres: number, conmocionado: boolean, malherido: boolean, muerte: boolean, resumen: string }}
+ * @returns {{ estres: number, total: boolean, muerte: boolean, grave: boolean, resumen: string }}
  */
 export function evaluarResistencia(posicion = "default", estadoResistencia = "success") {
+  const COSTE = { critical: -1, success: 1, mixed: 2, failure: 3 };
+  const estres = COSTE[estadoResistencia] ?? 3;
+  const total = estadoResistencia === "critical" || estadoResistencia === "success";
+  const pago = estres < 0 ? "recuperas 1 de estrés" : `sufres ${estres} de estrés`;
   if (posicion === "deadly") {
-    if (estadoResistencia === "critical" || estadoResistencia === "success") {
-      return { estres: 1, conmocionado: false, malherido: true, muerte: false, resumen: "Escapas de la muerte por los pelos: sufres 1 de Estrés y quedas Malherido." };
-    }
-    if (estadoResistencia === "mixed") {
-      return { estres: 2, conmocionado: true, malherido: true, muerte: false, resumen: "Sobrevives a duras penas (4–5 en Resistir la Muerte): quedas Malherido, Conmocionado y fuera de la escena." };
-    }
-    return { estres: 0, conmocionado: true, malherido: true, muerte: true, resumen: "Fallo al Resistir la Muerte (1–3): el golpe resulta letal." };
+    if (total) return { estres, total, muerte: false, grave: false, resumen: `Te resistes a la muerte por completo: ${pago}.` };
+    if (estadoResistencia === "mixed") return { estres, total, muerte: false, grave: true, resumen: `Éxito parcial: ${pago}. La consecuencia baja un nivel, pero sigue siendo tremendamente grave (te sacan de la escena, empieza un reloj hasta desangrarte, pierdes una extremidad…).` };
+    return { estres, total, muerte: true, grave: true, resumen: `Fracaso: ${pago} y sigues muriendo. Si tienes corazones oscuros, ¡es el momento de tu golpe de gracia!` };
   }
-
-  // Libro (Resistencias): fallo 3 de estrés, parcial 2, éxito 1; crítico despeja 1 y resiste del todo.
-  if (estadoResistencia === "critical") {
-    return { estres: -1, conmocionado: false, malherido: false, muerte: false, total: true, resumen: "Resistencia crítica: resistes por completo y despejas 1 de Estrés." };
-  }
-  if (estadoResistencia === "success") {
-    return { estres: 1, conmocionado: false, malherido: false, muerte: false, total: true, resumen: "Éxito: resistes por completo la consecuencia y pagas 1 de Estrés." };
-  }
-  if (estadoResistencia === "mixed") {
-    return { estres: 2, conmocionado: false, malherido: false, muerte: false, total: false, resumen: "Parcial: resistes solo en parte la consecuencia y pagas 2 de Estrés." };
-  }
-  return { estres: 3, conmocionado: false, malherido: false, muerte: false, total: false, resumen: "Fallo: resistes solo en parte la consecuencia y pagas 3 de Estrés." };
+  const resumen = {
+    critical: "Crítico: recuperas 1 de estrés y resistes la consecuencia por completo.",
+    success: "Éxito: sufres 1 de estrés y resistes la consecuencia por completo.",
+    mixed: "Éxito parcial: sufres 2 de estrés y resistes la consecuencia de manera parcial.",
+    failure: "Fracaso: sufres 3 de estrés y resistes la consecuencia de manera parcial."
+  }[estadoResistencia] ?? "";
+  return { estres, total, muerte: false, grave: false, resumen };
 }
 
 /**
@@ -97,186 +91,147 @@ export function progresoPractica(valor, practica) {
 }
 
 /**
- * Evalúa la Tirada de Implicación (Engagement Roll) al comenzar una Incursión.
- * @param {number[]} resultados
- * @param {number} reservaSolicitada
+ * Tirada de implicación (manual, pág. 40): el DJ tira 1d (escasas), 2d (igualadas) o 3d (prometedoras). Fracaso: empezáis en un
+ * aprieto, sufriendo las consecuencias. Parcial: en igualdad de condiciones. Éxito: con ventaja, controlando la situación. Crítico:
+ * como en éxito, ¡pero además se produce un giro afortunado de los acontecimientos!
  * @returns {{ estado: string, posicionInicial: "dominant"|"default"|"dire", resumen: string }}
  */
-export function evaluarImplicacion(resultados, reservaSolicitada = 1) {
+export function evaluarImplicacion(resultados, reservaSolicitada = 2) {
   const ev = evaluarTirada(resultados, reservaSolicitada);
-  if (ev.estado === "critical") {
-    return { estado: ev.estado, posicionInicial: "dominant", resumen: "¡Implicación crítica! Ya habéis superado el primer obstáculo exterior y empezáis en Posición Dominante." };
-  }
-  if (ev.estado === "success") {
-    return { estado: ev.estado, posicionInicial: "dominant", resumen: "Buen comienzo: empezáis frente al primer obstáculo en Posición Dominante." };
-  }
-  if (ev.estado === "mixed") {
-    return { estado: ev.estado, posicionInicial: "default", resumen: "Acercamiento estándar: empezáis la incursión en Posición Por defecto." };
-  }
-  return { estado: ev.estado, posicionInicial: "dire", resumen: "Empezáis con mal pie o emboscados: la incursión arranca en Posición Funesta." };
+  const t = {
+    critical: ["dominant", "Empezáis con ventaja, controlando la situación, ¡y además se produce un giro afortunado de los acontecimientos!"],
+    success: ["dominant", "Empezáis con ventaja, controlando la situación."],
+    mixed: ["default", "Empezáis en igualdad de condiciones, listos para afrontar el reto."],
+    failure: ["dire", "Empezáis en un aprieto, sufriendo las consecuencias."]
+  }[ev.estado];
+  return { estado: ev.estado, posicionInicial: t[0], resumen: t[1] };
 }
 
 /**
- * Evalúa la Tirada de Desastre (Calamity Roll) durante la Fase de Lógica de Mazmorra.
- * @param {number[]} resultados
- * @param {number} reservaSolicitada
- * @returns {{ estado: string, resumen: string, avanceRelojes: number }}
+ * Tirada de desastre (manual, pág. 244): el DJ tira 1d (quejas incesantes), 2d (descontento normal) o 3d (demasiado felices o
+ * asustados para quejarse). Fracaso: desastre grave. Parcial: desastre leve. Éxito: la moral de los esbirros aumenta y se unen a la
+ * siguiente incursión gratis. Crítico: además, los duendes hallan un descubrimiento (de la categoría de «éxito»).
+ * @returns {{ estado: string, desastre: "grave"|"leve"|null, moral: boolean, incursionGratis: boolean, descubrimiento: boolean, resumen: string }}
  */
-export function evaluarDesastre(resultados, reservaSolicitada = 1) {
+export function evaluarDesastre(resultados, reservaSolicitada = 2) {
   const ev = evaluarTirada(resultados, reservaSolicitada);
-  if (ev.estado === "critical" || ev.estado === "success") {
-    return {
-      estado: ev.estado,
-      avanceRelojes: 2,
-      resumen: "¡Desastre mayor en la guarida! Estalla una revuelta de esbirros, se fuga un cautivo clave, una criatura rompe sus cadenas o una facción rival descubre una entrada secreta."
-    };
-  }
-  if (ev.estado === "mixed") {
-    return {
-      estado: ev.estado,
-      avanceRelojes: 1,
-      resumen: "Incidente menor en la mazmorra: disputas entre manadas, gasto de 1 Suministro para reparar daños o una trampa queda temporalmente inutilizada."
-    };
-  }
-  return {
-    estado: ev.estado,
-    avanceRelojes: 0,
-    resumen: "Todo marcha en orden en las profundidades: los diablillos y esbirros trabajan sin incidentes."
-  };
+  const bien = ev.estado === "critical" || ev.estado === "success";
+  const resumen = {
+    failure: "¡Sois víctimas de un desastre grave!",
+    mixed: "Sois víctimas de un desastre leve.",
+    success: "La moral de vuestros esbirros aumenta y se unen a la siguiente incursión gratis.",
+    critical: "La moral de vuestros esbirros aumenta y se unen a la siguiente incursión gratis. Además, vuestros duendes hallan un descubrimiento (de la categoría de «éxito»)."
+  }[ev.estado];
+  return { estado: ev.estado, desastre: ev.estado === "failure" ? "grave" : ev.estado === "mixed" ? "leve" : null, moral: bien, incursionGratis: bien, descubrimiento: ev.estado === "critical", resumen };
 }
 
+/** Desastre aleatorio (manual, pág. 247): la categoría del desastre con 1d6. */
+export const DESASTRE_ALEATORIO = ["Invasión de la mazmorra", "Invasión de la mazmorra", "Problema con los habitantes", "Problema con los habitantes", "Problema estructural", "Interferencia del exterior"];
+
 /**
- * Evalúa la Tirada de Represalia (Blowback Roll) tras una Incursión.
- * @param {number[]} resultados
- * @param {number} reservaSolicitada
- * @returns {{ estado: string, segmentosFaccion: number, invasoresExtra: number, resumen: string }}
+ * Tirada de represalia (manual, pág. 264): el DJ tira 1d (os habéis desviado mucho), 2d (se fue un poco de las manos) o 3d (fue todo
+ * bien). Fracaso: represalia grave. Parcial: represalia leve. Éxito: cada PJ gana un corazón oscuro. Crítico: como éxito y además podéis
+ * elegir una facción como chivo expiatorio. Las represalias no se pueden resistir.
+ * @returns {{ estado: string, represalia: "grave"|"leve"|null, corazonOscuro: boolean, chivoExpiatorio: boolean, resumen: string }}
  */
 export function evaluarRepresalia(resultados, reservaSolicitada = 2) {
   const ev = evaluarTirada(resultados, reservaSolicitada);
-  if (ev.estado === "critical") {
-    return {
-      estado: ev.estado,
-      segmentosFaccion: 3,
-      invasoresExtra: 1,
-      resumen: "¡Escándalo mayúsculo! habéis dejado un rastro inconfundible: la facción objetivo avanza +3 segmentos en su reloj de respuesta (o suma +1 Aventurero a la próxima invasión)."
-    };
-  }
-  if (ev.estado === "success") {
-    return {
-      estado: ev.estado,
-      segmentosFaccion: 2,
-      invasoresExtra: 0,
-      resumen: "Represalia fuerte: testigos o rastros delatan vuestra presencia; el reloj de respuesta de la facción avanza +2 segmentos."
-    };
-  }
-  if (ev.estado === "mixed") {
-    return {
-      estado: ev.estado,
-      segmentosFaccion: 1,
-      invasoresExtra: 0,
-      resumen: "Rumores y sospechas: el reloj de respuesta de la facción avanza +1 segmento (o podéis gastar 1 de Oro/Suministro para silenciarlo)."
-    };
-  }
-  return {
-    estado: ev.estado,
-    segmentosFaccion: 0,
-    invasoresExtra: 0,
-    resumen: "Golpe limpio: nadie logra vincular la incursión con vuestra guarida (+0 segmentos de represalia)."
-  };
+  const resumen = {
+    failure: "Sufrís una represalia grave.",
+    mixed: "Sufrís una represalia leve.",
+    success: "Cada PJ gana un corazón oscuro.",
+    critical: "Cada PJ gana un corazón oscuro, y además podéis elegir una facción como chivo expiatorio."
+  }[ev.estado];
+  const bien = ev.estado === "critical" || ev.estado === "success";
+  return { estado: ev.estado, represalia: ev.estado === "failure" ? "grave" : ev.estado === "mixed" ? "leve" : null, corazonOscuro: bien, chivoExpiatorio: ev.estado === "critical", resumen };
 }
 
 /**
- * Evalúa el rendimiento de una Defensa de Mazmorra (Criatura, Trampa o Portón) frente a un grupo invasor.
+ * Defensas de la mazmorra. Cada aventurero herido recibe un tajo (medio corazón; dos tajos quitan un corazón entero, pág. 222).
+ *  · Criatura (pág. 188): fracaso, muere o huye para siempre; parcial, hiere a un aventurero a elección del DJ y queda inconsciente
+ *    (se recupera al acabar la defensa); éxito, hiere a uno a tu elección y vuelve a tirar; crítico, a dos y vuelve a tirar.
+ *  · Trampa (pág. 198): fracaso, la desactivan o la evitan; parcial, el DJ elige a un aventurero herido; éxito, hieres a uno a tu
+ *    elección y vuelves a tirar; crítico, a dos y vuelves a tirar.
+ *    En ambas: no puedes herir al mismo aventurero dos veces seguidas, salvo que esté solo.
+ *  · Portón (pág. 222): fracaso, lo desbloquean y lo atraviesan; parcial, van por otro lado; éxito, un aventurero gasta un movimiento
+ *    y van por otro lado; crítico, todos gastan un movimiento cada uno y van por otro lado («salvo que no tengan otra opción»: si
+ *    solo se puede avanzar por el portón, se repite la tirada hasta que lo desbloquean).
+ *  · Truco (pág. 200): tirada de fortuna de su nivel; el jugador al cargo narra lo que ocurre según el resultado.
  * @param {"creature"|"trap"|"lock"|"trick"} tipo
- * @param {number[]} resultados
- * @param {number} nivel
- * @returns {{ estado: string, corazonesInfligidos: number, movimientosConsumidos: number, resumen: string }}
+ * @returns {{ estado: string, heridos: number, tajos: number, corazones: number, eligeDJ: boolean, repetir: boolean,
+ *   estadoCriatura: "muerta"|"inconsciente"|"activa"|null, otroCamino: boolean, atraviesan: boolean,
+ *   movimientosUnAventurero: number, movimientosPorAventurero: number, resumen: string, nota: string }}
  */
 export function evaluarDefensaMazmorra(tipo, resultados, nivel = 1) {
   const ev = evaluarTirada(resultados, nivel);
+  const e = ev.estado, base = { estado: e, heridos: 0, tajos: 0, corazones: 0, eligeDJ: false, repetir: false, estadoCriatura: null, otroCamino: false, atraviesan: false, movimientosUnAventurero: 0, movimientosPorAventurero: 0, nota: "" };
+  const herir = (n, dj, extra) => ({ ...base, heridos: n, tajos: n, corazones: n / 2, eligeDJ: dj, ...extra });
+  const NO_REPETIR = "No puedes herir al mismo aventurero dos veces seguidas, salvo que esté solo.";
   if (tipo === "creature") {
-    const mapa = {
-      critical: { c: 3, m: 1, r: "¡Masacre! La criatura inflige 3 Corazones repartidos entre los invasores y les cuesta 1 Movimiento abatirla." },
-      success: { c: 2, m: 0, r: "La criatura lucha con ferocidad e inflige 2 Corazones antes de caer." },
-      mixed: { c: 1, m: 0, r: "La criatura inflige 1 Corazón (o fuerza a gastar 1 Movimiento Defensivo)." },
-      failure: { c: 0, m: 1, r: "Los aventureros abaten a la criatura rápidamente gastando 1 Movimiento." }
-    }[ev.estado];
-    return { estado: ev.estado, corazonesInfligidos: mapa.c, movimientosConsumidos: mapa.m, resumen: mapa.r };
+    if (e === "failure") return { ...base, estadoCriatura: "muerta", resumen: "La criatura muere o huye para siempre de la mazmorra." };
+    if (e === "mixed") return herir(1, true, { estadoCriatura: "inconsciente", resumen: "Hieres a un aventurero a elección del DJ (un tajo, medio corazón) y la criatura queda inconsciente: se recuperará en cuanto acabe la defensa de la mazmorra." });
+    if (e === "success") return herir(1, false, { estadoCriatura: "activa", repetir: true, nota: NO_REPETIR, resumen: "Hieres a un aventurero a tu elección (un tajo, medio corazón). Tira otra vez." });
+    return herir(2, false, { estadoCriatura: "activa", repetir: true, nota: NO_REPETIR, resumen: "Hieres a dos aventureros a tu elección (un tajo a cada uno). Tira otra vez." });
   }
   if (tipo === "trap") {
-    const mapa = {
-      critical: { c: 2, m: 1, r: "¡Trampa letal! Inflige 2 Corazones y divide o retrasa al grupo (+1 Movimiento gastado)." },
-      success: { c: 1, m: 1, r: "La trampa golpea de lleno: inflige 1 Corazón y consume 1 Movimiento." },
-      mixed: { c: 1, m: 0, r: "Impacto parcial: inflige 1 Corazón a un ayudante/aventurero o les obliga a gastar 1 Movimiento." },
-      failure: { c: 0, m: 0, r: "Los invasores detectan y desactivan la trampa sin sufrir daño." }
-    }[ev.estado];
-    return { estado: ev.estado, corazonesInfligidos: mapa.c, movimientosConsumidos: mapa.m, resumen: mapa.r };
+    if (e === "failure") return { ...base, resumen: "Los aventureros consiguen desactivar o evitar la trampa." };
+    if (e === "mixed") return herir(1, true, { resumen: "El DJ elige a un aventurero al que has herido (un tajo, medio corazón)." });
+    if (e === "success") return herir(1, false, { repetir: true, nota: NO_REPETIR, resumen: "Hieres a un aventurero de tu elección (un tajo, medio corazón). Tira otra vez." });
+    return herir(2, false, { repetir: true, nota: NO_REPETIR, resumen: "Hieres a dos aventureros de tu elección (un tajo a cada uno). Tira otra vez." });
   }
   if (tipo === "lock") {
-    const mapa = {
-      critical: { c: 0, m: 2, r: "¡Portón infranqueable! No logran cruzarlo, pierden 2 Movimientos y deben buscar otro camino." },
-      success: { c: 0, m: 2, r: "El portón resiste largo rato: los invasores gastan 2 Movimientos en derribarlo y alertan a toda la zona." },
-      mixed: { c: 0, m: 1, r: "Logran forzar o romper el portón tras gastar 1 Movimiento." },
-      failure: { c: 0, m: 0, r: "Abren o derriban el portón al instante sin perder el ímpetu." }
-    }[ev.estado];
-    return { estado: ev.estado, corazonesInfligidos: mapa.c, movimientosConsumidos: mapa.m, resumen: mapa.r };
+    const SALVO = "Si solo se puede avanzar por el portón, repite la tirada hasta que los aventureros logren desbloquear la ruta.";
+    if (e === "failure") return { ...base, atraviesan: true, resumen: "Desbloquean el portón y lo atraviesan." };
+    if (e === "mixed") return { ...base, otroCamino: true, nota: SALVO, resumen: "Van por otro lado, salvo que no tengan otra opción." };
+    if (e === "success") return { ...base, otroCamino: true, movimientosUnAventurero: 1, nota: SALVO, resumen: "Un aventurero gasta un movimiento intentando atravesar el portón. Después van por otro lado, salvo que no tengan otra opción." };
+    return { ...base, otroCamino: true, movimientosPorAventurero: 1, nota: SALVO, resumen: "Todos los aventureros gastan un movimiento cada uno intentando atravesar el portón. Después van por otro lado, salvo que no tengan otra opción." };
   }
-  // trick
-  const mapa = {
-    critical: { c: 0, m: 2, r: "¡Engaño perfecto! Caen de lleno en el truco, pierden 2 Movimientos y quedan en Posición Funesta." },
-    success: { c: 0, m: 1, r: "El truco los desorienta o separa, dándoos Posición Dominante en la sala." },
-    mixed: { c: 0, m: 1, r: "Dudan y gastan 1 Movimiento en comprobar el truco." },
-    failure: { c: 0, m: 0, r: "Ven a través del engaño de inmediato." }
-  }[ev.estado];
-  return { estado: ev.estado, corazonesInfligidos: mapa.c, movimientosConsumidos: mapa.m, resumen: mapa.r };
+  // truco: tirada de fortuna, sin tabla propia en el manual
+  return { ...base, resumen: `${ev.etiqueta}. El jugador al cargo del truco narra lo que ocurre según el resultado; el DJ puede ajustar su eficacia para que coincida mejor con él. Un truco nunca puede dejar a un aventurero sin salida.` };
 }
 
 /**
- * Simula de forma pura una Incursión de Esbirros (Minion Raid) según las reglas de pág. 262 y modo solitario.
- * @param {number[]} resultados
- * @param {number} reservaDados
- * @returns {{ estado: string, botinOro: number, suministros: number, malheridos: boolean, represalia: number, resumen: string }}
+ * Incursiones de esbirros (manual, pág. 354): se prepara la incursión y se hace una tirada de implicación normal (enviar menos de tres
+ * esbirros resta, enviarlos con mejoras suma). Esa reserva se tira en cada tabla; la primera ajusta los dados de las otras dos.
+ * Se puede gastar moral para +1d en una única tirada de estas tablas. Después, tirada de represalias.
  */
-export function simularIncursionEsbirros(resultados, reservaDados = 2) {
-  const ev = evaluarTirada(resultados, reservaDados);
-  if (ev.estado === "critical") {
-    return {
-      estado: ev.estado,
-      botinOro: 1,
-      suministros: 2,
-      malheridos: false,
-      represalia: 0,
-      resumen: "¡Triunfo arrollador de la manada! Regresan intactos con 1 de Oro, 2 Suministros y sin dejar testigos."
-    };
-  }
-  if (ev.estado === "success") {
-    return {
-      estado: ev.estado,
-      botinOro: 1,
-      suministros: 1,
-      malheridos: false,
-      represalia: 1,
-      resumen: "Incursión exitosa: la manada cumple su objetivo y trae 1 de Oro (o 2 Suministros) con +1 segmento de represalia."
-    };
-  }
-  if (ev.estado === "mixed") {
-    return {
-      estado: ev.estado,
-      botinOro: 0,
-      suministros: 2,
-      malheridos: true,
-      represalia: 1,
-      resumen: "Éxito costoso: logran traer 2 Suministros, pero la manada vuelve Malherida y genera +1 segmento de represalia."
-    };
-  }
+export const INCURSION_ESBIRROS = {
+  exito: { titulo: "Éxito o fracaso de la incursión", nota: "4+ para cumplir con el objetivo.", filas: [["Aniquilados", -2], ["Por los pelos", -1], ["Retirada rápida", 0], ["Victoria pírrica", -2], ["Un poco caótico, pero ya está hecho", -1], ["Ejecución perfecta", 1]] },
+  consecuencias: { titulo: "Consecuencias", nota: "Ajusta el número de dados según los resultados de la 1.ª tabla.", filas: ["2 Devastadoras, 1 Molesta", "1 Devastadora, 2 Frustrantes", "3 Frustrantes", "1 Frustrante", "2 Molestas", "¡No hay consecuencias!"] },
+  botin: { titulo: "Botín y moral", nota: "Añade botín de base si la incursión salió bien.", filas: ["Los esbirros pierden moral", "-1d al botín", "Los esbirros ganan moral", "+1d al botín", "+1d al botín y ganan moral", "+2d al botín y ganan moral"] }
+};
+
+/** Valor de una tabla de reserva: el dado más alto (con 0d, el más bajo de dos). */
+export const valorReserva = (caras, reserva) => { const v = caras.map(c => acota(c, 1, 6)); return n(reserva, 1) <= 0 ? Math.min(...v) : Math.max(...v); };
+
+/**
+ * Resuelve las tres tablas de una incursión de esbirros a partir de las caras tiradas en cada una.
+ * @param {{ exito: number[], consecuencias: number[], botin: number[] }} caras
+ * @param {number} reserva dados de la tirada de implicación
+ * @returns {{ exito: object, consecuencias: object, botin: object, cumplido: boolean, ajuste: number, reservaAjustada: number }}
+ */
+export function evaluarIncursionEsbirros(caras, reserva = 2) {
+  const T = INCURSION_ESBIRROS;
+  const v1 = valorReserva(caras.exito, reserva), [texto, ajuste] = T.exito.filas[v1 - 1];
+  const reservaAjustada = n(reserva, 2) + ajuste;
+  const v2 = valorReserva(caras.consecuencias, reservaAjustada), v3 = valorReserva(caras.botin, reservaAjustada);
   return {
-    estado: ev.estado,
-    botinOro: 0,
-    suministros: 0,
-    malheridos: true,
-    represalia: 2,
-    resumen: "Desastre: la manada es rechazada, regresa Malherida con las manos vacías y provoca +2 segmentos de represalia."
+    exito: { valor: v1, texto: ajuste ? `${texto} (${ajuste > 0 ? "+" : ""}${ajuste}d)` : texto },
+    consecuencias: { valor: v2, texto: T.consecuencias.filas[v2 - 1] },
+    botin: { valor: v3, texto: T.botin.filas[v3 - 1] },
+    cumplido: v1 >= 4, ajuste, reservaAjustada
   };
+}
+
+/**
+ * Trabajo en equipo (manual, pág. 63): cada PJ implicado tira con la misma acción y el grupo usa el mejor resultado individual;
+ * cualquier PJ que saque un éxito parcial o un fracaso sufre estrés (un punto, como en el ejemplo del manual).
+ * @param {Array<"critical"|"success"|"mixed"|"failure">} estados
+ */
+export function evaluarTrabajoEnEquipo(estados) {
+  const orden = ["failure", "mixed", "success", "critical"];
+  const mejor = estados.reduce((a, e) => (orden.indexOf(e) > orden.indexOf(a) ? e : a), "failure");
+  return { estado: mejor, estres: estados.map(e => (e === "mixed" || e === "failure" ? 1 : 0)) };
 }
 
 /**

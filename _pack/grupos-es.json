@@ -18,7 +18,7 @@
    "imps": "Diablillos tiznados de hollín que acarrean piedras y chillan cuando huelen intrusos.",
    "master_plan": {
     "step1": "1. Tomar las Cuevas del Paso del Mercader y despertar el Corazón («Un lugar al que llamar hogar»).",
-    "step2": "2. Saquear los grimorios prohibidos de la Abadía de Piedra Blanca («Una biblioteca necesita libros»).",
+    "step2": "2. Saquear los grimorios prohibidos de la Abadía del Corazón Valiente («Una biblioteca necesita libros»).",
     "step3": "3. Capturar la piel del Gran Hombre Lobo del Bosque Susurrante («Piel de lobo para un ritual»).",
     "step4": "4. Repeler la invasión de los héroes del valle en nuestra guarida («¡Matad a los intrusos!»).",
     "step5": "5. Completar el Ritual del Eclipse sobre las Colinas («Bajo la luna llena»).",
@@ -57,7 +57,7 @@
   "type": "party",
   "img": "modules/mr-wicked-ones-es/assets/retratos/adv-defensor.webp",
   "system": {
-   "description": "<p>Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía de Piedra Blanca para recuperar la mercancía robada y tantear vuestras defensas.</p>"
+   "description": "<p>Primer grupo de héroes enviado por el Gremio de Mercaderes y la Abadía del Corazón Valiente para recuperar la mercancía robada y tantear vuestras defensas.</p>"
   },
   "prototypeToken": {
    "name": "Expedición de Piedra Blanca (Invasión N1)",
@@ -77,13 +77,13 @@
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Defender",
-     "adventurer_class_custom": "Alric de Piedra Blanca (Defensor)",
+     "adventurer_class_custom": "Alric de Piedra Blanca (Guardián)",
      "hireling_type": "",
      "hireling_type_custom": "",
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Siempre protege primero a sus compañeros. | Ofensivos: Embestida acorazada que derriba a la primera línea, Golpe de martillo que aturde al atacante, Bloquea el pasillo entero con su coraza y escudo | Defensivos: Se interpone recibiendo el golpe sin ceder, Clava su escudo torre en el suelo, Desvía la trampa con su armadura pesada",
+     "passive": "Comparte su poderosa defensa con sus aliados. | Ofensivos: Activar una trampa, Embestida de toro, Golpe de escudo | Defensivos: Guardaespaldas, Mantenerse firme, Ojos vigilantes",
      "trait_pos_1": "FITD.ADV_TRAIT.Steady",
      "trait_pos_1_custom": "Firme",
      "trait_pos_2": "",
@@ -93,24 +93,24 @@
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Challenge",
-     "motivation_1_custom": "Desafío",
+     "motivation_1_custom": "Desafíos",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Siempre protege primero a sus compañeros.\nMovimientos ofensivos:\n• Embestida acorazada que derriba a la primera línea\n• Golpe de martillo que aturde al atacante\n• Bloquea el pasillo entero con su coraza y escudo\nMovimientos defensivos:\n• Se interpone recibiendo el golpe sin ceder\n• Clava su escudo torre en el suelo\n• Desvía la trampa con su armadura pesada"
+     "description": "Pasiva: Comparte su poderosa defensa con sus aliados.\nMovimientos ofensivos:\n• Activar una trampa\n• Embestida de toro\n• Golpe de escudo\nMovimientos defensivos:\n• Guardaespaldas\n• Mantenerse firme\n• Ojos vigilantes\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "defender",
-      "pasivaCorto": "Siempre protege primero a sus compañeros.",
+      "pasivaCorto": "Comparte su poderosa defensa con sus aliados.",
       "ofensivos": [
-       "Embestida acorazada que derriba a la primera línea",
-       "Golpe de martillo que aturde al atacante",
-       "Bloquea el pasillo entero con su coraza y escudo"
+       "Activar una trampa",
+       "Embestida de toro",
+       "Golpe de escudo"
       ],
       "defensivos": [
-       "Se interpone recibiendo el golpe sin ceder",
-       "Clava su escudo torre en el suelo",
-       "Desvía la trampa con su armadura pesada"
+       "Guardaespaldas",
+       "Mantenerse firme",
+       "Ojos vigilantes"
       ]
      }
     }
@@ -129,7 +129,7 @@
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Restaura el corazón de un aliado como movimiento. | Ofensivos: Luz sagrada abrasadora contra criaturas oscuras, Golpe contundente con maza bendecida, Consagra el suelo impidiendo la magia oscura | Defensivos: Plegaria de escudo radiante, Sana las heridas de un compañero en el acto, Su símbolo sagrado repele el ataque",
+     "passive": "Curar a un aliado cuando haya un momento de respiro. | Ofensivos: Plegaria de castigo, Plegaria de curación, Plegaria del poder divino | Defensivos: Plegaria de guía, Plegaria de protección, Plegaria de santuario",
      "trait_pos_1": "FITD.ADV_TRAIT.Generous",
      "trait_pos_1_custom": "Generoso",
      "trait_pos_2": "",
@@ -142,21 +142,21 @@
      "motivation_1_custom": "Justicia",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Restaura el corazón de un aliado como movimiento.\nMovimientos ofensivos:\n• Luz sagrada abrasadora contra criaturas oscuras\n• Golpe contundente con maza bendecida\n• Consagra el suelo impidiendo la magia oscura\nMovimientos defensivos:\n• Plegaria de escudo radiante\n• Sana las heridas de un compañero en el acto\n• Su símbolo sagrado repele el ataque"
+     "description": "Pasiva: Curar a un aliado cuando haya un momento de respiro.\nMovimientos ofensivos:\n• Plegaria de castigo\n• Plegaria de curación\n• Plegaria del poder divino\nMovimientos defensivos:\n• Plegaria de guía\n• Plegaria de protección\n• Plegaria de santuario\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "cleric",
-      "pasivaCorto": "Restaura el corazón de un aliado como movimiento.",
+      "pasivaCorto": "Curar a un aliado cuando haya un momento de respiro.",
       "ofensivos": [
-       "Luz sagrada abrasadora contra criaturas oscuras",
-       "Golpe contundente con maza bendecida",
-       "Consagra el suelo impidiendo la magia oscura"
+       "Plegaria de castigo",
+       "Plegaria de curación",
+       "Plegaria del poder divino"
       ],
       "defensivos": [
-       "Plegaria de escudo radiante",
-       "Sana las heridas de un compañero en el acto",
-       "Su símbolo sagrado repele el ataque"
+       "Plegaria de guía",
+       "Plegaria de protección",
+       "Plegaria de santuario"
       ]
      }
     }
@@ -175,7 +175,7 @@
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Detecta trampas y puertas secretas con facilidad. | Ofensivos: Desactiva o bloquea el mecanismo de una trampa, Señala el punto vulnerable para que sus aliados ataquen, Ataque rápido de flanqueo y retirada | Defensivos: Advierte el cable o placa de presión a tiempo, Se desliza por un hueco estrecho fuera de peligro, Lanza un abrojo o cuerda para frenar al perseguidor",
+     "passive": "Experto en la detección de trampas y peligros. | Ofensivos: Conocer el camino, Disparo con truco, Fuego de cobertura | Defensivos: Alterar el terreno, Detectar una salida, Disparo de advertencia",
      "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
      "trait_pos_1_custom": "Servicial",
      "trait_pos_2": "",
@@ -188,21 +188,21 @@
      "motivation_1_custom": "Exploración",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Detecta trampas y puertas secretas con facilidad.\nMovimientos ofensivos:\n• Desactiva o bloquea el mecanismo de una trampa\n• Señala el punto vulnerable para que sus aliados ataquen\n• Ataque rápido de flanqueo y retirada\nMovimientos defensivos:\n• Advierte el cable o placa de presión a tiempo\n• Se desliza por un hueco estrecho fuera de peligro\n• Lanza un abrojo o cuerda para frenar al perseguidor"
+     "description": "Pasiva: Experto en la detección de trampas y peligros.\nMovimientos ofensivos:\n• Conocer el camino\n• Disparo con truco\n• Fuego de cobertura\nMovimientos defensivos:\n• Alterar el terreno\n• Detectar una salida\n• Disparo de advertencia\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "scout",
-      "pasivaCorto": "Detecta trampas y puertas secretas con facilidad.",
+      "pasivaCorto": "Experto en la detección de trampas y peligros.",
       "ofensivos": [
-       "Desactiva o bloquea el mecanismo de una trampa",
-       "Señala el punto vulnerable para que sus aliados ataquen",
-       "Ataque rápido de flanqueo y retirada"
+       "Conocer el camino",
+       "Disparo con truco",
+       "Fuego de cobertura"
       ],
       "defensivos": [
-       "Advierte el cable o placa de presión a tiempo",
-       "Se desliza por un hueco estrecho fuera de peligro",
-       "Lanza un abrojo o cuerda para frenar al perseguidor"
+       "Alterar el terreno",
+       "Detectar una salida",
+       "Disparo de advertencia"
       ]
      }
     }
@@ -221,20 +221,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Vigila la retaguardia y da la voz de alarma ante ataques por sorpresa."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -252,24 +252,24 @@
      "adventurer_class": "",
      "adventurer_class_custom": "",
      "hireling_type": "FITD.ADV_TYPE.Trapfinder",
-     "hireling_type_custom": "Buscatrampas",
+     "hireling_type_custom": "Trampero",
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Lleva pértigas, sondas y polvo para detectar mecanismos ocultos."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -312,41 +312,41 @@
     "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
     "system": {
      "adventurer_type": "adventurer",
-     "adventurer_class": "FITD.ADV_CLASS.Occultslayer",
-     "adventurer_class_custom": "Vaelen Cazador de Sombras (Asesino de lo Oculto)",
+     "adventurer_class": "FITD.ADV_CLASS.OccultSlayer",
+     "adventurer_class_custom": "Vaelen Cazador de Sombras (Asesino sagrado)",
      "hireling_type": "",
      "hireling_type_custom": "",
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Especialista en destruir monstruos sobrenaturales. | Ofensivos: Dispara virotes grabados con runas de destierro, Usa bombas de sal, plata y hierro frío, Analiza y explota la debilidad de la raza del monstruo | Defensivos: Activa un talismán protector contra poderes oscuros, Rueda fuera del alcance dejando un abrojo bendito, Corta el vínculo mágico de la trampa o reliquia",
+     "passive": "Tiene un sexto sentido para el peligro. | Ofensivos: Apuntar al corazón, Conocer debilidad, Detectar el mal | Defensivos: Amuletos y talismanes, Burlar con ingenio, Sin miedo a la muerte",
      "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
-     "trait_pos_1_custom": "Persistente",
+     "trait_pos_1_custom": "Perseverante",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
      "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
-     "trait_neg_1_custom": "Deshonesto",
+     "trait_neg_1_custom": "Mentiroso",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Justice",
      "motivation_1_custom": "Justicia",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Especialista en destruir monstruos sobrenaturales.\nMovimientos ofensivos:\n• Dispara virotes grabados con runas de destierro\n• Usa bombas de sal, plata y hierro frío\n• Analiza y explota la debilidad de la raza del monstruo\nMovimientos defensivos:\n• Activa un talismán protector contra poderes oscuros\n• Rueda fuera del alcance dejando un abrojo bendito\n• Corta el vínculo mágico de la trampa o reliquia"
+     "description": "Pasiva: Tiene un sexto sentido para el peligro.\nMovimientos ofensivos:\n• Apuntar al corazón\n• Conocer debilidad\n• Detectar el mal\nMovimientos defensivos:\n• Amuletos y talismanes\n• Burlar con ingenio\n• Sin miedo a la muerte\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "occultslayer",
-      "pasivaCorto": "Especialista en destruir monstruos sobrenaturales.",
+      "pasivaCorto": "Tiene un sexto sentido para el peligro.",
       "ofensivos": [
-       "Dispara virotes grabados con runas de destierro",
-       "Usa bombas de sal, plata y hierro frío",
-       "Analiza y explota la debilidad de la raza del monstruo"
+       "Apuntar al corazón",
+       "Conocer debilidad",
+       "Detectar el mal"
       ],
       "defensivos": [
-       "Activa un talismán protector contra poderes oscuros",
-       "Rueda fuera del alcance dejando un abrojo bendito",
-       "Corta el vínculo mágico de la trampa o reliquia"
+       "Amuletos y talismanes",
+       "Burlar con ingenio",
+       "Sin miedo a la muerte"
       ]
      }
     }
@@ -359,13 +359,13 @@
     "system": {
      "adventurer_type": "adventurer",
      "adventurer_class": "FITD.ADV_CLASS.Spellbow",
-     "adventurer_class_custom": "Lyra Vientoveloz (Arquero Arcano)",
+     "adventurer_class_custom": "Lyra Vientoveloz (Arquero arcano)",
      "hireling_type": "",
      "hireling_type_custom": "",
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Sus flechas atraviesan coberturas y muros finos. | Ofensivos: Flecha espectral que ignora armaduras y escudos, Salva de flechas multiplicadas en el aire, Flecha explosiva que detona al clavarse | Defensivos: Dispara una flecha con cuerda mágica para impulsarse, Barrera de viento que desvía proyectiles y gases, Se mantiene en la retaguardia fuera de alcance",
+     "passive": "Imbuye cada una de sus flechas con un efecto elemental. | Ofensivos: Flecha corrosiva, Flecha dirigida, Lluvia de proyectiles | Defensivos: Flecha de grasa, Flecha de teletransporte, Flecha ilusoria",
      "trait_pos_1": "FITD.ADV_TRAIT.Clever",
      "trait_pos_1_custom": "Astuto",
      "trait_pos_2": "",
@@ -375,24 +375,24 @@
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Thrills",
-     "motivation_1_custom": "Emociones",
+     "motivation_1_custom": "Emoción",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Sus flechas atraviesan coberturas y muros finos.\nMovimientos ofensivos:\n• Flecha espectral que ignora armaduras y escudos\n• Salva de flechas multiplicadas en el aire\n• Flecha explosiva que detona al clavarse\nMovimientos defensivos:\n• Dispara una flecha con cuerda mágica para impulsarse\n• Barrera de viento que desvía proyectiles y gases\n• Se mantiene en la retaguardia fuera de alcance"
+     "description": "Pasiva: Imbuye cada una de sus flechas con un efecto elemental.\nMovimientos ofensivos:\n• Flecha corrosiva\n• Flecha dirigida\n• Lluvia de proyectiles\nMovimientos defensivos:\n• Flecha de grasa\n• Flecha de teletransporte\n• Flecha ilusoria\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "spellbow",
-      "pasivaCorto": "Sus flechas atraviesan coberturas y muros finos.",
+      "pasivaCorto": "Imbuye cada una de sus flechas con un efecto elemental.",
       "ofensivos": [
-       "Flecha espectral que ignora armaduras y escudos",
-       "Salva de flechas multiplicadas en el aire",
-       "Flecha explosiva que detona al clavarse"
+       "Flecha corrosiva",
+       "Flecha dirigida",
+       "Lluvia de proyectiles"
       ],
       "defensivos": [
-       "Dispara una flecha con cuerda mágica para impulsarse",
-       "Barrera de viento que desvía proyectiles y gases",
-       "Se mantiene en la retaguardia fuera de alcance"
+       "Flecha de grasa",
+       "Flecha de teletransporte",
+       "Flecha ilusoria"
       ]
      }
     }
@@ -411,7 +411,7 @@
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Puede transformarse en bestia salvaje. | Ofensivos: Se transforma en oso o pantera y desgarra, Hace brotar raíces espinosas que atrapan a todos, Comanda a las bestias de la guarida contra sus amos | Defensivos: Adopta forma de serpiente o pájaro para escapar, Piel de corteza que detiene las cuchillas, Se funde con la roca y el barro natural",
+     "passive": "Puede convertirse en cualquier animal. | Ofensivos: Amigos del bosque, Bayas venenosas, Transformación curativa | Defensivos: Enredaderas, Espinas de cardo, Piel de corteza",
      "trait_pos_1": "FITD.ADV_TRAIT.Honest",
      "trait_pos_1_custom": "Honesto",
      "trait_pos_2": "",
@@ -424,21 +424,21 @@
      "motivation_1_custom": "Venganza",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Puede transformarse en bestia salvaje.\nMovimientos ofensivos:\n• Se transforma en oso o pantera y desgarra\n• Hace brotar raíces espinosas que atrapan a todos\n• Comanda a las bestias de la guarida contra sus amos\nMovimientos defensivos:\n• Adopta forma de serpiente o pájaro para escapar\n• Piel de corteza que detiene las cuchillas\n• Se funde con la roca y el barro natural"
+     "description": "Pasiva: Puede convertirse en cualquier animal.\nMovimientos ofensivos:\n• Amigos del bosque\n• Bayas venenosas\n• Transformación curativa\nMovimientos defensivos:\n• Enredaderas\n• Espinas de cardo\n• Piel de corteza\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "druid",
-      "pasivaCorto": "Puede transformarse en bestia salvaje.",
+      "pasivaCorto": "Puede convertirse en cualquier animal.",
       "ofensivos": [
-       "Se transforma en oso o pantera y desgarra",
-       "Hace brotar raíces espinosas que atrapan a todos",
-       "Comanda a las bestias de la guarida contra sus amos"
+       "Amigos del bosque",
+       "Bayas venenosas",
+       "Transformación curativa"
       ],
       "defensivos": [
-       "Adopta forma de serpiente o pájaro para escapar",
-       "Piel de corteza que detiene las cuchillas",
-       "Se funde con la roca y el barro natural"
+       "Enredaderas",
+       "Espinas de cardo",
+       "Piel de corteza"
       ]
      }
     }
@@ -457,34 +457,34 @@
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Tiene un corazón más. | Ofensivos: Carga salvaje destrozando barricadas y escudos, Tajo circular con hacha a dos manos, Agarra a un enemigo y lo estampa contra otro | Defensivos: Ignora el dolor rugiendo con furia, Detiene el arma enemiga con sus propias manos, Rompe la trampa a golpes brutos",
+     "passive": "Sigue luchando cuando debería estar muerto. | Ofensivos: Arrojar a un aliado, Ráfaga de tajos, Rugido feroz | Defensivos: Arrojar a un enemigo, Músculos inmensos, Romper ataduras",
      "trait_pos_1": "FITD.ADV_TRAIT.Confident",
      "trait_pos_1_custom": "Confiado",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
      "trait_neg_1": "FITD.ADV_TRAIT.Dumb",
-     "trait_neg_1_custom": "Estúpido",
+     "trait_neg_1_custom": "Lerdo",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Justice",
      "motivation_1_custom": "Justicia",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Tiene un corazón más.\nMovimientos ofensivos:\n• Carga salvaje destrozando barricadas y escudos\n• Tajo circular con hacha a dos manos\n• Agarra a un enemigo y lo estampa contra otro\nMovimientos defensivos:\n• Ignora el dolor rugiendo con furia\n• Detiene el arma enemiga con sus propias manos\n• Rompe la trampa a golpes brutos"
+     "description": "Pasiva: Sigue luchando cuando debería estar muerto.\nMovimientos ofensivos:\n• Arrojar a un aliado\n• Ráfaga de tajos\n• Rugido feroz\nMovimientos defensivos:\n• Arrojar a un enemigo\n• Músculos inmensos\n• Romper ataduras\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "barbarian",
-      "pasivaCorto": "Tiene un corazón más.",
+      "pasivaCorto": "Sigue luchando cuando debería estar muerto.",
       "ofensivos": [
-       "Carga salvaje destrozando barricadas y escudos",
-       "Tajo circular con hacha a dos manos",
-       "Agarra a un enemigo y lo estampa contra otro"
+       "Arrojar a un aliado",
+       "Ráfaga de tajos",
+       "Rugido feroz"
       ],
       "defensivos": [
-       "Ignora el dolor rugiendo con furia",
-       "Detiene el arma enemiga con sus propias manos",
-       "Rompe la trampa a golpes brutos"
+       "Arrojar a un enemigo",
+       "Músculos inmensos",
+       "Romper ataduras"
       ]
      }
     }
@@ -503,20 +503,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Rastrea las incursiones de los malvados de vuelta hasta la entrada de su guarida."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -534,24 +534,24 @@
      "adventurer_class": "",
      "adventurer_class_custom": "",
      "hireling_type": "FITD.ADV_TYPE.Sawbones",
-     "hireling_type_custom": "Cirujano",
+     "hireling_type_custom": "Matasanos",
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Cose heridas entre combates para mantener en pie a los aventureros.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Cose heridas entre combates para mantener en pie a los aventureros."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -601,9 +601,9 @@
      "tier": 3,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Anula engaños, ilusiones y magia oscura. | Ofensivos: Disparo de ballesta bendecida con plata, Marca al malvado con un anatema que impide ocultarse, Azota con cadenas consagradas ardientes | Defensivos: Su fe inquebrantable disipa el conjuro o truco, Pronuncia un edicto que detiene en seco al atacante, Sacrifica a un subordinado para mantener la misión",
+     "passive": "Destaca a la hora de detectar mentiras y trucos. | Ofensivos: Aullar órdenes, Ignorar un truco, Latigazos espeluznantes | Defensivos: Aceptar castigo, Mirada de reproche, Siseo retador",
      "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
-     "trait_pos_1_custom": "Persistente",
+     "trait_pos_1_custom": "Perseverante",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
      "trait_neg_1": "FITD.ADV_TRAIT.Stubborn",
@@ -614,21 +614,21 @@
      "motivation_1_custom": "Justicia",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Anula engaños, ilusiones y magia oscura.\nMovimientos ofensivos:\n• Disparo de ballesta bendecida con plata\n• Marca al malvado con un anatema que impide ocultarse\n• Azota con cadenas consagradas ardientes\nMovimientos defensivos:\n• Su fe inquebrantable disipa el conjuro o truco\n• Pronuncia un edicto que detiene en seco al atacante\n• Sacrifica a un subordinado para mantener la misión"
+     "description": "Pasiva: Destaca a la hora de detectar mentiras y trucos.\nMovimientos ofensivos:\n• Aullar órdenes\n• Ignorar un truco\n• Latigazos espeluznantes\nMovimientos defensivos:\n• Aceptar castigo\n• Mirada de reproche\n• Siseo retador\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "inquisitor",
-      "pasivaCorto": "Anula engaños, ilusiones y magia oscura.",
+      "pasivaCorto": "Destaca a la hora de detectar mentiras y trucos.",
       "ofensivos": [
-       "Disparo de ballesta bendecida con plata",
-       "Marca al malvado con un anatema que impide ocultarse",
-       "Azota con cadenas consagradas ardientes"
+       "Aullar órdenes",
+       "Ignorar un truco",
+       "Latigazos espeluznantes"
       ],
       "defensivos": [
-       "Su fe inquebrantable disipa el conjuro o truco",
-       "Pronuncia un edicto que detiene en seco al atacante",
-       "Sacrifica a un subordinado para mantener la misión"
+       "Aceptar castigo",
+       "Mirada de reproche",
+       "Siseo retador"
       ]
      }
     }
@@ -647,7 +647,7 @@
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Otorga un movimiento defensivo adicional al grupo. | Ofensivos: Avanza en formación cerrada de escudos, Empuja con el escudo y ensarta con la espada corta, Ordena una maniobra táctica disciplinada | Defensivos: Alza un muro de escudos impenetrable, Protege al compañero herido bajo su pavés, Mantiene la posición sin retroceder un palmo",
+     "passive": "Es más poderoso cuando está herido. | Ofensivos: Lanzar el gladius, Salto atlético, Trabajo en equipo | Defensivos: Palabras de determinación, Patada en el pecho, Proteger aliado",
      "trait_pos_1": "FITD.ADV_TRAIT.Steady",
      "trait_pos_1_custom": "Firme",
      "trait_pos_2": "",
@@ -657,24 +657,24 @@
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Respect",
-     "motivation_1_custom": "Respeto",
+     "motivation_1_custom": "Reputación",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Otorga un movimiento defensivo adicional al grupo.\nMovimientos ofensivos:\n• Avanza en formación cerrada de escudos\n• Empuja con el escudo y ensarta con la espada corta\n• Ordena una maniobra táctica disciplinada\nMovimientos defensivos:\n• Alza un muro de escudos impenetrable\n• Protege al compañero herido bajo su pavés\n• Mantiene la posición sin retroceder un palmo"
+     "description": "Pasiva: Es más poderoso cuando está herido.\nMovimientos ofensivos:\n• Lanzar el gladius\n• Salto atlético\n• Trabajo en equipo\nMovimientos defensivos:\n• Palabras de determinación\n• Patada en el pecho\n• Proteger aliado\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "centurion",
-      "pasivaCorto": "Otorga un movimiento defensivo adicional al grupo.",
+      "pasivaCorto": "Es más poderoso cuando está herido.",
       "ofensivos": [
-       "Avanza en formación cerrada de escudos",
-       "Empuja con el escudo y ensarta con la espada corta",
-       "Ordena una maniobra táctica disciplinada"
+       "Lanzar el gladius",
+       "Salto atlético",
+       "Trabajo en equipo"
       ],
       "defensivos": [
-       "Alza un muro de escudos impenetrable",
-       "Protege al compañero herido bajo su pavés",
-       "Mantiene la posición sin retroceder un palmo"
+       "Palabras de determinación",
+       "Patada en el pecho",
+       "Proteger aliado"
       ]
      }
     }
@@ -686,14 +686,14 @@
     "img": "modules/mr-wicked-ones-es/assets/retratos/adv-mago-del-caos.webp",
     "system": {
      "adventurer_type": "adventurer",
-     "adventurer_class": "FITD.ADV_CLASS.Chaosmage",
-     "adventurer_class_custom": "Archimago Oakhaven (Mago del Caos)",
+     "adventurer_class": "FITD.ADV_CLASS.ChaosMage",
+     "adventurer_class_custom": "Archimago Oakhaven (Mago del caos)",
      "hireling_type": "",
      "hireling_type_custom": "",
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Magia poderosa y salvajemente impredecible. | Ofensivos: Desata un vórtice de relámpagos y fuego prismático, Altera la gravedad de la sala de repente, Teletransporta a los combatientes de lugar | Defensivos: Estalla en una onda de fuerza caótica, Su cuerpo parpadea entre planos al ser golpeado, Convierte el proyectil en mariposas o humo",
+     "passive": "Lanza conjuros al azar cuando le atacan. | Ofensivos: Desenmascarar, Mariposas brillantes, Ojos de la locura | Defensivos: Cambio temporal, Grieta caótica, Protector horripilante",
      "trait_pos_1": "FITD.ADV_TRAIT.Optimistic",
      "trait_pos_1_custom": "Optimista",
      "trait_pos_2": "",
@@ -706,21 +706,21 @@
      "motivation_1_custom": "Exploración",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Magia poderosa y salvajemente impredecible.\nMovimientos ofensivos:\n• Desata un vórtice de relámpagos y fuego prismático\n• Altera la gravedad de la sala de repente\n• Teletransporta a los combatientes de lugar\nMovimientos defensivos:\n• Estalla en una onda de fuerza caótica\n• Su cuerpo parpadea entre planos al ser golpeado\n• Convierte el proyectil en mariposas o humo"
+     "description": "Pasiva: Lanza conjuros al azar cuando le atacan.\nMovimientos ofensivos:\n• Desenmascarar\n• Mariposas brillantes\n• Ojos de la locura\nMovimientos defensivos:\n• Cambio temporal\n• Grieta caótica\n• Protector horripilante\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "chaosmage",
-      "pasivaCorto": "Magia poderosa y salvajemente impredecible.",
+      "pasivaCorto": "Lanza conjuros al azar cuando le atacan.",
       "ofensivos": [
-       "Desata un vórtice de relámpagos y fuego prismático",
-       "Altera la gravedad de la sala de repente",
-       "Teletransporta a los combatientes de lugar"
+       "Desenmascarar",
+       "Mariposas brillantes",
+       "Ojos de la locura"
       ],
       "defensivos": [
-       "Estalla en una onda de fuerza caótica",
-       "Su cuerpo parpadea entre planos al ser golpeado",
-       "Convierte el proyectil en mariposas o humo"
+       "Cambio temporal",
+       "Grieta caótica",
+       "Protector horripilante"
       ]
      }
     }
@@ -739,34 +739,34 @@
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Armadura pesada e inmune al miedo. | Ofensivos: Duelo honorable: desafía y acorrala al líder, Tajo poderoso de espada bastarda, Carga hombro con hombro inspirando valor | Defensivos: Su armadura de placas desvía el golpe limpiamente, Parada magistral y contraataque, Se mantiene firme pese al dolor por su juramento",
+     "passive": "Es casi invulnerable ante el daño físico. | Ofensivos: Avance imparable, Ensartar, Muro impenetrable | Defensivos: Baluarte defensivo, Código de honor, Intercambiar posición",
      "trait_pos_1": "FITD.ADV_TRAIT.Honest",
      "trait_pos_1_custom": "Honesto",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
      "trait_neg_1": "FITD.ADV_TRAIT.Cocky",
-     "trait_neg_1_custom": "Engreído",
+     "trait_neg_1_custom": "Arrogante",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Respect",
-     "motivation_1_custom": "Respeto",
+     "motivation_1_custom": "Reputación",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Armadura pesada e inmune al miedo.\nMovimientos ofensivos:\n• Duelo honorable: desafía y acorrala al líder\n• Tajo poderoso de espada bastarda\n• Carga hombro con hombro inspirando valor\nMovimientos defensivos:\n• Su armadura de placas desvía el golpe limpiamente\n• Parada magistral y contraataque\n• Se mantiene firme pese al dolor por su juramento"
+     "description": "Pasiva: Es casi invulnerable ante el daño físico.\nMovimientos ofensivos:\n• Avance imparable\n• Ensartar\n• Muro impenetrable\nMovimientos defensivos:\n• Baluarte defensivo\n• Código de honor\n• Intercambiar posición\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "knight",
-      "pasivaCorto": "Armadura pesada e inmune al miedo.",
+      "pasivaCorto": "Es casi invulnerable ante el daño físico.",
       "ofensivos": [
-       "Duelo honorable: desafía y acorrala al líder",
-       "Tajo poderoso de espada bastarda",
-       "Carga hombro con hombro inspirando valor"
+       "Avance imparable",
+       "Ensartar",
+       "Muro impenetrable"
       ],
       "defensivos": [
-       "Su armadura de placas desvía el golpe limpiamente",
-       "Parada magistral y contraataque",
-       "Se mantiene firme pese al dolor por su juramento"
+       "Baluarte defensivo",
+       "Código de honor",
+       "Intercambiar posición"
       ]
      }
     }
@@ -785,20 +785,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Desmonta portones, rastrillos y cerraduras de precisión con herramientas propias."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -820,20 +820,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Veterano curtido que aporta potencia de combate adicional.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Veterano curtido que aporta potencia de combate adicional."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -855,20 +855,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Bendice al grupo y ofrece consuelo frente al terror sobrenatural."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -918,7 +918,7 @@
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Campeón fanático de la Luz. | Ofensivos: Espadón llameante de juicio solar, Carga purificadora que rompe la moral de los esbirros, Desafío sagrado que obliga al malvado a encararlo | Defensivos: Aura dorada que quema a quien lo golpea de cerca, Resiste el golpe con una oración inquebrantable, Escudo consagrado que refleja la magia oscura",
+     "passive": "No se le puede desviar de su camino. | Ofensivos: Palabra sagrada: Búsqueda, Palabra sagrada: Confusión, Palabra sagrada: Dolor | Defensivos: Palabra sagrada: Cegar, Palabra sagrada: Detener, Palabra sagrada: Verdad",
      "trait_pos_1": "FITD.ADV_TRAIT.Steady",
      "trait_pos_1_custom": "Firme",
      "trait_pos_2": "",
@@ -931,21 +931,21 @@
      "motivation_1_custom": "Justicia",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Campeón fanático de la Luz.\nMovimientos ofensivos:\n• Espadón llameante de juicio solar\n• Carga purificadora que rompe la moral de los esbirros\n• Desafío sagrado que obliga al malvado a encararlo\nMovimientos defensivos:\n• Aura dorada que quema a quien lo golpea de cerca\n• Resiste el golpe con una oración inquebrantable\n• Escudo consagrado que refleja la magia oscura"
+     "description": "Pasiva: No se le puede desviar de su camino.\nMovimientos ofensivos:\n• Palabra sagrada: Búsqueda\n• Palabra sagrada: Confusión\n• Palabra sagrada: Dolor\nMovimientos defensivos:\n• Palabra sagrada: Cegar\n• Palabra sagrada: Detener\n• Palabra sagrada: Verdad\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "templar",
-      "pasivaCorto": "Campeón fanático de la Luz.",
+      "pasivaCorto": "No se le puede desviar de su camino.",
       "ofensivos": [
-       "Espadón llameante de juicio solar",
-       "Carga purificadora que rompe la moral de los esbirros",
-       "Desafío sagrado que obliga al malvado a encararlo"
+       "Palabra sagrada: Búsqueda",
+       "Palabra sagrada: Confusión",
+       "Palabra sagrada: Dolor"
       ],
       "defensivos": [
-       "Aura dorada que quema a quien lo golpea de cerca",
-       "Resiste el golpe con una oración inquebrantable",
-       "Escudo consagrado que refleja la magia oscura"
+       "Palabra sagrada: Cegar",
+       "Palabra sagrada: Detener",
+       "Palabra sagrada: Verdad"
       ]
      }
     }
@@ -964,7 +964,7 @@
      "tier": 2,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Su equipo cuenta con varias pociones. | Ofensivos: Lanza un vial de fuego alquímico o ácido, Bebe un mutágeno de furia y fuerza, Inunda la sala con humo tóxico | Defensivos: Arroja una bomba cegadora a sus pies, Neutraliza el veneno o ácido con un reactivo, Bebe un elixir curativo de emergencia",
+     "passive": "Puede utilizar cualquier mejunje de nivel 1 o 2 de la página 121. | Ofensivos: Crear una puerta, Derretir cerradura, Mezcla rápida | Defensivos: Bomba de grasa, Granada de pringue, Sales apestosas",
      "trait_pos_1": "FITD.ADV_TRAIT.Clever",
      "trait_pos_1_custom": "Astuto",
      "trait_pos_2": "",
@@ -974,24 +974,24 @@
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Thrills",
-     "motivation_1_custom": "Emociones",
+     "motivation_1_custom": "Emoción",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Su equipo cuenta con varias pociones.\nMovimientos ofensivos:\n• Lanza un vial de fuego alquímico o ácido\n• Bebe un mutágeno de furia y fuerza\n• Inunda la sala con humo tóxico\nMovimientos defensivos:\n• Arroja una bomba cegadora a sus pies\n• Neutraliza el veneno o ácido con un reactivo\n• Bebe un elixir curativo de emergencia"
+     "description": "Pasiva: Puede utilizar cualquier mejunje de nivel 1 o 2 de la página 121.\nMovimientos ofensivos:\n• Crear una puerta\n• Derretir cerradura\n• Mezcla rápida\nMovimientos defensivos:\n• Bomba de grasa\n• Granada de pringue\n• Sales apestosas\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "alchemist",
-      "pasivaCorto": "Su equipo cuenta con varias pociones.",
+      "pasivaCorto": "Puede utilizar cualquier mejunje de nivel 1 o 2 de la página 121.",
       "ofensivos": [
-       "Lanza un vial de fuego alquímico o ácido",
-       "Bebe un mutágeno de furia y fuerza",
-       "Inunda la sala con humo tóxico"
+       "Crear una puerta",
+       "Derretir cerradura",
+       "Mezcla rápida"
       ],
       "defensivos": [
-       "Arroja una bomba cegadora a sus pies",
-       "Neutraliza el veneno o ácido con un reactivo",
-       "Bebe un elixir curativo de emergencia"
+       "Bomba de grasa",
+       "Granada de pringue",
+       "Sales apestosas"
       ]
      }
     }
@@ -1010,34 +1010,34 @@
      "tier": 1,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Difícil de seguirle la pista en combate. | Ofensivos: Apuñala desde las sombras donde más duele, Lanza dagas envenenadas en movimiento, Corta las correas de la armadura o suministros | Defensivos: Se desvanece en una esquina oscura, Deja un señuelo y rueda a la espalda del atacante, Desvía la hoja con sus dagas gemelas",
+     "passive": "Siempre inicia una escena escondido. | Ofensivos: Estrangular en silencio, Robar objeto, Veneno somnífero | Defensivos: Bomba de humo, Fundirse con las sombras, Hacerse el muerto",
      "trait_pos_1": "FITD.ADV_TRAIT.Persistent",
-     "trait_pos_1_custom": "Persistente",
+     "trait_pos_1_custom": "Perseverante",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
      "trait_neg_1": "FITD.ADV_TRAIT.Dishonest",
-     "trait_neg_1_custom": "Deshonesto",
+     "trait_neg_1_custom": "Mentiroso",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
      "motivation_1": "FITD.ADV_MOTIVE.Riches",
      "motivation_1_custom": "Riquezas",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Pasiva: Difícil de seguirle la pista en combate.\nMovimientos ofensivos:\n• Apuñala desde las sombras donde más duele\n• Lanza dagas envenenadas en movimiento\n• Corta las correas de la armadura o suministros\nMovimientos defensivos:\n• Se desvanece en una esquina oscura\n• Deja un señuelo y rueda a la espalda del atacante\n• Desvía la hoja con sus dagas gemelas"
+     "description": "Pasiva: Siempre inicia una escena escondido.\nMovimientos ofensivos:\n• Estrangular en silencio\n• Robar objeto\n• Veneno somnífero\nMovimientos defensivos:\n• Bomba de humo\n• Fundirse con las sombras\n• Hacerse el muerto\n(Aventureros de ejemplo, manual pág. 320.)"
     },
     "flags": {
      "mr-wicked-ones-es": {
       "clase": "assassin",
-      "pasivaCorto": "Difícil de seguirle la pista en combate.",
+      "pasivaCorto": "Siempre inicia una escena escondido.",
       "ofensivos": [
-       "Apuñala desde las sombras donde más duele",
-       "Lanza dagas envenenadas en movimiento",
-       "Corta las correas de la armadura o suministros"
+       "Estrangular en silencio",
+       "Robar objeto",
+       "Veneno somnífero"
       ],
       "defensivos": [
-       "Se desvanece en una esquina oscura",
-       "Deja un señuelo y rueda a la espalda del atacante",
-       "Desvía la hoja con sus dagas gemelas"
+       "Bomba de humo",
+       "Fundirse con las sombras",
+       "Hacerse el muerto"
       ]
      }
     }
@@ -1051,25 +1051,25 @@
      "adventurer_type": "hireling",
      "adventurer_class": "",
      "adventurer_class_custom": "",
-     "hireling_type": "FITD.ADV_TYPE.Ratcatcher",
+     "hireling_type": "FITD.ADV_TYPE.RatCatcher",
      "hireling_type_custom": "Cazarratas",
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Acostumbrado a túneles estrechos, alimañas y venenos de cloaca."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -1091,20 +1091,20 @@
      "tier": 0,
      "heart_slashes": 0,
      "moves_used": 0,
-     "passive": "Detecta muros falsos y puede abrir túneles a través de derrumbes.",
-     "trait_pos_1": "FITD.ADV_TRAIT.Helpful",
-     "trait_pos_1_custom": "Servicial",
+     "passive": "",
+     "trait_pos_1": "",
+     "trait_pos_1_custom": "",
      "trait_pos_2": "",
      "trait_pos_2_custom": "",
-     "trait_neg_1": "FITD.ADV_TRAIT.Impatient",
-     "trait_neg_1_custom": "Impaciente",
+     "trait_neg_1": "",
+     "trait_neg_1_custom": "",
      "trait_neg_2": "",
      "trait_neg_2_custom": "",
-     "motivation_1": "FITD.ADV_MOTIVE.Riches",
-     "motivation_1_custom": "Riquezas",
+     "motivation_1": "",
+     "motivation_1_custom": "",
      "motivation_2": "",
      "motivation_2_custom": "",
-     "description": "Detecta muros falsos y puede abrir túneles a través de derrumbes."
+     "description": "Un ayudante es casi un aprendiz de aventurero, un miembro muy cualificado de su profesión: tiene un corazón y puede hacer un movimiento o tener una habilidad pasiva (manual, pág. 318). El libro solo da el oficio: el movimiento o la pasiva los decides tú."
     },
     "flags": {
      "mr-wicked-ones-es": {
@@ -1133,7 +1133,7 @@
     "min": 1,
     "max": 12
    },
-   "description": "<h2>Guía Rápida del Ciclo de Partida · El Valle Silencioso</h2><p>La campaña comienza directamente en la <strong>Fase de Incursión (Fase 7)</strong> con el asalto inicial <em>«Un lugar al que llamar hogar»</em> contra las Cuevas del Paso del Mercader.</p><ul><li><strong>Hito R1:</strong> Reclamar la cueva y forjar el Corazón de la Mazmorra.</li><li><strong>Hito R2:</strong> Primera Fase de Guarida (excavar salas N1, colocar trampas y reclutar).</li><li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía de Piedra Blanca).</li><li><strong>Hito R4:</strong> Incursión III «Piel de lobo para un ritual» (Bosque Susurrante).</li><li><strong>Hito R5:</strong> Invasión «¡Matad a los intrusos!» (Defensa de la mazmorra).</li><li><strong>Hito R6:</strong> Clímax «La última luna llena» (Eclipse y asalto a Ciudad Floresta).</li></ul>"
+   "description": "<h2>Guía Rápida del Ciclo de Partida · El Valle Silencioso</h2><p>La campaña comienza directamente en la <strong>Fase de Incursión (Fase 7)</strong> con el asalto inicial <em>«Un lugar al que llamar hogar»</em> contra las Cuevas del Paso del Mercader.</p><ul><li><strong>Hito R1:</strong> Reclamar la cueva y forjar el Corazón de la Mazmorra.</li><li><strong>Hito R2:</strong> Primera Fase de Guarida (excavar salas N1, colocar trampas y reclutar).</li><li><strong>Hito R3:</strong> Incursión II «Una biblioteca necesita libros» (Abadía del Corazón Valiente).</li><li><strong>Hito R4:</strong> Incursión III «Piel de lobo para un ritual» (Bosque Susurrante).</li><li><strong>Hito R5:</strong> Invasión «¡Matad a los intrusos!» (Defensa de la mazmorra).</li><li><strong>Hito R6:</strong> Clímax «La última luna llena» (Eclipse y asalto a Ciudad Floresta).</li></ul>"
   },
   "items": [
    {
@@ -1154,7 +1154,7 @@
    },
    {
     "_id": "7vwFs24MfRmAWWup",
-    "name": "Sospecha de la Abadía de Piedra Blanca",
+    "name": "Sospecha de la Abadía del Corazón Valiente",
     "type": "project",
     "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
     "system": {

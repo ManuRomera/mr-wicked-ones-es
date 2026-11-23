@@ -3,7 +3,7 @@
  * «Menos software visible. Más partida.»
  */
 
-import { n, acota, evaluarTirada, evaluarResistencia, evaluarDesastre, evaluarRepresalia, evaluarDefensaMazmorra, simularIncursionEsbirros } from "./core/reglas.mjs";
+import { n, acota, evaluarTirada, evaluarDesastre, evaluarRepresalia, evaluarDefensaMazmorra, evaluarIncursionEsbirros, INCURSION_ESBIRROS } from "./core/reglas.mjs";
 import { soyGM, aplicarModoMensaje } from "./compat.mjs";
 import { aparienciaDados } from "./dados.mjs";
 import { aplicarEstresActor, gastarCorazonExtraDado } from "./automatismos.mjs";
@@ -51,82 +51,95 @@ export async function publicarTarjetaMR({ titulo, subtitulo = "", estado = null,
  */
 export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = "") {
   const solicitados = n(reserva, 2);
-  const cant = solicitados <= 0 ? 2 : solicitados;
-  const r = new Roll(`${cant}d6`);
-  await r.evaluate();
-  aparienciaDados(r);
-  if (game.dice3d) await game.dice3d.showForRoll(r);
-  const caras = r.terms?.[0]?.results?.map(x => x.result) ?? [1];
+  const tirarReserva = async dados => {
+    const r = new Roll(`${dados <= 0 ? 2 : dados}d6`);
+    await r.evaluate();
+    aparienciaDados(r);
+    if (game.dice3d) await game.dice3d.showForRoll(r);
+    return r.terms?.[0]?.results?.map(x => x.result) ?? [1];
+  };
+
+  if (tipo === "minion_raid") {
+    // pág. 354: la reserva de la implicación se tira en cada tabla; la primera ajusta los dados de las otras dos
+    const exito = await tirarReserva(solicitados);
+    const pre = evaluarIncursionEsbirros({ exito, consecuencias: [1], botin: [1] }, solicitados);
+    const consecuencias = await tirarReserva(pre.reservaAjustada), botin = await tirarReserva(pre.reservaAjustada);
+    const ev = evaluarIncursionEsbirros({ exito, consecuencias, botin }, solicitados);
+    const T = INCURSION_ESBIRROS, fila = (t, r, caras) => `<li><strong>${esc(t.titulo)}</strong> (${caras.join(", ")} → ${r.valor}): ${esc(r.texto)}</li>`;
+    return publicarTarjetaMR({ soloDJ: true,
+      titulo: "Incursión de esbirros",
+      subtitulo: nombreContexto || `Reserva de implicación: ${solicitados}d${ev.ajuste ? ` · después ${ev.reservaAjustada}d` : ""}`,
+      estado: ev.cumplido ? "success" : "failure",
+      dados: exito,
+      cuerpoHTML: `<ul>${fila(T.exito, ev.exito, exito)}${fila(T.consecuencias, ev.consecuencias, consecuencias)}${fila(T.botin, ev.botin, botin)}</ul>
+        <p>${ev.cumplido ? "Cumplen el objetivo (4+): añade el botín de base." : "No cumplen el objetivo (hace falta 4+)."} Combina los resultados para narrar cómo fue y haz después una <strong>tirada de represalias</strong>.</p>
+        <p class="mrg-nota">Enviar menos de tres esbirros resta dados a la implicación y enviarlos con mejoras los suma; se puede gastar moral para +1d en una única tirada de estas tablas (pág. 354).</p>`,
+      botones: [{ accion: "tirar-ciclo", valor: "blowback", icono: "fas fa-bullhorn", etiqueta: "Tirar represalias" }]
+    });
+  }
+
+  const caras = await tirarReserva(solicitados);
 
   if (tipo === "calamity") {
     const ev = evaluarDesastre(caras, solicitados);
+    const botones = [];
+    if (ev.desastre) {
+      botones.push({ accion: "tirar-tabla", valor: "desastre-aleatorio", icono: "fas fa-dice", etiqueta: "Tipo de desastre (1d6)" });
+      botones.push({ accion: "tirar-tabla", valor: ev.desastre === "grave" ? "desastres-graves" : "desastres-leves", icono: "fas fa-dungeon", etiqueta: `Desastre ${ev.desastre} (d66)` });
+    }
+    if (ev.descubrimiento) botones.push({ accion: "tirar-tabla", valor: "descubrimientos-exito", icono: "fas fa-gem", etiqueta: "Descubrimiento con éxito (d66)" });
     return publicarTarjetaMR({ soloDJ: true,
-      titulo: "Fase de Desastre · Lógica de Mazmorra",
-      subtitulo: nombreContexto || `Reserva: ${solicitados}D`,
+      titulo: "Tirada de desastre",
+      subtitulo: nombreContexto || `Reserva: ${solicitados}d`,
       estado: ev.estado,
       dados: caras,
-      cuerpoHTML: `<p>${esc(ev.resumen)}</p>`,
-      botones: [
-        ...(ev.avanceRelojes > 0 ? [{ accion: "abrir-panel-dj", icono: "fas fa-clock", etiqueta: "Abrir Panel del DJ" }] : []),
-        { accion: "tirar-tabla", valor: "solitario-gran-malo", icono: "fas fa-dungeon", etiqueta: "Tirar Suceso en la Guarida" }
-      ]
+      cuerpoHTML: `<p>${esc(ev.resumen)}</p><p class="mrg-nota">No es posible resistir un desastre, pero sí empezar una escena para lidiar con sus consecuencias (pág. 244).</p>`,
+      botones
     });
   }
 
   if (tipo === "blowback") {
     const ev = evaluarRepresalia(caras, solicitados);
+    const botones = [];
+    if (ev.represalia) botones.push({ accion: "tirar-tabla", valor: ev.represalia === "grave" ? "represalias-graves" : "represalias-leves", icono: "fas fa-bullhorn", etiqueta: `Represalia ${ev.represalia} (d66)` });
+    if (ev.corazonOscuro) botones.push({ accion: "corazon-todos", icono: "fas fa-heart", etiqueta: "Cada PJ gana un corazón oscuro" });
     return publicarTarjetaMR({ soloDJ: true,
-      titulo: "Fase de Represalia · Ecos de la Incursión",
-      subtitulo: nombreContexto || `Reserva: ${solicitados}D`,
+      titulo: "Tirada de represalia",
+      subtitulo: nombreContexto || `Reserva: ${solicitados}d`,
       estado: ev.estado,
       dados: caras,
-      cuerpoHTML: `<p>${esc(ev.resumen)}</p>`,
-      botones: [
-        { accion: "abrir-panel-dj", icono: "fas fa-flag", etiqueta: `Ver Relojes (+${ev.segmentosFaccion} seg.)` },
-        { accion: "abrir-generador", valor: "invasiones", icono: "fas fa-shield-halved", etiqueta: "Preparar Invasión" }
-      ]
+      cuerpoHTML: `<p>${esc(ev.resumen)}</p><p class="mrg-nota">Las represalias no se pueden resistir (pág. 264).</p>`,
+      botones
     });
   }
 
   if (["creature", "trap", "lock", "trick"].includes(tipo)) {
     const ev = evaluarDefensaMazmorra(tipo, caras, solicitados);
-    const titulos = {
-      creature: "Defensa · Criatura de Guarida",
-      trap: "Defensa · Trampa de Mazmorra",
-      lock: "Defensa · Portón / Cerradura",
-      trick: "Defensa · Truco y Engaño"
-    };
+    const titulos = { creature: "Tirada de criatura", trap: "Tirada de trampa", lock: "Tirada de portón", trick: "Truco (tirada de fortuna)" };
+    const pildoras = [];
+    if (ev.heridos) pildoras.push(`Heridos: ${ev.heridos} (${ev.tajos} tajo${ev.tajos > 1 ? "s" : ""}: ${ev.corazones === 0.5 ? "½" : ev.corazones} corazón)${ev.eligeDJ ? " · elige el DJ" : ""}`);
+    if (ev.repetir) pildoras.push("Tira otra vez");
+    if (ev.estadoCriatura) pildoras.push({ muerta: "La criatura muere o huye", inconsciente: "Criatura inconsciente", activa: "La criatura sigue luchando" }[ev.estadoCriatura]);
+    if (ev.movimientosUnAventurero) pildoras.push("Un aventurero gasta 1 movimiento");
+    if (ev.movimientosPorAventurero) pildoras.push("Todos gastan 1 movimiento");
+    if (ev.otroCamino) pildoras.push("Van por otro lado");
+    if (ev.atraviesan) pildoras.push("Atraviesan el portón");
+    const botones = [{ accion: "abrir-grupo-invasor", icono: "fas fa-users", etiqueta: "Abrir grupo invasor" }];
+    if (ev.repetir || (tipo === "lock" && ev.otroCamino)) botones.unshift({ accion: "tirar-ciclo", valor: tipo, extra: String(solicitados), contexto: nombreContexto, icono: "fas fa-rotate", etiqueta: ev.repetir ? "Tirar otra vez" : "Repetir (si no hay otra ruta)" });
     return publicarTarjetaMR({ soloDJ: true,
       titulo: titulos[tipo],
-      subtitulo: nombreContexto || `Nivel ${solicitados} (${solicitados}D)`,
+      subtitulo: nombreContexto || `Nivel ${solicitados} (${solicitados}d)`,
       estado: ev.estado,
       dados: caras,
-      cuerpoHTML: `<p>${esc(ev.resumen)}</p><p class="mr-wo-resumen-pildoras"><span class="mr-wo-pildora">Corazones: ${ev.corazonesInfligidos}</span> <span class="mr-wo-pildora">Movimientos: ${ev.movimientosConsumidos}</span></p>`,
-      botones: [
-        { accion: "abrir-grupo-invasor", icono: "fas fa-users", etiqueta: "Abrir Grupo Invasor" }
-      ]
-    });
-  }
-
-  if (tipo === "minion_raid") {
-    const ev = simularIncursionEsbirros(caras, solicitados);
-    return publicarTarjetaMR({ soloDJ: true,
-      titulo: "Simulador · Incursión de Esbirros",
-      subtitulo: nombreContexto || `Manada (${solicitados}D)`,
-      estado: ev.estado,
-      dados: caras,
-      cuerpoHTML: `<p>${esc(ev.resumen)}</p>`,
-      botones: [
-        ...(ev.botinOro > 0 ? [{ accion: "sumar-oro", valor: ev.botinOro, icono: "fas fa-coins", etiqueta: `+${ev.botinOro} de Oro` }] : []),
-        ...(ev.suministros > 0 ? [{ accion: "sumar-suministro", valor: ev.suministros, icono: "fas fa-box-open", etiqueta: `+${ev.suministros} Suministros` }] : [])
-      ]
+      cuerpoHTML: `<p>${esc(ev.resumen)}</p>${pildoras.length ? `<p class="mr-wo-resumen-pildoras">${pildoras.map(x => `<span class="mr-wo-pildora">${esc(x)}</span>`).join(" ")}</p>` : ""}${ev.nota ? `<p class="mrg-nota">${esc(ev.nota)}</p>` : ""}`,
+      botones
     });
   }
 
   const ev = evaluarTirada(caras, solicitados);
   return publicarTarjetaMR({ soloDJ: true,
-    titulo: nombreContexto || "Tirada de Fortuna",
-    subtitulo: `Reserva: ${solicitados}D`,
+    titulo: nombreContexto || "Tirada de fortuna",
+    subtitulo: `Reserva: ${solicitados}d`,
     estado: ev.estado,
     dados: caras,
     cuerpoHTML: `<p>${esc(ev.etiqueta)}</p>`
@@ -138,13 +151,13 @@ export async function ejecutarTiradaCiclo(tipo, reserva = 2, nombreContexto = ""
  */
 export async function dialogoCiclo(tipoInicial = "calamity") {
   const opciones = [
-    ["calamity", "Fase de Desastre (Lógica de Mazmorra)"],
-    ["blowback", "Fase de Represalia (Blowback)"],
-    ["minion_raid", "Simular Incursión de Manada de Esbirros"],
-    ["creature", "Defensa: Criatura de Guarida"],
-    ["trap", "Defensa: Trampa de Mazmorra"],
-    ["lock", "Defensa: Portón / Cerradura"],
-    ["trick", "Defensa: Truco de Mazmorra"]
+    ["calamity", "Tirada de desastre (1d quejas incesantes · 2d normal · 3d felices o asustados)"],
+    ["blowback", "Tirada de represalia (1d os desviasteis mucho · 2d algo · 3d todo bien)"],
+    ["minion_raid", "Incursión de esbirros (reserva de la implicación)"],
+    ["creature", "Tirada de criatura (dados = nivel)"],
+    ["trap", "Tirada de trampa (dados = nivel)"],
+    ["lock", "Tirada de portón (dados = nivel)"],
+    ["trick", "Truco: tirada de fortuna (dados = nivel)"]
   ];
 
   const html = `
@@ -264,68 +277,10 @@ async function manejarClicBotonChat(ev, message) {
       break;
     }
     case "tirar-resistencia": {
-      if (!actor) return ui.notifications.warn("Selecciona un token o asigna un personaje para tirar Resistencia.");
-      const DialogV1 = foundry.appv1?.api?.Dialog ?? Dialog;
-      new DialogV1({
-        title: `Resistir Consecuencia · ${actor.name}`,
-        content: `
-          <form class="mr-wo-form-dialogo">
-            <p>Elige el atributo con el que <strong>${esc(actor.name)}</strong> resiste la consecuencia:</p>
-            <div class="form-group">
-              <label>Atributo:</label>
-              <select name="atrib">
-                <option value="brains">Sesos (Escanear + Chapucear + Engañar)</option>
-                <option value="muscles">Músculos (Sutileza + Acechar + Machacar)</option>
-                <option value="guts">Agallas (Cháchara + Amenazar + Invocar)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>¿Posición Mortal?</label>
-              <select name="posicion">
-                <option value="default">No (Resistencia normal)</option>
-                <option value="deadly">Sí (Resistir la Muerte)</option>
-              </select>
-            </div>
-          </form>
-        `,
-        buttons: {
-          resistir: {
-            icon: '<i class="fas fa-shield-alt"></i>',
-            label: "Tirar Resistencia",
-            callback: async jq => {
-              const root = jq instanceof HTMLElement ? jq : jq[0];
-              const atrib = root.querySelector('[name="atrib"]')?.value || "brains";
-              const pos = root.querySelector('[name="posicion"]')?.value || "default";
-              const skills = actor.system?.attributes?.[atrib]?.skills ?? {};
-              let dados = 0;
-              for (const sk of Object.values(skills)) {
-                const v = n(sk.value, 0);
-                if (v > 0 && !(v === 1 && n(sk.practice, 0) > 0)) dados += 1;
-              }
-              const r = new Roll(`${dados <= 0 ? 2 : dados}d6`);
-              await r.evaluate();
-              aparienciaDados(r);
-              if (game.dice3d) await game.dice3d.showForRoll(r);
-              const caras = r.terms?.[0]?.results?.map(x => x.result) ?? [1];
-              const evT = evaluarTirada(caras, dados);
-              const evR = evaluarResistencia(pos, evT.estado);
-              const nombresAtrib = { brains: "Sesos", muscles: "Músculos", guts: "Agallas" };
-              await publicarTarjetaMR({
-                titulo: pos === "deadly" ? "Resistir la Muerte" : `Resistencia · ${nombresAtrib[atrib]}`,
-                subtitulo: `${actor.name} (${dados}D)`,
-                estado: evT.estado,
-                dados: caras,
-                cuerpoHTML: `<p>${esc(evR.resumen)}</p>`,
-                botones: [
-                  ...(evR.estres > 0 ? [{ accion: "sumar-estres", actorId: actor.id, valor: evR.estres, icono: "fas fa-bolt", etiqueta: `Aplicar +${evR.estres} Estrés` }] : []),
-                  ...(evR.estres < 0 ? [{ accion: "sumar-estres", actorId: actor.id, valor: evR.estres, icono: "fas fa-heart-pulse", etiqueta: "Despejar 1 Estrés" }] : [])
-                ]
-              });
-            }
-          }
-        },
-        default: "resistir"
-      }).render(true);
+      // pág. 50: te resistes eligiendo UNA acción que encaje (no la que causó la consecuencia); se abre la ventana de tirada
+      if (!actor) return ui.notifications.warn("Selecciona un token o asigna un personaje para resistir.");
+      const { abrirTirada } = await import("./tirada-dialogo.mjs");
+      abrirTirada(actor, { tipo: "resistencia" });
       break;
     }
 
@@ -333,6 +288,23 @@ async function manejarClicBotonChat(ev, message) {
       if (!actor) return ui.notifications.warn("No se encontró un personaje activo.");
       if (actor.isOwner || soyGM()) await aplicarEstresActor(actor, n(valor, 1));
       else await actualizarActorSeguro(actor, { "system.stress.value": acota(n(actor.system?.stress?.value, 0) + n(valor, 1), 0, n(actor.system?.stress?.max, 6)) });
+      break;
+    }
+
+    case "corazon-todos": {
+      if (!game.user.isGM) return;
+      const pjs = game.actors.filter(a => a.type === "character" && a.hasPlayerOwner);
+      for (const a of pjs) {
+        const max = n(a.system?.dark_hearts?.max, 2);
+        await a.update({ "system.dark_hearts.value": acota(n(a.system?.dark_hearts?.value, 0) + 1, 0, max) });
+      }
+      ui.notifications.info(pjs.length ? `Corazón oscuro para: ${pjs.map(a => a.name).join(", ")}.` : "No hay PJ con jugador asignado.");
+      break;
+    }
+
+    case "tirar-ciclo": {
+      if (!game.user.isGM) return;
+      await ejecutarTiradaCiclo(valor, n(btn.dataset.extra, 2), btn.dataset.contexto ?? "");
       break;
     }
 

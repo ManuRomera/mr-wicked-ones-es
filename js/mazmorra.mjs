@@ -10,7 +10,7 @@
 import {
   TIPOS_SALA, COSTE_NIVEL, TRAMO, FORMAS, MECANISMOS, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
   validarCeldas, ajustarSala, celdasForma, reglasSala, costeSala, costeExcavar, costeTrampa, puedeGastar, gastar, tipoDeTema, muros, decorar,
-  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, quedanObra, creditoProyecto, esProyectoDeObra, resumen, abierta, DIRS
+  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, quedanObra, esProyectoDeObra, obrasEnCurso, avanzarObra, enObra, AVANCE_RESULTADO, resumen, abierta, DIRS
 } from "./core/mazmorra.mjs";
 import { abrirTrampa, abrirExtra } from "./mazmorra-trampas.mjs";
 import { sonar, iniciarAmbiente, pararAmbiente, efectosOn, ambienteOn } from "./mazmorra-sonido.mjs";
@@ -22,7 +22,7 @@ const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
 const App = foundry.applications?.api?.ApplicationV2;
 const ALTO = 0.34;   // altura de los bloques, en celdas
 
-let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario", forma = "rect", giro = 0;
+let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario", forma = "rect", giro = 0, salaN3 = "";
 let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [], efectos = [], ultimoLatigo = 0;
 const RADIO_LATIGO = 2.5;   // celdas
 
@@ -140,6 +140,11 @@ function dibujarTrampa(t, S, ox, oy, sube = 0) {
   const ins = new PIXI.Graphics(); ins.beginFill(COLOR_NIVEL[t.nivel]).lineStyle(2, 0x000000, 0.9).drawCircle(cx + S * 0.25, cy + S * 0.24, S * 0.1).endFill(); c.addChild(ins);
   const n = new PIXI.Text(String(t.nivel), { fontSize: Math.round(S * 0.13), fill: 0xffffff, stroke: 0x000000, strokeThickness: 3, fontWeight: "800" }); n.anchor.set(0.5); n.x = cx + S * 0.25; n.y = cy + S * 0.24; c.addChild(n);
   if (t.revelada) { c.alpha = 0.55; const r = new PIXI.Graphics(); r.lineStyle(2, 0xe0503a, 0.9).drawCircle(cx, cy, S * 0.34); c.addChild(r); }
+  if (enObra(t)) {   // aún fabricándose: su reloj de proyecto
+    c.alpha = 0.45;
+    const o = new PIXI.Text(`${t.obra.hecho}/${t.obra.seg}`, { fontSize: Math.round(S * 0.16), fill: 0xffe39a, stroke: 0x1c1612, strokeThickness: 4, fontWeight: "900" });
+    o.anchor.set(0.5); o.x = cx; o.y = cy - S * 0.3; c.addChild(o);
+  }
   c.zIndex = cy + S * 0.3;
   return c;
 }
@@ -316,7 +321,7 @@ export function dibujar() {
       const sala = salaEn(m, x, y), centro = decor.get(sala.id)[0];
       clave = (Math.floor(centro.x) === x && Math.floor(centro.y) === y && texturas[`sala_${sala.tipo}`]) ? `sala_${sala.tipo}` : `suelo_${sala.tipo}`;
     }
-    const s = sprite(clave, px, py, S, S); if (s) { s.zIndex = -100000 + y; contenedor.addChild(s); }
+    const s = sprite(clave, px, py, S, S); if (s) { s.zIndex = -100000 + y; if (c === "r" && enObra(salaEn(m, x, y))) s.alpha = 0.5; contenedor.addChild(s); }
     // sombra bajo la cara frontal de la roca (norte) y junto a los muros laterales
     if (!abierta(celda(m, x, y - 1))) { sombras.beginFill(0x000000, 0.42).drawRect(px, py, S, S * 0.32).endFill(); sombras.beginFill(0x000000, 0.22).drawRect(px, py + S * 0.32, S, S * 0.2).endFill(); }
     if (!abierta(celda(m, x - 1, y))) sombras.beginFill(0x000000, 0.28).drawRect(px, py, S * 0.18, S).endFill();
@@ -345,7 +350,16 @@ export function dibujar() {
     const o = objeto(e.tipo, cx, pies, alto * S, ancho * S); if (o) o.zIndex = pies;
     return o;
   };
-  for (const sala of m.salas) for (const e of decor.get(sala.id)) {
+  // salas en obras: andamio rayado y su reloj; sin mobiliario ni luz hasta que se terminan
+  for (const sala of m.salas.filter(enObra)) {
+    const g = new PIXI.Graphics();
+    g.lineStyle(3, 0xc8921f, 0.55);
+    for (const [i, j] of (sala.celdas ?? Array.from({ length: sala.w * sala.h }, (_, k) => [sala.x + (k % sala.w), sala.y + Math.floor(k / sala.w)]))) { const px = ox + i * S, py = oy + j * S; g.moveTo(px, py + S).lineTo(px + S, py); }
+    g.zIndex = -99850; contenedor.addChild(g);
+    const t = new PIXI.Text(`🔨 ${sala.obra.hecho}/${sala.obra.seg}`, { fontSize: Math.round(S * 0.32), fill: 0xffe39a, stroke: 0x1c1612, strokeThickness: 5, fontWeight: "900" });
+    t.anchor.set(0.5); t.x = ox + (sala.x + sala.w / 2) * S; t.y = oy + (sala.y + sala.h / 2) * S; t.zIndex = 1e6; contenedor.addChild(t);
+  }
+  for (const sala of m.salas) for (const e of (enObra(sala) ? [] : decor.get(sala.id))) {
     if (e.tipo === "emblema") continue;
     if (e.tipo === "alfombra") { contenedor.addChild(dibujarAlfombra(e, S, ox, oy)); continue; }
     if (e.tipo === "antorcha") { contenedor.addChild(dibujarAntorcha(e, S, ox, oy, H)); continue; }
@@ -413,7 +427,7 @@ function proyectosDeObra() {
     for (const it of a.items) {
       if (it.type !== "project") continue;
       const tam = Number(it.system.clock_size) || 4, prog = Math.min(tam, Number(it.system.clock_progress) || 0);
-      out.push({ actor: a.id, item: it.id, quien: a.name, nombre: it.name, tam, prog, completo: prog >= tam, cobrado: Boolean(it.getFlag(MOD, "cobrado")), cred: creditoProyecto(tam), deObra: esProyectoDeObra(it.name) });
+      out.push({ actor: a.id, item: it.id, quien: a.name, nombre: it.name, tam, prog, completo: prog >= tam, cobrado: Boolean(it.getFlag(MOD, "cobrado")), deObra: esProyectoDeObra(it.name) });
     }
   }
   return out.sort((x, y) => Number(y.completo && !y.cobrado) - Number(x.completo && !x.cobrado) || x.quien.localeCompare(y.quien));
@@ -489,7 +503,7 @@ export async function reescalarTokens(escena = canvas.scene) {
 
 /* ------------------------------------------------------------------------------------------------ acciones (las ejecuta el DJ) */
 
-const SOLO_DJ = new Set(["obra", "actor", "duendes", "proyecto"]);
+const SOLO_DJ = new Set(["obra", "actor", "duendes", "proyecto"]);   // «avanzar» lo puede pedir cualquiera que construya
 
 async function aviso(texto) {
   try {
@@ -518,17 +532,25 @@ async function ejecutar(escena, accion, datos, usuario) {
   } else if (accion === "sala") {
     const t = TIPOS_SALA[datos.tipo];
     if (reglas && t) { const ctx = contextoReglas(m), rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: ctx.materiales }); if (!rg.ok) return rg; }
-    r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas });
+    // con las reglas, las salas de nivel 2 y 3 empiezan como obra con su reloj de proyecto (4 u 8 segmentos)
+    r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas, obra: reglas, nombre: datos.nombre });
     if (r.ok) {
       const coste = costeSala(datos.tipo), p = cobrar(coste); if (!p.ok) return p;
-      texto = `${quien} construye ${t.nombre.toLowerCase()} (${r.forma === "rect" ? `${r.rect.w}×${r.rect.h}` : `${FORMAS[r.forma].toLowerCase()}, ${r.celdas} celdas`})${reglas && coste ? `: ${plural(coste, "acción", "acciones")} de descanso` : ""}.`;
+      const medida = r.forma === "rect" ? `${r.rect.w}×${r.rect.h}` : `${FORMAS[r.forma].toLowerCase()}, ${r.celdas} celdas`;
+      texto = r.obra
+        ? `${quien} empieza la obra de ${(datos.nombre || t.nombre).toLowerCase()} (${medida}): un proyecto con un reloj de ${r.obra} segmentos. Cada acción de descanso lo avanza según su resultado.`
+        : `${quien} construye ${(datos.nombre || t.nombre).toLowerCase()} (${medida})${reglas && coste ? `: ${plural(coste, "acción", "acciones")} de descanso` : ""}.`;
     }
   } else if (accion === "quitarSala") r = { ok: quitarSala(m, datos.id) };
   else if (accion === "puerta") r = alternarPuerta(m, datos.x, datos.y, datos.d);
   else if (accion === "trampa") {
     if (datos.op === "poner") {
-      r = ponerTrampa(m, datos);
-      if (r.ok) { const p = cobrar(r.coste); if (!p.ok) return p; texto = `${quien} prepara ${datos.tipo === "truco" ? "un truco" : "una trampa"} de nivel ${r.nivel}${reglas && r.coste ? ` (${plural(r.coste, "acción", "acciones")} de descanso)` : ""}.`; }
+      r = ponerTrampa(m, { ...datos, obra: reglas });
+      if (r.ok) {
+        const p = cobrar(r.coste); if (!p.ok) return p;
+        const que = datos.tipo === "truco" ? "un truco" : "una trampa";
+        texto = r.obra ? `${quien} empieza a fabricar ${que} de nivel ${r.nivel}: un proyecto con un reloj de ${r.obra} segmentos.` : `${quien} prepara ${que} de nivel ${r.nivel}${reglas && r.coste ? ` (${plural(r.coste, "acción", "acciones")} de descanso)` : ""}.`;
+      }
     } else if (datos.op === "editar") {
       const t = m.trampas?.find(z => z.id === datos.id);
       if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };
@@ -551,25 +573,39 @@ async function ejecutar(escena, accion, datos, usuario) {
       m.obra.total = Math.max(0, m.obra.total + d);
       m.obra.gastadas = Math.min(m.obra.gastadas, m.obra.total);
     }
+  } else if (accion === "avanzar") {
+    if (datos.ajuste && !usuario?.isGM) return { ok: false, motivo: "Solo el DJ ajusta un reloj sin tirada." };
+    // pág. 238 y 66: cada acción de descanso es una tirada que avanza el reloj (fracaso 0, parcial 1, éxito 2, crítico 3)
+    const p = cobrar(datos.ajuste ? 0 : 1); if (!p.ok) return p;
+    r = avanzarObra(m, datos.clase, datos.id, Math.trunc(datos.segmentos ?? 0));
+    if (r.ok) {
+      const o = obrasEnCurso(foundry.utils.deepClone(actual)).find(z => z.clase === datos.clase && z.id === datos.id);
+      const nombre = o?.nombre ?? "la obra";
+      texto = r.completa ? `¡Terminada la obra de ${esc(nombre.toLowerCase())}! (${r.seg}/${r.seg})` : datos.ajuste ? `El DJ ajusta el reloj de ${esc(nombre.toLowerCase())}: ${r.hecho}/${r.seg}.` : `${quien} trabaja en ${esc(nombre.toLowerCase())}: +${Math.max(0, datos.segmentos)} (${r.hecho}/${r.seg}).`;
+    }
   } else if (accion === "proyecto") {
+    // un proyecto de la hoja de un PJ con el reloj lleno termina una obra en curso
     const a = game.actors.get(datos.actor), it = a?.items.get(datos.item);
     if (!it) return { ok: false, motivo: "Ese proyecto ya no existe." };
-    if (it.getFlag(MOD, "cobrado")) return { ok: false, motivo: "Ese proyecto ya se aplicó a la obra." };
-    const tam = Number(it.system.clock_size) || 4, hecho = (Number(it.system.clock_progress) || 0) >= tam, cred = creditoProyecto(tam);
-    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, creditos: 0, extra: 0, proyectos: 0 };
-    m.obra.creditos = (m.obra.creditos ?? 0) + cred; m.obra.proyectos = (m.obra.proyectos ?? 0) + cred;
-    await it.setFlag(MOD, "cobrado", true);
-    texto = hecho ? `${esc(a.name)} termina «${esc(it.name)}»: <strong>+${cred}</strong> acciones de obra.` : `El DJ da por hecho «${esc(it.name)}» de ${esc(a.name)}: <strong>+${cred}</strong> acciones de obra.`;
+    if (it.getFlag(MOD, "cobrado")) return { ok: false, motivo: "Ese proyecto ya se aplicó a una obra." };
+    const obra = datos.id ? obrasEnCurso(m).find(o => o.clase === datos.clase && o.id === datos.id) : obrasEnCurso(m)[0];
+    if (!obra) return { ok: false, motivo: "No hay ninguna obra en curso a la que aplicar este proyecto." };
+    const tam = Number(it.system.clock_size) || 4, hecho = (Number(it.system.clock_progress) || 0) >= tam;
+    r = avanzarObra(m, obra.clase, obra.id, obra.seg);
+    if (r.ok) {
+      await it.setFlag(MOD, "cobrado", true);
+      texto = hecho ? `${esc(a.name)} termina «${esc(it.name)}»: queda terminada la obra de ${esc(obra.nombre.toLowerCase())}.` : `El DJ da por hecho «${esc(it.name)}» de ${esc(a.name)}: queda terminada la obra de ${esc(obra.nombre.toLowerCase())}.`;
+    }
   } else if (accion === "duendes") m.duendes = { densidad: Math.min(2, Math.max(0, Number(datos.densidad) || 0)) };
   else if (accion === "actor") m.actor = datos.id || null;
   if (!r.ok) return r;
   await escena.setFlag(MOD, FLAG, m);
   await sincronizarEntorno(escena);
-  const SONIDO = { celdas: datos?.modo === "excavar" ? "cavar" : "rellenar", sala: "sala", quitarSala: "demoler", puerta: "puerta", proyecto: "extra", obra: datos?.extra ? "extra" : "clic" };
+  const SONIDO = { celdas: datos?.modo === "excavar" ? "cavar" : "rellenar", sala: "sala", quitarSala: "demoler", puerta: "puerta", proyecto: "sala", avanzar: r.completa ? "sala" : "cavar", obra: datos?.extra ? "extra" : "clic" };
   const sn = accion === "trampa" ? ({ poner: "trampa", descubrir: "descubierta" }[datos.op] ?? "clic") : SONIDO[accion];
   if (sn) sonarATodos(sn);
   if (texto) {
-    const cuenta = reglas && m.obra && (["celdas", "sala", "obra", "proyecto"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
+    const cuenta = reglas && m.obra && (["celdas", "sala", "obra", "avanzar"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
     const resto = cuenta ? ` Quedan ${quedanObra(m)} acciones de obra.` : "";
     aviso(texto + resto);
   }
@@ -720,8 +756,9 @@ function activarHerramienta(h) {
   const soltar = ev => {
     if (!ini) return;
     const c = lugar(ev);
-    if (libre()) pedir("sala", { forma: "libre", celdas: [...pintadas].map(k => k.split(",").map(Number)), tipo: tipoSala });
-    else if (herramienta === "sala") pedir("sala", { rect: { x: Math.min(ini.i, c.i), y: Math.min(ini.j, c.j), w: Math.abs(ini.i - c.i) + 1, h: Math.abs(ini.j - c.j) + 1 }, tipo: tipoSala, forma, giro });
+    const nombre = TIPOS_SALA[tipoSala]?.salas ? (TIPOS_SALA[tipoSala].salas.includes(salaN3) ? salaN3 : TIPOS_SALA[tipoSala].salas[0]) : undefined;
+    if (libre()) pedir("sala", { forma: "libre", celdas: [...pintadas].map(k => k.split(",").map(Number)), tipo: tipoSala, nombre });
+    else if (herramienta === "sala") pedir("sala", { rect: { x: Math.min(ini.i, c.i), y: Math.min(ini.j, c.j), w: Math.abs(ini.i - c.i) + 1, h: Math.abs(ini.j - c.j) + 1 }, tipo: tipoSala, forma, giro, nombre });
     else if (pintadas.size) pedir("celdas", { modo: herramienta, celdas: [...pintadas].map(k => k.split(",").map(Number)) });
     ini = null; ultima = null; pintadas = new Set(); previa.clear(); rotulo.text = "";
   };
@@ -776,13 +813,18 @@ export class ConstructorMR extends App {
     // presupuesto de obra: acciones de la fase + créditos (proyectos terminados y regalos del DJ)
     const o = m.obra, quedan = quedanObra(m), faseQ = o ? Math.max(0, o.total - o.gastadas) : 0, cred = o?.creditos ?? 0;
     const pips = o ? Array.from({ length: Math.min(faseQ + cred, 16) }, (_, i) => `<i class="${i < faseQ ? "on" : "cred"}"></i>`).join("") : "";
-    const proys = proyectosDeObra();
+    const proys = proyectosDeObra(), obras = obrasEnCurso(m);
     const filaProy = p => `<li class="${p.cobrado ? "hecho" : p.completo ? "listo" : ""}"><span class="mrg-cons-pq">${esc(p.quien)}</span> <b>${esc(p.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${p.prog} de ${p.tam}">${Array.from({ length: p.tam }, (_, i) => `<i class="${i < p.prog ? "on" : ""}"></i>`).join("")}</span>
-        ${p.cobrado ? `<em class="mrg-chip"><i class="fa-solid fa-check"></i> aplicado</em>` : gm ? `<button type="button" class="mrg-mini mrg-cons-aplicar" data-proy="${p.actor}|${p.item}" data-ayuda="${p.completo ? "Aplicar a la obra" : "Dar por hecho"}||${p.completo ? `Convierte el reloj lleno en +${p.cred} acciones de obra.` : `El reloj aún no está lleno: lo das por hecho igualmente y concedes +${p.cred} acciones de obra.`}">${p.completo ? `Aplicar +${p.cred}` : `Dar +${p.cred}`}</button>` : p.completo ? `<em class="mrg-chip">+${p.cred} al aplicarlo el DJ</em>` : ""}</li>`;
-    const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Lo que pueden hacer</b><span>${quedan} ${quedan === 1 ? "acción" : "acciones"}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} acciones de obra">${pips}</div>
-      <p class="mrg-nota">Fase de acecho: ${faseQ}/${o.total}. Créditos: ${cred}${o.proyectos || o.extra ? ` (proyectos terminados +${o.proyectos ?? 0}, concedidas por el DJ +${o.extra ?? 0})` : ""}. Los créditos no caducan.</p>
-      <details class="mrg-cons-proys" ${proys.some(p => !p.cobrado) ? "open" : ""}><summary><i class="fa-solid fa-hourglass-half"></i> Proyectos de las fichas (${proys.filter(p => p.completo && !p.cobrado).length} listos)</summary>${proys.length ? `<ul>${proys.map(filaProy).join("")}</ul>` : `<p class="mrg-nota">Ningún PJ tiene proyectos todavía. Un proyecto de nivel 2 (reloj de 4) vale 2 acciones; de nivel 3 (reloj de 8), 4. Los que hablan de construir, excavar, salas o trampas se aplican solos al llenarse el reloj.</p>`}</details>
-      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción de la fase"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción a la fase"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Regala créditos de obra al grupo (esbirros pagados, una capacidad, una gracia, un proyecto que quieras dar por hecho…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de la fase: una por PJ más la de los duendes. Los créditos se conservan. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
+        ${p.cobrado ? `<em class="mrg-chip"><i class="fa-solid fa-check"></i> aplicado</em>` : gm && obras.length ? `<button type="button" class="mrg-mini mrg-cons-aplicar" data-proy="${p.actor}|${p.item}" data-ayuda="${p.completo ? "Terminar una obra" : "Dar por hecho"}||${esc(`${p.completo ? "El reloj está lleno: termina" : "El reloj aún no está lleno; lo das por hecho igualmente y terminas"} la primera obra en curso (${obras[0].nombre}).`)}">${p.completo ? "Terminar obra" : "Dar por hecho"}</button>` : ""}</li>`;
+    const RES = [["failure", "Fracaso", 0], ["mixed", "Parcial", 1], ["success", "Éxito", 2], ["critical", "Crítico", 3]];
+    const filaObra = ob => `<li><b>${esc(ob.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${ob.hecho} de ${ob.seg} segmentos">${Array.from({ length: ob.seg }, (_, i) => `<i class="${i < ob.hecho ? "on" : ""}"></i>`).join("")}</span> <small>${ob.hecho}/${ob.seg}</small>
+        <span class="mrg-cons-res-obra" role="group" aria-label="Resultado de la tirada">${RES.map(([k, t, n]) => `<button type="button" class="mrg-chipbtn" data-avanzar="${ob.clase}|${ob.id}|${n}" data-ayuda="${t}||Gasta una acción de descanso y avanza el reloj ${n} segmento${n === 1 ? "" : "s"}.">${t} +${n}</button>`).join("")}
+        ${gm ? `<button type="button" class="mrg-mini" data-ajustar="${ob.clase}|${ob.id}|-1" aria-label="Retrasar un segmento" data-ayuda="Ajustar||Efecto débil o un desastre: el reloj retrocede un segmento (sin gastar acción)."><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-ajustar="${ob.clase}|${ob.id}|1" aria-label="Avanzar un segmento" data-ayuda="Ajustar||Efecto potente: el reloj avanza un segmento más (sin gastar acción)."><i class="fa-solid fa-plus"></i></button>` : ""}</span></li>`;
+    const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Acciones de descanso</b><span>${quedan}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} acciones de descanso">${pips}</div>
+      <p class="mrg-nota">Fase de acecho: ${faseQ}/${o.total}${cred ? ` · concedidas por el DJ: ${cred} (no caducan)` : ""}. Túnel largo y sala menor: una tirada. Nivel 2 y 3: una obra con su reloj de 4 u 8 segmentos.</p>
+      ${obras.length ? `<div class="mrg-cons-proys"><b><i class="fa-solid fa-hammer"></i> Obras en curso</b><ul>${obras.map(filaObra).join("")}</ul><p class="mrg-nota">Cada acción de descanso es una tirada de acción con situación ventajosa (pág. 238); marca su resultado: fracaso 0, parcial 1, éxito 2, crítico 3 (efecto potente +1, débil −1).</p></div>` : ""}
+      <details class="mrg-cons-proys" ${proys.some(p => p.completo && !p.cobrado) ? "open" : ""}><summary><i class="fa-solid fa-hourglass-half"></i> Proyectos de las fichas (${proys.filter(p => p.completo && !p.cobrado).length} listos)</summary>${proys.length ? `<ul>${proys.map(filaProy).join("")}</ul>` : `<p class="mrg-nota">Ningún PJ tiene proyectos todavía. Un proyecto con el reloj lleno termina una obra en curso; los que hablan de construir, excavar, salas o trampas lo hacen solos al llenarse.</p>`}</details>
+      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción de la fase"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción a la fase"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Da acciones de descanso extra al grupo (esbirros pagados con 1 oro, una capacidad, un flashback…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de la fase: una por PJ más la de los duendes. Las concedidas se conservan. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
 
     // duendes constructores
     const dens = m.duendes?.densidad ?? 1, nD = numDuendes(m, ctx.nivel);
@@ -804,7 +846,7 @@ export class ConstructorMR extends App {
       <ul>
         <li><b>Todo es un proyecto de descanso</b> de la fase de acecho (manual, pág. 238): cada PJ tiene una acción; los duendes, otra; y pagando 1 de oro, cada panda de esbirros hace una más. El DJ puede conceder acciones extra.</li>
         <li><b>Nivel 1</b> = 1 tirada (túnel largo, sala menor). <b>Nivel 2</b> = reloj de 4 (guarida, prisión). <b>Nivel 3</b> = reloj de 8 y materiales de una incursión.</li>
-        <li>En el módulo: túnel de hasta ${TRAMO} celdas = ${COSTE_NIVEL[1]}; sala de nivel 1 = ${COSTE_NIVEL[1]}; nivel 2 = ${COSTE_NIVEL[2]}; nivel 3 = ${COSTE_NIVEL[3]}; trampas y trucos, según su nivel (1, 2 o 4). Santuario y tesoro son la base: gratis y únicos.</li>
+        <li>Cada acción de descanso es una tirada (situación ventajosa). Nivel 1 (túnel largo de hasta ${TRAMO} celdas, sala menor, trampa de nivel 1): se completa con una tirada; con un parcial, pagas el precio. Nivel 2 y 3: la sala o la trampa queda en obras con su reloj de 4 u 8 segmentos, que cada tirada avanza (fracaso 0, parcial 1, éxito 2, crítico 3). Santuario y tesoro son la base: únicos y sin coste.</li>
         <li>Las salas de nivel 3 son de la temática de tu mazmorra; solo puedes construir <b>una</b> de otra temática.</li>
         <li>El manual no fija medidas («dibujad como os plazca»; el santuario suele ser de 5×5 o más): los mínimos de cada sala son del módulo y puedes darles la forma que quieras.</li>
         ${gm ? `<li class="mrg-nota">Apaga estas reglas en Ajustes → «El constructor sigue las reglas de obra».</li>` : ""}
@@ -816,6 +858,7 @@ export class ConstructorMR extends App {
       ${obra}
       ${formas}
       <h4 class="mrg-seccion">Tipo de sala</h4><div class="mrg-cons-tipos">${tipos}</div>
+      ${actual.salas ? `<label class="mrg-campo"><span class="mrg-etiqueta">¿Qué sala de nivel 3? (pág. 196)</span><select data-n3>${actual.salas.map(n => `<option ${n === salaN3 ? "selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}
       <p class="mrg-nota"><b>${actual.nombre}</b> — ${actual.nota} Mínimo ${actual.min[0]}×${actual.min[1]}${forma === "libre" ? ` (${actual.min[0] * actual.min[1]} celdas)` : ""}. ${rgActual.ok ? "" : `<span class="mrg-cons-no">${esc(rgActual.motivo)}</span>`}</p>
       ${duendes}
       ${ficha}
@@ -832,6 +875,7 @@ export class ConstructorMR extends App {
       const b = ev.target.closest("button"); if (!b) return;
       if (b.dataset.snd) { const k = b.dataset.snd, on = !game.settings.get(MOD, k); await game.settings.set(MOD, k, on); if (on) sonar("clic"); return this.render(); }
       if (b.dataset.proy) { const [actor, item] = b.dataset.proy.split("|"); await pedir("proyecto", { actor, item }); return this.render(); }
+      if (b.dataset.avanzar || b.dataset.ajustar) { const [clase, id, n] = (b.dataset.avanzar || b.dataset.ajustar).split("|"); await pedir("avanzar", { clase, id, segmentos: Number(n), ajuste: Boolean(b.dataset.ajustar) }); return this.render(); }
       if (b.dataset.herr) { sonar("clic"); activarHerramienta(herramienta === b.dataset.herr ? null : b.dataset.herr); return this.render(); }
       if (b.dataset.tipo) { tipoSala = b.dataset.tipo; if (herramienta !== "sala") activarHerramienta("sala"); return this.render(); }
       if (b.dataset.forma) { forma = b.dataset.forma; activarHerramienta("sala"); return this.render(); }
@@ -844,6 +888,7 @@ export class ConstructorMR extends App {
       if ("rehacer" in b.dataset) { await sincronizarEntorno(); ui.notifications.info("Muros, puertas y luces rehechos."); }
     };
     cont.querySelector("[data-actor]")?.addEventListener("change", async ev => { await pedir("actor", { id: ev.target.value }); this.render(); });
+    cont.querySelector("[data-n3]")?.addEventListener("change", ev => { salaN3 = ev.target.value; });
     cont.querySelector("[data-vol]")?.addEventListener("change", async ev => { await game.settings.set(MOD, "mazmorraVolumen", Number(ev.target.value)); sonar("clic"); });
     cont.querySelector("[data-dens]")?.addEventListener("change", async ev => { await pedir("duendes", { densidad: Number(ev.target.value) }); });
   }
@@ -956,7 +1001,7 @@ export function iniciarMazmorra() {
     if (!soyDJ() || item.type !== "project" || !foundry.utils.hasProperty(cambios, "system.clock_progress")) return;
     const tam = Number(item.system.clock_size) || 4;
     if ((Number(item.system.clock_progress) || 0) < tam || item.getFlag(MOD, "cobrado") || !esProyectoDeObra(item.name)) return;
-    const m = mapaDe(canvas.scene); if (!m?.obra || !reglasOn()) return;
+    const m = mapaDe(canvas.scene); if (!m || !reglasOn() || !obrasEnCurso(m).length) return;
     ejecutar(canvas.scene, "proyecto", { actor: item.parent.id, item: item.id }, game.user).catch(e => console.warn(`${MOD} | proyecto`, e));
   });
   const alCargar = () => {

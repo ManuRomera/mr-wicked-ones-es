@@ -1,3 +1,30 @@
+## 2.10.0 (2026-11-23)
+
+Auditoría de reglas frente al manual en español: nada inventado. / Rules audit against the Spanish rulebook: nothing invented.
+
+### Corregido / Fixed
+- **Tirada de desastre** (pág. 244): estaba al revés. Ahora fracaso = desastre grave, parcial = leve, éxito = los esbirros ganan moral y van gratis a la siguiente incursión, crítico = además un descubrimiento con éxito; la tarjeta ofrece las tablas del manual. / **Calamity roll** was inverted.
+- **Tirada de represalia** (pág. 264): estaba al revés y con valores inventados (segmentos de facción, invasores extra, pagar oro). Ahora fracaso = grave, parcial = leve, éxito = cada PJ gana un corazón oscuro (botón para dárselo a todos), crítico = además una facción como chivo expiatorio. / **Blowback roll** was inverted and invented.
+- **Defensas** (pág. 188, 198, 222): criaturas, trampas y portones siguen las tablas del libro: cada herida es un tajo (medio corazón), el éxito y el crítico vuelven a tirar, la criatura muere/huye o queda inconsciente, y el portón hace gastar un movimiento a uno o a todos y los manda por otro lado. El truco es una tirada de fortuna narrada. / **Dungeon defences** follow the book.
+- **Resistir** desde las tarjetas del sistema ya no suma acciones de un atributo (regla de *Blades in the Dark*): abre la ventana de tirada para resistir con **una acción**. / **Resist** uses one action.
+- **Resistirse a la muerte** cuesta el estrés normal; con parcial la consecuencia sigue siendo devastadora y con fracaso sigues muriendo (golpe de gracia). / **Resisting death** costs normal stress.
+- **EXP de práctica** también al tirar 0d en las tarjetas del sistema (pág. 80). / **Practice XP** on 0d rolls.
+- **Tirada de implicación** con los textos del manual (pág. 40). / Engagement roll texts.
+- **Incursión de esbirros** (pág. 354): ya no es una tirada abstracta con oro inventado; se tiran las tres tablas del libro (éxito o fracaso, consecuencias, botín y moral), la primera ajusta los dados de las otras. / **Minion raid** uses the book's three tables.
+- **Reclutar esbirros** (pág. 194): 2-5 miembros, una acción primaria a 2d y dos secundarias a 1d, raza, trabajo e impulso de las listas del libro. / Minion recruitment per the book.
+- Se quitan traducciones inventadas de tiradas del sistema que pisaban la traducción base (p. ej., Letargo). / Removed invented roll strings.
+
+### Cambiado / Changed
+- **Tablas del compendio**: las 16 tablas inventadas se sustituyen por las **49 tablas aleatorias del manual**, literales (generador de incursiones e invasiones, semillas, pactos oscuros, objetos al azar, botín, mejunjes, artilugios, pociones, objetos mágicos, desastres, represalias, descubrimientos, generador de mazmorras…), extraídas con `tools/tablas_manual.py`. / **49 rulebook tables** replace the invented ones.
+- **Equipo**: fuera los objetos inventados; ahora los 108 objetos de «Objetos al azar» y los 36 mejunjes, artilugios, pociones y objetos mágicos del libro, con su nivel. / **Gear** from the book.
+- **Labores** (cap. 4): las 130 inventadas se sustituyen por las **204 del libro** con su texto: 6 salas de nivel 1 y 5 de nivel 2 (pág. 197), las 35 salas de nivel 3 de las cinco temáticas con sus materiales, trampas y portones por nivel con sus listas de mecanismos, detonadores, materiales y cierres, los 8 trucos de ejemplo, las 36 criaturas de la d66 (con los rasgos de ejemplo del libro) y los 108 descubrimientos. / **204 dungeon duties** from the book.
+- **Facciones** (cap. 6): las 48 inventadas se sustituyen por las **62 facciones de ejemplo** de los mapas de los cuatro entornos, con su nivel, bando (color del estandarte), rasgos y relojes de 4, 6 u 8 segmentos. / **62 example factions** read from the setting maps.
+- **Aventureros**: los 30 de ejemplo del libro (pág. 320) con su pasiva, movimientos, rasgos y motivación, también en la traducción del compendio del sistema; los ayudantes, solo con su oficio. / **Example adventurers** from the book.
+- **PJ y manadas pregenerados**: reparto de acciones del libro (3 / 2 / 2 / 1 / 1 para los PJ; una primaria a 2d y dos secundarias a 1d para las manadas), capacidad principal y objetos de ejemplo de cada vocación, y mejoras, trabajos e impulsos de esbirros de las listas del manual. / **Pregenerated characters and minion packs** follow the book.
+- **Diarios del manual**: dioses oscuros con su título y dominios del libro, disciplinas y sendas reales, situación y efecto, índices con las páginas correctas y monstruos ancestrales, errantes, valientes y gran malo malvado sin reglas inventadas. La campaña del Valle deja de llamarse «oficial» (es una adaptación del módulo) y cita bien las páginas de los ejemplos. / **Rulebook journals** corrected; the campaign is labelled as the module's own adaptation.
+- **Trabajo en equipo** (pág. 63) en la ventana de tirada: cuenta el mejor resultado y quien saca parcial o fracaso sufre 1 de estrés. / **Group action** added.
+- **Constructor**: salas de nivel 2 que faltaban (cámara de tortura, escalera, puesto de guardia); las de nivel 3 se eligen de las 7 de su temática; con las reglas, lo de nivel 2 y 3 (salas y trampas) queda **en obras con su reloj de 4 u 8 segmentos** y cada acción de descanso lo avanza según el resultado (fracaso 0, parcial 1, éxito 2, crítico 3); un proyecto de la hoja con el reloj lleno termina una obra. / Builder uses project clocks.
+
 ## 2.9.0 (2026-11-08)
 
 Látigo con gritos, tokens a media casilla y vídeo del constructor. / Whip with screams, half-cell tokens and a demo video.

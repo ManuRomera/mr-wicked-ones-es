@@ -18,12 +18,14 @@ import {
   evaluarDesastre,
   evaluarRepresalia,
   evaluarDefensaMazmorra,
-  simularIncursionEsbirros,
+  evaluarIncursionEsbirros,
+  evaluarTrabajoEnEquipo,
+  DESASTRE_ALEATORIO,
   probabilidades
 } from "../js/core/reglas.mjs";
 import {
   crearMapa, excavar, rellenar, construirSala, quitarSala, alternarPuerta, muros, decorar, lucesDe, celda, resumen, TIPOS_SALA, cabe, ajustarSala,
-  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, quedanObra, creditoProyecto, esProyectoDeObra, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
+  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, quedanObra, esProyectoDeObra, relojSala, enObra, obrasEnCurso, avanzarObra, AVANCE_RESULTADO, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
   mascara, celdasForma, validarCeldas, contiene, celdasDe, FORMAS, MECANISMOS, DETONADORES, ponerTrampa, editarTrampa, quitarTrampa, costeTrampa, numDuendes
 } from "../js/core/mazmorra.mjs";
 import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
@@ -83,35 +85,80 @@ test("Evaluación de Resistencia y Resistir la Muerte", () => {
   const muerteFallo = evaluarResistencia("deadly", "failure");
   assert.equal(muerteFallo.muerte, true);
 
+  // pág. 52: resistirse a la muerte cuesta el mismo estrés; parcial = sigue siendo devastador; fracaso = sigues muriendo
   const muerteParcial = evaluarResistencia("deadly", "mixed");
   assert.equal(muerteParcial.muerte, false);
-  assert.equal(muerteParcial.malherido, true);
+  assert.equal(muerteParcial.grave, true);
+  assert.equal(muerteParcial.estres, 2);
+  assert.equal(muerteFallo.estres, 3);
+  assert.equal(evaluarResistencia("deadly", "success").estres, 1);
+  assert.equal(evaluarResistencia("deadly", "success").total, true);
+  assert.equal(evaluarResistencia("deadly", "critical").estres, -1);
+  assert.equal(evaluarResistencia("deadly", "critical").muerte, false);
 });
 
-test("Ciclo de partida: Implicación, Desastre, Represalia, Defensas e Incursión de Esbirros", () => {
+test("Ciclo de partida según el manual: implicación, desastre y represalia (sacar alto es bueno)", () => {
+  // pág. 40
   assert.equal(evaluarImplicacion([6], 1).posicionInicial, "dominant");
   assert.equal(evaluarImplicacion([4], 1).posicionInicial, "default");
   assert.equal(evaluarImplicacion([2], 1).posicionInicial, "dire");
+  assert.match(evaluarImplicacion([6, 6], 2).resumen, /giro afortunado/);
 
-  assert.equal(evaluarDesastre([6, 2], 2).avanceRelojes, 2);
-  assert.equal(evaluarDesastre([4], 1).avanceRelojes, 1);
-  assert.equal(evaluarDesastre([2], 1).avanceRelojes, 0);
+  // pág. 244: fracaso grave, parcial leve, éxito moral + incursión gratis, crítico además descubrimiento
+  const dFallo = evaluarDesastre([2, 3], 2), dParcial = evaluarDesastre([5, 1], 2), dExito = evaluarDesastre([6, 2], 2), dCrit = evaluarDesastre([6, 6], 2);
+  assert.equal(dFallo.desastre, "grave"); assert.equal(dFallo.moral, false);
+  assert.equal(dParcial.desastre, "leve");
+  assert.equal(dExito.desastre, null); assert.ok(dExito.moral && dExito.incursionGratis && !dExito.descubrimiento);
+  assert.ok(dCrit.moral && dCrit.incursionGratis && dCrit.descubrimiento);
+  assert.equal(evaluarDesastre([6], 1).desastre, null);
+  assert.equal(DESASTRE_ALEATORIO.length, 6);
 
-  assert.equal(evaluarRepresalia([6, 6], 2).segmentosFaccion, 3);
-  assert.equal(evaluarRepresalia([6, 1], 2).segmentosFaccion, 2);
-  assert.equal(evaluarRepresalia([5, 2], 2).segmentosFaccion, 1);
-  assert.equal(evaluarRepresalia([1, 3], 2).segmentosFaccion, 0);
+  // pág. 264: fracaso grave, parcial leve, éxito corazón oscuro, crítico además chivo expiatorio; sin valores inventados
+  const rFallo = evaluarRepresalia([1, 3], 2), rParcial = evaluarRepresalia([5, 2], 2), rExito = evaluarRepresalia([6, 1], 2), rCrit = evaluarRepresalia([6, 6], 2);
+  assert.equal(rFallo.represalia, "grave"); assert.equal(rFallo.corazonOscuro, false);
+  assert.equal(rParcial.represalia, "leve");
+  assert.ok(rExito.corazonOscuro && !rExito.chivoExpiatorio && rExito.represalia === null);
+  assert.ok(rCrit.corazonOscuro && rCrit.chivoExpiatorio);
+  for (const r of [rFallo, rParcial, rExito, rCrit]) { assert.equal(r.segmentosFaccion, undefined); assert.equal(r.invasoresExtra, undefined); }
+});
 
-  const criatura = evaluarDefensaMazmorra("creature", [6, 6], 2);
-  assert.equal(criatura.corazonesInfligidos, 3);
+test("Defensas de la mazmorra según el manual: criatura, trampa y portón (tajos de medio corazón, repetir y otro camino)", () => {
+  // Criatura (pág. 188)
+  const cF = evaluarDefensaMazmorra("creature", [2], 1), cP = evaluarDefensaMazmorra("creature", [4], 1), cE = evaluarDefensaMazmorra("creature", [6, 1], 2), cC = evaluarDefensaMazmorra("creature", [6, 6], 2);
+  assert.ok(cF.estadoCriatura === "muerta" && cF.heridos === 0 && !cF.repetir);
+  assert.ok(cP.estadoCriatura === "inconsciente" && cP.heridos === 1 && cP.eligeDJ && !cP.repetir && cP.tajos === 1 && cP.corazones === 0.5);
+  assert.ok(cE.estadoCriatura === "activa" && cE.heridos === 1 && !cE.eligeDJ && cE.repetir);
+  assert.ok(cC.heridos === 2 && cC.tajos === 2 && cC.corazones === 1 && cC.repetir);
+  for (const r of [cF, cP, cE, cC]) assert.equal(r.movimientosUnAventurero + r.movimientosPorAventurero, 0);   // sin movimientos inventados
+  // Trampa (pág. 198)
+  const tF = evaluarDefensaMazmorra("trap", [3], 1), tP = evaluarDefensaMazmorra("trap", [5], 1), tE = evaluarDefensaMazmorra("trap", [6], 1), tC = evaluarDefensaMazmorra("trap", [6, 6], 2);
+  assert.ok(tF.heridos === 0 && !tF.repetir);
+  assert.ok(tP.heridos === 1 && tP.eligeDJ && tP.corazones === 0.5 && !tP.repetir);
+  assert.ok(tE.heridos === 1 && !tE.eligeDJ && tE.repetir);
+  assert.ok(tC.heridos === 2 && tC.repetir && /dos veces seguidas/.test(tC.nota));
+  // Portón (pág. 222)
+  const pF = evaluarDefensaMazmorra("lock", [1], 1), pP = evaluarDefensaMazmorra("lock", [4], 1), pE = evaluarDefensaMazmorra("lock", [6], 1), pC = evaluarDefensaMazmorra("lock", [6, 6], 2);
+  assert.ok(pF.atraviesan && !pF.otroCamino);
+  assert.ok(pP.otroCamino && pP.movimientosUnAventurero === 0 && pP.movimientosPorAventurero === 0);
+  assert.ok(pE.otroCamino && pE.movimientosUnAventurero === 1 && pE.movimientosPorAventurero === 0);
+  assert.ok(pC.otroCamino && pC.movimientosPorAventurero === 1);
+  assert.ok(pC.heridos === 0);
+  // Truco (pág. 200): tirada de fortuna, sin tabla propia
+  assert.ok(evaluarDefensaMazmorra("trick", [6], 1).heridos === 0);
+});
 
-  const porton = evaluarDefensaMazmorra("lock", [6], 1);
-  assert.equal(porton.movimientosConsumidos, 2);
-
-  const esbirros = simularIncursionEsbirros([6, 6], 2);
-  assert.equal(esbirros.botinOro, 1);
-  assert.equal(esbirros.suministros, 2);
-  assert.equal(esbirros.malheridos, false);
+test("Incursión de esbirros (pág. 354) y trabajo en equipo (pág. 63)", () => {
+  // la primera tabla ajusta los dados de las otras dos; 4+ cumple el objetivo
+  const ev = evaluarIncursionEsbirros({ exito: [2, 4], consecuencias: [6, 1], botin: [3, 5] }, 2);
+  assert.equal(ev.exito.valor, 4); assert.ok(ev.cumplido); assert.equal(ev.ajuste, -2); assert.equal(ev.reservaAjustada, 0);
+  assert.equal(ev.consecuencias.valor, 1);   // con 0d cuenta el dado más bajo
+  assert.equal(ev.botin.valor, 3); assert.match(ev.botin.texto, /ganan moral/);
+  const perfecta = evaluarIncursionEsbirros({ exito: [6], consecuencias: [6, 2], botin: [6, 1] }, 1);
+  assert.ok(perfecta.cumplido && perfecta.ajuste === 1 && perfecta.consecuencias.texto === "¡No hay consecuencias!");
+  assert.equal(evaluarIncursionEsbirros({ exito: [3], consecuencias: [3], botin: [3] }, 1).cumplido, false);
+  // trabajo en equipo: cuenta el mejor resultado; quien saca parcial o fracaso sufre estrés
+  const eq = evaluarTrabajoEnEquipo(["mixed", "success", "failure"]);
+  assert.equal(eq.estado, "success"); assert.deepEqual(eq.estres, [1, 0, 1]);
 });
 
 test("Integridad de datos generados y cumplimiento de reglas CSS de la casa MR-", async () => {
@@ -123,11 +170,44 @@ test("Integridad de datos generados y cumplimiento de reglas CSS de la casa MR-"
   const manual = JSON.parse(await fs.readFile("_data/manual-es.json", "utf8"));
   const aventura = JSON.parse(await fs.readFile("_data/aventura-es.json", "utf8"));
 
-  assert.ok(labores.length >= 120, "Debe incluir todas las salas N1/N2, trampas, trucos, portones, criaturas y hallazgos");
-  assert.ok(equipo.length >= 160, "Debe incluir armas, suministros y los 36x4 mejunjes/artilugios/pociones/reliquias");
+  // Labores del capítulo 4, con el texto del libro (nada inventado)
+  const tipoLabor = t => labores.filter(l => l.system.type_custom === t);
+  const subtipo = t => labores.filter(l => l.flags["mr-wicked-ones-es"].subtipo === t).length;
+  assert.deepEqual([subtipo("sala_n1"), subtipo("sala_n2"), subtipo("sala_n3")], [6, 5, 35], "Salas N1 y N2 (pág. 197) y N3 de las cinco temáticas");
+  assert.deepEqual(["Trampa", "Portón", "Truco", "Criatura", "Descubrimiento"].map(t => tipoLabor(t).length), [3, 3, 8, 36, 108]);
+  assert.ok(labores.find(l => l.name === "Sala N1 · Sala menor").system.description.includes("ganáis +1d en vuestra siguiente tirada de desastre"));
+  assert.ok(labores.find(l => l.name === "Sala N3 · Dojo (Escondrijo)").system.description.includes("sufrís estrés solo con un fracaso"));
+  assert.ok(labores.find(l => l.name === "Criatura · Basilisco").system.description.includes("fuerte y terrorífica"));
+  assert.ok(!labores.some(l => /Almacenes|Foso de estacas|Hidra de foso|Veta de oro|Sala N1 · Forja/.test(l.name)), "Sin labores inventadas");
+  // Facciones de ejemplo de los cuatro entornos (cap. 6), leídas de los mapas
+  const fac = facciones.filter(a => a.type === "faction");
+  assert.equal(fac.length, 62, "62 facciones de ejemplo de los 4 entornos");
+  const almirantazgo = fac.find(a => a.name === "[Cloacas de la Gran Ciudad] Almirantazgo");
+  assert.deepEqual([almirantazgo.system.tier.value, almirantazgo.system.category, almirantazgo.system.clock1.max, almirantazgo.system.clock2.max], [3, "light", 6, 8]);
+  assert.equal(fac.find(a => a.name.endsWith("Horda de osgos")).system.category, "dark");
+  assert.ok(!fac.some(a => /Piedra Blanca|Colmillo Sangriento|Culto del Gusano/.test(a.name)), "Sin facciones inventadas");
+  // PJ pregenerados: 3 / 2+2 / 1+1 (pág. 90) y capacidad principal del libro; manadas: 1 primaria 2d + 2 secundarias 1d (pág. 194)
+  const puntos = a => Object.values(a.system.attributes).flatMap(at => Object.values(at.skills).map(sk => sk.value)).filter(v => v > 0).sort().join(",");
+  for (const pj of facciones.filter(a => a.type === "character")) assert.equal(puntos(pj), "1,1,2,2,3", `Reparto de acciones de ${pj.name}`);
+  for (const m of facciones.filter(a => a.type === "minion_pack")) assert.equal(puntos(m), "1,1,2", `Acciones de ${m.name}`);
+  assert.ok(facciones.find(a => a.name.startsWith("Ulrot")).items.some(i => i.type === "specialability" && i.name === "Cólera"));
+  assert.equal(equipo.filter(e => e.flags?.["mr-wicked-ones-es"]?.categoria === "objeto").length, 108, "Los 108 objetos de «Objetos al azar» (pág. 358)");
+  for (const cat of ["mejunje", "artilugio", "pocion", "reliquia"]) assert.equal(equipo.filter(e => e.flags?.["mr-wicked-ones-es"]?.categoria === cat).length, 36, `36 ${cat}s del manual`);
+  assert.ok(equipo.some(e => e.name === "Mejunje [11] · Vara luminosa") && equipo.some(e => e.name === "Artilugio [11] · Encendedor") && equipo.some(e => e.name === "Poción [11] · Pez globo") && equipo.some(e => e.name === "Objeto mágico [11] · Bolsa de la suerte"));
+  assert.ok(!equipo.some(e => /Ácido corrosivo|Alas planeadoras|Arma de mano brutal|Arma a dos manos colosal/.test(e.name)), "Sin objetos inventados");
   assert.equal(aventureros.length, 66, "Debe incluir los 30 aventureros y los 36 ayudantes");
-  assert.ok(facciones.length >= 60, "Debe incluir las 48 facciones de los 4 entornos, PJs, manadas, mazmorra y grupos");
-  assert.equal(tablas.length, 16, "Debe incluir las 16 tablas de incursión, invasión, oráculos y solitario");
+  assert.ok(facciones.length >= 74, "Facciones, PJ, manadas, mazmorra y grupos");
+  assert.equal(tablas.length, 49, "Las 49 tablas aleatorias del manual");
+  const tabla = clave => tablas.find(t => t.flags?.["mr-wicked-ones-es"]?.clave === clave);
+  for (const t of tablas) {
+    const max = Math.max(...t.results.map(r => r.range[1]));
+    const caras = { "1d36": 36, "2d6kh": 6 }[t.formula] ?? Number(t.formula.replace("1d", ""));
+    assert.equal(max, caras, `La fórmula de «${t.name}» cubre todas sus filas`);
+  }
+  assert.equal(tabla("desastre-aleatorio").results.length, 6);
+  assert.equal(tabla("mejunjes").results[0].text, "[11] Vara luminosa: Ilumina una zona como si fuera una antorcha, pero la luz es de un color aleatorio.");
+  assert.equal(tabla("objetos-magicos").results[0].text.slice(0, 23), "[11] Bolsa de la suerte");
+  assert.equal(tabla("semilla-1").results[0].text, "[11] Recuerdo");
   assert.equal(manual.length, 10, "Debe incluir los 10 diarios multipágina del manual y campaña");
   assert.equal(aventura.length, 1, "Debe incluir el documento Adventure completo");
 
@@ -150,10 +230,21 @@ test("Estrés: se despeja, se limita a 6 y al llenarse se desata (feral)", () =>
   assert.equal(aplicarEstres(0, -1).nuevo, 0);
 });
 
-test("EXP de práctica: tres marcas suben la acción sin puntos a 1", () => {
+test("EXP de práctica: tres marcas suben la acción sin puntos a 1, también tirando 0d (pág. 80)", async () => {
   assert.deepEqual(progresoPractica(0, 0), { valor: 0, practica: 1, sube: false });
   assert.deepEqual(progresoPractica(0, 2), { valor: 1, practica: 0, sube: true });
   assert.deepEqual(progresoPractica(2, 1), { valor: 2, practica: 1, sube: false });
+  // las tarjetas nativas del sistema marcan práctica aunque la tirada sea de 0d
+  const auto = await fs.readFile("js/automatismos.mjs", "utf8");
+  assert.doesNotMatch(auto, /hab\.valor === 0 && !t\.cero/);
+  assert.match(auto, /if \(hab\.valor === 0\)/);
+  // la resistencia se tira con UNA acción (pág. 50), no sumando acciones con puntos de un atributo
+  const tiradas = await fs.readFile("js/tiradas.mjs", "utf8");
+  assert.doesNotMatch(tiradas, /for \(const sk of Object\.values\(skills\)\)/);
+  assert.match(tiradas, /abrirTirada\(actor, \{ tipo: "resistencia" \}\)/);
+  // resistirse a la muerte cuesta estrés: ya no se salta el cálculo con «!mortal»
+  const tirada = await fs.readFile("js/tirada.mjs", "utf8");
+  assert.doesNotMatch(tirada, /tipo === "resistencia" && !mortal/);
 });
 
 test("Probabilidades de la reserva de dados suman 1 y coinciden con casos conocidos", () => {
@@ -307,26 +398,44 @@ test("Constructor: antorchas de pasillo según la orientación", () => {
   assert.ok(cortas.length === 1 && cortas[0].relleno);       // un tramo corto lleva una sola antorcha de relleno, para que no quede a oscuras
 });
 
-test("Constructor: reglas de obra (acciones de descanso, temática y materiales)", () => {
+test("Constructor: reglas de obra (acciones de descanso, relojes de proyecto, temática y materiales)", () => {
+  // pág. 238: nivel 1 = una tirada; nivel 2 = reloj de 4; nivel 3 = reloj de 8; base sin coste
   assert.equal(costeSala("santuario"), 0);
   assert.equal(costeSala("menor"), 1);
-  assert.equal(costeSala("prision"), 2);
-  assert.equal(costeSala("forja"), 4);
+  assert.equal(costeSala("prision"), 0); assert.equal(relojSala("prision"), 4);
+  assert.equal(costeSala("forja"), 0); assert.equal(relojSala("forja"), 8);
+  assert.equal(relojSala("menor"), 0);
+  assert.deepEqual(AVANCE_RESULTADO, { failure: 0, mixed: 1, success: 2, critical: 3 });
   assert.equal(costeExcavar(0), 0); assert.equal(costeExcavar(8), 1); assert.equal(costeExcavar(9), 2);
+  for (const k of ["tortura", "escalera", "guardia", "guarida", "prision"]) assert.equal(TIPOS_SALA[k].nivel, 2, `${k} es de nivel 2`);
+  for (const k of ["enclave", "escondrijo", "forja", "fortaleza", "templo"]) assert.equal(TIPOS_SALA[k].salas.length, 7, `${k}: 7 salas de nivel 3`);
   const m = crearMapa(30, 20);
   assert.equal(m.obra.total, 3);
   assert.ok(puedeGastar(m, 3).ok && !puedeGastar(m, 4).ok);
   gastar(m, 2);
   assert.equal(puedeGastar(m, 2).ok, false);
   assert.ok(/te quedan 1/.test(puedeGastar(m, 2).motivo));
-  // los créditos (proyectos terminados y regalos del DJ) no caducan y se gastan después de las acciones de la fase
-  m.obra.creditos = 3;
-  assert.equal(quedanObra(m), 4); assert.ok(puedeGastar(m, 4).ok && !puedeGastar(m, 5).ok);
+  m.obra.creditos = 3;   // acciones concedidas por el DJ: no caducan y se gastan después de las de la fase
+  assert.equal(quedanObra(m), 4);
   gastar(m, 3);
   assert.deepEqual([m.obra.gastadas, m.obra.creditos, quedanObra(m)], [3, 1, 1]);
-  assert.equal(creditoProyecto(4), 2); assert.equal(creditoProyecto(8), 4);
   assert.ok(esProyectoDeObra("Excavar el pasillo norte") && esProyectoDeObra("Construir una prisión") && !esProyectoDeObra("Elaborar una poción"));
   m.obra.creditos = 0; m.obra.gastadas = 2;
+  // una sala de nivel 2 en obras: reloj de 4, sin luz ni mobiliario hasta llenarlo
+  const ob = construirSala(m, { x: 20, y: 10, w: 3, h: 3 }, "prision", { obra: true, nombre: "" });
+  assert.equal(ob.obra, 4);
+  const sala = m.salas.find(s => s.id === ob.id);
+  assert.ok(enObra(sala) && lucesDe(sala).length === 0);
+  assert.equal(obrasEnCurso(m).length, 1);
+  assert.ok(avanzarObra(m, "sala", ob.id, AVANCE_RESULTADO.success).ok && sala.obra.hecho === 2);
+  assert.ok(avanzarObra(m, "sala", ob.id, AVANCE_RESULTADO.mixed).ok && sala.obra.hecho === 3);
+  const fin = avanzarObra(m, "sala", ob.id, AVANCE_RESULTADO.critical);
+  assert.ok(fin.completa && sala.obra.hecho === 4 && !enObra(sala) && lucesDe(sala).length > 0);
+  assert.equal(avanzarObra(m, "sala", ob.id, 1).ok, false);   // ya terminada
+  quitarSala(m, ob.id);
+  // una trampa de nivel 3 también es un proyecto (reloj de 8)
+  excavar(m, 25, 5);
+  assert.equal(ponerTrampa(m, { x: 25, y: 5, mecanismo: "Roca", nivel: 3, obra: true }).obra, 8);
   // única: solo un santuario
   assert.ok(construirSala(m, { x: 2, y: 2, w: 3, h: 3 }, "santuario").ok);
   assert.equal(reglasSala(m, "santuario").ok, false);
@@ -385,13 +494,13 @@ test("Constructor: trampas del manual, trucos y duendes según el nivel", () => 
   excavar(m, 4, 4); excavar(m, 5, 4);
   assert.equal(ponerTrampa(m, { x: 9, y: 9, mecanismo: "Pinchos" }).ok, false);          // en roca/tierra no
   const t = ponerTrampa(m, { x: 4, y: 4, mecanismo: "Péndulo", detonador: "Placa de presión", nivel: 2 });
-  assert.ok(t.ok && t.coste === 2 && m.trampas[0].tipo === "trampa" && m.trampas[0].revelada === false);
+  assert.ok(t.ok && t.coste === 0 && m.trampas[0].tipo === "trampa" && m.trampas[0].revelada === false);   // nivel 2: se paga sobre su reloj
   assert.equal(ponerTrampa(m, { x: 4, y: 4, mecanismo: "Gas" }).ok, false);              // una por celda
   const tr = ponerTrampa(m, { x: 5, y: 4, tipo: "truco", mecanismo: "Cuerda con cascabeles", detonador: "Al pasar", intencion: "Alerta a los esbirros", nivel: 9 });
-  assert.ok(tr.ok && tr.nivel === 3 && tr.coste === 4);                                  // el nivel se acota a 1-3
+  assert.ok(tr.ok && tr.nivel === 3 && tr.coste === 0);                                  // el nivel se acota a 1-3
   assert.ok(editarTrampa(m, t.id, { nivel: 3, revelada: true, mecanismo: "Sierra" }).ok);
   assert.ok(m.trampas[0].nivel === 3 && m.trampas[0].revelada && m.trampas[0].mecanismo === "Sierra");
-  assert.equal(costeTrampa(1), 1); assert.equal(costeTrampa(3), 4);
+  assert.equal(costeTrampa(1), 1); assert.equal(costeTrampa(3), 0);
   rellenar(m, 5, 4);                                                                      // al rellenar la celda, el truco desaparece
   assert.equal(m.trampas.length, 1);
   assert.ok(quitarTrampa(m, t.id) && m.trampas.length === 0);

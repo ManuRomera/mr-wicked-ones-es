@@ -1,0 +1,572 @@
+[
+ {
+  "pasiva": "Puede utilizar cualquier mejunje de nivel 1 o 2 de la página 121.",
+  "ofensivos": [
+   "Crear una puerta",
+   "Derretir cerradura",
+   "Mezcla rápida"
+  ],
+  "defensivos": [
+   "Bomba de grasa",
+   "Granada de pringue",
+   "Sales apestosas"
+  ],
+  "nombre": "Alquimista",
+  "rasgos": [
+   "Astuto",
+   "impaciente"
+  ],
+  "motivacion": "emoción"
+ },
+ {
+  "pasiva": "Destaca en combate uno contra uno.",
+  "ofensivos": [
+   "Comentarios mordaces",
+   "Desarmar oponente",
+   "Retar a un duelo"
+  ],
+  "defensivos": [
+   "Estocada",
+   "Lanzar el estoque",
+   "Mirada condescendiente"
+  ],
+  "nombre": "Aristócrata",
+  "rasgos": [
+   "Confiado",
+   "arrogante"
+  ],
+  "motivacion": "reputación"
+ },
+ {
+  "pasiva": "Tiene mucha determinación y una voluntad de hierro.",
+  "ofensivos": [
+   "Derribar una puerta de una patada",
+   "Partir en dos",
+   "Sonrisa encantadora"
+  ],
+  "defensivos": [
+   "Captura rápida",
+   "Protección contra bestias",
+   "Remedio de hierbas"
+  ],
+  "nombre": "Amazona",
+  "rasgos": [
+   "Honesta",
+   "terca"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Imbuye cada una de sus flechas con un efecto elemental.",
+  "ofensivos": [
+   "Flecha corrosiva",
+   "Flecha dirigida",
+   "Lluvia de proyectiles"
+  ],
+  "defensivos": [
+   "Flecha de grasa",
+   "Flecha de teletransporte",
+   "Flecha ilusoria"
+  ],
+  "nombre": "Arquero arcano",
+  "rasgos": [
+   "Astuto",
+   "codicioso"
+  ],
+  "motivacion": "emoción"
+ },
+ {
+  "pasiva": "Siempre inicia una escena escondido.",
+  "ofensivos": [
+   "Estrangular en silencio",
+   "Robar objeto",
+   "Veneno somnífero"
+  ],
+  "defensivos": [
+   "Bomba de humo",
+   "Fundirse con las sombras",
+   "Hacerse el muerto"
+  ],
+  "nombre": "Asesino",
+  "rasgos": [
+   "Perseverante",
+   "mentiroso"
+  ],
+  "motivacion": "riquezas"
+ },
+ {
+  "pasiva": "Siempre tiene la mejor arma para la tarea.",
+  "ofensivos": [
+   "Risa confiada",
+   "Robar el arma",
+   "Romper el arma"
+  ],
+  "defensivos": [
+   "Bloquear golpe",
+   "Explotar un defecto",
+   "Sacrificar su arma"
+  ],
+  "nombre": "Armero",
+  "rasgos": [
+   "Honesto",
+   "arrogante"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Puede teletransportarse entre las sombras.",
+  "ofensivos": [
+   "Danza de la muerte",
+   "Golpe sombrío",
+   "Sombras profundas"
+  ],
+  "defensivos": [
+   "Forma sombría",
+   "Huida rítmica",
+   "Paso sombrío"
+  ],
+  "nombre": "Bailarín sombrío",
+  "rasgos": [
+   "Astuto",
+   "impaciente"
+  ],
+  "motivacion": "emoción"
+ },
+ {
+  "pasiva": "Sigue luchando cuando debería estar muerto.",
+  "ofensivos": [
+   "Arrojar a un aliado",
+   "Ráfaga de tajos",
+   "Rugido feroz"
+  ],
+  "defensivos": [
+   "Arrojar a un enemigo",
+   "Músculos inmensos",
+   "Romper ataduras"
+  ],
+  "nombre": "Bárbaro",
+  "rasgos": [
+   "Confiado",
+   "lerdo"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Tiene un sexto sentido para el peligro.",
+  "ofensivos": [
+   "Apuntar al corazón",
+   "Conocer debilidad",
+   "Detectar el mal"
+  ],
+  "defensivos": [
+   "Amuletos y talismanes",
+   "Burlar con ingenio",
+   "Sin miedo a la muerte"
+  ],
+  "nombre": "Asesino sagrado",
+  "rasgos": [
+   "Perseverante",
+   "mentiroso"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Hace que todos los aliados cercanos actúen mejor.",
+  "ofensivos": [
+   "Órdenes musicales",
+   "Rasgueo ensordecedor",
+   "Tonada danzante"
+  ],
+  "defensivos": [
+   "Canción que distrae",
+   "Mentiras melódicas",
+   "Palabras de ayuda"
+  ],
+  "nombre": "Bardo",
+  "rasgos": [
+   "Servicial",
+   "codicioso"
+  ],
+  "motivacion": "riquezas"
+ },
+ {
+  "pasiva": "Es casi imposible inmovilizarle.",
+  "ofensivos": [
+   "Activar trampa de un disparo",
+   "Entrada espectacular",
+   "Proyectil con veneno somnífero"
+  ],
+  "defensivos": [
+   "Agacharse y rodar",
+   "Frase graciosa",
+   "Herida falsa"
+  ],
+  "nombre": "Bucanero",
+  "rasgos": [
+   "Generoso",
+   "arrogante"
+  ],
+  "motivacion": "riquezas"
+ },
+ {
+  "pasiva": "Es casi invulnerable ante el daño físico.",
+  "ofensivos": [
+   "Avance imparable",
+   "Ensartar",
+   "Muro impenetrable"
+  ],
+  "defensivos": [
+   "Baluarte defensivo",
+   "Código de honor",
+   "Intercambiar posición"
+  ],
+  "nombre": "Caballero",
+  "rasgos": [
+   "Honesto",
+   "arrogante"
+  ],
+  "motivacion": "reputación"
+ },
+ {
+  "pasiva": "Es casi inmune a la magia.",
+  "ofensivos": [
+   "Campo antimagia",
+   "Martillo aplastante",
+   "Oler magia"
+  ],
+  "defensivos": [
+   "Absorber magia",
+   "Redirigir conjuro",
+   "Robar foco mágico"
+  ],
+  "nombre": "Cazabrujas",
+  "rasgos": [
+   "Perseverante",
+   "descarado"
+  ],
+  "motivacion": "venganza"
+ },
+ {
+  "pasiva": "Es más poderoso cuando está herido.",
+  "ofensivos": [
+   "Lanzar el gladius",
+   "Salto atlético",
+   "Trabajo en equipo"
+  ],
+  "defensivos": [
+   "Palabras de determinación",
+   "Patada en el pecho",
+   "Proteger aliado"
+  ],
+  "nombre": "Centurión",
+  "rasgos": [
+   "Firme",
+   "terco"
+  ],
+  "motivacion": "reputación"
+ },
+ {
+  "pasiva": "Se cura cuando alguien muere a su alrededor.",
+  "ofensivos": [
+   "Golpe mortal",
+   "Hablar con los muertos",
+   "Sentir muerte"
+  ],
+  "defensivos": [
+   "Aceptar destino",
+   "Forma sombría",
+   "El rostro de la muerte"
+  ],
+  "nombre": "Caballero de la muerte",
+  "rasgos": [
+   "Perseverante",
+   "arrogante"
+  ],
+  "motivacion": "venganza"
+ },
+ {
+  "pasiva": "Curar a un aliado cuando haya un momento de respiro.",
+  "ofensivos": [
+   "Plegaria de castigo",
+   "Plegaria de curación",
+   "Plegaria del poder divino"
+  ],
+  "defensivos": [
+   "Plegaria de guía",
+   "Plegaria de protección",
+   "Plegaria de santuario"
+  ],
+  "nombre": "Clérigo",
+  "rasgos": [
+   "Generoso",
+   "terco"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Puede convertirse en cualquier animal.",
+  "ofensivos": [
+   "Amigos del bosque",
+   "Bayas venenosas",
+   "Transformación curativa"
+  ],
+  "defensivos": [
+   "Enredaderas",
+   "Espinas de cardo",
+   "Piel de corteza"
+  ],
+  "nombre": "Druida",
+  "rasgos": [
+   "Honesto",
+   "impaciente"
+  ],
+  "motivacion": "venganza"
+ },
+ {
+  "pasiva": "Experto en la detección de trampas y peligros.",
+  "ofensivos": [
+   "Conocer el camino",
+   "Disparo con truco",
+   "Fuego de cobertura"
+  ],
+  "defensivos": [
+   "Alterar el terreno",
+   "Detectar una salida",
+   "Disparo de advertencia"
+  ],
+  "nombre": "Explorador",
+  "rasgos": [
+   "Servicial",
+   "terco"
+  ],
+  "motivacion": "exploración"
+ },
+ {
+  "pasiva": "Comparte su poderosa defensa con sus aliados.",
+  "ofensivos": [
+   "Activar una trampa",
+   "Embestida de toro",
+   "Golpe de escudo"
+  ],
+  "defensivos": [
+   "Guardaespaldas",
+   "Mantenerse firme",
+   "Ojos vigilantes"
+  ],
+  "nombre": "Guardián",
+  "rasgos": [
+   "Firme",
+   "indeciso"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Puede invocar una poderosa espada a su antojo.",
+  "ofensivos": [
+   "Dagas flotantes",
+   "Destello cegador",
+   "Salto mágico"
+  ],
+  "defensivos": [
+   "Bloquear con la espada",
+   "Rostro borroso",
+   "Zancada rápida"
+  ],
+  "nombre": "Guerrero arcano",
+  "rasgos": [
+   "Optimista",
+   "arrogante"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Tiene un oso como fiel compañero.",
+  "ofensivos": [
+   "Carga del oso",
+   "Seguir el rastro",
+   "Tirar al suelo de un disparo"
+  ],
+  "defensivos": [
+   "Escapar",
+   "Escudarse tras el oso",
+   "Trampa lista"
+  ],
+  "nombre": "Guardabosques",
+  "rasgos": [
+   "Astuto",
+   "impaciente"
+  ],
+  "motivacion": "exploración"
+ },
+ {
+  "pasiva": "Se le da bien enfrentarse a cualquiera más grande que él.",
+  "ofensivos": [
+   "Lluvia de piedras",
+   "Mirada intimidante",
+   "Pedrada aturdidora"
+  ],
+  "defensivos": [
+   "Escabullirse entre las piernas",
+   "Golpe sorpresa",
+   "Recolocarse"
+  ],
+  "nombre": "Hondero",
+  "rasgos": [
+   "Optimista",
+   "indeciso"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Reacciona a los ataques y a las sorpresas con ilusiones.",
+  "ofensivos": [
+   "Cacería de sombras",
+   "Criatura terrorífica",
+   "Revelar el deseo más profundo"
+  ],
+  "defensivos": [
+   "Duplicados ilusorios",
+   "Invisibilidad",
+   "Muro ilusorio"
+  ],
+  "nombre": "Ilusionista",
+  "rasgos": [
+   "Servicial",
+   "indeciso"
+  ],
+  "motivacion": "emoción"
+ },
+ {
+  "pasiva": "Destaca a la hora de detectar mentiras y trucos.",
+  "ofensivos": [
+   "Aullar órdenes",
+   "Ignorar un truco",
+   "Latigazos espeluznantes"
+  ],
+  "defensivos": [
+   "Aceptar castigo",
+   "Mirada de reproche",
+   "Siseo retador"
+  ],
+  "nombre": "Inquisidor",
+  "rasgos": [
+   "Perseverante",
+   "terco"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Destaca a la hora de mantener a raya a los enemigos.",
+  "ofensivos": [
+   "Alarde impresionante",
+   "Aluvión de lanzas",
+   "Lanzamiento de precisión"
+  ],
+  "defensivos": [
+   "Inmovilizar enemigo",
+   "Tajo de advertencia",
+   "Zancadilla"
+  ],
+  "nombre": "Lancero",
+  "rasgos": [
+   "Confiado",
+   "impaciente"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Lanza conjuros al azar cuando le atacan.",
+  "ofensivos": [
+   "Desenmascarar",
+   "Mariposas brillantes",
+   "Ojos de la locura"
+  ],
+  "defensivos": [
+   "Cambio temporal",
+   "Grieta caótica",
+   "Protector horripilante"
+  ],
+  "nombre": "Mago del caos",
+  "rasgos": [
+   "Optimista",
+   "indeciso"
+  ],
+  "motivacion": "exploración"
+ },
+ {
+  "pasiva": "Puede correr por las paredes y sobre el agua.",
+  "ofensivos": [
+   "Lluvia de golpes",
+   "Meditación",
+   "Patada voladora"
+  ],
+  "defensivos": [
+   "Concentración intensa",
+   "Finta impresionante",
+   "Soportar el dolor"
+  ],
+  "nombre": "Monje",
+  "rasgos": [
+   "Firme",
+   "terco"
+  ],
+  "motivacion": "desafíos"
+ },
+ {
+  "pasiva": "Destaca a la hora de orientarse dentro de la mazmorra.",
+  "ofensivos": [
+   "Conocimientos sobre monstruos",
+   "Monóculo de rayos X",
+   "Pergamino de invocación"
+  ],
+  "defensivos": [
+   "Pergamino de teletransporte",
+   "Plantear un acertijo",
+   "Superar un truco"
+  ],
+  "nombre": "Sabio",
+  "rasgos": [
+   "Astuto",
+   "codicioso"
+  ],
+  "motivacion": "exploración"
+ },
+ {
+  "pasiva": "No se le puede desviar de su camino.",
+  "ofensivos": [
+   "Palabra sagrada: Búsqueda",
+   "Palabra sagrada: Confusión",
+   "Palabra sagrada: Dolor"
+  ],
+  "defensivos": [
+   "Palabra sagrada: Cegar",
+   "Palabra sagrada: Detener",
+   "Palabra sagrada: Verdad"
+  ],
+  "nombre": "Templario",
+  "rasgos": [
+   "Firme",
+   "terco"
+  ],
+  "motivacion": "justicia"
+ },
+ {
+  "pasiva": "Puede moverse sin problemas por terreno difícil.",
+  "ofensivos": [
+   "Acechar",
+   "Lamerse las heridas",
+   "Saltar"
+  ],
+  "defensivos": [
+   "Gruñido de advertencia",
+   "Ignorar el dolor",
+   "Sentidos agudos"
+  ],
+  "nombre": "Salvaje",
+  "rasgos": [
+   "Generoso",
+   "lerdo"
+  ],
+  "motivacion": "emoción"
+ }
+]

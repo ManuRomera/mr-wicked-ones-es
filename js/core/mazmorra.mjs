@@ -8,7 +8,8 @@
  */
 
 /**
- * Tipos de sala. `nivel` es el de las reglas del manual (pág. 197): 1 y 2 valen en cualquier mazmorra, 3 son de temática.
+ * Tipos de sala. Las de nivel 3 llevan la lista de su temática (manual, pág. 196): al construirla se elige cuál es.
+ * `nivel` es el de las reglas del manual (pág. 197): 1 y 2 valen en cualquier mazmorra, 3 son de temática.
  * Santuario y tesoro son la base de toda mazmorra (nivel 0, gratis y únicos). `min` es el tamaño mínimo [a, b] en cualquier
  * orientación: el manual no fija medidas («dibujad como os plazca»), son límites del módulo para que la sala quepa con su decoración.
  */
@@ -16,13 +17,16 @@ export const TIPOS_SALA = {
   santuario: { nombre: "Santuario", importante: true, nivel: 0, min: [3, 3], unica: true, nota: "El corazón de la mazmorra: trono, estandartes y alfombra hasta el fondo. El manual lo quiere grande, de 5×5 o más." },
   tesoro: { nombre: "Tesoro", importante: true, nivel: 0, min: [2, 2], unica: true, nota: "Tu botín. Cuanto más alto es el nivel de la mazmorra, más oro se amontona." },
   menor: { nombre: "Sala menor", importante: false, nivel: 1, min: [2, 2], nota: "Comedor, letrinas, jardín… Sube la moral: +1d en tu siguiente tirada de desastre." },
-  guarida: { nombre: "Guarida de esbirros", importante: false, nivel: 2, min: [3, 3], nota: "Una panda de esbirros vive aquí: +1d al defenderla de invasores." },
-  prision: { nombre: "Prisión", importante: false, nivel: 2, min: [3, 3], nota: "Cuatro celdas para prisioneros." },
-  enclave: { nombre: "Enclave", importante: false, nivel: 3, min: [3, 3], tema: "enclave", nota: "Sala de nivel 3 de la temática Enclave." },
-  escondrijo: { nombre: "Escondrijo", importante: false, nivel: 3, min: [3, 2], tema: "escondrijo", nota: "Sala de nivel 3 de la temática Escondrijo." },
-  forja: { nombre: "Forja", importante: true, nivel: 3, min: [4, 3], tema: "forja", nota: "Sala de nivel 3 de la temática Forja: hornos, yunques y armas." },
-  fortaleza: { nombre: "Fortaleza", importante: false, nivel: 3, min: [4, 3], tema: "fortaleza", nota: "Sala de nivel 3 de la temática Fortaleza." },
-  templo: { nombre: "Templo", importante: false, nivel: 3, min: [4, 3], tema: "templo", nota: "Sala de nivel 3 de la temática Templo: altar, pilares y estatuas." }
+  guarida: { nombre: "Guarida de esbirros", importante: false, nivel: 2, min: [3, 3], nota: "Una panda de esbirros asignada aquí: su moral aumenta en cada recuperación y gana +1d al defender la sala de invasores." },
+  prision: { nombre: "Prisión", importante: false, nivel: 2, min: [3, 3], nota: "Cuatro celdas que pueden encerrar prisioneros; no escapan sin una oportunidad previa." },
+  tortura: { nombre: "Cámara de tortura", importante: false, nivel: 2, min: [3, 3], nota: "Obtenéis +situación o +efecto (a vuestra elección) al torturar." },
+  escalera: { nombre: "Escalera", importante: false, nivel: 2, min: [2, 2], nota: "Añade otro nivel a vuestra mazmorra, con el santuario siempre abajo del todo." },
+  guardia: { nombre: "Puesto de guardia", importante: false, nivel: 2, min: [3, 3], nota: "Una panda de esbirros asignada aquí siempre puede empezar la defensa de la mazmorra en este lugar." },
+  enclave: { nombre: "Enclave", importante: false, nivel: 3, min: [3, 3], tema: "enclave", salas: ["Academia", "Biblioteca", "Crisol", "Cubil de los engendros", "Fuente de clarividencia", "Invernadero", "Laboratorio de pociones"], nota: "Sala de nivel 3 de la temática Enclave." },
+  escondrijo: { nombre: "Escondrijo", importante: false, nivel: 3, min: [3, 2], tema: "escondrijo", salas: ["Arsenal", "Dojo", "Garito de juego", "Nido", "Pista de obstáculos", "Sala de planificación", "Taberna"], nota: "Sala de nivel 3 de la temática Escondrijo." },
+  forja: { nombre: "Forja", importante: true, nivel: 3, min: [4, 3], tema: "forja", salas: ["Cámara de pruebas", "Fábrica", "Galería", "Hangar", "Laboratorio de alquimia", "Salón gremial", "Taller"], nota: "Sala de nivel 3 de la temática Forja: hornos, yunques y armas." },
+  fortaleza: { nombre: "Fortaleza", importante: false, nivel: 3, min: [4, 3], tema: "fortaleza", salas: ["Barracones", "Cuadra", "Foso de combate", "Herrería", "Pira funeraria", "Sala de la guerra", "Tambores de guerra"], nota: "Sala de nivel 3 de la temática Fortaleza." },
+  templo: { nombre: "Templo", importante: false, nivel: 3, min: [4, 3], tema: "templo", salas: ["Altar", "Antecámara", "Círculo de augurios", "Dormitorio", "Relicario", "Sala de penitencias", "Scriptorium"], nota: "Sala de nivel 3 de la temática Templo: altar, pilares y estatuas." }
 };
 
 /** Nombre de una temática de mazmorra (en español o inglés, como viene en la ficha) → clave de tipo de sala. */
@@ -175,10 +179,35 @@ export function reglasSala(m, tipo, ctx = {}) {
   return { ok: true };
 }
 
-/** Acciones de descanso que cuesta cada cosa (manual, pág. 238): nivel 1 = 1 tirada, nivel 2 = reloj de 4, nivel 3 = reloj de 8. */
-export const COSTE_NIVEL = { 0: 0, 1: 1, 2: 2, 3: 4 };
+/**
+ * Proyectos de descanso (manual, pág. 238): nivel 1 = una sola tirada (una acción de descanso); nivel 2 = reloj de 4 segmentos;
+ * nivel 3 = reloj de 8. Cada tirada de una acción de descanso avanza el reloj según su resultado (pág. 66): fracaso 0, éxito parcial 1,
+ * éxito 2, crítico 3 (el efecto potente suma 1 y el débil resta 1, salvo en un fracaso).
+ * Santuario y tesoro (nivel 0) son la base de la mazmorra y no cuestan nada.
+ */
+export const RELOJ_NIVEL = { 2: 4, 3: 8 };
+export const AVANCE_RESULTADO = { failure: 0, mixed: 1, success: 2, critical: 3 };
+export const COSTE_NIVEL = { 0: 0, 1: 1, 2: 0, 3: 0 };   // los de nivel 2 y 3 se pagan tirada a tirada sobre su reloj
 export const TRAMO = 8;   // celdas de túnel que cuentan como un «túnel largo» (nivel 1)
 export const costeSala = tipo => COSTE_NIVEL[TIPOS_SALA[tipo]?.nivel ?? 1];
+export const relojSala = tipo => RELOJ_NIVEL[TIPOS_SALA[tipo]?.nivel] ?? 0;
+export const relojTrampa = nivel => RELOJ_NIVEL[nivel] ?? 0;
+/** ¿Está la sala o la trampa todavía en obras (su reloj de proyecto sin llenar)? */
+export const enObra = o => Boolean(o?.obra && o.obra.hecho < o.obra.seg);
+/** Obras en curso: salas y trampas con su reloj sin llenar, por orden de inicio. */
+export const obrasEnCurso = m => [
+  ...m.salas.filter(enObra).map(s => ({ clase: "sala", id: s.id, nombre: s.nombre || TIPOS_SALA[s.tipo]?.nombre || s.tipo, hecho: s.obra.hecho, seg: s.obra.seg, orden: s.obra.orden ?? 0 })),
+  ...(m.trampas ?? []).filter(enObra).map(t => ({ clase: "trampa", id: t.id, nombre: `${t.tipo === "truco" ? "Truco" : "Trampa"} de nivel ${t.nivel}${t.mecanismo ? ` (${t.mecanismo})` : ""}`, hecho: t.obra.hecho, seg: t.obra.seg, orden: t.obra.orden ?? 0 }))
+].sort((a, b) => a.orden - b.orden);
+const ordenObra = m => [...m.salas, ...(m.trampas ?? [])].reduce((a, o) => Math.max(a, o.obra?.orden ?? 0), 0) + 1;
+/** Avanza (o, con números negativos, retrasa) el reloj de una obra. */
+export function avanzarObra(m, clase, id, segmentos) {
+  const o = (clase === "trampa" ? m.trampas ?? [] : m.salas).find(z => z.id === id);
+  if (!o?.obra) return { ok: false, motivo: "Esa obra ya no existe." };
+  if (!enObra(o) && segmentos > 0) return { ok: false, motivo: "Esa obra ya está terminada." };
+  o.obra.hecho = Math.min(o.obra.seg, Math.max(0, o.obra.hecho + segmentos));
+  return { ok: true, completa: !enObra(o), hecho: o.obra.hecho, seg: o.obra.seg };
+}
 export const costeExcavar = n => (n > 0 ? Math.ceil(n / TRAMO) : 0);
 
 /**
@@ -198,9 +227,7 @@ export function gastar(m, coste) {
   o.gastadas += deFase;
   if (coste > deFase) o.creditos = Math.max(0, (o.creditos ?? 0) - (coste - deFase));
 }
-/** Acciones de obra que vale un proyecto de descanso terminado según su reloj (nivel 2 = reloj de 4, nivel 3 = reloj de 8). */
-export const creditoProyecto = tam => ({ 4: 2, 6: 3, 8: 4 })[tam] ?? Math.max(1, Math.round((tam || 4) / 2));
-/** Los proyectos cuyo nombre habla de obras se cobran solos al terminarse; el resto los aplica el DJ cuando quiera. */
+/** Un proyecto de la hoja de un PJ con su reloj lleno termina una obra en curso: los que hablan de obras lo hacen solos al llenarse. */
 export const esProyectoDeObra = nombre => /constru|excav|cav(a|ar)|sala|t[uú]nel|trampa|truco|port[oó]n|mazmorra|guarida|santuario|build|dig|room|trap|tunnel|door|gate/i.test(String(nombre ?? ""));
 
 /**
@@ -228,8 +255,10 @@ export function construirSala(m, r, tipo, opts = {}) {
   const id = `s${(m.salas.reduce((a, s) => Math.max(a, Number(s.id.slice(1)) || 0), 0)) + 1}`;
   for (const [i, j] of cels) poner(m, i, j, "r");
   const sinForma = forma === "rect" && !recortada;
-  m.salas.push({ id, tipo, ...rect, ...(sinForma ? {} : { forma: forma === "rect" ? "libre" : forma, celdas: cels }) });
-  return { ok: true, id, rect, ajustada, recortada, forma: sinForma ? "rect" : (forma === "rect" ? "libre" : forma), celdas: cels.length };
+  const seg = opts.obra ? relojSala(tipo) : 0;
+  const nombre = String(opts.nombre ?? "").trim().slice(0, 60);
+  m.salas.push({ id, tipo, ...rect, ...(sinForma ? {} : { forma: forma === "rect" ? "libre" : forma, celdas: cels }), ...(nombre ? { nombre } : {}), ...(seg ? { obra: { seg, hecho: 0, orden: ordenObra(m) } } : {}) });
+  return { ok: true, id, rect, ajustada, recortada, forma: sinForma ? "rect" : (forma === "rect" ? "libre" : forma), celdas: cels.length, obra: seg };
 }
 
 /** Zona de una celda abierta: el id de su sala o «tunel». Los muros se levantan entre zonas distintas. */
@@ -453,6 +482,16 @@ export function decorar(sala, puertas = [], opts = {}) {
     pilares();
     if (W >= 7) { poner("estatua", 0, 0); poner("estatua", W - 1, 0); }
     antorchas();
+  } else if (tipo === "tortura") {
+    poner("jaula", 0, 0); poner("jaula", W - 1, 0);
+    poner("mesa", u0, 0);
+    esquinas("brasero", false, true);
+    antorchas();
+  } else if (tipo === "guardia") {
+    fila("armero", 0, 2);
+    poner("estandarte", u0, 0);
+    esquinas("brasero", false, true);
+    antorchas();
   } else {
     esquinas("brasero");
   }
@@ -495,6 +534,7 @@ export function antorchasTunel(m) {
  */
 export function lucesDe(sala, puertas = [], opts = {}) {
   const { x, y, w, h } = sala, luces = [];
+  if (enObra(sala)) return luces;   // en obras: todavía sin mobiliario ni braseros
   {   // toda sala lleva su luz central: las pequeñas, un candil de radio corto
     const dim = (w >= 3 && h >= 3) || TIPOS_SALA[sala.tipo]?.importante ? Math.min(10, Math.max(3, Math.ceil(Math.hypot(w, h) / 2) + 1)) : 3;
     const cs = celdasDe(sala), cx = cs.reduce((a, c) => a + c[0] + 0.5, 0) / cs.length, cy = cs.reduce((a, c) => a + c[1] + 0.5, 0) / cs.length;
@@ -514,7 +554,7 @@ export const lucesTunel = m => antorchasTunel(m).map(a => ({ x: a.x, y: a.y, dim
 export const MECANISMOS = ["Muro aplastante", "Dardos", "Pinchos", "Roca", "Sierra", "Péndulo", "Gas", "Calambre", "Mangual", "Barril explosivo", "Pozo", "Suelo con cuchillas"];
 export const DETONADORES = ["Placa de presión", "Cordel", "Mágica", "Detección", "Ilusión", "Camuflaje", "Sonido", "Retirar un objeto", "Puerta falsa", "Centinela", "Puzle fallido", "Palanca falsa"];
 /** Las trampas y los trucos son proyectos de descanso como el resto: nivel 1 = 1 acción, 2 = 2, 3 = 4. */
-export const costeTrampa = nivel => COSTE_NIVEL[Math.min(3, Math.max(1, nivel | 0))] ?? 1;
+export const costeTrampa = nivel => COSTE_NIVEL[Math.min(3, Math.max(1, nivel | 0))] ?? 1;   // nivel 1: una tirada; 2 y 3: reloj
 
 const limpia = (v, n) => String(v ?? "").trim().slice(0, n);
 
@@ -525,8 +565,9 @@ export function ponerTrampa(m, t) {
   if (m.trampas.some(z => z.x === t.x && z.y === t.y)) return { ok: false, motivo: "Ya hay una trampa o un truco en esa celda." };
   const tipo = t.tipo === "truco" ? "truco" : "trampa", nivel = Math.min(3, Math.max(1, t.nivel | 0 || 1));
   const id = `t${m.trampas.reduce((a, z) => Math.max(a, Number(z.id.slice(1)) || 0), 0) + 1}`;
-  m.trampas.push({ id, tipo, x: t.x, y: t.y, nivel, mecanismo: limpia(t.mecanismo, 60), detonador: limpia(t.detonador, 60), intencion: limpia(t.intencion, 160), nota: limpia(t.nota, 200), revelada: false });
-  return { ok: true, id, nivel, coste: costeTrampa(nivel) };
+  const seg = t.obra ? relojTrampa(nivel) : 0;
+  m.trampas.push({ id, tipo, x: t.x, y: t.y, nivel, mecanismo: limpia(t.mecanismo, 60), detonador: limpia(t.detonador, 60), intencion: limpia(t.intencion, 160), nota: limpia(t.nota, 200), revelada: false, ...(seg ? { obra: { seg, hecho: 0, orden: ordenObra(m) } } : {}) });
+  return { ok: true, id, nivel, coste: costeTrampa(nivel), obra: seg };
 }
 export function editarTrampa(m, id, cambios) {
   const t = m.trampas?.find(z => z.id === id); if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };

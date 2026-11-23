@@ -98,7 +98,7 @@ async function procesarTirada(msg) {
       cambios[`system.attributes.${hab.atrib}.shocked`] = false;
       avisos.push(`conmoción de ${game.i18n.localize(actor.system.attributes[hab.atrib].label)} limpiada`);
     }
-    if (hab.valor === 0 && !t.cero) {
+    if (hab.valor === 0) {   // pág. 80: también con 0d y con dados extra
       const p = progresoPractica(hab.valor, hab.practica);
       cambios[`system.attributes.${hab.atrib}.skills.${hab.hab}.practice`] = p.practica;
       if (p.sube) {
@@ -111,10 +111,13 @@ async function procesarTirada(msg) {
   }
   if (Object.keys(cambios).length) await actor.update(cambios);
 
-  if (t.tipo === "RESISTANCE" && !t.mortal) {
-    const ev = evaluarResistencia("default", t.estado);
+  if (t.tipo === "RESISTANCE") {
+    // pág. 50-52: resistirse a la muerte cuesta el mismo estrés que cualquier resistencia
+    const ev = evaluarResistencia(t.mortal ? "deadly" : "default", t.estado);
     const r = await aplicarEstresActor(actor, ev.estres, { silencioso: true });
-    avisos.unshift(ev.estres < 0 ? `despeja 1 de Estrés (${r.nuevo}/6)` : `${ev.estres} de Estrés (${r.nuevo}/6) · ${ev.total ? "resiste por completo" : "resiste en parte"}`);
+    avisos.unshift(ev.estres < 0 ? `recupera 1 de estrés (${r.nuevo}/6)` : `${ev.estres} de estrés (${r.nuevo}/6) · ${ev.total ? "resiste por completo" : "resiste de manera parcial"}`);
+    if (ev.muerte) avisos.push("sigue muriendo: ¡golpe de gracia si le quedan corazones oscuros!");
+    else if (t.mortal && ev.grave) avisos.push("la consecuencia sigue siendo tremendamente grave");
     await msg.setFlag(MOD, "estres", { actor: actor.id, valor: ev.estres });
   }
 

@@ -162,10 +162,23 @@ export async function tirar(actor, c = {}) {
   }
   let estresDelta = 0;
   const mortal = pe.posicion === "deadly";
-  if (auto && actor && tipo === "resistencia" && !mortal) {
-    const r = evaluarResistencia("default", ev.estado);
-    estresDelta = r.estres;
-    efectos.push({ icono: "fa-brain", txt: r.estres < 0 ? "Despejas 1 de Estrés y resistes por completo." : `Pagas ${r.estres} de Estrés (${r.total ? "resistes por completo" : "resistes solo en parte"}).`, estres: r.estres });
+  if (tipo === "resistencia") {
+    // pág. 50-52: resistirse a la muerte cuesta el mismo estrés; con parcial sigue siendo devastador y con fracaso sigues muriendo
+    const r = evaluarResistencia(mortal ? "deadly" : "default", ev.estado);
+    if (auto && actor) {
+      estresDelta = r.estres;
+      efectos.push({ icono: "fa-brain", txt: r.estres < 0 ? "Recuperas 1 de estrés y resistes por completo." : `Sufres ${r.estres} de estrés (${r.total ? "resistes por completo" : "resistes de manera parcial"}).`, estres: r.estres });
+    }
+    if (mortal && r.muerte) efectos.push({ icono: "fa-skull-crossbones", txt: "Sigues muriendo. Si tienes corazones oscuros, ¡es el momento de tu golpe de gracia!" });
+    else if (mortal && r.grave) efectos.push({ icono: "fa-skull", txt: "La consecuencia baja un nivel, pero sigue siendo tremendamente grave." });
+  }
+  // pág. 63: en el trabajo en equipo, quien saca parcial o fracaso sufre estrés (un punto, como en el ejemplo del manual)
+  if (tipo === "accion" && c.equipo) {
+    mods.push({ id: "equipo", txt: "Trabajo en equipo: cuenta el mejor resultado del grupo", d: 0 });
+    if (ev.estado === "mixed" || ev.estado === "failure") {
+      if (auto && actor) estresDelta += 1;
+      efectos.push({ icono: "fa-people-group", txt: "Trabajo en equipo: con un parcial o un fracaso sufres 1 de estrés. El grupo usa el mejor resultado individual.", estres: 1 });
+    } else efectos.push({ icono: "fa-people-group", txt: "Trabajo en equipo: el grupo usa el mejor resultado individual de todos los que tiran." });
   }
 
   const datos = {
@@ -299,7 +312,7 @@ export function htmlTarjetaSimple({ tipo = "", titulo = "", subtitulo = "", esta
   const e = estado ? (ESTADO[estado] ?? estado) : null;
   const dados = caras.length ? `<div class="mrg-card-dados" role="img" aria-label="Dados: ${caras.join(", ")}">${caras.map(c => dadoHTML(c, c === Math.max(...caras) ? "mrg-mejor" : "mrg-apagado")).join("")}</div>` : "";
   const sello = e ? `<div class="mrg-veredicto" data-estado="${e}"><i class="fa-solid ${ICONO[e]}" aria-hidden="true"></i><strong>${esc(L(`FITD.ROLL.${CLASIF[e]}`, ETIQUETA[e]))}</strong></div>` : "";
-  const btns = botones.length ? `<footer class="mrg-card-acciones">${botones.map(b => `<button type="button" class="mrg-btn ${b.sangre ? "mrg-btn--sangre" : ""}" data-mr-accion="${esc(b.accion)}" ${b.actorId ? `data-actor-id="${esc(b.actorId)}"` : ""} ${b.valor !== undefined ? `data-valor="${esc(b.valor)}"` : ""} ${b.extra ? `data-extra="${esc(b.extra)}"` : ""}><i class="${esc(b.icono || "fa-solid fa-dice")}"></i> ${esc(b.etiqueta)}</button>`).join("")}</footer>` : "";
+  const btns = botones.length ? `<footer class="mrg-card-acciones">${botones.map(b => `<button type="button" class="mrg-btn ${b.sangre ? "mrg-btn--sangre" : ""}" data-mr-accion="${esc(b.accion)}" ${b.actorId ? `data-actor-id="${esc(b.actorId)}"` : ""} ${b.valor !== undefined ? `data-valor="${esc(b.valor)}"` : ""} ${b.extra ? `data-extra="${esc(b.extra)}"` : ""} ${b.contexto ? `data-contexto="${esc(b.contexto)}"` : ""}><i class="${esc(b.icono || "fa-solid fa-dice")}"></i> ${esc(b.etiqueta)}</button>`).join("")}</footer>` : "";
   return `<article class="mrg mrg-card" data-estado="${e ?? "neutro-" + neutro}" data-tipo="simple">
   <header class="mrg-card-cab">${tipo ? `<span class="mrg-card-tipo">${esc(tipo)}</span>` : ""}<h4 class="mrg-card-titulo">${esc(titulo)}</h4>${subtitulo ? `<span class="mrg-card-quien">${esc(subtitulo)}</span>` : ""}</header>
   ${dados}${sello}
