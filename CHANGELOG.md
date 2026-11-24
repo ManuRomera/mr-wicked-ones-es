@@ -1,3 +1,10 @@
+## 2.12.1 (2026-11-24)
+
+Más arte en el estilo nuevo. / More art in the new style.
+
+### Cambiado / Changed
+- **Los 28 ayudantes** que aún tenían el arte antiguo (los otros 8 ya estaban en el estilo nuevo), **las 6 manadas de esbirros** (retrato, token y figura de grupo) y **los 8 mapas** (los cuatro entornos y los planos tácticos de las Cuevas del Mercader y de la Guarida en sus tres niveles) se han redibujado en el estilo de la 2.12.0. / The 28 hirelings that still had the old art, the 6 minion packs (portrait, token and group figure) and the 8 maps (the four settings and the tactical plans of the Merchant Caves and the three lair levels) were redrawn in the 2.12.0 style.
+
 ## 2.12.0 (2026-11-24)
 
 Arte propio para todo lo que no lo tenía, PJ y héroes rehechos en el mismo estilo y banda sonora nueva. / Own art for everything that lacked it, PCs and heroes redrawn in the same style, and a new soundtrack.

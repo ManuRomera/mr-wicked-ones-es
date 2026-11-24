@@ -128,7 +128,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-valle.webp",
     "width": 1920,
-    "height": 1108,
+    "height": 1280,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -162,10 +162,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1784,
-      "y": 993,
-      "width": 124,
-      "height": 103,
+      "x": 1764,
+      "y": 1148,
+      "width": 142,
+      "height": 118,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -194,7 +194,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "yKhmIYiI9H1hiaeT",
       "x": 77,
-      "y": 78,
+      "y": 90,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -350,7 +350,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-cueva-mercader.webp",
     "width": 2000,
-    "height": 1385,
+    "height": 1333,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -384,10 +384,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1829,
-      "y": 1240,
-      "width": 156,
-      "height": 130,
+      "x": 1836,
+      "y": 1194,
+      "width": 150,
+      "height": 125,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -416,7 +416,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "me0y05334X78Ch0f",
       "x": 80,
-      "y": 97,
+      "y": 93,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -461,7 +461,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-1.webp",
     "width": 2000,
-    "height": 1385,
+    "height": 1333,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -495,10 +495,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1829,
-      "y": 1240,
-      "width": 156,
-      "height": 130,
+      "x": 1836,
+      "y": 1194,
+      "width": 150,
+      "height": 125,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -527,7 +527,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "HgeyYomeaN2JCRse",
       "x": 80,
-      "y": 97,
+      "y": 93,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -572,7 +572,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-2.webp",
     "width": 2000,
-    "height": 1385,
+    "height": 1333,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -606,10 +606,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1829,
-      "y": 1240,
-      "width": 156,
-      "height": 130,
+      "x": 1836,
+      "y": 1194,
+      "width": 150,
+      "height": 125,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -638,7 +638,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "AzLztT1OCeji1JL0",
       "x": 80,
-      "y": 97,
+      "y": 93,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -683,7 +683,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guarida-3.webp",
     "width": 2000,
-    "height": 1385,
+    "height": 1333,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -717,10 +717,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1829,
-      "y": 1240,
-      "width": 156,
-      "height": 130,
+      "x": 1836,
+      "y": 1194,
+      "width": 150,
+      "height": 125,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -749,7 +749,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "47XU6PmsXDitprUd",
       "x": 80,
-      "y": 97,
+      "y": 93,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -1349,7 +1349,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-cloacas.webp",
     "width": 1920,
-    "height": 1108,
+    "height": 1280,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -1383,10 +1383,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1784,
-      "y": 993,
-      "width": 124,
-      "height": 103,
+      "x": 1764,
+      "y": 1148,
+      "width": 142,
+      "height": 118,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -1415,7 +1415,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "cDpxuqR4IvMcXBR3",
       "x": 77,
-      "y": 78,
+      "y": 90,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -1460,7 +1460,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-mares.webp",
     "width": 1920,
-    "height": 1108,
+    "height": 1280,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -1494,10 +1494,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1784,
-      "y": 993,
-      "width": 124,
-      "height": 103,
+      "x": 1764,
+      "y": 1148,
+      "width": 142,
+      "height": 118,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -1526,7 +1526,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "JUABJcMdepTpC23Z",
       "x": 77,
-      "y": 78,
+      "y": 90,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -1571,7 +1571,7 @@
     },
     "thumb": "modules/mr-wicked-ones-es/assets/thumbs/mapa-guerra.webp",
     "width": 1920,
-    "height": 1108,
+    "height": 1280,
     "padding": 0,
     "backgroundColor": "#0b0809",
     "grid": {
@@ -1605,10 +1605,10 @@
        "tint": "#ffffff",
        "fit": "fill"
       },
-      "x": 1784,
-      "y": 993,
-      "width": 124,
-      "height": 103,
+      "x": 1764,
+      "y": 1148,
+      "width": 142,
+      "height": 118,
       "elevation": 0,
       "sort": 0,
       "rotation": 0,
@@ -1637,7 +1637,7 @@
       "entryId": "1I3aZp2KO04P3qGL",
       "pageId": "jrzereorV1u5s6qb",
       "x": 77,
-      "y": 78,
+      "y": 90,
       "elevation": 0,
       "sort": 0,
       "texture": {
@@ -39075,7 +39075,7 @@
   "sort": 1000,
   "flags": {
    "mr-wicked-ones-es": {
-    "version": "2.12.0"
+    "version": "2.12.1"
    }
   }
  }

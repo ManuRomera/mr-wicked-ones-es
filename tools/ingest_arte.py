@@ -167,6 +167,12 @@ def main():
                 base = k[:-5]
                 if reciente(src, A / "retratos" / f"{base}.webp"):
                     retrato(src, A / "retratos" / f"{base}.webp"); token(src, A / "tokens" / f"{base}.webp", COLORES[tipo], zoom=1.15); n += 1
+            elif tipo == "esb" and k.endswith("-fig"):   # láminas de Codex: figura de grupo sobre magenta
+                if reciente(src, A / "figuras" / f"{k[:-4]}.webp"): figura(src, A / "figuras" / f"{k[:-4]}.webp", visible=0.8); n += 1
+            elif tipo == "esb" and k.endswith("-bust"):  # …y retrato de grupo pintado
+                base = k[:-5]
+                if reciente(src, A / "retratos" / f"{base}.webp"):
+                    retrato(src, A / "retratos" / f"{base}.webp"); token(src, A / "tokens" / f"{base}.webp", COLORES["esb"], arriba=0.0, zoom=1.0); n += 1
             elif tipo == "esb":
                 if reciente(src, A / "figuras" / f"{k}.webp"):
                     figura(src, A / "figuras" / f"{k}.webp", visible=0.8); retrato(src, A / "retratos" / f"{k}.webp"); token(src, A / "tokens" / f"{k}.webp", COLORES["esb"], zoom=1.25); n += 1
