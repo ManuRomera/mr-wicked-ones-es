@@ -31,6 +31,9 @@ def reciente(src, dst):
 def quitar_fondo(im, umbral=46):
     """Fondo liso (blanco/crema) -> alfa, por relleno desde los bordes; el trazo oscuro de las figuras lo frena."""
     im = im.convert("RGB")
+    r, g, b = im.getpixel((0, 0))
+    if r > 150 and b > 150 and g < 90:  # lámina de Codex sobre magenta
+        return quitar_magenta(im)
     w, h = im.size
     marca_px = (255, 0, 255)
     trabajo = im.copy()
@@ -84,7 +87,9 @@ def figura(src, dst, lado=1024, visible=0.885, pie=0.055):
 def retrato(src, dst, lado=512):
     im = Image.open(src).convert("RGB")
     s = min(im.size)
-    im = im.crop(((im.width - s) // 2, 0, (im.width - s) // 2 + s, s)).resize((lado, lado), Image.LANCZOS)
+    b = max(3, round(s * 0.006))   # fuera el fleco magenta (1 px) del recorte de las láminas de Codex
+    x0 = (im.width - s) // 2
+    im = im.crop((x0 + b, b, x0 + s - b, s - b)).resize((lado, lado), Image.LANCZOS)
     im = marca.esquina(im)
     dst.parent.mkdir(parents=True, exist_ok=True)
     im.save(dst, "WEBP", quality=86, method=6)
@@ -122,8 +127,23 @@ def escena(src, dst, thumb):
     im.save(dst, "WEBP", quality=86, method=6)
 
 
+def quitar_magenta(im):
+    """Fondo magenta (láminas de Codex, Trabajo WO/arte2) -> alfa por color, también en los huecos interiores."""
+    import numpy as np
+    a = np.asarray(im.convert("RGB")).astype(int)
+    r, g, b = a[..., 0], a[..., 1], a[..., 2]
+    fondo = (r > 150) & (b > 150) & (g < np.minimum(r, b) - 90)
+    alfa = Image.fromarray(np.where(fondo, 0, 255).astype("uint8"))
+    alfa = alfa.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.1))
+    out = im.convert("RGBA")
+    out.putalpha(alfa)
+    return out
+
+
 def icono(src, dst):
-    im = quitar_fondo(Image.open(src), umbral=38)
+    im = Image.open(src).convert("RGB")
+    r, g, b = im.getpixel((0, 0))
+    im = quitar_magenta(im) if r > 150 and b > 150 and g < 90 else quitar_fondo(im, umbral=38)
     box = im.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox()
     if box:
         im = im.crop(box)
@@ -154,9 +174,9 @@ def main():
                 base = k[:-5]
                 if reciente(src, A / "retratos" / f"{base}.webp"):
                     retrato(src, A / "retratos" / f"{base}.webp"); token(src, A / "tokens" / f"{base}.webp", (150, 150, 140, 255), zoom=1.1); n += 1
-            elif tipo == "cri":
+            elif tipo in ("cri", "grp"):
                 if reciente(src, A / "retratos" / f"{k}.webp"):
-                    retrato(src, A / "retratos" / f"{k}.webp"); token(src, A / "tokens" / f"{k}.webp", COLORES["cri"], arriba=0.0, zoom=1.0); n += 1
+                    retrato(src, A / "retratos" / f"{k}.webp"); token(src, A / "tokens" / f"{k}.webp", COLORES["adv" if tipo == "grp" else "cri"], arriba=0.0, zoom=1.0); n += 1
             elif tipo == "dios":
                 if reciente(src, A / "dioses" / f"{k[5:]}.webp"):
                     im = quitar_fondo(Image.open(src)); im = marca.hombro(im)

@@ -3,7 +3,7 @@
   "_id": "CpvcDVqjXc7PYJA6",
   "name": "Daga ceremonial",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arma-mano.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-daga-ceremonial.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -27,7 +27,7 @@
   "_id": "3WkBlIMyKwU7DvYM",
   "name": "Bolsa de herramientas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arma-dos-manos.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-herramientas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -51,7 +51,7 @@
   "_id": "Nrji1jP7VL8skrrg",
   "name": "Máscara espiritual",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armas-sutiles.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mascara-espiritual.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -75,7 +75,7 @@
   "_id": "g7QziUMMXfC3BJ3b",
   "name": "Vestimentas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arco-ballesta.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-vestimentas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -99,7 +99,7 @@
   "_id": "ap8bdXXmAac2ke6C",
   "name": "Ballesta",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-escudo.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-ballesta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -123,7 +123,7 @@
   "_id": "T5LhIwpXTLfwYQL0",
   "name": "Maza de hueso",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armadura-ligera.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-maza-de-hueso.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -147,7 +147,7 @@
   "_id": "mbIJrHAXTvod2WmE",
   "name": "Escrituras sagradas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armadura-pesada.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-escrituras-sagradas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -171,7 +171,7 @@
   "_id": "o8mqxrQ9TxzXA3e7",
   "name": "Lámpara y aceite",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arma-magistral.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-lampara-y-aceite.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -195,7 +195,7 @@
   "_id": "ZUKn3TaMBD6AS4kp",
   "name": "Amuleto de espinas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-foco-arcano.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-amuleto-de-espinas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -219,7 +219,7 @@
   "_id": "XzRffEHK5chuNhFD",
   "name": "Vino impío",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-ganzuas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-vino-impio.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -243,7 +243,7 @@
   "_id": "KtjOuzCxslk3Bnkm",
   "name": "Mazo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-escalada.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mazo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -267,7 +267,7 @@
   "_id": "n7mcfNyqWijAxdVh",
   "name": "Tabas y huesos",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-antorchas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tabas-y-huesos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -291,7 +291,7 @@
   "_id": "CAuMizvQDK3sRLOU",
   "name": "Pluma y pergamino",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-disfraz.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-pluma-y-pergamino.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -315,7 +315,7 @@
   "_id": "2hKPQyHw767Vs4nN",
   "name": "Delantal de cuero",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-polvora.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-delantal-de-cuero.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -339,7 +339,7 @@
   "_id": "EMZ3EzwiNcBgPnbF",
   "name": "Frasco de luciérnagas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-veneno-arana.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-frasco-de-luciernagas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -363,7 +363,7 @@
   "_id": "iMbPBw8Yo52JBGFj",
   "name": "Aceite de unción",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-botiquin.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-aceite-de-uncion.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -387,7 +387,7 @@
   "_id": "yFkL7a6xi30AsPJR",
   "name": "Pala",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mapa-rutas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-pala.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -411,7 +411,7 @@
   "_id": "U63xV5huslQfP8fm",
   "name": "Máscara vudú",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mascara-vudu.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -435,7 +435,7 @@
   "_id": "IGSXkNdDYRl3DGIE",
   "name": "Símbolo impío",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-simbolo-impio.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -459,7 +459,7 @@
   "_id": "XuaZD38xvsGpv0ug",
   "name": "Lupa",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-lupa.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -483,7 +483,7 @@
   "_id": "Hz2uqfc4MAVDt0Fk",
   "name": "Porra con pinchos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-porra-con-pinchos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -507,7 +507,7 @@
   "_id": "AVSj0P64lbtxlgZF",
   "name": "Hoz sencilla",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-hoz-sencilla.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -531,7 +531,7 @@
   "_id": "4bIrwPJYaZwjylrA",
   "name": "Bolsa de piezas sueltas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-piezas-sueltas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -555,7 +555,7 @@
   "_id": "OeMiUruXKmM9wkb2",
   "name": "Bolsa de serpientes",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-serpientes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -579,7 +579,7 @@
   "_id": "GMvASw2y1qTEJ912",
   "name": "Campana dorada",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-campana-dorada.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -603,7 +603,7 @@
   "_id": "PYMQbZwvYB6qitNY",
   "name": "Gafas de aviador",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-gafas-de-aviador.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -627,7 +627,7 @@
   "_id": "utOx4w3wFs4Fx9nM",
   "name": "Pipa para fumar",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-pipa-para-fumar.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -651,7 +651,7 @@
   "_id": "NU7TKMi0nVY1JGJZ",
   "name": "Caja de incienso",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-caja-de-incienso.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -675,7 +675,7 @@
   "_id": "Yf4qTOPht7ytWqiJ",
   "name": "Yesca y pedernal",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-yesca-y-pedernal.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -699,7 +699,7 @@
   "_id": "qgXV2Dl8xNLm7vpx",
   "name": "Bastón retorcido",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-baston-retorcido.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -723,7 +723,7 @@
   "_id": "bDaOrZMqevNnXDIa",
   "name": "Herramientas de tortura",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-herramientas-de-tortura.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -747,7 +747,7 @@
   "_id": "y79tVbXjxPX5xGC9",
   "name": "Bolsa de tela",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-tela.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -771,7 +771,7 @@
   "_id": "bvXGhSSQIJFAk303",
   "name": "Collar de dientes",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-collar-de-dientes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -795,7 +795,7 @@
   "_id": "z3KEdclZw3QLrXaL",
   "name": "Velas de cera",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-velas-de-cera.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -819,7 +819,7 @@
   "_id": "QGAflib9WG0x0mCQ",
   "name": "Pico",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-pico.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -843,7 +843,7 @@
   "_id": "NgDClyCXaiKoBXdL",
   "name": "Tocado de plumas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tocado-de-plumas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -867,7 +867,7 @@
   "_id": "2rrZ2gqA1wihd0lR",
   "name": "Hacha de guerra",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-hacha-de-guerra.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -891,7 +891,7 @@
   "_id": "SOllyXXADwPJNEg4",
   "name": "Arco de cuerno",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arco-de-cuerno.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -915,7 +915,7 @@
   "_id": "toXdwpfS8GzfXqnO",
   "name": "Túnica oscura",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tunica-oscura.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -939,7 +939,7 @@
   "_id": "KZmWjjdkqzROU7Wa",
   "name": "Casco con cuernos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-casco-con-cuernos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -963,7 +963,7 @@
   "_id": "zJxBoNC3SBW0za1e",
   "name": "Trampa para animales",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-trampa-para-animales.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -987,7 +987,7 @@
   "_id": "FmT7NJoeWgXlb1hB",
   "name": "Cuchillos arrojadizos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-cuchillos-arrojadizos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1011,7 +1011,7 @@
   "_id": "BGUP3y0rwsFh8Nl1",
   "name": "Látigo con púas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-latigo-con-puas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1035,7 +1035,7 @@
   "_id": "8hpcx0dUh5uc9wXI",
   "name": "Rollo de cuerda",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-rollo-de-cuerda.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1059,7 +1059,7 @@
   "_id": "uiH4Fzd6QJ9jH3Eq",
   "name": "Arco corto",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-arco-corto.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1083,7 +1083,7 @@
   "_id": "2dxudbZaNfT9IYJR",
   "name": "Herramientas de tortura",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-herramientas-de-tortura.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1107,7 +1107,7 @@
   "_id": "gVMf6LINlcjCpKcY",
   "name": "Aperitivos para el camino",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-aperitivos-para-el-camino.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1131,7 +1131,7 @@
   "_id": "tfaagSv9LeWUo9zY",
   "name": "Ganzúas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-ganzuas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1155,7 +1155,7 @@
   "_id": "VRQtNE9xyvFjgFcd",
   "name": "Capa de piel",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-capa-de-piel.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1179,7 +1179,7 @@
   "_id": "ONu1goQHmVulOOnX",
   "name": "Armadura de pieles",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armadura-de-pieles.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1203,7 +1203,7 @@
   "_id": "mclUCMemwKiArskT",
   "name": "Bolsa con piedras",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-con-piedras.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1227,7 +1227,7 @@
   "_id": "6M8a8zMJTteJG853",
   "name": "Pendientes de hueso",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-pendientes-de-hueso.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1251,7 +1251,7 @@
   "_id": "gsBA1HHWeQmxPIaJ",
   "name": "Odre de agua",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-odre-de-agua.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1275,7 +1275,7 @@
   "_id": "JyZMovwzlUJRqYkc",
   "name": "Espejo pulido",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-espejo-pulido.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1299,7 +1299,7 @@
   "_id": "tiPoUmLU2ZZyB3HF",
   "name": "Armadura de pinchos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armadura-de-pinchos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1323,7 +1323,7 @@
   "_id": "smdvJ6EpLQl9dYVi",
   "name": "Cuchillo para desollar",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-cuchillo-para-desollar.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1347,7 +1347,7 @@
   "_id": "OXclygWnuwDzxjRx",
   "name": "Gancho de escalada",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-gancho-de-escalada.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1371,7 +1371,7 @@
   "_id": "CdzKFvVrILs801WU",
   "name": "Jarra de licor",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-jarra-de-licor.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1395,7 +1395,7 @@
   "_id": "kJBak0AGXisNNsNE",
   "name": "Red contrapesada",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-red-contrapesada.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1419,7 +1419,7 @@
   "_id": "XLcxbd41NBNvBMZN",
   "name": "Bomba de humo",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bomba-de-humo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1443,7 +1443,7 @@
   "_id": "29EemsZfr6RBvggA",
   "name": "Bolsa de aperitivos sabrosos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-aperitivos-sabrosos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1467,7 +1467,7 @@
   "_id": "Uc3dTrYOMNPE1Ywq",
   "name": "Hachuela para talar",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-hachuela-para-talar.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1491,7 +1491,7 @@
   "_id": "TmGPHWLO4O7Y9Wv0",
   "name": "Palanqueta y tenazas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-palanqueta-y-tenazas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1515,7 +1515,7 @@
   "_id": "2mUsvy6rrP9FWlD1",
   "name": "Tambores de guerra",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tambores-de-guerra.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1539,7 +1539,7 @@
   "_id": "nH3gMAn3xGQnSGYD",
   "name": "Collar de animales",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-collar-de-animales.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1563,7 +1563,7 @@
   "_id": "c2TbH10gnRKL68GX",
   "name": "Garrote",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-garrote.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1587,7 +1587,7 @@
   "_id": "uFLqYT9i4v1fO3A7",
   "name": "Cadenas resistentes",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-cadenas-resistentes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1611,7 +1611,7 @@
   "_id": "cC4c6skkNGTDWmKu",
   "name": "Equipo de pesca",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-equipo-de-pesca.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1635,7 +1635,7 @@
   "_id": "gTdqWrzGVUwCQQ4V",
   "name": "Silbato estridente",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-silbato-estridente.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1659,7 +1659,7 @@
   "_id": "q2aQoGuGgxoM0woe",
   "name": "Hachas arrojadizas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-hachas-arrojadizas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1683,7 +1683,7 @@
   "_id": "YAb5eSqugkhLtS7b",
   "name": "Silbatos animales",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-silbatos-animales.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1707,7 +1707,7 @@
   "_id": "mIU6LRHILCYb7ro4",
   "name": "Dagas gemelas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-dagas-gemelas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1731,7 +1731,7 @@
   "_id": "Bb2tu5zL1y4e0vdd",
   "name": "Odre de vino bueno",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-odre-de-vino-bueno.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1755,7 +1755,7 @@
   "_id": "W2oMUMFqFUpFW8Ox",
   "name": "Bastón decorado",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-baston-decorado.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1779,7 +1779,7 @@
   "_id": "tsDoTs3peWlTsZjf",
   "name": "Rodela",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-rodela.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1803,7 +1803,7 @@
   "_id": "s1GWqKAMA0PsDqSY",
   "name": "Cerbatana y dardos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-cerbatana-y-dardos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1827,7 +1827,7 @@
   "_id": "p2O9XatW9XAO8im7",
   "name": "Guadaña",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-guadana.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1851,7 +1851,7 @@
   "_id": "jCFLuLhTIle1iLxr",
   "name": "Hachas gemelas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-hachas-gemelas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1875,7 +1875,7 @@
   "_id": "HGGt9Z9eHkeNHINF",
   "name": "Flauta de madera",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-flauta-de-madera.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1899,7 +1899,7 @@
   "_id": "fI2XXH58c2Wm3XBb",
   "name": "Bola de cristal",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bola-de-cristal.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1923,7 +1923,7 @@
   "_id": "r0eyAqGS2trPm8NK",
   "name": "Boleadoras",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-boleadoras.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1947,7 +1947,7 @@
   "_id": "epI0yd30EHjdSG5u",
   "name": "Grilletes de acero",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-grilletes-de-acero.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1971,7 +1971,7 @@
   "_id": "3rXwz3wxhs3SItuG",
   "name": "Daga ceremonial",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-daga-ceremonial.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -1995,7 +1995,7 @@
   "_id": "ajQhqOerCq4BzYUq",
   "name": "Herramientas de cartografía",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-herramientas-de-cartografia.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2019,7 +2019,7 @@
   "_id": "S2i2Sd3FlPJOKys3",
   "name": "Dados trucados",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-dados-trucados.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2043,7 +2043,7 @@
   "_id": "pWvlg8cjzT6LHSuZ",
   "name": "Túnica raída",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tunica-raida.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2067,7 +2067,7 @@
   "_id": "3IZfmV2XGAIVcXjt",
   "name": "Mangual",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mangual.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2091,7 +2091,7 @@
   "_id": "uwAo265cso3KD8Vm",
   "name": "Utensilios de escritura",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-utensilios-de-escritura.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2115,7 +2115,7 @@
   "_id": "YwGr2InwYRGMYAH9",
   "name": "Varita nudosa",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-varita-nudosa.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2139,7 +2139,7 @@
   "_id": "n3aoZtkexaIsBxt9",
   "name": "Daga curva",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-daga-curva.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2163,7 +2163,7 @@
   "_id": "m2ZYOviB5hG88unB",
   "name": "Daga oculta",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-daga-oculta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2187,7 +2187,7 @@
   "_id": "sWaW0Us5GkgxuJwP",
   "name": "Grimorio de piel",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-grimorio-de-piel.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2211,7 +2211,7 @@
   "_id": "lMcJwFmbu6iBTVQk",
   "name": "Brazales resistentes",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-brazales-resistentes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2235,7 +2235,7 @@
   "_id": "pQ6Aj60YTfMyK3uZ",
   "name": "Máscara decorativa",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-mascara-decorativa.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2259,7 +2259,7 @@
   "_id": "6M5S5jRVdiU1WcrZ",
   "name": "Capa amplia",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-capa-amplia.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2283,7 +2283,7 @@
   "_id": "mDBvf7xS5ltRo550",
   "name": "Jabalinas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-jabalinas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2307,7 +2307,7 @@
   "_id": "RVoKhznP9YFj8J1h",
   "name": "Anillos llamativos",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-anillos-llamativos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2331,7 +2331,7 @@
   "_id": "k0qauIAu1lR8U7Wv",
   "name": "Calaveras humanas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-calaveras-humanas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2355,7 +2355,7 @@
   "_id": "x5jCZ1z6P5HKwSNL",
   "name": "Abrojos de acero",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-abrojos-de-acero.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2379,7 +2379,7 @@
   "_id": "YaRF3K3SVndua8ES",
   "name": "Jabón y perfume",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-jabon-y-perfume.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2403,7 +2403,7 @@
   "_id": "JPPaKOSiI0iWHmxI",
   "name": "Bolsa de componentes",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-de-componentes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2427,7 +2427,7 @@
   "_id": "9TVB0LVUgnSd1bQB",
   "name": "Cuerno de batalla",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-cuerno-de-batalla.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2451,7 +2451,7 @@
   "_id": "Gq3p0hn8KOPuYQLu",
   "name": "Túnica con capucha",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-tunica-con-capucha.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2475,7 +2475,7 @@
   "_id": "kIOMwQvJaXBIK9iu",
   "name": "Utensilios de invocación",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-utensilios-de-invocacion.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2499,7 +2499,7 @@
   "_id": "djXBQsATlvu0SZOe",
   "name": "Un puñado de antorchas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-un-punado-de-antorchas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2523,7 +2523,7 @@
   "_id": "kgLarJAOovOtAKjZ",
   "name": "Peine y accesorios",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-peine-y-accesorios.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2547,7 +2547,7 @@
   "_id": "d65N4ilWQbQZvV4k",
   "name": "Bolsa con gemas pequeñas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-bolsa-con-gemas-pequenas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2571,7 +2571,7 @@
   "_id": "aKTmSoMytDO5KON9",
   "name": "Armadura de cuero",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_37.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/eq-armadura-de-cuero.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "mundane",
@@ -2595,7 +2595,7 @@
   "_id": "1vA2sxVR4BURuWWX",
   "name": "Vara luminosa",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-01.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-vara-luminosa.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2622,7 +2622,7 @@
   "_id": "2FdlGT76qosEznzx",
   "name": "Bomba fétida",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-02.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-bomba-fetida.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2649,7 +2649,7 @@
   "_id": "bzvXYiSZFRFT70sM",
   "name": "Cenizas de rinitis",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-03.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-cenizas-de-rinitis.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2676,7 +2676,7 @@
   "_id": "6QYtg4AAPTir178t",
   "name": "Polvos picapica",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-04.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-polvos-picapica.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2703,7 +2703,7 @@
   "_id": "6jFGR7WCYTunhSJZ",
   "name": "Danzallamas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-05.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-danzallamas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2730,7 +2730,7 @@
   "_id": "ksErKoeRgwLuDEFZ",
   "name": "Pastillas ojipláticas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-06.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-pastillas-ojiplaticas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2757,7 +2757,7 @@
   "_id": "mAJo1H38F3dz0mbZ",
   "name": "Rompeampollas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-07.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-rompeampollas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2784,7 +2784,7 @@
   "_id": "OOphrKDDLV0qSBfd",
   "name": "Aceite ígneo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-08.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-aceite-igneo.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2811,7 +2811,7 @@
   "_id": "fCXPY5h23TRU8tP0",
   "name": "Agua negra",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-09.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-agua-negra.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2838,7 +2838,7 @@
   "_id": "eTmuDRhXrkD78qm9",
   "name": "Analgésico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-10.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-analgesico.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2865,7 +2865,7 @@
   "_id": "SAx94NtjP7CK94K3",
   "name": "Imán de bestias",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-11.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-iman-de-bestias.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2892,7 +2892,7 @@
   "_id": "veM6IcMaX1vuPKaW",
   "name": "Aullador",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-12.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-aullador.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -2919,7 +2919,7 @@
   "_id": "dbEDbdhHUKaFcl6q",
   "name": "Derritepiedras",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-13.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-derritepiedras.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -2946,7 +2946,7 @@
   "_id": "m3wyTALBmEkk5cke",
   "name": "Bomba de brea",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-14.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-bomba-de-brea.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -2973,7 +2973,7 @@
   "_id": "YCyUzYtO9z6Gqdad",
   "name": "Rompenervios",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-15.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-rompenervios.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3000,7 +3000,7 @@
   "_id": "3afw0Aml2ZZ9wHhC",
   "name": "Roca relámpago",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-16.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-roca-relampago.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3027,7 +3027,7 @@
   "_id": "SqjVplrjtJR6FyqA",
   "name": "Empanada mental",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-17.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-empanada-mental.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3054,7 +3054,7 @@
   "_id": "qHEiHCYODTexeVNB",
   "name": "Lanzaesquirlas de metal",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-18.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-lanzaesquirlas-de-metal.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3081,7 +3081,7 @@
   "_id": "ViYpdYamKtavXVbc",
   "name": "Bomba de fuego",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-19.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-bomba-de-fuego.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3108,7 +3108,7 @@
   "_id": "orQeFfSf9yQh0Era",
   "name": "Rapidormir",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-20.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-rapidormir.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3135,7 +3135,7 @@
   "_id": "krvIhJpyWZ7gWi2U",
   "name": "Manos pegajosas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-21.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-manos-pegajosas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3162,7 +3162,7 @@
   "_id": "BmU6qCMEUzSIzk9X",
   "name": "Amigador",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-22.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-amigador.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3189,7 +3189,7 @@
   "_id": "VSliOZixUt2JjPgA",
   "name": "Linimento terrorífico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-23.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-linimento-terrorifico.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3216,7 +3216,7 @@
   "_id": "6JaK3lim4nYRDvhp",
   "name": "Estallido emocional",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-24.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-estallido-emocional.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3243,7 +3243,7 @@
   "_id": "S6zJ3rTGbx4qE8Cc",
   "name": "Furia embotellada",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-25.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-furia-embotellada.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3270,7 +3270,7 @@
   "_id": "GqpIjQc1OfgV1d60",
   "name": "Domaluces",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-26.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-domaluces.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3297,7 +3297,7 @@
   "_id": "eQbPbLXJuh7zHd1h",
   "name": "Congelación instantánea",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-27.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-congelacion-instantanea.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3324,7 +3324,7 @@
   "_id": "fyE6lXmGWWtibJ27",
   "name": "Zumo cadavérico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-28.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-zumo-cadaverico.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3351,7 +3351,7 @@
   "_id": "GHw0xlO9ifpZYrMP",
   "name": "Paro cardíaco",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-29.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-paro-cardiaco.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3378,7 +3378,7 @@
   "_id": "XgnDbTM1K30GnnxZ",
   "name": "Esencia nocturna",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-30.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-esencia-nocturna.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3405,7 +3405,7 @@
   "_id": "Ulb64W9ah98tKrI4",
   "name": "Óxido instantáneo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-31.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-oxido-instantaneo.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3432,7 +3432,7 @@
   "_id": "kx1LmQo4sE0tVxwS",
   "name": "Bumbum",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-32.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-bumbum.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3459,7 +3459,7 @@
   "_id": "kbA400A9FNifWNnO",
   "name": "Antorcha antigravitatoria",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-33.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-antorcha-antigravitatoria.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3486,7 +3486,7 @@
   "_id": "elvPPxxKqOQMIPHl",
   "name": "Imanizador",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-34.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-imanizador.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3513,7 +3513,7 @@
   "_id": "Xz7WOIDTbPy68u28",
   "name": "Piedra antimagia",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-35.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-piedra-antimagia.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3540,7 +3540,7 @@
   "_id": "N33aVf0YOJa6zIFc",
   "name": "Abalorio sísmico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-36.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/mejunje-abalorio-sismico.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -3567,7 +3567,7 @@
   "_id": "OALtRJmYu52dsMZT",
   "name": "Encendedor",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-01.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-encendedor.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3594,7 +3594,7 @@
   "_id": "L67TUCllFL1OywAc",
   "name": "Máscara antigás",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-02.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-mascara-antigas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3621,7 +3621,7 @@
   "_id": "G9z6eBR9SEEc8AXo",
   "name": "Telemonóculo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-03.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-telemonoculo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3648,7 +3648,7 @@
   "_id": "qs58ug6qnltDScc2",
   "name": "Ballesta de carga rápida",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-04.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-ballesta-de-carga-rapida.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3675,7 +3675,7 @@
   "_id": "hJtRZdnmJhj13oq9",
   "name": "Yelmo cirio",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-05.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-yelmo-cirio.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3702,7 +3702,7 @@
   "_id": "CVoCp0MU7soIEpZa",
   "name": "Lanzacuerdas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-06.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-lanzacuerdas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3729,7 +3729,7 @@
   "_id": "dXC77hOhr8fn1qME",
   "name": "Tubo de buceo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-07.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-tubo-de-buceo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3756,7 +3756,7 @@
   "_id": "534hj4YJppncIVmM",
   "name": "Daga-muelle oculta",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-08.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-daga-muelle-oculta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3783,7 +3783,7 @@
   "_id": "cCTAqppzFeDI4SdO",
   "name": "Lanzamejunjes",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-09.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-lanzamejunjes.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3810,7 +3810,7 @@
   "_id": "B0XqKonelQlLl07R",
   "name": "Cepo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-10.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-cepo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3837,7 +3837,7 @@
   "_id": "8vz6ZC33YYqDSMlY",
   "name": "Espejo esquinero",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-11.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-espejo-esquinero.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3864,7 +3864,7 @@
   "_id": "tR7WWsdj9Iksu1wb",
   "name": "Silbato agudo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-12.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-silbato-agudo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -3891,7 +3891,7 @@
   "_id": "I1UAEYWLUeBWe8dP",
   "name": "Paracaídas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-13.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-paracaidas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -3918,7 +3918,7 @@
   "_id": "YXO0LomDcEQtc441",
   "name": "Electrovara",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-14.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-electrovara.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -3945,7 +3945,7 @@
   "_id": "ORkIOwiFbaZyHeYq",
   "name": "Trampolín portátil",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-15.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-trampolin-portatil.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -3972,7 +3972,7 @@
   "_id": "c8RFPzcaVC1YscBN",
   "name": "Antorcha de soldadura",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-16.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-antorcha-de-soldadura.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -3999,7 +3999,7 @@
   "_id": "ujMgVqzYzhHZvwMs",
   "name": "Globo de huida",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-17.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-globo-de-huida.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4026,7 +4026,7 @@
   "_id": "udvdVbmpkzbyewrO",
   "name": "Botas con muelles",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-18.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-botas-con-muelles.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4053,7 +4053,7 @@
   "_id": "OFgjNxD49v7h7VlZ",
   "name": "Planeador",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-19.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-planeador.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4080,7 +4080,7 @@
   "_id": "kZ1dFYRgVPe3P1dP",
   "name": "Taladro excavador",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-20.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-taladro-excavador.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4107,7 +4107,7 @@
   "_id": "RsfEhBXMsyxvdrhC",
   "name": "Guantes pegajosos",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-21.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-guantes-pegajosos.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4134,7 +4134,7 @@
   "_id": "51jmw9qFjNFOC8LG",
   "name": "Birrueda",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-22.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-birrueda.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4161,7 +4161,7 @@
   "_id": "YVYaFj3mPVpWe88e",
   "name": "Electroimán",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-23.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-electroiman.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4188,7 +4188,7 @@
   "_id": "ixEs0Vpb0u7u5Rcb",
   "name": "Garra retráctil",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-24.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-garra-retractil.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4215,7 +4215,7 @@
   "_id": "dQBAD6Gqlil1meAv",
   "name": "Mochila propulsora",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-25.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-mochila-propulsora.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4242,7 +4242,7 @@
   "_id": "SSZR8QAQDEG9tPKN",
   "name": "Gafas de visión nocturna",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-26.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-gafas-de-vision-nocturna.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4269,7 +4269,7 @@
   "_id": "zvk3gY2yZIzzAKjz",
   "name": "Motosierra",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-27.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-motosierra.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4296,7 +4296,7 @@
   "_id": "azbLpLU9gAK47VMJ",
   "name": "Botas propulsoras",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-28.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-botas-propulsoras.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4323,7 +4323,7 @@
   "_id": "yglMX5MskcQ002eK",
   "name": "Lanzallamas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-29.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-lanzallamas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4350,7 +4350,7 @@
   "_id": "vMxx0MdB0h3hiV4e",
   "name": "Respirador de agua",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-30.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-respirador-de-agua.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4377,7 +4377,7 @@
   "_id": "Li7lSFjeoSqkxLOh",
   "name": "Autoganzúa",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-31.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-autoganzua.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4404,7 +4404,7 @@
   "_id": "gVbbFpYsQC5j7I0L",
   "name": "Mochila catapulta",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-32.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-mochila-catapulta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4431,7 +4431,7 @@
   "_id": "cIPDkLqnmsUhOjcD",
   "name": "Sirviente mecánico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-33.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-sirviente-mecanico.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4458,7 +4458,7 @@
   "_id": "HIYfm2gOsL5VhyRY",
   "name": "Óculo láser",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-34.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-oculo-laser.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4485,7 +4485,7 @@
   "_id": "OKd9vY8Q36yn8XI3",
   "name": "Miembro robótico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-35.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-miembro-robotico.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4512,7 +4512,7 @@
   "_id": "jCrP2nxzsT5af68U",
   "name": "Vara explosiva",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-36.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/artilugio-vara-explosiva.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -4539,7 +4539,7 @@
   "_id": "CY9B0kTcdiSJ4WvC",
   "name": "Pez globo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-01.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-pez-globo.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4566,7 +4566,7 @@
   "_id": "nr84ZrAoY6MmVXLT",
   "name": "Pegajoso",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-02.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-pegajoso.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4593,7 +4593,7 @@
   "_id": "HlqdW4Vc4l7P1iNW",
   "name": "Luciérnaga",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-03.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-luciernaga.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4620,7 +4620,7 @@
   "_id": "AwQfdKucvYsjp349",
   "name": "Mentiroso",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-04.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-mentiroso.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4647,7 +4647,7 @@
   "_id": "8hFiEsCZx7qE7BCc",
   "name": "Visiones revueltas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-05.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-visiones-revueltas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4674,7 +4674,7 @@
   "_id": "xXLbNRSNjPUxJjH5",
   "name": "Cobardía",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-06.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-cobardia.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4701,7 +4701,7 @@
   "_id": "MWF0H4caoaLxXjU2",
   "name": "Forma ilusoria",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-07.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-forma-ilusoria.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4728,7 +4728,7 @@
   "_id": "Beredt445dffebsg",
   "name": "Resbalosidad",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-08.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-resbalosidad.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4755,7 +4755,7 @@
   "_id": "XSaPwyPz8c43Z5R5",
   "name": "Ceguera",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-09.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-ceguera.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4782,7 +4782,7 @@
   "_id": "9ypNLdiaMMRUZQ5J",
   "name": "Vozarrón",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-10.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-vozarron.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4809,7 +4809,7 @@
   "_id": "wBq65MIBtP6tlZ0P",
   "name": "Fuerza",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-11.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-fuerza.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4836,7 +4836,7 @@
   "_id": "VmkHZhdbLDTlvfxp",
   "name": "Velocidad",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-12.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-velocidad.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "valuable",
@@ -4863,7 +4863,7 @@
   "_id": "MPMdiz1FDZEXHAml",
   "name": "Terror",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-13.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-terror.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -4890,7 +4890,7 @@
   "_id": "oQe2Um0Ks6KxqfWR",
   "name": "Aliento flamígero",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-14.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-aliento-flamigero.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -4917,7 +4917,7 @@
   "_id": "eLNZuhbql39ZnHvj",
   "name": "Patas de araña",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-15.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-patas-de-arana.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -4944,7 +4944,7 @@
   "_id": "yznSZUEgN7RO25aS",
   "name": "Portáltil",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-16.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-portaltil.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -4971,7 +4971,7 @@
   "_id": "Aue8Lo5vStkYshnd",
   "name": "Turbo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-17.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-turbo.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -4998,7 +4998,7 @@
   "_id": "1ELw4iCYZsljO3NW",
   "name": "Parpadeo",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-18.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-parpadeo.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5025,7 +5025,7 @@
   "_id": "c6SUfCil15r4VABo",
   "name": "Brebaje de Dalgeth",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-19.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-brebaje-de-dalgeth.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5052,7 +5052,7 @@
   "_id": "njSaeMD2LkACg386",
   "name": "Climavidencia",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-20.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-climavidencia.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5079,7 +5079,7 @@
   "_id": "DDH1bC4kSlK93g6B",
   "name": "Veleta",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-21.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-veleta.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5106,7 +5106,7 @@
   "_id": "zVoYlLeUr0lwDQP8",
   "name": "Mechamagia",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-22.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-mechamagia.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5133,7 +5133,7 @@
   "_id": "ZNMkQkMshrDZJiik",
   "name": "Mollera férrea",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-23.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-mollera-ferrea.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5160,7 +5160,7 @@
   "_id": "J0KLT1O3tZMqD1fY",
   "name": "Mandíbula de serpiente",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-24.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-mandibula-de-serpiente.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5187,7 +5187,7 @@
   "_id": "8S0fJLnBQJBe9P8I",
   "name": "Invisibilidad",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-25.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-invisibilidad.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5214,7 +5214,7 @@
   "_id": "vmkmUond1FUb8XWd",
   "name": "Don de lenguas",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-26.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-don-de-lenguas.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5241,7 +5241,7 @@
   "_id": "22rZBA1Jg1xak7p6",
   "name": "Tamaño rata",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-27.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-tamano-rata.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5268,7 +5268,7 @@
   "_id": "kMPSEza2v8fHg1ls",
   "name": "Mímico",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-28.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-mimico.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5295,7 +5295,7 @@
   "_id": "GdojLQD2oyZslaHD",
   "name": "Audiobicho",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-29.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-audiobicho.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5322,7 +5322,7 @@
   "_id": "p89D4R6fYTSXxLi2",
   "name": "Sombra libre",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-30.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-sombra-libre.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5349,7 +5349,7 @@
   "_id": "2god65MS1x2G4YFY",
   "name": "Forma animal",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-31.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-forma-animal.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5376,7 +5376,7 @@
   "_id": "63NSRdpxKKKMoSGH",
   "name": "Curación rápida",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-32.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-curacion-rapida.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5403,7 +5403,7 @@
   "_id": "1TvGiFwW5bIj4bjh",
   "name": "Maldición lunar",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-33.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-maldicion-lunar.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5430,7 +5430,7 @@
   "_id": "WqKpRPsTHc85FWA2",
   "name": "Especialidad",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-34.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-especialidad.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5457,7 +5457,7 @@
   "_id": "4KNrjoaCz1kaRNAJ",
   "name": "Intangible",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-35.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-intangible.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5484,7 +5484,7 @@
   "_id": "KZoCqOPLm8YqPBbO",
   "name": "Piel férrea",
   "type": "gearsupply",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-36.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/pocion-piel-ferrea.webp",
   "system": {
    "gear_or_supply": "supply",
    "quality_category": "powerful",
@@ -5511,7 +5511,7 @@
   "_id": "XyJnX4wU29TFduAT",
   "name": "Bolsa de la suerte",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-bolsa-de-la-suerte.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5525,20 +5525,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "11",
     "tabla": "11",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "TmDHcweoFjSgCOlS",
   "name": "Túnica fluctuante",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-tunica-fluctuante.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5552,20 +5552,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "12",
     "tabla": "12",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "TvbjafKuLzobiIrM",
   "name": "Anillo de ascuas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-anillo-de-ascuas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5579,20 +5579,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "13",
     "tabla": "13",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "ry6k7RaJt3myga69",
   "name": "Marioneta",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-marioneta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5606,20 +5606,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "14",
     "tabla": "14",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "ZLZZHB23EKZduUyX",
   "name": "Botas de paso acuático",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-botas-de-paso-acuatico.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5633,20 +5633,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "15",
     "tabla": "15",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "nUoIQ7fgST4lAB0K",
   "name": "Laúd arácnido",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-laud-aracnido.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5660,20 +5660,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "16",
     "tabla": "16",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "Vlf8SPZdP6rWTYNp",
   "name": "Botas saltarinas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-botas-saltarinas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5687,20 +5687,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "21",
     "tabla": "21",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "xs27TfhpyvN8jPhg",
   "name": "Escudo captador",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-escudo-captador.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5714,20 +5714,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "22",
     "tabla": "22",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "j2NwCfbCYhTosqqH",
   "name": "Casco de visión",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-casco-de-vision.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5741,20 +5741,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "23",
     "tabla": "23",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "JpKvU9roSQRcqCZl",
   "name": "Cerradura viperina",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-cerradura-viperina.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5768,20 +5768,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "24",
     "tabla": "24",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "UCNK9MDrKo4Ry25k",
   "name": "Joya rastreadora",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-joya-rastreadora.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5795,20 +5795,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "25",
     "tabla": "25",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "s37w4eSBG2SqTOJc",
   "name": "Frasco de almas",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-frasco-de-almas.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "valuable",
@@ -5822,20 +5822,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "26",
     "tabla": "26",
     "nivel": 1,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "mYgu4FU3HNKoEzRV",
   "name": "Flechas desplazadoras",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-flechas-desplazadoras.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5849,20 +5849,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "31",
     "tabla": "31",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "OiymWIJgbiIZRHr2",
   "name": "Armadura inamovible",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-armadura-inamovible.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5876,20 +5876,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "32",
     "tabla": "32",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "wxXMDG126siIoBRK",
   "name": "Calavera desagradecida",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-calavera-desagradecida.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5903,20 +5903,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "33",
     "tabla": "33",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "iItGUPFdvNJi8DXl",
   "name": "Botella sin fondo",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-botella-sin-fondo.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5930,20 +5930,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "34",
     "tabla": "34",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "jMkq5GJmQ1FikCnW",
   "name": "Bolsa voraz",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-bolsa-voraz.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5957,20 +5957,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "35",
     "tabla": "35",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "738m6JWSY0EWYQty",
   "name": "Gorra alarma",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-gorra-alarma.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -5984,20 +5984,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "36",
     "tabla": "36",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "yltCZCHx1CBFESqS",
   "name": "Maza atronadora",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-maza-atronadora.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6011,20 +6011,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "41",
     "tabla": "41",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "zqqouwrIM8ISuDyY",
   "name": "Caja de música",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-caja-de-musica.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6038,20 +6038,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "42",
     "tabla": "42",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "mo9JCyCOWsvSo4eW",
   "name": "Ojo de Melawa",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-ojo-de-melawa.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6065,20 +6065,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "43",
     "tabla": "43",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "hqdrB5WCaAPpzXFz",
   "name": "Moneda maldita",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-moneda-maldita.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6092,20 +6092,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "44",
     "tabla": "44",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "XgYHgBaMQKyCme14",
   "name": "Botas de instatransporte",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-botas-de-instatransporte.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6119,20 +6119,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "45",
     "tabla": "45",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "Mfcf5Q5ANfT35AjL",
   "name": "Piedra sanguínea",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-piedra-sanguinea.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6146,20 +6146,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "46",
     "tabla": "46",
     "nivel": 2,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "cHWt5RK1y2VrO1wG",
   "name": "Diente de auróvoros",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-diente-de-aurovoros.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6173,20 +6173,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "51",
     "tabla": "51",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "ZRQecXlIPSWgkQD9",
   "name": "Escudo de óxido",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-escudo-de-oxido.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6200,20 +6200,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "52",
     "tabla": "52",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "s7XjksljyYx7AvDM",
   "name": "Pellejo animal",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-pellejo-animal.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6227,20 +6227,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "53",
     "tabla": "53",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "rfPvFWuhBNIRKA6a",
   "name": "Espejo maldito",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-espejo-maldito.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6254,20 +6254,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "54",
     "tabla": "54",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "dPwZhAlYPpHQYo06",
   "name": "Anillo de estasis",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-anillo-de-estasis.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6281,20 +6281,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "55",
     "tabla": "55",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "QqDPL35e5zMcN7g2",
   "name": "Libro del aquelarre",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-libro-del-aquelarre.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6308,20 +6308,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "56",
     "tabla": "56",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "P6ZjjtP5iXuWPzz6",
   "name": "Destilería mental",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-destileria-mental.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6335,20 +6335,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "61",
     "tabla": "61",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "c50WmfW6QEXht1UF",
   "name": "Toga de invisibilidad",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-toga-de-invisibilidad.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6362,20 +6362,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "62",
     "tabla": "62",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "WwO2m11Me5n5ZOZN",
   "name": "Cubo del conocimiento",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-cubo-del-conocimiento.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6389,20 +6389,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "63",
     "tabla": "63",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "Wxx9caAzmdBgzOUf",
   "name": "Hacha de cosecha",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-hacha-de-cosecha.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6416,20 +6416,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "64",
     "tabla": "64",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "jQxOWD1VUcsAcB9Y",
   "name": "Orbe de la tormenta",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-orbe-de-la-tormenta.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6443,20 +6443,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "65",
     "tabla": "65",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "2dJC33wUO2AvVtnm",
   "name": "Bastón marchito",
   "type": "gearsupply",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_66.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/magico-baston-marchito.webp",
   "system": {
    "gear_or_supply": "gear",
    "quality_category": "powerful",
@@ -6470,20 +6470,20 @@
   },
   "flags": {
    "mr-wicked-ones-es": {
-    "categoria": "gear",
+    "categoria": "reliquia",
     "d66": "66",
     "tabla": "66",
     "nivel": 3,
     "contenido": true
    }
   },
-  "folder": "Td7vqk2HEbyY5LfT"
+  "folder": "VuAwlgPv6YxwXVGZ"
  },
  {
   "_id": "BuG7iEYzGYGYjGHt",
   "name": "Ritual: Eclipse de Sangre sobre el Valle",
   "type": "project",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/proyecto-ritual-eclipse-de-sangre-sobre-el-valle.webp",
   "system": {
    "clock_sizes": [
     4,
@@ -6506,7 +6506,7 @@
   "_id": "qWKOWrlxCjHCXzyk",
   "name": "Proyecto: Domesticar a la Hidra del Arroyo",
   "type": "project",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/proyecto-proyecto-domesticar-a-la-hidra-del-arroyo.webp",
   "system": {
    "clock_sizes": [
     4,
@@ -6529,7 +6529,7 @@
   "_id": "POVZC0VGgqHhDZv9",
   "name": "Proyecto: Abrir Túnel Secreto hacia Ciudad Floresta",
   "type": "project",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/proyecto-proyecto-abrir-tunel-secreto-hacia-ciudad-floresta.webp",
   "system": {
    "clock_sizes": [
     4,
@@ -6552,7 +6552,7 @@
   "_id": "9CSiiazHMeqGiBVE",
   "name": "Ritual: Despertar el Corazón de Piedra Antigua",
   "type": "project",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.7_53.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/proyecto-ritual-despertar-el-corazon-de-piedra-antigua.webp",
   "system": {
    "clock_sizes": [
     4,

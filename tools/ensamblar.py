@@ -91,6 +91,19 @@ def icono_parecido(nombre, prefijos, defecto):
     return imagen(defecto, None) if defecto else None
 
 
+def clave_arte(nombre, entorno=""):
+    """Imagen propia de una labor o facción (la genera Trabajo WO/arte2): «Sala N3 · Dojo (Escondrijo)» → assets/iconos/sala-n3-dojo.webp."""
+    if entorno:
+        return f"assets/iconos/fac-{dict(ENTORNOS).get(entorno, 'x')}-{slug(nombre.split(']')[-1])}.webp"
+    g, n, _ = duty_grupo(nombre)
+    resto = re.sub(r"\s*\([^)]*\)\s*$", "", nombre.split("·", 1)[1]) if "·" in nombre else "tabla"
+    if g == "Criatura":
+        return f"assets/retratos/cri-{slug(resto)}.webp"
+    if g == "Descubrimiento":
+        return "assets/iconos/hallazgo-" + n[0] + re.search(r"\[(\d+)\]", nombre).group(1) + ".webp"
+    return f"assets/iconos/{g.lower()}{'-' + n.lower() if n else ''}-{slug(resto)}.webp" if g != "Otro" else None
+
+
 def procesar_labores(docs, fol):
     nombres = {"Sala": "Salas de la mazmorra", "Trampa": "Trampas", "Porton": "Portones", "Truco": "Trucos",
                "Criatura": "Criaturas (d66)", "Descubrimiento": "Descubrimientos (d66)"}
@@ -113,7 +126,7 @@ def procesar_labores(docs, fol):
             f = temas[tema]
         d["folder"] = f["_id"]
         pre, defecto = icono[g]
-        d["img"] = icono_parecido(d["name"], pre, defecto) or d["img"]
+        d["img"] = imagen(clave_arte(d["name"]), None) or icono_parecido(d["name"], pre, defecto) or d["img"]
     return docs
 
 
@@ -121,12 +134,10 @@ def procesar_equipo(docs, fol):
     grupos = [("Arsenal y herramientas", "eq"), ("Mejunjes alquímicos (d66)", "mejunje"), ("Artilugios goblinoides (d66)", "artilugio"),
               ("Pociones mágicas (d66)", "pocion"), ("Reliquias y objetos mágicos (d66)", "magico"), ("Rituales y proyectos", "proyecto")]
     f = {g[1]: fol.nueva(f"gear:{g[1]}", g[0], color=COL["mundo"]) for g in grupos}
-    cont = {g[1]: 0 for g in grupos}
     for d in docs:
         n = d["name"]
         g = "mejunje" if n.startswith("Mejunje") else "artilugio" if n.startswith("Artilugio") else "pocion" if n.startswith("Poci") else \
-            "magico" if n.startswith("Objeto M") else "proyecto" if d["type"] == "project" or n.startswith(("Ritual", "Proyecto")) else "eq"
-        i = cont[g]; cont[g] += 1
+            "magico" if n.lower().startswith("objeto m") else "proyecto" if d["type"] == "project" or n.startswith(("Ritual", "Proyecto")) else "eq"
         d["folder"] = f[g]["_id"]
         # «Artilugio [11] · Alas planeadoras» → nombre limpio; la categoría y el nº de tabla pasan a las banderas
         m = re.match(r"^([^\[·]+?)\s*\[(\d+)\]\s*·\s*(.+)$", n)
@@ -134,13 +145,13 @@ def procesar_equipo(docs, fol):
         fl["categoria"] = {"magico": "reliquia", "eq": "gear", "proyecto": "proyecto"}.get(g, g)
         if m:
             d["name"] = m.group(3).strip(); fl["tabla"] = m.group(2)
-        if g == "eq":
-            k = list(M2.BASICAS)[i] if i < len(M2.BASICAS) else None
-            if k:
-                d["img"] = imagen(f"assets/iconos/eq-{k}.webp", d["img"])
-        elif g != "proyecto":
-            d["img"] = imagen(f"assets/iconos/{g}-{i + 1:02d}.webp", d["img"])
+        d["img"] = imagen(clave_objeto(d["name"], fl["categoria"]), None) or d["img"]
     return docs
+
+
+def clave_objeto(nombre, categoria):
+    """Imagen propia de un objeto por su nombre (Trabajo WO/arte2): «Vara luminosa», mejunje → assets/iconos/mejunje-vara-luminosa.webp."""
+    return f"assets/iconos/{ {'reliquia': 'magico', 'gear': 'eq'}.get(categoria, categoria)}-{slug(nombre)}.webp"
 
 
 def procesar_aventureros(docs, fol):
@@ -197,7 +208,7 @@ def procesar_actores(docs, fol_a):
             ent = fl.get("entorno", "")
             d["folder"] = f_ent.get(ent, f_fac)["_id"]
             k = dict(ENTORNOS).get(ent)
-            ico = k and icono_parecido(d["name"].split("]")[-1], [f"iconos/fac-{k}-"], None)
+            ico = k and (imagen(clave_arte(d["name"], ent), None) or icono_parecido(d["name"].split("]")[-1], [f"iconos/fac-{k}-"], None))
             if ico:  # solo si el emblema generado corresponde a esta facción (comparte nombre)
                 d["img"] = ico
                 d["prototypeToken"]["texture"]["src"] = ico
@@ -207,8 +218,9 @@ def procesar_actores(docs, fol_a):
             if t == "party":
                 base = {"Invasión N1": "defensor", "Invasión N2": "explorador", "Invasión N3": "inquisidor"}
                 k = next((v for kk, v in base.items() if kk in d["name"]), "centurion")
-                d["img"] = imagen(f"assets/retratos/adv-{k}.webp", d["img"])
-                d["prototypeToken"]["texture"]["src"] = imagen(f"assets/tokens/adv-{k}.webp", d["prototypeToken"]["texture"]["src"])
+                g = f"grp-{slug(d['name'])}"  # retrato propio del grupo (Trabajo WO/arte2) si existe
+                d["img"] = imagen(f"assets/retratos/{g}.webp", None) or imagen(f"assets/retratos/adv-{k}.webp", d["img"])
+                d["prototypeToken"]["texture"]["src"] = imagen(f"assets/tokens/{g}.webp", None) or imagen(f"assets/tokens/adv-{k}.webp", d["prototypeToken"]["texture"]["src"])
             if t == "dungeon":
                 d["img"] = imagen("assets/escenas/mapa-guarida-1.webp", d["img"])
             out["grupos"].append(d)
@@ -305,7 +317,7 @@ EMPIEZA_AQUI = """
 <h3>Dónde está cada cosa</h3>
 <ul>
 <li><strong>Escenas</strong>: la portada, los cuatro entornos con su mapa, los planos tácticos de la guarida y las escenas ilustradas. Todas tienen su <em>lectura</em> (el icono del libro en el mapa) y su música.</li>
-<li><strong>Actores</strong>: personajes pregenerados, manadas de esbirros, aventureros rivales y las 48 facciones, por entorno.</li>
+<li><strong>Actores</strong>: personajes pregenerados, manadas de esbirros, aventureros rivales y las 62 facciones, por entorno.</li>
 <li><strong>Objetos</strong>: aventureros y ayudantes, salas, trampas, criaturas, mejunjes, artilugios, pociones y objetos mágicos.</li>
 <li><strong>Diarios</strong>: el libro de reglas por capítulos. <strong>Tablas</strong>: botín, incursiones, calamidades y el modo solitario.</li>
 <li><strong>Compendios</strong>: «Wicked Ones · Sistema base» (lo que trae el sistema) y «MR · Wicked Ones» (lo que añade este módulo).</li>
@@ -320,7 +332,7 @@ EMPIEZA_AQUI = """
 <p>¿Quieres que te lo enseñe paso a paso? Configuración → <em>MR- Wicked Ones</em> → Tutorial guiado.</p>
 <h2>Banda sonora</h2>
 <p>Cada escena trae su <strong>música</strong> (la pone MR- Dirección), un <strong>ambiente</strong> en bucle que Foundry arranca al activarla y sus <strong>efectos</strong> en la barra. Los <strong>estados</strong> (sigilo, tensión, combate, misterio, triunfo, derrota y juerga) son los motivos de la barra: cambian la música en cualquier momento.</p>
-<p><em>Música de Kevin MacLeod (incompetech.com), licencia CC BY 4.0 (creativecommons.org/licenses/by/4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). Títulos y autores en el NOTICE del módulo.</em></p>
+<p><em>Música de Of Far Different Nature, NorthFantasyMusic y Spring Spring (OpenGameArt.org), licencia CC BY 4.0 (creativecommons.org/licenses/by/4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). Títulos y autores en el NOTICE del módulo.</em></p>
 """
 
 MUSICA = {"acecho": "Acecho en la guarida", "valle": "El Valle Silencioso", "incursion": "Incursión nocturna", "cueva": "Cuevas del Paso del Mercader",
@@ -348,7 +360,7 @@ AUDIO_ESCENA = {
     "taller-alquimia": ("caldero", ["conjuro", "reloj"]), "cripta-hallazgo": ("cueva", ["puerta", "cadenas", "conjuro"]),
     "banquete": ("fuego", ["espadas", "gong"]), "incursion-aventureros": ("cueva", ["trampa", "puerta", "espadas"]),
 }
-CREDITOS_AUDIO = ("Música de Kevin MacLeod (incompetech.com), licencia CC BY 4.0. Efectos y ambientes de Freesound.org, dominio público (CC0). "
+CREDITOS_AUDIO = ("Música de Of Far Different Nature, NorthFantasyMusic y Spring Spring (OpenGameArt.org, CC BY 4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). "
                   "Títulos y autores en el NOTICE del módulo.")
 
 

@@ -1,3 +1,19 @@
+## 2.12.0 (2026-11-24)
+
+Arte propio para todo lo que no lo tenía, PJ y héroes rehechos en el mismo estilo y banda sonora nueva. / Own art for everything that lacked it, PCs and heroes redrawn in the same style, and a new soundtrack.
+
+### Cambiado / Changed
+- **Los 6 PJ pregenerados y los 30 héroes** (retrato, token y figura de cuerpo entero) se han redibujado en el estilo nuevo, para que lo que más se ve en la mesa case con el resto. / The 6 pregenerated PCs and the 30 heroes (portrait, token and full-body figure) were redrawn in the new style.
+- **Banda sonora nueva y propia de este módulo**: la música de Kevin MacLeod (que compartía con otros módulos MR-) se sustituye por música orquestal de fantasía oscura de **Of Far Different Nature** («LOOP BOX #3»), **NorthFantasyMusic** y **Spring Spring** («Goblins Soundtrack»), de OpenGameArt, CC BY 4.0: 16 pistas de escena y 7 estados, con bucles sin costura y volumen fijo en todo el bucle. Créditos en `NOTICE.md`. / New soundtrack unique to this module: Kevin MacLeod's music (shared with other MR- modules) is replaced by dark-fantasy orchestral music by Of Far Different Nature, NorthFantasyMusic and Spring Spring (OpenGameArt, CC BY 4.0), with seamless loops.
+
+### Añadido / Added
+- **~520 ilustraciones nuevas** en el estilo del módulo (gouache plano, tinta gruesa, paleta carmesí, ocre, oliva y verde azulado): las 204 labores (salas, trampas, portones, trucos, 36 criaturas y 108 descubrimientos), las 62 facciones, los 256 objetos del equipo (arsenal, mejunjes, artilugios, pociones, reliquias y rituales), los aventureros y ayudantes que no tenían retrato (con figura y ficha de token) y los grupos de invasión. Cada entrada tiene su propia imagen; ya no se comparten ni se usan iconos del sistema. / **~520 new illustrations**: every labour, faction, item, adventurer and party has its own image.
+
+### Corregido / Fixed
+- Los iconos de mejunjes, artilugios, pociones y equipo se asignaban por posición y se habían dibujado para listas antiguas («Vara luminosa» llevaba un frasco de ácido): ahora se asignan por nombre. / Item icons were assigned by position and no longer matched; now by name.
+- Los 36 **objetos mágicos** no se reconocían (la palabra «mágico» iba en minúscula): caían en «Arsenal y herramientas» como equipo normal, el selector no los mostraba como «Objetos mágicos» y las tarjetas de las tablas no ofrecían el objeto para arrastrar. / Magic items were misfiled as mundane gear.
+- La lectura «Empieza aquí» decía 48 facciones; son 62. / Start journal said 48 factions.
+
 ## 2.11.0 (2026-11-24)
 
 Creación de personajes según el libro, compendios ordenados, ficha más legible, ventanas que caben en cualquier pantalla y banda sonora nueva. / Character creation by the book, tidy compendiums, a more readable sheet, windows that fit any screen and a new soundtrack.

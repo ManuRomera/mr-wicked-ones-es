@@ -248,7 +248,7 @@
   "_id": "Pj1860Vv3okrJYff",
   "name": "Armero",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-armero.webp",
   "system": {
    "adventurer_type": "adventurer",
    "adventurer_class": "FITD.ADV_CLASS.Weaponsmith",
@@ -287,7 +287,7 @@
      "Explotar un defecto",
      "Sacrificar su arma"
     ],
-    "figura": null,
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-armero.webp",
     "contenido": true
    }
   },
@@ -395,7 +395,7 @@
   "_id": "Yp6EUgzLSDo0JEwl",
   "name": "Asesino sagrado",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-asesino-sagrado.webp",
   "system": {
    "adventurer_type": "adventurer",
    "adventurer_class": "FITD.ADV_CLASS.OccultSlayer",
@@ -434,7 +434,7 @@
      "Burlar con ingenio",
      "Sin miedo a la muerte"
     ],
-    "figura": null,
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-asesino-sagrado.webp",
     "contenido": true
    }
   },
@@ -591,7 +591,7 @@
   "_id": "dDekS71HOkt7s5tX",
   "name": "Cazabrujas",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-cazabrujas.webp",
   "system": {
    "adventurer_type": "adventurer",
    "adventurer_class": "FITD.ADV_CLASS.MageHunter",
@@ -630,7 +630,7 @@
      "Redirigir conjuro",
      "Robar foco mágico"
     ],
-    "figura": null,
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-cazabrujas.webp",
     "contenido": true
    }
   },
@@ -934,7 +934,7 @@
   "_id": "ZPGeXxPeN9O6CqE8",
   "name": "Guerrero arcano",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-guerrero-arcano.webp",
   "system": {
    "adventurer_type": "adventurer",
    "adventurer_class": "FITD.ADV_CLASS.EldritchWarrior",
@@ -973,7 +973,7 @@
      "Rostro borroso",
      "Zancada rápida"
     ],
-    "figura": null,
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-guerrero-arcano.webp",
     "contenido": true
    }
   },
@@ -1326,7 +1326,7 @@
   "_id": "ZvTVeVA8zUqz7Rr1",
   "name": "Sabio",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_05.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-sabio.webp",
   "system": {
    "adventurer_type": "adventurer",
    "adventurer_class": "FITD.ADV_CLASS.Academic",
@@ -1365,7 +1365,7 @@
      "Plantear un acertijo",
      "Superar un truco"
     ],
-    "figura": null,
+    "figura": "modules/mr-wicked-ones-es/assets/figuras/adv-sabio.webp",
     "contenido": true
    }
   },
@@ -1584,7 +1584,7 @@
   "_id": "AS2reD4ZSVgf1ZHV",
   "name": "Ayudante · Cantante",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-cantante.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -1843,7 +1843,7 @@
   "_id": "NAlM2o06FeKTUewj",
   "name": "Ayudante · Conductor",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-conductor.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2139,7 +2139,7 @@
   "_id": "fMkh6HlbHYrOfIpU",
   "name": "Ayudante · Infante",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-infante.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2250,7 +2250,7 @@
   "_id": "9I0nuER8QJ8xtkE1",
   "name": "Ayudante · Labrador",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-labrador.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2398,7 +2398,7 @@
   "_id": "EbFUgv6BIvK5QkC8",
   "name": "Ayudante · Matasanos",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-matasanos.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2472,7 +2472,7 @@
   "_id": "2GfqYAxvVXN8cRTK",
   "name": "Ayudante · Mercader",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-mercader.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2657,7 +2657,7 @@
   "_id": "uwgiLJ0v9XMXTpyM",
   "name": "Ayudante · Ratero",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-ratero.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",
@@ -2768,7 +2768,7 @@
   "_id": "PRh7W54VNpcseplO",
   "name": "Ayudante · Trampero",
   "type": "adventurer",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_62.png",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/ayu-trampero.webp",
   "system": {
    "adventurer_type": "hireling",
    "adventurer_class": "",

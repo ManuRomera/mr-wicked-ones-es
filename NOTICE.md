@@ -2,31 +2,35 @@
 
 - **Wicked Ones** es un juego de **Ben Nielson** (Bandit Camp), publicado en dominio público bajo **CC0 1.0**; está basado en *Blades in the Dark* de John Harper (One Seven Design), licenciado CC BY 3.0. La edición en español es de **The Hills Press**; el contenido en español de este módulo parte de esa edición (ver `docs/AUDITORIA.md`, §3).
 - **Sistema base e integración:** este módulo complementa el sistema `wicked-ones` (Spearhead / LorduFreeman) y la traducción `wicked-ones-esp`.
-- **Arte:** todas las ilustraciones, retratos, tokens, figuras, iconos, escenas y mapas de esta versión se han **generado en local con Flux (Draw Things)** a partir de descripciones propias, en el estilo gráfico de *Wicked Ones*; no se reproduce arte del libro. Llevan la marca MR.
-- **Música:** Kevin MacLeod (incompetech.com), licencia **Creative Commons: By Attribution 4.0** (<https://creativecommons.org/licenses/by/4.0/>). Pistas usadas (recortadas en bucle y masterizadas con `tools/banda.py`):
-  - «The Path of the Goblin King» (acecho)
-  - «Celtic Impulse» (valle)
-  - «Crossing the Chasm» (incursion)
-  - «Chee Zee Cave» (cueva)
-  - «Goblin Tinker Soldier Spy» (taller)
-  - «Night Vigil» (abadia)
-  - «Halls of the Undead» (ritual)
-  - «Noble Race» (invasion)
-  - «Crusade» (consejo)
-  - «Clash Defiant» (climax)
-  - «Sneaky Snitch» (cloacas)
-  - «Secret of Tiki Island» (mares)
-  - «Aggressor» (guerra)
-  - «Industrious Ferret» (excavacion)
-  - «Darkest Child» (cripta)
-  - «Master of the Feast» (banquete)
-  - «Hidden Agenda» (est. sigilo)
-  - «This House» (est. tensión)
-  - «Unholy Knight» (est. combate)
-  - «Call to Adventure» (est. triunfo)
-  - «Funeral March for Brass» (est. derrota)
-  - «Myst on the Moor» (est. misterio)
-  - «The Britons» (est. juerga)
+- **Arte:** todas las ilustraciones, retratos, tokens, figuras, iconos, escenas y mapas de esta versión se han **generado con IA a partir de descripciones propias** (Flux en local con Draw Things y, desde la 2.12.0, el generador de imágenes de Codex), en el estilo gráfico de *Wicked Ones*; no se reproduce arte del libro. Llevan la marca MR.
+- **Música:** de [OpenGameArt.org](https://opengameart.org), licencia **Creative Commons: By Attribution 4.0** (<https://creativecommons.org/licenses/by/4.0/>); recortada en bucle y masterizada con `tools/banda.py`:
+  - **Of Far Different Nature**, «LOOP BOX #3» (<https://opengameart.org/content/essentials-pack-for-fantasy-games-loop-box-3-orchestral-soundtracks-for-rpgs-and-adventures>)
+  - **NorthFantasyMusic**, «Fantasy Music and Drum Loops Pack» (<https://opengameart.org/content/fantasy-music-and-drum-loops-pack>)
+  - **Spring Spring**, «Goblins Soundtrack» (<https://opengameart.org/content/goblins-soundtrack>; el autor la ofrece también con otras licencias, aquí se usa CC BY 4.0)
+  - Pistas por escena y estado:
+    - «Obscurium», Of Far Different Nature (acecho)
+    - «New Dawn», NorthFantasyMusic (valle)
+    - «Epic Departure [v2]», Of Far Different Nature (incursion)
+    - «Dark and Mysterious», NorthFantasyMusic (cueva)
+    - «town day», Spring Spring (taller)
+    - «Temple of Light», NorthFantasyMusic (abadia)
+    - «Threat From Another Realm», NorthFantasyMusic (ritual)
+    - «Sacred Guardians», NorthFantasyMusic (invasion)
+    - «Throne Room [v2]», Of Far Different Nature (consejo)
+    - «champion fight», Spring Spring (climax)
+    - «Underground Town», Of Far Different Nature (cloacas)
+    - «Ship In A Storm», Of Far Different Nature (mares)
+    - «Storm Incoming», NorthFantasyMusic (guerra)
+    - «Eastern Treasures», Of Far Different Nature (excavacion)
+    - «In Darkness [v2]», Of Far Different Nature (cripta)
+    - «Pavane», Of Far Different Nature (banquete)
+    - «Nightwatch», NorthFantasyMusic (estado: sigilo)
+    - «Zwischenwelt», Of Far Different Nature (estado: tension)
+    - «Clash», Of Far Different Nature (estado: combate)
+    - «Adventure Begins», Of Far Different Nature (estado: triunfo)
+    - «Soft Strings and Flutes», NorthFantasyMusic (estado: derrota)
+    - «Dreams of Magic», NorthFantasyMusic (estado: misterio)
+    - «town night», Spring Spring (estado: juerga)
 - **Efectos y ambientes:** grabaciones de Freesound.org en **dominio público (CC0)**, mezcladas y masterizadas con `tools/banda.py`:
   - puerta: LampEight, <https://freesound.org/s/402465/>
   - trampa: qubodup, <https://freesound.org/s/752067/>

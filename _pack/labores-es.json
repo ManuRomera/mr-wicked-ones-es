@@ -3,7 +3,7 @@
   "_id": "fNlldKe9NbEYzDbQ",
   "name": "Sala N1 · Conducto",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-conducto.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -22,7 +22,7 @@
   "_id": "X0wyyn8JdOYQW0hO",
   "name": "Sala N1 · Construcción",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-construccion.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -41,7 +41,7 @@
   "_id": "LP3kDb0hbld7YUaN",
   "name": "Sala N1 · Túnel largo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-tunel-largo.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -60,7 +60,7 @@
   "_id": "Ez5ba6v4Va7ryqJO",
   "name": "Sala N1 · Sala menor",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-sala-menor.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -79,7 +79,7 @@
   "_id": "kml1FWamJrFI3Tr2",
   "name": "Sala N1 · Pasaje secreto",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-pasaje-secreto.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -98,7 +98,7 @@
   "_id": "EFqYwf4iv9dSckvF",
   "name": "Sala N1 · Ventana",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-ventana.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Room",
@@ -136,7 +136,7 @@
   "_id": "K537hKOjKipDQGSV",
   "name": "Sala N2 · Escalera",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-escalera.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Room",
@@ -155,7 +155,7 @@
   "_id": "3nWL9zAMt6qtt1kQ",
   "name": "Sala N2 · Guarida de esbirros",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-guarida-de-esbirros.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Room",
@@ -174,7 +174,7 @@
   "_id": "BhozcfB6ITXYFLnP",
   "name": "Sala N2 · Prisión",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-prision.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Room",
@@ -193,7 +193,7 @@
   "_id": "eBz9uiJMUCJL1nXK",
   "name": "Sala N2 · Puesto de guardia",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-puesto-de-guardia.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Room",
@@ -212,7 +212,7 @@
   "_id": "M7wIwDGtywmJBwVw",
   "name": "Sala N3 · Academia (Enclave)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-academia.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -252,7 +252,7 @@
   "_id": "vtR7yO8UzKkLPYFz",
   "name": "Sala N3 · Crisol (Enclave)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-crisol.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -272,7 +272,7 @@
   "_id": "cugKy1YivsrCVQfA",
   "name": "Sala N3 · Cubil de los engendros (Enclave)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-cubil-de-los-engendros.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -292,7 +292,7 @@
   "_id": "NQLLWEEsjxxDDgT6",
   "name": "Sala N3 · Fuente de clarividencia (Enclave)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-fuente-de-clarividencia.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -352,7 +352,7 @@
   "_id": "vzeByZG9QJYlfPYW",
   "name": "Sala N3 · Arsenal (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-arsenal.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -372,7 +372,7 @@
   "_id": "EQijuV6T3bLhZnqd",
   "name": "Sala N3 · Dojo (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-dojo.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -392,7 +392,7 @@
   "_id": "ReELfSt2qujGlbvk",
   "name": "Sala N3 · Garito de juego (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-garito-de-juego.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -412,7 +412,7 @@
   "_id": "GoT9pBVAC8x0dXuG",
   "name": "Sala N3 · Nido (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-nido.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -432,7 +432,7 @@
   "_id": "MEo5k7pqIMJ0WQwa",
   "name": "Sala N3 · Pista de obstáculos (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-pista-de-obstaculos.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -452,7 +452,7 @@
   "_id": "nfrLR7E6pFbgWJxK",
   "name": "Sala N3 · Sala de planificación (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-sala-de-planificacion.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -472,7 +472,7 @@
   "_id": "QFbk8MNUqfL0vBOI",
   "name": "Sala N3 · Taberna (Escondrijo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-taberna.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -492,7 +492,7 @@
   "_id": "VJNayl3AUMuH9z49",
   "name": "Sala N3 · Cámara de pruebas (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-camara-de-pruebas.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -512,7 +512,7 @@
   "_id": "tvWcCaPdLSBtoBNE",
   "name": "Sala N3 · Fábrica (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-fabrica.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -532,7 +532,7 @@
   "_id": "353HTPi4FKKMgdwK",
   "name": "Sala N3 · Galería (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-galeria.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -552,7 +552,7 @@
   "_id": "2PVpim7vIhC1qgqS",
   "name": "Sala N3 · Hangar (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-hangar.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -572,7 +572,7 @@
   "_id": "gvm2QSJYjK1JMW5G",
   "name": "Sala N3 · Laboratorio de alquimia (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-laboratorio-de-alquimia.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -592,7 +592,7 @@
   "_id": "DGG7bifxkyyE58D9",
   "name": "Sala N3 · Salón gremial (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-salon-gremial.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -612,7 +612,7 @@
   "_id": "6DSoYoyws38HS92N",
   "name": "Sala N3 · Taller (Forja)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-forja.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-taller.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -632,7 +632,7 @@
   "_id": "KYnwP0ZRViD0VFC0",
   "name": "Sala N3 · Barracones (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-barracones.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -652,7 +652,7 @@
   "_id": "j5lcKV3xNxuUWKRM",
   "name": "Sala N3 · Cuadra (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-cuadra.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -692,7 +692,7 @@
   "_id": "XZmQp7NASCRKcaNu",
   "name": "Sala N3 · Herrería (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-herreria.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -712,7 +712,7 @@
   "_id": "chpUY4BUzHwhVKlA",
   "name": "Sala N3 · Pira funeraria (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-pira-funeraria.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -732,7 +732,7 @@
   "_id": "gGpe1oaJGcgUhk8j",
   "name": "Sala N3 · Sala de guerra (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-sala-guerra.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-sala-de-guerra.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -752,7 +752,7 @@
   "_id": "wK3gj4oLsDiUSial",
   "name": "Sala N3 · Tambores de guerra (Fortaleza)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n2-sala-guerra.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-tambores-de-guerra.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -792,7 +792,7 @@
   "_id": "G4jZPXHUQzFz8nGG",
   "name": "Sala N3 · Antecámara (Templo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-antecamara.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -812,7 +812,7 @@
   "_id": "0oFXxxqp2xGeybvN",
   "name": "Sala N3 · Círculo de augurios (Templo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-circulo-de-augurios.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -852,7 +852,7 @@
   "_id": "j3q07SwpAmOm3710",
   "name": "Sala N3 · Relicario (Templo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-relicario.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -872,7 +872,7 @@
   "_id": "UE4tcIWINlSBBY4G",
   "name": "Sala N3 · Sala de penitencias (Templo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-sala-de-penitencias.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -892,7 +892,7 @@
   "_id": "jCYUxSATHmvn6joS",
   "name": "Sala N3 · Scriptorium (Templo)",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n1-guarida.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/sala-n3-scriptorium.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Room",
@@ -912,7 +912,7 @@
   "_id": "rTqdz6qBonI4hEqp",
   "name": "Trampa N1",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/trampa-n1-tabla.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trap",
@@ -931,7 +931,7 @@
   "_id": "lXmHxWmhqbfYA8iU",
   "name": "Portón N1",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n1-roble.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n1-tabla.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Lock",
@@ -950,7 +950,7 @@
   "_id": "meaGF6C7ejUfwGz7",
   "name": "Trampa N2",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/trampa-n2-tabla.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Trap",
@@ -969,7 +969,7 @@
   "_id": "mnczx21GzquV0dAP",
   "name": "Portón N2",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n1-roble.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n2-tabla.webp",
   "system": {
    "tier": 2,
    "type": "FITD.DUTY_TYPE.Lock",
@@ -988,7 +988,7 @@
   "_id": "S7EItvloop04ATJP",
   "name": "Trampa N3",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.1_04.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/trampa-n3-tabla.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Trap",
@@ -1007,7 +1007,7 @@
   "_id": "OOrURQ03OMgLdPmA",
   "name": "Portón N3",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n1-roble.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/porton-n3-tabla.webp",
   "system": {
    "tier": 3,
    "type": "FITD.DUTY_TYPE.Lock",
@@ -1026,7 +1026,7 @@
   "_id": "LRkdnZh2kac2f0DE",
   "name": "Truco · Cuerda de advertencia",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-cuerda-de-advertencia.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1045,7 +1045,7 @@
   "_id": "wDSgvVBncRoPIo6W",
   "name": "Truco · Charco de agua",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-charco-de-agua.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1064,7 +1064,7 @@
   "_id": "wcXiP8R7ODRJ4meG",
   "name": "Truco · Un prisionero atado",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-un-prisionero-atado.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1083,7 +1083,7 @@
   "_id": "c6vXdiDMS35ScgXN",
   "name": "Truco · Dédalo",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-dedalo.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1102,7 +1102,7 @@
   "_id": "XXPIlCyAGNhPC2Xl",
   "name": "Truco · Una estatua",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-una-estatua.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1121,7 +1121,7 @@
   "_id": "rUAvP8M5Sm30Lnt8",
   "name": "Truco · Viento",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-viento.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1140,7 +1140,7 @@
   "_id": "yDCD83ozrljEMKNK",
   "name": "Truco · Musgo brillante",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-musgo-brillante.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1159,7 +1159,7 @@
   "_id": "KB9Nc3YPBztHYj46",
   "name": "Truco · Paisaje hipnótico",
   "type": "duty",
-  "img": "systems/wicked-ones/styles/assets/icons/Icon.6_25.png",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/truco-paisaje-hipnotico.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Trick",
@@ -1218,7 +1218,7 @@
   "_id": "UWrlJ1bhfhWg3uJk",
   "name": "Criatura · Serpiente gigante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-serpiente.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-serpiente-gigante.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1258,7 +1258,7 @@
   "_id": "zd70FgVwg5JZhJmQ",
   "name": "Criatura · Fantasma",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-fantasma.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1338,7 +1338,7 @@
   "_id": "VH95WqDckTn0940Z",
   "name": "Criatura · Rata gigante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-rata-gigante.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1378,7 +1378,7 @@
   "_id": "MypO70kpIAyuCaRX",
   "name": "Criatura · Zombi",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-zombi.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1398,7 +1398,7 @@
   "_id": "hNn1kuulp5KIZkvN",
   "name": "Criatura · Gárgola",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-gargola.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1438,7 +1438,7 @@
   "_id": "ay5XpMzWJmj7vcbV",
   "name": "Criatura · Elemental de fuego",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-elemental-de-fuego.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1458,7 +1458,7 @@
   "_id": "KfC84cIdztkGOkQL",
   "name": "Criatura · Elemental de agua",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-elemental-de-agua.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1478,7 +1478,7 @@
   "_id": "KpmNO9cIyBiJBF1v",
   "name": "Criatura · Elemental de tierra",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-elemental-de-tierra.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1498,7 +1498,7 @@
   "_id": "hSvtuTNnIX5Zuyr5",
   "name": "Criatura · Elemental de aire",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-elemental-de-aire.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1518,7 +1518,7 @@
   "_id": "yJnjS8I0sbUr6YTc",
   "name": "Criatura · Trol de las cavernas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-trol-de-las-cavernas.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1538,7 +1538,7 @@
   "_id": "wFiMjoWcFcGgSt6B",
   "name": "Criatura · Necrófago",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-necrofago.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1558,7 +1558,7 @@
   "_id": "PTmDHHTe7zmsGByP",
   "name": "Criatura · Serpiente de lava",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-serpiente.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-serpiente-de-lava.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1578,7 +1578,7 @@
   "_id": "npLCAoSZ5TSnfDge",
   "name": "Criatura · Monstruo de lodo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-monstruo-de-lodo.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1598,7 +1598,7 @@
   "_id": "XPqSPZhTwPTgIXRH",
   "name": "Criatura · Guerrero mecánico",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-guerrero-mecanico.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1618,7 +1618,7 @@
   "_id": "C6RNlmPo9QZ3C1EL",
   "name": "Criatura · Monstruo oxidante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-monstruo-oxidante.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1658,7 +1658,7 @@
   "_id": "5JKSkO2W030eaAlU",
   "name": "Criatura · Ettercap",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-ettercap.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1678,7 +1678,7 @@
   "_id": "ptzy5KwqsxN9uoem",
   "name": "Criatura · Cieno",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-cieno.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1698,7 +1698,7 @@
   "_id": "QcVUXnMrjXP39Uav",
   "name": "Criatura · Micónido",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-miconido.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1718,7 +1718,7 @@
   "_id": "gvlhoeZGycNclCAP",
   "name": "Criatura · Minotauro",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-minotauro.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1738,7 +1738,7 @@
   "_id": "wQmB7ocA3Vo6RmeT",
   "name": "Criatura · Mantoscuro",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-mantoscuro.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1758,7 +1758,7 @@
   "_id": "J3998sHVSUdnBZeK",
   "name": "Criatura · Grick",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-grick.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1778,7 +1778,7 @@
   "_id": "zujywSvdAbZ7FWfS",
   "name": "Criatura · Carroñero reptante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-carronero-reptante.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1818,7 +1818,7 @@
   "_id": "uR5ryIcul8Tk96gB",
   "name": "Criatura · Estirge",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-estirge.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1838,7 +1838,7 @@
   "_id": "fANhbrO1Va5pbn7V",
   "name": "Criatura · Quásit",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-quasit.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1858,7 +1858,7 @@
   "_id": "X4tT28z6MO53dRm9",
   "name": "Criatura · Limo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-limo.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1878,7 +1878,7 @@
   "_id": "AH8GEWDfqwhXoxMr",
   "name": "Criatura · Gorgona",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-n1-ratas.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/cri-gorgona.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Creature",
@@ -1898,7 +1898,7 @@
   "_id": "du57ClaVs6S5Lopt",
   "name": "Descubrimiento (éxito) [11] · Los restos del santuario de una antigua mazmorra",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é11.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -1919,7 +1919,7 @@
   "_id": "rPTSJRnHrIr9ab5M",
   "name": "Descubrimiento (éxito) [12] · Una sala que perteneció a un templo profanado al dios de…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é12.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -1940,7 +1940,7 @@
   "_id": "s4fi7UPOTL3VwYwE",
   "name": "Descubrimiento (éxito) [13] · Una sala perfectamente esférica",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é13.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -1961,7 +1961,7 @@
   "_id": "ilP2FaCHaRoSAUIB",
   "name": "Descubrimiento (éxito) [14] · Un largo túnel que conduce fuera del mapa hasta otra…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é14.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -1982,7 +1982,7 @@
   "_id": "6kP5UeLlQ9XjZN76",
   "name": "Descubrimiento (éxito) [15] · Una gran colonia de murciélagos",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é15.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2003,7 +2003,7 @@
   "_id": "Q6Wdwr1GK2f6PUOA",
   "name": "Descubrimiento (éxito) [16] · Un gigantesco depósito de armas antiguas que os provee…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é16.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2024,7 +2024,7 @@
   "_id": "K78rXt9bjVM24suB",
   "name": "Descubrimiento (éxito) [21] · Los restos de un nido de ciempiés",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é21.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2045,7 +2045,7 @@
   "_id": "Nsv11dvV8d6oWmP0",
   "name": "Descubrimiento (éxito) [22] · Esta sala perteneció a un viejo gnomo inventor",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é22.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2066,7 +2066,7 @@
   "_id": "1Ic4q0xOXtv6KpoS",
   "name": "Descubrimiento (éxito) [23] · Un largo túnel que conduce fuera del mapa",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é23.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2087,7 +2087,7 @@
   "_id": "ekx8lhHIXRIBqYDu",
   "name": "Descubrimiento (éxito) [24] · Un lago de aguas negras",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é24.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2108,7 +2108,7 @@
   "_id": "aWvrGqE7XweUB7Sa",
   "name": "Descubrimiento (éxito) [25] · Una sala anodina con una entrada y tres salidas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é25.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2129,7 +2129,7 @@
   "_id": "1ulQVwSMWnLICKb7",
   "name": "Descubrimiento (éxito) [26] · Una cueva natural",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é26.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2150,7 +2150,7 @@
   "_id": "IuecB4zzQd4XWi4M",
   "name": "Descubrimiento (éxito) [31] · Un río de lava que fluye por la mazmorra y protege a la…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é31.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2171,7 +2171,7 @@
   "_id": "2RPS6dLBx7ge0ybQ",
   "name": "Descubrimiento (éxito) [32] · Una sala que solía pertenecer a una antigua base…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é32.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2192,7 +2192,7 @@
   "_id": "HstPxxrwxxkuJWaD",
   "name": "Descubrimiento (éxito) [33] · Un antiguo embarcadero fluvial aún con unos cuantos botes",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é33.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2213,7 +2213,7 @@
   "_id": "I9NoUhwBlghG9EN1",
   "name": "Descubrimiento (éxito) [34] · Cualquiera con un buen corazón que se ahogue en esta…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é34.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2234,7 +2234,7 @@
   "_id": "zGVwNxZlIYivGJOF",
   "name": "Descubrimiento (éxito) [35] · Un pozo de limo que escupe algunos duendes de limo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é35.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2255,7 +2255,7 @@
   "_id": "RGcmJURhCKADxePJ",
   "name": "Descubrimiento (éxito) [36] · Esta celda contiene a un antiguo vampiro",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é36.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2276,7 +2276,7 @@
   "_id": "AnwjEFlNQtF3Kpvd",
   "name": "Descubrimiento (éxito) [41] · Una pequeña colonia minera enana se encuentra al otro…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é41.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2297,7 +2297,7 @@
   "_id": "ScJn3SRMYsm3KEWJ",
   "name": "Descubrimiento (éxito) [42] · Esta sala perteneció a una antigua fortaleza enana",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é42.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2318,7 +2318,7 @@
   "_id": "6ZxdDswREIOqFQPc",
   "name": "Descubrimiento (éxito) [43] · Una caverna grande y muy fría",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é43.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2339,7 +2339,7 @@
   "_id": "jczpkVcQmqSjNWkA",
   "name": "Descubrimiento (éxito) [44] · Unas antiguas criptas llenas de muertos",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é44.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2360,7 +2360,7 @@
   "_id": "7aTN3joUcHoIjJEG",
   "name": "Descubrimiento (éxito) [45] · Una estatua de un dios olvidado",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-cripta-olvidada.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é45.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2381,7 +2381,7 @@
   "_id": "b82hgNEJE8RyuiuE",
   "name": "Descubrimiento (éxito) [46] · Una colección enterrada de pociones que os otorga tres…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é46.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2402,7 +2402,7 @@
   "_id": "MNECnm6SZdkHlmgm",
   "name": "Descubrimiento (éxito) [51] · Un portal de una sola dirección que va desde la mazmorra…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é51.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2423,7 +2423,7 @@
   "_id": "04NjRFoIozsPDZa8",
   "name": "Descubrimiento (éxito) [52] · Un túnel",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é52.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2444,7 +2444,7 @@
   "_id": "mOxLDvGIpt1WPk0u",
   "name": "Descubrimiento (éxito) [53] · Una antigua cámara de tortura con un ser celestial…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é53.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2465,7 +2465,7 @@
   "_id": "oAXN3d44SKNpn8lG",
   "name": "Descubrimiento (éxito) [54] · Un portal de dos direcciones que va desde la mazmorra a…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é54.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2486,7 +2486,7 @@
   "_id": "WtfNQtWfUrd2cyja",
   "name": "Descubrimiento (éxito) [55] · Una cámara mágica",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é55.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2507,7 +2507,7 @@
   "_id": "9GuSEfoTlV8i2jGN",
   "name": "Descubrimiento (éxito) [56] · Esta sala perteneció a un aquelarre extinto hace tiempo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é56.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2528,7 +2528,7 @@
   "_id": "ftAALI3OEycZU1XC",
   "name": "Descubrimiento (éxito) [61] · El Orbe de las Tormentas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é61.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2549,7 +2549,7 @@
   "_id": "5dvB5qpqVvmYIdrs",
   "name": "Descubrimiento (éxito) [62] · Una pila de gemas yace tras un antiguo trono",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é62.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2570,7 +2570,7 @@
   "_id": "t9wQ0xLh2nNNHOhy",
   "name": "Descubrimiento (éxito) [63] · Hay un cofre en el centro de la sala",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é63.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2591,7 +2591,7 @@
   "_id": "LCvgbvb9sbRdH0YQ",
   "name": "Descubrimiento (éxito) [64] · La guarida de una serpiente enorme e inteligente que…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é64.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2612,7 +2612,7 @@
   "_id": "NC200y0BLJio6SwK",
   "name": "Descubrimiento (éxito) [65] · Esta cueva parece haber sido antaño un taller",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é65.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2633,7 +2633,7 @@
   "_id": "6ULvdLZSd3QNu0XE",
   "name": "Descubrimiento (éxito) [66] · Una sala con una colección de libros que os permiten…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-é66.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2654,7 +2654,7 @@
   "_id": "JrBUQcI6Ttbd05u5",
   "name": "Descubrimiento (parcial) [11] · Unos deliciosos hongos brillantes decoran las paredes de…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p11.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2675,7 +2675,7 @@
   "_id": "p49qsumBJ30I2TFc",
   "name": "Descubrimiento (parcial) [12] · Un lago de ácido burbujeante llena el aire de la caverna…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p12.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2696,7 +2696,7 @@
   "_id": "UB9GPyNumcbpkXXJ",
   "name": "Descubrimiento (parcial) [13] · Una corriente rápida choca contra las enormes rocas…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p13.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2717,7 +2717,7 @@
   "_id": "liup35KTVwan5ZDD",
   "name": "Descubrimiento (parcial) [14] · Este alijo enterrado",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p14.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2738,7 +2738,7 @@
   "_id": "tn2BOo9WzlO0yVKb",
   "name": "Descubrimiento (parcial) [15] · Un pequeño arroyo de sangre pura borbotea de la pared",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p15.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2759,7 +2759,7 @@
   "_id": "oua8BkLfTZ9hepGY",
   "name": "Descubrimiento (parcial) [16] · Esta caverna está llena de hongos sintientes que se…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p16.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2780,7 +2780,7 @@
   "_id": "y3xMD2enHXNsaKJS",
   "name": "Descubrimiento (parcial) [21] · Un serpenteante río subterráneo lleno de enormes…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p21.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2801,7 +2801,7 @@
   "_id": "RQTjPjfpG1vWugHv",
   "name": "Descubrimiento (parcial) [22] · Una caverna con un techo muy alto",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p22.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2822,7 +2822,7 @@
   "_id": "7eOsrsGd2vlBH6v6",
   "name": "Descubrimiento (parcial) [23] · Un lago con un gran remolino que teletransporta a…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p23.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2843,7 +2843,7 @@
   "_id": "ER5qC0v8r6IFgFCG",
   "name": "Descubrimiento (parcial) [24] · Las ruinas de un antiguo naufragio con piratas zombi en…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p24.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2864,7 +2864,7 @@
   "_id": "huDCNDX7gcFrMJFO",
   "name": "Descubrimiento (parcial) [25] · Una caverna llena de cristales que brillan con luz cegadora",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p25.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2885,7 +2885,7 @@
   "_id": "1lORvOLcucgoZdnH",
   "name": "Descubrimiento (parcial) [26] · Una antigua prisión con dos de sus cerraduras oxidadas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p26.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2906,7 +2906,7 @@
   "_id": "rhZPxbRwqSzXeDsv",
   "name": "Descubrimiento (parcial) [31] · La forma de esta sala es un cuadrado perfecto",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p31.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2927,7 +2927,7 @@
   "_id": "76ukwAS5AbDli8cd",
   "name": "Descubrimiento (parcial) [32] · Un antiguo invernadero gnomo con iluminación artificial…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p32.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2948,7 +2948,7 @@
   "_id": "nq0upRHIvtuctjAL",
   "name": "Descubrimiento (parcial) [33] · Una sala redonda cuyas paredes son magnéticas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p33.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2969,7 +2969,7 @@
   "_id": "xPOdFWShJmy5sjPM",
   "name": "Descubrimiento (parcial) [34] · A través de este sinuoso y largo túnel",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p34.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -2990,7 +2990,7 @@
   "_id": "ZvYyUyImIjnYIUua",
   "name": "Descubrimiento (parcial) [35] · Un pequeño sistema de túneles cuyo eco confunde a quien…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p35.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3011,7 +3011,7 @@
   "_id": "dHY80WGyQJvGabnS",
   "name": "Descubrimiento (parcial) [36] · Unos antiguos túneles de criptas con muchas tumbas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p36.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3032,7 +3032,7 @@
   "_id": "nUItQUgPN5OmxK09",
   "name": "Descubrimiento (parcial) [41] · Una corriente lenta con un punto de pesca perfecto que…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p41.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3053,7 +3053,7 @@
   "_id": "2hyoOpKJDXd1adjA",
   "name": "Descubrimiento (parcial) [42] · Un antiguo almacén",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p42.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3074,7 +3074,7 @@
   "_id": "nIAdGrkCUCMOaCQX",
   "name": "Descubrimiento (parcial) [43] · Una pequeña caverna con un techo muy alto que está…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p43.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3095,7 +3095,7 @@
   "_id": "jjOgU5bJabNuDQ84",
   "name": "Descubrimiento (parcial) [44] · Un río de lava comienza en un lugar del mapa y va hacia…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p44.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3116,7 +3116,7 @@
   "_id": "gaMTMjZsej4V9PWW",
   "name": "Descubrimiento (parcial) [45] · Una segunda entrada a vuestra mazmorra",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p45.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3137,7 +3137,7 @@
   "_id": "vF1JQitIU60TJhpc",
   "name": "Descubrimiento (parcial) [46] · En el centro de esta gran caverna hay un enorme agujero",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p46.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3158,7 +3158,7 @@
   "_id": "86di5VPs4YKxr2l6",
   "name": "Descubrimiento (parcial) [51] · Un conjunto de túneles llenos de espejos rotos a lo…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p51.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3179,7 +3179,7 @@
   "_id": "95nK5Dnzdw7A9c41",
   "name": "Descubrimiento (parcial) [52] · Un suministro compartido de bolsas llenas de ópalo se…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p52.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3200,7 +3200,7 @@
   "_id": "ysllaQbxd6No9sVF",
   "name": "Descubrimiento (parcial) [53] · Una pequeña caverna con un jardín natural creado gracias…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p53.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3221,7 +3221,7 @@
   "_id": "Qe5QpBm8OHPgaBex",
   "name": "Descubrimiento (parcial) [54] · Una cascada de barro desciende por el lateral de una…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p54.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3242,7 +3242,7 @@
   "_id": "4h6OlH0Pb5fDraG3",
   "name": "Descubrimiento (parcial) [55] · Una gran cascada acaba en un lago",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p55.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3263,7 +3263,7 @@
   "_id": "obeGhsVhAV4KA5Gj",
   "name": "Descubrimiento (parcial) [56] · Una sala sencilla",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p56.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3284,7 +3284,7 @@
   "_id": "YfWkY8Y8anuiMAFY",
   "name": "Descubrimiento (parcial) [61] · Es una caverna llena de estalactitas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p61.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3305,7 +3305,7 @@
   "_id": "7qe6WKMCwpdb6GxI",
   "name": "Descubrimiento (parcial) [62] · Una zigzagueante cueva llena de agujeros en las paredes…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p62.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3326,7 +3326,7 @@
   "_id": "9psnpxR1TLsBkT8K",
   "name": "Descubrimiento (parcial) [63] · Un agujero profundo y oscuro con una pequeña luz…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p63.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3347,7 +3347,7 @@
   "_id": "64R0fXbzo35HvsIY",
   "name": "Descubrimiento (parcial) [64] · Un laberinto de túneles donde falta su minotauro",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p64.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3368,7 +3368,7 @@
   "_id": "zYpKk5IiEdXYpPr5",
   "name": "Descubrimiento (parcial) [65] · Un portal de dos direcciones lleva a una zona oculta y…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p65.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3389,7 +3389,7 @@
   "_id": "vWXxdK2Q76zJ3JBm",
   "name": "Descubrimiento (parcial) [66] · Los gases que surgen desde las profundidades a través de…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-p66.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3410,7 +3410,7 @@
   "_id": "UHcC0MY3e4n90OTo",
   "name": "Descubrimiento (fracaso) [11] · Un tipo de moho agresivo deteriora rápidamente cualquier…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f11.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3431,7 +3431,7 @@
   "_id": "lqa1vhZzNNvpeUg6",
   "name": "Descubrimiento (fracaso) [12] · Es una pequeña cueva circular con un agujero en su techo…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f12.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3452,7 +3452,7 @@
   "_id": "ZUByAvHkgBx8FU0f",
   "name": "Descubrimiento (fracaso) [13] · Varios pixis cavernarios viven en una serie de agujeros…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f13.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3473,7 +3473,7 @@
   "_id": "lfu07yZfZwBNi5Yq",
   "name": "Descubrimiento (fracaso) [14] · Un río ancho con una corriente demasiado poderosa como…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f14.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3494,7 +3494,7 @@
   "_id": "5h088CIYZEHc0HdG",
   "name": "Descubrimiento (fracaso) [15] · El almacén de un antiguo gnomo inventor que alberga un…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f15.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3515,7 +3515,7 @@
   "_id": "fFCpXZMGEFmvNzzM",
   "name": "Descubrimiento (fracaso) [16] · Este antiguo santuario solía pertenecer a una catedral a…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f16.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3536,7 +3536,7 @@
   "_id": "NitSgGWS649q8DjW",
   "name": "Descubrimiento (fracaso) [21] · En el centro de esta sala hay un gran bloque de hielo…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f21.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3557,7 +3557,7 @@
   "_id": "EX8yPHjW73zEocpz",
   "name": "Descubrimiento (fracaso) [22] · Un pozo de alquitrán que emite hedores asquerosos ocupa…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f22.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3578,7 +3578,7 @@
   "_id": "ftsW8tkmowiJxeE0",
   "name": "Descubrimiento (fracaso) [23] · Este gran agujero en la pared emite grandes cantidades…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f23.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3599,7 +3599,7 @@
   "_id": "E1pNRGITzsEb1e01",
   "name": "Descubrimiento (fracaso) [24] · Un túnel natural que conecta entre sí dos o tres zonas…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f24.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3620,7 +3620,7 @@
   "_id": "9gr2I69qLGUqSHgP",
   "name": "Descubrimiento (fracaso) [25] · En este río vive un caimán cavernario gigante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f25.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3641,7 +3641,7 @@
   "_id": "KMAc70rXoxlKvFUc",
   "name": "Descubrimiento (fracaso) [26] · Este túnel lleva a la entrada de una colonia de hormigas…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f26.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3662,7 +3662,7 @@
   "_id": "P8bbJvsWoIzqhzcV",
   "name": "Descubrimiento (fracaso) [31] · Una celda enterrada con un diablo atrapado",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f31.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3683,7 +3683,7 @@
   "_id": "R4bRs4312ucz9uZR",
   "name": "Descubrimiento (fracaso) [32] · Un túnel con un agujero en el centro de la pared del fondo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f32.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3704,7 +3704,7 @@
   "_id": "q0UjWA9JGqjpEa99",
   "name": "Descubrimiento (fracaso) [33] · Un pasadizo lleno de estatuas heroicas que",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f33.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3725,7 +3725,7 @@
   "_id": "KYjcv6Y49uGNJj3T",
   "name": "Descubrimiento (fracaso) [34] · Esta cámara acoge a una reliquia sagrada inteligente",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f34.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3746,7 +3746,7 @@
   "_id": "e35oGs7fwj0DpvPC",
   "name": "Descubrimiento (fracaso) [35] · Un barril explosivo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f35.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3767,7 +3767,7 @@
   "_id": "MSXpMBQLxLbwQiIY",
   "name": "Descubrimiento (fracaso) [36] · De cuando en cuando",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f36.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3788,7 +3788,7 @@
   "_id": "mOUP1Cik2rS3VMV5",
   "name": "Descubrimiento (fracaso) [41] · Este túnel conduce a una base rebelde subterránea",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f41.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3809,7 +3809,7 @@
   "_id": "fmnoCZzvv1TPb6lQ",
   "name": "Descubrimiento (fracaso) [42] · Una estatua mágica de un dios olvidado",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-cripta-olvidada.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f42.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3830,7 +3830,7 @@
   "_id": "k8XKaXVcB9Po8Kl4",
   "name": "Descubrimiento (fracaso) [43] · Este portal",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f43.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3851,7 +3851,7 @@
   "_id": "PtaJ5G54aYdEAtSR",
   "name": "Descubrimiento (fracaso) [44] · Un altar de vigor",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f44.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3872,7 +3872,7 @@
   "_id": "igK2sWcm39oU30f8",
   "name": "Descubrimiento (fracaso) [45] · El campamento de unos enanos oscuros",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f45.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3893,7 +3893,7 @@
   "_id": "gbcSuwhkwLJssYDZ",
   "name": "Descubrimiento (fracaso) [46] · Una fisura cuyos lados rozan lentamente entre sí",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f46.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3914,7 +3914,7 @@
   "_id": "UQl7Jp2LxmgQkumJ",
   "name": "Descubrimiento (fracaso) [51] · Un lago salobre lleno de tiburones cavernarios que…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f51.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3935,7 +3935,7 @@
   "_id": "nI7ZYn73UKGSnLd1",
   "name": "Descubrimiento (fracaso) [52] · Una compleja red de conductos conecta varios puntos…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f52.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3956,7 +3956,7 @@
   "_id": "BA9ttqWbKq3JGmZe",
   "name": "Descubrimiento (fracaso) [53] · El laboratorio oculto y la mina de cobre de un inventor…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f53.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3977,7 +3977,7 @@
   "_id": "D4GQYUZAY6sQxaYc",
   "name": "Descubrimiento (fracaso) [54] · Un altar curativo",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f54.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -3998,7 +3998,7 @@
   "_id": "LhQTnalKyHwUcVT7",
   "name": "Descubrimiento (fracaso) [55] · Una caverna sinuosa",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f55.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4019,7 +4019,7 @@
   "_id": "bQHFOyHWUQ84Uscp",
   "name": "Descubrimiento (fracaso) [56] · Un gran pozo de cieno que se alimenta de cadáveres",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f56.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4040,7 +4040,7 @@
   "_id": "TCVLuJhPgtWLfdK1",
   "name": "Descubrimiento (fracaso) [61] · Un agujero gigante del que surgen potentes vientos que…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f61.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4061,7 +4061,7 @@
   "_id": "XZFNi9icKEFBwI6D",
   "name": "Descubrimiento (fracaso) [62] · Un cristal hostil y capaz de controlar mentes yace sobre…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f62.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4082,7 +4082,7 @@
   "_id": "QNdxPWQWOZcoGBO0",
   "name": "Descubrimiento (fracaso) [63] · Un túnel lleno de hongos que emiten esporas alucinógenas",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f63.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4103,7 +4103,7 @@
   "_id": "FBV3eHE15CaVlSbv",
   "name": "Descubrimiento (fracaso) [64] · Se abre una segunda entrada a vuestra mazmorra",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f64.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4124,7 +4124,7 @@
   "_id": "Qe0BzScNFaOA7aoR",
   "name": "Descubrimiento (fracaso) [65] · Un enorme pozo de limo que escupe bolas de limo a…",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f65.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",
@@ -4145,7 +4145,7 @@
   "_id": "lpfwkAIht00CwRR5",
   "name": "Descubrimiento (fracaso) [66] · El nido de una araña gigante",
   "type": "duty",
-  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-tunel.webp",
+  "img": "modules/mr-wicked-ones-es/assets/iconos/hallazgo-f66.webp",
   "system": {
    "tier": 1,
    "type": "FITD.DUTY_TYPE.Discovery",

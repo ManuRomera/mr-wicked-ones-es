@@ -291,7 +291,7 @@
   "_id": "4gNJxiuvQBMKGRYS",
   "name": "Cazadores de la Luna de Plata (Invasión N2)",
   "type": "party",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/grp-cazadores-de-la-luna-de-plata-invasion-n2.webp",
   "system": {
    "description": "<p>Veteranos curtidos en dar caza a bestias sobrenaturales que siguen el rastro del ritual licántropo hasta el corazón de vuestra mazmorra.</p>"
   },
@@ -301,7 +301,7 @@
    "actorLink": true,
    "disposition": -1,
    "texture": {
-    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-explorador.webp"
+    "src": "modules/mr-wicked-ones-es/assets/tokens/grp-cazadores-de-la-luna-de-plata-invasion-n2.webp"
    }
   },
   "items": [
@@ -890,7 +890,7 @@
   "_id": "O0Z4xHOfWCRQZrYI",
   "name": "Escuadrón de Purga de las Cloacas (Invasión N2)",
   "type": "party",
-  "img": "modules/mr-wicked-ones-es/assets/retratos/adv-explorador.webp",
+  "img": "modules/mr-wicked-ones-es/assets/retratos/grp-escuadron-de-purga-de-las-cloacas-invasion-n2.webp",
   "system": {
    "description": "<p>Grupo de choque especializado en túneles estrechos para campañas en las Cloacas de la Gran Ciudad.</p>"
   },
@@ -900,7 +900,7 @@
    "actorLink": true,
    "disposition": -1,
    "texture": {
-    "src": "modules/mr-wicked-ones-es/assets/tokens/adv-explorador.webp"
+    "src": "modules/mr-wicked-ones-es/assets/tokens/grp-escuadron-de-purga-de-las-cloacas-invasion-n2.webp"
    }
   },
   "items": [
