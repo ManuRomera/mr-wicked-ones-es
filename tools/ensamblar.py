@@ -332,7 +332,7 @@ EMPIEZA_AQUI = """
 <p>¿Quieres que te lo enseñe paso a paso? Configuración → <em>MR- Wicked Ones</em> → Tutorial guiado.</p>
 <h2>Banda sonora</h2>
 <p>Cada escena trae su <strong>música</strong> (la pone MR- Dirección), un <strong>ambiente</strong> en bucle que Foundry arranca al activarla y sus <strong>efectos</strong> en la barra. Los <strong>estados</strong> (sigilo, tensión, combate, misterio, triunfo, derrota y juerga) son los motivos de la barra: cambian la música en cualquier momento.</p>
-<p><em>Música de Of Far Different Nature, NorthFantasyMusic y Spring Spring (OpenGameArt.org), licencia CC BY 4.0 (creativecommons.org/licenses/by/4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). Títulos y autores en el NOTICE del módulo.</em></p>
+<p><em>Música de Scott Buckley (www.scottbuckley.com.au), licencia CC BY 4.0 (creativecommons.org/licenses/by/4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). Títulos y autores en el NOTICE del módulo.</em></p>
 """
 
 MUSICA = {"acecho": "Acecho en la guarida", "valle": "El Valle Silencioso", "incursion": "Incursión nocturna", "cueva": "Cuevas del Paso del Mercader",
@@ -360,7 +360,7 @@ AUDIO_ESCENA = {
     "taller-alquimia": ("caldero", ["conjuro", "reloj"]), "cripta-hallazgo": ("cueva", ["puerta", "cadenas", "conjuro"]),
     "banquete": ("fuego", ["espadas", "gong"]), "incursion-aventureros": ("cueva", ["trampa", "puerta", "espadas"]),
 }
-CREDITOS_AUDIO = ("Música de Of Far Different Nature, NorthFantasyMusic y Spring Spring (OpenGameArt.org, CC BY 4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). "
+CREDITOS_AUDIO = ("Música de Scott Buckley (www.scottbuckley.com.au, CC BY 4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). "
                   "Títulos y autores en el NOTICE del módulo.")
 
 

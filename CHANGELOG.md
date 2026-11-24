@@ -1,3 +1,15 @@
+## 2.12.2 (2026-11-24)
+
+Todo el arte en el mismo estilo y banda sonora nueva de verdad. / All art in one style and a proper new soundtrack.
+
+### Cambiado / Changed
+- **Banda sonora rehecha con obras orquestales completas de Scott Buckley** (CC BY 4.0): la de la 2.12.0 usaba bucles de 8 a 50 segundos que se repetían como un disco rayado. Ahora cada escena y cada estado suena una pieza entera de 2½ a 9 minutos, a 320 kbps de origen, que enlaza consigo misma con un fundido largo; para el tono gamberro de los villanos hay una polka espeluznante en el taller, un vals «para los condenados» en el banquete y una marcha diabólica para el triunfo. Créditos en `NOTICE.md`. / Soundtrack redone with full-length orchestral pieces by Scott Buckley (CC BY 4.0): 2.12.0 used 8–50 second loops that repeated like a broken record; every scene and state now plays a complete 2½–9 minute piece with a long crossfade.
+- **Las 13 ilustraciones de escena** (portada, incursión, cuevas del mercader, biblioteca de la abadía, ritual, defensa, consejo de guerra, batalla del santuario, sala del trono, excavación, taller, cripta y banquete) se han redibujado en el estilo nuevo y **vacías**, sin personajes: los pones tú con las figuras de MR- Dirección o con tokens. / The 13 scene illustrations were redrawn in the new style and left empty, without characters.
+- **Los 13 dioses oscuros**, **las 14 criaturas** que aún tenían el fondo claro del arte antiguo y **los 15 iconos** que quedaban (salas, tres facciones y las ganzúas) se han redibujado en el estilo nuevo. Ya no queda arte de la versión anterior. / The 13 dark gods, the 14 creatures that still had the old light background and the last 15 old icons were redrawn; no old-version art remains.
+
+### Corregido / Fixed
+- Las manadas creadas con el generador del asistente salían con una imagen rota: ahora llevan el retrato de manada. / Minion packs created with the assistant's generator had a broken image.
+
 ## 2.12.1 (2026-11-24)
 
 Más arte en el estilo nuevo. / More art in the new style.

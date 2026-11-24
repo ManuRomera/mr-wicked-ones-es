@@ -212,7 +212,7 @@ export class GeneradorWickedOnes extends BaseApp {
     const nuevo = await Actor.create({
       name: nombre,
       type: "minion_pack",
-      img: `modules/${MOD}/assets/retratos/esbirros-ulrot.webp`,
+      img: `modules/${MOD}/assets/retratos/esb-ulrot.webp`,
       system: { mp_type: "normal", ua_job: oficio, number: { min: 0, value: numero, max: 5 }, attributes },
       items: [
         { name: raza, type: "monster_race", system: { primal: false, description: "" } },
