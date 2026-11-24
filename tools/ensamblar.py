@@ -7,7 +7,7 @@ _pack/<pack>.json (+ carpetas.json) con
   · escenas con su LECTURA (diario «Lecturas de escena» + notas de mapa), música y efectos (listas de reproducción),
   · el paquete de MR- Dirección (content/direccion-es.json, esquema 1) con figuras, motivos, hitos y relojes.
 Uso: python3 tools/ensamblar.py"""
-import hashlib, json, os, re, sys, unicodedata
+import hashlib, html, json, os, re, sys, unicodedata
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
@@ -437,6 +437,30 @@ REMAPEO = {
 }
 
 
+# Campos de objeto que el sistema enseña en un <textarea> (templates/items/*.html): ahí el HTML se vería en crudo.
+TEXTO_PLANO = {
+    "calling": ["description", "flashback_clues"], "dungeon_theme": ["description", "special_name", "special_feature"],
+    "wickedimpulse": ["description"], "gearsupply": ["description"], "minionimpulse": ["description"],
+    "monster_race": ["description", "flashback_clues"], "conquest_ability": ["description"], "duty": ["description"],
+    "minion_upgrade": ["description"], "tier3room": ["description", "requirements"], "project": ["description"],
+    "defense": ["description"], "minion_type": ["description"], "revelry": ["description"], "awakened_type": ["description"],
+    "specialability": ["description", "supply_desc", "downtime_desc", "primal.be_psi_desc_1", "primal.be_psi_desc_2",
+                       "primal.gm_desc_1", "primal.gm_desc_2", "primal.gm_desc_3"],
+}
+
+
+def texto_plano(v):
+    """HTML → texto con párrafos separados por una línea en blanco (lo que se ve bien en un <textarea>)."""
+    if not isinstance(v, str) or not re.search(r"<[a-zA-Z/][^>]*>", v):
+        return v
+    v = re.sub(r"(?i)<br\s*/?>", "\n", v)
+    v = re.sub(r"(?i)<li[^>]*>", "• ", v)
+    v = re.sub(r"(?i)</(p|div|li|h\d|ul|ol|blockquote)>", "\n\n", v)
+    v = html.unescape(re.sub(r"<[^>]+>", "", v))
+    v = "\n".join(re.sub(r"[ \t]+", " ", l).strip() for l in v.splitlines())
+    return re.sub(r"\n{3,}", "\n\n", v).strip()
+
+
 def reparar(x):
     if isinstance(x, str):
         for a, b in REMAPEO.items():
@@ -446,7 +470,16 @@ def reparar(x):
     if isinstance(x, list):
         return [reparar(v) for v in x]
     if isinstance(x, dict):
-        return {k: reparar(v) for k, v in x.items()}
+        x = {k: reparar(v) for k, v in x.items()}
+        if x.get("type") in TEXTO_PLANO and isinstance(x.get("system"), dict):
+            for campo in TEXTO_PLANO[x["type"]]:
+                *ruta, hoja = campo.split(".")
+                d = x["system"]
+                for p in ruta:
+                    d = d.get(p) if isinstance(d, dict) else None
+                if isinstance(d, dict) and hoja in d:
+                    d[hoja] = texto_plano(d[hoja])
+        return x
     return x
 
 

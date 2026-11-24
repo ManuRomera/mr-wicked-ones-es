@@ -1,3 +1,8 @@
+## 2.12.3 (2026-11-24)
+
+### Corregido / Fixed
+- Las **204 labores** (salas, trampas, portones, trucos, criaturas y descubrimientos) enseñaban su descripción con las etiquetas HTML a la vista («<p>…</p>»), porque el sistema la muestra como texto plano: ahora se guardan como texto con sus párrafos. Al arrancar, el DJ limpia también las labores y demás objetos que ya estuvieran en el mundo o dentro de las fichas, y cualquier objeto que se cree a partir de contenido antiguo se limpia al crearlo. / The 204 dungeon duties showed raw HTML tags in their description (the system shows it as plain text): they are now plain text with paragraphs, and existing world items and items inside actors are cleaned on load.
+
 ## 2.12.2 (2026-11-24)
 
 Todo el arte en el mismo estilo y banda sonora nueva de verdad. / All art in one style and a proper new soundtrack.

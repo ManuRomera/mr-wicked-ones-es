@@ -553,3 +553,13 @@ test("Compendios: todo dentro de su carpeta (facciones por entorno, labores por 
   const fac = JSON.parse(await fs.readFile("_pack/facciones-es.json", "utf8"));
   for (const f of fac) assert.ok(f.name.toLowerCase().startsWith(`[${porId.get(f.folder).name.toLowerCase()}]`), `${f.name} en su entorno`);
 });
+
+test("Compendios: sin HTML en las descripciones que el sistema enseña como texto plano", async () => {
+  const docs = [];
+  for (const pack of ["labores-es", "equipo-es", "aventura-es", "personajes-es", "esbirros-es"]) {
+    for (const d of JSON.parse(await fs.readFile(`_pack/${pack}.json`, "utf8"))) docs.push(d, ...(d.items ?? []), ...(d.actors ?? []).flatMap(a => a.items ?? []));
+  }
+  const conHtml = docs.filter(d => d?.system && ["duty", "gearsupply", "project", "specialability", "calling", "monster_race"].includes(d.type)
+    && /<[a-z/][^>]*>/i.test(String(d.system.description ?? "")));
+  assert.equal(conHtml.length, 0, `HTML en crudo: ${conHtml.slice(0, 3).map(d => d.name).join(", ")}`);
+});

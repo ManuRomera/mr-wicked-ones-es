@@ -27,6 +27,7 @@ import { configurarInicio, arrancar, abrirAsistente, importarCampana, registrarM
 import { registrarTutorial, ofrecerTutorial, empezarTutorial } from "./tutorial.mjs";
 import { organizarCompendios } from "./carpetas.mjs";
 import { registrarVentanas } from "./ventanas.mjs";
+import { migrarTextoPlano } from "./texto-plano.mjs";
 
 const MOD = "mr-wicked-ones-es";
 let instanciaGenerador = null;
@@ -236,6 +237,7 @@ Hooks.once("ready", async () => {
     }
   });
 
+  if (soyGM()) migrarTextoPlano().catch(e => console.error(`${MOD} | texto plano`, e));
   await registrarTutorial();
   configurarInicio({ despues: registrarPaqueteDireccion });
   if (game.user.isGM) await arrancar();
