@@ -73,38 +73,47 @@ COL = {"campana": "#a83228", "heroes": "#4d6a8c", "monstruos": "#5f7f3a", "mundo
 
 # ------------------------------------------------------------------ objetos
 def duty_grupo(nombre):
-    m = re.match(r"(Sala|Trampa|Truco|Port[oó]n|Criatura|Hallazgo)\s*(N\d)?", nombre)
-    return (m.group(1).replace("ó", "o"), m.group(2) or "") if m else ("Otro", "")
+    """«Sala N3 · Dojo (Escondrijo)» → ("Sala", "N3", "Escondrijo"); «Descubrimiento (éxito) [11] · …» → ("Descubrimiento", "éxito", "")."""
+    m = re.match(r"(Sala|Trampa|Truco|Port[oó]n|Criatura|Descubrimiento)\s*(N\d|\((?:éxito|parcial|fracaso)\))?", nombre)
+    if not m:
+        return ("Otro", "", "")
+    tema = re.search(r"\(([^)]+)\)\s*$", nombre) if m.group(2) == "N3" else None
+    return (m.group(1).replace("ó", "o"), (m.group(2) or "").strip("()"), tema.group(1) if tema else "")
+
+
+def icono_parecido(nombre, prefijos, defecto):
+    """Busca entre los iconos ya generados el que comparte una palabra (5 letras) con el nombre; si no, `defecto`."""
+    pal = {w[:5] for w in slug(nombre.split("·")[-1]).split("-") if len(w) >= 4 and w not in ("gigante", "gigantes", "sala", "salas")}
+    for pre in prefijos:
+        for f in sorted((BASE / "assets").glob(pre + "*.webp")):
+            if pal & {w[:5] for w in f.stem.split("-")[2:] if len(w) >= 4}:
+                return ruta(str(f.relative_to(BASE)))
+    return imagen(defecto, None) if defecto else None
 
 
 def procesar_labores(docs, fol):
-    claves = {"Sala": {"N1": [k for k in M2.SALAS if k.startswith("n1")], "N2": [k for k in M2.SALAS if k.startswith("n2")]},
-              "Trampa": {"N1": [k for k in M2.TRAMPAS if k.startswith("n1")], "N2": [k for k in M2.TRAMPAS if k.startswith("n2")]},
-              "Truco": {"": list(M2.TRUCOS)}, "Porton": {"N1": [k for k in M2.PORTONES if k.startswith("n1")], "N2": [k for k in M2.PORTONES if k.startswith("n2")]},
-              "Criatura": {n: [k for k in M1.CRIATURAS if k.startswith(n.lower())] for n in ("N1", "N2", "N3")},
-              "Hallazgo": {"": list(M2.HALLAZGOS)}}
-    prefijo = {"Sala": "sala", "Trampa": "trampa", "Truco": "truco", "Porton": "porton", "Hallazgo": "hallazgo"}
-    nombres = {"Sala": "Salas de la mazmorra", "Trampa": "Trampas", "Truco": "Trucos de la mazmorra", "Porton": "Portones y cerraduras",
-               "Criatura": "Criaturas de guarida", "Hallazgo": "Hallazgos de excavación"}
-    raiz, hijos, cont = {}, {}, {}
-    for g, nm in nombres.items():
-        raiz[g] = fol.nueva(f"duty:{g}", nm, color=COL["mundo"])
-        for n in claves[g]:
-            if n:
-                hijos[(g, n)] = fol.nueva(f"duty:{g}:{n}", f"Nivel {n[1]}", raiz[g], COL["mundo"])
+    nombres = {"Sala": "Salas de la mazmorra", "Trampa": "Trampas", "Porton": "Portones", "Truco": "Trucos",
+               "Criatura": "Criaturas (d66)", "Descubrimiento": "Descubrimientos (d66)"}
+    sub = {"Sala": [("N1", "Nivel 1"), ("N2", "Nivel 2"), ("N3", "Nivel 3 · salas temáticas")],
+           "Descubrimiento": [("éxito", "Éxito"), ("parcial", "Éxito parcial"), ("fracaso", "Fracaso")]}
+    raiz = {g: fol.nueva(f"duty:{g}", nm, color=COL["mundo"]) for g, nm in nombres.items()}
+    hijos = {(g, k): fol.nueva(f"duty:{g}:{k}", nm, raiz[g], COL["mundo"]) for g, l in sub.items() for k, nm in l}
+    temas = {}
+    icono = {"Sala": (["iconos/sala-"], "assets/iconos/sala-n1-guarida.webp"), "Trampa": (["iconos/trampa-"], "assets/iconos/trampa-n1-foso.webp"),
+             "Porton": (["iconos/porton-"], "assets/iconos/porton-n1-roble.webp"), "Truco": (["iconos/truco-"], "assets/iconos/truco-01.webp"),
+             "Criatura": (["retratos/cri-"], "assets/retratos/cri-n1-ratas.webp"), "Descubrimiento": (["iconos/hallazgo-"], "assets/iconos/hallazgo-tunel.webp")}
     for d in docs:
-        g, n = duty_grupo(d["name"])
+        g, n, tema = duty_grupo(d["name"])
         if g not in nombres:
             continue
-        i = cont.get((g, n), 0); cont[(g, n)] = i + 1
-        lista = claves[g].get(n, [])
-        k = lista[i] if i < len(lista) else None
-        d["folder"] = (hijos.get((g, n)) or raiz[g])["_id"]
-        if k:
-            if g == "Criatura":
-                d["img"] = imagen(f"assets/retratos/cri-{k}.webp", d["img"])
-            else:
-                d["img"] = imagen(f"assets/iconos/{prefijo[g]}-{k}.webp", d["img"])
+        f = hijos.get((g, n), raiz[g])
+        if tema:
+            if tema not in temas:
+                temas[tema] = fol.nueva(f"duty:Sala:N3:{slug(tema)}", tema, f, COL["mundo"])
+            f = temas[tema]
+        d["folder"] = f["_id"]
+        pre, defecto = icono[g]
+        d["img"] = icono_parecido(d["name"], pre, defecto) or d["img"]
     return docs
 
 
@@ -152,7 +161,7 @@ def procesar_aventureros(docs, fol):
 
 
 # ------------------------------------------------------------------ actores
-ENTORNOS = [("Valle Silencioso", "valle"), ("Cloacas de la Gran Ciudad", "cloaca"), ("Mares Coloniales", "mares"), ("Zona de Guerra", "guerra")]
+ENTORNOS = [("Valle Silencioso", "valle"), ("Cloacas de la Gran Ciudad", "cloaca"), ("Mares coloniales", "mares"), ("Zona de guerra", "guerra")]
 
 
 def procesar_actores(docs, fol_a):
@@ -186,15 +195,12 @@ def procesar_actores(docs, fol_a):
             out["esbirros"].append(d)
         elif t == "faction":
             ent = fl.get("entorno", "")
-            i = cont_f.get(ent, 0); cont_f[ent] = i + 1
-            nombres = [e for e, _ in ENTORNOS]
-            idx = nombres.index(ent) * 12 + i if ent in nombres else None
             d["folder"] = f_ent.get(ent, f_fac)["_id"]
-            if idx is not None and idx < len(fac_k):
-                ico = imagen(f"assets/iconos/fac-{fac_k[idx]}.webp", None)
-                if ico:
-                    d["img"] = ico
-                    d["prototypeToken"]["texture"]["src"] = ico
+            k = dict(ENTORNOS).get(ent)
+            ico = k and icono_parecido(d["name"].split("]")[-1], [f"iconos/fac-{k}-"], None)
+            if ico:  # solo si el emblema generado corresponde a esta facción (comparte nombre)
+                d["img"] = ico
+                d["prototypeToken"]["texture"]["src"] = ico
             out["facciones"].append(d)
         else:
             d["folder"] = {"party": f_riv, "dungeon": f_maz, "gm_sheet": f_dj}.get(t, f_dj)["_id"]
@@ -277,6 +283,8 @@ def escena_doc(i, e, dims, lect_id):
                    "texture": {"src": "icons/svg/book.svg", "tint": "#e6b865"}, "iconSize": 48, "text": "Lectura", "fontFamily": "Signika", "fontSize": 32, "textAnchor": 1,
                    "textColor": "#ffffff", "global": False, "flags": {}}],
         "sort": (i + 1) * 100, "ownership": {"default": 0},
+        # ambiente en bucle (canal de entorno, volumen bajo) que Foundry arranca al activar la escena; la música la lleva Dirección
+        **({"playlist": fid("playlist:ambiente"), "playlistSound": fid(f"snd:amb-{AUDIO_ESCENA[clave][0]}")} if clave in AUDIO_ESCENA else {}),
         "flags": {MOD: {"clave": clave, "slug": clave, "imagen": tipo == "imagen", "musica": musica}},
     }
 
@@ -310,38 +318,65 @@ EMPIEZA_AQUI = """
 <li>Usa el <strong>Generador del Señor Oscuro</strong> (icono de la mazmorra en los controles de escena) cuando necesites un golpe de inspiración.</li>
 </ol>
 <p>¿Quieres que te lo enseñe paso a paso? Configuración → <em>MR- Wicked Ones</em> → Tutorial guiado.</p>
+<h2>Banda sonora</h2>
+<p>Cada escena trae su <strong>música</strong> (la pone MR- Dirección), un <strong>ambiente</strong> en bucle que Foundry arranca al activarla y sus <strong>efectos</strong> en la barra. Los <strong>estados</strong> (sigilo, tensión, combate, misterio, triunfo, derrota y juerga) son los motivos de la barra: cambian la música en cualquier momento.</p>
+<p><em>Música de Kevin MacLeod (incompetech.com), licencia CC BY 4.0 (creativecommons.org/licenses/by/4.0). Efectos y ambientes de Freesound.org, dominio público (CC0). Títulos y autores en el NOTICE del módulo.</em></p>
 """
 
 MUSICA = {"acecho": "Acecho en la guarida", "valle": "El Valle Silencioso", "incursion": "Incursión nocturna", "cueva": "Cuevas del Paso del Mercader",
           "taller": "Forja y alquimia", "abadia": "La abadía en silencio", "ritual": "Artes oscuras y ritual", "invasion": "¡Invasión de héroes!",
           "consejo": "Consejo de guerra", "climax": "La última luna llena", "cloacas": "Cloacas de la gran ciudad", "mares": "Mares coloniales",
           "guerra": "Zona de guerra", "excavacion": "Picos en la roca", "cripta": "Cripta olvidada", "banquete": "Banquete de monstruos"}
-SFX = {"puerta": "Portón que cede", "trampa": "Trampa que salta", "gong": "Gong de guerra", "rugido": "Rugido lejano", "antorcha": "Antorchas y viento",
-       "derrumbe": "Derrumbe de roca", "reloj": "Reloj que avanza"}
+ESTADOS = {"sigilo": ("Sigilo", "user-ninja"), "tension": ("Tensión", "eye"), "combate": ("Combate", "skull"), "misterio": ("Misterio", "hat-wizard"),
+           "triunfo": ("Triunfo", "crown"), "derrota": ("Derrota", "skull-crossbones"), "juerga": ("Juerga", "beer-mug-empty")}
+AMBIENTES = {"cueva": "Cueva y goteo", "fuego": "Braseros y antorchas", "picos": "Picos en la roca", "caldero": "Caldero que borbotea",
+             "viento": "Viento en la montaña", "barco": "Casco de un barco"}
+SFX = {"puerta": ("Portón que cede", "door-closed"), "trampa": ("Trampa que salta", "bomb"), "gong": ("Gong de guerra", "bell"),
+       "rugido": ("Rugido", "dragon"), "derrumbe": ("Derrumbe", "mountain"), "reloj": ("Reloj que avanza", "clock"),
+       "espadas": ("Choque de aceros", "khanda"), "conjuro": ("Conjuro", "wand-magic-sparkles"), "cadenas": ("Cadenas", "link"),
+       "risa": ("Risa malvada", "face-grin-tongue-wink"), "cuerno": ("Cuerno de guerra", "bullhorn")}
+EFECTOS_GLOBALES = ["rugido", "risa"]   # los que valen en cualquier escena; el resto va en la escena donde ocurre
+# escena → (ambiente en bucle, efectos de la escena)
+AUDIO_ESCENA = {
+    "portada": ("viento", ["gong"]), "valle": ("viento", ["cuerno"]),
+    "cueva-mercaderes": ("cueva", ["espadas", "cadenas", "derrumbe"]), "cueva-mercader-plano": ("cueva", ["espadas", "trampa", "puerta"]),
+    "guarida-1": ("fuego", ["derrumbe", "puerta", "reloj"]), "guarida-2": ("fuego", ["trampa", "puerta", "cadenas"]), "guarida-3": ("fuego", ["trampa", "puerta", "cuerno"]),
+    "biblioteca-abadia": ("viento", ["puerta", "conjuro", "gong"]), "ritual-luna-llena": ("viento", ["conjuro", "gong"]),
+    "defensa-mazmorra": ("fuego", ["trampa", "espadas", "puerta"]), "consejo-guerra": ("fuego", ["gong", "cuerno", "reloj"]),
+    "batalla-santuario": ("viento", ["cuerno", "espadas", "conjuro"]), "cloacas": ("cueva", ["cadenas", "puerta"]), "mares": ("barco", ["cuerno", "espadas"]),
+    "guerra": ("viento", ["cuerno", "espadas", "derrumbe"]), "sala-del-trono": ("fuego", ["gong", "cadenas"]), "excavacion": ("picos", ["derrumbe", "reloj"]),
+    "taller-alquimia": ("caldero", ["conjuro", "reloj"]), "cripta-hallazgo": ("cueva", ["puerta", "cadenas", "conjuro"]),
+    "banquete": ("fuego", ["espadas", "gong"]), "incursion-aventureros": ("cueva", ["trampa", "puerta", "espadas"]),
+}
+CREDITOS_AUDIO = ("Música de Kevin MacLeod (incompetech.com), licencia CC BY 4.0. Efectos y ambientes de Freesound.org, dominio público (CC0). "
+                  "Títulos y autores en el NOTICE del módulo.")
 
 
 def playlists(fol):
     f_mus = fol.nueva("pl:mus", "Música", color=COL["campana"])
-    f_sfx = fol.nueva("pl:sfx", "Efectos", color=COL["neutral"])
+    f_sfx = fol.nueva("pl:sfx", "Ambientes y efectos", color=COL["neutral"])
     pl = []
 
-    def lista(clave, nombre, carpeta_audio, dic, repetir, f):
+    def lista(clave, nombre, carpeta, dic, repetir, volumen, f, prefijo=""):
         sonidos = []
         for k, lab in dic.items():
-            if (BASE / f"assets/audio/{carpeta_audio}/{k}.ogg").exists():
-                sonidos.append({"_id": fid(f"snd:{k}"), "name": lab, "description": "", "path": ruta(f"assets/audio/{carpeta_audio}/{k}.ogg"), "playing": False,
-                                "pausedTime": None, "repeat": repetir, "volume": 0.7, "fade": None, "sort": len(sonidos) * 100, "flags": {MOD: {"slug": k}}})
-        pl.append({"_id": fid(f"playlist:{clave}"), "name": nombre, "description": "", "mode": -1 if repetir else 0, "playing": False, "fade": None, "folder": f["_id"],
+            lab = lab[0] if isinstance(lab, tuple) else lab
+            if (BASE / f"assets/audio/{carpeta}/{k}.ogg").exists():
+                slug = f"{prefijo}{k}"
+                sonidos.append({"_id": fid(f"snd:{slug}"), "name": lab, "description": "", "path": ruta(f"assets/audio/{carpeta}/{k}.ogg"), "playing": False,
+                                "pausedTime": None, "repeat": repetir, "volume": volumen, "fade": None, "sort": len(sonidos) * 100, "flags": {MOD: {"slug": slug}}})
+        pl.append({"_id": fid(f"playlist:{clave}"), "name": nombre, "description": CREDITOS_AUDIO, "mode": -1 if repetir else 0, "playing": False,
+                   "fade": None, "folder": f["_id"], "channel": "environment" if clave == "ambiente" else "interface" if clave == "sfx" else "music",
                    "sorting": "a", "seed": None, "sort": 100, "sounds": sonidos, "flags": {MOD: {"clave": clave}}})
-    lista("musica", "MR · Música de la campaña", "musica", MUSICA, True, f_mus)
-    lista("sfx", "MR · Efectos", "sfx", SFX, False, f_sfx)
+    lista("musica", "MR · Música de la campaña", "musica", MUSICA, True, 0.7, f_mus)
+    lista("estados", "MR · Estados (tensión, combate…)", "estados", ESTADOS, True, 0.7, f_mus, "est-")
+    lista("ambiente", "MR · Ambientes", "ambiente", AMBIENTES, True, 0.35, f_sfx, "amb-")
+    lista("sfx", "MR · Efectos", "sfx", SFX, False, 0.8, f_sfx)
     return [p for p in pl if p["sounds"]]
 
 
 # ------------------------------------------------------------------ paquete de MR- Dirección
 def direccion():
-    mot = [("acecho", "Acecho en la guarida", "hammer"), ("incursion", "Incursión nocturna", "skull"), ("ritual", "Artes oscuras y ritual", "eye"), ("invasion", "¡Invasión de héroes!", "shield-halved")]
-    efectos = [("puerta", "Portón", "door-closed"), ("trampa", "Trampa", "bomb"), ("gong", "Gong de guerra", "bell"), ("rugido", "Rugido", "dragon"), ("derrumbe", "Derrumbe", "mountain")]
     ref = lambda k: {"flag": [MOD, "slug", k]}
     escenas = []
     for i, (clave, nombre, img, tipo, car, musica, _l) in enumerate(ESCENAS):
@@ -353,7 +388,7 @@ def direccion():
         escenas.append({
             "ref": ref(clave), "order": i, "name": nombre.split("· ", 1)[-1], "reading": {"uuid": f"JournalEntry.{fid('journal:lecturas')}.JournalEntryPage.{fid(f'lect:{clave}')}"},
             "music": ref(musica) if musica in MUSICA else None, "motifs": None,
-            "cues": [{"label": l, "icon": ic, "sound": ref(k)} for k, l, ic in efectos[:3]] if tipo == "imagen" else [],
+            "cues": [{"label": SFX[k][0], "icon": SFX[k][1], "sound": ref(k)} for k in AUDIO_ESCENA.get(clave, (None, []))[1]],
             "ambient": None, "figures": figs, "handouts": [], "notes": "", "thumb": ruta(f"assets/thumbs/{img}.webp"),
             "stage": {"mode": "none"} if tipo != "imagen" else {"eye": 0.5, "anchors": [[0.3, 0.88], [0.5, 0.9], [0.7, 0.88]]},
         })
@@ -362,8 +397,8 @@ def direccion():
     return {
         "schema": 1, "id": MOD, "title": "Wicked Ones · El Valle Silencioso", "version": "2.0.0", "author": "Manu Romera", "license": "MIT", "settings": {
             "fade": 3.5,
-            "motifs": [{"id": k, "label": l, "icon": ic, "music": ref(k)} for k, l, ic in mot],
-            "effects": [{"id": k, "label": l, "icon": ic, "sound": ref(k)} for k, l, ic in efectos],
+            "motifs": [{"id": k, "label": l, "icon": ic, "music": ref(f"est-{k}")} for k, (l, ic) in ESTADOS.items()],
+            "effects": [{"id": k, "label": SFX[k][0], "icon": SFX[k][1], "sound": ref(k)} for k in EFECTOS_GLOBALES],
             "markers": {
                 "milestones": [{"id": f"r{n}", "label": t, "public": True} for n, t in enumerate(hitos, 1)],
                 "clocks": [

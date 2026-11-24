@@ -1,3 +1,19 @@
+## 2.11.0 (2026-11-24)
+
+Creación de personajes según el libro, compendios ordenados, ficha más legible, ventanas que caben en cualquier pantalla y banda sonora nueva. / Character creation by the book, tidy compendiums, a more readable sheet, windows that fit any screen and a new soundtrack.
+
+### Corregido / Fixed
+- **Creador de personajes · acciones** (pág. 89): en *Wicked Ones* la vocación no da puntos; todos los monstruos reparten 9: una acción a 3, dos a 2 y dos a 1. Ahora el clic solo toma valores con hueco, así que no se puede repartir de más, y la ventana lo explica. / **Action dots**: the 3/2/2/1/1 spread is enforced while clicking.
+- **Creador de personajes · equipo** (págs. 70 y 89): no hay nivel de carga. Se eligen 4 objetos de equipo con su defensa y 3 de suministro (se sacan en partida tachando una de las 2 casillas). Primero salen los **12 objetos de ejemplo de tu vocación**; como mucho **un objeto valioso** (o **1 oro** en su lugar) y nada poderoso; los botones de los valiosos se bloquean al llegar al límite. También se puede **decidir sobre la marcha**. / **Gear**: no load levels; vocation items first, one valuable item (or 1 gold), nothing powerful, or decide during play.
+- **Calidad de los objetos** (pág. 70): mejunjes, artilugios, pociones y objetos mágicos de nivel 1 son valiosos; los de nivel 2 y 3, poderosos. Antes todos salían como valiosos. / Item quality by tier.
+- **Compendios ordenados**: las 62 facciones van en la carpeta de su entorno y las 204 labores en la suya (salas por nivel y temática, trampas, portones, trucos, criaturas y descubrimientos por resultado). Los iconos solo se reutilizan si corresponden a esa sala, criatura o facción. / Everything inside its compendium folder.
+- **Dirección**: cada escena trae sus propios efectos; en la barra global quedan solo Rugido y Risa malvada (antes se repetían Portón, Trampa y Gong). / Per-scene cues; no duplicated effects.
+
+### Cambiado / Changed
+- **Ficha en modo oscuro**: fondo grafito en vez de marrón, texto más claro y casillas, círculos y barras de EXP vacíos visibles. / **Dark sheet**: graphite instead of brown, visible empty boxes and pips.
+- **Ventanas que caben en cualquier pantalla**: fichas, creador, lanzador de tiradas, selector y asistentes se escalan en proporción a la pantalla (referencia 1920×950) y nunca se salen; ajuste de cliente «Tamaño de las ventanas (%)». Verificado de 1280×650 a 2560×1300. / **Windows fit any screen**, with a client setting to fix the scale.
+- **Banda sonora nueva** (la sintetizada se retira): 16 pistas de escena y 7 estados (sigilo, tensión, combate, misterio, triunfo, derrota, juerga) de **Kevin MacLeod** (CC BY 4.0), 6 ambientes en bucle y 11 efectos de **Freesound** (CC0), con bucles cortados a compás y un master común (`tools/banda.py`). Cada escena arranca su ambiente; los estados son los motivos de Dirección. Créditos en el NOTICE, en las listas de reproducción y en «Empieza aquí». / **New soundtrack** by Kevin MacLeod (CC BY 4.0) with CC0 Freesound effects and ambiences.
+
 ## 2.10.0 (2026-11-23)
 
 Auditoría de reglas frente al manual en español: nada inventado. / Rules audit against the Spanish rulebook: nothing invented.

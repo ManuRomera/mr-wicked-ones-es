@@ -3,6 +3,48 @@
 - **Wicked Ones** es un juego de **Ben Nielson** (Bandit Camp), publicado en dominio público bajo **CC0 1.0**; está basado en *Blades in the Dark* de John Harper (One Seven Design), licenciado CC BY 3.0. La edición en español es de **The Hills Press**; el contenido en español de este módulo parte de esa edición (ver `docs/AUDITORIA.md`, §3).
 - **Sistema base e integración:** este módulo complementa el sistema `wicked-ones` (Spearhead / LorduFreeman) y la traducción `wicked-ones-esp`.
 - **Arte:** todas las ilustraciones, retratos, tokens, figuras, iconos, escenas y mapas de esta versión se han **generado en local con Flux (Draw Things)** a partir de descripciones propias, en el estilo gráfico de *Wicked Ones*; no se reproduce arte del libro. Llevan la marca MR.
-- **Música y efectos:** sintetizados desde cero con código propio (`tools/audio.py`), sin muestras de terceros.
+- **Música:** Kevin MacLeod (incompetech.com), licencia **Creative Commons: By Attribution 4.0** (<https://creativecommons.org/licenses/by/4.0/>). Pistas usadas (recortadas en bucle y masterizadas con `tools/banda.py`):
+  - «The Path of the Goblin King» (acecho)
+  - «Celtic Impulse» (valle)
+  - «Crossing the Chasm» (incursion)
+  - «Chee Zee Cave» (cueva)
+  - «Goblin Tinker Soldier Spy» (taller)
+  - «Night Vigil» (abadia)
+  - «Halls of the Undead» (ritual)
+  - «Noble Race» (invasion)
+  - «Crusade» (consejo)
+  - «Clash Defiant» (climax)
+  - «Sneaky Snitch» (cloacas)
+  - «Secret of Tiki Island» (mares)
+  - «Aggressor» (guerra)
+  - «Industrious Ferret» (excavacion)
+  - «Darkest Child» (cripta)
+  - «Master of the Feast» (banquete)
+  - «Hidden Agenda» (est. sigilo)
+  - «This House» (est. tensión)
+  - «Unholy Knight» (est. combate)
+  - «Call to Adventure» (est. triunfo)
+  - «Funeral March for Brass» (est. derrota)
+  - «Myst on the Moor» (est. misterio)
+  - «The Britons» (est. juerga)
+- **Efectos y ambientes:** grabaciones de Freesound.org en **dominio público (CC0)**, mezcladas y masterizadas con `tools/banda.py`:
+  - puerta: LampEight, <https://freesound.org/s/402465/>
+  - trampa: qubodup, <https://freesound.org/s/752067/>
+  - gong: Logicogonist, <https://freesound.org/s/735855/>
+  - rugido: NicknameLarry, <https://freesound.org/s/489901/>
+  - fuego: Aegersum, <https://freesound.org/s/387924/>
+  - reloj: fauxpress, <https://freesound.org/s/42139/>
+  - espadas: Christopherderp, <https://freesound.org/s/364531/>
+  - conjuro: CVLTIV8R, <https://freesound.org/s/847621/>
+  - cadenas: mffm, <https://freesound.org/s/235960/>
+  - risa: timtube, <https://freesound.org/s/169826/>
+  - cuerno: adharca, <https://freesound.org/s/539956/>
+  - cueva: fonografico, <https://freesound.org/s/636124/>
+  - goteo: corkob, <https://freesound.org/s/392668/>
+  - picos: MiraclesHappen, <https://freesound.org/s/457585/>
+  - derrumbe: craigsmith, <https://freesound.org/s/675741/>
+  - caldero: LilMati, <https://freesound.org/s/506505/>
+  - viento: juryduty, <https://freesound.org/s/185070/>
+  - barco: Walter_Odington, <https://freesound.org/s/31574/>
 - **Diseño, programación y adaptación a Foundry VTT:** Manu Romera (MR · Digital RPG Design).
 - **Licencia:** el código del módulo se publica bajo licencia **MIT**.

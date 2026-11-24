@@ -26,6 +26,7 @@ import { registrarAutomatismos, recuperar, recuperarTodos } from "./automatismos
 import { configurarInicio, arrancar, abrirAsistente, importarCampana, registrarMenus, reinstalarContenido, dialogoReinstalar } from "./inicio.mjs";
 import { registrarTutorial, ofrecerTutorial, empezarTutorial } from "./tutorial.mjs";
 import { organizarCompendios } from "./carpetas.mjs";
+import { registrarVentanas } from "./ventanas.mjs";
 
 const MOD = "mr-wicked-ones-es";
 let instanciaGenerador = null;
@@ -86,6 +87,7 @@ function parchearTiradasDelSistema() {
 /* -------------------------------------------------------------------------- */
 
 Hooks.once("init", () => {
+  registrarVentanas();
   game.settings.register(MOD, "autoImportar", {
     name: "MRWO.Settings.AutoImportar.Name",
     hint: "MRWO.Settings.AutoImportar.Hint",

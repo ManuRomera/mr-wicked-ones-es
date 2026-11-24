@@ -9,91 +9,91 @@
     "fade": 3.5,
     "motifs": [
       {
-        "id": "acecho",
-        "label": "Acecho en la guarida",
-        "icon": "hammer",
+        "id": "sigilo",
+        "label": "Sigilo",
+        "icon": "user-ninja",
         "music": {
           "flag": [
             "mr-wicked-ones-es",
             "slug",
-            "acecho"
+            "est-sigilo"
           ]
         }
       },
       {
-        "id": "incursion",
-        "label": "Incursión nocturna",
-        "icon": "skull",
-        "music": {
-          "flag": [
-            "mr-wicked-ones-es",
-            "slug",
-            "incursion"
-          ]
-        }
-      },
-      {
-        "id": "ritual",
-        "label": "Artes oscuras y ritual",
+        "id": "tension",
+        "label": "Tensión",
         "icon": "eye",
         "music": {
           "flag": [
             "mr-wicked-ones-es",
             "slug",
-            "ritual"
+            "est-tension"
           ]
         }
       },
       {
-        "id": "invasion",
-        "label": "¡Invasión de héroes!",
-        "icon": "shield-halved",
+        "id": "combate",
+        "label": "Combate",
+        "icon": "skull",
         "music": {
           "flag": [
             "mr-wicked-ones-es",
             "slug",
-            "invasion"
+            "est-combate"
+          ]
+        }
+      },
+      {
+        "id": "misterio",
+        "label": "Misterio",
+        "icon": "hat-wizard",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "est-misterio"
+          ]
+        }
+      },
+      {
+        "id": "triunfo",
+        "label": "Triunfo",
+        "icon": "crown",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "est-triunfo"
+          ]
+        }
+      },
+      {
+        "id": "derrota",
+        "label": "Derrota",
+        "icon": "skull-crossbones",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "est-derrota"
+          ]
+        }
+      },
+      {
+        "id": "juerga",
+        "label": "Juerga",
+        "icon": "beer-mug-empty",
+        "music": {
+          "flag": [
+            "mr-wicked-ones-es",
+            "slug",
+            "est-juerga"
           ]
         }
       }
     ],
     "effects": [
-      {
-        "id": "puerta",
-        "label": "Portón",
-        "icon": "door-closed",
-        "sound": {
-          "flag": [
-            "mr-wicked-ones-es",
-            "slug",
-            "puerta"
-          ]
-        }
-      },
-      {
-        "id": "trampa",
-        "label": "Trampa",
-        "icon": "bomb",
-        "sound": {
-          "flag": [
-            "mr-wicked-ones-es",
-            "slug",
-            "trampa"
-          ]
-        }
-      },
-      {
-        "id": "gong",
-        "label": "Gong de guerra",
-        "icon": "bell",
-        "sound": {
-          "flag": [
-            "mr-wicked-ones-es",
-            "slug",
-            "gong"
-          ]
-        }
-      },
       {
         "id": "rugido",
         "label": "Rugido",
@@ -107,14 +107,14 @@
         }
       },
       {
-        "id": "derrumbe",
-        "label": "Derrumbe",
-        "icon": "mountain",
+        "id": "risa",
+        "label": "Risa malvada",
+        "icon": "face-grin-tongue-wink",
         "sound": {
           "flag": [
             "mr-wicked-ones-es",
             "slug",
-            "derrumbe"
+            "risa"
           ]
         }
       }
@@ -224,28 +224,6 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
-          "icon": "bomb",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "trampa"
-            ]
-          }
-        },
-        {
           "label": "Gong de guerra",
           "icon": "bell",
           "sound": {
@@ -352,7 +330,19 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cuerno"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -385,35 +375,35 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Choque de aceros",
+          "icon": "khanda",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
+              "espadas"
             ]
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Cadenas",
+          "icon": "link",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
+              "cadenas"
             ]
           }
         },
         {
-          "label": "Gong de guerra",
-          "icon": "bell",
+          "label": "Derrumbe",
+          "icon": "mountain",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "gong"
+              "derrumbe"
             ]
           }
         }
@@ -513,7 +503,41 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Choque de aceros",
+          "icon": "khanda",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "espadas"
+            ]
+          }
+        },
+        {
+          "label": "Trampa que salta",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -544,7 +568,41 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Derrumbe",
+          "icon": "mountain",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "derrumbe"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Reloj que avanza",
+          "icon": "clock",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "reloj"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -575,7 +633,41 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Trampa que salta",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Cadenas",
+          "icon": "link",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cadenas"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -606,7 +698,41 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Trampa que salta",
+          "icon": "bomb",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "trampa"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cuerno"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -639,7 +765,7 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
+          "label": "Portón que cede",
           "icon": "door-closed",
           "sound": {
             "flag": [
@@ -650,13 +776,13 @@
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Conjuro",
+          "icon": "wand-magic-sparkles",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
+              "conjuro"
             ]
           }
         },
@@ -718,24 +844,13 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Conjuro",
+          "icon": "wand-magic-sparkles",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
-          "icon": "bomb",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "trampa"
+              "conjuro"
             ]
           }
         },
@@ -848,18 +963,7 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
+          "label": "Trampa que salta",
           "icon": "bomb",
           "sound": {
             "flag": [
@@ -870,13 +974,24 @@
           }
         },
         {
-          "label": "Gong de guerra",
-          "icon": "bell",
+          "label": "Choque de aceros",
+          "icon": "khanda",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "gong"
+              "espadas"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
             ]
           }
         }
@@ -978,28 +1093,6 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
-          "icon": "bomb",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "trampa"
-            ]
-          }
-        },
-        {
           "label": "Gong de guerra",
           "icon": "bell",
           "sound": {
@@ -1007,6 +1100,28 @@
               "mr-wicked-ones-es",
               "slug",
               "gong"
+            ]
+          }
+        },
+        {
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cuerno"
+            ]
+          }
+        },
+        {
+          "label": "Reloj que avanza",
+          "icon": "clock",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "reloj"
             ]
           }
         }
@@ -1108,35 +1223,35 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
+              "cuerno"
             ]
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Choque de aceros",
+          "icon": "khanda",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
+              "espadas"
             ]
           }
         },
         {
-          "label": "Gong de guerra",
-          "icon": "bell",
+          "label": "Conjuro",
+          "icon": "wand-magic-sparkles",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "gong"
+              "conjuro"
             ]
           }
         }
@@ -1236,7 +1351,30 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Cadenas",
+          "icon": "link",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cadenas"
+            ]
+          }
+        },
+        {
+          "label": "Portón que cede",
+          "icon": "door-closed",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "puerta"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -1267,7 +1405,30 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cuerno"
+            ]
+          }
+        },
+        {
+          "label": "Choque de aceros",
+          "icon": "khanda",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "espadas"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -1298,7 +1459,41 @@
         ]
       },
       "motifs": null,
-      "cues": [],
+      "cues": [
+        {
+          "label": "Cuerno de guerra",
+          "icon": "bullhorn",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cuerno"
+            ]
+          }
+        },
+        {
+          "label": "Choque de aceros",
+          "icon": "khanda",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "espadas"
+            ]
+          }
+        },
+        {
+          "label": "Derrumbe",
+          "icon": "mountain",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "derrumbe"
+            ]
+          }
+        }
+      ],
       "ambient": null,
       "figures": [],
       "handouts": [],
@@ -1331,28 +1526,6 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
-          "icon": "bomb",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "trampa"
-            ]
-          }
-        },
-        {
           "label": "Gong de guerra",
           "icon": "bell",
           "sound": {
@@ -1360,6 +1533,17 @@
               "mr-wicked-ones-es",
               "slug",
               "gong"
+            ]
+          }
+        },
+        {
+          "label": "Cadenas",
+          "icon": "link",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "cadenas"
             ]
           }
         }
@@ -1410,35 +1594,24 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Derrumbe",
+          "icon": "mountain",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
+              "derrumbe"
             ]
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Reloj que avanza",
+          "icon": "clock",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
-            ]
-          }
-        },
-        {
-          "label": "Gong de guerra",
-          "icon": "bell",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "gong"
+              "reloj"
             ]
           }
         }
@@ -1489,35 +1662,24 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Conjuro",
+          "icon": "wand-magic-sparkles",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
+              "conjuro"
             ]
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Reloj que avanza",
+          "icon": "clock",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
-            ]
-          }
-        },
-        {
-          "label": "Gong de guerra",
-          "icon": "bell",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "gong"
+              "reloj"
             ]
           }
         }
@@ -1568,7 +1730,7 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
+          "label": "Portón que cede",
           "icon": "door-closed",
           "sound": {
             "flag": [
@@ -1579,24 +1741,24 @@
           }
         },
         {
-          "label": "Trampa",
-          "icon": "bomb",
+          "label": "Cadenas",
+          "icon": "link",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "trampa"
+              "cadenas"
             ]
           }
         },
         {
-          "label": "Gong de guerra",
-          "icon": "bell",
+          "label": "Conjuro",
+          "icon": "wand-magic-sparkles",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "gong"
+              "conjuro"
             ]
           }
         }
@@ -1647,24 +1809,13 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
+          "label": "Choque de aceros",
+          "icon": "khanda",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
-          "icon": "bomb",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "trampa"
+              "espadas"
             ]
           }
         },
@@ -1726,18 +1877,7 @@
       "motifs": null,
       "cues": [
         {
-          "label": "Portón",
-          "icon": "door-closed",
-          "sound": {
-            "flag": [
-              "mr-wicked-ones-es",
-              "slug",
-              "puerta"
-            ]
-          }
-        },
-        {
-          "label": "Trampa",
+          "label": "Trampa que salta",
           "icon": "bomb",
           "sound": {
             "flag": [
@@ -1748,13 +1888,24 @@
           }
         },
         {
-          "label": "Gong de guerra",
-          "icon": "bell",
+          "label": "Portón que cede",
+          "icon": "door-closed",
           "sound": {
             "flag": [
               "mr-wicked-ones-es",
               "slug",
-              "gong"
+              "puerta"
+            ]
+          }
+        },
+        {
+          "label": "Choque de aceros",
+          "icon": "khanda",
+          "sound": {
+            "flag": [
+              "mr-wicked-ones-es",
+              "slug",
+              "espadas"
             ]
           }
         }

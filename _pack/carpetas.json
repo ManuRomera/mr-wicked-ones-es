@@ -16,12 +16,87 @@
    }
   },
   {
+   "_id": "f8QEqNac8yNUa7BF",
+   "name": "Trampas",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 200,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "EFv7nFygpWZ6rjKf",
+   "name": "Portones",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 300,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "vbFAixwF9pHMiTF8",
+   "name": "Trucos",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 400,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "5M6SlpsbofH2xhrd",
+   "name": "Criaturas (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 500,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "y6kJYcArB39jOu8X",
+   "name": "Descubrimientos (d66)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 600,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
    "_id": "LRD7Z9ruHDsWnriY",
    "name": "Nivel 1",
    "type": "Item",
    "folder": "3Cm5vo1S64bsBGXr",
    "sorting": "a",
-   "sort": 200,
+   "sort": 700,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -36,81 +111,6 @@
    "type": "Item",
    "folder": "3Cm5vo1S64bsBGXr",
    "sorting": "a",
-   "sort": 300,
-   "color": "#8a6d3b",
-   "description": "",
-   "flags": {
-    "mr-wicked-ones-es": {
-     "contenido": true
-    }
-   }
-  },
-  {
-   "_id": "f8QEqNac8yNUa7BF",
-   "name": "Trampas",
-   "type": "Item",
-   "folder": null,
-   "sorting": "a",
-   "sort": 400,
-   "color": "#8a6d3b",
-   "description": "",
-   "flags": {
-    "mr-wicked-ones-es": {
-     "contenido": true
-    }
-   }
-  },
-  {
-   "_id": "5pvwbHU4c8Ko1Lnr",
-   "name": "Nivel 1",
-   "type": "Item",
-   "folder": "f8QEqNac8yNUa7BF",
-   "sorting": "a",
-   "sort": 500,
-   "color": "#8a6d3b",
-   "description": "",
-   "flags": {
-    "mr-wicked-ones-es": {
-     "contenido": true
-    }
-   }
-  },
-  {
-   "_id": "LWLMmtdtqjLETE86",
-   "name": "Nivel 2",
-   "type": "Item",
-   "folder": "f8QEqNac8yNUa7BF",
-   "sorting": "a",
-   "sort": 600,
-   "color": "#8a6d3b",
-   "description": "",
-   "flags": {
-    "mr-wicked-ones-es": {
-     "contenido": true
-    }
-   }
-  },
-  {
-   "_id": "vbFAixwF9pHMiTF8",
-   "name": "Trucos de la mazmorra",
-   "type": "Item",
-   "folder": null,
-   "sorting": "a",
-   "sort": 700,
-   "color": "#8a6d3b",
-   "description": "",
-   "flags": {
-    "mr-wicked-ones-es": {
-     "contenido": true
-    }
-   }
-  },
-  {
-   "_id": "EFv7nFygpWZ6rjKf",
-   "name": "Portones y cerraduras",
-   "type": "Item",
-   "folder": null,
-   "sorting": "a",
    "sort": 800,
    "color": "#8a6d3b",
    "description": "",
@@ -121,10 +121,10 @@
    }
   },
   {
-   "_id": "NmdynD90670vr4iU",
-   "name": "Nivel 1",
+   "_id": "KXm9SUZxNqbTc0az",
+   "name": "Nivel 3 · salas temáticas",
    "type": "Item",
-   "folder": "EFv7nFygpWZ6rjKf",
+   "folder": "3Cm5vo1S64bsBGXr",
    "sorting": "a",
    "sort": 900,
    "color": "#8a6d3b",
@@ -136,10 +136,10 @@
    }
   },
   {
-   "_id": "ZW5vj2Om9zIkAeEb",
-   "name": "Nivel 2",
+   "_id": "MMsIHCg1H8Z1FQo9",
+   "name": "Éxito",
    "type": "Item",
-   "folder": "EFv7nFygpWZ6rjKf",
+   "folder": "y6kJYcArB39jOu8X",
    "sorting": "a",
    "sort": 1000,
    "color": "#8a6d3b",
@@ -151,10 +151,10 @@
    }
   },
   {
-   "_id": "5M6SlpsbofH2xhrd",
-   "name": "Criaturas de guarida",
+   "_id": "E11fjeMiQiDWxQXv",
+   "name": "Éxito parcial",
    "type": "Item",
-   "folder": null,
+   "folder": "y6kJYcArB39jOu8X",
    "sorting": "a",
    "sort": 1100,
    "color": "#8a6d3b",
@@ -166,10 +166,10 @@
    }
   },
   {
-   "_id": "LZfV1vwpxUI822xa",
-   "name": "Nivel 1",
+   "_id": "sFkDSZClWBkITbT3",
+   "name": "Fracaso",
    "type": "Item",
-   "folder": "5M6SlpsbofH2xhrd",
+   "folder": "y6kJYcArB39jOu8X",
    "sorting": "a",
    "sort": 1200,
    "color": "#8a6d3b",
@@ -181,10 +181,10 @@
    }
   },
   {
-   "_id": "Lu2647mpY9A4ZF0z",
-   "name": "Nivel 2",
+   "_id": "rUFe6nxt7BlwJA8W",
+   "name": "Enclave",
    "type": "Item",
-   "folder": "5M6SlpsbofH2xhrd",
+   "folder": "KXm9SUZxNqbTc0az",
    "sorting": "a",
    "sort": 1300,
    "color": "#8a6d3b",
@@ -196,10 +196,10 @@
    }
   },
   {
-   "_id": "81jflr7aBxTbQNbY",
-   "name": "Nivel 3",
+   "_id": "ByFQglOffSrfjaYD",
+   "name": "Escondrijo",
    "type": "Item",
-   "folder": "5M6SlpsbofH2xhrd",
+   "folder": "KXm9SUZxNqbTc0az",
    "sorting": "a",
    "sort": 1400,
    "color": "#8a6d3b",
@@ -211,12 +211,42 @@
    }
   },
   {
-   "_id": "04WlCVcyrC0XV2DM",
-   "name": "Hallazgos de excavación",
+   "_id": "McJfDlcQE3JfJ7jA",
+   "name": "Forja",
    "type": "Item",
-   "folder": null,
+   "folder": "KXm9SUZxNqbTc0az",
    "sorting": "a",
    "sort": 1500,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "SG5CFwZLX4nCZrBl",
+   "name": "Fortaleza",
+   "type": "Item",
+   "folder": "KXm9SUZxNqbTc0az",
+   "sorting": "a",
+   "sort": 1600,
+   "color": "#8a6d3b",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
+   "_id": "0uz6mJuDS7QCb8WC",
+   "name": "Templo",
+   "type": "Item",
+   "folder": "KXm9SUZxNqbTc0az",
+   "sorting": "a",
+   "sort": 1700,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -231,7 +261,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 1600,
+   "sort": 1800,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -246,7 +276,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 1700,
+   "sort": 1900,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -261,7 +291,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 1800,
+   "sort": 2000,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -276,7 +306,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 1900,
+   "sort": 2100,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -291,7 +321,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2000,
+   "sort": 2200,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -306,7 +336,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2100,
+   "sort": 2300,
    "color": "#8a6d3b",
    "description": "",
    "flags": {
@@ -321,7 +351,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2200,
+   "sort": 2400,
    "color": "#4d6a8c",
    "description": "",
    "flags": {
@@ -336,7 +366,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2300,
+   "sort": 2500,
    "color": "#6b6b6b",
    "description": "",
    "flags": {
@@ -469,7 +499,7 @@
   },
   {
    "_id": "DhHxbitg219PPPOP",
-   "name": "Mares Coloniales",
+   "name": "Mares coloniales",
    "type": "Actor",
    "folder": "mKJRbLBLrbGF2jLm",
    "sorting": "a",
@@ -484,7 +514,7 @@
   },
   {
    "_id": "9PyO37BeGgJwDcaj",
-   "name": "Zona de Guerra",
+   "name": "Zona de guerra",
    "type": "Actor",
    "folder": "mKJRbLBLrbGF2jLm",
    "sorting": "a",
@@ -627,7 +657,7 @@
   },
   {
    "_id": "VBlpBBJMLAPTcL7T",
-   "name": "Efectos",
+   "name": "Ambientes y efectos",
    "type": "Playlist",
    "folder": null,
    "sorting": "a",

@@ -152,7 +152,8 @@ def construir_equipo():
                 "img": f"systems/wicked-ones/styles/assets/icons/{icono}",
                 "system": {
                     "gear_or_supply": gos,
-                    "quality_category": qual,
+                    # Manual pág. 70: nivel 1 = valioso; nivel 2 o 3 = poderoso (también los objetos mágicos)
+                    "quality_category": "valuable" if nivel == 1 else "powerful",
                     "use_type": uso,
                     "uses_left": 1,
                     "edges": {"0": f"{etiqueta} de nivel {nivel}", "1": f"d66: {d66}"},

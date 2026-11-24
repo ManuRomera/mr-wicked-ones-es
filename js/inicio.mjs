@@ -111,7 +111,7 @@ export async function dialogoReinstalar({ actualizacion = null } = {}) {
     : `<p>Puedes volver a dejar el contenido de <em>MR- Wicked Ones</em> como viene de fábrica.</p>`;
   const eleccion = await DialogV2.wait({
     window: { title: "MR · Wicked Ones — reinstalar el contenido", icon: "fa-solid fa-arrows-rotate" },
-    position: { width: 620 },
+    position: { width: 620 }, classes: ["mrg-dialogo"],
     rejectClose: false,
     content: `${cab}
       <ul class="mr-wo-lista-opciones">
@@ -136,7 +136,7 @@ export async function abrirAsistente({ primeraVez = false } = {}) {
   const hayContenido = !mundoVacio();
   const elegido = await DialogV2.wait({
     window: { title: "MR · Wicked Ones — instalación", icon: "fa-solid fa-dungeon" },
-    position: { width: 580 },
+    position: { width: 580 }, classes: ["mrg-dialogo"],
     rejectClose: false,
     content: `
       <p>${primeraVez ? "Bienvenido a <strong>Wicked Ones</strong>." : "Asistente de instalación de <strong>MR- Wicked Ones</strong>."}

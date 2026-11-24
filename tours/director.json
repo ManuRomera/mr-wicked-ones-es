@@ -37,7 +37,7 @@
     {
       "id": "diarios",
       "title": "El libro en diarios",
-      "content": "Empieza por <strong>«00 · Empieza aquí»</strong>. Después tienes la referencia rápida de las cuatro fases del ciclo de juego, las reglas de posición y efecto, los 13 Dioses Oscuros y los cuatro entornos con sus 48 facciones.",
+      "content": "Empieza por <strong>«00 · Empieza aquí»</strong>. Después tienes la referencia rápida de las cuatro fases del ciclo de juego, las reglas de posición y efecto, los 13 Dioses Oscuros y los cuatro entornos con sus 62 facciones.",
       "selector": "#sidebar",
       "tooltipDirection": "LEFT"
     },

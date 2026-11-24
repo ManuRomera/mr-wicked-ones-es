@@ -1,6 +1,6 @@
 {
   "name": "mr-wicked-ones-es",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "private": true,
   "type": "module",
   "description": "MR- Wicked Ones: Contenido Completo y Campaña (The Hills Press) para Foundry VTT v13/v14",
@@ -10,7 +10,7 @@
     "test": "node --test tests/reglas.test.mjs",
     "check": "node --test tests/reglas.test.mjs && node scripts/build.mjs",
     "arte": "python3 tools/ingest_arte.py",
-    "audio": "python3 tools/audio.py"
+    "audio": "python3 tools/banda.py"
   },
   "devDependencies": {
     "archiver": "7.0.1",

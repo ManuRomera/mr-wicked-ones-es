@@ -37,12 +37,13 @@
 }
 
 :root.mrg-oscuro {
-  --g-fondo: #14100d;
-  --g-papel: #201915;
-  --g-papel-2: #2a211c;
-  --g-tinta: #f0e6d2;
-  --g-tinta-2: #c3b49a;
-  --g-linea: #4d4035;
+  /* v2.11: grafito casi neutro en vez de marrón: más contraste y nada «embarrado» */
+  --g-fondo: #0f0f11;
+  --g-papel: #18181b;
+  --g-papel-2: #232327;
+  --g-tinta: #f6f1e7;
+  --g-tinta-2: #d4cbbb;
+  --g-linea: #5f5a55;
   --g-sangre: #ee5a4d;
   --g-sangre-fuerte: #b8322a;
   --g-oro: #e8b650;
@@ -210,6 +211,7 @@
   color: transparent; display: grid; place-items: center;
   font-size: 1rem; line-height: 1; transition: background .1s, transform .08s;
 }
+:root.mrg-oscuro .mrg-pip:not(.mrg-pip--corazon, [aria-pressed="true"]) { border-color: #8a8178; background: #2c2c31; } /* casillas vacías visibles sobre fondo oscuro */
 .mrg-pip:hover { transform: translateY(-1px); background: color-mix(in oklab, var(--g-papel-2) 75%, var(--g-sangre)); }
 .mrg-pip[aria-pressed="true"] { background: var(--g-sangre-fuerte); color: #fff; border-color: #000; }
 .mrg-pip[aria-pressed="true"]::after { content: "✕"; font-weight: 900; font-size: .95em; }
@@ -236,6 +238,7 @@
   border: 2px solid var(--g-hierro); border-radius: 2px; background: var(--g-papel-2); transform: skewX(-14deg);
 }
 .mrg-seg button[aria-pressed="true"] { background: var(--g-sangre-fuerte); border-color: #000; }
+:root.mrg-oscuro .mrg-seg button:not([aria-pressed="true"]) { border-color: #8a8178; background: #2c2c31; }
 .mrg-seg--oro button[aria-pressed="true"] { background: var(--g-oro-vivo); border-color: #4a3200; }
 
 /* Accesibilidad */
@@ -426,3 +429,11 @@ span.mrg-marc-seg { cursor: default; }
 .mrg-cons-proys li.hecho { opacity: .75; }
 .mrg-cons-pq { color: var(--g-tinta-2); }
 .mrg-cons-aplicar { width: auto; flex: none; white-space: nowrap; padding: .1rem .5rem; font-weight: 700; margin-left: auto; }
+
+/* Ventanas que caben en cualquier pantalla (kit mr-pantallas): el tope se calcula con la escala aplicada por js/ventanas.mjs */
+.application.mrg-ventana, .application.mrg-dialogo, .app.mrg-hoja {
+  max-width: calc((100vw - 8px) / var(--mrg-esc-ventana, 1));
+  max-height: calc((100vh - 1.5 * var(--hotbar-height, 52px)) / var(--mrg-esc-ventana, 1));
+}
+:where(.application.mrg-ventana) > :where(.window-content) { overflow: auto; min-height: 0; }
+.mrg-sel-fila--bloq { opacity: .45; }

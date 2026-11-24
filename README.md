@@ -43,7 +43,7 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 
 | Compendio | Contenido |
 |---|---|
-| **Campaña** | «El Valle Silencioso»: 21 escenas ilustradas y mapas, con **lectura**, **música** y **efectos**; listas de reproducción; macros. |
+| **Campaña** | «El Valle Silencioso»: 21 escenas ilustradas y mapas, con **lectura**, **música**, **ambiente** y **efectos** propios; 4 listas de reproducción (música, estados, ambientes y efectos); macros. |
 | **Libro y referencia** | Diarios por capítulos, «Empieza aquí» y las lecturas de escena. |
 | **Tablas** | Las 49 tablas aleatorias del manual, literales: incursiones, invasiones, semillas, pactos, objetos, botín, desastres, represalias, descubrimientos y generador de mazmorras. |
 | **Aventureros y ayudantes** | 30 aventureros con sus 6 movimientos y 36 ayudantes, cada uno con retrato. |
@@ -59,6 +59,14 @@ Todo está en carpetas, y los compendios del sistema quedan separados de los de 
 
 ### Crear un monstruo paso a paso (o al azar)
 El **creador** sigue el orden del manual: raza, vocación, capacidad de vocación, reparto de acciones (3/2/2/1/1), impulso oscuro, juerga, equipo y suministros con su defensa, y nombre. Cada paso tiene su botón **«Al azar»** y hay un **«Todo al azar»** para tener un monstruo listo en diez segundos. Se abre desde el directorio de Actores («Crear monstruo»), desde la barra de la hoja (para rehacer un personaje) o con `api.abrirCreador()`.
+
+Respeta las reglas del libro (págs. 70 y 89). La vocación **no da puntos de acción**: todos reparten 9 (una acción a 3, dos a 2 y dos a 1), y el clic no deja pasarse. Tampoco hay **nivel de carga**: eliges 4 objetos de equipo con su defensa y 3 de suministro, que en partida sacas tachando una de tus 2 casillas. Primero se ofrecen los **12 objetos de ejemplo de tu vocación**. Como mucho puedes llevar **un objeto valioso** (o **1 oro** en su lugar) y nada poderoso. También puedes dejar el equipo para **decidirlo sobre la marcha**.
+
+### Ventanas que caben en cualquier pantalla
+Fichas, creador, lanzador de tiradas, selector y asistentes se **escalan en proporción a la pantalla**: en un portátil de 13″ se ven igual de completas que en un monitor grande y el botón principal nunca queda fuera. Si prefieres otro tamaño, el ajuste de cliente **«Tamaño de las ventanas (%)»** lo fija.
+
+### Banda sonora
+Cada escena trae su **música** (de **Kevin MacLeod**, CC BY 4.0), un **ambiente en bucle** (cueva con goteo, braseros, picos, caldero, viento o casco de barco) y sus propios **efectos** en la barra de Dirección. Siete **estados** (sigilo, tensión, combate, misterio, triunfo, derrota y juerga) cambian la música en cualquier momento. Los efectos y ambientes son grabaciones CC0 de Freesound, todo con bucles sin cortes y el mismo master.
 
 ### Constructor de mazmorras al estilo *Dungeon Keeper*
 Un **constructor interactivo** (botón de la barra de escena) para excavar la mazmorra en la propia escena. **Excavas** túneles, **construyes salas** de diez tipos con solo arrastrar un rectángulo (o pulsar una celda): la sala **se crea sola, ajustada al espacio**, y si es menor que su mínimo crece hasta él. Las salas pueden tener **cualquier forma** (óvalo, L, cruz o pintada celda a celda). Se dibuja en vista 3/4 con arte propio (cofres, yunques, hornos, altares, tronos, armeros, jaulas…) y **cada tipo tiene su plano**: el trono o el altar al fondo, **la alfombra siguiendo el eje de la puerta** (horizontal o vertical), pilares y estatuas en las salas grandes y más oro en el tesoro cuanto más sube el nivel de la mazmorra. Los **pasillos llevan antorchas** de frente o de perfil según corran en horizontal o vertical, y unos **duendes diminutos** recorren la mazmorra picando y trabajando: su número crece con el nivel de la mazmorra y el DJ regula la densidad (se apagan en Ajustes). Con el **látigo** (como en *Dungeon Keeper*) los azuzas: trabajan al doble de velocidad un rato. Hay **efectos de sonido** (cavar, construir, puertas, trampas, látigo) y **ambiente** de cueva, con interruptor y volumen en el propio panel. Puedes colocar las **trampas y trucos del manual** (mecanismo, detonador y nivel de sus tablas), activarlos con la tirada del manual y marcarlos como descubiertos. Los **tokens** pasan a **media casilla** en las escenas de mazmorra para quedar a la escala de las salas (ajuste).
@@ -171,7 +179,7 @@ https://github.com/ManuRomera/mr-wicked-ones-es/releases/latest/download/module.
 
 ## 🔧 Cómo está hecho
 
-El arte se genera en local con **Flux (Draw Things)** y se procesa con `tools/ingest_arte.py`; la música se sintetiza con `tools/audio.py`; `npm run datos` ensambla los compendios (`_data` → `_pack`) y `npm run build` los compila. El informe de la reescritura está en [`docs/AUDITORIA.md`](docs/AUDITORIA.md).
+El arte se genera en local con **Flux (Draw Things)** y se procesa con `tools/ingest_arte.py`; la banda sonora (Kevin MacLeod, CC BY 4.0, y efectos CC0 de Freesound) se monta con `tools/banda.py`; `npm run datos` ensambla los compendios (`_data` → `_pack`) y `npm run build` los compila. El informe de la reescritura está en [`docs/AUDITORIA.md`](docs/AUDITORIA.md).
 
 ```bash
 npm install
@@ -183,7 +191,8 @@ npm run datos && npm run build
 
 - **Juego original:** *Wicked Ones*, de **Ben Nielson** (Bandit Camp), CC0. Edición en español: The Hills Press.
 - **Sistema:** Spearhead y LorduFreeman. **Traducción base:** wicked-ones-esp.
-- **Diseño, arte generado, música, programación y adaptación:** Manu Romera (MR · Digital RPG Design).
+- **Diseño, arte generado, programación y adaptación:** Manu Romera (MR · Digital RPG Design).
+- **Música:** Kevin MacLeod ([incompetech.com](https://incompetech.com)), licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Efectos y ambientes:** [Freesound.org](https://freesound.org), CC0. Títulos y autores en `NOTICE.md`. / *Music by Kevin MacLeod (CC BY 4.0); effects and ambiences from Freesound (CC0).*
 - Más en [`NOTICE.md`](NOTICE.md). Licencia MIT para el código.
 
 <p align="center"><sub>MR- · Manu Romera · <a href="https://github.com/ManuRomera">github.com/ManuRomera</a></sub></p>
@@ -210,6 +219,7 @@ npm run datos && npm run build
 - **Roller** inspired by generic FitD rollers (Position × Effect grid, Help / Go all out / dark pact / dark heart, live odds) and **monster-themed chat cards**.
 - **Full accessibility panel** (dark mode also on chat cards, high contrast, reading mode, text size, plain font, spacing, big buttons, less motion/effects, colour-blind marks) and a switch back to the original system look.
 - **Scene reading + music + effects** for 21 scenes through [MR- Dirección](https://github.com/ManuRomera/mr-direccion); original synthesized soundtrack.
+- **Character creation by the book** (3/2/2/1/1 action dots enforced, 4 gear + 3 supply items, vocation items first, one valuable item or 1 gold, no load levels), **windows that scale to any screen**, a graphite dark sheet and a **soundtrack by Kevin MacLeod (CC BY 4.0) with CC0 Freesound effects**: music, mood motifs and an ambience loop for every scene.
 - **Rulebook content, nothing invented**: the 49 random tables, 204 dungeon duties (rooms of every theme, traps, gates, example tricks, creatures, discoveries), the 62 example factions of the four settings (tier, traits, clocks), the 30 example adventurers and the book's items, all taken from the Spanish rulebook.
 - **Reinstall content** on update without touching anything that isn't the module's.
 - **Automations** verified against the *Wicked Ones* 1.4 rulebook (CC0): resistance stress, feral state, shock, practice XP, Dark Heart +1D; all optional.

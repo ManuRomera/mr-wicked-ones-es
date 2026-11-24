@@ -16,6 +16,7 @@ const PASOS = [
   ["raza", "Raza", "fa-dragon"], ["voc", "Vocación", "fa-hat-wizard"], ["cap", "Capacidad", "fa-bolt"], ["acc", "Acciones", "fa-dice"],
   ["imp", "Impulso oscuro", "fa-heart-crack"], ["jue", "Juerga", "fa-champagne-glasses"], ["eq", "Equipo", "fa-toolbox"], ["nom", "Nombre", "fa-signature"]
 ];
+const CUPO = { 3: 1, 2: 2, 1: 2 };
 const BORRAR = ["monster_race", "calling", "specialability", "wickedimpulse", "revelry", "gearsupply", "defense"];
 
 export class CreadorMR extends App {
@@ -28,8 +29,8 @@ export class CreadorMR extends App {
     super();
     this.actor = actor;
     this.paso = 0;
-    this.e = { raza: null, voc: null, cap: null, acciones: {}, imp: null, jue: null, equipo: [], sumin: [], defensa: "", nombre: actor?.name && actor.name !== "Nuevo personaje" ? actor.name : "" };
-    this.filtro = ""; this.cat = "";
+    this.e = { raza: null, voc: null, cap: null, acciones: {}, imp: null, jue: null, equipo: [], sumin: [], defensa: "", oro: false, marcha: false, nombre: actor?.name && actor.name !== "Nuevo personaje" ? actor.name : "" };
+    this.filtro = ""; this.cat = "voc";
     this.options.window.title = actor ? `Rehacer · ${actor.name}` : "Crear monstruo";
   }
 
@@ -47,7 +48,12 @@ export class CreadorMR extends App {
   #nucleo(v) { return v?.capacidades.find(h => h.system?.ability_group === "group_core"); }
   #opcionales(v) { return (v?.capacidades ?? []).filter(h => h.system?.ability_group !== "group_core"); }
   #conteo() { const c = { 3: 0, 2: 0, 1: 0 }; for (const v of Object.values(this.e.acciones)) if (v) c[v]++; return c; }
-  #valorados(d) { return [...this.e.equipo, ...this.e.sumin].filter(i => d.cat[i]?.datos.system?.quality_category !== "mundane").length; }
+  /** Objeto elegido: índice del catálogo o «v:Nombre» (objeto de ejemplo de la vocación, siempre mundano). */
+  #obj(d, k) {
+    if (typeof k === "string") return { nombre: k.slice(2), valioso: false };
+    const x = d.cat[k]; return { nombre: x?.nombre ?? "?", valioso: x?.datos.system?.quality_category !== "mundane", x };
+  }
+  #valorados(d) { return [...this.e.equipo, ...this.e.sumin].filter(k => this.#obj(d, k).valioso).length; }
 
   #valido(k, d) {
     const e = this.e;
@@ -57,7 +63,9 @@ export class CreadorMR extends App {
     if (k === "acc") { const c = this.#conteo(); return c[3] === 1 && c[2] === 2 && c[1] === 2; }
     if (k === "imp") return Boolean(e.imp);
     if (k === "jue") return Boolean(e.jue);
-    if (k === "eq") return e.equipo.length === 4 && e.sumin.length === 3 && Boolean(e.defensa.trim()) && this.#valorados(d) <= 1;
+    // Manual pág. 89: cuatro de equipo + defensa y tres de suministro, como mucho uno valioso (o 1 oro en su lugar);
+    // también se puede decidir sobre la marcha durante la partida.
+    if (k === "eq") return e.marcha || (e.equipo.length === 4 && e.sumin.length === 3 && Boolean(e.defensa.trim()) && this.#valorados(d) <= (e.oro ? 0 : 1));
     if (k === "nom") return Boolean(e.nombre.trim());
     return false;
   }
@@ -74,12 +82,12 @@ export class CreadorMR extends App {
     } else if (k === "imp") e.imp = azar(d.imp).uuid;
     else if (k === "jue") e.jue = azar(d.jue).uuid;
     else if (k === "eq") {
-      const mund = d.cat.map((x, i) => ({ x, i })).filter(({ x }) => x.datos.system?.quality_category === "mundane");
-      const eqs = barajar(mund.filter(({ x }) => /Armas|Herramientas/.test(x.cat))).slice(0, 4).map(o => o.i);
-      const sums = barajar(mund.filter(({ i }) => !eqs.includes(i))).slice(0, 3).map(o => o.i);
-      e.equipo = eqs; e.sumin = sums;
-      if (Math.random() < .6) { // un objeto valioso en lugar de uno de suministro
-        const val = d.cat.map((x, i) => ({ x, i })).filter(({ x }) => x.datos.system?.quality_category === "valuable" && /Artilugios|Mejunjes/.test(x.cat));
+      const ideas = barajar(this.#voc(d)?.objetos ?? []).map(n => `v:${n}`);
+      const mund = barajar(d.cat.map((x, i) => ({ x, i })).filter(({ x }) => x.datos.system?.quality_category === "mundane").map(o => o.i));
+      const pool = [...ideas, ...mund];
+      e.equipo = pool.slice(0, 4); e.sumin = pool.slice(4, 7); e.marcha = false; e.oro = Math.random() < .3;
+      if (!e.oro) { // el objeto valioso del manual: artilugio o tres dosis de poción o mejunje
+        const val = d.cat.map((x, i) => ({ x, i })).filter(({ x }) => x.datos.system?.quality_category === "valuable");
         if (val.length) e.sumin[2] = azar(val).i;
       }
       e.defensa = azar(DEFENSAS)[0];
@@ -114,7 +122,7 @@ export class CreadorMR extends App {
       const c = this.#conteo();
       const falta = (v, n) => `<span class="mrg-chip ${c[v] === n ? "mrg-chip--verde" : c[v] > n ? "mrg-chip--sangre" : ""}">${c[v]}/${n} con ${v}</span>`;
       const cols = Object.entries(ATRIBUTOS).map(([at, acs]) => `<div class="mrg-crea-atr"><h4>${esc(nombreAtributo(at))}</h4>${acs.map(a => `<button type="button" class="mrg-crea-acc v${e.acciones[a] ?? 0}" data-acc="${a}" aria-label="${esc(nombreAccion(a))}: ${e.acciones[a] ?? 0} puntos"><span>${esc(nombreAccion(a))}</span><b>${"●".repeat(e.acciones[a] ?? 0) || "○"}</b></button>`).join("")}</div>`).join("");
-      return `<p class="mrg-nota">Pulsa una acción para subirla (0 → 3 y vuelta). Reparte: <strong>una con 3</strong> (lo que mejor se te da), <strong>dos con 2</strong> y <strong>dos con 1</strong>.</p><p class="mrg-fila">${falta(3, 1)}${falta(2, 2)}${falta(1, 2)}</p><div class="mrg-crea-acciones">${cols}</div>`;
+      return `<p class="mrg-nota">En Wicked Ones la vocación <strong>no</strong> da puntos de acción: todos los monstruos empiezan con el mismo reparto, <strong>9 puntos</strong> en cinco acciones (manual, pág. 89). <strong>Una con 3</strong> (lo que mejor se te da), <strong>dos con 2</strong> y <strong>dos con 1</strong>; las otras cuatro empiezan a 0 y se aprenden con práctica. Pulsa una acción para subirla: solo toma valores que aún tengan hueco.</p><p class="mrg-fila">${falta(3, 1)}${falta(2, 2)}${falta(1, 2)}</p><div class="mrg-crea-acciones">${cols}</div>`;
     }
     if (k === "imp") return `<p class="mrg-nota">Al elegirlo, empiezas con un corazón oscuro. Cuando lo satisfaces, ganas otro.</p><div class="mrg-crea-cartas">${d.imp.map(x => this.#carta(x.uuid, x.name, x.system?.description, e.imp === x.uuid)).join("")}</div>`;
     if (k === "jue") return `<p class="mrg-nota">Así libera estrés tu monstruo. Lo que elijas determina qué ocurre cuando te pasas.</p><div class="mrg-crea-cartas">${d.jue.map(x => this.#carta(x.uuid, x.name, x.system?.description, e.jue === x.uuid)).join("")}</div>`;
@@ -123,7 +131,7 @@ export class CreadorMR extends App {
     const resumen = [["Raza", r?.nombre], ["Vocación", v?.nombre], ["Capacidades", [this.#nucleo(v)?.name, d.vocs.flatMap(x => x.capacidades).find(h => h.uuid === e.cap)?.name].filter(Boolean).join(" + ")],
       ["Acciones", ACCIONES.filter(a => e.acciones[a]).sort((a, b) => e.acciones[b] - e.acciones[a]).map(a => `${nombreAccion(a)} ${e.acciones[a]}`).join(" · ")],
       ["Impulso oscuro", d.imp.find(x => x.uuid === e.imp)?.name], ["Juerga", d.jue.find(x => x.uuid === e.jue)?.name],
-      ["Equipo", e.equipo.map(i => d.cat[i]?.nombre).join(", ")], ["Suministros", e.sumin.map(i => d.cat[i]?.nombre).join(", ")], ["Defensa", e.defensa]]
+      ...(e.marcha ? [["Equipo", "Se decide sobre la marcha, durante la partida"]] : [["Equipo", e.equipo.map(k => this.#obj(d, k).nombre).join(", ")], ["Suministros", e.sumin.map(k => this.#obj(d, k).nombre).join(", ")], ["Defensa", e.defensa], ["Oro", e.oro ? "1 (en lugar del objeto valioso)" : "0"]])]
       .map(([t, x]) => `<tr><th>${t}</th><td>${esc(x || "—")}</td></tr>`).join("");
     return `<label class="mrg-campo"><span class="mrg-etiqueta">Nombre del monstruo</span><span class="mrg-fila"><input type="text" class="mrg-crea-nombre" value="${esc(e.nombre)}" placeholder="Cómo te llaman en la mazmorra"><button type="button" class="mrg-btn" data-azar-nombre><i class="fa-solid fa-dice"></i> Un nombre de su raza</button></span></label>
       <table class="mrg-crea-resumen">${resumen}</table>
@@ -131,18 +139,31 @@ export class CreadorMR extends App {
   }
 
   #cuerpoEquipo(d) {
-    const e = this.e, v = this.#voc(d), f = sinAcentos(this.filtro);
+    const e = this.e, v = this.#voc(d), f = sinAcentos(this.filtro), nVal = this.#valorados(d);
+    const lleno = { e: e.equipo.length >= 4, s: e.sumin.length >= 3 };
+    const sinValioso = e.oro || nVal >= 1;
+    const fila = (k, tipo) => { const o = this.#obj(d, k); return `<li><span>${esc(o.nombre)}${o.valioso ? ` <span class="mrg-chip mrg-chip--oro">Valioso</span>` : ""}</span><button type="button" class="mrg-mini" data-quita="${tipo}|${esc(k)}" aria-label="Quitar ${esc(o.nombre)}"><i class="fa-solid fa-xmark"></i></button></li>`; };
+    const botones = (attr, valioso) => { const bloq = valioso && sinValioso; return `<button type="button" class="mrg-btn" ${attr} data-uso="e" ${lleno.e || bloq ? "disabled" : ""}>Equipo</button><button type="button" class="mrg-btn" ${attr} data-uso="s" ${lleno.s || bloq ? "disabled" : ""}>Suministro</button>`; };
+    const elegidos = new Set([...e.equipo, ...e.sumin].map(String));
+    let lista;
+    if (this.cat === "voc") {
+      lista = (v?.objetos ?? []).filter(n => !elegidos.has(`v:${n}`) && (!f || sinAcentos(n).includes(f)))
+        .map(n => `<article class="mrg-sel-fila"><header><h5>${esc(n)}</h5>${botones(`data-add-voc="${esc(n)}"`, false)}</header></article>`).join("");
+    } else {
+      lista = d.cat.map((x, i) => ({ x, i })).filter(({ x, i }) => (!this.cat || x.cat === this.cat) && (!f || sinAcentos(x.nombre).includes(f)) && !elegidos.has(String(i))).slice(0, 80)
+        .map(({ x, i }) => { const val = x.datos.system?.quality_category !== "mundane"; return `<article class="mrg-sel-fila ${val && sinValioso ? "mrg-sel-fila--bloq" : ""}"><header><h5>${esc(x.nombre)}</h5>${val ? `<span class="mrg-chip mrg-chip--oro">Valioso</span>` : ""}${botones(`data-add="${i}"`, val)}</header>${x.desc ? `<p>${esc(x.desc)}</p>` : ""}</article>`; }).join("");
+    }
     const cats = [...new Set(d.cat.map(x => x.cat))];
-    const fila = (i, tipo) => `<li><span>${esc(d.cat[i].nombre)}</span><button type="button" class="mrg-mini" data-quita="${tipo}:${i}" aria-label="Quitar ${esc(d.cat[i].nombre)}"><i class="fa-solid fa-xmark"></i></button></li>`;
-    const lista = d.cat.map((x, i) => ({ x, i })).filter(({ x, i }) => (!this.cat || x.cat === this.cat) && (!f || sinAcentos(x.nombre).includes(f)) && !e.equipo.includes(i) && !e.sumin.includes(i)).slice(0, 80)
-      .map(({ x, i }) => { const val = x.datos.system?.quality_category !== "mundane"; return `<article class="mrg-sel-fila"><header><h5>${esc(x.nombre)}</h5>${val ? `<span class="mrg-chip mrg-chip--oro">Valioso</span>` : ""}<button type="button" class="mrg-btn" data-add-eq="${i}" ${e.equipo.length >= 4 ? "disabled" : ""}>Equipo</button><button type="button" class="mrg-btn" data-add-su="${i}" ${e.sumin.length >= 3 ? "disabled" : ""}>Suministro</button></header>${x.desc ? `<p>${esc(x.desc)}</p>` : ""}</article>`; }).join("");
-    return `<div class="mrg-crea-eq"><aside><h4>Equipo <small>${e.equipo.length}/4</small></h4><ul>${e.equipo.map(i => fila(i, "e")).join("") || "<li class='mrg-nota'>Cosas que siempre llevas encima</li>"}</ul>
-      <h4>Suministros <small>${e.sumin.length}/3</small></h4><ul>${e.sumin.map(i => fila(i, "s")).join("") || "<li class='mrg-nota'>Se gastan con el uso</li>"}</ul>
+    const reglas = `<p class="mrg-nota"><strong>En Wicked Ones no hay nivel de carga</strong> (manual, págs. 70 y 89): llevas hasta <strong>4 objetos de equipo</strong>, siempre encima, que te dan <strong>una defensa</strong>, y apuntas <strong>3 de suministro</strong>. En partida, cada vez que sacas uno de tus suministros tachas una de tus <strong>2 casillas de suministro</strong>; sin casillas, no llevas nada más. Se restablecen en la fase de recuperación. Solo <strong>uno</strong> puede ser valioso (un artilugio u objeto mágico de nivel 1, o tres dosis de una poción o mejunje de nivel 1), o te llevas <strong>1 oro</strong> en su lugar; nada poderoso.</p>`;
+    const opciones = `<p class="mrg-fila"><button type="button" class="mrg-chipbtn ${e.oro ? "mrg-sel" : ""}" data-oro aria-pressed="${e.oro}"><i class="fa-solid fa-coins"></i> 1 oro en vez del objeto valioso</button><button type="button" class="mrg-chipbtn ${e.marcha ? "mrg-sel" : ""}" data-marcha aria-pressed="${e.marcha}"><i class="fa-solid fa-person-running"></i> Decidirlo sobre la marcha</button></p>`;
+    if (e.marcha) return `${reglas}${opciones}<p class="mrg-nota">Empiezas sin equipo apuntado: lo irás añadiendo en la pestaña <strong>Equipo</strong> de la hoja cuando haga falta, con los mismos límites.</p>`;
+    return `${reglas}${opciones}<div class="mrg-crea-eq"><aside><h4>Equipo <small>${e.equipo.length}/4</small></h4><ul>${e.equipo.map(k => fila(k, "e")).join("") || "<li class='mrg-nota'>Cosas que siempre llevas encima</li>"}</ul>
+      <h4>Suministros <small>${e.sumin.length}/3</small></h4><ul>${e.sumin.map(k => fila(k, "s")).join("") || "<li class='mrg-nota'>Lo que sacas de la bolsa en partida</li>"}</ul>
       <label class="mrg-campo"><span class="mrg-etiqueta">Defensa de tu equipo</span><select class="mrg-crea-def"><option value="">— elige —</option>${DEFENSAS.map(([n]) => `<option ${e.defensa === n ? "selected" : ""}>${esc(n)}</option>`).join("")}${e.defensa && !DEFENSAS.some(([n]) => n === e.defensa) ? `<option selected>${esc(e.defensa)}</option>` : ""}</select></label>
-      <p class="mrg-nota">Como mucho <strong>un</strong> objeto valioso (${this.#valorados(d)}/1)${this.#valorados(d) > 1 ? " — ¡te pasas!" : ""}.${v?.objetos?.length ? ` Ideas de ${esc(v.nombre.toLowerCase())}: ${esc(v.objetos.join(", "))}.` : ""}</p></aside>
+      <p class="mrg-nota">Valioso: ${nVal}/${e.oro ? 0 : 1}${nVal > (e.oro ? 0 : 1) ? " — ¡te pasas!" : ""}.</p></aside>
       <section><input type="search" class="mrg-sel-buscar mrg-crea-buscar" placeholder="Buscar objeto…" value="${esc(this.filtro)}" aria-label="Buscar objeto">
-      <div class="mrg-sel-cats"><button type="button" class="mrg-chipbtn ${!this.cat ? "mrg-sel" : ""}" data-cat="">Todo</button>${cats.map(c => `<button type="button" class="mrg-chipbtn ${this.cat === c ? "mrg-sel" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("")}</div>
-      <div class="mrg-sel-lista">${lista || `<p class="mrg-vacio">Nada coincide.</p>`}</div></section></div>`;
+      <div class="mrg-sel-cats"><button type="button" class="mrg-chipbtn ${this.cat === "voc" ? "mrg-sel" : ""}" data-cat="voc">De tu vocación${v ? ` (${esc(v.nombre.toLowerCase())})` : ""}</button>${cats.map(c => `<button type="button" class="mrg-chipbtn ${this.cat === c ? "mrg-sel" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("")}</div>
+      <div class="mrg-sel-lista">${lista || `<p class="mrg-vacio">${this.cat === "voc" && !v ? "Elige antes una vocación." : "Nada coincide."}</p>`}</div></section></div>`;
   }
 
   async _renderHTML() {
@@ -189,16 +210,21 @@ export class CreadorMR extends App {
     else if ("azarNombre" in ds) this.#azarPaso("nom", d);
     else if ("crear" in ds) return this.#crear(d);
     else if (ds.cat !== undefined) this.cat = ds.cat;
-    else if (ds.acc) { const a = ds.acc; e.acciones[a] = ((e.acciones[a] ?? 0) + 1) % 4; if (!e.acciones[a]) delete e.acciones[a]; }
+    else if (ds.acc) { // sube al siguiente valor con cupo libre (una con 3, dos con 2, dos con 1); si no queda, vuelve a 0
+      const a = ds.acc, c = this.#conteo(), act = e.acciones[a] ?? 0;
+      let n = act; do n = (n + 1) % 4; while (n && c[n] >= CUPO[n]);
+      if (n) e.acciones[a] = n; else delete e.acciones[a];
+    } else if ("marcha" in ds) e.marcha = !e.marcha;
+    else if ("oro" in ds) e.oro = !e.oro;
+    else if (ds.addVoc !== undefined) { const l = ds.uso === "s" ? e.sumin : e.equipo; if (l.length < (ds.uso === "s" ? 3 : 4)) l.push(`v:${ds.addVoc}`); }
     else if (ds.elige !== undefined) {
       if (k === "raza") e.raza = ds.elige;
       else if (k === "voc") { if (e.voc !== ds.elige) e.cap = null; e.voc = ds.elige; }
       else if (k === "cap") e.cap = ds.elige;
       else if (k === "imp") e.imp = ds.elige;
       else if (k === "jue") e.jue = ds.elige;
-    } else if (ds.addEq !== undefined) { if (e.equipo.length < 4) e.equipo.push(Number(ds.addEq)); }
-    else if (ds.addSu !== undefined) { if (e.sumin.length < 3) e.sumin.push(Number(ds.addSu)); }
-    else if (ds.quita) { const [tp, i] = ds.quita.split(":"); const l = tp === "e" ? e.equipo : e.sumin; l.splice(l.indexOf(Number(i)), 1); }
+    } else if (ds.add !== undefined) { const l = ds.uso === "s" ? e.sumin : e.equipo; if (l.length < (ds.uso === "s" ? 3 : 4)) l.push(Number(ds.add)); }
+    else if (ds.quita) { const [tp, i] = ds.quita.split("|"); const l = tp === "e" ? e.equipo : e.sumin; l.splice(l.indexOf(i.startsWith("v:") ? i : Number(i)), 1); }
     else return;
     this.render();
   }
@@ -213,15 +239,22 @@ export class CreadorMR extends App {
       const previos = actor.items.filter(i => BORRAR.includes(i.type)).map(i => i.id);
       if (previos.length) await actor.deleteEmbeddedDocuments("Item", previos);
     } else actor = await Actor.create({ name: e.nombre.trim(), type: "character" });
-    const cambios = { name: e.nombre.trim(), "system.dark_hearts.value": 1 };
+    const cambios = { name: e.nombre.trim(), "system.dark_hearts.value": 1, "system.gold.value": e.oro && !e.marcha ? 1 : 0 };
     for (const [at, acs] of Object.entries(ATRIBUTOS)) for (const a of acs) { cambios[`system.attributes.${at}.skills.${a}.value`] = e.acciones[a] ?? 0; cambios[`system.attributes.${at}.skills.${a}.practice`] = 0; }
     await actor.update(cambios);
     const copia = o => { const c = foundry.utils.deepClone(o); delete c._id; return c; };
     const caps = d.vocs.flatMap(x => x.capacidades);
     const items = [copia(r.doc.datos), copia(v.docCalling.datos), this.#nucleo(v) && copia(this.#nucleo(v).datos), e.cap && copia(caps.find(h => h.uuid === e.cap)?.datos),
       copia(d.imp.find(x => x.uuid === e.imp).datos), copia(d.jue.find(x => x.uuid === e.jue).datos)].filter(Boolean);
-    for (const [lista, uso] of [[e.equipo, "gear"], [e.sumin, "supply"]]) for (const i of lista) { const o = copia(d.cat[i].datos); o.system = { ...(o.system ?? {}), gear_or_supply: uso }; items.push(o); }
-    items.push({ name: e.defensa.trim(), type: "defense", img: "systems/wicked-ones/styles/assets/icons/Icon.6_88.png", system: { checked: false } });
+    if (!e.marcha) {
+      for (const [lista, uso] of [[e.equipo, "gear"], [e.sumin, "supply"]]) for (const k of lista) {
+        const o = typeof k === "string"
+          ? { name: k.slice(2), type: "gearsupply", img: "icons/svg/item-bag.svg", system: { description: `Objeto de ejemplo de la vocación ${v.nombre.toLowerCase()} (manual).`, quality_category: "mundane", use_type: "unlimited" } }
+          : copia(d.cat[k].datos);
+        o.system = { ...(o.system ?? {}), gear_or_supply: uso }; items.push(o);
+      }
+      if (e.defensa.trim()) items.push({ name: e.defensa.trim(), type: "defense", img: "systems/wicked-ones/styles/assets/icons/Icon.6_88.png", system: { checked: false } });
+    }
     await actor.createEmbeddedDocuments("Item", items);
     ui.notifications.info(`${actor.name} está listo para la mazmorra.`);
     actor.sheet.render(true);

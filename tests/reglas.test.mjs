@@ -532,3 +532,24 @@ test("Constructor: ninguna sala ni túnel se queda a oscuras, y las salas se rec
   assert.ok(r.ok && r.recortada);
   assert.ok(celdasDe(m.salas.at(-1)).every(([i, j]) => !contiene(m.salas[0], i, j)));
 });
+
+test("Ventanas que caben en cualquier pantalla (kit mr-pantallas)", async () => {
+  const { escalaDeVentana } = await import("../js/core/ventanas.mjs");
+  assert.equal(escalaDeVentana(800, 860, { ancho: 1920, alto: 872, total: 950 }), 1, "a 1920×950 la ficha va a tamaño 1");
+  const portatil = escalaDeVentana(800, 860, { ancho: 1280, alto: 572, total: 650 });
+  assert.ok(portatil < 0.7 && portatil >= 0.5, "en un portátil pequeño se encoge en proporción");
+  assert.ok(860 * portatil <= 572, "y cabe entera en el alto útil");
+  assert.equal(escalaDeVentana(800, 860, { ancho: 1280, alto: 572, total: 650 }, 120), 1.2, "el ajuste manual manda");
+});
+
+test("Compendios: todo dentro de su carpeta (facciones por entorno, labores por tipo)", async () => {
+  const carpetas = JSON.parse(await fs.readFile("_pack/carpetas.json", "utf8"));
+  const porId = new Map(Object.values(carpetas).flat().map(f => [f._id, f]));
+  for (const pack of ["labores-es", "facciones-es", "equipo-es", "aventureros-es"]) {
+    const docs = JSON.parse(await fs.readFile(`_pack/${pack}.json`, "utf8"));
+    const sueltos = docs.filter(d => !porId.has(d.folder));
+    assert.equal(sueltos.length, 0, `${pack}: sin carpeta → ${sueltos.slice(0, 3).map(d => d.name).join(", ")}`);
+  }
+  const fac = JSON.parse(await fs.readFile("_pack/facciones-es.json", "utf8"));
+  for (const f of fac) assert.ok(f.name.toLowerCase().startsWith(`[${porId.get(f.folder).name.toLowerCase()}]`), `${f.name} en su entorno`);
+});
