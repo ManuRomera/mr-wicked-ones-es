@@ -24,6 +24,7 @@
 
   <nav class="mrg-nav tabs" aria-label="Secciones de la mazmorra">
     <a class="item" data-tab="descripcion"><i class="fa-solid fa-scroll"></i> Descripción</a>
+    <a class="item" data-tab="obra"><i class="fa-solid fa-trowel-bricks"></i> Construcción{{#if mr.obra.obras.length}} <span class="mrg-cuenta">{{mr.obra.obras.length}}</span>{{/if}}</a>
     <a class="item" data-tab="salas"><i class="fa-solid fa-door-open"></i> Salas de nivel 3 <span class="mrg-cuenta">{{mr.salas.length}}</span></a>
     <a class="item" data-tab="plan"><i class="fa-solid fa-route"></i> Plan maestro</a>
     <a class="item" data-tab="notas"><i class="fa-solid fa-feather"></i> Notas</a>
@@ -47,9 +48,36 @@
       </div>
     </section>
 
+    <section class="tab mrg-panel" data-tab="obra">
+      {{#if mr.obra}}
+      <div class="mrg-barra-rapida">
+        <span class="mrg-nota">Lo que hay dibujado en «{{mr.obra.nombre}}». {{#if mr.obra.inicial}}<strong>Mazmorra inicial</strong>: lo que se dibuja ahora no es un proyecto (pág. 171).{{else}}Cada cosa nueva es un proyecto de descanso: nivel 1, una tirada; nivel 2, reloj de 4; nivel 3, reloj de 8 y los materiales (págs. 196-197 y 238).{{/if}}</span>
+        <a class="mrg-btn" data-ver-escena="{{mr.obra.escena}}"><i class="fa-solid fa-map"></i> Ver la mazmorra</a>
+      </div>
+      <div class="mrg-campos">
+        {{#each mr.obra.niveles}}<div class="mrg-campo"><span class="mrg-etiqueta">{{t}}</span><b>{{n}}</b></div>{{/each}}
+        <div class="mrg-campo"><span class="mrg-etiqueta">Santuario</span><b>{{#if mr.obra.santuario}}Sí{{else}}Falta{{/if}}</b></div>
+        <div class="mrg-campo"><span class="mrg-etiqueta">Guaridas de criatura</span><b>{{mr.obra.guaridas.length}}</b><small>Empezáis con una de nivel 1 y sumáis otra cada vez que sube el nivel de la mazmorra; las demás, por descubrimientos (pág. 190). Niveles: {{#each mr.obra.guaridas}}{{this}}{{#unless @last}}, {{/unless}}{{else}}ninguna{{/each}}.</small></div>
+        {{#each mr.obra.defensas}}<div class="mrg-campo"><span class="mrg-etiqueta">{{t}}</span><b>{{n}}</b></div>{{/each}}
+      </div>
+      <h4 class="mrg-seccion">Obras en curso</h4>
+      <div class="mrg-lista">
+        {{#each mr.obra.obras}}
+        <article class="mrg-objeto {{#if faltan}}mrg-objeto--falta{{/if}}">
+          <header><h5>{{nombre}}</h5><span class="mrg-chip">{{hecho}}/{{seg}}</span>{{#if faltan}}<span class="mrg-chip mrg-chip--sangre">Faltan materiales</span>{{/if}}</header>
+          <div class="mrg-reloj-barra" role="progressbar" aria-valuenow="{{hecho}}" aria-valuemax="{{seg}}" aria-label="{{nombre}}"><span style="width:{{pct}}%"></span></div>
+        </article>
+        {{else}}<p class="mrg-vacio">No hay obras en curso.</p>{{/each}}
+      </div>
+      {{else}}
+      <p class="mrg-vacio">Esta mazmorra aún no tiene mapa. Abre el constructor para dibujarla.</p>
+      {{/if}}
+      <p><a class="mrg-btn" data-constructor><i class="fa-solid fa-trowel-bricks"></i> Abrir el constructor</a></p>
+    </section>
+
     <section class="tab mrg-panel" data-tab="salas">
       <div class="mrg-barra-rapida">
-        <span class="mrg-nota">Las salas de nivel 3 que has construido. Si no son de la temática, cuentan como «flexibles».</span>
+        <span class="mrg-nota">Las salas de nivel 3: el constructor añade aquí cada una que dibujáis. Sin materiales, su obra no se termina (pág. 197); marcad cuando los consigáis. Si no son de la temática, cuentan como «flexibles».</span>
         <a class="mrg-btn" data-selector="tier3room"><i class="fa-solid fa-plus"></i> Añadir sala</a>
       </div>
       <div class="mrg-lista">

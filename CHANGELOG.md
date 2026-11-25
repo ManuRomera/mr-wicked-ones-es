@@ -1,3 +1,24 @@
+## 2.14.0 (2026-11-25)
+
+Mapa de los monstruos para toda la mesa a la vez y ficha de la mazmorra acorde al constructor. / The monsters' map for the whole table at once, and a dungeon sheet that matches the builder.
+
+### Añadido / Added
+- **Edición a la vez**: todos los jugadores pintan, colocan, mueven y tocan lo que ponen los demás al mismo tiempo; el DJ aplica las órdenes en cola, sin que ninguna pise a otra. **Deshacer por persona**: cada cual deshace lo suyo sin molestar a los demás. / Simultaneous editing with per-player undo.
+- **Menú de cada elemento** (clic derecho con cualquier herramienta, o clic con «Seleccionar»): al frente, al fondo, más grande, más pequeño, voltear, territorio mayor/menor, nombre y nota, abrir la ficha o quitar; arrastrando con «Seleccionar» se mueve. / Per-element menu.
+- **Escala general** (de 1½ a 6 días de viaje del centro al borde): ajusta el tamaño de todo lo que se pone y se dibuja en el mapa como **barra de escala**, que se puede mover u ocultar. / Global scale with an on-map scale bar.
+- **Facciones más rápidas**: la ventana filtra por **un solo grupo** y las facciones se **arrastran al mapa** sin que se cierre. / Group filter and drag-and-drop for factions.
+- **Ficha de la mazmorra**: pestaña **Construcción** con lo mismo que el constructor (salas por nivel, santuario, guaridas de criatura, defensas y obras en curso con su reloj) y botón para ver la escena. / Construction tab on the dungeon sheet.
+
+### Cambiado / Changed
+- **Solo el DJ vincula** escenas, diarios o actores a los lugares, desde su propio menú: los jugadores no ven sus escenas. / Only the GM links scenes to places.
+- **Capas por orden de colocación**: lo último que se pone queda encima (los barcos ya no se esconden bajo el mar). / Last placed is on top.
+- **Materiales de las salas de nivel 3** (pág. 197): hacen falta para **terminar** la sala, no para empezarla. Cada sala de nivel 3 que se dibuja crea su «sala de nivel 3» en la ficha de la mazmorra con la casilla de materiales; sin ellos, su reloj se queda a un segmento. Al quitar la sala del mapa, se quita de la ficha. / Tier-3 room materials are needed to finish, not to start; the builder creates the sheet item.
+
+### Corregido / Fixed
+- **Cambiar el pergamino** borraba casi todo lo dibujado y dejaba las herramientas sin efecto hasta pulsar F5: ahora el mapa y la herramienta en uso vuelven solos. / Changing the parchment no longer hides the map until F5.
+- El botón **«Nueva facción»** no hacía nada; ahora crea la facción con una **imagen genérica** (estandarte) que se cambia luego en su ficha. / «New faction» works and uses a generic image.
+- Los **mensajes del mapa** en el chat no se leían en modo oscuro: ahora usan la tarjeta del módulo. / Map chat messages readable in dark mode.
+
 ## 2.13.0 (2026-11-25)
 
 Constructor de mazmorras fiel al manual y mapa del entorno. / Rules-accurate dungeon builder and a region map builder.

@@ -85,6 +85,7 @@ export function escuchasComunes(hoja, html) {
     if (ok) it.delete();
   });
   html.find("[data-constructor]").on("click", async () => (await import("./mazmorra.mjs")).abrirConstructor());
+  html.find("[data-ver-escena]").on("click", ev => game.scenes.get(ev.currentTarget.dataset.verEscena)?.view());
   if (!hoja.isEditable) return;
   html.find("[data-selector]").on("click", ev => abrirSelector(actor, ev.currentTarget.dataset.selector, { uso: ev.currentTarget.dataset.uso }));
 

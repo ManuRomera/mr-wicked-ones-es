@@ -420,6 +420,15 @@ function contextoReglas(m) {
   return { actor: a, nivel: Number(a.system.tier?.value) || 0, tema: tipoDeTema(tema?.name), temaNombre: tema?.name ?? "", materiales, salas3 };
 }
 
+/** Sala de nivel 3 sin materiales (pág. 197): su reloj avanza, pero se queda a un segmento de terminarse. Devuelve cuánto puede avanzar. */
+function topeMateriales(m, clase, id) {
+  const s = clase === "sala" ? m.salas.find(z => z.id === id) : null;
+  if (!s?.obra || TIPOS_SALA[s.tipo]?.nivel !== 3 || !reglasOn()) return Infinity;
+  const ctx = contextoReglas(m), it = s.item && ctx.actor?.items.get(s.item);
+  const falta = it ? Boolean(it.system.missing_materials) : ctx.materiales?.[s.tipo] === false;
+  return falta ? Math.max(0, s.obra.seg - 1 - s.obra.hecho) : Infinity;
+}
+
 /** Mensajes a los demás navegadores por el socket del módulo (sonidos, latigazos, rechazos). */
 const emitir = msg => { try { game.socket.emit(`module.${MOD}`, { escena: canvas.scene?.id, ...msg }); } catch { /* sin conexión */ } };
 /** Suena aquí y en todos los navegadores que miran esta escena. */
@@ -579,11 +588,16 @@ async function ejecutar(escena, accion, datos, usuario) {
     r = { ok: n > 0, motivo: n ? "" : "Nada que cambiar ahí." };
   } else if (accion === "sala") {
     const t = TIPOS_SALA[datos.tipo], ctx = contextoReglas(m);
-    // la mazmorra inicial tiene su sala de nivel 3 aunque falten materiales (pág. 171)
-    if (reglas && t) { const rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: inicial ? null : ctx.materiales }); if (!rg.ok) return rg; }
+    // los materiales hacen falta para terminarla, no para empezarla (pág. 197): se comprueban al llenar el reloj
+    if (reglas && t) { const rg = reglasSala(m, datos.tipo, { tema: ctx.tema }); if (!rg.ok) return rg; }
     r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas, obra: reglas && !inicial, nombre: datos.nombre });
     if (r.ok) {
       const sala = m.salas.find(s => s.id === r.id);
+      // cada sala de nivel 3 del mapa es una «sala de nivel 3» de la ficha de la mazmorra, con su casilla de materiales
+      if (t.nivel === 3 && ctx.actor) {
+        const [it] = await ctx.actor.createEmbeddedDocuments("Item", [{ name: datos.nombre || t.nombre, type: "tier3room", system: { theme: t.nombre, missing_materials: !inicial } }]).catch(() => []);
+        if (it) sala.item = it.id;
+      }
       if (t.guarida) sala.nivel = inicial ? 1 : Math.max(1, ctx.nivel || 0);   // la guarida atrae criaturas del nivel que tenía la mazmorra
       const medida = r.forma === "rect" ? `${r.rect.w}×${r.rect.h}` : `${FORMAS[r.forma].toLowerCase()}, ${r.celdas} celdas`;
       const nombre = esc((datos.nombre || t.nombre).toLowerCase());
@@ -591,7 +605,11 @@ async function ejecutar(escena, accion, datos, usuario) {
         : t.guarida ? `${quien} dibuja una guarida de criatura de nivel ${sala.nivel} (${medida}).`
           : `${quien} ${inicial ? "dibuja" : "construye"} ${nombre} (${medida}).`;
     }
-  } else if (accion === "quitarSala") r = { ok: quitarSala(m, datos.id) };
+  } else if (accion === "quitarSala") {
+    const it = m.salas.find(z => z.id === datos.id)?.item;
+    r = { ok: quitarSala(m, datos.id) };
+    if (r.ok && it) await contextoReglas(m).actor?.items.get(it)?.delete();   // su «sala de nivel 3» de la ficha se va con ella
+  }
   else if (accion === "puerta") r = alternarPuerta(m, datos.x, datos.y, datos.d);
   else if (accion === "trampa") {
     if (datos.op === "poner") {
@@ -615,12 +633,13 @@ async function ejecutar(escena, accion, datos, usuario) {
   } else if (accion === "avanzar") {
     if (datos.ajuste && !usuario?.isGM) return { ok: false, motivo: "Solo el DJ ajusta un reloj sin tirada." };
     // págs. 238 y 66: cada acción de descanso es una tirada que avanza el reloj (fracaso 0, parcial 1, éxito 2, crítico 3)
-    r = avanzarObra(m, datos.clase, datos.id, Math.trunc(datos.segmentos ?? 0));
+    const tope = topeMateriales(m, datos.clase, datos.id);
+    r = avanzarObra(m, datos.clase, datos.id, Math.min(Math.trunc(datos.segmentos ?? 0), tope));
     if (r.ok) {
       const o = obrasEnCurso(foundry.utils.deepClone(actual)).find(z => z.clase === datos.clase && z.id === datos.id);
       const nombre = esc((o?.nombre ?? "la obra").toLowerCase());
       const por = { esbirros: "Los esbirros (1 de oro)", duendes: "Los duendes" }[datos.quien] ?? quien;
-      texto = datos.ajuste ? `El DJ ajusta el reloj de ${nombre}: ${r.hecho}/${r.seg}.` : `${por} trabaja${datos.quien === "esbirros" || datos.quien === "duendes" ? "n" : ""} en ${nombre}: +${Math.max(0, datos.segmentos)} (${r.hecho}/${r.seg}).${r.completa ? ` <b>¡Terminada!</b>` : ""}`;
+      texto = datos.ajuste ? `El DJ ajusta el reloj de ${nombre}: ${r.hecho}/${r.seg}.` : `${por} trabaja${datos.quien === "esbirros" || datos.quien === "duendes" ? "n" : ""} en ${nombre}: +${Math.max(0, datos.segmentos)} (${r.hecho}/${r.seg}).${r.completa ? ` <b>¡Terminada!</b>` : ""}${!datos.ajuste && datos.segmentos > tope ? " Se queda a un paso: <b>faltan los materiales</b> (márcalos en la ficha de la mazmorra, pág. 197)." : ""}`;
     }
   } else if (accion === "proyecto") {
     // un proyecto de la hoja de un PJ con el reloj lleno termina una obra en curso
@@ -630,6 +649,7 @@ async function ejecutar(escena, accion, datos, usuario) {
     const obra = datos.id ? obrasEnCurso(m).find(o => o.clase === datos.clase && o.id === datos.id) : obrasEnCurso(m)[0];
     if (!obra) return { ok: false, motivo: "No hay ninguna obra en curso a la que aplicar este proyecto." };
     const tam = Number(it.system.clock_size) || 4, hecho = (Number(it.system.clock_progress) || 0) >= tam;
+    if (topeMateriales(m, obra.clase, obra.id) < obra.seg - obra.hecho) return { ok: false, motivo: `Faltan los materiales de ${obra.nombre}: márcalos en la ficha de la mazmorra para terminarla (pág. 197).` };
     r = avanzarObra(m, obra.clase, obra.id, obra.seg);
     if (r.ok) {
       await it.setFlag(MOD, "cobrado", true);
@@ -836,12 +856,12 @@ export class ConstructorMR extends App {
     // tipos de sala: el de la temática primero; los que las reglas ahora mismo no permiten salen marcados con el motivo
     const orden = Object.entries(TIPOS_SALA).sort(([ka, a], [kb, b]) => (kb === ctx.tema) - (ka === ctx.tema) || a.nivel - b.nivel);
     const tipos = orden.map(([k, v]) => {
-      const rg = reglas ? reglasSala(m, k, { tema: ctx.tema, materiales: m.inicial ? null : ctx.materiales }) : { ok: true };
+      const rg = reglas ? reglasSala(m, k, { tema: ctx.tema }) : { ok: true };
       const seg = reglas && !m.inicial ? relojSala(k) : 0;
       const sub = `${v.guarida ? "Guarida" : NIVELES[v.nivel]} · ${v.min[0]}×${v.min[1]}${seg === 1 ? " · 1 tirada" : seg ? ` · reloj ${seg}` : ""}`;
       return `<button type="button" class="mrg-cons-t ${tipoSala === k ? "on" : ""} ${rg.ok ? "" : "mrg-cons-t--no"}" data-tipo="${k}" aria-pressed="${tipoSala === k}" data-ayuda="${esc(v.nombre)}||${esc(v.nota + (rg.ok ? "" : " — " + rg.motivo))}"><img src="${RUTA}/rooms/room_${k}_iso.webp" alt="">${k === ctx.tema ? `<em class="mrg-cons-tema" title="Temática de tu mazmorra">★</em>` : ""}${rg.ok ? "" : `<em class="mrg-cons-cand" title="${esc(rg.motivo)}"><i class="fa-solid fa-lock"></i></em>`}<span>${v.nombre}</span><small>${sub}</small></button>`;
     }).join("");
-    const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema, materiales: m.inicial ? null : ctx.materiales }) : { ok: true };
+    const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema }) : { ok: true };
 
     // mazmorra inicial (pág. 171): una de cada, dibujadas sin proyecto
     const hay = (f) => m.salas.some(f), hayT = (tipo, n = 1) => (m.trampas ?? []).some(t => t.tipo === tipo && t.nivel === n);
@@ -1027,7 +1047,9 @@ export function iniciarMazmorra() {
   Hooks.on("canvasReady", async () => { limpiar(); await cargarTexturas(); alCargar(); });
   Hooks.on("canvasTearDown", limpiar);
   Hooks.on("updateScene", (escena, cambios) => {
-    if (escena.id !== canvas.scene?.id || !foundry.utils.hasProperty(cambios, `flags.${MOD}.${FLAG}`)) return;
+    if (!foundry.utils.hasProperty(cambios, `flags.${MOD}.${FLAG}`)) return;
+    for (const a of game.actors.filter(x => x.type === "dungeon")) if (a.sheet?.rendered) a.sheet.render();   // la ficha cuenta lo mismo que el mapa
+    if (escena.id !== canvas.scene?.id) return;
     redibujar(); foundry.applications.instances?.get?.("mr-wo-constructor")?.render();
   });
   for (const h of ["updateWall", "createWall", "deleteWall"]) Hooks.on(h, w => { if (w.parent?.id === canvas.scene?.id && w.getFlag?.(MOD, "auto")) redibujar(); });

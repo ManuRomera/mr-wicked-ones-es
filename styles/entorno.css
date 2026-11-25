@@ -107,3 +107,24 @@ button.mrg-ent-caja { cursor: pointer; }
 .mrg-entorno button, .mrg-entorno-dlg button { height: auto; min-height: 0; line-height: 1.15; }
 .mrg-ent .mrg-mini { width: auto; height: auto; padding: .2rem .55rem; font-size: .75rem; white-space: nowrap; }
 .mrg-ent-check .mrg-mini { margin-top: .3rem; }
+
+/* filtros del selector de facciones: búsqueda + un solo grupo */
+.mrg-ent-filtros { display: grid; grid-template-columns: 1fr minmax(9rem, 40%); gap: .4rem; margin: .5rem 0 .2rem; }
+.mrg-ent-filtros select, .mrg-ent-filtros input { height: auto; min-height: 2rem; }
+.mrg-ent-carta[draggable="true"] { cursor: grab; }
+
+/* escala general del mapa */
+.mrg-ent-escala { display: grid; gap: .2rem; padding: .45rem .7rem; background: var(--g-papel-2); border-bottom: 1px solid rgba(0, 0, 0, .15); }
+.mrg-ent-escala label { display: grid; gap: .2rem; font-size: .8rem; }
+.mrg-ent-escala input[type=range] { width: 100%; }
+.mrg-ent-escala small { font-size: .7rem; opacity: .85; }
+.mrg-ent-escala a { cursor: pointer; text-decoration: underline; }
+
+/* menú de un elemento del mapa (va sobre el lienzo; colores fijos para leerse igual en claro y en oscuro) */
+.mrg-ent-menu { position: fixed; z-index: 1000; display: grid; gap: 2px; min-width: 13rem; padding: 0 0 .35rem; border-radius: 10px; border: 2px solid #c8921f; background: #1c120a; color: #f1e2bd; box-shadow: 0 8px 24px rgba(0, 0, 0, .6); font-family: "Bitter", Georgia, serif; font-size: .85rem; overflow: hidden; }
+.mrg-ent-menu header { display: flex; align-items: center; gap: .4rem; padding: .4rem .3rem .4rem .7rem; background: linear-gradient(180deg, #8a0f0b, #5c0a07); font-weight: 700; border-bottom: 2px solid #c8921f; }
+.mrg-ent-menu header button { margin-left: auto; width: auto; height: auto; padding: .1rem .4rem; background: transparent; border: 0; color: inherit; }
+.mrg-ent-menu > button { display: flex; align-items: center; gap: .5rem; width: auto; height: auto; margin: 0 .3rem; padding: .35rem .5rem; text-align: left; border: 0; border-radius: 6px; background: transparent; color: inherit; cursor: pointer; }
+.mrg-ent-menu > button:hover, .mrg-ent-menu > button:focus-visible { background: rgba(200, 146, 31, .25); outline: none; }
+.mrg-ent-menu > button i { width: 1.1rem; text-align: center; color: #c8921f; }
+.mrg-ent-menu small { padding: .2rem .7rem 0; font-size: .7rem; opacity: .7; }

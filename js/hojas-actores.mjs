@@ -4,6 +4,7 @@
  * plantilla propia (templates/*.hbs) y un modelo de datos que se construye aquí.
  */
 import { n } from "./core/reglas.mjs";
+import { TIPOS_SALA, enObra, obrasEnCurso } from "./core/mazmorra.mjs";
 import { nombreAccion, nombreAtributo } from "./tirada.mjs";
 import { crearHoja, claseSistema, registrarHojaTipo, corazonesDe, L, pips, MOD } from "./hojas-base.mjs";
 
@@ -75,7 +76,30 @@ async function modeloMazmorra(actor) {
     campos: [campo("entrance", "Entrance", "EntranceHints"), campo("structure", "Structure", "StructureHints"), campo("lighting", "Lighting", "LightingHints"),
       campo("atmospherics", "Atmospherics", "AtmosphericsHints"), campo("hoard", "Hoard", "HoardHints"), campo("imps", "Imps", "ImpsHints1")],
     plan: ["One", "Two", "Three", "Four", "Five", "Six"].map((nom, i) => ({ k: `system.master_plan.step${i + 1}`, etiqueta: L(`FITD.Step${nom}`, `Paso ${i + 1}`), valor: s.master_plan?.[`step${i + 1}`] ?? "", num: i + 1 })),
-    notas: s.notes ?? ""
+    notas: s.notes ?? "",
+    obra: construccion(actor)
+  };
+}
+
+/** Lo que el constructor tiene dibujado para esta mazmorra (la escena con su mapa): la ficha y el mapa cuentan lo mismo. */
+function construccion(actor) {
+  const porDefecto = game.actors.find(a => a.type === "dungeon")?.id === actor.id;   // como el constructor: sin ficha elegida, la primera
+  const escena = game.scenes.find(sc => { const m = sc.getFlag(MOD, "mazmorra"); return m && (m.actor === actor.id || (!m.actor && porDefecto)); });
+  const m = escena?.getFlag(MOD, "mazmorra");
+  if (!m) return null;
+  const listas = m.salas.filter(z => !enObra(z)), trampas = (m.trampas ?? []).filter(z => !enObra(z));
+  const nivel = k => listas.filter(z => TIPOS_SALA[z.tipo]?.nivel === k && !TIPOS_SALA[z.tipo]?.guarida).length;
+  const DEF = { trampa: "Trampas", truco: "Trucos", porton: "Portones", estructura: "Estructuras" };
+  return {
+    escena: escena.id, nombre: escena.name, inicial: Boolean(m.inicial),
+    niveles: [[1, "Salas de nivel 1"], [2, "Salas de nivel 2"], [3, "Salas de nivel 3"]].map(([k, t]) => ({ t, n: nivel(k) })),
+    santuario: listas.some(z => z.tipo === "santuario"),
+    guaridas: listas.filter(z => TIPOS_SALA[z.tipo]?.guarida).map(z => z.nivel ?? 1),
+    defensas: Object.entries(DEF).map(([k, t]) => ({ t, n: trampas.filter(z => (z.tipo ?? "trampa") === k).length })).filter(d => d.n),
+    obras: obrasEnCurso(m).map(o => {
+      const sala = o.clase === "sala" && m.salas.find(z => z.id === o.id), it = sala?.item && actor.items.get(sala.item);
+      return { ...o, pct: Math.round((o.hecho / o.seg) * 100), faltan: Boolean(it?.system.missing_materials) };
+    })
   };
 }
 

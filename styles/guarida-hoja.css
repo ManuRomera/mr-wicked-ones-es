@@ -586,3 +586,9 @@ button.mrg-estado { cursor: pointer; }
 .mrg-marc-tit .mrg-marc-mini { font-size: .9rem; }
 /* Relleno de las ventanas pequeñas (el estilo general de .mrg-ventana lo dejaba a cero) */
 .application.mrg-ventana.mrg-xp-app .window-content, .application.mrg-ventana.mrg-heridas-app .window-content, .application.mrg-ventana.mrg-marc-app .window-content { padding: .8rem 1rem 1.8rem; }
+
+/* hoja de la mazmorra: reloj de una obra en curso */
+.mrg-reloj-barra { height: .55rem; border-radius: 99px; background: rgba(0, 0, 0, .18); overflow: hidden; }
+.mrg-reloj-barra span { display: block; height: 100%; background: linear-gradient(90deg, var(--g-sangre), var(--g-oro-vivo)); }
+.mrg-panel[data-tab="obra"] .mrg-campos { align-items: start; }
+.mrg-panel[data-tab="obra"] .mrg-campo small { font-size: .75rem; opacity: .85; }
