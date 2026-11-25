@@ -1,23 +1,27 @@
 /**
- * Ventanas pequeñas del constructor de mazmorras: la de trampas y trucos (manual, pág. 198-200: mecanismo + detonador + nivel)
- * y la de acciones extra que el DJ concede. Son ventanas del módulo (clases mrg), así que siguen el modo claro, oscuro,
- * alto contraste y lectura como el resto. No tocan la escena: devuelven la orden a quien las abrió (`alElegir`).
+ * Ventana de defensas y estructuras del constructor de mazmorras: trampas (mecanismo + detonador, pág. 198), trucos (método +
+ * detonador + intención, pág. 200), portones (material + cierre, pág. 201) y estructuras de nivel 1 (conducto, construcción, túnel
+ * largo, pasaje secreto, ventana, pág. 197). Es una ventana del módulo (clases mrg): sigue el modo claro, oscuro, alto contraste y
+ * lectura. No toca la escena: devuelve la orden a quien la abrió (`alElegir`).
  */
-import { MECANISMOS, DETONADORES, costeTrampa } from "./core/mazmorra.mjs";
+import { MECANISMOS, DETONADORES, MATERIALES_PORTON, CIERRES_PORTON, ESTRUCTURAS, relojTrampa } from "./core/mazmorra.mjs";
 
 const esc = s => foundry.utils.escapeHTML(String(s ?? ""));
 const App = foundry.applications?.api?.ApplicationV2;
 
-const NIVELES = [
-  [1, "Fácil de evitar", "Una aguja envenenada enganchada en el pomo de una puerta."],
-  [2, "Mortífera", "Una gigantesca cuchilla oscilante unida a una placa de presión."],
-  [3, "La más letal", "Un cable trampa que suelta una bola de roca rodante y puede afectar a varios aventureros."]
-];
-const NIVELES_TRUCO = [
-  [1, "Poco probable", "Un charco que quizá engañe a quien pase con armadura."],
-  [2, "Probable", "Un prisionero que grita pidiendo ayuda y atrae a los aventureros."],
-  [3, "Muy probable", "Un dédalo sinuoso que divide al grupo al entrar."]
-];
+const NIVELES = {
+  trampa: [[1, "Fácil de evitar", "Una aguja envenenada enganchada en el pomo de una puerta."], [2, "Mortífera", "Una gigantesca cuchilla oscilante unida a una placa de presión."], [3, "La más letal", "Un cable trampa que suelta una bola de roca rodante y puede afectar a varios aventureros."]],
+  truco: [[1, "Poco probable", "Un charco que quizá engañe a quien pase con armadura."], [2, "Probable", "Un prisionero que grita pidiendo ayuda y atrae a los aventureros."], [3, "Muy probable", "Un dédalo sinuoso que divide al grupo al entrar."]],
+  porton: [[1, "Simple", "Una barra de madera que mantiene cerrada una puerta."], [2, "Eficaz", "Una puerta con un candado."], [3, "Formidable", "Un enorme rastrillo de acero con poleas y clave mecánica."]]
+};
+const TIPOS = [["trampa", "fa-skull-crossbones", "Trampa"], ["truco", "fa-wand-sparkles", "Truco"], ["porton", "fa-dungeon", "Portón"], ["estructura", "fa-bridge", "Estructura"]];
+const TITULO = { trampa: "Trampa", truco: "Truco", porton: "Portón", estructura: "Estructura" };
+const INTRO = {
+  trampa: "Una <strong>trampa</strong> es una defensa estática y oculta: un <em>mecanismo</em> (lo que hace) y un <em>detonador</em> (lo que la activa). Cada avance de la tirada de trampa hiere medio corazón.",
+  truco: "Un <strong>truco</strong> no hiere: hace que los aventureros hagan lo que queréis o crea una ventaja defensiva. Tiene un <em>método</em>, un <em>detonador</em> y una <em>intención</em>. Nunca deja a nadie sin salida.",
+  porton: "Un <strong>portón</strong> gana tiempo y aparta a los invasores de las zonas delicadas; con tiempo, acaban atravesándolo. Elige el <em>material</em> de la puerta y su <em>mecanismo de cierre</em>; quien lo construye narra qué pasa al superarlo.",
+  estructura: "Las <strong>estructuras de nivel 1</strong> no son salas: un paso estrecho, un puente o ascensor, un túnel largo, un pasaje secreto o una ventana entre zonas."
+};
 
 export class TrampaMR extends App {
   static DEFAULT_OPTIONS = {
@@ -25,43 +29,43 @@ export class TrampaMR extends App {
     window: { title: "Trampa", icon: "fa-solid fa-skull-crossbones", resizable: false }, position: { width: 460, height: "auto" }
   };
 
-  /** @param {{trampa?:object, gm:boolean, reglas:boolean, quedan:number|null, activar:Function, alElegir:Function}} o */
+  /** @param {{trampa?:object, gm:boolean, reglas:boolean, activar:Function, alElegir:Function}} o  `reglas`: lo nuevo será un proyecto. */
   constructor(o) {
     super();
     this.o = o; this.t = o.trampa ?? null;
     this.d = o.trampa ? { ...o.trampa } : { tipo: "trampa", mecanismo: "", detonador: "", intencion: "", nota: "", nivel: 1 };
-    this.options.window.title = this.t ? (this.t.tipo === "truco" ? "Truco" : "Trampa") : "Preparar trampa o truco";
+    this.options.window.title = this.t ? TITULO[this.t.tipo] ?? "Trampa" : "Defensas y estructuras";
   }
-
-  get #nivelesDe() { return this.d.tipo === "truco" ? NIVELES_TRUCO : NIVELES; }
 
   #chips(lista, campo) {
     return `<div class="mrg-trampa-chips">${lista.map((n, i) => `<button type="button" class="mrg-chipbtn ${this.d[campo] === n ? "mrg-sel" : ""}" data-pon="${campo}" data-valor="${esc(n)}" aria-pressed="${this.d[campo] === n}"><b>${i + 1}</b> ${esc(n)}</button>`).join("")}</div>`;
   }
+  #seccion(titulo, lista, campo, ph) {
+    return `<div class="mrg-trampa-sec"><h5>${titulo} <button type="button" class="mrg-mini" data-azar="${campo}" data-lista="${esc(JSON.stringify(lista))}" aria-label="${titulo} al azar"><i class="fa-solid fa-dice"></i></button></h5>${this.#chips(lista, campo)}
+      <input type="text" data-txt="${campo}" value="${esc(this.d[campo])}" placeholder="${ph}" aria-label="${titulo}"></div>`;
+  }
+  #proyecto(n) { const s = relojTrampa(n); return s === 1 ? "1 tirada" : `reloj de ${s}`; }
 
   async _renderHTML() {
-    const d = this.d, truco = d.tipo === "truco", coste = costeTrampa(d.nivel);
-    const falta = this.o.reglas && this.o.quedan !== null && !this.t && coste > this.o.quedan;
-    const tipos = this.t ? "" : `<div class="mrg-sino" role="group" aria-label="Qué preparas">${[["trampa", "fa-skull-crossbones", "Trampa"], ["truco", "fa-wand-sparkles", "Truco"]].map(([k, ic, tx]) => `<button type="button" class="mrg-chipbtn ${d.tipo === k ? "mrg-sel" : ""}" data-tipo="${k}" aria-pressed="${d.tipo === k}"><i class="fa-solid ${ic}"></i> ${tx}</button>`).join("")}</div>`;
-    const intro = truco
-      ? `<p class="mrg-asist-intro">Un <strong>truco</strong> no hiere: sirve para que los aventureros hagan lo que queréis o para crear una ventaja defensiva. Tiene un <em>método</em> (cómo engaña), un <em>detonador</em> (cuándo se activa) y una <em>intención</em> (qué pasa si funciona). Nunca puede dejar a nadie sin salida.</p>`
-      : `<p class="mrg-asist-intro">Una <strong>trampa</strong> es una defensa estática y oculta: un <em>mecanismo</em> (lo que hace) y un <em>detonador</em> (lo que la activa). Cada avance de la tirada de trampa hiere medio corazón. Elige de las tablas del manual o escribe la tuya.</p>`;
-    const campoMec = truco
-      ? `<label class="mrg-campo"><span class="mrg-etiqueta">Método</span><input type="text" data-txt="mecanismo" value="${esc(d.mecanismo)}" placeholder="Una cuerda con cascabeles, un charco que parece profundo…"></label>
+    const d = this.d, tipo = d.tipo;
+    const tipos = this.t ? "" : `<div class="mrg-sino" role="group" aria-label="Qué colocas">${TIPOS.map(([k, ic, tx]) => `<button type="button" class="mrg-chipbtn ${tipo === k ? "mrg-sel" : ""}" data-tipo="${k}" aria-pressed="${tipo === k}"><i class="fa-solid ${ic}"></i> ${tx}</button>`).join("")}</div>`;
+    let campos;
+    if (tipo === "truco") campos = `<label class="mrg-campo"><span class="mrg-etiqueta">Método</span><input type="text" data-txt="mecanismo" value="${esc(d.mecanismo)}" placeholder="Una cuerda con cascabeles, un charco que parece profundo…"></label>
          <label class="mrg-campo"><span class="mrg-etiqueta">Detonador</span><input type="text" data-txt="detonador" value="${esc(d.detonador)}" placeholder="Al pasar junto a ella, al pararse a mirar…"></label>
-         <label class="mrg-campo"><span class="mrg-etiqueta">Intención</span><input type="text" data-txt="intencion" value="${esc(d.intencion)}" placeholder="Alerta a todos los esbirros, los intrusos descuidan la espalda…"></label>`
-      : `<div class="mrg-trampa-sec"><h5>Mecanismo <button type="button" class="mrg-mini" data-azar="mecanismo" aria-label="Mecanismo al azar" data-ayuda="Al azar||Tira un d12 en la tabla de mecanismos del manual."><i class="fa-solid fa-dice"></i></button></h5>${this.#chips(MECANISMOS, "mecanismo")}
-         <input type="text" data-txt="mecanismo" value="${esc(d.mecanismo)}" placeholder="…o escribe otro" aria-label="Mecanismo"></div>
-         <div class="mrg-trampa-sec"><h5>Detonador <button type="button" class="mrg-mini" data-azar="detonador" aria-label="Detonador al azar" data-ayuda="Al azar||Tira un d12 en la tabla de detonadores del manual."><i class="fa-solid fa-dice"></i></button></h5>${this.#chips(DETONADORES, "detonador")}
-         <input type="text" data-txt="detonador" value="${esc(d.detonador)}" placeholder="…o escribe otro" aria-label="Detonador"></div>`;
-    const niveles = `<div class="mrg-trampa-sec"><h5>Nivel</h5><div class="mrg-trampa-niv">${this.#nivelesDe.map(([n, t, ej]) => `<button type="button" class="mrg-chipbtn ${d.nivel === n ? "mrg-sel" : ""}" data-nivel="${n}" aria-pressed="${d.nivel === n}"><span><b>Nivel ${n}</b> · ${t}</span><small>${ej}</small><small>${this.o.reglas ? `${costeTrampa(n)} acción${costeTrampa(n) > 1 ? "es" : ""} de descanso · ` : ""}tiras ${n}d</small></button>`).join("")}</div></div>`;
+         <label class="mrg-campo"><span class="mrg-etiqueta">Intención</span><input type="text" data-txt="intencion" value="${esc(d.intencion)}" placeholder="Alerta a todos los esbirros, los intrusos descuidan la espalda…"></label>`;
+    else if (tipo === "porton") campos = this.#seccion("Material", MATERIALES_PORTON, "mecanismo", "…o escribe otro") + this.#seccion("Cierre", CIERRES_PORTON, "detonador", "…o escribe otro");
+    else if (tipo === "estructura") campos = `<div class="mrg-trampa-sec"><h5>Cuál</h5><div class="mrg-trampa-niv">${Object.entries(ESTRUCTURAS).map(([n, t]) => `<button type="button" class="mrg-chipbtn ${d.mecanismo === n ? "mrg-sel" : ""}" data-pon="mecanismo" data-valor="${esc(n)}" aria-pressed="${d.mecanismo === n}"><span><b>${esc(n)}</b></span><small>${esc(t)}</small></button>`).join("")}</div></div>`;
+    else campos = this.#seccion("Mecanismo", MECANISMOS, "mecanismo", "…o escribe otro") + this.#seccion("Detonador", DETONADORES, "detonador", "…o escribe otro");
+    const niveles = tipo === "estructura" ? `<p class="mrg-nota">Nivel 1${this.o.reglas ? ` · ${this.#proyecto(1)}` : ""}.</p>`
+      : `<div class="mrg-trampa-sec"><h5>Nivel</h5><div class="mrg-trampa-niv">${NIVELES[tipo].map(([n, t, ej]) => `<button type="button" class="mrg-chipbtn ${d.nivel === n ? "mrg-sel" : ""}" data-nivel="${n}" aria-pressed="${d.nivel === n}"><span><b>Nivel ${n}</b> · ${t}</span><small>${ej}</small><small>${this.o.reglas ? `Proyecto: ${this.#proyecto(n)}` : ""}${tipo === "porton" ? "" : `${this.o.reglas ? " · " : ""}tiras ${n}d`}</small></button>`).join("")}</div></div>`;
+    const tirable = tipo === "trampa" || tipo === "truco";
     const pie = this.t
       ? `<footer class="mrg-trampa-pie"><button type="button" class="mrg-btn mrg-btn--sangre" data-op="editar"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
-         <button type="button" class="mrg-btn" data-op="activar" data-ayuda="Activar||Tira ${this.t.nivel}d como pide el manual y publica el resultado en el chat."><i class="fa-solid fa-dice"></i> ${truco ? "Probar" : "Activar"} (${this.t.nivel}d)</button>
-         <button type="button" class="mrg-btn" data-op="descubrir" data-ayuda="Descubierta||Márcala cuando los aventureros la hayan descubierto; se dibuja apagada."><i class="fa-solid ${this.t.revelada ? "fa-eye-slash" : "fa-eye"}"></i> ${this.t.revelada ? "Volver a armar" : "Descubierta"}</button>
+         ${tirable ? `<button type="button" class="mrg-btn" data-op="activar" data-ayuda="Activar||Tira ${this.t.nivel}d como pide el manual y publica el resultado en el chat."><i class="fa-solid fa-dice"></i> ${tipo === "truco" ? "Probar" : "Activar"} (${this.t.nivel}d)</button>
+         <button type="button" class="mrg-btn" data-op="descubrir" data-ayuda="Descubierta||Márcala cuando los aventureros la hayan descubierto; se dibuja apagada."><i class="fa-solid ${this.t.revelada ? "fa-eye-slash" : "fa-eye"}"></i> ${this.t.revelada ? "Volver a armar" : "Descubierta"}</button>` : ""}
          <button type="button" class="mrg-btn" data-op="quitar"><i class="fa-solid fa-trash"></i> Quitar</button></footer>`
-      : `<footer class="mrg-trampa-pie"><button type="button" class="mrg-btn mrg-btn--sangre" data-op="poner" ${falta ? "disabled" : ""}><i class="fa-solid fa-hammer"></i> Colocar${this.o.reglas && coste ? ` (${coste} acc.)` : ""}</button>${falta ? `<span class="mrg-cons-no">Te quedan ${this.o.quedan} acciones.</span>` : ""}</footer>`;
-    return `<div class="mrg-trampa">${tipos}${intro}${campoMec}${niveles}<label class="mrg-campo"><span class="mrg-etiqueta">Nota (opcional)</span><input type="text" data-txt="nota" value="${esc(d.nota)}" placeholder="Quién la prepara, dónde se activa…"></label>${pie}</div>`;
+      : `<footer class="mrg-trampa-pie"><button type="button" class="mrg-btn mrg-btn--sangre" data-op="poner"><i class="fa-solid fa-hammer"></i> ${this.o.reglas ? "Empezar la obra" : "Colocar"}</button></footer>`;
+    return `<div class="mrg-trampa">${tipos}<p class="mrg-asist-intro">${INTRO[tipo]}</p>${campos}${niveles}<label class="mrg-campo"><span class="mrg-etiqueta">Nota (opcional)</span><input type="text" data-txt="nota" value="${esc(d.nota)}" placeholder="Quién lo prepara, dónde se activa…"></label>${pie}</div>`;
   }
 
   _replaceHTML(res, cont) {
@@ -69,13 +73,15 @@ export class TrampaMR extends App {
     cont.querySelectorAll("[data-txt]").forEach(i => i.addEventListener("input", () => { this.d[i.dataset.txt] = i.value; }));
     cont.onclick = async ev => {
       const b = ev.target.closest("button"); if (!b || b.disabled) return;
-      if (b.dataset.tipo) { this.d.tipo = b.dataset.tipo; this.d.mecanismo = ""; this.d.detonador = ""; return this.render(); }
+      if (b.dataset.tipo) { this.d.tipo = b.dataset.tipo; this.d.mecanismo = ""; this.d.detonador = ""; this.d.nivel = 1; return this.render(); }
       if (b.dataset.pon) { this.d[b.dataset.pon] = b.dataset.valor; return this.render(); }
-      if (b.dataset.azar) { const l = b.dataset.azar === "mecanismo" ? MECANISMOS : DETONADORES; this.d[b.dataset.azar] = l[Math.floor(Math.random() * l.length)]; return this.render(); }
+      if (b.dataset.azar) { const l = JSON.parse(b.dataset.lista); this.d[b.dataset.azar] = l[Math.floor(Math.random() * l.length)]; return this.render(); }
       if (b.dataset.nivel) { this.d.nivel = Number(b.dataset.nivel); return this.render(); }
       const op = b.dataset.op; if (!op) return;
       const d = this.d;
-      if (op !== "quitar" && op !== "activar" && op !== "descubrir" && !String(d.mecanismo).trim()) return ui.notifications.warn(d.tipo === "truco" ? "Escribe el método del truco." : "Elige o escribe el mecanismo de la trampa.");
+      if (op !== "quitar" && op !== "activar" && op !== "descubrir" && !String(d.mecanismo).trim()) {
+        return ui.notifications.warn({ truco: "Escribe el método del truco.", porton: "Elige el material del portón.", estructura: "Elige qué estructura es." }[d.tipo] ?? "Elige o escribe el mecanismo de la trampa.");
+      }
       if (op === "activar") return this.o.activar(this.t);
       await this.o.alElegir(op, d, this.t);
       this.close();
@@ -86,36 +92,4 @@ export class TrampaMR extends App {
 export function abrirTrampa(o) {
   foundry.applications.instances?.get?.("mr-wo-trampa")?.close();
   const app = new TrampaMR(o); app.render(true); return app;
-}
-
-/** Acciones de descanso extra que concede el DJ (esbirros pagados, una capacidad de vocación, una gracia…). */
-export class ExtraMR extends App {
-  static DEFAULT_OPTIONS = {
-    id: "mr-wo-extra", tag: "div", classes: ["mrg", "mrg-ventana", "mrg-trampa-app"],
-    window: { title: "Conceder acciones", icon: "fa-solid fa-gift", resizable: false }, position: { width: 400, height: "auto" }
-  };
-  constructor(alElegir) { super(); this.alElegir = alElegir; this.n = 1; this.motivo = ""; }
-  async _renderHTML() {
-    const razones = ["Esbirros pagados (1 de oro cada panda)", "Capacidad de vocación", "Un flashback", "Gracia del DJ"];
-    return `<div class="mrg-trampa"><p class="mrg-asist-intro">Cada PJ tiene una acción de descanso por fase de acecho, los duendes otra y cada panda de esbirros pagada (1 de oro) otra más. Aquí regalas las que quieras de más: se guardan como créditos de obra, que no caducan al cambiar de fase.</p>
-      <div class="mrg-trampa-sec"><h5>Cuántas</h5><div class="mrg-sino" role="group">${[1, 2, 3, 4, 5].map(k => `<button type="button" class="mrg-chipbtn ${this.n === k ? "mrg-sel" : ""}" data-n="${k}" aria-pressed="${this.n === k}">+${k}</button>`).join("")}</div></div>
-      <div class="mrg-trampa-sec"><h5>Motivo</h5><div class="mrg-trampa-chips">${razones.map(r => `<button type="button" class="mrg-chipbtn ${this.motivo === r ? "mrg-sel" : ""}" data-motivo="${esc(r)}" aria-pressed="${this.motivo === r}">${esc(r)}</button>`).join("")}</div>
-      <input type="text" data-txt placeholder="…o escribe otro" value="${esc(this.motivo)}" aria-label="Motivo"></div>
-      <footer class="mrg-trampa-pie"><button type="button" class="mrg-btn mrg-btn--sangre" data-dar><i class="fa-solid fa-gift"></i> Conceder +${this.n}</button></footer></div>`;
-  }
-  _replaceHTML(res, cont) {
-    cont.innerHTML = res;
-    cont.querySelector("[data-txt]")?.addEventListener("input", ev => { this.motivo = ev.target.value; });
-    cont.onclick = async ev => {
-      const b = ev.target.closest("button"); if (!b) return;
-      if (b.dataset.n) { this.n = Number(b.dataset.n); return this.render(); }
-      if (b.dataset.motivo) { this.motivo = b.dataset.motivo; return this.render(); }
-      if ("dar" in b.dataset) { await this.alElegir(this.n, this.motivo.trim()); this.close(); }
-    };
-  }
-}
-
-export function abrirExtra(alElegir) {
-  foundry.applications.instances?.get?.("mr-wo-extra")?.close();
-  const app = new ExtraMR(alElegir); app.render(true); return app;
 }

@@ -4,15 +4,18 @@
  * compone sola con la forma de la sala y por dónde se entra. Lo que Foundry ya sabe hacer lo hace Foundry: los muros y las
  * puertas son documentos `Wall` (visión, colisión y puertas que se abren) y las luces son `AmbientLight` con animación de antorcha.
  * Cualquier jugador (si el DJ lo permite) puede construir: sus acciones viajan por socket al DJ, que es quien edita la escena.
- * Las reglas del manual (acciones de descanso por fase de acecho, salas de nivel 3 con temática y materiales) se aplican desde
- * aquí y se explican en el panel; el DJ puede apagarlas en los ajustes del módulo.
+ * Reglas del manual (págs. 171, 190, 196-201 y 238-239): dibujar es libre; lo que hace real cada cosa nueva es su proyecto de descanso
+ * (nivel 1 una tirada, nivel 2 un reloj de 4, nivel 3 un reloj de 8 y materiales), que se llena con las tiradas de los PJ, de los
+ * esbirros pagados y de los duendes. La mazmorra inicial se dibuja gratis. El DJ puede apagar los relojes en los ajustes.
  */
 import {
-  TIPOS_SALA, COSTE_NIVEL, TRAMO, FORMAS, MECANISMOS, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
-  validarCeldas, ajustarSala, celdasForma, reglasSala, costeSala, costeExcavar, costeTrampa, puedeGastar, gastar, tipoDeTema, muros, decorar,
-  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, quedanObra, esProyectoDeObra, obrasEnCurso, avanzarObra, enObra, AVANCE_RESULTADO, resumen, abierta, DIRS
+  TIPOS_SALA, FORMAS, MECANISMOS, crearMapa, celda, salaEn, excavar, rellenar, construirSala, quitarSala, alternarPuerta,
+  validarCeldas, ajustarSala, celdasForma, reglasSala, tipoDeTema, muros, decorar, relojSala,
+  antorchasTunel, lucesDe, lucesTunel, ponerTrampa, editarTrampa, quitarTrampa, numDuendes, esProyectoDeObra, obrasEnCurso, avanzarObra, enObra, AVANCE_RESULTADO, resumen, abierta, DIRS,
+  ACCIONES_DUENDES, accionesDuendesPosibles, tunelDeDuendes, huecoParaSala
 } from "./core/mazmorra.mjs";
-import { abrirTrampa, abrirExtra } from "./mazmorra-trampas.mjs";
+import { evaluarTirada } from "./core/reglas.mjs";
+import { abrirTrampa } from "./mazmorra-trampas.mjs";
 import { sonar, iniciarAmbiente, pararAmbiente, efectosOn, ambienteOn } from "./mazmorra-sonido.mjs";
 
 const MOD = "mr-wicked-ones-es";
@@ -23,7 +26,7 @@ const App = foundry.applications?.api?.ApplicationV2;
 const ALTO = 0.34;   // altura de los bloques, en celdas
 
 let contenedor = null, overlay = null, texturas = {}, herramienta = null, tipoSala = "santuario", forma = "rect", giro = 0, salaN3 = "";
-let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [], efectos = [], ultimoLatigo = 0;
+let pendiente = null, ticker = null, vasallos = [], vasalloMemoria = [], efectos = [], ultimoLatigo = 0, quienTira = "pj";
 const RADIO_LATIGO = 2.5;   // celdas
 
 export const mapaDe = escena => escena?.getFlag(MOD, FLAG) ?? null;
@@ -131,9 +134,12 @@ const COLOR_NIVEL = [0, 0x6f9a3e, 0xe0a02a, 0xc83a2a];
 function dibujarTrampa(t, S, ox, oy, sube = 0) {
   const c = new PIXI.Container(), cx = ox + (t.x + 0.5) * S, cy = oy + (t.y + 0.5) * S - sube;
   const i = MECANISMOS.findIndex(n => n.toLowerCase() === String(t.mecanismo).toLowerCase());
-  const tex = texturas[t.tipo === "truco" ? "truco_marca" : i >= 0 ? `trampa_${TRAMPA_CLAVES[i]}` : ""];
+  const tex = texturas[t.tipo === "truco" ? "truco_marca" : t.tipo === "porton" ? "puerta_cerrada" : t.tipo === "estructura" ? "" : i >= 0 ? `trampa_${TRAMPA_CLAVES[i]}` : ""];
   if (tex) { const sp = new PIXI.Sprite(tex); sp.anchor.set(0.5); sp.scale.set(Math.min(S * 0.62 / tex.width, S * 0.62 / tex.height)); sp.x = cx; sp.y = cy; c.addChild(sp); }
-  else {
+  else if (t.tipo === "estructura") {   // conducto, construcción, túnel largo, pasaje secreto o ventana: una placa con su inicial
+    const g = new PIXI.Graphics(); g.beginFill(0x2a221b, 0.9).lineStyle(3, 0xc9a45a, 1).drawRoundedRect(cx - S * 0.26, cy - S * 0.2, S * 0.52, S * 0.4, S * 0.08).endFill(); c.addChild(g);
+    const l = new PIXI.Text(String(t.mecanismo || "?").slice(0, 2), { fontSize: Math.round(S * 0.2), fill: 0xf2e2b8, fontWeight: "800" }); l.anchor.set(0.5); l.x = cx; l.y = cy; c.addChild(l);
+  } else {
     const g = new PIXI.Graphics(); g.beginFill(0x1c1612, 0.9).lineStyle(3, COLOR_NIVEL[t.nivel], 1).drawCircle(cx, cy, S * 0.26).endFill();
     g.lineStyle(0).beginFill(COLOR_NIVEL[t.nivel]).drawPolygon([cx, cy - S * 0.15, cx + S * 0.15, cy + S * 0.11, cx - S * 0.15, cy + S * 0.11]).endFill(); c.addChild(g);
   }
@@ -419,7 +425,7 @@ const emitir = msg => { try { game.socket.emit(`module.${MOD}`, { escena: canvas
 /** Suena aquí y en todos los navegadores que miran esta escena. */
 const sonarATodos = (nombre, opciones) => { sonar(nombre, opciones); emitir({ t: "sonido", s: nombre, o: opciones }); };
 
-/** Proyectos de descanso de los PJ: su reloj lleno vale acciones de obra (nivel 2 = reloj de 4, nivel 3 = reloj de 8). */
+/** Proyectos de descanso de las fichas de los PJ: con el reloj lleno terminan una obra en curso del mapa. */
 function proyectosDeObra() {
   const out = [];
   for (const a of game.actors ?? []) {
@@ -433,14 +439,58 @@ function proyectosDeObra() {
   return out.sort((x, y) => Number(y.completo && !y.cobrado) - Number(x.completo && !x.cobrado) || x.quien.localeCompare(y.quien));
 }
 
-/** Acciones de descanso de una fase de acecho: una por cada PJ más la de los duendes (los esbirros pagados suman más a mano). */
-const accionesPorDefecto = () => Math.max(2, (game.actors?.filter(a => a.type === "character" && a.hasPlayerOwner).length ?? 0) + 1);
+/** El DJ elige qué hacen los duendes en su acción de descanso, o lo deja al azar entre lo que tiene sentido ahora. */
+async function elegirAccionDuendes() {
+  const m = mapaDe(canvas.scene); if (!m) return;
+  const posibles = new Set(accionesDuendesPosibles(m, contextoReglas(m).tema));
+  const botones = [["azar", "Que decida el azar", "fa-dice"], ...Object.entries(ACCIONES_DUENDES).map(([k, t]) => [k, t, { tunel: "fa-person-digging", obra: "fa-hammer", sala3: "fa-dungeon", suya: "fa-comment-dots" }[k]])]
+    .filter(([k]) => k === "azar" || posibles.has(k));
+  const que = await foundry.applications.api.DialogV2.wait({
+    window: { title: "Acción de descanso de los duendes", icon: "fa-solid fa-hammer" }, classes: ["mrg"],
+    content: `<p class="mrg-nota">Tiran tantos dados como el nivel de la mazmorra (pág. 239). Elige qué hacen; el resultado se aplica solo.</p>`,
+    buttons: botones.map(([k, t, ic], i) => ({ action: k, label: t, icon: `fa-solid ${ic}`, default: i === 0 })), rejectClose: false
+  }).catch(() => null);
+  if (que) await accionDuendes(que);
+}
 
-async function reiniciarObra(escena) {
-  const m = foundry.utils.deepClone(mapaDe(escena)); if (!m) return;
-  m.obra = { ...m.obra, total: accionesPorDefecto(), gastadas: 0 };   // los créditos (proyectos terminados y regalos) no caducan
-  await escena.setFlag(MOD, FLAG, m);
-  ChatMessage.create({ content: `<p><strong>Nueva fase de acecho.</strong> La mazmorra tiene ${m.obra.total} acciones de descanso para excavar y construir.</p>`, flags: { [MOD]: { tarjeta: true } } });
+/** Al empezar la fase de acecho, un recordatorio (págs. 238-239). No hay bolsa común: cada cual tira su acción de descanso. */
+function avisoAcecho() {
+  const pj = game.actors?.filter(a => a.type === "character" && a.hasPlayerOwner).length ?? 0;
+  aviso(`<b>Fase de acecho.</b> Cada PJ tiene su acción de descanso${pj ? ` (${pj} en total)` : ""}; cada panda de esbirros, otra si le pagáis 1 de oro; y los duendes, la suya (constructor → «Acción de los duendes»). Las obras en curso avanzan con esas tiradas.`);
+}
+
+/** Acción de descanso de los duendes (pág. 239): tantos dados como el nivel de la mazmorra; el DJ elige qué hacen o lo deja al azar. */
+async function accionDuendes(eleccion) {
+  const escena = canvas.scene, m0 = mapaDe(escena); if (!m0 || !game.user.isGM) return;
+  const ctx = contextoReglas(m0), n = ctx.nivel ?? 0;
+  const roll = await new Roll(n > 0 ? `${n}d6` : "2d6kl").evaluate();
+  game.dice3d?.showForRoll(roll, game.user, true);
+  const caras = roll.dice.flatMap(d => d.results.map(x => x.result)), ev = evaluarTirada(caras, n), seg = AVANCE_RESULTADO[ev.estado] ?? 0;
+  const posibles = accionesDuendesPosibles(m0, ctx.tema), que = eleccion === "azar" ? posibles[Math.floor(Math.random() * posibles.length)] : eleccion;
+  const m = foundry.utils.deepClone(m0);
+  let texto = `<b>Los duendes</b> tiran ${n > 0 ? `${n}d` : "0d (el peor de 2d)"}: ${caras.join(", ")} → ${esc(ev.etiqueta)}.<br>${ACCIONES_DUENDES[que]}`;
+  if (que === "tunel") {
+    const camino = tunelDeDuendes(m);
+    if (!camino.length) texto += ", pero ya está todo conectado.";
+    else if (!seg) texto += ", pero el túnel se les derrumba: esta vez no avanzan.";
+    else { for (const [x, y] of camino) excavar(m, x, y); texto += `: ${camino.length} celdas de túnel nuevas${ev.estado === "mixed" ? " (con un precio que dice el DJ)" : ""}.`; }
+  } else if (que === "obra") {
+    const o = obrasEnCurso(m)[0];
+    if (!o) texto += ", pero no hay ninguna obra en curso.";
+    else { const r = avanzarObra(m, o.clase, o.id, seg); texto += `: ${esc(o.nombre.toLowerCase())} +${seg} (${r.hecho}/${r.seg})${r.completa ? ". ¡Terminada!" : "."}`; }
+  } else if (que === "sala3") {
+    const t = TIPOS_SALA[ctx.tema], h = t && huecoParaSala(m, ctx.tema);
+    if (!h) texto += ", pero no encuentran sitio (o la ficha de la mazmorra no tiene temática).";
+    else {
+      const nombre = t.salas?.[Math.floor(Math.random() * t.salas.length)] ?? "";
+      const r = construirSala(m, h.rect, ctx.tema, { obra: true, nombre });
+      if (r.ok) { alternarPuerta(m, h.puerta.x, h.puerta.y, h.puerta.d); if (seg) avanzarObra(m, "sala", r.id, seg); texto += `: ${esc((nombre || t.nombre).toLowerCase())}, con su reloj de 8 (+${seg}). Para terminarla harán falta los materiales.`; }
+      else texto += `: ${esc(r.motivo)}`;
+    }
+  } else texto += ". El DJ narra en qué andan (quizá se note en el próximo desastre).";
+  await escena.setFlag(MOD, FLAG, m); await sincronizarEntorno(escena);
+  sonarATodos(seg ? "cavar" : "error");
+  await aviso(texto);
 }
 
 /* ------------------------------------------------------------------------------------------------ muros y luces nativos */
@@ -503,7 +553,7 @@ export async function reescalarTokens(escena = canvas.scene) {
 
 /* ------------------------------------------------------------------------------------------------ acciones (las ejecuta el DJ) */
 
-const SOLO_DJ = new Set(["obra", "actor", "duendes", "proyecto"]);   // «avanzar» lo puede pedir cualquiera que construya
+const SOLO_DJ = new Set(["inicial", "actor", "duendes", "proyecto"]);   // «avanzar» lo puede pedir cualquiera que construya
 
 async function aviso(texto) {
   try {
@@ -519,43 +569,39 @@ async function ejecutar(escena, accion, datos, usuario) {
   const m = foundry.utils.deepClone(actual), reglas = reglasOn();
   const quien = esc(usuario?.name ?? game.user.name);
   let r = { ok: true }, texto = "";
-  const cobrar = coste => { if (!reglas) return { ok: true }; const p = puedeGastar(m, coste); if (p.ok) gastar(m, coste); return p; };
+  const inicial = Boolean(m.inicial);
+  const proyecto = n => (n === 1 ? "su proyecto se completa con una tirada de acción de descanso (con un parcial, pagando el precio)" : `su proyecto es un reloj de ${n} segmentos que llenan las tiradas de acción de descanso`);
 
   if (accion === "celdas") {
+    // excavar es libre: cada cosa construida se une al resto con un túnel corto sin coste (pág. 196); el túnel largo es una estructura
     let n = 0;
     for (const [x, y] of datos.celdas) n += (datos.modo === "excavar" ? excavar(m, x, y) : rellenar(m, x, y)) ? 1 : 0;
     r = { ok: n > 0, motivo: n ? "" : "Nada que cambiar ahí." };
-    if (r.ok && datos.modo === "excavar") {
-      const coste = costeExcavar(n), p = cobrar(coste); if (!p.ok) return p;
-      texto = `${quien} excava ${plural(n, "celda", "celdas")} de túnel${reglas ? ` (${plural(coste, "acción", "acciones")} de descanso)` : ""}.`;
-    }
   } else if (accion === "sala") {
-    const t = TIPOS_SALA[datos.tipo];
-    if (reglas && t) { const ctx = contextoReglas(m), rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: ctx.materiales }); if (!rg.ok) return rg; }
-    // con las reglas, las salas de nivel 2 y 3 empiezan como obra con su reloj de proyecto (4 u 8 segmentos)
-    r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas, obra: reglas, nombre: datos.nombre });
+    const t = TIPOS_SALA[datos.tipo], ctx = contextoReglas(m);
+    // la mazmorra inicial tiene su sala de nivel 3 aunque falten materiales (pág. 171)
+    if (reglas && t) { const rg = reglasSala(m, datos.tipo, { tema: ctx.tema, materiales: inicial ? null : ctx.materiales }); if (!rg.ok) return rg; }
+    r = construirSala(m, datos.rect, datos.tipo, { forma: datos.forma, giro: datos.giro, celdas: datos.celdas, obra: reglas && !inicial, nombre: datos.nombre });
     if (r.ok) {
-      const coste = costeSala(datos.tipo), p = cobrar(coste); if (!p.ok) return p;
+      const sala = m.salas.find(s => s.id === r.id);
+      if (t.guarida) sala.nivel = inicial ? 1 : Math.max(1, ctx.nivel || 0);   // la guarida atrae criaturas del nivel que tenía la mazmorra
       const medida = r.forma === "rect" ? `${r.rect.w}×${r.rect.h}` : `${FORMAS[r.forma].toLowerCase()}, ${r.celdas} celdas`;
-      texto = r.obra
-        ? `${quien} empieza la obra de ${(datos.nombre || t.nombre).toLowerCase()} (${medida}): un proyecto con un reloj de ${r.obra} segmentos. Cada acción de descanso lo avanza según su resultado.`
-        : `${quien} construye ${(datos.nombre || t.nombre).toLowerCase()} (${medida})${reglas && coste ? `: ${plural(coste, "acción", "acciones")} de descanso` : ""}.`;
+      const nombre = esc((datos.nombre || t.nombre).toLowerCase());
+      texto = r.obra ? `${quien} empieza la obra de ${nombre} (${medida}): ${proyecto(r.obra)}.`
+        : t.guarida ? `${quien} dibuja una guarida de criatura de nivel ${sala.nivel} (${medida}).`
+          : `${quien} ${inicial ? "dibuja" : "construye"} ${nombre} (${medida}).`;
     }
   } else if (accion === "quitarSala") r = { ok: quitarSala(m, datos.id) };
   else if (accion === "puerta") r = alternarPuerta(m, datos.x, datos.y, datos.d);
   else if (accion === "trampa") {
     if (datos.op === "poner") {
-      r = ponerTrampa(m, { ...datos, obra: reglas });
+      r = ponerTrampa(m, { ...datos, obra: reglas && !inicial });
       if (r.ok) {
-        const p = cobrar(r.coste); if (!p.ok) return p;
-        const que = datos.tipo === "truco" ? "un truco" : "una trampa";
-        texto = r.obra ? `${quien} empieza a fabricar ${que} de nivel ${r.nivel}: un proyecto con un reloj de ${r.obra} segmentos.` : `${quien} prepara ${que} de nivel ${r.nivel}${reglas && r.coste ? ` (${plural(r.coste, "acción", "acciones")} de descanso)` : ""}.`;
+        const que = { truco: "un truco", porton: "un portón", estructura: esc(String(datos.mecanismo || "una estructura").toLowerCase()) }[datos.tipo] ?? "una trampa";
+        texto = r.obra ? `${quien} empieza ${que}${datos.tipo === "estructura" ? "" : ` de nivel ${r.nivel}`}: ${proyecto(r.obra)}.` : `${quien} coloca ${que}${datos.tipo === "estructura" ? "" : ` de nivel ${r.nivel}`}.`;
       }
     } else if (datos.op === "editar") {
-      const t = m.trampas?.find(z => z.id === datos.id);
-      if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };
-      const sube = "nivel" in datos.cambios ? Math.max(0, costeTrampa(datos.cambios.nivel) - costeTrampa(t.nivel)) : 0;
-      const p = cobrar(sube); if (!p.ok) return p;
+      if (!m.trampas?.some(z => z.id === datos.id)) return { ok: false, motivo: "Eso ya no existe." };
       r = editarTrampa(m, datos.id, datos.cambios);
     } else if (datos.op === "quitar") r = { ok: quitarTrampa(m, datos.id) };
     else if (datos.op === "descubrir") {
@@ -563,25 +609,18 @@ async function ejecutar(escena, accion, datos, usuario) {
       const t = m.trampas?.find(z => z.id === datos.id);
       if (r.ok && t) texto = `${t.tipo === "truco" ? "Un truco" : "Una trampa"} (${esc(t.mecanismo)}) ${datos.valor ? "ha sido descubierta por los aventureros" : "vuelve a estar armada"}.`;
     }
-  } else if (accion === "obra") {
-    m.obra = m.obra ?? { total: accionesPorDefecto(), gastadas: 0, creditos: 0, extra: 0, proyectos: 0 };
-    if (datos.reiniciar) { await reiniciarObra(escena); sonarATodos("extra"); return { ok: true }; }
-    const d = Math.trunc(datos.delta ?? 0);
-    if (datos.extra) {   // lo que concede el DJ son créditos: no caducan al cambiar de fase
-      if (d > 0) { m.obra.creditos = (m.obra.creditos ?? 0) + d; m.obra.extra = (m.obra.extra ?? 0) + d; texto = `El DJ concede <strong>+${d}</strong> ${d === 1 ? "acción" : "acciones"} de obra${datos.motivo ? `: ${esc(datos.motivo)}` : ""}.`; }
-    } else {
-      m.obra.total = Math.max(0, m.obra.total + d);
-      m.obra.gastadas = Math.min(m.obra.gastadas, m.obra.total);
-    }
+  } else if (accion === "inicial") {
+    m.inicial = Boolean(datos.valor);
+    texto = m.inicial ? "El DJ vuelve a abrir la mazmorra inicial: lo que se dibuje ahora no es un proyecto." : "<b>La mazmorra inicial está lista.</b> Desde ahora, cada cosa nueva es un proyecto de descanso con su tirada o su reloj.";
   } else if (accion === "avanzar") {
     if (datos.ajuste && !usuario?.isGM) return { ok: false, motivo: "Solo el DJ ajusta un reloj sin tirada." };
-    // pág. 238 y 66: cada acción de descanso es una tirada que avanza el reloj (fracaso 0, parcial 1, éxito 2, crítico 3)
-    const p = cobrar(datos.ajuste ? 0 : 1); if (!p.ok) return p;
+    // págs. 238 y 66: cada acción de descanso es una tirada que avanza el reloj (fracaso 0, parcial 1, éxito 2, crítico 3)
     r = avanzarObra(m, datos.clase, datos.id, Math.trunc(datos.segmentos ?? 0));
     if (r.ok) {
       const o = obrasEnCurso(foundry.utils.deepClone(actual)).find(z => z.clase === datos.clase && z.id === datos.id);
-      const nombre = o?.nombre ?? "la obra";
-      texto = r.completa ? `¡Terminada la obra de ${esc(nombre.toLowerCase())}! (${r.seg}/${r.seg})` : datos.ajuste ? `El DJ ajusta el reloj de ${esc(nombre.toLowerCase())}: ${r.hecho}/${r.seg}.` : `${quien} trabaja en ${esc(nombre.toLowerCase())}: +${Math.max(0, datos.segmentos)} (${r.hecho}/${r.seg}).`;
+      const nombre = esc((o?.nombre ?? "la obra").toLowerCase());
+      const por = { esbirros: "Los esbirros (1 de oro)", duendes: "Los duendes" }[datos.quien] ?? quien;
+      texto = datos.ajuste ? `El DJ ajusta el reloj de ${nombre}: ${r.hecho}/${r.seg}.` : `${por} trabaja${datos.quien === "esbirros" || datos.quien === "duendes" ? "n" : ""} en ${nombre}: +${Math.max(0, datos.segmentos)} (${r.hecho}/${r.seg}).${r.completa ? ` <b>¡Terminada!</b>` : ""}`;
     }
   } else if (accion === "proyecto") {
     // un proyecto de la hoja de un PJ con el reloj lleno termina una obra en curso
@@ -601,14 +640,10 @@ async function ejecutar(escena, accion, datos, usuario) {
   if (!r.ok) return r;
   await escena.setFlag(MOD, FLAG, m);
   await sincronizarEntorno(escena);
-  const SONIDO = { celdas: datos?.modo === "excavar" ? "cavar" : "rellenar", sala: "sala", quitarSala: "demoler", puerta: "puerta", proyecto: "sala", avanzar: r.completa ? "sala" : "cavar", obra: datos?.extra ? "extra" : "clic" };
+  const SONIDO = { celdas: datos?.modo === "excavar" ? "cavar" : "rellenar", sala: "sala", quitarSala: "demoler", puerta: "puerta", proyecto: "sala", avanzar: r.completa ? "sala" : "cavar", inicial: "extra" };
   const sn = accion === "trampa" ? ({ poner: "trampa", descubrir: "descubierta" }[datos.op] ?? "clic") : SONIDO[accion];
   if (sn) sonarATodos(sn);
-  if (texto) {
-    const cuenta = reglas && m.obra && (["celdas", "sala", "obra", "avanzar"].includes(accion) || (accion === "trampa" && datos.op === "poner"));
-    const resto = cuenta ? ` Quedan ${quedanObra(m)} acciones de obra.` : "";
-    aviso(texto + resto);
-  }
+  if (texto) aviso(texto);
   return r;
 }
 
@@ -653,10 +688,9 @@ function linea(a, b) {
 function gestionarTrampa(i, j) {
   const m = mapaDe(canvas.scene); if (!m) return;
   const t = (m.trampas ?? []).find(z => z.x === i && z.y === j);
-  if (!t && !abierta(celda(m, i, j))) return ui.notifications.info("Las trampas y los trucos van en un túnel o en una sala.");
-  const quedan = quedanObra(m);
+  if (!t && !abierta(celda(m, i, j))) return ui.notifications.info("Las trampas, los trucos, los portones y las estructuras van en un túnel o en una sala.");
   abrirTrampa({
-    trampa: t, gm: game.user.isGM, reglas: reglasOn(), quedan,
+    trampa: t, gm: game.user.isGM, reglas: reglasOn() && !m.inicial,
     activar: async tr => {
       if (!game.user.isGM) return ui.notifications.info("Solo el DJ tira las trampas; el jugador al cargo narra el resultado.");
       sonarATodos("trampaActiva");
@@ -694,15 +728,14 @@ function activarHerramienta(h) {
     if (herramienta === "sala" && !libre()) {
       const a = ini ?? b, x = Math.min(a.i, b.i), y = Math.min(a.j, b.j), w = Math.abs(a.i - b.i) + 1, hh = Math.abs(a.j - b.j) + 1;
       const aj = ajustarSala(m, { x, y, w, h: hh }, tipoSala, { forma, giro }), t = TIPOS_SALA[tipoSala];
-      const coste = costeSala(tipoSala), q = quedanObra(m);
-      const falta = reglasOn() && q !== null && coste > q;
-      const color = aj && !falta ? 0x6fe08a : 0xe0503a;
+      const seg = reglasOn() && !m.inicial ? relojSala(tipoSala) : 0;
+      const color = aj ? 0x6fe08a : 0xe0503a;
       if (aj) {
         celdillas(aj.celdas ?? celdasForma(aj, forma, giro), color, 0.28);
         previa.lineStyle(3, color, 1).drawRect(ox + aj.x * S, oy + aj.y * S, aj.w * S, aj.h * S);
         if (aj.ajustada) previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + x * S, oy + y * S, w * S, hh * S);   // lo que marcaste, dentro de la sala ya ajustada
       }
-      const info = !aj ? `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` : falta ? `faltan acciones (cuesta ${coste}, quedan ${q})` : `${t.nombre}${aj.recortada ? " · recortada por lo que ya hay" : aj.ajustada ? " · ajustada al mínimo" : ""}${reglasOn() && coste ? ` · ${coste} acc.` : ""}`;
+      const info = !aj ? `${t.nombre} necesita ${t.min[0]}×${t.min[1]} como mínimo y aquí no cabe.` : `${t.nombre}${aj.recortada ? " · recortada por lo que ya hay" : aj.ajustada ? " · ajustada al mínimo" : ""}${seg === 1 ? " · 1 tirada" : seg ? ` · reloj de ${seg}` : ""}`;
       const r = aj ?? { x, y, w, h: hh }; rotulo.text = `${r.w}×${r.h} · ${info}`; rotulo.x = ox + r.x * S + 6; rotulo.y = oy + r.y * S + 4;
     } else if (libre()) {
       const lista = ini ? [...pintadas].map(k => k.split(",").map(Number)) : [[b.i, b.j]], t = TIPOS_SALA[tipoSala];
@@ -722,8 +755,8 @@ function activarHerramienta(h) {
       previa.lineStyle(2, 0xffd36b, 0.9).drawRect(ox + b.i * S, oy + b.j * S, S, S);
       celdillas([...pintadas].map(k => k.split(",").map(Number)), herramienta === "excavar" ? 0xc8921f : 0x7d1512, 0.4);
       if (herramienta === "excavar" && pintadas.size) {
-        const n = [...pintadas].filter(k => { const [i, j] = k.split(",").map(Number); return celda(m, i, j) === "e"; }).length, coste = costeExcavar(n);
-        rotulo.text = `${n} celdas${reglasOn() ? ` · ${coste} acc.` : ""}`; rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4;
+        const n = [...pintadas].filter(k => { const [i, j] = k.split(",").map(Number); return celda(m, i, j) === "e"; }).length;
+        rotulo.text = `${n} celdas`; rotulo.x = ox + b.i * S + 6; rotulo.y = oy + b.j * S - S * 0.4;
       }
     }
   };
@@ -772,7 +805,7 @@ const HERR = [
   ["rellenar", "fa-fill-drip", "Rellenar", "Vuelve a cubrir de tierra un túnel. No cuesta acciones."],
   ["sala", "fa-vector-square", "Sala", "Arrastra (o pulsa una celda) y la sala se construye sola, ajustada al espacio y con la forma elegida; con «Libre» la pintas celda a celda. Los muebles se colocan hacia la puerta."],
   ["puerta", "fa-door-closed", "Puerta", "Pulsa en el borde entre un túnel y una sala (o dos salas) para poner o quitar una puerta. Las salas se recolocan para mirar a la entrada."],
-  ["trampa", "fa-skull-crossbones", "Trampa", "Pulsa una celda para preparar una trampa o un truco (mecanismo, detonador y nivel del manual) o para gestionar la que hay."],
+  ["trampa", "fa-skull-crossbones", "Defensas", "Pulsa una celda para colocar una trampa, un truco, un portón o una estructura de nivel 1 (conducto, puente, túnel largo, pasaje secreto, ventana), o para gestionar lo que hay."],
   ["latigo", "fa-burst", "Látigo", "Pulsa para dar un latigazo: los duendes en 2,5 celdas a la redonda trabajan y corren más deprisa unos segundos. Suena en todas las mesas."],
   ["quitarSala", "fa-eraser", "Quitar sala", "Pulsa dentro de una sala para demolerla. No devuelve acciones."]
 ];
@@ -803,28 +836,43 @@ export class ConstructorMR extends App {
     // tipos de sala: el de la temática primero; los que las reglas ahora mismo no permiten salen marcados con el motivo
     const orden = Object.entries(TIPOS_SALA).sort(([ka, a], [kb, b]) => (kb === ctx.tema) - (ka === ctx.tema) || a.nivel - b.nivel);
     const tipos = orden.map(([k, v]) => {
-      const rg = reglas ? reglasSala(m, k, { tema: ctx.tema, materiales: ctx.materiales }) : { ok: true };
-      const coste = costeSala(k);
-      const sub = `${NIVELES[v.nivel]} · ${v.min[0]}×${v.min[1]}${reglas && coste ? ` · ${coste} acc.` : ""}`;
+      const rg = reglas ? reglasSala(m, k, { tema: ctx.tema, materiales: m.inicial ? null : ctx.materiales }) : { ok: true };
+      const seg = reglas && !m.inicial ? relojSala(k) : 0;
+      const sub = `${v.guarida ? "Guarida" : NIVELES[v.nivel]} · ${v.min[0]}×${v.min[1]}${seg === 1 ? " · 1 tirada" : seg ? ` · reloj ${seg}` : ""}`;
       return `<button type="button" class="mrg-cons-t ${tipoSala === k ? "on" : ""} ${rg.ok ? "" : "mrg-cons-t--no"}" data-tipo="${k}" aria-pressed="${tipoSala === k}" data-ayuda="${esc(v.nombre)}||${esc(v.nota + (rg.ok ? "" : " — " + rg.motivo))}"><img src="${RUTA}/rooms/room_${k}_iso.webp" alt="">${k === ctx.tema ? `<em class="mrg-cons-tema" title="Temática de tu mazmorra">★</em>` : ""}${rg.ok ? "" : `<em class="mrg-cons-cand" title="${esc(rg.motivo)}"><i class="fa-solid fa-lock"></i></em>`}<span>${v.nombre}</span><small>${sub}</small></button>`;
     }).join("");
-    const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema, materiales: ctx.materiales }) : { ok: true };
+    const actual = TIPOS_SALA[tipoSala], rgActual = reglas ? reglasSala(m, tipoSala, { tema: ctx.tema, materiales: m.inicial ? null : ctx.materiales }) : { ok: true };
 
-    // presupuesto de obra: acciones de la fase + créditos (proyectos terminados y regalos del DJ)
-    const o = m.obra, quedan = quedanObra(m), faseQ = o ? Math.max(0, o.total - o.gastadas) : 0, cred = o?.creditos ?? 0;
-    const pips = o ? Array.from({ length: Math.min(faseQ + cred, 16) }, (_, i) => `<i class="${i < faseQ ? "on" : "cred"}"></i>`).join("") : "";
+    // mazmorra inicial (pág. 171): una de cada, dibujadas sin proyecto
+    const hay = (f) => m.salas.some(f), hayT = (tipo, n = 1) => (m.trampas ?? []).some(t => t.tipo === tipo && t.nivel === n);
+    const lista0 = [
+      ["Sala de nivel 1", hay(s => TIPOS_SALA[s.tipo]?.nivel === 1)], ["Sala de nivel 2", hay(s => TIPOS_SALA[s.tipo]?.nivel === 2)],
+      ["Sala de nivel 3 (sin materiales)", hay(s => TIPOS_SALA[s.tipo]?.nivel === 3)], ["Guarida de criatura de nivel 1", hay(s => s.tipo === "criatura")],
+      ["Portón de nivel 1", hayT("porton")], ["Trampa de nivel 1", hayT("trampa")], ["Truco de nivel 1", hayT("truco")],
+      ["Santuario", hay(s => s.tipo === "santuario")], ["Escalera al santuario", hay(s => s.tipo === "escalera")]
+    ];
+    const inicial = m.inicial ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Mazmorra inicial</b><span>${lista0.filter(x => x[1]).length}/${lista0.length}</span></div>
+      <p class="mrg-nota">Por turnos, dibujad una de cada (pág. 171). El DJ dibuja el exterior y la entrada y tira un descubrimiento. Aquí nada es un proyecto: no hay tiradas ni relojes.</p>
+      <ul class="mrg-cons-l3">${lista0.map(([t, ok]) => `<li class="${ok ? "ok" : "falta"}"><i class="fa-solid ${ok ? "fa-check" : "fa-circle"}"></i> ${t}</li>`).join("")}</ul>
+      ${gm ? `<div class="mrg-cons-col"><button type="button" class="mrg-btn mrg-btn--sangre" data-inicial="0" data-ayuda="Terminar la mazmorra inicial||Desde ahora, cada cosa nueva será un proyecto de descanso con su tirada o su reloj."><i class="fa-solid fa-flag-checkered"></i> Terminar la mazmorra inicial</button></div>` : `<p class="mrg-nota">El DJ la da por terminada cuando esté todo.</p>`}</section>` : "";
+    const guaridas = m.salas.filter(s => s.tipo === "criatura");
+
     const proys = proyectosDeObra(), obras = obrasEnCurso(m);
     const filaProy = p => `<li class="${p.cobrado ? "hecho" : p.completo ? "listo" : ""}"><span class="mrg-cons-pq">${esc(p.quien)}</span> <b>${esc(p.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${p.prog} de ${p.tam}">${Array.from({ length: p.tam }, (_, i) => `<i class="${i < p.prog ? "on" : ""}"></i>`).join("")}</span>
         ${p.cobrado ? `<em class="mrg-chip"><i class="fa-solid fa-check"></i> aplicado</em>` : gm && obras.length ? `<button type="button" class="mrg-mini mrg-cons-aplicar" data-proy="${p.actor}|${p.item}" data-ayuda="${p.completo ? "Terminar una obra" : "Dar por hecho"}||${esc(`${p.completo ? "El reloj está lleno: termina" : "El reloj aún no está lleno; lo das por hecho igualmente y terminas"} la primera obra en curso (${obras[0].nombre}).`)}">${p.completo ? "Terminar obra" : "Dar por hecho"}</button>` : ""}</li>`;
     const RES = [["failure", "Fracaso", 0], ["mixed", "Parcial", 1], ["success", "Éxito", 2], ["critical", "Crítico", 3]];
-    const filaObra = ob => `<li><b>${esc(ob.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${ob.hecho} de ${ob.seg} segmentos">${Array.from({ length: ob.seg }, (_, i) => `<i class="${i < ob.hecho ? "on" : ""}"></i>`).join("")}</span> <small>${ob.hecho}/${ob.seg}</small>
-        <span class="mrg-cons-res-obra" role="group" aria-label="Resultado de la tirada">${RES.map(([k, t, n]) => `<button type="button" class="mrg-chipbtn" data-avanzar="${ob.clase}|${ob.id}|${n}" data-ayuda="${t}||Gasta una acción de descanso y avanza el reloj ${n} segmento${n === 1 ? "" : "s"}.">${t} +${n}</button>`).join("")}
+    const QUIEN = [["pj", "Un PJ", "fa-user"], ["esbirros", "Esbirros (1 oro)", "fa-people-group"], ["duendes", "Duendes", "fa-hammer"]];
+    const quienes = `<div class="mrg-cons-res-obra" role="group" aria-label="Quién tira"><b>Tira:</b> ${QUIEN.map(([k, t, ic]) => `<button type="button" class="mrg-chipbtn ${quienTira === k ? "mrg-sel" : ""}" data-quien="${k}" aria-pressed="${quienTira === k}"><i class="fa-solid ${ic}"></i> ${t}</button>`).join("")}</div>`;
+    const filaObra = ob => `<li><b>${esc(ob.nombre)}</b> <span class="mrg-xp-mini oro" role="img" aria-label="${ob.hecho} de ${ob.seg} segmentos">${Array.from({ length: ob.seg }, (_, i) => `<i class="${i < ob.hecho ? "on" : ""}"></i>`).join("")}</span> <small>${ob.seg === 1 ? "una tirada" : `${ob.hecho}/${ob.seg}`}</small>
+        <span class="mrg-cons-res-obra" role="group" aria-label="Resultado de la tirada">${RES.map(([k, t, n]) => `<button type="button" class="mrg-chipbtn" data-avanzar="${ob.clase}|${ob.id}|${n}" data-ayuda="${t}||Apunta una acción de descanso con este resultado: el reloj avanza ${n} segmento${n === 1 ? "" : "s"}.">${t} +${n}</button>`).join("")}
         ${gm ? `<button type="button" class="mrg-mini" data-ajustar="${ob.clase}|${ob.id}|-1" aria-label="Retrasar un segmento" data-ayuda="Ajustar||Efecto débil o un desastre: el reloj retrocede un segmento (sin gastar acción)."><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-ajustar="${ob.clase}|${ob.id}|1" aria-label="Avanzar un segmento" data-ayuda="Ajustar||Efecto potente: el reloj avanza un segmento más (sin gastar acción)."><i class="fa-solid fa-plus"></i></button>` : ""}</span></li>`;
-    const obra = reglas && o ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Acciones de descanso</b><span>${quedan}</span></div><div class="mrg-xp-mini oro" role="img" aria-label="${quedan} acciones de descanso">${pips}</div>
-      <p class="mrg-nota">Fase de acecho: ${faseQ}/${o.total}${cred ? ` · concedidas por el DJ: ${cred} (no caducan)` : ""}. Túnel largo y sala menor: una tirada. Nivel 2 y 3: una obra con su reloj de 4 u 8 segmentos.</p>
-      ${obras.length ? `<div class="mrg-cons-proys"><b><i class="fa-solid fa-hammer"></i> Obras en curso</b><ul>${obras.map(filaObra).join("")}</ul><p class="mrg-nota">Cada acción de descanso es una tirada de acción con situación ventajosa (pág. 238); marca su resultado: fracaso 0, parcial 1, éxito 2, crítico 3 (efecto potente +1, débil −1).</p></div>` : ""}
+    // obras en curso: cada cosa nueva es un proyecto de descanso; lo llenan las tiradas de PJ, esbirros pagados y duendes
+    const obra = reglas && !m.inicial ? `<section class="mrg-cons-obra"><div class="mrg-cons-obra-t"><b>Obras (proyectos de descanso)</b><span>${obras.length}</span></div>
+      <p class="mrg-nota">Dibujar es libre. Lo nuevo queda en obras hasta completar su proyecto: nivel 1, una tirada; nivel 2, un reloj de 4; nivel 3, uno de 8 y los materiales. Cada PJ tiene una acción de descanso por fase de acecho, los esbirros otra por 1 de oro y los duendes la suya.</p>
+      ${obras.length ? `<div class="mrg-cons-proys">${quienes}<ul>${obras.map(filaObra).join("")}</ul><p class="mrg-nota">Elige quién tira y marca el resultado de su tirada de acción (situación ventajosa, pág. 238): fracaso 0, parcial 1, éxito 2, crítico 3 (efecto potente +1, débil −1).</p></div>` : `<p class="mrg-nota">No hay obras en curso.</p>`}
       <details class="mrg-cons-proys" ${proys.some(p => p.completo && !p.cobrado) ? "open" : ""}><summary><i class="fa-solid fa-hourglass-half"></i> Proyectos de las fichas (${proys.filter(p => p.completo && !p.cobrado).length} listos)</summary>${proys.length ? `<ul>${proys.map(filaProy).join("")}</ul>` : `<p class="mrg-nota">Ningún PJ tiene proyectos todavía. Un proyecto con el reloj lleno termina una obra en curso; los que hablan de construir, excavar, salas o trampas lo hacen solos al llenarse.</p>`}</details>
-      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-mini" data-obra="-1" aria-label="Quitar una acción de la fase"><i class="fa-solid fa-minus"></i></button><button type="button" class="mrg-mini" data-obra="1" aria-label="Sumar una acción a la fase"><i class="fa-solid fa-plus"></i></button><button type="button" class="mrg-btn" data-extra data-ayuda="Conceder acciones||Da acciones de descanso extra al grupo (esbirros pagados con 1 oro, una capacidad, un flashback…) y avisa en el chat."><i class="fa-solid fa-gift"></i> Conceder</button><button type="button" class="mrg-btn" data-obra-nueva data-ayuda="Nueva fase de acecho||Repone las acciones de la fase: una por PJ más la de los duendes. Las concedidas se conservan. Se hace sola al pasar el panel del DJ a la fase 1."><i class="fa-solid fa-rotate"></i> Nueva fase</button></div>` : ""}</section>` : "";
+      ${gm ? `<div class="mrg-cons-obra-b"><button type="button" class="mrg-btn mrg-btn--sangre" data-duendes-accion data-ayuda="Acción de los duendes||Pág. 239: tiran tantos dados como el nivel de la mazmorra. Elige qué hacen o déjalo al azar; el resultado se aplica solo."><i class="fa-solid fa-dice"></i> Acción de los duendes</button><button type="button" class="mrg-btn" data-inicial="1" data-ayuda="Volver a la mazmorra inicial||Lo que se dibuje no será un proyecto (para rehacer la mazmorra inicial)."><i class="fa-solid fa-rotate-left"></i> Mazmorra inicial</button></div>` : ""}</section>` : "";
+    const lairs = guaridas.length ? `<p class="mrg-nota"><i class="fa-solid fa-paw"></i> Guaridas de criatura: ${guaridas.map(s => `nivel ${s.nivel ?? 1}`).join(", ")}. Se suma una cada vez que sube el nivel de la mazmorra; las demás, por descubrimientos (pág. 190).</p>` : "";
 
     // duendes constructores
     const dens = m.duendes?.densidad ?? 1, nD = numDuendes(m, ctx.nivel);
@@ -844,18 +892,21 @@ export class ConstructorMR extends App {
 
     const guia = `<details class="mrg-cons-reglas"><summary><i class="fa-solid fa-scroll"></i> Reglas de construcción</summary>
       <ul>
-        <li><b>Todo es un proyecto de descanso</b> de la fase de acecho (manual, pág. 238): cada PJ tiene una acción; los duendes, otra; y pagando 1 de oro, cada panda de esbirros hace una más. El DJ puede conceder acciones extra.</li>
-        <li><b>Nivel 1</b> = 1 tirada (túnel largo, sala menor). <b>Nivel 2</b> = reloj de 4 (guarida, prisión). <b>Nivel 3</b> = reloj de 8 y materiales de una incursión.</li>
-        <li>Cada acción de descanso es una tirada (situación ventajosa). Nivel 1 (túnel largo de hasta ${TRAMO} celdas, sala menor, trampa de nivel 1): se completa con una tirada; con un parcial, pagas el precio. Nivel 2 y 3: la sala o la trampa queda en obras con su reloj de 4 u 8 segmentos, que cada tirada avanza (fracaso 0, parcial 1, éxito 2, crítico 3). Santuario y tesoro son la base: únicos y sin coste.</li>
-        <li>Las salas de nivel 3 son de la temática de tu mazmorra; solo puedes construir <b>una</b> de otra temática.</li>
+        <li><b>La mazmorra inicial</b> (pág. 171) se dibuja por turnos con una de cada: sala de nivel 1, 2 y 3 (sin materiales), guarida de criatura de nivel 1, portón, trampa y truco de nivel 1, santuario y escalera. No son proyectos.</li>
+        <li><b>Dibujar es libre</b> (pág. 196): sin medidas y cada cosa nueva se une al resto con un túnel corto gratis. Lo que la hace real es su <b>proyecto de descanso</b> (pág. 238): nivel 1, una tirada (con un parcial, pagando el precio); nivel 2, un reloj de 4; nivel 3, un reloj de 8 y los materiales de una incursión.</li>
+        <li><b>Quién tira:</b> cada PJ tiene una acción de descanso por fase de acecho (más las de su vocación); los esbirros hacen otra si les pagáis 1 de oro; los duendes tienen la suya, con tantos dados como el nivel de la mazmorra, y el DJ decide qué hacen (cavar túneles, empezar una sala de nivel 3, ayudar en una obra). El límite es ese, no el dibujo.</li>
+        <li><b>Guaridas de criatura:</b> no se construyen; se suma una cada vez que sube el nivel de la mazmorra y otras llegan por descubrimientos (pág. 190). <b>Portones</b> (pág. 201): material y cierre, de nivel 1 a 3. <b>Estructuras de nivel 1</b>: conducto, construcción, túnel largo, pasaje secreto y ventana.</li>
+        <li>Las salas de nivel 3 son de la temática de tu mazmorra; solo puedes construir <b>una</b> de otra temática. Mover la escalera del santuario no gasta acción.</li>
         <li>El manual no fija medidas («dibujad como os plazca»; el santuario suele ser de 5×5 o más): los mínimos de cada sala son del módulo y puedes darles la forma que quieras.</li>
-        ${gm ? `<li class="mrg-nota">Apaga estas reglas en Ajustes → «El constructor sigue las reglas de obra».</li>` : ""}
+        ${gm ? `<li class="mrg-nota">Apaga los relojes de obra en Ajustes → «El constructor lleva las obras con relojes».</li>` : ""}
       </ul></details>`;
 
     return `<div class="mrg-cons">
       <div class="mrg-cons-herr">${herr}</div>
       ${snd}
+      ${inicial}
       ${obra}
+      ${lairs}
       ${formas}
       <h4 class="mrg-seccion">Tipo de sala</h4><div class="mrg-cons-tipos">${tipos}</div>
       ${actual.salas ? `<label class="mrg-campo"><span class="mrg-etiqueta">¿Qué sala de nivel 3? (pág. 196)</span><select data-n3>${actual.salas.map(n => `<option ${n === salaN3 ? "selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}
@@ -875,14 +926,14 @@ export class ConstructorMR extends App {
       const b = ev.target.closest("button"); if (!b) return;
       if (b.dataset.snd) { const k = b.dataset.snd, on = !game.settings.get(MOD, k); await game.settings.set(MOD, k, on); if (on) sonar("clic"); return this.render(); }
       if (b.dataset.proy) { const [actor, item] = b.dataset.proy.split("|"); await pedir("proyecto", { actor, item }); return this.render(); }
-      if (b.dataset.avanzar || b.dataset.ajustar) { const [clase, id, n] = (b.dataset.avanzar || b.dataset.ajustar).split("|"); await pedir("avanzar", { clase, id, segmentos: Number(n), ajuste: Boolean(b.dataset.ajustar) }); return this.render(); }
+      if (b.dataset.avanzar || b.dataset.ajustar) { const [clase, id, n] = (b.dataset.avanzar || b.dataset.ajustar).split("|"); await pedir("avanzar", { clase, id, segmentos: Number(n), ajuste: Boolean(b.dataset.ajustar), quien: quienTira }); return this.render(); }
       if (b.dataset.herr) { sonar("clic"); activarHerramienta(herramienta === b.dataset.herr ? null : b.dataset.herr); return this.render(); }
       if (b.dataset.tipo) { tipoSala = b.dataset.tipo; if (herramienta !== "sala") activarHerramienta("sala"); return this.render(); }
       if (b.dataset.forma) { forma = b.dataset.forma; activarHerramienta("sala"); return this.render(); }
       if ("girar" in b.dataset) { giro = (giro + 1) % 4; return this.render(); }
-      if (b.dataset.obra) { await pedir("obra", { delta: Number(b.dataset.obra) }); return this.render(); }
-      if ("obraNueva" in b.dataset) { await pedir("obra", { reiniciar: true }); return this.render(); }
-      if ("extra" in b.dataset) return abrirExtra((n, motivo) => pedir("obra", { delta: n, extra: true, motivo }));
+      if (b.dataset.quien) { quienTira = b.dataset.quien; return this.render(); }
+      if (b.dataset.inicial) { await pedir("inicial", { valor: b.dataset.inicial === "1" }); return this.render(); }
+      if ("duendesAccion" in b.dataset) return elegirAccionDuendes();
       if ("nueva" in b.dataset) { await nuevaEscena(); return this.render(); }
       if ("convertir" in b.dataset) { await convertirEscena(); return this.render(); }
       if ("rehacer" in b.dataset) { await sincronizarEntorno(); ui.notifications.info("Muros, puertas y luces rehechos."); }
@@ -904,7 +955,7 @@ export function abrirConstructor() {
 
 /* ------------------------------------------------------------------------------------------------ escenas */
 
-function mapaNuevo(w, h) { const m = crearMapa(w, h); m.obra.total = accionesPorDefecto(); return m; }
+const mapaNuevo = (w, h) => crearMapa(w, h);   // empieza como mazmorra inicial (pág. 171)
 
 export async function convertirEscena(w, h) {
   const escena = canvas.scene; if (!escena || !game.user.isGM) return;
@@ -934,7 +985,7 @@ export function registrarMazmorra() {
     scope: "world", config: true, type: Boolean, default: true
   });
   game.settings.register(MOD, "mazmorraReglas", {
-    name: "El constructor sigue las reglas de obra", hint: "Excavar y construir cuesta acciones de descanso de la fase de acecho; las salas de nivel 3 piden la temática y los materiales de la ficha de la mazmorra. Apagado, se construye sin límites.",
+    name: "El constructor lleva las obras con relojes", hint: "Tras la mazmorra inicial, cada cosa nueva queda en obras hasta completar su proyecto de descanso (nivel 1 una tirada, nivel 2 un reloj de 4, nivel 3 uno de 8 y materiales), y las salas de nivel 3 piden la temática de la ficha. Apagado, todo se construye al instante.",
     scope: "world", config: true, type: Boolean, default: true, onChange: () => foundry.applications.instances?.get?.("mr-wo-constructor")?.render()
   });
   game.settings.register(MOD, "mazmorraVasallos", {
@@ -993,8 +1044,8 @@ export function iniciarMazmorra() {
   };
   Hooks.on("updateActor", (actor, cambios) => {
     alCambiarFicha(actor);
-    // el panel del DJ pasa a la fase 1 (recuperación): empieza una nueva fase de acecho, con acciones de descanso nuevas
-    if (soyDJ() && actor.type === "gm_sheet" && foundry.utils.getProperty(cambios, "system.current_phase.value") === 1 && reglasOn() && mapaDe(canvas.scene)?.obra) reiniciarObra(canvas.scene);
+    // el panel del DJ pasa a la fase 1: empieza una fase de acecho; se recuerda quién tiene acciones de descanso
+    if (soyDJ() && actor.type === "gm_sheet" && foundry.utils.getProperty(cambios, "system.current_phase.value") === 1 && reglasOn() && mapaDe(canvas.scene) && !mapaDe(canvas.scene).inicial) avisoAcecho();
   });
   for (const h of ["createItem", "updateItem", "deleteItem"]) Hooks.on(h, alCambiarFicha);
   Hooks.on("updateItem", (item, cambios) => {   // un reloj de proyecto que se llena y habla de obras se cobra solo

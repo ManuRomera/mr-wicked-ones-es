@@ -13,6 +13,7 @@ import { abrirCreador } from "./creador.mjs";
 import { registrarHeridas } from "./heridas.mjs";
 import { registrarExperiencia } from "./experiencia.mjs";
 import { registrarMazmorra, iniciarMazmorra, abrirConstructor } from "./mazmorra.mjs";
+import { registrarEntorno, iniciarEntorno, abrirEntorno, nuevoMapa } from "./entorno.mjs";
 import { registrarMarcadores, iniciarMarcadores, abrirMarcadores, alternarPanel as alternarMarcadores } from "./marcadores.mjs";
 import { registrarTarjetas, tirar } from "./tirada.mjs";
 import { abrirTirada } from "./tirada-dialogo.mjs";
@@ -132,6 +133,7 @@ Hooks.once("init", () => {
   registrarExperiencia();
   registrarMarcadores();
   registrarMazmorra();
+  registrarEntorno();
 
   // Exponer API pública del módulo
   const mod = game.modules.get(MOD);
@@ -141,6 +143,8 @@ Hooks.once("init", () => {
       abrirCreador,
       abrirMarcadores,
       abrirConstructor,
+      abrirEntorno,
+      nuevoMapaEntorno: nuevoMapa,
       alternarMarcadores,
       recuperar,
       recuperarTodos,
@@ -195,6 +199,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
 // Botón del constructor de mazmorras en los controles de escena
 Hooks.on("renderSceneControls", (app, html) => {
   insertarControlEscena(html, "mr-wo-control-constructor", "fa-solid fa-trowel-bricks", "MR · Constructor de mazmorras", () => abrirConstructor());
+  insertarControlEscena(html, "mr-wo-control-entorno", "fa-solid fa-map-location-dot", "MR · Mapa del entorno", () => abrirEntorno());
 });
 
 // Cambio automático a figura de cuerpo entero en escenas de imagen (para MR- Dirección)
@@ -218,6 +223,7 @@ Hooks.on("mrDireccion.ready", () => {
 
 Hooks.once("ready", async () => {
   iniciarMazmorra();
+  iniciarEntorno();
   iniciarMarcadores().catch(e => console.error(`${MOD} | marcadores`, e));
   await cargarLiterales();
   aplicarAspecto();

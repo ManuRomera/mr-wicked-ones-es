@@ -25,8 +25,8 @@ import {
 } from "../js/core/reglas.mjs";
 import {
   crearMapa, excavar, rellenar, construirSala, quitarSala, alternarPuerta, muros, decorar, lucesDe, celda, resumen, TIPOS_SALA, cabe, ajustarSala,
-  reglasSala, costeSala, costeExcavar, puedeGastar, gastar, quedanObra, esProyectoDeObra, relojSala, enObra, obrasEnCurso, avanzarObra, AVANCE_RESULTADO, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
-  mascara, celdasForma, validarCeldas, contiene, celdasDe, FORMAS, MECANISMOS, DETONADORES, ponerTrampa, editarTrampa, quitarTrampa, costeTrampa, numDuendes
+  reglasSala, esProyectoDeObra, tunelDeDuendes, huecoParaSala, zonasConectadas, accionesDuendesPosibles, ESTRUCTURAS, relojSala, enObra, obrasEnCurso, avanzarObra, AVANCE_RESULTADO, tipoDeTema, antorchasTunel, lucesTunel, entradasDe,
+  mascara, celdasForma, validarCeldas, contiene, celdasDe, FORMAS, MECANISMOS, DETONADORES, ponerTrampa, editarTrampa, quitarTrampa, numDuendes
 } from "../js/core/mazmorra.mjs";
 import { clockAfterClick, clockState, clockEvent, phraseFor, publicMilestones, publicClocks, normalizarMarcadores, unirPorId, milestonesProgress } from "../js/core/marcadores.mjs";
 
@@ -398,29 +398,30 @@ test("Constructor: antorchas de pasillo según la orientación", () => {
   assert.ok(cortas.length === 1 && cortas[0].relleno);       // un tramo corto lleva una sola antorcha de relleno, para que no quede a oscuras
 });
 
-test("Constructor: reglas de obra (acciones de descanso, relojes de proyecto, temática y materiales)", () => {
-  // pág. 238: nivel 1 = una tirada; nivel 2 = reloj de 4; nivel 3 = reloj de 8; base sin coste
-  assert.equal(costeSala("santuario"), 0);
-  assert.equal(costeSala("menor"), 1);
-  assert.equal(costeSala("prision"), 0); assert.equal(relojSala("prision"), 4);
-  assert.equal(costeSala("forja"), 0); assert.equal(relojSala("forja"), 8);
-  assert.equal(relojSala("menor"), 0);
+test("Constructor: reglas de obra (dibujo libre, proyectos con reloj, mazmorra inicial, temática y materiales)", () => {
+  // pág. 238: nivel 1 = una tirada (reloj de 1); nivel 2 = reloj de 4; nivel 3 = reloj de 8; santuario, tesoro y guaridas no son proyectos
+  assert.equal(relojSala("santuario"), 0); assert.equal(relojSala("criatura"), 0);
+  assert.equal(relojSala("menor"), 1); assert.equal(relojSala("prision"), 4); assert.equal(relojSala("forja"), 8);
   assert.deepEqual(AVANCE_RESULTADO, { failure: 0, mixed: 1, success: 2, critical: 3 });
-  assert.equal(costeExcavar(0), 0); assert.equal(costeExcavar(8), 1); assert.equal(costeExcavar(9), 2);
   for (const k of ["tortura", "escalera", "guardia", "guarida", "prision"]) assert.equal(TIPOS_SALA[k].nivel, 2, `${k} es de nivel 2`);
   for (const k of ["enclave", "escondrijo", "forja", "fortaleza", "templo"]) assert.equal(TIPOS_SALA[k].salas.length, 7, `${k}: 7 salas de nivel 3`);
+  assert.ok(TIPOS_SALA.criatura.guarida && Object.keys(ESTRUCTURAS).length === 5);
   const m = crearMapa(30, 20);
-  assert.equal(m.obra.total, 3);
-  assert.ok(puedeGastar(m, 3).ok && !puedeGastar(m, 4).ok);
-  gastar(m, 2);
-  assert.equal(puedeGastar(m, 2).ok, false);
-  assert.ok(/te quedan 1/.test(puedeGastar(m, 2).motivo));
-  m.obra.creditos = 3;   // acciones concedidas por el DJ: no caducan y se gastan después de las de la fase
-  assert.equal(quedanObra(m), 4);
-  gastar(m, 3);
-  assert.deepEqual([m.obra.gastadas, m.obra.creditos, quedanObra(m)], [3, 1, 1]);
+  assert.ok(m.inicial && !("obra" in m));   // una mazmorra nueva empieza como mazmorra inicial (pág. 171) y no hay bolsa de acciones
   assert.ok(esProyectoDeObra("Excavar el pasillo norte") && esProyectoDeObra("Construir una prisión") && !esProyectoDeObra("Elaborar una poción"));
-  m.obra.creditos = 0; m.obra.gastadas = 2;
+  // una sala de nivel 1 también es un proyecto: una tirada
+  const s1 = construirSala(m, { x: 24, y: 2, w: 2, h: 2 }, "menor", { obra: true });
+  assert.equal(s1.obra, 1);
+  assert.ok(avanzarObra(m, "sala", s1.id, AVANCE_RESULTADO.failure).ok && enObra(m.salas.find(s => s.id === s1.id)));   // un fracaso no la termina
+  assert.ok(avanzarObra(m, "sala", s1.id, AVANCE_RESULTADO.mixed).completa);                                             // un parcial sí (pagando el precio)
+  quitarSala(m, s1.id);
+  // portones y estructuras de nivel 1
+  excavar(m, 10, 10); excavar(m, 11, 10);
+  const po = ponerTrampa(m, { x: 10, y: 10, tipo: "porton", mecanismo: "Hierro", detonador: "Candado", nivel: 2, obra: true });
+  assert.ok(po.ok && po.obra === 4 && m.trampas.at(-1).tipo === "porton");
+  const es = ponerTrampa(m, { x: 11, y: 10, tipo: "estructura", mecanismo: "Pasaje secreto", nivel: 3, obra: true });
+  assert.ok(es.ok && es.nivel === 1 && es.obra === 1);   // las estructuras siempre son de nivel 1
+  m.trampas = []; rellenar(m, 10, 10); rellenar(m, 11, 10);
   // una sala de nivel 2 en obras: reloj de 4, sin luz ni mobiliario hasta llenarlo
   const ob = construirSala(m, { x: 20, y: 10, w: 3, h: 3 }, "prision", { obra: true, nombre: "" });
   assert.equal(ob.obra, 4);
@@ -494,13 +495,12 @@ test("Constructor: trampas del manual, trucos y duendes según el nivel", () => 
   excavar(m, 4, 4); excavar(m, 5, 4);
   assert.equal(ponerTrampa(m, { x: 9, y: 9, mecanismo: "Pinchos" }).ok, false);          // en roca/tierra no
   const t = ponerTrampa(m, { x: 4, y: 4, mecanismo: "Péndulo", detonador: "Placa de presión", nivel: 2 });
-  assert.ok(t.ok && t.coste === 0 && m.trampas[0].tipo === "trampa" && m.trampas[0].revelada === false);   // nivel 2: se paga sobre su reloj
+  assert.ok(t.ok && m.trampas[0].tipo === "trampa" && m.trampas[0].revelada === false);   // nivel 2: se paga sobre su reloj
   assert.equal(ponerTrampa(m, { x: 4, y: 4, mecanismo: "Gas" }).ok, false);              // una por celda
   const tr = ponerTrampa(m, { x: 5, y: 4, tipo: "truco", mecanismo: "Cuerda con cascabeles", detonador: "Al pasar", intencion: "Alerta a los esbirros", nivel: 9 });
-  assert.ok(tr.ok && tr.nivel === 3 && tr.coste === 0);                                  // el nivel se acota a 1-3
+  assert.ok(tr.ok && tr.nivel === 3);                                  // el nivel se acota a 1-3
   assert.ok(editarTrampa(m, t.id, { nivel: 3, revelada: true, mecanismo: "Sierra" }).ok);
   assert.ok(m.trampas[0].nivel === 3 && m.trampas[0].revelada && m.trampas[0].mecanismo === "Sierra");
-  assert.equal(costeTrampa(1), 1); assert.equal(costeTrampa(3), 0);
   rellenar(m, 5, 4);                                                                      // al rellenar la celda, el truco desaparece
   assert.equal(m.trampas.length, 1);
   assert.ok(quitarTrampa(m, t.id) && m.trampas.length === 0);
@@ -569,4 +569,20 @@ test("Compendios: los 20 trabajos de esbirros de la tabla d20 (pág. 372)", asyn
   const trabajos = equipo.filter(d => d.type === "minion_type").map(d => d.name);
   assert.equal(trabajos.length, 20);
   for (const n of ["Bufones", "Conductores", "Guardaespaldas", "Zapadores"]) assert.ok(trabajos.includes(n), n);
+});
+
+test("Constructor: acción de descanso de los duendes (pág. 239)", () => {
+  const m = crearMapa(20, 12);
+  for (let x = 2; x <= 4; x++) excavar(m, x, 5);
+  for (let x = 12; x <= 14; x++) excavar(m, x, 5);
+  assert.equal(zonasConectadas(m).length, 2);
+  const camino = tunelDeDuendes(m);
+  assert.equal(camino.length, 7);                       // de x=5 a x=11 por tierra virgen
+  for (const [x, y] of camino) excavar(m, x, y);
+  assert.equal(zonasConectadas(m).length, 1);
+  assert.equal(tunelDeDuendes(m).length, 0);            // ya está todo unido
+  const h = huecoParaSala(m, "forja");
+  assert.ok(h && construirSala(m, h.rect, "forja", { obra: true }).ok);
+  assert.ok(alternarPuerta(m, h.puerta.x, h.puerta.y, h.puerta.d).ok);   // la sala nueva queda unida con una puerta
+  assert.deepEqual(accionesDuendesPosibles(m, "forja").sort(), ["obra", "sala3", "suya"].sort().filter(k => k !== "sala3" || huecoParaSala(m, "forja")));
 });

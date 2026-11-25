@@ -15,7 +15,8 @@
  */
 export const TIPOS_SALA = {
   santuario: { nombre: "Santuario", importante: true, nivel: 0, min: [3, 3], unica: true, nota: "El corazón de la mazmorra: trono, estandartes y alfombra hasta el fondo. El manual lo quiere grande, de 5×5 o más." },
-  tesoro: { nombre: "Tesoro", importante: true, nivel: 0, min: [2, 2], unica: true, nota: "Tu botín. Cuanto más alto es el nivel de la mazmorra, más oro se amontona." },
+  tesoro: { nombre: "Tesoro", importante: true, nivel: 0, min: [2, 2], unica: true, nota: "Decorado opcional: el manual guarda el tesoro en el santuario (pág. 202). Cuanto más alto es el nivel de la mazmorra, más oro se amontona." },
+  criatura: { nombre: "Guarida de criatura", importante: false, nivel: 0, guarida: true, min: [2, 2], nota: "No se construye (pág. 190): empezáis con una de nivel 1, sumáis otra cada vez que sube el nivel de la mazmorra (con ese nivel) y las demás llegan por descubrimientos. Atrae criaturas de su nivel." },
   menor: { nombre: "Sala menor", importante: false, nivel: 1, min: [2, 2], nota: "Comedor, letrinas, jardín… Sube la moral: +1d en tu siguiente tirada de desastre." },
   guarida: { nombre: "Guarida de esbirros", importante: false, nivel: 2, min: [3, 3], nota: "Una panda de esbirros asignada aquí: su moral aumenta en cada recuperación y gana +1d al defender la sala de invasores." },
   prision: { nombre: "Prisión", importante: false, nivel: 2, min: [3, 3], nota: "Cuatro celdas que pueden encerrar prisioneros; no escapan sin una oportunidad previa." },
@@ -43,7 +44,7 @@ export const abierta = c => c === "." || c === "r";
 /** Mapa nuevo: borde de roca y tierra virgen dentro. */
 export function crearMapa(w = 40, h = 28) {
   const t = Array.from({ length: h }, (_, y) => Array.from({ length: w }, (_, x) => (x === 0 || y === 0 || x === w - 1 || y === h - 1 ? "#" : "e")).join(""));
-  return { v: 3, w, h, t, salas: [], puertas: [], trampas: [], obra: { total: 3, gastadas: 0, creditos: 0, extra: 0, proyectos: 0 }, duendes: { densidad: 1 }, actor: null };
+  return { v: 4, w, h, t, salas: [], puertas: [], trampas: [], inicial: true, duendes: { densidad: 1 }, actor: null };
 }
 
 export const celda = (m, x, y) => (x < 0 || y < 0 || x >= m.w || y >= m.h ? "#" : m.t[y][x]);
@@ -180,16 +181,15 @@ export function reglasSala(m, tipo, ctx = {}) {
 }
 
 /**
- * Proyectos de descanso (manual, pág. 238): nivel 1 = una sola tirada (una acción de descanso); nivel 2 = reloj de 4 segmentos;
- * nivel 3 = reloj de 8. Cada tirada de una acción de descanso avanza el reloj según su resultado (pág. 66): fracaso 0, éxito parcial 1,
- * éxito 2, crítico 3 (el efecto potente suma 1 y el débil resta 1, salvo en un fracaso).
- * Santuario y tesoro (nivel 0) son la base de la mazmorra y no cuestan nada.
+ * Construir es un proyecto de descanso (manual, págs. 196 y 238). Dibujar es libre («dibujad como os plazca») y cada cosa nueva
+ * se une al resto con un túnel corto sin coste; lo que la hace real es su proyecto: nivel 1 = una tirada (reloj de 1), nivel 2 =
+ * reloj de 4, nivel 3 = reloj de 8 (y materiales). No hay bolsa de acciones: cada PJ tiene su acción de descanso por fase de acecho,
+ * los esbirros otra por 1 de oro y los duendes la suya (pág. 239), y eso lo lleva la mesa. Cada tirada avanza el reloj según su
+ * resultado: fracaso 0, éxito parcial 1, éxito 2, crítico 3 (efecto potente +1, débil −1). En nivel 1, el parcial también lo
+ * termina, pero pagando el precio. Santuario, tesoro y guaridas de criatura (nivel 0) no son proyectos.
  */
-export const RELOJ_NIVEL = { 2: 4, 3: 8 };
+export const RELOJ_NIVEL = { 1: 1, 2: 4, 3: 8 };
 export const AVANCE_RESULTADO = { failure: 0, mixed: 1, success: 2, critical: 3 };
-export const COSTE_NIVEL = { 0: 0, 1: 1, 2: 0, 3: 0 };   // los de nivel 2 y 3 se pagan tirada a tirada sobre su reloj
-export const TRAMO = 8;   // celdas de túnel que cuentan como un «túnel largo» (nivel 1)
-export const costeSala = tipo => COSTE_NIVEL[TIPOS_SALA[tipo]?.nivel ?? 1];
 export const relojSala = tipo => RELOJ_NIVEL[TIPOS_SALA[tipo]?.nivel] ?? 0;
 export const relojTrampa = nivel => RELOJ_NIVEL[nivel] ?? 0;
 /** ¿Está la sala o la trampa todavía en obras (su reloj de proyecto sin llenar)? */
@@ -197,7 +197,7 @@ export const enObra = o => Boolean(o?.obra && o.obra.hecho < o.obra.seg);
 /** Obras en curso: salas y trampas con su reloj sin llenar, por orden de inicio. */
 export const obrasEnCurso = m => [
   ...m.salas.filter(enObra).map(s => ({ clase: "sala", id: s.id, nombre: s.nombre || TIPOS_SALA[s.tipo]?.nombre || s.tipo, hecho: s.obra.hecho, seg: s.obra.seg, orden: s.obra.orden ?? 0 })),
-  ...(m.trampas ?? []).filter(enObra).map(t => ({ clase: "trampa", id: t.id, nombre: `${t.tipo === "truco" ? "Truco" : "Trampa"} de nivel ${t.nivel}${t.mecanismo ? ` (${t.mecanismo})` : ""}`, hecho: t.obra.hecho, seg: t.obra.seg, orden: t.obra.orden ?? 0 }))
+  ...(m.trampas ?? []).filter(enObra).map(t => ({ clase: "trampa", id: t.id, nombre: t.tipo === "estructura" ? (t.mecanismo || "Estructura") : `${{ truco: "Truco", porton: "Portón" }[t.tipo] ?? "Trampa"} de nivel ${t.nivel}${t.mecanismo ? ` (${t.mecanismo})` : ""}`, hecho: t.obra.hecho, seg: t.obra.seg, orden: t.obra.orden ?? 0 }))
 ].sort((a, b) => a.orden - b.orden);
 const ordenObra = m => [...m.salas, ...(m.trampas ?? [])].reduce((a, o) => Math.max(a, o.obra?.orden ?? 0), 0) + 1;
 /** Avanza (o, con números negativos, retrasa) el reloj de una obra. */
@@ -207,25 +207,6 @@ export function avanzarObra(m, clase, id, segmentos) {
   if (!enObra(o) && segmentos > 0) return { ok: false, motivo: "Esa obra ya está terminada." };
   o.obra.hecho = Math.min(o.obra.seg, Math.max(0, o.obra.hecho + segmentos));
   return { ok: true, completa: !enObra(o), hecho: o.obra.hecho, seg: o.obra.seg };
-}
-export const costeExcavar = n => (n > 0 ? Math.ceil(n / TRAMO) : 0);
-
-/**
- * Presupuesto de obra: las acciones de descanso de la fase de acecho (`total` − `gastadas`) más los **créditos** (`creditos`),
- * que no caducan: salen de los proyectos terminados (relojes llenos) y de lo que el DJ concede. Se gastan primero las de la fase.
- * Sin `obra` no hay límite.
- */
-export const quedanObra = m => (m.obra ? Math.max(0, m.obra.total - m.obra.gastadas) + Math.max(0, m.obra.creditos ?? 0) : null);
-export function puedeGastar(m, coste) {
-  if (!m.obra || coste <= 0) return { ok: true };
-  const quedan = quedanObra(m);
-  return coste <= quedan ? { ok: true } : { ok: false, motivo: `Esto cuesta ${coste} acción${coste > 1 ? "es" : ""} de descanso y te quedan ${quedan}.` };
-}
-export function gastar(m, coste) {
-  const o = m.obra; if (!o || coste <= 0) return;
-  const deFase = Math.min(coste, Math.max(0, o.total - o.gastadas));
-  o.gastadas += deFase;
-  if (coste > deFase) o.creditos = Math.max(0, (o.creditos ?? 0) - (coste - deFase));
 }
 /** Un proyecto de la hoja de un PJ con su reloj lleno termina una obra en curso: los que hablan de obras lo hacen solos al llenarse. */
 export const esProyectoDeObra = nombre => /constru|excav|cav(a|ar)|sala|t[uú]nel|trampa|truco|port[oó]n|mazmorra|guarida|santuario|build|dig|room|trap|tunnel|door|gate/i.test(String(nombre ?? ""));
@@ -442,6 +423,9 @@ export function decorar(sala, puertas = [], opts = {}) {
     poner("barril", u0, 0);
     if (med) poner("brasero", u0, D - 1);
     antorchas();
+  } else if (tipo === "criatura") {   // cubil: nidos de paja por los rincones y algún resto, sin braseros
+    poner("jergon", 0, 0); if (W > 2) poner("jergon", W - 1, D - 1);
+    if (area >= 9) { poner("jergon", W - 1, 0); poner("barril", 0, D - 1); }
   } else if (tipo === "prision") {
     fila("jaula", 0, 2);
     if (D >= 5) fila("jaula", D - 1, 2);
@@ -553,21 +537,113 @@ export const lucesTunel = m => antorchasTunel(m).map(a => ({ x: a.x, y: a.y, dim
 /** Mecanismos y detonadores de trampa del manual (pág. 198, d12 cada uno). Se puede escribir otro. */
 export const MECANISMOS = ["Muro aplastante", "Dardos", "Pinchos", "Roca", "Sierra", "Péndulo", "Gas", "Calambre", "Mangual", "Barril explosivo", "Pozo", "Suelo con cuchillas"];
 export const DETONADORES = ["Placa de presión", "Cordel", "Mágica", "Detección", "Ilusión", "Camuflaje", "Sonido", "Retirar un objeto", "Puerta falsa", "Centinela", "Puzle fallido", "Palanca falsa"];
-/** Las trampas y los trucos son proyectos de descanso como el resto: nivel 1 = 1 acción, 2 = 2, 3 = 4. */
-export const costeTrampa = nivel => COSTE_NIVEL[Math.min(3, Math.max(1, nivel | 0))] ?? 1;   // nivel 1: una tirada; 2 y 3: reloj
+/** Portones (pág. 201): material de la puerta y mecanismo de cierre. */
+export const MATERIALES_PORTON = ["Barrotes", "Campo mágico", "Cristal", "Hielo", "Hierro", "Hueso", "Madera", "Piedra", "Raíces"];
+export const CIERRES_PORTON = ["Arcano", "Barra", "Candado", "Cerradura de aro", "Cerrojo", "Contraseña", "Muescas", "Objeto pesado", "Placa de presión", "Polea", "Rompecabezas", "Temporizador"];
+/** Salas y estructuras de nivel 1 que no son salas (pág. 197): se marcan en una celda de túnel o de sala. */
+export const ESTRUCTURAS = {
+  "Conducto": "Un pequeño pasadizo para criaturas pequeñas, demasiado estrecho para las labores rutinarias.",
+  "Construcción": "Un puente, una escalera, cuerda, balancín o ascensor de poleas para pasar con seguridad.",
+  "Túnel largo": "Un pasadizo largo y sencillo que conecta zonas de la mazmorra.",
+  "Pasaje secreto": "Un pasadizo oculto que pasa desapercibido, a no ser que se acabe de usar.",
+  "Ventana": "Un agujero en la pared entre cavernas, salas o túneles."
+};
 
 const limpia = (v, n) => String(v ?? "").trim().slice(0, n);
 
-/** Trampa (mecanismo + detonador) o truco (método + detonador + intención) en una celda abierta. Nacen ocultas. */
+/**
+ * Defensas y estructuras en una celda abierta: trampa (mecanismo + detonador), truco (método + detonador + intención), portón
+ * (material en `mecanismo` + cierre en `detonador`) o estructura de nivel 1 (su nombre en `mecanismo`). Trampas y trucos nacen ocultos.
+ */
+export const TIPOS_DEFENSA = ["trampa", "truco", "porton", "estructura"];
 export function ponerTrampa(m, t) {
-  if (!abierta(celda(m, t.x, t.y))) return { ok: false, motivo: "Una trampa va en un túnel o en una sala, no en la roca." };
+  if (!abierta(celda(m, t.x, t.y))) return { ok: false, motivo: "Va en un túnel o en una sala, no en la roca." };
   m.trampas ??= [];
-  if (m.trampas.some(z => z.x === t.x && z.y === t.y)) return { ok: false, motivo: "Ya hay una trampa o un truco en esa celda." };
-  const tipo = t.tipo === "truco" ? "truco" : "trampa", nivel = Math.min(3, Math.max(1, t.nivel | 0 || 1));
+  if (m.trampas.some(z => z.x === t.x && z.y === t.y)) return { ok: false, motivo: "Ya hay algo colocado en esa celda." };
+  const tipo = TIPOS_DEFENSA.includes(t.tipo) ? t.tipo : "trampa";
+  const nivel = tipo === "estructura" ? 1 : Math.min(3, Math.max(1, t.nivel | 0 || 1));
   const id = `t${m.trampas.reduce((a, z) => Math.max(a, Number(z.id.slice(1)) || 0), 0) + 1}`;
   const seg = t.obra ? relojTrampa(nivel) : 0;
   m.trampas.push({ id, tipo, x: t.x, y: t.y, nivel, mecanismo: limpia(t.mecanismo, 60), detonador: limpia(t.detonador, 60), intencion: limpia(t.intencion, 160), nota: limpia(t.nota, 200), revelada: false, ...(seg ? { obra: { seg, hecho: 0, orden: ordenObra(m) } } : {}) });
-  return { ok: true, id, nivel, coste: costeTrampa(nivel), obra: seg };
+  return { ok: true, id, nivel, obra: seg };
+}
+
+/* ------------------------------------------------------------------------------------------------ acción de descanso de los duendes */
+
+/** Zonas abiertas sin conexión entre sí (túneles y salas que se tocan cuentan como unidos: las puertas se ponen aparte). */
+export function zonasConectadas(m) {
+  const visto = new Set(), out = [];
+  for (let y = 0; y < m.h; y++) for (let x = 0; x < m.w; x++) {
+    if (!abierta(celda(m, x, y)) || visto.has(`${x},${y}`)) continue;
+    const zona = [], cola = [[x, y]]; visto.add(`${x},${y}`);
+    while (cola.length) {
+      const [i, j] = cola.pop(); zona.push([i, j]);
+      for (const [dx, dy] of Object.values(DIRS)) { const k = `${i + dx},${j + dy}`; if (!visto.has(k) && abierta(celda(m, i + dx, j + dy))) { visto.add(k); cola.push([i + dx, j + dy]); } }
+    }
+    out.push(zona);
+  }
+  return out.sort((a, b) => b.length - a.length);
+}
+
+/**
+ * Los duendes «cavan túneles entre habitaciones que no estaban conectadas» (pág. 239): el camino más corto por tierra virgen
+ * desde la zona más grande hasta otra sin conectar. Devuelve las celdas a excavar (vacío si todo está unido o no hay paso).
+ */
+export function tunelDeDuendes(m) {
+  const zonas = zonasConectadas(m); if (zonas.length < 2) return [];
+  const origen = new Set(zonas[0].map(([i, j]) => `${i},${j}`)), destino = new Set(zonas.slice(1).flat().map(([i, j]) => `${i},${j}`));
+  const prev = new Map(), cola = zonas[0].map(c => c);
+  zonas[0].forEach(([i, j]) => prev.set(`${i},${j}`, null));
+  while (cola.length) {
+    const [i, j] = cola.shift();
+    for (const [dx, dy] of Object.values(DIRS)) {
+      const a = i + dx, b = j + dy, k = `${a},${b}`;
+      if (prev.has(k)) continue;
+      if (destino.has(k)) {   // llegamos: reconstruir el camino de tierra
+        const camino = []; let c = `${i},${j}`;
+        while (c && !origen.has(c)) { camino.push(c.split(",").map(Number)); c = prev.get(c); }
+        return camino.reverse();
+      }
+      if (celda(m, a, b) !== "e") continue;
+      prev.set(k, `${i},${j}`); cola.push([a, b]);
+    }
+  }
+  return [];
+}
+
+/**
+ * Sitio para que los duendes «empiecen a construir una sala de nivel 3» (pág. 239): un rectángulo de tierra virgen con el mínimo del
+ * tipo, pegado a algo ya excavado. Devuelve `{rect, puerta}` (la puerta une la sala con lo excavado) o `null`.
+ */
+export function huecoParaSala(m, tipo) {
+  const [a, b] = TIPOS_SALA[tipo]?.min ?? [3, 3];
+  for (const [w, h] of [[a, b], [b, a]]) for (let y = 1; y + h <= m.h - 1; y++) for (let x = 1; x + w <= m.w - 1; x++) {
+    let libre = true;
+    for (let j = y; j < y + h && libre; j++) for (let i = x; i < x + w; i++) if (celda(m, i, j) !== "e") { libre = false; break; }
+    if (!libre) continue;
+    for (let j = y; j < y + h; j++) for (let i = x; i < x + w; i++) for (const [d, [dx, dy]] of Object.entries(DIRS)) {
+      const fuera = i + dx < x || i + dx >= x + w || j + dy < y || j + dy >= y + h;
+      if (fuera && abierta(celda(m, i + dx, j + dy))) return { rect: { x, y, w, h }, puerta: { x: i, y: j, d } };
+    }
+  }
+  return null;
+}
+
+/** Lo que pueden hacer los duendes en su acción de descanso (pág. 239). El DJ elige o lo deja al azar. */
+export const ACCIONES_DUENDES = {
+  tunel: "Cavan un túnel entre zonas que no estaban conectadas",
+  obra: "Trabajan en una obra que habíais empezado",
+  sala3: "Empiezan a construir una sala de nivel 3 por su cuenta",
+  suya: "Trabajan en algo por su cuenta (lo que entendieron de los planes de los malvados, o según sus rasgos)"
+};
+/** Acciones que tienen sentido ahora mismo en este mapa (para el azar). */
+export function accionesDuendesPosibles(m, tema) {
+  const out = [];
+  if (tunelDeDuendes(m).length) out.push("tunel");
+  if (obrasEnCurso(m).length) out.push("obra");
+  if (tema && huecoParaSala(m, tema)) out.push("sala3");
+  out.push("suya");
+  return out;
 }
 export function editarTrampa(m, id, cambios) {
   const t = m.trampas?.find(z => z.id === id); if (!t) return { ok: false, motivo: "Esa trampa ya no existe." };
