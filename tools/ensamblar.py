@@ -146,7 +146,20 @@ def procesar_equipo(docs, fol):
         if m:
             d["name"] = m.group(3).strip(); fl["tabla"] = m.group(2)
         d["img"] = imagen(clave_objeto(d["name"], fl["categoria"]), None) or d["img"]
+    # Trabajos de los esbirros: la tabla d20 del manual (pág. 372); el compendio del sistema solo trae los 16 de la pág. 194
+    ft = fol.nueva("gear:trabajo", "Trabajos de esbirros (d20)", color=COL["monstruos"])
+    for i, n in enumerate(TRABAJOS_ESBIRROS, 1):
+        ej = " También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194)." if n not in ("Bufones", "Conductores", "Guardaespaldas", "Zapadores") else ""
+        docs.append({"_id": fid(f"trabajo:{slug(n)}"), "name": n, "type": "minion_type",
+                     "img": imagen(f"assets/iconos/trabajo-{slug(n)}.webp", None) or "icons/svg/item-bag.svg",
+                     "system": {"description": f"Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 {i}).{ej} "
+                                              "Da a la panda su concepto y el equipo básico que necesita para ejercerlo."},
+                     "flags": {MOD: {"categoria": "trabajo", "tabla": str(i), "contenido": True}}, "folder": ft["_id"]})
     return docs
+
+
+TRABAJOS_ESBIRROS = ["Acólitos", "Alquimistas", "Asesinos", "Brujos", "Bufones", "Conductores", "Estafadores", "Exploradores", "Guardaespaldas",
+                     "Ingenieros", "Ladrones", "Magos", "Matones", "Mensajeros", "Mineros", "Obreros", "Sacerdotes", "Saqueadores", "Tramperos", "Zapadores"]
 
 
 def clave_objeto(nombre, categoria):

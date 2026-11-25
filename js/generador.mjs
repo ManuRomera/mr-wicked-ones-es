@@ -209,6 +209,9 @@ export class GeneradorWickedOnes extends BaseApp {
     const valor = k => (k === h1 ? 2 : k === h2 || k === h3 ? 1 : 0);
     const attributes = Object.fromEntries(Object.entries(ATRIBUTOS).map(([atrib, keys]) => [atrib, { skills: Object.fromEntries(keys.map(k => [k, { value: valor(k) }])) }]));
 
+    // el trabajo con su icono y su referencia del manual (compendio de equipo, carpeta «Trabajos de esbirros (d20)»)
+    const trabajo = (await game.packs.get(`${MOD}.equipo-es`)?.getDocuments())?.find(d => d.type === "minion_type" && d.name === oficio)?.toObject();
+    if (trabajo) { delete trabajo._id; delete trabajo.folder; }
     const nuevo = await Actor.create({
       name: nombre,
       type: "minion_pack",
@@ -216,7 +219,7 @@ export class GeneradorWickedOnes extends BaseApp {
       system: { mp_type: "normal", ua_job: oficio, number: { min: 0, value: numero, max: 5 }, attributes },
       items: [
         { name: raza, type: "monster_race", system: { primal: false, description: "" } },
-        { name: oficio, type: "minion_type", system: { description: "" } },
+        trabajo ?? { name: oficio, type: "minion_type", system: { description: "" } },
         { name: impulso, type: "minionimpulse", system: { is_for_ua: false } }
       ]
     });

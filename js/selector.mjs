@@ -27,7 +27,8 @@ const FUENTES = {
   gearsupply: [`${MOD}.equipo-es`, "wicked-ones.gearsupply"],
   project: [`${MOD}.equipo-es`, "wicked-ones.project"],
   duty: [`${MOD}.labores-es`, "wicked-ones.duty"],
-  adventurer: [`${MOD}.aventureros-es`, "wicked-ones.adventurer"]
+  adventurer: [`${MOD}.aventureros-es`, "wicked-ones.adventurer"],
+  minion_type: [`${MOD}.equipo-es`, "wicked-ones.minion_type"]   // los 20 de la tabla d20 (pág. 372); el sistema solo trae 16
 };
 
 const cache = {};

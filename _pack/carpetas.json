@@ -346,12 +346,27 @@
    }
   },
   {
+   "_id": "CGgrvZIsRdADlZcM",
+   "name": "Trabajos de esbirros (d20)",
+   "type": "Item",
+   "folder": null,
+   "sorting": "a",
+   "sort": 2400,
+   "color": "#5f7f3a",
+   "description": "",
+   "flags": {
+    "mr-wicked-ones-es": {
+     "contenido": true
+    }
+   }
+  },
+  {
    "_id": "W7iYYZxHzsTDS6cL",
    "name": "Aventureros (rivales)",
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2400,
+   "sort": 2500,
    "color": "#4d6a8c",
    "description": "",
    "flags": {
@@ -366,7 +381,7 @@
    "type": "Item",
    "folder": null,
    "sorting": "a",
-   "sort": 2500,
+   "sort": 2600,
    "color": "#6b6b6b",
    "description": "",
    "flags": {

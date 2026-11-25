@@ -563,3 +563,10 @@ test("Compendios: sin HTML en las descripciones que el sistema enseña como text
     && /<[a-z/][^>]*>/i.test(String(d.system.description ?? "")));
   assert.equal(conHtml.length, 0, `HTML en crudo: ${conHtml.slice(0, 3).map(d => d.name).join(", ")}`);
 });
+
+test("Compendios: los 20 trabajos de esbirros de la tabla d20 (pág. 372)", async () => {
+  const equipo = JSON.parse(await fs.readFile("_pack/equipo-es.json", "utf8"));
+  const trabajos = equipo.filter(d => d.type === "minion_type").map(d => d.name);
+  assert.equal(trabajos.length, 20);
+  for (const n of ["Bufones", "Conductores", "Guardaespaldas", "Zapadores"]) assert.ok(trabajos.includes(n), n);
+});

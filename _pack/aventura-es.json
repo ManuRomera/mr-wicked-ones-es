@@ -19387,6 +19387,346 @@
     }
    },
    {
+    "_id": "3SO4pRhPEfLvK324",
+    "name": "Acólitos",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-acolitos.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 1). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "1",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "zL2V1K4rBEoHvgf5",
+    "name": "Alquimistas",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-alquimistas.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 2). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "2",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "d6oDtch2NjUDdw3I",
+    "name": "Asesinos",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-asesinos.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 3). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "3",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "qch0pILobrOU3pF9",
+    "name": "Brujos",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-brujos.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 4). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "4",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "epwTYvdkZDepoPHP",
+    "name": "Bufones",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-bufones.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 5). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "5",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "GkbxwD2XYuVDuKoS",
+    "name": "Conductores",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-conductores.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 6). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "6",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "lGrbjqxPgC1YqtCN",
+    "name": "Estafadores",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-estafadores.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 7). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "7",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "UoKZlUCO60SrhPzG",
+    "name": "Exploradores",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-exploradores.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 8). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "8",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "maGg6R4ewAD9yfrd",
+    "name": "Guardaespaldas",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-guardaespaldas.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 9). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "9",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "wAshEZGosskFcbtE",
+    "name": "Ingenieros",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-ingenieros.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 10). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "10",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "DiOg4H7Vzia6tAgM",
+    "name": "Ladrones",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-ladrones.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 11). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "11",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "i2YBoiJse4xMaNOS",
+    "name": "Magos",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-magos.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 12). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "12",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "sBWwH7eaLGn54Egs",
+    "name": "Matones",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-matones.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 13). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "13",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "g16HBSVWqv9DMP3a",
+    "name": "Mensajeros",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-mensajeros.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 14). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "14",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "6ofxnvdr3oN6GQ9C",
+    "name": "Mineros",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-mineros.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 15). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "15",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "hY3w05UwtIZFTmn0",
+    "name": "Obreros",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-obreros.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 16). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "16",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "sGnBcNNXMgnHRKdG",
+    "name": "Sacerdotes",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-sacerdotes.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 17). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "17",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "bhRGIWHX94uOU858",
+    "name": "Saqueadores",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-saqueadores.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 18). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "18",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "rRn0a3oEBGfX9XgI",
+    "name": "Tramperos",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-tramperos.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 19). También es uno de los trabajos de ejemplo de la creación de esbirros (pág. 194). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "19",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
+    "_id": "gkMeZ8bMMUiZVTQL",
+    "name": "Zapadores",
+    "type": "minion_type",
+    "img": "modules/mr-wicked-ones-es/assets/iconos/trabajo-zapadores.webp",
+    "system": {
+     "description": "Trabajo de esbirros de la tabla «Trabajos de los esbirros» del manual (pág. 372, d20 20). Da a la panda su concepto y el equipo básico que necesita para ejercerlo."
+    },
+    "flags": {
+     "mr-wicked-ones-es": {
+      "categoria": "trabajo",
+      "tabla": "20",
+      "contenido": true
+     }
+    },
+    "folder": "CGgrvZIsRdADlZcM"
+   },
+   {
     "_id": "Gv6Puu2hywqOlUW8",
     "name": "Alquimista",
     "type": "adventurer",
@@ -38892,12 +39232,27 @@
     }
    },
    {
+    "_id": "CGgrvZIsRdADlZcM",
+    "name": "Trabajos de esbirros (d20)",
+    "type": "Item",
+    "folder": null,
+    "sorting": "a",
+    "sort": 2400,
+    "color": "#5f7f3a",
+    "description": "",
+    "flags": {
+     "mr-wicked-ones-es": {
+      "contenido": true
+     }
+    }
+   },
+   {
     "_id": "W7iYYZxHzsTDS6cL",
     "name": "Aventureros (rivales)",
     "type": "Item",
     "folder": null,
     "sorting": "a",
-    "sort": 2400,
+    "sort": 2500,
     "color": "#4d6a8c",
     "description": "",
     "flags": {
@@ -38912,7 +39267,7 @@
     "type": "Item",
     "folder": null,
     "sorting": "a",
-    "sort": 2500,
+    "sort": 2600,
     "color": "#6b6b6b",
     "description": "",
     "flags": {
@@ -39075,7 +39430,7 @@
   "sort": 1000,
   "flags": {
    "mr-wicked-ones-es": {
-    "version": "2.12.3"
+    "version": "2.12.4"
    }
   }
  }

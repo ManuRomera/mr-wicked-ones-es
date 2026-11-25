@@ -1,3 +1,8 @@
+## 2.12.4 (2026-11-25)
+
+### Añadido / Added
+- **Los 20 trabajos de esbirros** de la tabla d20 del manual (pág. 372), cada uno con su icono, en la carpeta «Trabajos de esbirros (d20)» del compendio de equipo. El compendio del sistema solo traía los 16 de ejemplo de la pág. 194; faltaban **bufones, conductores, guardaespaldas y zapadores**. El selector de la ficha de manada los ofrece todos (sin duplicados) y el generador de manadas añade el trabajo con su icono y su referencia. / The 20 minion jobs from the rulebook's d20 table (p. 372), each with its own icon; the system compendium only had 16 (Jesters, Drivers, Bodyguards and Sappers were missing).
+
 ## 2.12.3 (2026-11-24)
 
 ### Corregido / Fixed
