@@ -21,7 +21,9 @@ export function ajustarVentana(app) {
   const pedido = app.options?.position ?? { width: app.options?.width, height: app.options?.height };
   const medida = (pide, tiene, medir) => (primera && Number.isFinite(pide) ? pide : Number.isFinite(tiene) ? tiene : medir());
   const ancho = medida(pedido.width, ahora.width, () => el.offsetWidth);
-  const alto = medida(pedido.height, ahora.height, () => el.offsetHeight);
+  // Alto automático: no decide la escala. Su tope se divide por la escala, así que medirlo la iba bajando en cada pintado hasta
+  // dejar la letra ilegible; lo que no quepa se desplaza por dentro.
+  const alto = Number.isFinite(pedido.height) ? medida(pedido.height, ahora.height, () => el.offsetHeight) : 1;
   const escala = escalaDeVentana(ancho, alto, vista, Number(game.settings.get(MOD, "escalaVentanas")) || 0);
   el.style.setProperty("--mrg-esc-ventana", String(escala));
   if (Math.abs((ahora.scale ?? 1) - escala) < 0.004) return;

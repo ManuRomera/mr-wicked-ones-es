@@ -166,10 +166,22 @@ export function ajustarSala(m, r, tipo, { forma = "rect", giro = 0 } = {}) {
   return null;
 }
 
-/** Reglas de temática (manual, pág. 197): una sala de nivel 3 es de la temática o, como mucho, una única de otra. `ctx.materiales[tipo] === false` bloquea por falta de materiales. */
+/**
+ * Qué se puede poner ahora (manual, págs. 171, 190 y 197). `ctx`: `tema` (clave de la temática de la ficha), `exigirTema` (hay ficha:
+ * sin temática no hay salas de nivel 3), `inicial` (mazmorra inicial: una de cada), `esDJ` (las guaridas de criatura las pone el DJ)
+ * y `materiales` (`materiales[tipo] === false` bloquea; el constructor ya no lo usa: los materiales hacen falta para terminar).
+ */
 export function reglasSala(m, tipo, ctx = {}) {
   const t = TIPOS_SALA[tipo]; if (!t) return { ok: false, motivo: "Tipo de sala desconocido." };
   if (t.unica && m.salas.some(s => s.tipo === tipo)) return { ok: false, motivo: `Ya tienes un ${t.nombre.toLowerCase()}: es único.` };
+  if (t.nivel === 3 && ctx.exigirTema && !ctx.tema) return { ok: false, motivo: "Elegid la temática en la ficha de la mazmorra: de ella salen las salas de nivel 3." };
+  if (ctx.inicial) {   // pág. 171: una de cada
+    const de = f => m.salas.some(s => f(TIPOS_SALA[s.tipo] ?? {}, s));
+    if (tipo === "escalera" && de((x, s) => s.tipo === "escalera")) return { ok: false, motivo: "La mazmorra inicial lleva una escalera al santuario." };
+    if (t.guarida && de(x => x.guarida)) return { ok: false, motivo: "La mazmorra inicial lleva una sola guarida de criatura (de nivel 1)." };
+    if (t.nivel >= 1 && tipo !== "escalera" && de((x, s) => x.nivel === t.nivel && s.tipo !== "escalera")) return { ok: false, motivo: `La mazmorra inicial lleva una sola sala de nivel ${t.nivel}. Las demás, como proyectos cuando la terminéis.` };
+    if (t.nivel === 3 && ctx.tema && tipo !== ctx.tema) return { ok: false, motivo: "La sala de nivel 3 de la mazmorra inicial es de vuestra temática." };
+  } else if (t.guarida && ctx.esDJ === false) return { ok: false, motivo: "Las guaridas de criatura no se construyen: llega una al subir de nivel la mazmorra o con un descubrimiento (pág. 190). Las pone el DJ." };
   if (t.nivel === 3) {
     if (ctx.materiales && ctx.materiales[tipo] === false) return { ok: false, motivo: `Para una sala de nivel 3 hacen falta los materiales (ficha de la mazmorra: «${t.nombre}»).` };
     if (ctx.tema && tipo !== ctx.tema) {
@@ -233,7 +245,9 @@ export function construirSala(m, r, tipo, opts = {}) {
     cels = aj.celdas ?? celdasForma(rect, forma, giro);
     const v = validarCeldas(m, cels); if (!v.ok) return v;
   }
-  const id = `s${(m.salas.reduce((a, s) => Math.max(a, Number(s.id.slice(1)) || 0), 0)) + 1}`;
+  // contador que nunca reutiliza un id (deshacer puede devolver una sala quitada sin chocar con otra nueva)
+  m.sig = Math.max(m.sig ?? 0, m.salas.reduce((a, s) => Math.max(a, Number(s.id.slice(1)) || 0), 0)) + 1;
+  const id = `s${m.sig}`;
   for (const [i, j] of cels) poner(m, i, j, "r");
   const sinForma = forma === "rect" && !recortada;
   const seg = opts.obra ? relojSala(tipo) : 0;

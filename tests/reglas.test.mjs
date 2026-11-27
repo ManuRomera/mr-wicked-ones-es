@@ -452,6 +452,26 @@ test("Constructor: reglas de obra (dibujo libre, proyectos con reloj, mazmorra i
   assert.ok(Object.values(TIPOS_SALA).every(t => t.min.length === 2 && t.nombre));
 });
 
+test("Constructor: catálogo por nivel y mazmorra inicial de «una de cada» (págs. 171, 190 y 197)", () => {
+  const m = crearMapa(30, 20), ini = { inicial: true, tema: "forja", exigirTema: true };
+  assert.ok(construirSala(m, { x: 2, y: 2, w: 2, h: 2 }, "menor").ok);
+  assert.equal(reglasSala(m, "menor", ini).ok, false);                       // una sola de nivel 1
+  assert.ok(reglasSala(m, "prision", ini).ok);
+  assert.ok(construirSala(m, { x: 6, y: 2, w: 3, h: 3 }, "prision").ok);
+  assert.equal(reglasSala(m, "tortura", ini).ok, false);                     // una sola de nivel 2…
+  assert.ok(reglasSala(m, "escalera", ini).ok);                              // …más la escalera al santuario
+  assert.equal(reglasSala(m, "templo", ini).ok, false);                      // la de nivel 3 inicial, de la temática
+  assert.ok(reglasSala(m, "forja", ini).ok);
+  assert.equal(reglasSala(m, "forja", { exigirTema: true, tema: null }).ok, false);   // sin temática en la ficha, no hay nivel 3
+  assert.ok(reglasSala(m, "criatura", ini).ok);
+  assert.equal(reglasSala(m, "criatura", { esDJ: false }).ok, false);        // después, las guaridas las pone el DJ
+  assert.ok(reglasSala(m, "criatura", { esDJ: true }).ok);
+  assert.ok(reglasSala(m, "tortura", {}).ok);                                // fuera de la inicial, cualquier sala es un proyecto
+  // los id de sala no se reutilizan aunque se quite la última (deshacer la puede devolver)
+  const id3 = construirSala(m, { x: 12, y: 2, w: 2, h: 2 }, "menor").id; quitarSala(m, id3);
+  assert.notEqual(construirSala(m, { x: 12, y: 6, w: 2, h: 2 }, "menor").id, id3);
+});
+
 test("Constructor: salas de cualquier forma (óvalo, L, cruz, libre) con su decoración", () => {
   assert.equal(mascara("rect", 4, 3).length, 12);
   assert.ok(mascara("ovalo", 5, 5).length < 25 && mascara("ovalo", 5, 5).length > 12);
@@ -586,3 +606,29 @@ test("Constructor: acción de descanso de los duendes (pág. 239)", () => {
   assert.ok(alternarPuerta(m, h.puerta.x, h.puerta.y, h.puerta.d).ok);   // la sala nueva queda unida con una puerta
   assert.deepEqual(accionesDuendesPosibles(m, "forja").sort(), ["obra", "sala3", "suya"].sort().filter(k => k !== "sala3" || huecoParaSala(m, "forja")));
 });
+
+test("Mapa: los sellos que se juntan forman masas (bosque, gran lago) y el río es una cinta suave", async () => {
+  const { masas, familiaDe, suavizar, cinta } = await import("../js/core/masas.mjs");
+  assert.equal(familiaDe("bosque-2"), "bosque"); assert.equal(familiaDe("olas-1"), "mar"); assert.equal(familiaDe("zona-lago"), "lago"); assert.equal(familiaDe("ciudad"), null);
+  const c = s => ({ x: s.x, y: s.y, r: 50 });
+  const sellos = [
+    { id: "a", k: "bosque-1", x: 0, y: 0 }, { id: "b", k: "pinar-1", x: 80, y: 0 }, { id: "c", k: "bosque-3", x: 160, y: 0 },   // tres árboles juntos: bosque
+    { id: "d", k: "bosque-1", x: 2000, y: 0 }, { id: "e", k: "bosque-2", x: 2080, y: 0 },                                       // dos sueltos: aún no
+    { id: "f", k: "lago-1", x: 0, y: 900 }, { id: "g", k: "lago-2", x: 90, y: 900 },                                              // dos lagos: un gran lago
+    { id: "h", k: "zona-mar", x: 5000, y: 5000 }                                                                                   // una mancha sola ya es masa
+  ];
+  const ms = masas(sellos, c);
+  assert.deepEqual(ms.map(m => m.fam).sort(), ["bosque", "lago", "mar"]);
+  const bosque = ms.find(m => m.fam === "bosque");
+  assert.deepEqual(bosque.ids.sort(), ["a", "b", "c"]);
+  assert.ok(bosque.circulos.length > 3);                                      // con puentes entre vecinos
+  const { huecosDeMasa } = await import("../js/core/masas.mjs");
+  const huecos = huecosDeMasa(bosque);                                        // la tierra se rellena con dibujos, no con pintura
+  assert.ok(huecos.every(h => bosque.miembros.every(m => Math.hypot(m.x - h.x, m.y - h.y) >= (m.r + h.r) * 0.45)));
+  assert.ok(huecosDeMasa(ms.find(m => m.fam === "mar")).length >= 1);       // una mancha también se llena
+  const curva = suavizar([0, 0, 100, 0, 200, 100], 10);
+  assert.ok(curva.length > 10 && curva[0].x === 0 && Math.abs(curva.at(-1).x - 200) < 1e-9);
+  const poli = cinta(curva, t => 10 + 20 * t);
+  assert.equal(poli.length, curva.length * 4);
+});
+

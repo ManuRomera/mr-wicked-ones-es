@@ -83,7 +83,7 @@ async function modeloMazmorra(actor) {
 
 /** Lo que el constructor tiene dibujado para esta mazmorra (la escena con su mapa): la ficha y el mapa cuentan lo mismo. */
 function construccion(actor) {
-  const porDefecto = game.actors.find(a => a.type === "dungeon")?.id === actor.id;   // como el constructor: sin ficha elegida, la primera
+  const todas = game.actors.filter(a => a.type === "dungeon"), porDefecto = todas.length === 1 && todas[0].id === actor.id;   // como el constructor: sin ficha vinculada, solo si hay una
   const escena = game.scenes.find(sc => { const m = sc.getFlag(MOD, "mazmorra"); return m && (m.actor === actor.id || (!m.actor && porDefecto)); });
   const m = escena?.getFlag(MOD, "mazmorra");
   if (!m) return null;

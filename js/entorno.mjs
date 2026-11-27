@@ -12,6 +12,8 @@
  *  · Check-list de las sesiones 0 y 1: la atmósfera y los duendes se escriben en la ficha de la mazmorra, como pide el sistema.
  *  · Bloqueado, es el mapa de juego: los lugares abren su enlace (la mazmorra, su escena) y las facciones, su ficha.
  */
+import { masas, huecosDeMasa, familiaTerreno, suavizar, cinta, FAMILIAS } from "./core/masas.mjs";
+
 const MOD = "mr-wicked-ones-es";
 const FLAG = "entorno";
 const ICONOS = `modules/${MOD}/assets/iconos`;
@@ -36,7 +38,9 @@ export const DECORADO = {
   calavera: "Calavera", huesos: "Huesos", garra: "Zarpazo", estandarte: "Estandarte"
 };
 export const BANDOS = { light: ["De la luz", 0xd9b44a], dark: ["Oscura", 0x9a2f8f], neutral: ["Neutral", 0x3f8f7e] };
-const TRAZOS = { rio: "Río", camino: "Camino", sendero: "Sendero" };
+const TRAZOS = { rio: "Río", camino: "Camino", sendero: "Sendero", frontera: "Frontera" };
+const ANCHOS_RIO = { 0.6: "Arroyo", 1: "Río", 1.6: "Gran río" };
+const TINTAS = { color: "En color", sepia: "Sepia", tinta: "Tinta y grabado" };
 /** Creación del entorno (pág. 294): cuántas facciones de cada nivel y su reparto recomendado. */
 export const PASOS_NIVEL = { 4: [2, 3, { light: 2, neutral: 1 }], 3: [4, 4, { light: 2, dark: 1, neutral: 1 }], 2: [4, 4, { light: 2, dark: 1, neutral: 1 }], 1: [4, 4, { light: 2, dark: 1, neutral: 1 }] };
 /** La atmósfera de la mazmorra (págs. 170 y 309) y los duendes (pág. 171) son campos de la ficha de la mazmorra del sistema. */
@@ -46,13 +50,13 @@ const BASE = { sello: 120, lugar: 130, mazmorra: 160, decor: 150, rosa: 260, car
 const COLS = ["sellos", "lugares", "facciones", "rotulos", "trazos"];
 
 let contenedor = null, overlay = null, juego = null, menu = null, texturas = {}, pendiente = null;
-let pestana = "sesion", herramienta = null, terreno = "bosque", lugarSel = "mazmorra", decorSel = "rosa-1", trazoSel = "rio", radio = 80, densidad = 1;
+let pestana = "sesion", herramienta = null, terreno = "bosque", lugarSel = "mazmorra", decorSel = "rosa-1", trazoSel = "rio", radio = 80, densidad = 1, modoPincel = "sellos", anchoRio = 1;
 let faccionPendiente = null, seleccion = null;   // { col, id }
 let cola = Promise.resolve();                    // órdenes del DJ, una tras otra
 const deshacer = new Map();                      // usuario → pilas de parches (en el cliente del DJ)
 
 export const entornoDe = escena => escena?.getFlag(MOD, FLAG) ?? null;
-const nuevo = () => ({ v: 3, nombre: "Tierras por saquear", fondo: "viejo", bloqueado: false, sellos: [], trazos: [], lugares: [], facciones: [], rotulos: [], sesion: {}, dias: 3, barra: { x: 380, y: 1820, ver: true }, zSig: 0 });
+const nuevo = () => ({ v: 3, nombre: "Tierras por saquear", fondo: "viejo", bloqueado: false, sellos: [], trazos: [], lugares: [], facciones: [], rotulos: [], sesion: {}, dias: 3, barra: { x: 380, y: 1820, ver: true }, zSig: 0, estilo: { sombras: true, marco: false, hex: false, tinta: "color" } });
 const id = () => foundry.utils.randomID(8);
 /** Escala: días de viaje del centro al borde. Más días = región más grande en el mismo pergamino = todo más pequeño. */
 const factor = e => 3 / Math.max(1.5, Number(e?.dias) || 3);
@@ -106,7 +110,7 @@ function mancha(f) {   // contorno orgánico, siempre el mismo para la misma fac
   return pts;
 }
 
-const centrado = k => k.startsWith("rosa") || k === "cartela";
+const centrado = k => k.startsWith("rosa") || k === "cartela" || k.startsWith("zona-");
 const tamBase = k => (k in LUGARES ? (k === "mazmorra" ? BASE.mazmorra : BASE.lugar) : k.startsWith("rosa") ? BASE.rosa : k === "cartela" ? BASE.cartela : k in DECORADO ? BASE.decor : BASE.sello);
 /** Caja aproximada de un elemento en el lienzo (para elegirlo con el puntero). */
 function caja(e, col, o) {
@@ -154,6 +158,118 @@ function barraEscala(e) {
   return c;
 }
 
+/* ------------------------------------------------------------------------------------------------ masas, ríos y estilo */
+
+/** Rellenos ilustrados hechos a mano en un lienzo (se repiten como mosaico): agua con olitas, copas de árboles, sombreado de sierra… */
+const patrones = {};
+function patron(clave) {
+  if (patrones[clave] && !patrones[clave].destroyed) return patrones[clave];
+  const N = 256, cv = document.createElement("canvas"); cv.width = cv.height = N;
+  const x = cv.getContext("2d"); let sem = [...clave].reduce((a, c) => a * 31 + c.charCodeAt(0), 7) >>> 0;
+  const az = () => ((sem = (sem * 1103515245 + 12345) >>> 0) / 4294967296);
+  const base = { agua: "#3f7f86", hondo: "#2d6068", copas: "#4b682d", relieve: "#b4955f", pantano: "#76824c", campos: "#c4ad66", yermo: "#a38c6d" }[clave] ?? "#999";
+  x.fillStyle = base; x.fillRect(0, 0, N, N);
+  const envolver = f => { for (const dx of [-N, 0, N]) for (const dy of [-N, 0, N]) f(dx, dy); };   // para que el mosaico no tenga costuras
+  if (clave === "agua" || clave === "hondo") {
+    x.strokeStyle = clave === "agua" ? "rgba(190,228,220,.75)" : "rgba(150,200,200,.45)"; x.lineWidth = 2.2; x.lineCap = "round";
+    for (let i = 0; i < 22; i++) { const px = az() * N, py = az() * N, w = 10 + az() * 14; envolver((dx, dy) => { x.beginPath(); x.moveTo(px + dx - w, py + dy); x.quadraticCurveTo(px + dx - w / 2, py + dy - 5, px + dx, py + dy); x.quadraticCurveTo(px + dx + w / 2, py + dy - 5, px + dx + w, py + dy); x.stroke(); }); }
+  } else if (clave === "copas") {
+    for (let i = 0; i < 70; i++) { const px = az() * N, py = az() * N, r = 9 + az() * 9; envolver((dx, dy) => { x.fillStyle = "#2c4419"; x.beginPath(); x.arc(px + dx + 2, py + dy + 3, r, 0, 7); x.fill(); x.fillStyle = az() < 0.5 ? "#5b7c35" : "#4f6f2e"; x.beginPath(); x.arc(px + dx, py + dy, r, 0, 7); x.fill(); x.fillStyle = "rgba(170,200,110,.35)"; x.beginPath(); x.arc(px + dx - r / 3, py + dy - r / 3, r / 3, 0, 7); x.fill(); }); }
+  } else if (clave === "relieve") {
+    x.strokeStyle = "rgba(95,68,36,.7)"; x.lineWidth = 2;
+    for (let i = 0; i < 90; i++) { const px = az() * N, py = az() * N; envolver((dx, dy) => { x.beginPath(); x.moveTo(px + dx, py + dy); x.lineTo(px + dx + 6, py + dy - 9); x.lineTo(px + dx + 12, py + dy); x.stroke(); }); }
+  } else if (clave === "pantano") {
+    for (let i = 0; i < 26; i++) { const px = az() * N, py = az() * N; envolver((dx, dy) => { x.fillStyle = "rgba(70,115,112,.8)"; x.beginPath(); x.ellipse(px + dx, py + dy, 11, 5, 0, 0, 7); x.fill(); }); }
+    x.strokeStyle = "#3a4826"; x.lineWidth = 1.6;
+    for (let i = 0; i < 80; i++) { const px = az() * N, py = az() * N; envolver((dx, dy) => { x.beginPath(); x.moveTo(px + dx, py + dy); x.lineTo(px + dx - 2, py + dy - 9); x.moveTo(px + dx + 3, py + dy); x.lineTo(px + dx + 4, py + dy - 7); x.stroke(); }); }
+  } else if (clave === "campos") {
+    const tonos = ["#c9b26a", "#b29a50", "#a7a45c", "#d3bd74"];
+    for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { x.fillStyle = tonos[(i + j * 3) % 4]; x.fillRect(i * 64 + 2, j * 64 + 2, 60, 60); x.strokeStyle = "rgba(90,70,30,.45)"; x.lineWidth = 1; for (let k = 6; k < 60; k += 7) { x.beginPath(); if ((i + j) % 2) { x.moveTo(i * 64 + k, j * 64 + 4); x.lineTo(i * 64 + k, j * 64 + 60); } else { x.moveTo(i * 64 + 4, j * 64 + k); x.lineTo(i * 64 + 60, j * 64 + k); } x.stroke(); } }
+  } else if (clave === "yermo") {
+    x.strokeStyle = "rgba(90,70,50,.7)"; x.lineWidth = 1.5;
+    for (let i = 0; i < 40; i++) { let px = az() * N, py = az() * N; x.beginPath(); x.moveTo(px, py); for (let k = 0; k < 4; k++) { px += (az() - 0.5) * 24; py += (az() - 0.5) * 24; x.lineTo(px, py); } x.stroke(); }
+  }
+  const tex = PIXI.Texture.from(cv); tex.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+  return (patrones[clave] = tex);
+}
+
+/** Altura (0-1) del último píxel visible de un dibujo: muchos sellos tienen margen transparente debajo. Se mide una vez. */
+const bases = {};
+function baseDe(k) {
+  if (k in bases) return bases[k];
+  let b = 0.85;
+  try {
+    const src = texturas[k]?.baseTexture?.resource?.source, W = 48, H = 96, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    const x = cv.getContext("2d", { willReadFrequently: true }); x.drawImage(src, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data;
+    fila: for (let y = H - 1; y >= 0; y--) for (let i = 0; i < W; i++) if (d[(y * W + i) * 4 + 3] > 60) { b = (y + 1) / H; break fila; }
+  } catch { /* sin acceso a los píxeles: se queda la base del ancla */ }
+  return (bases[k] = b);
+}
+
+const VARIANTES = { bosque: ["bosque-1", "bosque-2", "bosque-3", "pinar-1", "pinar-2"], relieve: ["montana-1", "montana-2", "montana-3", "colina-1"], pantano: ["pantano"], campos: ["campos"], yermo: ["yermo"] };
+const ESTILO_MASA = {   // capas de fuera adentro: [margen en px a escala 1, color o relleno]
+  mar: [[16, 0x1f2a2c], [9, 0xd9c99c], [0, "agua"], [-34, "hondo"]],
+  lago: [[13, 0x1f2a2c], [7, 0xd9c99c], [0, "agua"], [-30, "hondo"]],
+  bosque: [[9, 0x1f3318], [0, "copas"]],
+  relieve: [[7, 0x5a4024], [0, "relieve"]],
+  pantano: [[6, 0x3c4a2a], [0, "pantano"]],
+  campos: [[5, 0x7a6a35], [0, "campos"]],
+  yermo: [[5, 0x6e5a44], [0, "yermo"]]
+};
+/** Una masa: la unión de sus círculos (con un borde algo irregular), capa a capa: contorno de tinta, orilla y relleno. */
+function dibujarMasa(grupo, F) {
+  const g = new PIXI.Graphics();
+  const irregular = c => c.r * (0.9 + 0.2 * (((Math.sin(c.x * 12.9898 + c.y * 78.233) * 43758.5453) % 1 + 1) % 1));
+  for (const [margen, relleno] of ESTILO_MASA[grupo.fam]) {
+    if (typeof relleno === "number") g.beginFill(relleno, 1); else g.beginTextureFill({ texture: patron(relleno) });
+    for (const c of grupo.circulos) { const r = irregular(c) + margen * F; if (r > 2) g.drawCircle(c.x, c.y, r); }
+    g.endFill();
+  }
+  const AF = PIXI.AlphaFilter ?? PIXI.filters?.AlphaFilter;
+  if (AF && grupo.fam !== "mar" && grupo.fam !== "lago") g.filters = [new AF(0.9)];   // la tierra deja asomar el pergamino; el agua tapa el río que desemboca
+  return g;
+}
+
+/** Río: curva suave que se ensancha hacia la desembocadura, con orilla de tinta, arena, agua con olitas y reflejos. */
+function dibujarRio(g, curva, base, F) {
+  if (curva.length < 2) return;
+  const ancho = u => base * (0.45 + 0.85 * u);
+  g.beginFill(0x1f2a2c, 1).drawPolygon(cinta(curva, u => ancho(u) + 9 * F)).endFill();
+  g.beginFill(0xd9c99c, 1).drawPolygon(cinta(curva, u => ancho(u) + 4.5 * F)).endFill();
+  g.beginTextureFill({ texture: patron("agua") }).drawPolygon(cinta(curva, ancho)).endFill();
+  g.beginTextureFill({ texture: patron("hondo") }).drawPolygon(cinta(curva, u => ancho(u) * 0.35)).endFill();
+  g.lineStyle({ width: Math.max(1.5, base * 0.09), color: 0xdff2ec, alpha: 0.7, cap: "round" });   // reflejos que siguen la corriente
+  for (let i = 4; i < curva.length - 3; i += 7) {
+    const a = curva[i], b = curva[i + 2], u = i / curva.length, lado = (i / 7) % 2 ? 1 : -1, dx = b.x - a.x, dy = b.y - a.y, m = Math.hypot(dx, dy) || 1, off = ancho(u) * 0.22 * lado;
+    g.moveTo(a.x - dy / m * off, a.y + dx / m * off).lineTo(b.x - dy / m * off, b.y + dx / m * off);
+  }
+  g.lineStyle(0);
+}
+
+/** Rejilla hexagonal (cada hexágono ≈ medio día de viaje), como en los mapas de exploración. */
+function rejillaHex(R) {
+  const g = new PIXI.Graphics(), d = canvas.dimensions.sceneRect, w = Math.sqrt(3) * R;
+  g.lineStyle({ width: 2, color: 0x3a2414, alpha: 0.28 });
+  for (let fila = 0, y = d.y; y < d.y + d.height + R; fila++, y += R * 1.5)
+    for (let x = d.x + (fila % 2 ? w / 2 : 0); x < d.x + d.width + w; x += w) {
+      const p = []; for (let k = 0; k < 6; k++) { const a = Math.PI / 6 + k * Math.PI / 3; p.push(x + R * Math.cos(a), y + R * Math.sin(a)); }
+      g.drawPolygon(p);
+    }
+  const m = new PIXI.Graphics(); m.beginFill(0xffffff).drawRect(d.x, d.y, d.width, d.height).endFill(); g.mask = m; g.addChild(m);
+  return g;
+}
+
+/** Marco de cartógrafo: doble línea de tinta con esquinas de hueso. */
+function marco() {
+  const g = new PIXI.Graphics(), d = canvas.dimensions.sceneRect, i = Math.min(d.width, d.height) * 0.085;
+  g.lineStyle(10, 0x2a1c12, 0.85).drawRect(d.x + i, d.y + i, d.width - 2 * i, d.height - 2 * i);
+  g.lineStyle(3, 0x2a1c12, 0.8).drawRect(d.x + i + 18, d.y + i + 18, d.width - 2 * i - 36, d.height - 2 * i - 36);
+  for (const [x, y] of [[d.x + i, d.y + i], [d.x + d.width - i, d.y + i], [d.x + i, d.y + d.height - i], [d.x + d.width - i, d.y + d.height - i]])
+    g.lineStyle(4, 0x2a1c12).beginFill(0xe9d8b0).drawPolygon([x, y - 26, x + 26, y, x, y + 26, x - 26, y]).endFill().beginFill(0x8a0f0b).drawCircle(x, y, 8).endFill();
+  return g;
+}
+
 export function dibujar() {
   if (contenedor && !contenedor.destroyed) contenedor.destroy({ children: true });
   for (const c of [...(canvas.primary ?? canvas.stage)?.children ?? []]) if (c.name === "mr-wo-entorno") c.destroy({ children: true });
@@ -169,6 +285,23 @@ export function dibujar() {
     terr.lineStyle({ width: 2, color: 0x1c120a, alpha: 0.5, join: "round" }).drawPolygon(pts);
   }
   contenedor.addChild(terr);
+  // masas: lo que se junta forma un todo (bosque, sierra, pantano, campos, yermo debajo de los ríos; lagos y mar encima de ellos)
+  // huella de cada sello para juntarse: su centro visible y medio ancho de su dibujo (las manchas, su círculo)
+  const huella = s => { const k = caja(e, "sellos", s); return { x: k.x, y: k.y, r: String(s.k).startsWith("zona-") ? k.r : tamBase(s.k) * F * (s.s || 1) * 0.5 }; };
+  const grupos = masas(e.sellos, huella, 1.3);
+  const ocultos = new Set(grupos.filter(g => g.fam === "lago").flatMap(g => g.ids));   // varios lagos juntos: un gran lago continuo
+  // el agua es superficie (un gran lago, el mar); la tierra, solo dibujos: los huecos entre vecinos se llenan con más dibujos
+  const rellenos = [];
+  for (const g of grupos) {
+    if (g.fam === "mar" || g.fam === "lago") { const m = dibujarMasa(g, F); m.zIndex = 0.8; contenedor.addChild(m); continue; }
+    const propios = e.sellos.filter(s => g.ids.includes(s.id) && texturas[s.k]), vari = propios.length ? propios.map(s => s.k) : VARIANTES[g.fam] ?? [];
+    const z = Math.min(...propios.map(s => s.z), e.zSig + 1) - 0.5;
+    for (const h of huecosDeMasa(g)) {
+      const azar = Math.abs(Math.sin(h.x * 12.9898 + h.y * 78.233) * 43758.5453) % 1;
+      rellenos.push({ k: vari[Math.floor(azar * vari.length)], x: h.x, y: h.y + h.r * 0.76, t: h.r * 1.8, f: azar > 0.5, z });
+    }
+  }
+  const rios = new PIXI.Graphics(); rios.zIndex = 0.6; contenedor.addChild(rios);
   const tr = new PIXI.Graphics(); tr.zIndex = 1;
   const discontinua = (p, ancho, color, paso, hueco) => {
     tr.lineStyle({ width: ancho, color, alpha: 0.95, cap: "round" });
@@ -179,19 +312,31 @@ export function dibujar() {
     }
   };
   for (const t of e.trazos) {
-    const p = t.pts; if (p.length < 4) continue;
-    if (t.tipo === "rio") for (const [w, c] of [[22, 0x1f2a2c], [15, 0x3e7f86], [5, 0x8fc3be]]) { tr.lineStyle({ width: w * F, color: c, alpha: 1, join: "round", cap: "round" }).moveTo(p[0], p[1]); for (let i = 2; i < p.length; i += 2) tr.lineTo(p[i], p[i + 1]); }
+    if (t.pts.length < 4) continue;
+    const curva = suavizar(t.pts, 8), p = curva.flatMap(q => [q.x, q.y]);
+    if (t.tipo === "rio") dibujarRio(rios, curva, (t.ancho ?? 1) * 24 * F, F);
     else if (t.tipo === "sendero") discontinua(p, 4 * F, 0x7d1512, 6, 10);
+    else if (t.tipo === "frontera") { discontinua(p, 5 * F, 0x5c0a07, 22, 9); discontinua(p, 9 * F, 0x8a0f0b, 3, 28); }
     else discontinua(p, 7 * F, 0x4a3018, 18, 9);
   }
   contenedor.addChild(tr);
   // sellos y lugares en el orden en que se pusieron (z): lo último, encima
+  const estilo = { sombras: true, ...(e.estilo ?? {}) }, sombras = new PIXI.Graphics(); sombras.zIndex = 9; contenedor.addChild(sombras);
+  const sombra = (k, x, y, t) => {   // justo en la base real del dibujo (medida en sus píxeles) y casi tapada por él: lo asienta en el suelo
+    const tex = texturas[k]; if (!estilo.sombras || !tex || centrado(k)) return;
+    const esc = t / Math.max(tex.width, tex.height), h = tex.height * esc, w = tex.width * esc, b = baseDe(k);
+    sombras.beginFill(0x1c120a, 0.2).drawEllipse(x, y - 0.85 * h + b * h - h * 0.035, w * 0.34, h * 0.05).endFill();
+  };
+  for (const r of rellenos) { sombra(r.k, r.x, r.y, r.t); const sp = sello(r.k, r.x, r.y, r.t, r.f); if (sp) { sp.zIndex = 10 + r.z; contenedor.addChild(sp); } }
   for (const s of e.sellos) {
+    if (ocultos.has(s.id)) continue;
+    sombra(s.k, s.x, s.y, tamBase(s.k) * F * (s.s || 1));
     const sp = sello(s.k, s.x, s.y, tamBase(s.k) * F * (s.s || 1), s.f); if (!sp) continue;
     sp.zIndex = 10 + s.z; contenedor.addChild(sp);
     if (s.k === "cartela" && e.nombre) { const t = textoMapa(e.nombre, 40 * F * (s.s || 1), 0x2a1408, 0xe9d8b0); t.style.wordWrapWidth = 420 * F * (s.s || 1); t.anchor.set(0.5); t.x = s.x; t.y = s.y - 4; t.zIndex = 10.5 + s.z; contenedor.addChild(t); }
   }
   for (const l of e.lugares) {
+    sombra(l.k, l.x, l.y, tamBase(l.k) * F * (l.s || 1));
     const sp = sello(l.k, l.x, l.y, tamBase(l.k) * F * (l.s || 1), l.f); if (sp) { sp.zIndex = 10 + l.z; contenedor.addChild(sp); }
     if (l.nombre) { const t = textoMapa(l.nombre, (l.k === "mazmorra" ? 34 : 28) * F, 0x2a1c12); t.anchor.set(0.5, 0); t.x = l.x; t.y = l.y + 22 * F; t.zIndex = 1e6 + l.z; contenedor.addChild(t); }
     if (l.enlace) { const g = new PIXI.Graphics(); g.lineStyle(3, 0x1c120a).beginFill(0xc8921f).drawCircle(l.x + 52 * F, l.y - 92 * F, 13 * F).endFill(); g.zIndex = 1e6 + l.z; contenedor.addChild(g); }
@@ -199,6 +344,10 @@ export function dibujar() {
   for (const r of e.rotulos) { const t = textoMapa(r.texto, (r.tam || 44) * F, r.color ?? 0x3a2414); t.anchor.set(0.5); t.x = r.x; t.y = r.y; t.alpha = 0.92; t.zIndex = 2e6; contenedor.addChild(t); }
   for (const f of e.facciones) { const m = medallon(f, datosFaccion(f), F); m.zIndex = 3e6 + f.y; contenedor.addChild(m); }
   if (e.barra?.ver !== false) { const b = barraEscala(e); b.zIndex = 4e6; contenedor.addChild(b); }
+  if (estilo.hex) { const h = rejillaHex(pxDia(e) / 4); h.zIndex = 1.5e6; contenedor.addChild(h); }
+  if (estilo.marco) { const mc = marco(); mc.zIndex = 1.4e6; contenedor.addChild(mc); }
+  const CM = PIXI.ColorMatrixFilter ?? PIXI.filters?.ColorMatrixFilter;
+  if (estilo.tinta !== "color" && CM) { const f = new CM(); if (estilo.tinta === "sepia") f.sepia(false); else { f.greyscale(0.55, false); f.sepia(true); } contenedor.filters = [f]; }
   if (seleccion && !e.bloqueado) { const o = buscar(e, seleccion); if (o) { const k = seleccion.col === "barra" ? { x: o.x + 60, y: o.y, r: 90 } : caja(e, seleccion.col, o), g = new PIXI.Graphics(); g.lineStyle(5, 0xc8921f, 1).drawCircle(k.x, k.y, k.r); g.zIndex = 5e6; contenedor.addChild(g); } }
   (canvas.primary ?? canvas.stage).addChild(contenedor);
   prepararJuego(e);
@@ -253,7 +402,7 @@ function parches(antes, despues) {
     for (const [k, o] of D) if (!A.has(k) || JSON.stringify(A.get(k)) !== JSON.stringify(o)) out.push({ col, id: k, antes: A.get(k) ?? null });
     for (const [k, o] of A) if (!D.has(k)) out.push({ col, id: k, antes: o });
   }
-  for (const k of ["nombre", "dias", "barra", "fondo"]) if (JSON.stringify(antes[k]) !== JSON.stringify(despues[k])) out.push({ campo: k, antes: antes[k] });
+  for (const k of ["nombre", "dias", "barra", "fondo", "estilo"]) if (JSON.stringify(antes[k]) !== JSON.stringify(despues[k])) out.push({ campo: k, antes: antes[k] });
   return out;
 }
 function aplicarDeshacer(e, lote) {
@@ -281,7 +430,8 @@ async function aplicar(escena, accion, d, usuario) {
   if (e.bloqueado && !["bloquear", "sesion", "atmosfera"].includes(accion)) return { ok: false, motivo: "El mapa está bloqueado: el DJ tiene que desbloquearlo para editarlo." };
   let aviso = "";
   if (accion === "sellos") for (const s of [...d.sellos].sort((a, b) => a.y - b.y)) e.sellos.push({ id: id(), k: s.k, x: Math.round(s.x), y: Math.round(s.y), s: s.s ?? 1, f: Boolean(s.f), z: nz(e) });
-  else if (accion === "trazo") e.trazos.push({ id: id(), tipo: TRAZOS[d.tipo] ? d.tipo : "camino", pts: d.pts.map(Math.round) });
+  else if (accion === "trazo") e.trazos.push({ id: id(), tipo: TRAZOS[d.tipo] ? d.tipo : "camino", pts: d.pts.map(Math.round), ...(d.tipo === "rio" ? { ancho: Math.min(2, Math.max(0.4, Number(d.ancho) || 1)) } : {}) });
+  else if (accion === "estilo") { if (!["sombras", "marco", "hex", "tinta"].includes(d.clave)) return { ok: false }; e.estilo = { ...(e.estilo ?? {}), [d.clave]: d.clave === "tinta" ? (TINTAS[d.valor] ? d.valor : "color") : Boolean(d.valor) }; }
   else if (accion === "lugar") {
     const l = d.id && e.lugares.find(z => z.id === d.id);
     if (l) Object.assign(l, { nombre: String(d.nombre ?? "").slice(0, 60), nota: String(d.nota ?? "").slice(0, 300) });
@@ -464,7 +614,7 @@ function abrirMenu(sel, cx, cy) {
   cerrarMenu();
   const e = normalizar(entornoDe(canvas.scene)), o = buscar(e, sel); if (!o) return;
   seleccion = sel; dibujar();
-  const titulo = sel.col === "facciones" ? datosFaccion(o).nombre : sel.col === "lugares" ? (o.nombre || LUGARES[o.k]) : sel.col === "rotulos" ? o.texto : sel.col === "barra" ? "Barra de escala" : sel.col === "trazos" ? TRAZOS[o.tipo] : (DECORADO[o.k] ?? Object.values(TERRENO).find(t => t[1].includes(o.k))?.[0] ?? o.k);
+  const titulo = sel.col === "facciones" ? datosFaccion(o).nombre : sel.col === "lugares" ? (o.nombre || LUGARES[o.k]) : sel.col === "rotulos" ? o.texto : sel.col === "barra" ? "Barra de escala" : sel.col === "trazos" ? TRAZOS[o.tipo] : String(o.k).startsWith("zona-") ? `Mancha de ${(FAMILIAS[o.k.slice(5)]?.nombre ?? "terreno").toLowerCase()}` : (DECORADO[o.k] ?? Object.values(TERRENO).find(t => t[1].includes(o.k))?.[0] ?? o.k);
   const op = (k, ic, t) => `<button type="button" data-op="${k}"><i class="fa-solid ${ic}"></i> ${t}</button>`;
   const ops = [
     ...(["sellos", "lugares"].includes(sel.col) ? [op("frente", "fa-arrow-up", "Al frente"), op("fondo", "fa-arrow-down", "Al fondo"), op("mas", "fa-plus", "Más grande"), op("menos", "fa-minus", "Más pequeño"), op("voltear", "fa-left-right", "Voltear")] : []),
@@ -530,6 +680,14 @@ function activarHerramienta(h) {
   };
   ponFantasma();
   const pinta = p => {
+    const fam = modoPincel === "mancha" && familiaTerreno(terreno);
+    if (fam) {   // mancha: zona continua de la familia, sin dibujos sueltos (para un mar, un gran lago, un bosque a mano alzada)
+      if (ultimo && Math.hypot(p.x - ultimo.x, p.y - ultimo.y) < radio * 0.3) return;
+      ultimo = p;
+      sellos.push({ k: `zona-${fam}`, x: p.x, y: p.y, s: +((radio * 0.62) / (BASE.sello * 0.42 * F())).toFixed(2), f: false });
+      previa.lineStyle(0).beginFill(fam === "mar" || fam === "lago" ? 0x3e7f86 : 0x4a6a2a, 0.35).drawCircle(p.x, p.y, radio * 0.62).endFill();
+      return;
+    }
     if (ultimo && Math.hypot(p.x - ultimo.x, p.y - ultimo.y) < radio * 0.55) return;
     ultimo = p;
     const vari = TERRENO[terreno][1];
@@ -569,7 +727,7 @@ function activarHerramienta(h) {
     if (h === "pincel") pinta(p);
     else if (h === "trazo") {
       if (Math.hypot(p.x - pts.at(-2), p.y - pts.at(-1)) < 16) return;
-      pts.push(p.x, p.y); previa.lineStyle(trazoSel === "rio" ? 14 : 6, trazoSel === "rio" ? 0x3e7f86 : trazoSel === "sendero" ? 0x7d1512 : 0x4a3018, 0.85).moveTo(pts.at(-4), pts.at(-3)).lineTo(p.x, p.y);
+      pts.push(p.x, p.y); previa.lineStyle(trazoSel === "rio" ? 14 * anchoRio : 6, trazoSel === "rio" ? 0x3e7f86 : trazoSel === "sendero" || trazoSel === "frontera" ? 0x7d1512 : 0x4a3018, 0.85).moveTo(pts.at(-4), pts.at(-3)).lineTo(p.x, p.y);
     } else if (h === "goma") {
       previa.clear().beginFill(0x7d1512, 0.2).drawCircle(p.x, p.y, radio * 0.8).endFill();
       if (Math.hypot(p.x - (ultimo?.x ?? -1e9), p.y - (ultimo?.y ?? -1e9)) > radio * 0.4) { ultimo = p; pedir("borrar", { x: p.x, y: p.y, r: radio * 0.8 }); }
@@ -586,7 +744,7 @@ function activarHerramienta(h) {
     if (!abajo) return;
     const ini = abajo; abajo = null;
     if (h === "pincel" && sellos.length) await pedir("sellos", { sellos });
-    else if (h === "trazo" && pts.length >= 4) await pedir("trazo", { tipo: trazoSel, pts });
+    else if (h === "trazo" && pts.length >= 4) await pedir("trazo", { tipo: trazoSel, pts, ancho: anchoRio });
     else if (h === "mover" && arrastre && seleccion) {
       const p = ev?.getLocalPosition ? pos(ev) : ini;
       if (movido) await pedir("mover", { ...seleccion, x: p.x + arrastre.dx, y: p.y + arrastre.dy });
@@ -638,7 +796,7 @@ function checklist(e) {
 
 /* ------------------------------------------------------------------------------------------------ panel */
 
-const PESTANAS = [["sesion", "fa-list-check", "Sesión 0"], ["pintar", "fa-paintbrush", "Pintar"], ["lugares", "fa-landmark", "Lugares"], ["facciones", "fa-flag", "Facciones"], ["decorado", "fa-compass", "Decorado"], ["fondo", "fa-scroll", "Pergamino"]];
+const PESTANAS = [["sesion", "fa-list-check", "Sesión 0"], ["pintar", "fa-paintbrush", "Pintar"], ["lugares", "fa-landmark", "Lugares"], ["facciones", "fa-flag", "Facciones"], ["decorado", "fa-compass", "Decorado"], ["fondo", "fa-palette", "Estilo"]];
 
 export class EntornoMR extends App {
   static DEFAULT_OPTIONS = {
@@ -671,11 +829,21 @@ export class EntornoMR extends App {
 
   #pestana(e) {
     if (pestana === "pintar") return `<h4 class="mrg-seccion">Terreno</h4>${this.#pal(Object.entries(TERRENO).map(([k, [n]]) => [k, n]), herramienta === "pincel" ? terreno : null, "data-terreno", k => TERRENO[k][1][0])}
-      <div class="mrg-ent-ajustes"><label>Tamaño del pincel<input type="range" min="40" max="260" step="10" value="${radio}" data-radio></label><label>Densidad<input type="range" min="1" max="4" step="1" value="${densidad}" data-densidad></label></div>
-      <h4 class="mrg-seccion">Trazos</h4><div class="mrg-ent-trazos">${Object.entries(TRAZOS).map(([k, n]) => `<button type="button" class="${herramienta === "trazo" && trazoSel === k ? "on" : ""}" data-trazo="${k}"><i class="mrg-ent-linea mrg-ent-linea--${k}"></i>${n}</button>`).join("")}</div>`;
+      <div class="mrg-ent-modo" role="group" aria-label="Modo del pincel">${[["sellos", "fa-tree", "Sellos", "Dibujos sueltos (árboles, montañas, olas…). Al juntarse forman bosques, sierras, mares o grandes lagos."], ["mancha", "fa-brush", "Mancha", "Una zona continua a mano alzada: el agua se pinta como superficie (un mar, un gran lago) y la tierra se llena de dibujos (un bosque, una cordillera)."]].map(([k, i, t, a]) => `<button type="button" class="${modoPincel === k ? "on" : ""}" data-modo="${k}" aria-pressed="${modoPincel === k}" data-ayuda="${t}||${a}"><i class="fa-solid ${i}"></i> ${t}</button>`).join("")}</div>
+      <div class="mrg-ent-ajustes"><label>Tamaño del pincel<input type="range" min="40" max="400" step="10" value="${radio}" data-radio></label>${modoPincel === "mancha" ? "" : `<label>Densidad<input type="range" min="1" max="4" step="1" value="${densidad}" data-densidad></label>`}</div>
+      <p class="mrg-nota">Lo que se junta se une: tres árboles hacen un bosque, dos lagos un gran lago y las olas el mar.</p>
+      <h4 class="mrg-seccion">Trazos</h4><div class="mrg-ent-trazos">${Object.entries(TRAZOS).map(([k, n]) => `<button type="button" class="${herramienta === "trazo" && trazoSel === k ? "on" : ""}" data-trazo="${k}"><i class="mrg-ent-linea mrg-ent-linea--${k}"></i>${n}</button>`).join("")}</div>
+      ${trazoSel === "rio" ? `<div class="mrg-ent-modo" role="group" aria-label="Caudal del río">${Object.entries(ANCHOS_RIO).map(([v, t]) => `<button type="button" class="${Number(v) === anchoRio ? "on" : ""}" data-ancho="${v}">${t}</button>`).join("")}</div><p class="mrg-nota">Dibuja el río desde el nacimiento: se ensancha hacia la desembocadura.</p>` : ""}`;
     if (pestana === "lugares") return `<p class="mrg-nota">Pulsa en el mapa para colocarlo. ${game.user.isGM ? "Para que abra una escena, un diario o un actor en el mapa de juego, usa «Vincular…» en su menú (solo lo ves tú)." : "El DJ decide qué abre cada lugar en el mapa de juego."}</p>${this.#pal(Object.entries(LUGARES), herramienta === "lugar" ? lugarSel : null, "data-lugar")}`;
     if (pestana === "decorado") return `<p class="mrg-nota">Un mapa hecho por monstruos: rosas de los vientos, la cartela con el nombre del mapa, bestias y marcas. Lo último que pones queda encima.</p>${this.#pal(Object.entries(DECORADO), herramienta === "decorado" ? decorSel : null, "data-decor")}`;
-    if (pestana === "fondo") return `<p class="mrg-nota">El pergamino del mapa. Cámbialo cuando quieras: lo dibujado se queda.</p><div class="mrg-ent-fondos">${Object.entries(FONDOS).map(([k, n]) => `<button type="button" class="${e.fondo === k ? "on" : ""}" data-fondo="${k}" aria-pressed="${e.fondo === k}"><img src="${rutaFondo(k)}" alt=""><span>${n}</span></button>`).join("")}</div>`;
+    if (pestana === "fondo") {
+      const est = { sombras: true, marco: false, hex: false, tinta: "color", ...(e.estilo ?? {}) };
+      const caja = (k, t, a) => `<label class="mrg-ent-op" data-ayuda="${t}||${a}"><input type="checkbox" data-estilo="${k}" ${est[k] ? "checked" : ""}> ${t}</label>`;
+      return `<p class="mrg-nota">El pergamino del mapa. Cámbialo cuando quieras: lo dibujado se queda.</p><div class="mrg-ent-fondos">${Object.entries(FONDOS).map(([k, n]) => `<button type="button" class="${e.fondo === k ? "on" : ""}" data-fondo="${k}" aria-pressed="${e.fondo === k}"><img src="${rutaFondo(k)}" alt=""><span>${n}</span></button>`).join("")}</div>
+        <h4 class="mrg-seccion">Estilo del mapa</h4>
+        <div class="mrg-ent-estilo">${caja("sombras", "Sombras bajo los dibujos", "Cada sello proyecta una sombra suave: el mapa gana relieve.")}${caja("marco", "Marco de cartógrafo", "Doble línea de tinta con esquinas de hueso.")}${caja("hex", "Rejilla hexagonal", "Cada hexágono es medio día de viaje, como en los mapas de exploración.")}
+          <label class="mrg-campo"><span class="mrg-etiqueta">Tinta</span><select data-tinta>${Object.entries(TINTAS).map(([k, t]) => `<option value="${k}" ${est.tinta === k ? "selected" : ""}>${t}</option>`).join("")}</select></label></div>`;
+    }
     if (pestana === "facciones") {
       const fac = e.facciones.map(f => ({ f, d: datosFaccion(f) })).sort((a, b) => b.d.nivel - a.d.nivel || a.d.nombre.localeCompare(b.d.nombre, "es"));
       return `<button type="button" class="mrg-btn mrg-btn--sangre mrg-ent-ancho" data-anadir-faccion><i class="fa-solid fa-flag"></i> ${faccionPendiente ? `Colocando: ${esc(faccionPendiente.name)}` : "Elegir facciones para el mapa"}</button>
@@ -711,6 +879,8 @@ export class EntornoMR extends App {
       if (d.herr) { activarHerramienta(herramienta === d.herr ? null : d.herr); cerrarMenu(); if (herramienta !== "mover") { seleccion = null; dibujar(); } return this.render(); }
       if (d.terreno) { terreno = d.terreno; activarHerramienta("pincel"); return this.render(); }
       if (d.trazo) { trazoSel = d.trazo; activarHerramienta("trazo"); return this.render(); }
+      if (d.modo) { modoPincel = d.modo; activarHerramienta("pincel"); return this.render(); }
+      if (d.ancho) { anchoRio = Number(d.ancho); trazoSel = "rio"; activarHerramienta("trazo"); return this.render(); }
       if (d.lugar) { lugarSel = d.lugar; activarHerramienta("lugar"); return this.render(); }
       if (d.decor) { decorSel = d.decor; activarHerramienta("decorado"); return this.render(); }
       if (d.fondo) return pedir("fondo", { fondo: d.fondo });
@@ -730,6 +900,8 @@ export class EntornoMR extends App {
     cont.querySelector("[data-radio]")?.addEventListener("input", ev => { radio = Number(ev.target.value); });
     cont.querySelector("[data-densidad]")?.addEventListener("input", ev => { densidad = Number(ev.target.value); });
     cont.querySelector("[data-dias]")?.addEventListener("change", ev => pedir("dias", { dias: Number(ev.target.value) }));
+    cont.querySelectorAll("[data-estilo]").forEach(i => i.addEventListener("change", () => pedir("estilo", { clave: i.dataset.estilo, valor: i.checked })));
+    cont.querySelector("[data-tinta]")?.addEventListener("change", ev => pedir("estilo", { clave: "tinta", valor: ev.target.value }));
     cont.querySelectorAll("[data-atm]").forEach(i => i.addEventListener("change", () => pedir("atmosfera", { clave: i.dataset.atm, valor: i.value })));
   }
 

@@ -1,3 +1,22 @@
+## 2.15.0 (2026-11-27)
+
+Constructor de mazmorras para toda la mesa a la vez, con su catálogo por nivel y sus tiradas, y un mapa de los monstruos mucho más vistoso. / The dungeon builder for the whole table at once, with its tier catalogue and rolls, and a much richer monsters' map.
+
+### Añadido / Added
+- **Constructor a la vez**: todos construyen al mismo tiempo (el DJ aplica las órdenes en cola) y **cada cual deshace lo suyo**. **Modo obra** (DJ): luz y sin visión por token para que los jugadores vean la mazmorra entera mientras construyen; **modo juego** para defenderla. Botón **«Traer a todos»**. Las escenas de mazmorra nuevas empiezan en modo obra. / Simultaneous building with per-player undo, build/play mode and «bring everyone».
+- **Tirada de cada obra** (págs. 238-240): cada obra dice qué proyecto es (construir, nivel 1-3), cómo se completa (una tirada o reloj de 4 u 8) y con qué se tira (**afinar, destrozar, engañar, examinar o trastear**, situación ventajosa). «Tirar» elige quién trabaja (tu PJ, una panda de esbirros por 1 de oro o los duendes con el nivel de la mazmorra), propone la mejor acción, tira y avanza el reloj; en un proyecto de nivel 1 basta un parcial, pagando el precio. Se sigue pudiendo apuntar a mano. / Each project shows its tier, clock and the actions to roll; one button rolls and advances it.
+- **Relojes visibles**: cada obra lleva su reloj dibujado sobre la sala en el mapa y, con **MR- Dirección** activo, un reloj público en su panel de marcadores que avanza solo (y, si el DJ lo pulsa allí, el constructor lo sigue). / Project clocks drawn on the map and mirrored in MR- Dirección.
+- **Mapa: lo que se junta se une**. Los árboles juntos hacen un bosque y las montañas y colinas una cordillera, **solo con dibujos**: los huecos entre vecinos se llenan con más árboles o montañas del mismo tipo, sin pintura debajo (igual con pantanos, campos y yermos). El agua sí es superficie: los lagos que se tocan forman un gran lago continuo (con orilla, arena y zona honda) y las olas, el mar. Pincel **«Mancha»** para pintar a mano alzada un mar o un lago, o llenar de dibujos un bosque o una cordillera. / Touching stamps merge: forests and mountain ranges filled with more drawings (no painted area); lakes and waves become one continuous body of water; a «patch» brush paints them freehand.
+- **Ríos nuevos**: curva suave que se ensancha hacia la desembocadura, con orilla de tinta, arena, agua con olitas, canal hondo y reflejos; tres caudales (arroyo, río, gran río) y desembocan limpios en lagos y mar. Caminos y senderos también se suavizan, y hay un trazo nuevo de **frontera**. / Rivers redrawn as smooth tapering ribbons; smoothed roads and a new border line.
+- **Estilo del mapa** (pestaña «Estilo»): sombras pegadas a la base real de cada dibujo (lo asientan en el suelo), marco de cartógrafo, rejilla hexagonal (medio día por hexágono) y tinta en color, sepia o grabado. / Map style: shadows, frame, hex grid and ink tone.
+
+### Corregido / Fixed
+- La ventana del **constructor de mazmorras** encogía la letra en cada clic hasta dejarla ilegible: su alto automático alimentaba la escala de la ventana. Ahora las ventanas de alto automático se escalan solo por el ancho y la pantalla, y lo que no cabe se desplaza por dentro. / The dungeon builder window no longer shrinks its text on every click.
+
+### Cambiado / Changed
+- **Catálogo por nivel** (págs. 171, 190 y 197): las salas salen agrupadas en base, nivel 1, nivel 2 y nivel 3 de la temática de la ficha. La **mazmorra inicial** lleva una de cada (una sala de nivel 1, una de nivel 2 más la escalera, una de nivel 3 de vuestra temática, una guarida de criatura y portón, trampa y truco de nivel 1); después, todo es un proyecto. Las **guaridas de criatura** solo las pone el DJ (llegan al subir de nivel o por descubrimientos) y sin temática en la ficha no hay salas de nivel 3. / Tier-grouped catalogue; the starting dungeon takes one of each; creature lairs are GM-only; tier 3 needs the sheet's theme.
+- **Ficha de mazmorra obligatoria**: el constructor se vincula a una ficha, que da el nivel, la temática, los materiales y los dados de los duendes; si hay varias y ninguna vinculada, pide elegirla o crearla, y avisa si la ficha no tiene temática (con enlace para elegirla). / The builder must be linked to a dungeon sheet.
+
 ## 2.14.0 (2026-11-25)
 
 Mapa de los monstruos para toda la mesa a la vez y ficha de la mazmorra acorde al constructor. / The monsters' map for the whole table at once, and a dungeon sheet that matches the builder.

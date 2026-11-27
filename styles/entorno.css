@@ -35,7 +35,7 @@
 
 .mrg-ent-ajustes { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin: .6rem 0; font-size: .8rem; font-weight: 700; }
 .mrg-ent-ajustes label { display: flex; flex-direction: column; gap: .2rem; }
-.mrg-ent-trazos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+.mrg-ent-trazos { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4rem; }
 .mrg-ent-trazos button { display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: .5rem .2rem; border-radius: 10px; border: 2px solid rgba(0, 0, 0, .18); background: radial-gradient(circle at 50% 40%, #f1e2bd, #d9c398); color: #2a1c12; font-weight: 700; font-size: .78rem; cursor: pointer; }
 .mrg-ent-trazos button.on { border-color: var(--g-sangre-fuerte); box-shadow: 0 0 0 3px var(--g-oro-vivo); }
 .mrg-ent-linea { display: block; width: 70%; height: 0; }
@@ -128,3 +128,11 @@ button.mrg-ent-caja { cursor: pointer; }
 .mrg-ent-menu > button:hover, .mrg-ent-menu > button:focus-visible { background: rgba(200, 146, 31, .25); outline: none; }
 .mrg-ent-menu > button i { width: 1.1rem; text-align: center; color: #c8921f; }
 .mrg-ent-menu small { padding: .2rem .7rem 0; font-size: .7rem; opacity: .7; }
+
+/* modo del pincel, caudal del río, estilo del mapa (2.15) */
+.mrg-ent-modo { display: flex; gap: .3rem; margin: .4rem 0; }
+.mrg-ent-modo button { flex: 1; height: auto; padding: .35rem .4rem; border-radius: var(--g-radio); border: 1px solid rgba(0, 0, 0, .25); background: var(--g-papel-2); color: inherit; cursor: pointer; font-size: .78rem; }
+.mrg-ent-modo button.on { background: var(--g-sangre-fuerte); color: #f4ecdb; border-color: #2a1c12; }
+.mrg-ent-estilo { display: grid; gap: .35rem; }
+.mrg-ent-op { display: flex; align-items: center; gap: .45rem; padding: .3rem .45rem; border-radius: 8px; background: var(--g-papel-2); cursor: pointer; font-size: .85rem; }
+.mrg-ent-linea--frontera { border-top: 4px dashed #8a0f0b !important; }
